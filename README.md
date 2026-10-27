@@ -47,6 +47,41 @@ This vault consolidates the highest-quality open-source and proprietary agent sk
 
 ---
 
+
+## ⚡ 1-Click Instant Install
+
+You can install the entire AgentSkills vault (594 skills, 20 agents, 17 workflows) into **any project workspace** with a single command:
+
+#### 🪟 Windows (PowerShell):
+```powershell
+irm https://raw.githubusercontent.com/SeaXen/agentskills/main/install.ps1 | iex
+```
+
+#### 🍎 macOS & 🐧 Linux (Bash):
+```bash
+curl -fsSL https://raw.githubusercontent.com/SeaXen/agentskills/main/install.sh | bash
+```
+
+---
+
+## 🔄 1-Click Regular Updates
+
+To keep your installed skills updated with the latest improvements from upstream repositories:
+
+#### 1-Line Terminal Command:
+```powershell
+# In your project root:
+git -C .agents pull
+```
+
+#### Automated Full Vault Updater (With automatic git commit & push):
+```powershell
+# Run the interactive updater:
+.\.agents\update.ps1
+```
+
+---
+
 ## 🚀 Quick Start & Installation
 
 ### 1. Install Full Vault Together (Recommended)
