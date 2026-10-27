@@ -14,7 +14,7 @@ description: ">-"
   hig-components-search.
 risk: unknown
 source: community
-category: software-engineering
+category: frontend-ui-components
 ---
 
 # Apple HIG: Selection and Input Controls

@@ -3,7 +3,7 @@ name: prisma-expert
 description: Prisma ORM architecture, schema design, and query optimization. Use when designing Prisma data models, handling zero-downtime migrations, optimizing relation queries, configuring connection pooling, and integrating Prisma with serverless edge runtimes.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: database-storage
+category: database-sql-relational
 ---
 
 # Prisma Expert

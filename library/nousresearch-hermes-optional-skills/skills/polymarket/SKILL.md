@@ -6,7 +6,7 @@ author: Hermes Agent + Teknium
 license: MIT
 tags: [polymarket, prediction-markets, market-data, trading]
 platforms: [linux, macos, windows]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Polymarket — Prediction Market Data

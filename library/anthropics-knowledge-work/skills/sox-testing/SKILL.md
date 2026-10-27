@@ -2,7 +2,7 @@
 name: sox-testing
 description: Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency.
 argument-hint: "<control area> [period]"
-category: security-audit
+category: security-compliance-auth
 ---
 
 # SOX Compliance Testing

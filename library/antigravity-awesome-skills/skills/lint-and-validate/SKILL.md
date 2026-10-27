@@ -4,7 +4,7 @@ description: "Automatic quality control, linting, and static analysis procedures
 allowed-tools: Read, Glob, Grep, Bash
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Lint and Validate Skill

@@ -8,7 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   upstream-version: "PyCO2SYS 1.8.3.4"
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Marine Carbonate Chemistry

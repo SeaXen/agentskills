@@ -13,7 +13,7 @@ description: >
   like "what am I missing" or "catch me up on the business." A start-of-week
   briefing routes to /monday-brief, which runs this skill as its first link.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # Business Pulse

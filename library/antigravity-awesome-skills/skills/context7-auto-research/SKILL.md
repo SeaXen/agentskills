@@ -3,7 +3,7 @@ name: context7-auto-research
 description: "Automatically fetch latest library/framework documentation for Claude Code via Context7 API"
 risk: unknown
 source: community
-category: backend-api
+category: backend-api-design
 ---
 
 # context7-auto-research

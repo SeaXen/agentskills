@@ -9,7 +9,7 @@ platforms: [linux, macos]
 metadata:
   hermes:
     tags: [Whisper, Speech Recognition, ASR, Multimodal, Multilingual, OpenAI, Speech-To-Text, Transcription, Translation, Audio Processing]
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # Whisper - Robust Speech Recognition

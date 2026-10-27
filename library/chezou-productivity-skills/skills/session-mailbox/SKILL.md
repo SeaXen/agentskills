@@ -2,7 +2,7 @@
 name: session-mailbox
 description: Run an asynchronous review or decision loop between two AI sessions through a single append-only Markdown file, so nothing depends on inter-process messaging that reports success but silently drops messages. The pair can be implementer × reviewer (code review) or implementer × strategist (design decisions). Use this when handing a PR to a second session for review, asking another session for a design decision, waiting on a reply from another session, or resuming a mailbox loop after a restart. Both sides read this same file, whichever agent they run on.
 license: MIT
-category: ai-agents
+category: code-quality-refactoring
 ---
 
 # Session Mailbox

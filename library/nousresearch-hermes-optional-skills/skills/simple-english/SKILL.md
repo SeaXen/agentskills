@@ -12,7 +12,7 @@ metadata:
     homepage: https://github.com/AminBlg/SimpleEnglish
     related_skills: [humanizer]
   standard: ASD-STE100 Issue 9 (2025-01-15)
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Simple English: Write Like an Aerospace Manual

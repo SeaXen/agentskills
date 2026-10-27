@@ -2,7 +2,7 @@
 
 > **Workspace**: `D:\Repo\.agents`  
 > **Active Installed Skills**: 87 curated engineering skills in `.agents/skills`  
-> **Category Directories**: 16 functional domains in `.agents/category`  
+> **Category Directories**: 38 granular functional domains in `.agents/category` (1,878+ standalone real skills)
 > **Offline Reserve Library**: 2,031 skills across 36 repositories in `.agents/library`  
 > **Specialist Personas**: 20 domain agents  
 > **Autonomous Workflows**: 17 slash commands  

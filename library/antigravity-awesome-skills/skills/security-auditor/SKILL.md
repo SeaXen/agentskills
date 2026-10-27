@@ -10,7 +10,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: security-audit
+category: security-vulnerability-audit
 ---
 You are a security auditor specializing in DevSecOps, application security, and comprehensive cybersecurity practices.
 

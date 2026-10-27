@@ -13,7 +13,7 @@ description: >
   it's not on the list," or "is there any way to get at this data." Reach for
   it whenever an unsupported system is blocking something else.
 allowed-tools: Read, WebFetch, ToolSearch
-category: business-operations
+category: frontend-ui-components
 ---
 
 # Build Connector

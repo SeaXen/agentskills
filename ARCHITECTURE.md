@@ -22,7 +22,7 @@ Antigravity Kit is a modular system consisting of:
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
 ├── skills/                  # 87 Active Hot-Set Skills
-├── category/                # 16 Functional Category Directories & Navigation Indexes
+├── category/                # 38 Granular Functional Category Directories (1,878+ real skills)
 ├── library/                 # 2,031 Offline Reserve Skills (36 repositories) & Activator
 ├── workflows/               # 17 Slash Commands
 ├── rules/                   # Global Rules

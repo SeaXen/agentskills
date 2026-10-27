@@ -3,7 +3,7 @@ name: security-hardened-api
 description: OWASP API Security Top 10 hardening, rate limiting, JWT validation, and input sanitization. Use when securing API endpoints, implementing authentication/authorization guards, preventing injection or broken object-level authorization (BOLA), or adding security headers.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: security-audit
+category: security-compliance-auth
 ---
 
 # Security Hardened API

@@ -8,7 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   upstream-version: "0.5.9.5"
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # MAGeCK pooled-screen analysis

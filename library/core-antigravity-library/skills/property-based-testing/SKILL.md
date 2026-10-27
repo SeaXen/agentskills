@@ -3,7 +3,7 @@ name: property-based-testing
 description: Property-based and generative testing patterns (fast-check, Hypothesis). Use when testing complex business invariants, mathematical algorithms, data serialization/deserialization, parsing logic, or discovering unexpected edge case crashes.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: testing-qa
+category: algorithms-logic
 ---
 
 # Property-Based Testing

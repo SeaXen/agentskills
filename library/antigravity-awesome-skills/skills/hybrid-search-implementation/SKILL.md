@@ -3,7 +3,7 @@ name: hybrid-search-implementation
 description: "Combine vector and keyword search for improved retrieval. Use when implementing RAG systems, building search engines, or when neither approach alone provides sufficient recall."
 risk: unknown
 source: community
-category: ai-agents
+category: prompt-llm-engineering
 ---
 
 # Hybrid Search Implementation

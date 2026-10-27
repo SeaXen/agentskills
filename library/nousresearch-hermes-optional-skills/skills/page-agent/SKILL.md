@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [web, javascript, agent, browser, gui, alibaba, embed, copilot, saas]
     category: web-development
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # page-agent

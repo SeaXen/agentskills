@@ -13,7 +13,7 @@ description: >
   who didn't reply," or "write it but don't make it sound like a robot." Reach
   for it whenever outreach copy is the deliverable, even for a single message.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: business-sales-crm
 ---
 
 # Outreach Composer

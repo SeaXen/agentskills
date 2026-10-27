@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [gitnexus, code-intelligence, knowledge-graph, visualization]
     related_skills: [hermes-agent, codebase-inspection]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # GitNexus Explorer

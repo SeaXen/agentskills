@@ -3,7 +3,7 @@ name: readme
 description: "When the user wants to create or update a README.md file for a project. Also use when the user says 'write readme,' 'create readme,' 'document this project,' 'project documentation,' or asks for he..."
 source: "https://github.com/Shpigford/skills/tree/main/readme"
 risk: safe
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # README Generator

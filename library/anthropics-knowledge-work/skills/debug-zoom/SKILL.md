@@ -2,7 +2,7 @@
 name: debug-zoom
 description: Debug a broken Zoom integration by isolating the failure point and routing into the right Zoom references. Use when auth, API, webhook, SDK, or MCP behavior is failing and you need a ranked hypothesis list plus verification steps.
 argument-hint: "<symptoms, error, or failing flow>"
-category: backend-api
+category: backend-api-design
 ---
 
 # /debug-zoom

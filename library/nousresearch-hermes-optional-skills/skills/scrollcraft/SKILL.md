@@ -11,7 +11,7 @@ metadata:
     category: web-development
     homepage: https://github.com/nateherkai/scroll-craft
     related_skills: []
-category: frontend-ui
+category: autonomous-agents-hermes
 ---
 
 # scrollcraft

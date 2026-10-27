@@ -15,7 +15,7 @@ description: >
   because nobody gets back fast enough." Reach for it for a single unanswered
   inquiry as readily as for a standing setup.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: business-sales-crm
 ---
 
 # Speed to Lead

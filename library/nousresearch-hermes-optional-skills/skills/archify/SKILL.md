@@ -13,7 +13,7 @@ metadata:
     upstream:
       repo: tt-a1i/archify
       path: archify
-category: data-ml
+category: diagrams-technical-visuals
 ---
 
 # Archify (upstream-maintained)

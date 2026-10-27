@@ -6,7 +6,7 @@ metadata:
   version: "1.3"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-30"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # PyHealth

@@ -11,7 +11,7 @@ metadata:
     - deep-research
     - academic-paper-reviewer
     - academic-pipeline
-category: academic-research
+category: academic-writing-publishing
 ---
 
 # Academic Paper — Academic Paper Writing Agent Team

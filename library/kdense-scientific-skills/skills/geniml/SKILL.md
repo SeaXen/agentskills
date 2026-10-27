@@ -9,7 +9,7 @@ metadata:
   skill-author: "K-Dense Inc."
   upstream-version: "0.8.4"
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Geniml

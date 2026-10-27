@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [cloudflare, workers, wrangler, deploy, temporary, agent, serverless, web-development]
     category: web-development
-category: devops-cloud
+category: autonomous-agents-hermes
 ---
 
 # Cloudflare Temporary Deploy Skill

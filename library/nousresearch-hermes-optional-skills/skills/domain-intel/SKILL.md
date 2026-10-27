@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Domains, OSINT, DNS, Research]
     related_skills: []
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Domain Intelligence — Passive OSINT

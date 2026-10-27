@@ -10,7 +10,7 @@ metadata:
   upstream-pipeline: https://github.com/nf-core/pacsomatic
   upstream-revision: "24c84cb371b0339c1d65a4de9451671945e19772"
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # pacsomatic

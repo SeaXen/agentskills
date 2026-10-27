@@ -1,7 +1,7 @@
 ---
 name: subagent-driven-development
 description: Use when executing implementation plans with independent tasks in the current session
-category: ai-agents
+category: multi-agent-orchestration
 ---
 
 # Subagent-Driven Development

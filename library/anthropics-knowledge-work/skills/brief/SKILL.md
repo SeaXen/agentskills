@@ -2,7 +2,7 @@
 name: brief
 description: Generate contextual briefings for legal work — daily summary, topic research, or incident response. Use when starting your day and need a scan of legal-relevant items across email, calendar, and contracts, when researching a specific legal question across internal sources, or when a developing situation (data breach, litigation threat, regulatory inquiry) needs rapid context.
 argument-hint: "[daily | topic <query> | incident]"
-category: security-audit
+category: business-strategy-legal
 ---
 
 # /brief -- Legal Team Briefing

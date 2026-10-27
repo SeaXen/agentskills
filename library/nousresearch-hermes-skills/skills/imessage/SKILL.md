@@ -10,7 +10,7 @@ metadata:
     tags: [iMessage, SMS, messaging, macOS, Apple]
 prerequisites:
   commands: [imsg]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # iMessage

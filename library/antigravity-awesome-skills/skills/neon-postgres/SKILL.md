@@ -3,7 +3,7 @@ name: neon-postgres
 description: "Expert patterns for Neon serverless Postgres, branching, connection pooling, and Prisma/Drizzle integration Use when: neon database, serverless postgres, database branching, neon postgres, postgres..."
 source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
-category: database-storage
+category: database-sql-relational
 ---
 
 # Neon Postgres

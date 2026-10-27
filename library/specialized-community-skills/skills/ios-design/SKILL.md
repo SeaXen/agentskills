@@ -5,7 +5,7 @@ license: Apache-2.0; see LICENSE and NOTICE for third-party attribution
 metadata:
   author: UIZZE
   version: "1.2.0"
-category: mobile-development
+category: mobile-ios-android
 ---
 
 ![Stop Making UI Slop with UIZZE](https://uizze.com/landing/anti-ui-slop-skill-banner.png)

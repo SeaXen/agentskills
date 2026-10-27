@@ -3,7 +3,7 @@ name: wcag-audit-patterns
 description: "Conduct WCAG 2.2 accessibility audits with automated testing, manual verification, and remediation guidance. Use when auditing websites for accessibility, fixing WCAG violations, or implementing ac..."
 risk: unknown
 source: community
-category: security-audit
+category: architecture-system-design
 ---
 
 # WCAG Audit Patterns

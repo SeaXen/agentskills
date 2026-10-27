@@ -14,7 +14,7 @@ metadata:
       - name: HF_TOKEN
         required: false
         description: Hugging Face read token with access to the gated outpost-bio/Waypoint-*, outpost-bio/Atlas, and outpost-bio/Compass repos.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Waypoint: Outpost Bio's Open Microbiome Foundation Models

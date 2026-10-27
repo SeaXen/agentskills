@@ -10,7 +10,7 @@ metadata:
     tags: [Stocks, Finance, Market, Crypto, Investing]
     category: finance
     related_skills: [dcf-model, comps-analysis, lbo-model]
-category: business-operations
+category: business-finance-accounting
 ---
 
 # Stocks Skill

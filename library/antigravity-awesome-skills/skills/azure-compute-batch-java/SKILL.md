@@ -5,7 +5,7 @@ description: "|"
   Triggers: "BatchClient java", "azure batch java", "batch pool java", "batch job java", "HPC java", "parallel computing java".
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure Batch SDK for Java

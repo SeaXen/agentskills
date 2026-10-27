@@ -9,7 +9,7 @@ platforms: [linux, macos]
 metadata:
   hermes:
     tags: [Reinforcement Learning, Megatron-LM, SGLang, GRPO, Post-Training, GLM]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # slime: LLM Post-Training Framework for RL Scaling

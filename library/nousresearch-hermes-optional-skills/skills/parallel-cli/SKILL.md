@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Research, Web, Search, Deep-Research, Enrichment, CLI]
     related_skills: [duckduckgo-search, mcporter]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Parallel CLI

@@ -11,7 +11,7 @@ metadata:
     category: creative
     related_skills: [concept-diagrams, system-atlas, architecture-diagram]
     upstream: https://github.com/wheresryan22/anatomy (pinned dbf697a, v1.0.0)
-category: design-creative
+category: diagrams-technical-visuals
 ---
 
 # Anatomy

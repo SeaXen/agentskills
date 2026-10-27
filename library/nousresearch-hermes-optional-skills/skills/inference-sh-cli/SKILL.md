@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [AI, image-generation, video, LLM, search, inference, FLUX, Veo, Claude]
     related_skills: []
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # inference.sh CLI

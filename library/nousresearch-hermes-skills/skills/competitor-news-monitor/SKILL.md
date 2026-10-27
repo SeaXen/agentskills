@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Competitors, News, Market-Research, Monitoring]
     related_skills: [blogwatcher, rss-feeds, reddit-reading]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Competitor News Monitor

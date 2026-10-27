@@ -11,7 +11,7 @@ metadata:
     category: creative
     upstream: https://github.com/s1dashu/ip-as-logo-skill (pinned b1bf517c)
     related_skills: [pixel-art]
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # IP as Logo Skill

@@ -3,7 +3,7 @@ name: gemini-api-dev
 description: "Use this skill when building applications with Gemini models, Gemini API, working with multimodal content (text, images, audio, video), implementing function calling, using structured outputs, or n..."
 risk: unknown
 source: community
-category: design-creative
+category: backend-api-design
 ---
 
 # Gemini API Development Skill

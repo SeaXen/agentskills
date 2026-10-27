@@ -1,7 +1,7 @@
 ---
 name: frost-sequence-camera-orbit
 description: An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and fades. HyperFrames block, 1920×1080, 22.5s, 216 variables.
-category: design-creative
+category: video-motion-production
 ---
 
 # Frost Sequence Camera Orbit

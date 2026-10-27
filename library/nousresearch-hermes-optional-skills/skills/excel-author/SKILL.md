@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [excel, openpyxl, finance, spreadsheet, modeling]
     related_skills: [xlsx, pptx-author, dcf-model, comps-analysis, lbo-model, 3-statement-model]
-category: business-operations
+category: business-finance-accounting
 ---
 
 # excel-author

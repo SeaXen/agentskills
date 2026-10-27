@@ -9,7 +9,7 @@ metadata:
   last-reviewed: "2026-09-30"
   upstream-version: "0.30.8"
   skill-author: K-Dense Inc.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # gget

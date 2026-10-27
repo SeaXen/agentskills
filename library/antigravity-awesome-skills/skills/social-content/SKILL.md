@@ -3,7 +3,7 @@ name: social-content
 description: "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn..."
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Social Content

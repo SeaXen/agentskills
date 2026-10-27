@@ -5,7 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: software-engineering
+category: database-sql-relational
 ---
 
 # PostHog Automation via Rube MCP

@@ -8,7 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   upstream-version: "2.2.13.1"
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Tellurium kinetic experiments

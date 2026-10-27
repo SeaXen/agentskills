@@ -12,7 +12,7 @@ metadata:
     category: creative
     related_skills: [baoyu-infographic, meme-generation, pixel-art]
     upstream: https://github.com/yanliudesign/mono-color-skill
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Mono-Color Editorial Print Skill

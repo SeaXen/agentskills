@@ -4,7 +4,7 @@ description: >-
   Activates Antigravity's Colosseum Battle Mode. Pits two rival subagents in isolated
   branched workspaces against each other, stress-tests competing implementations with an
   adversarial referee, and merges the winning solution.
-category: core-antigravity
+category: core-antigravity-protocols
 ---
 
 # Colosseum Battle Mode Protocol

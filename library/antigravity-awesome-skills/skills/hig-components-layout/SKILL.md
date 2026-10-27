@@ -13,7 +13,7 @@ description: ">"
   navigation, hig-patterns for multitasking and full-screen, hig-components-content for content display.
 risk: unknown
 source: community
-category: software-engineering
+category: frontend-ui-components
 ---
 
 # Apple HIG: Layout and Navigation Components

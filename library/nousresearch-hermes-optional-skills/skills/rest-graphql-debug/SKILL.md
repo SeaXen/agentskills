@@ -10,7 +10,7 @@ metadata:
     tags: [api, rest, graphql, http, debugging, testing, curl, integration]
     category: software-development
     related_skills: [systematic-debugging, test-driven-development]
-category: testing-qa
+category: autonomous-agents-hermes
 ---
 
 # API Testing & Debugging

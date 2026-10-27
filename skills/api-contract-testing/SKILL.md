@@ -3,7 +3,7 @@ name: api-contract-testing
 description: API contract testing, OpenAPI schema validation, and Consumer-Driven Contracts (Pact). Use when testing inter-service communication, preventing breaking API changes, verifying schemas in CI pipelines, or creating mock servers from OpenAPI specs.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: testing-qa
+category: backend-api-design
 ---
 
 # API Contract Testing

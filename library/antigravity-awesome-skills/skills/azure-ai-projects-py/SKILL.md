@@ -4,7 +4,7 @@ description: "Build AI applications using the Azure AI Projects Python SDK (azur
 package: azure-ai-projects
 risk: unknown
 source: community
-category: software-engineering
+category: prompt-llm-engineering
 ---
 
 # Azure AI Projects Python SDK (Foundry SDK)

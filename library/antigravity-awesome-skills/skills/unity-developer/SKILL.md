@@ -9,7 +9,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: software-engineering
+category: devops-docker-cicd
 ---
 
 ## Use this skill when

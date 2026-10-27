@@ -11,7 +11,7 @@ metadata:
     category: blockchain
     related_skills: [solana]
     requires_toolsets: [terminal]
-category: web3-crypto
+category: autonomous-agents-hermes
 ---
 
 # EVM Blockchain Skill

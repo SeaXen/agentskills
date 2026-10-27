@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [RAG, Chroma, Vector Database, Embeddings, Semantic Search, Open Source, Self-Hosted, Document Retrieval, Metadata Filtering]
-category: database-storage
+category: autonomous-agents-hermes
 ---
 
 # Chroma - Open-Source Embedding Database

@@ -4,7 +4,7 @@ description: "Presentation creation, editing, and analysis. When Claude needs to
 license: Proprietary. LICENSE.txt has complete terms
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # PPTX creation, editing, and analysis

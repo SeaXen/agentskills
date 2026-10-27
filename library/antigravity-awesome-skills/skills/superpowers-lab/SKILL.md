@@ -3,7 +3,7 @@ name: superpowers-lab
 description: "Lab environment for Claude superpowers"
 source: "https://github.com/obra/superpowers-lab"
 risk: safe
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Superpowers Lab

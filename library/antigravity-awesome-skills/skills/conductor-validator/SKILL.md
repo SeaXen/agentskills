@@ -9,7 +9,7 @@ metadata:
   color: cyan
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Check if conductor directory exists

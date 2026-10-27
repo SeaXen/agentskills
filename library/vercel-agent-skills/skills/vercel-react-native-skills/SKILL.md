@@ -9,7 +9,7 @@ license: MIT
 metadata:
   author: vercel
   version: '1.0.0'
-category: devops-cloud
+category: mobile-ios-android
 ---
 
 # React Native Skills

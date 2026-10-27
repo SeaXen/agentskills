@@ -11,7 +11,7 @@ metadata:
     homepage: https://github.com/pimalaya/himalaya
 prerequisites:
   commands: [himalaya]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Himalaya Email CLI

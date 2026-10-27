@@ -12,7 +12,7 @@ metadata:
   hermes:
     tags: [Airtable, Productivity, Database, API]
     homepage: https://airtable.com/developers/web/api/introduction
-category: database-storage
+category: autonomous-agents-hermes
 ---
 
 # Airtable — Bases, Tables & Records

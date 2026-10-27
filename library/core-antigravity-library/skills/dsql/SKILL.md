@@ -4,7 +4,7 @@ description: "Build with Aurora DSQL — manage schemas, execute queries, handle
 license: Apache-2.0
 metadata:
   tags: aws, aurora, dsql, distributed-sql, distributed, distributed-database, database, serverless, serverless-database, postgresql, postgres, sql, schema, migration, multi-tenant, iam-auth, aurora-dsql, mcp, orm, enum, foreign-key, occ-retry, django, hibernate, rails, multi-region, schema-conversion, type-mapping, data-loading
-category: database-storage
+category: database-sql-relational
 ---
 
 # Amazon Aurora DSQL Skill

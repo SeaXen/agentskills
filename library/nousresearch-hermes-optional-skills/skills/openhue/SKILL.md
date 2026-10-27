@@ -11,7 +11,7 @@ metadata:
     homepage: https://www.openhue.io/cli
 prerequisites:
   commands: [openhue]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # OpenHue CLI

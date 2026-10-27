@@ -8,7 +8,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: backend-api
+category: backend-api-design
 ---
 
 ## Use this skill when

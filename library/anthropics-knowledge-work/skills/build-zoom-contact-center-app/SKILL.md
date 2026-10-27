@@ -12,7 +12,7 @@ triggers:
   - "getengagementcontext"
   - "onengagementstatuschange"
   - "zoom contact center app"
-category: business-operations
+category: frontend-ui-components
 ---
 
 # /build-zoom-contact-center-app

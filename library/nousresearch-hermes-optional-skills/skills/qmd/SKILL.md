@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Search, Knowledge-Base, RAG, Notes, MCP, Local-AI]
     related_skills: [obsidian, hermes-agent, arxiv]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # QMD — Query Markup Documents

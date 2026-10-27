@@ -5,7 +5,7 @@
 [![Skills](https://img.shields.io/badge/Skills-87_Active_HotSet-2563EB?style=for-the-badge&logo=anthropic)](./skills)
 [![Specialist Agents](https://img.shields.io/badge/Specialist_Agents-20-7C3AED?style=for-the-badge)](./agents)
 [![Workflows](https://img.shields.io/badge/Autonomous_Workflows-17-059669?style=for-the-badge)](./workflows)
-[![Categories](https://img.shields.io/badge/Categories-16_Functional_Domains-10B981?style=for-the-badge)](./category)
+[![Categories](https://img.shields.io/badge/Categories-38_Functional_Domains-10B981?style=for-the-badge)](./category)
 [![Repositories](https://img.shields.io/badge/Upstream_Origins-36_Sources-D97706?style=for-the-badge)](./SKILLS_PROVENANCE.md)
 [![Offline Reserve Library](https://img.shields.io/badge/Offline_Reserve_Library-2,031_Skills-DC2626?style=for-the-badge)](./library)
 
@@ -21,29 +21,50 @@
 
 ## 🗂️ Functional Categories Taxonomy (`.agents/category/`)
 
-All 1,878+ skills across active workspace and offline library repositories are classified into **16 functional category folders** in [`.agents/category/`](./category). Every folder contains **Windows directory junctions** for seamless in-editor browsing and a complete Markdown catalog:
+All **1,878+ skills** across your active workspace and 36 library repositories are organized into **38 specialized functional domain directories** in [`.agents/category/`](./category). Every folder contains **100% real standalone skill directories** (no symlinks, fully portable, offline ready) with human-sized collections (~10 to ~50 skills per folder instead of overwhelming 700+ skill dumps):
 
-| Category Folder | Domain | Description |
-| :--- | :--- | :--- |
-| **[`core-antigravity`](./category/core-antigravity)** | ⚔️ Core Kit Protocols | Colosseum battle, telemetry, benchmark, OWL, compaction, and prompt engineering. |
-| **[`software-engineering`](./category/software-engineering)** | 🏛️ Code Craft & Architecture | Clean code standards, refactoring, code review, git worktrees, and architecture. |
-| **[`frontend-ui`](./category/frontend-ui)** | 🎨 Frontend & UI Motion | React 19, Next.js, Tailwind CSS, Emil animations, Radix UI, and Shadcn components. |
-| **[`backend-api`](./category/backend-api)** | ⚡ Backend & Microservices | API design, Node.js, Python, NestJS, microservices, and hardened REST endpoints. |
-| **[`database-storage`](./category/database-storage)** | 🗄️ Database & Query Tuning | PostgreSQL, Supabase, Neon serverless, SQLite, Drizzle ORM, and Prisma. |
-| **[`devops-cloud`](./category/devops-cloud)** | ☁️ Cloud & Infrastructure | Vercel, Cloudflare Pages/Workers, Docker, Kubernetes, CI/CD, and deployment. |
-| **[`security-audit`](./category/security-audit)** | 🛡️ Security & Pentesting | Vulnerability scanning, threat modeling, red teaming, OWASP, and smart contracts. |
-| **[`testing-qa`](./category/testing-qa)** | 🧪 Automated Testing & QA | Playwright headless testing, E2E automation, TDD workflows, and mutation tests. |
-| **[`ai-agents`](./category/ai-agents)** | 🤖 Autonomous AI Agents | Hermes skills, LobeHub capabilities, multi-agent orchestration, and prompt design. |
-| **[`data-ml`](./category/data-ml)** | 📊 Data Engineering & ML | BigQuery SQL optimization, Dataproc, Apache Spark, Dataflow, and notebooks. |
-| **[`mobile-development`](./category/mobile-development)** | 📱 Mobile Apps (iOS/Android) | React Native, Flutter, Swift, Kotlin, Expo, and Apple HIG guidelines. |
-| **[`web3-crypto`](./category/web3-crypto)** | 🪙 Web3 & Blockchain | Solidity smart contracts, EVM security, DeFi protocol templates, and tokens. |
-| **[`design-creative`](./category/design-creative)** | 🎬 Creative Design & Video | HeyGen Hyperframes, Lemo Opuscar video, Remotion React, and 3D Three.js. |
-| **[`business-operations`](./category/business-operations)** | 💼 Enterprise & Operations | Accounting, invoices, AP processing, financial models, CRM, and sales outreach. |
-| **[`productivity-workflow`](./category/productivity-workflow)** | 🚀 Productivity & Team Ops | Notion integrations, Slack search & messaging, Linear tracking, and standups. |
-| **academic-research** | 🔬 Academic & Bio-Research | K-Dense scientific skills, paper writing pipeline, literature review, and RNA-QC. |
+| Category Folder | Domain Title | Skills | Individual Catalog |
+| :--- | :--- | :---: | :--- |
+| **[`code-quality-refactoring`](./category/code-quality-refactoring)** | 🧹 Code Quality, Refactoring & Clean Code | **276** | [Browse](./category/code-quality-refactoring/README.md) |
+| **[`scientific-bio-data`](./category/scientific-bio-data)** | 🔬 Scientific Bio-Informatics & Laboratory | **180** | [Browse](./category/scientific-bio-data/README.md) |
+| **[`autonomous-agents-hermes`](./category/autonomous-agents-hermes)** | 🧠 NousResearch Hermes Agent Skills | **176** | [Browse](./category/autonomous-agents-hermes/README.md) |
+| **[`architecture-system-design`](./category/architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **98** | [Browse](./category/architecture-system-design/README.md) |
+| **[`frontend-ui-components`](./category/frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **92** | [Browse](./category/frontend-ui-components/README.md) |
+| **[`database-sql-relational`](./category/database-sql-relational)** | 🗄️ SQL Databases, ORMs & Indexing | **81** | [Browse](./category/database-sql-relational/README.md) |
+| **[`programming-languages-core`](./category/programming-languages-core)** | 📐 Programming Languages & Type Systems | **79** | [Browse](./category/programming-languages-core/README.md) |
+| **[`backend-api-design`](./category/backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **78** | [Browse](./category/backend-api-design/README.md) |
+| **[`business-sales-crm`](./category/business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **74** | [Browse](./category/business-sales-crm/README.md) |
+| **[`prompt-llm-engineering`](./category/prompt-llm-engineering)** | 💬 Prompt Engineering, LLMs & RAG | **60** | [Browse](./category/prompt-llm-engineering/README.md) |
+| **[`lobehub-ecosystem`](./category/lobehub-ecosystem)** | 🌐 LobeHub Agent Skills Suite | **55** | [Browse](./category/lobehub-ecosystem/README.md) |
+| **[`devops-docker-cicd`](./category/devops-docker-cicd)** | 🚀 DevOps, Containers & Deployment | **53** | [Browse](./category/devops-docker-cicd/README.md) |
+| **[`business-strategy-legal`](./category/business-strategy-legal)** | 📋 Business Strategy, Legal & HR | **43** | [Browse](./category/business-strategy-legal/README.md) |
+| **[`audio-voice-sound`](./category/audio-voice-sound)** | 🎙️ Audio, Voice Cloning & Sound Design | **41** | [Browse](./category/audio-voice-sound/README.md) |
+| **[`testing-unit-tdd`](./category/testing-unit-tdd)** | 🧪 Unit Testing, TDD & Verification | **40** | [Browse](./category/testing-unit-tdd/README.md) |
+| **[`git-version-control`](./category/git-version-control)** | 🐙 Git, Worktrees & PR Workflows | **39** | [Browse](./category/git-version-control/README.md) |
+| **[`security-compliance-auth`](./category/security-compliance-auth)** | 🔒 Auth, Hardening & Compliance | **36** | [Browse](./category/security-compliance-auth/README.md) |
+| **[`video-motion-production`](./category/video-motion-production)** | 🎬 Video Creation & Generative Motion | **35** | [Browse](./category/video-motion-production/README.md) |
+| **[`security-vulnerability-audit`](./category/security-vulnerability-audit)** | 🛡️ Vulnerability Auditing & Pentesting | **31** | [Browse](./category/security-vulnerability-audit/README.md) |
+| **[`productivity-workspace-tools`](./category/productivity-workspace-tools)** | 🚀 Productivity, Slack, Notion & Linear | **30** | [Browse](./category/productivity-workspace-tools/README.md) |
+| **[`frontend-motion-animation`](./category/frontend-motion-animation)** | ✨ UI Motion, Animations & Polish | **26** | [Browse](./category/frontend-motion-animation/README.md) |
+| **[`terminal-system-tools`](./category/terminal-system-tools)** | 💻 Terminal, Shell & System Automation | **25** | [Browse](./category/terminal-system-tools/README.md) |
+| **[`business-finance-accounting`](./category/business-finance-accounting)** | 💰 Financial Modeling, Tax & Accounting | **24** | [Browse](./category/business-finance-accounting/README.md) |
+| **[`diagrams-technical-visuals`](./category/diagrams-technical-visuals)** | 📊 Technical Diagrams & Isometric SVG | **22** | [Browse](./category/diagrams-technical-visuals/README.md) |
+| **[`mobile-ios-android`](./category/mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **21** | [Browse](./category/mobile-ios-android/README.md) |
+| **[`cloudflare-edge`](./category/cloudflare-edge)** | ☁️ Cloudflare Workers, Pages & Edge | **20** | [Browse](./category/cloudflare-edge/README.md) |
+| **[`data-engineering-ml`](./category/data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **19** | [Browse](./category/data-engineering-ml/README.md) |
+| **[`graphics-branding-design`](./category/graphics-branding-design)** | 🎨 Visual Design, Branding & Graphics | **19** | [Browse](./category/graphics-branding-design/README.md) |
+| **[`testing-playwright-e2e`](./category/testing-playwright-e2e)** | 🎭 Playwright & Browser Automation | **17** | [Browse](./category/testing-playwright-e2e/README.md) |
+| **[`multi-agent-orchestration`](./category/multi-agent-orchestration)** | 🤖 Multi-Agent Systems & Swarms | **16** | [Browse](./category/multi-agent-orchestration/README.md) |
+| **[`database-nosql-serverless`](./category/database-nosql-serverless)** | ⚡ NoSQL, Serverless & Vector DBs | **15** | [Browse](./category/database-nosql-serverless/README.md) |
+| **[`web3-smart-contracts`](./category/web3-smart-contracts)** | 🪙 Web3, Solidity & DeFi Architecture | **15** | [Browse](./category/web3-smart-contracts/README.md) |
+| **[`frontend-visual-taste`](./category/frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **13** | [Browse](./category/frontend-visual-taste/README.md) |
+| **[`algorithms-logic`](./category/algorithms-logic)** | 🧮 Algorithms, Logic & Math | **10** | [Browse](./category/algorithms-logic/README.md) |
+| **[`academic-writing-publishing`](./category/academic-writing-publishing)** | 📚 Academic Writing, Research & Literature | **6** | [Browse](./category/academic-writing-publishing/README.md) |
+| **[`core-antigravity-protocols`](./category/core-antigravity-protocols)** | ⚔️ Core Antigravity Kit Protocols | **6** | [Browse](./category/core-antigravity-protocols/README.md) |
+| **[`fullstack-web-frameworks`](./category/fullstack-web-frameworks)** | 🌐 Fullstack Web Frameworks & Apps | **5** | [Browse](./category/fullstack-web-frameworks/README.md) |
+| **[`3d-web-threejs`](./category/3d-web-threejs)** | 🧊 3D Web Experiences & Three.js | **2** | [Browse](./category/3d-web-threejs/README.md) |
 
-> 💡 **Tip**: Browse any category in your file explorer at `D:\Repo\.agents\category\<domain>` to see and open skills directly!
-
+> 💡 **Tip**: Open any category directly at `.agents/category/<domain>` in VS Code or Windows Explorer to explore and edit real skill files!
 ---
 
 ## 📖 Table of Contents

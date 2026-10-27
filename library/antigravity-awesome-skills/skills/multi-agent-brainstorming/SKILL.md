@@ -8,7 +8,7 @@ description:
   false confidence, and premature convergence.
 risk: unknown
 source: community
-category: ai-agents
+category: frontend-ui-components
 ---
 
 # Multi-Agent Brainstorming (Structured Design Review)

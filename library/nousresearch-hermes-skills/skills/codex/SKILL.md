@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Coding-Agent, Codex, OpenAI, Code-Review, Refactoring]
     related_skills: [claude-code, hermes-agent]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Codex CLI

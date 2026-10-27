@@ -3,7 +3,7 @@ name: paypal-integration
 description: "Integrate PayPal payment processing with support for express checkout, subscriptions, and refund management. Use when implementing PayPal payments, processing online transactions, or building e-com..."
 risk: unknown
 source: community
-category: backend-api
+category: backend-api-design
 ---
 
 # PayPal Integration

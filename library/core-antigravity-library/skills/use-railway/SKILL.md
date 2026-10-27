@@ -14,7 +14,7 @@ description: >
   `railway up` flow (deploys + signs up on the fly) or `railway login`
   (which creates new accounts on the fly).
 allowed-tools: Bash(railway:*), Bash(which:*), Bash(command:*), Bash(npm:*), Bash(npx:*), Bash(curl:*), Bash(python3:*)
-category: software-engineering
+category: devops-docker-cicd
 ---
 
 # Use Railway

@@ -4,7 +4,7 @@ description: "Build event-driven applications with Azure Event Grid SDK for Java
 package: com.azure:azure-messaging-eventgrid
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure Event Grid SDK for Java

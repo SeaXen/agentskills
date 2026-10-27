@@ -3,7 +3,7 @@ name: git-advanced-workflows
 description: "Master advanced Git workflows including rebasing, cherry-picking, bisect, worktrees, and reflog to maintain clean history and recover from any situation. Use when managing complex Git histories, co..."
 risk: unknown
 source: community
-category: software-engineering
+category: git-version-control
 ---
 
 # Git Advanced Workflows

@@ -10,7 +10,7 @@ metadata:
     tags: [creative, memes, humor, images]
     related_skills: [ascii-art]
     category: creative
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Meme Generation

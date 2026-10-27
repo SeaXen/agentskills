@@ -5,7 +5,7 @@ risk: safe
 source: self
 allowed-tools: Read, Write, Edit, Bash
 model: opus
-category: backend-api
+category: backend-api-design
 ---
 
 # .NET Backend Agent - ASP.NET Core & Enterprise API Expert

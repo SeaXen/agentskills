@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Image Generation, Stable Diffusion, Diffusers, Text-to-Image, Multimodal, Computer Vision]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Stable Diffusion Image Generation

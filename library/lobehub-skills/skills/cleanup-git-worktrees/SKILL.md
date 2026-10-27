@@ -1,7 +1,7 @@
 ---
 name: cleanup-git-worktrees
 description: 'Use for stale-worktree, Git registration and branch audits. Managed removal uses the repo lifecycle.'
-category: software-engineering
+category: lobehub-ecosystem
 ---
 
 # Cleanup Git Worktrees

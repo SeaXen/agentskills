@@ -3,7 +3,7 @@ name: 3d-web-experience
 description: "Expert in building 3D experiences for the web - Three.js, React Three Fiber, Spline, WebGL, and interactive 3D scenes. Covers product configurators, 3D portfolios, immersive websites, and bringing ..."
 source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
-category: design-creative
+category: 3d-web-threejs
 ---
 
 # 3D Web Experience

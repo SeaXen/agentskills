@@ -14,7 +14,7 @@ metadata:
     - name: TAMARIND_API_KEY
       required: true
       description: Tamarind Bio API key sent as the x-api-key header.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Tamarind Bio

@@ -9,7 +9,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 ## Use this skill when

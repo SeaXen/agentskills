@@ -5,7 +5,7 @@ description: "|"
 package: Azure.ResourceManager.WeightsAndBiases
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure.ResourceManager.WeightsAndBiases (.NET)

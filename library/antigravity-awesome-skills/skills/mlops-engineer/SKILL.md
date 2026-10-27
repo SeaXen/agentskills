@@ -8,7 +8,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: software-engineering
+category: business-sales-crm
 ---
 
 ## Use this skill when

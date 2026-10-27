@@ -15,7 +15,7 @@ description: >
   this week," "I need to pay the guys Friday" — and use it after
   cash-flow-snapshot when the owner is worried about whether payroll clears.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: business-finance-accounting
 ---
 
 # Payroll Prep

@@ -5,7 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: devops-cloud
+category: devops-docker-cicd
 ---
 
 # Vercel Automation via Rube MCP

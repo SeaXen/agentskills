@@ -8,7 +8,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 You are a Rust expert specializing in modern Rust 1.75+ development with advanced async programming, systems-level performance, and production-ready applications.
 

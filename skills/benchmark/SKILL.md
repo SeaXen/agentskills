@@ -3,7 +3,7 @@ name: benchmark
 description: >-
   Replaces guesswork with empirical hardware telemetry: synthesizes ad-hoc stress-test
   harnesses on the fly, executes them headlessly, and proves performance gains with hard numbers.
-category: core-antigravity
+category: testing-unit-tdd
 ---
 
 # Empirical Benchmark & Telemetry Protocol

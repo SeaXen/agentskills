@@ -3,7 +3,7 @@ name: multi-platform-apps-multi-platform
 description: "Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies."
 risk: unknown
 source: community
-category: devops-cloud
+category: architecture-system-design
 ---
 
 # Multi-Platform Feature Development Workflow

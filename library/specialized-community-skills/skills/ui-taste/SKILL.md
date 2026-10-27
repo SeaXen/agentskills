@@ -7,7 +7,7 @@ metadata:
   author: "UIZZE <business@uizze.com>"
   compatibility: "Designed for Claude Code, Codex, Cursor, and GitHub Copilot; works in any agent that can read project files and fetch a URL."
   tags: "ui-design, design-system, design-review, frontend, web-ui, ios-ui"
-category: mobile-development
+category: mobile-ios-android
 ---
 
 ![Stop Making UI Slop with UIZZE](https://uizze.com/landing/anti-ui-slop-skill-banner.png)

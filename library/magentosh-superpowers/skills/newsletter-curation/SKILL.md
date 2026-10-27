@@ -2,7 +2,7 @@
 name: newsletter-curation
 description: "Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. Use for: email newsletters, link roundups, weekly digests, curated content, creator newsletters. Triggers: newsletter, email newsletter, newsletter curation, weekly digest, link roundup, curated newsletter, newsletter writing, newsletter format, subscriber growth, newsletter strategy, content curation, newsletter template"
 allowed-tools: Bash(belt *)
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

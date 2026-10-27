@@ -6,7 +6,7 @@ description: "|"
 package: azure-search-documents
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure AI Search SDK for Python

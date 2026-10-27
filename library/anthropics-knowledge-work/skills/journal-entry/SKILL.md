@@ -2,7 +2,7 @@
 name: journal-entry
 description: Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review.
 argument-hint: "<entry type> [period]"
-category: security-audit
+category: business-finance-accounting
 ---
 
 # Journal Entry Preparation

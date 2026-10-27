@@ -19,7 +19,7 @@ metadata:
           ],
       },
   }
-category: testing-qa
+category: testing-playwright-e2e
 ---
 
 # Browser Use

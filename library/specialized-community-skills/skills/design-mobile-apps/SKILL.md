@@ -3,7 +3,7 @@ name: design-mobile-apps
 description: Design mobile app screens with Sleek, edit Sleek projects, and implement their designs in React Native or HTML.
 metadata:
   requires-env: SLEEK_API_KEY
-category: mobile-development
+category: frontend-ui-components
 ---
 
 # Designing with Sleek

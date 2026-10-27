@@ -3,7 +3,7 @@ name: manifest
 description: "Install and configure the Manifest observability plugin for your agents. Use when setting up telemetry, configuring API keys, or troubleshooting the plugin."
 risk: unknown
 source: community
-category: backend-api
+category: backend-api-design
 ---
 
 # Manifest Setup

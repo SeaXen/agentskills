@@ -4,7 +4,7 @@ description: "Use when user needs capabilities Claude lacks (image generation, r
 allowed-tools: Read, Bash(python:*), Bash(python3:*), Bash(pip:*), Bash(source:*)
 risk: unknown
 source: community
-category: software-engineering
+category: data-engineering-ml
 ---
 
 # BlockRun

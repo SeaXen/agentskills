@@ -8,7 +8,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: software-engineering
+category: testing-unit-tdd
 ---
 
 ## Use this skill when

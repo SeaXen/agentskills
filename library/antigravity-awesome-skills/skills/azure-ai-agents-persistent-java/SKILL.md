@@ -6,7 +6,7 @@ description: "|"
 package: com.azure:azure-ai-agents-persistent
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure AI Agents Persistent SDK for Java

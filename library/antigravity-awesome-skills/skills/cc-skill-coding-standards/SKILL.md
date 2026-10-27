@@ -5,7 +5,7 @@ author: affaan-m
 version: "1.0"
 risk: unknown
 source: community
-category: frontend-ui
+category: programming-languages-core
 ---
 
 # Coding Standards & Best Practices

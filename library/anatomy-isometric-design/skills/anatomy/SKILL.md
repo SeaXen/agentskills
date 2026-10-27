@@ -5,7 +5,7 @@ license: MIT
 compatibility: Written for Claude Code; also runs in Antigravity, OpenCode, Codex and MiniMax Code. Needs Node.js 20.10+, and Chrome or Chromium for the checks.
 metadata:
   opencode/slash: "true"
-category: design-creative
+category: diagrams-technical-visuals
 ---
 
 # Anatomy

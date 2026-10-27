@@ -1,7 +1,7 @@
 ---
 name: knowledge-catalog-discovery
 description: Use these skills when you need to discover and explore data assets in the Knowledge Catalog. It allows you to search for entries, lookup specific metadata, and explore aspect types to understand your data platform's assets.
-category: software-engineering
+category: cloudflare-edge
 ---
 
 ## Usage

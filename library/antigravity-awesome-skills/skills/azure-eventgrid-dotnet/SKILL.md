@@ -5,7 +5,7 @@ description: "|"
 package: Azure.Messaging.EventGrid
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure.Messaging.EventGrid (.NET)

@@ -1,7 +1,7 @@
 ---
 name: desktop-security-update
 description: 'Inspect, mark, or revoke vulnerable LobeHub Desktop versions through the existing release workflow and signed R2 security policy. Use for forced security updates across Stable, Canary, Beta, and Nightly.'
-category: security-audit
+category: lobehub-ecosystem
 ---
 
 # Desktop security updates

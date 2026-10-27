@@ -2,7 +2,7 @@
 name: source-layout
 description: 'Use for where a file lives, how it is named, where its tests go, and how to split a source or test file over 1200 lines (拆分大文件, 目录结构, 文件命名).'
 user-invocable: false
-category: testing-qa
+category: lobehub-ecosystem
 ---
 
 # Source Layout

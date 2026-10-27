@@ -8,7 +8,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 ## Use this skill when

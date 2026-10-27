@@ -8,7 +8,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: business-operations
+category: business-strategy-legal
 ---
 
 ## Use this skill when

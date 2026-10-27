@@ -8,7 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   tested-package-version: "3.2.0"
   last-reviewed: "2026-09-30"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Cantera: homogeneous ignition calculations

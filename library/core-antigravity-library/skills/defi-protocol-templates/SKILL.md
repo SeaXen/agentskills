@@ -3,7 +3,7 @@ name: defi-protocol-templates
 description: "Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending systems. Use when building decentralized finance applications or smart contract protocols."
 risk: unknown
 source: community
-category: web3-crypto
+category: web3-smart-contracts
 ---
 
 # DeFi Protocol Templates

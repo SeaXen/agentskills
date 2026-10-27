@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [YouTube, Video, Transcripts, Media]
     related_skills: []
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # YouTube Content Tool

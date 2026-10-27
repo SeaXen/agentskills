@@ -6,7 +6,7 @@ metadata:
   version: "1.2"
   skill-author: AHK Strategies (ashrafkahoush-ux)
   last-reviewed: "2026-09-30"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Consciousness Council

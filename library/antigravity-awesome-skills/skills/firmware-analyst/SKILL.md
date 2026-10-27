@@ -9,7 +9,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Download from vendor

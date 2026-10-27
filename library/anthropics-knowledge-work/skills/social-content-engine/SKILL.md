@@ -16,7 +16,7 @@ description: >
   for a full quarter. One handoff: a finished, approved campaign brief goes
   to canva-creator; this skill owns the standing operation.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # Social Content Engine

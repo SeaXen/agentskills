@@ -3,7 +3,7 @@ name: microservices-resilience
 description: Distributed systems resilience patterns, circuit breakers, bulkheads, rate limiting, and exponential backoff with jitter. Use when designing fault-tolerant microservices, integrating third-party APIs, preventing cascading service failures, or handling transient network errors.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: software-engineering
+category: backend-api-design
 ---
 
 # Microservices Resilience

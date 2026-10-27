@@ -4,7 +4,7 @@ description: "Test-Driven Development workflow principles. RED-GREEN-REFACTOR cy
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 risk: unknown
 source: community
-category: testing-qa
+category: testing-unit-tdd
 ---
 
 # TDD Workflow

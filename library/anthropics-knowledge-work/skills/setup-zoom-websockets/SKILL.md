@@ -7,7 +7,7 @@ triggers:
   - "persistent zoom events"
   - "low latency zoom events"
   - "zoom websocket connection"
-category: security-audit
+category: security-vulnerability-audit
 ---
 
 # /setup-zoom-websockets

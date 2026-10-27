@@ -9,7 +9,7 @@ description: >
   business," "what should I focus on," "I don't know where to start," or any
   open-ended business request that doesn't clearly match a single skill.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # SMB Router

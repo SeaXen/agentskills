@@ -11,7 +11,7 @@ prerequisites:
 metadata:
   hermes:
     tags: [GIF, Media, Search, Tenor, API]
-category: backend-api
+category: autonomous-agents-hermes
 ---
 
 # GIF Search (Tenor API)

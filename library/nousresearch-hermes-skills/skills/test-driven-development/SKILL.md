@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [testing, tdd, development, quality, red-green-refactor]
     related_skills: [systematic-debugging, subagent-driven-development]
-category: testing-qa
+category: autonomous-agents-hermes
 ---
 
 # Test-Driven Development (TDD)

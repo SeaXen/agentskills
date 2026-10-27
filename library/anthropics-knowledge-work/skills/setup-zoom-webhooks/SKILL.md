@@ -7,7 +7,7 @@ triggers:
   - "x-zm-signature"
   - "event subscription"
   - "recording completed webhook"
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # /setup-zoom-webhooks

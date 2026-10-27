@@ -6,7 +6,7 @@ description: "|"
 package: azure-mgmt-apimanagement
 risk: unknown
 source: community
-category: software-engineering
+category: backend-api-design
 ---
 
 # Azure API Management SDK for Python

@@ -6,7 +6,7 @@ author: Teknium (teknium1), Hermes Agent
 license: MIT
 tags: [minecraft, gaming, server, neoforge, forge, modpack]
 platforms: [linux, macos]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Minecraft Modpack Server Setup

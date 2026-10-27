@@ -1,7 +1,7 @@
 ---
 name: user-research
 description: Plan, conduct, and synthesize user research. Trigger with "user research plan", "interview guide", "usability test", "survey design", "research questions", or when the user needs help with any aspect of understanding their users through research.
-category: testing-qa
+category: business-strategy-legal
 ---
 
 # User Research

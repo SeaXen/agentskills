@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [evolution, optimization, prompt-engineering, research]
     related_skills: [arxiv, jupyter-notebook]
-category: database-storage
+category: autonomous-agents-hermes
 ---
 
 # Darwinian Evolver

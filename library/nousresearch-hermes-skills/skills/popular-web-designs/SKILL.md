@@ -16,7 +16,7 @@ triggers:
   - landing page
   - dashboard design
   - website styled like
-category: devops-cloud
+category: autonomous-agents-hermes
 ---
 
 # Popular Web Designs

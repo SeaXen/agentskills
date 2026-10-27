@@ -5,7 +5,7 @@ metadata:
   argument-hint: "[--archive | --restore | --delete | --rename | --list | --cleanup]"
 risk: unknown
 source: community
-category: software-engineering
+category: backend-api-design
 ---
 
 # Track Manager

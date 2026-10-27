@@ -4,7 +4,7 @@ description: "Analyze text and images for harmful content using Azure AI Content
 package: "@azure-rest/ai-content-safety"
 risk: unknown
 source: community
-category: design-creative
+category: backend-api-design
 ---
 
 # Azure AI Content Safety REST SDK for TypeScript

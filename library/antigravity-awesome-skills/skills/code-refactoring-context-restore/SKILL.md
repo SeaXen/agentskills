@@ -3,7 +3,7 @@ name: code-refactoring-context-restore
 description: "Use when working with code refactoring context restore"
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Context Restoration: Advanced Semantic Memory Rehydration

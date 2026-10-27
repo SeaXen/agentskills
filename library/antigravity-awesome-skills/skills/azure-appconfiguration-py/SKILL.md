@@ -6,7 +6,7 @@ description: "|"
 package: azure-appconfiguration
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure App Configuration SDK for Python

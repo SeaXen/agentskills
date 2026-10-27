@@ -5,7 +5,7 @@ author: affaan-m
 version: "1.0"
 risk: unknown
 source: community
-category: frontend-ui
+category: architecture-system-design
 ---
 
 # Frontend Development Patterns

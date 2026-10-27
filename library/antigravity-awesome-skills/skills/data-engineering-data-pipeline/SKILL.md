@@ -3,7 +3,7 @@ name: data-engineering-data-pipeline
 description: "You are a data pipeline architecture expert specializing in scalable, reliable, and cost-effective data pipelines for batch and streaming data processing."
 risk: unknown
 source: community
-category: software-engineering
+category: architecture-system-design
 ---
 
 # Data Pipeline Architecture

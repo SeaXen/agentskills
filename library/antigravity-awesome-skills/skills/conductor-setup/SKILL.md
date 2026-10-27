@@ -6,7 +6,7 @@ metadata:
   argument-hint: "[--resume]"
 risk: unknown
 source: community
-category: software-engineering
+category: web3-smart-contracts
 ---
 
 # Conductor Setup

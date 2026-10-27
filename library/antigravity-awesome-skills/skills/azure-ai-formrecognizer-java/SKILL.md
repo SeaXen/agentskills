@@ -4,7 +4,7 @@ description: "Build document analysis applications with Azure Document Intellige
 package: com.azure:azure-ai-formrecognizer
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure Document Intelligence (Form Recognizer) SDK for Java

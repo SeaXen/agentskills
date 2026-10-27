@@ -4,7 +4,7 @@ description: "Review UI code for Web Interface Guidelines compliance. Use when a
 argument-hint: <file-or-pattern>
 risk: unknown
 source: community
-category: security-audit
+category: security-compliance-auth
 ---
 
 # Web Interface Guidelines

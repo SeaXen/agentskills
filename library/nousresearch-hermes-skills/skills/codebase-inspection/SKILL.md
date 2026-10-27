@@ -11,7 +11,7 @@ metadata:
     related_skills: [github]
 prerequisites:
   commands: [pygount]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Codebase Inspection with pygount

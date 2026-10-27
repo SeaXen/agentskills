@@ -1,7 +1,7 @@
 ---
 name: xurl
 description: A curl-like CLI tool for making authenticated requests to the X (Twitter) API. Use this skill when you need to post tweets, reply, quote, search, read posts, manage followers, send DMs, send or read end-to-end encrypted XChat messages, upload media, or interact with any X API v2 endpoint. Supports multiple apps, OAuth 2.0, OAuth 1.0a, and app-only auth.
-category: backend-api
+category: backend-api-design
 ---
 
 # xurl — Agent Skill Reference

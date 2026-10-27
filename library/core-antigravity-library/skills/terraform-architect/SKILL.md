@@ -3,7 +3,7 @@ name: terraform-architect
 description: Terraform Infrastructure as Code (IaC) architecture, state management, module design, and security linting. Use when authoring Terraform configurations, managing remote state backends, writing reusable modules, configuring providers, or preventing state drift.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: security-audit
+category: architecture-system-design
 ---
 
 # Terraform Architect

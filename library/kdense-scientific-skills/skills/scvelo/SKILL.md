@@ -7,7 +7,7 @@ metadata:
   version: "2.0"
   skill-author: Kuan-lin Huang
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # scVelo RNA Velocity

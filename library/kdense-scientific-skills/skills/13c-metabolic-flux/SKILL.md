@@ -7,7 +7,7 @@ metadata:
   version: "1.2"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-30"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Carbon-13 metabolic flux inference

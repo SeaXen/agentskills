@@ -6,7 +6,7 @@ description: "|"
 package: azure-identity
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure Identity SDK for Python

@@ -4,7 +4,7 @@ description: "Comprehensive spreadsheet creation, editing, and analysis with sup
 license: Proprietary. LICENSE.txt has complete terms
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Requirements for Outputs

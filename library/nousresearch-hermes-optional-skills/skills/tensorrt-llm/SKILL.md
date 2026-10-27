@@ -9,7 +9,7 @@ platforms: [linux]
 metadata:
   hermes:
     tags: [Inference Serving, TensorRT-LLM, NVIDIA, Inference Optimization, High Throughput, Low Latency, Production, FP8, INT4, In-Flight Batching, Multi-GPU]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # TensorRT-LLM

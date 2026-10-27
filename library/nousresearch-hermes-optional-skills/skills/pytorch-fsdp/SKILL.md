@@ -9,7 +9,7 @@ platforms: [linux, macos]
 metadata:
   hermes:
     tags: [Distributed Training, PyTorch, FSDP, Data Parallel, Sharding, Mixed Precision, CPU Offloading, FSDP2, Large-Scale Training]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Pytorch-Fsdp Skill

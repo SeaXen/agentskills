@@ -1,0 +1,69 @@
+# 📋 Business Strategy, Legal & HR
+
+> **Category**: `business-strategy-legal`  
+> **Total Skills in Category**: 43 real modular skills  
+> **Directory**: [`.agents/category/business-strategy-legal`](./)  
+> **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
+
+---
+
+## ⚡ Quick Activation Command
+
+To link any skill from this category into your active hot-set (`.agents/skills/`):
+```bash
+python .agents/library/activate_skill.py link <skill-name>
+```
+
+---
+
+## 📑 Complete Skill Catalog (43 Skills)
+
+| Skill Folder | Status | Upstream Source | Description |
+| :--- | :---: | :--- | :--- |
+| **[`ab-test-setup`](./ab-test-setup/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and execution readiness. |
+| **[`avalonia-zafiro-development`](./avalonia-zafiro-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro toolkit. |
+| **[`beautiful-prose`](./beautiful-prose/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Hard-edged writing style contract for timeless, forceful English prose without AI tics |
+| **[`brief`](./brief/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate contextual briefings for legal work — daily summary, topic research, or incident response. Use when starting yo |
+| **[`company-research`](./company-research/SKILL.md)** | 📦 Library | `chezou-productivity-skills` | Research a company a candidate is applying to or interviewing with, and produce a one-page brief covering what the compa |
+| **[`constraint-driven-development`](./constraint-driven-development/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on w |
+| **[`contract-review`](./contract-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Lightweight NDA, MSA, and vendor contract review for SMBs without legal on |
+| **[`draft-offer`](./draft-offer/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp p |
+| **[`employment-contract-templates`](./employment-contract-templates/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create employment contracts, offer letters, and HR policy documents following legal best practices. Use when drafting em |
+| **[`fal-platform`](./fal-platform/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Platform APIs for model management, pricing, and usage tracking |
+| **[`geo-fundamentals`](./geo-fundamentals/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
+| **[`grill-me`](./grill-me/SKILL.md)** | 📦 Library | `core-antigravity-library` | A relentless interview to sharpen a plan or design. |
+| **[`hig-foundations`](./hig-foundations/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
+| **[`hiring-screener`](./hiring-screener/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Takes a pile of applications and turns it into a ranked shortlist, scored |
+| **[`hr-pro`](./hr-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Professional, ethical HR partner for hiring, |
+| **[`interview-me`](./interview-me/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at |
+| **[`interview-prep`](./interview-prep/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Create structured interview plans with competency-based questions and scorecards. Trigger with "interview plan for", "in |
+| **[`job-post-builder`](./job-post-builder/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Builds end-to-end hiring packets — job post, structured interview guide with |
+| **[`legal-response`](./legal-response/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations |
+| **[`legal-risk-assessment`](./legal-risk-assessment/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating c |
+| **[`meeting-briefing`](./meeting-briefing/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for  |
+| **[`micro-saas-launcher`](./micro-saas-launcher/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profitable software. Cover |
+| **[`nft-standards`](./nft-standards/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement NFT standards (ERC-721, ERC-1155) with proper metadata handling, minting strategies, and marketplace integrati |
+| **[`notion-template-business`](./notion-template-business/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in building and selling Notion templates as a business - not just making templates, but building a sustainable di |
+| **[`onboarding`](./onboarding/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, buildi |
+| **[`onboarding-cro`](./onboarding-cro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also us |
+| **[`performance-report`](./performance-report/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Build a marketing performance report with key metrics, trend analysis, wins and misses, and prioritized optimization rec |
+| **[`product-manager-toolkit`](./product-manager-toolkit/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, di |
+| **[`recruiting-pipeline`](./recruiting-pipeline/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Track and manage recruiting pipeline stages. Trigger with "recruiting update", "candidate pipeline", "how many candidate |
+| **[`research-synthesis`](./research-synthesis/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey res |
+| **[`review-contract`](./review-contract/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Review a contract against your organization's negotiation playbook — flag deviations, generate redlines, provide busines |
+| **[`roadmap-update`](./roadmap-update/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deciding what moves to make r |
+| **[`seo-fundamentals`](./seo-fundamentals/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
+| **[`setup`](./setup/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | First-run setup - checks which tools are connected, shows what's connected and what each one unlocks, learns how you wri |
+| **[`signature-request`](./signature-request/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Prepare and route a document for e-signature — run a pre-signature checklist, configure signing order, and send for exec |
+| **[`spec-driven-development`](./spec-driven-development/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists |
+| **[`synthesize-research`](./synthesize-research/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of in |
+| **[`to-spec`](./to-spec/SKILL.md)** | 📦 Library | `core-antigravity-library` | Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of w |
+| **[`triage-nda`](./triage-nda/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YELLOW (counsel review), or RED (full legal |
+| **[`user-research`](./user-research/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Plan, conduct, and synthesize user research. Trigger with "user research plan", "interview guide", "usability test", "su |
+| **[`vendor-review`](./vendor-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, decidi |
+| **[`wiki-architect`](./wiki-architect/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Analyzes code repositories and generates hierarchical documentation structures with onboarding guides. Use when the user |
+| **[`wiki-onboarding`](./wiki-onboarding/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generates two complementary onboarding guides \u2014 a Principal-Level architectural deep-dive and a Zero-to-Hero contri |
+
+---
+
+*Part of the [AgentSkills Vault](https://github.com/SeaXen/agentskills). Master directory in [category/README.md](../README.md).*

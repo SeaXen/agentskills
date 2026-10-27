@@ -11,7 +11,7 @@ description: ">-"
   hig-technologies can provide targeted advice without repetitive questions.
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Apple HIG: Project Context

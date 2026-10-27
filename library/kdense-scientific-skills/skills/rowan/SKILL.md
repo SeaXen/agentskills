@@ -15,7 +15,7 @@ metadata:
     - name: ROWAN_API_KEY
       required: true
       description: Rowan computational chemistry API key.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Rowan: Cloud-Native Molecular-Modeling and Drug-Design Workflows

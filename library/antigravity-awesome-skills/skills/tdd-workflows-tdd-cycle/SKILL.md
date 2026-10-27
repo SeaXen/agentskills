@@ -3,7 +3,7 @@ name: tdd-workflows-tdd-cycle
 description: "Use when working with tdd workflows tdd cycle"
 risk: unknown
 source: community
-category: testing-qa
+category: testing-unit-tdd
 ---
 
 ## Use this skill when

@@ -11,7 +11,7 @@ metadata:
     homepage: https://mcporter.dev
 prerequisites:
   commands: [npx]
-category: backend-api
+category: autonomous-agents-hermes
 ---
 
 # mcporter

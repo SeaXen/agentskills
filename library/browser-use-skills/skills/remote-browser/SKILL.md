@@ -2,7 +2,7 @@
 name: remote-browser
 description: Controls an isolated Browser Use Cloud browser from a sandboxed machine with the current Browser Use CLI.
 allowed-tools: Bash(browser-use:*)
-category: testing-qa
+category: testing-playwright-e2e
 ---
 
 # Remote Browser

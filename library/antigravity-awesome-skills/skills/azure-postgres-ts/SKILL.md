@@ -5,7 +5,7 @@ description: "|"
 package: pg
 risk: unknown
 source: community
-category: database-storage
+category: database-sql-relational
 ---
 
 # Azure PostgreSQL for TypeScript (node-postgres)

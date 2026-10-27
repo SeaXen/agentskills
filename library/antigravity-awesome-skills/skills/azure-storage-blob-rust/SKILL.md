@@ -6,7 +6,7 @@ description: "|"
 package: azure_storage_blob
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure Blob Storage SDK for Rust

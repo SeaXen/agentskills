@@ -10,7 +10,7 @@ metadata:
     tags: [pptx, powerpoint, presentations, slides, office, python-pptx]
     category: productivity
     related_skills: [docx, xlsx, pdf]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Powerpoint Skill

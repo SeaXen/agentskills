@@ -8,7 +8,7 @@ description: ">"
   not just firing events.
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Analytics Tracking & Measurement Strategy

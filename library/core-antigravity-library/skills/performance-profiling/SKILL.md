@@ -2,7 +2,7 @@
 name: performance-profiling
 description: Performance profiling principles. Measurement, analysis, and optimization techniques.
 allowed-tools: Read, Glob, Grep, Bash
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Performance Profiling

@@ -1,7 +1,7 @@
 ---
 name: better-colors
 description: Builds and checks color systems by generating palettes, naming semantic tokens, converting between formats and measuring contrast.
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Colors

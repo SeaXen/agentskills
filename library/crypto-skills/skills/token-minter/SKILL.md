@@ -1,7 +1,7 @@
 ---
 name: token-minter
 description: Generate, build, and deploy custom ERC20 tokens on EVM networks. Use when users want to create and deploy their own ERC20 tokens with custom parameters like name, symbol, decimals, and initial supply. Supports deployment to various networks including Sepolia testnet and requires Foundry (forge/cast) for blockchain interactions.
-category: web3-crypto
+category: web3-smart-contracts
 ---
 
 # Token Minter

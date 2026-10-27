@@ -9,7 +9,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: testing-qa
+category: code-quality-refactoring
 ---
 
 ## Use this skill when

@@ -13,7 +13,7 @@ description: >
   proposal," "respond to this RFP," or "price this out." Reach for it when the
   owner describes a job they just looked at, even without saying the word quote.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: frontend-ui-components
 ---
 
 # Proposal Builder

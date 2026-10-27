@@ -309,6 +309,42 @@ def rebuild_all_indexes():
         json.dump(all_vault_skills, mf, indent=2)
     print(f"✓ Re-indexed {len(repo_folders)} repository indexes and Master index ({len(all_vault_skills)} skills).")
 
+
+def sync_category_directories():
+    """Synchronize updated real skills from .agents/skills and .agents/library into .agents/category/"""
+    print("\n[3b/6] Synchronizing real skills into .agents/category/ directories...")
+    cat_dir = os.path.join(agents_dir, "category")
+    if not os.path.exists(cat_dir):
+        return
+
+    updated = 0
+    # Update existing real skill folders in category
+    for cat_slug in os.listdir(cat_dir):
+        c_path = os.path.join(cat_dir, cat_slug)
+        if not os.path.isdir(c_path):
+            continue
+        for s_name in os.listdir(c_path):
+            s_dst = os.path.join(c_path, s_name)
+            if not os.path.isdir(s_dst):
+                continue
+            # Check if active skills has an update
+            active_src = os.path.join(skills_dir, s_name)
+            if os.path.exists(active_src):
+                shutil.rmtree(s_dst, ignore_errors=True)
+                shutil.copytree(active_src, s_dst)
+                updated += 1
+                continue
+            # Check library repos for update
+            for r in os.listdir(library_dir):
+                lib_src = os.path.join(library_dir, r, "skills", s_name)
+                if os.path.exists(lib_src):
+                    shutil.rmtree(s_dst, ignore_errors=True)
+                    shutil.copytree(lib_src, s_dst)
+                    updated += 1
+                    break
+
+    print(f"✓ Synchronized {updated} real skills across 38 functional category folders.")
+
 def rebuild_documentation():
     print("\n[4/6] Re-indexing skills and rebuilding documentation...")
     if os.path.exists(lockfile_path):

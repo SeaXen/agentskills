@@ -11,7 +11,7 @@ metadata:
   hermes:
     tags: [unreal, unreal-engine, ue5, 3d, mcp, scenes, cinematics, lighting, gamedev]
     related_skills: []
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Unreal Engine MCP Skill

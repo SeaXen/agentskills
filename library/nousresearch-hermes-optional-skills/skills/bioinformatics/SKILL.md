@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [bioinformatics, genomics, sequencing, biology, research, science]
     category: research
-category: academic-research
+category: autonomous-agents-hermes
 ---
 
 # Bioinformatics Skills Gateway

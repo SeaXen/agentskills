@@ -4,7 +4,7 @@ description: "PowerShell Windows patterns. Critical pitfalls, operator syntax, e
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 risk: unknown
 source: community
-category: software-engineering
+category: terminal-system-tools
 ---
 
 # PowerShell Windows Patterns

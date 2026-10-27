@@ -3,7 +3,7 @@ name: marketing-psychology
 description: "Apply behavioral science and mental models to marketing decisions, prioritized using a psychological leverage and feasibility scoring system."
 risk: unknown
 source: community
-category: software-engineering
+category: algorithms-logic
 ---
 # Marketing Psychology & Mental Models
 

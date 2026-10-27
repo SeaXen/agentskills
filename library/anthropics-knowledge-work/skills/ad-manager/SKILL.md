@@ -14,7 +14,7 @@ description: >
   getting," "should I turn this campaign off," "my cost per lead is going up,"
   "write me a new ad," "who should I be targeting," or "the ad guy quit."
 allowed-tools: Read, WebFetch
-category: ai-agents
+category: code-quality-refactoring
 ---
 
 # Ad Manager

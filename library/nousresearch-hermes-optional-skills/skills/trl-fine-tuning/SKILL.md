@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Post-Training, TRL, Reinforcement Learning, Fine-Tuning, SFT, DPO, GRPO, RLOO, RLHF, Preference Alignment, HuggingFace]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # TRL - Transformer Reinforcement Learning

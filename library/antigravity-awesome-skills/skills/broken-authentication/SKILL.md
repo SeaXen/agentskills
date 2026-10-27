@@ -6,7 +6,7 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
-category: security-audit
+category: security-compliance-auth
 ---
 
 # Broken Authentication Testing

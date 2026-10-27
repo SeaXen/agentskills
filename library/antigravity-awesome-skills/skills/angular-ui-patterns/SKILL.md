@@ -3,7 +3,7 @@ name: angular-ui-patterns
 description: "Modern Angular UI patterns for loading states, error handling, and data display. Use when building UI components, handling async data, or managing component states."
 risk: safe
 source: self
-category: frontend-ui
+category: frontend-ui-components
 ---
 
 # Angular UI Patterns

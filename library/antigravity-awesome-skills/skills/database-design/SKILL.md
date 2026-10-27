@@ -4,7 +4,7 @@ description: "Database design principles and decision-making. Schema design, ind
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
-category: database-storage
+category: database-sql-relational
 ---
 
 # Database Design

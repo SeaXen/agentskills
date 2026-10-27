@@ -2,7 +2,7 @@
 name: update
 description: Sync tasks and refresh memory from your current activity. Use when pulling new assignments from your project tracker into TASKS.md, triaging stale or overdue tasks, filling memory gaps for unknown people or projects, or running a comprehensive scan to catch todos buried in chat and email.
 argument-hint: "[--comprehensive]"
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # Update Command

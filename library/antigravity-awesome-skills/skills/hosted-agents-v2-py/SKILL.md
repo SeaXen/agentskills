@@ -4,7 +4,7 @@ description: "Build hosted agents using Azure AI Projects SDK with ImageBasedHos
 package: azure-ai-projects
 risk: unknown
 source: community
-category: software-engineering
+category: devops-docker-cicd
 ---
 
 # Azure AI Hosted Agents (Python)

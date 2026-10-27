@@ -1,7 +1,7 @@
 ---
 name: site-specification
 description: Extract comprehensive site specifications from simple descriptions. Use when analyzing a user's theme request to determine site type, audience, tone, layout requirements, and typography.
-category: frontend-ui
+category: frontend-visual-taste
 ---
 
 # Site Specification Skill

@@ -2,7 +2,7 @@
 name: db-migrations
 description: 'Use for Drizzle migration rollout, online indexes, backfills, idempotent SQL and migration regeneration or rebase conflicts.'
 user-invocable: false
-category: database-storage
+category: lobehub-ecosystem
 ---
 
 # Database Migrations Guide

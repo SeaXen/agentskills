@@ -2,7 +2,7 @@
 name: teamcity-cli
 version: 1.0.0
 description: Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL — drives the `teamcity` CLI for builds, logs, jobs, queues, agents, pools, projects, and pipelines.
-category: devops-cloud
+category: devops-docker-cicd
 ---
 
 # TeamCity CLI (`teamcity`)

@@ -12,7 +12,7 @@ metadata:
   version: "1.3"
   last-reviewed: "2026-09-30"
   skill-author: Yaroslav Halchenko
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Brain Imaging Data Structure (BIDS)

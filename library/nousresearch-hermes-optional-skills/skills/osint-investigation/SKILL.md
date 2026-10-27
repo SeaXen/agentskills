@@ -10,7 +10,7 @@ metadata:
     tags: [osint, investigation, public-records, sec, sanctions, corporate-registry, property, courts, due-diligence, journalism]
     category: research
     related_skills: [domain-intel, arxiv]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # OSINT Investigation — Public Records Cross-Reference

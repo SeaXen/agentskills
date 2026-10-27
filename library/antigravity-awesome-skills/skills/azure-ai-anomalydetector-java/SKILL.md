@@ -4,7 +4,7 @@ description: "Build anomaly detection applications with Azure AI Anomaly Detecto
 package: com.azure:azure-ai-anomalydetector
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure AI Anomaly Detector SDK for Java

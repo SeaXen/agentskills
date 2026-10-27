@@ -13,7 +13,7 @@ metadata:
     - name: ANTHROPIC_API_KEY
       required: false
       description: For optional Claude API calls.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Neuropixels Data Analysis

@@ -2,7 +2,7 @@
 name: zustand
 description: 'Use for Zustand stores: state shapes and type sources, state-only stores with xActions classes, replica-backed list/detail data (local-replica), selectors, optimistic writes, and legacy slice/internal_* action composition.'
 user-invocable: false
-category: software-engineering
+category: lobehub-ecosystem
 ---
 
 # LobeHub Zustand State Management

@@ -9,7 +9,7 @@ metadata:
   skill-author: K-Dense Inc.
   last-reviewed: "2026-10-01"
   upstream-version: "1.0.0"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Molfeat — Small-molecule featurization

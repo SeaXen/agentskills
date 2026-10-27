@@ -5,7 +5,7 @@ description: "|"
 package: Azure.AI.DocumentIntelligence
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure.AI.DocumentIntelligence (.NET)

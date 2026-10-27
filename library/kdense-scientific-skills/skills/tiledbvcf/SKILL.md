@@ -8,7 +8,7 @@ metadata:
   skill-author: Jeremy Leipzig
   last-reviewed: "2026-10-01"
   upstream-version: "TileDB-VCF 0.40.3; tiledb-cloud 0.14.4"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # TileDB-VCF

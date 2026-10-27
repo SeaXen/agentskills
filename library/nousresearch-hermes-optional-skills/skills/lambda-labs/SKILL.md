@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Infrastructure, GPU Cloud, Training, Inference, Lambda Labs]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Lambda Labs GPU Cloud

@@ -13,7 +13,7 @@ description: ">"
   patterns, hig-components-layout for structural components, hig-components-content for display.
 risk: unknown
 source: community
-category: software-engineering
+category: business-strategy-legal
 ---
 
 # Apple HIG: Design Foundations

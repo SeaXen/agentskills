@@ -10,7 +10,7 @@ metadata:
     tags: [search, duckduckgo, web-search, free, fallback]
     related_skills: [arxiv]
     fallback_for_toolsets: [web]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # DuckDuckGo Search

@@ -1,7 +1,7 @@
 ---
 name: orbit-card
 description: A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block, 1920×1080, 10s, 4 variables.
-category: design-creative
+category: video-motion-production
 ---
 
 # Orbit Card

@@ -1,7 +1,7 @@
 ---
 name: dataproc-skills
 description: Skills to interact with your Dataproc clusters and jobs.
-category: data-ml
+category: data-engineering-ml
 ---
 
 ## Usage

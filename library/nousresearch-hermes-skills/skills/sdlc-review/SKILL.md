@@ -12,7 +12,7 @@ metadata:
     requires_toolsets: [kanban]
 environments:
   - kanban
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # SDLC Review Skill

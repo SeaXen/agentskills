@@ -6,7 +6,7 @@ triggers:
   - "zva"
   - "virtual assistant sdk"
   - "knowledge base sync"
-category: mobile-development
+category: mobile-ios-android
 ---
 
 # /build-zoom-virtual-agent

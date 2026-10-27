@@ -4,7 +4,7 @@ description: "Automatically hunt for high-impact OSS contribution opportunities 
 risk: safe
 source: https://github.com/jackjin1997/ClawForge
 metadata: {"openclaw":{"emoji":"🎯","category":"developer"}}
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # OSS Hunter 🎯

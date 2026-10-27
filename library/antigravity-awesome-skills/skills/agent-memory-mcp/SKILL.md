@@ -4,7 +4,7 @@ author: Amit Rathiesh
 description: "A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Architecture, Patterns, Decisions)."
 risk: unknown
 source: community
-category: ai-agents
+category: architecture-system-design
 ---
 
 # Agent Memory Skill

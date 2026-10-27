@@ -6,7 +6,7 @@ description: >-
   when conventions drift, when output quality seems to degrade, or after any
   context compaction event. Prevents long-session corruption AND context
   compaction amnesia through behavioral self-enforcement.
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Session Guard

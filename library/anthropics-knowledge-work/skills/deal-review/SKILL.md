@@ -1,7 +1,7 @@
 ---
 name: deal-review
 description: Deep-dive on a single opportunity - signal-adjusted health score, risks, gaps in qualification, and recommended next actions. Use when the user asks "review the [account] deal", "deal review on [opp]", "is [opp] going to close", or "what's the risk on [deal]".
-category: business-operations
+category: business-sales-crm
 ---
 
 # Deal Review

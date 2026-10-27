@@ -3,7 +3,7 @@ name: fal-generate
 description: "Generate images and videos using fal.ai AI models"
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-generate/SKILL.md"
 risk: safe
-category: software-engineering
+category: video-motion-production
 ---
 
 # Fal Generate

@@ -15,7 +15,7 @@ description: >
   before cash-flow-snapshot or month-end-prep so those run on real payables
   instead of a guess.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: business-finance-accounting
 ---
 
 # AP Processor

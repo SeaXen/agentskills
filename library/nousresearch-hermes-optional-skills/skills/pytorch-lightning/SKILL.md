@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [PyTorch Lightning, Training Framework, Distributed Training, DDP, FSDP, DeepSpeed, High-Level API, Callbacks, Best Practices, Scalable]
-category: backend-api
+category: autonomous-agents-hermes
 ---
 
 # PyTorch Lightning - High-Level Training Framework

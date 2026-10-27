@@ -3,7 +3,7 @@ name: store-data-structures
 description: 'Explicit compatibility entry for Zustand data-shape guidance.'
 disable-model-invocation: true
 user-invocable: true
-category: software-engineering
+category: lobehub-ecosystem
 ---
 
 # Store Data Structures

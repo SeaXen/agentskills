@@ -11,7 +11,7 @@ metadata:
     homepage: https://github.com/steipete/songsee
 prerequisites:
   commands: [songsee]
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # songsee

@@ -1,7 +1,7 @@
 ---
 name: customer-health
 description: Health check on a customer account and QBR-ready prep - relationship strength, engagement trend, risk signals, value delivered, and the agenda that makes the review worth their time. Use when the user asks "how healthy is [account]", "customer health check", "prep the [account] QBR", "business review prep", or "are we at risk with [customer]".
-category: business-operations
+category: business-sales-crm
 ---
 
 # Customer Health

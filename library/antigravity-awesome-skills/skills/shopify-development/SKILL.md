@@ -7,7 +7,7 @@ description: "|"
   "shopify billing", "app subscription", "metafields", "shopify functions"
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Shopify Development Skill

@@ -6,7 +6,7 @@ description: "|"
 package: azure_security_keyvault_secrets
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure Key Vault Secrets SDK for Rust

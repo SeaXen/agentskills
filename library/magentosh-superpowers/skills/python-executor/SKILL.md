@@ -2,7 +2,7 @@
 name: python-executor
 description: "Execute Python code in a safe sandboxed environment via [inference.sh](https://inference.sh). Pre-installed: NumPy, Pandas, Matplotlib, requests, BeautifulSoup, Selenium, Playwright, MoviePy, Pillow, OpenCV, trimesh, and 100+ more libraries. Use for: data processing, web scraping, image manipulation, video creation, 3D model processing, PDF generation, API calls, automation scripts. Triggers: python, execute code, run script, web scraping, data analysis, image processing, video editing, 3D models, automation, pandas, matplotlib"
 allowed-tools: Bash(belt *)
-category: testing-qa
+category: backend-api-design
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

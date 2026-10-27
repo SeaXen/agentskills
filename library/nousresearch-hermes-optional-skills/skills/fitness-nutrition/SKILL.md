@@ -19,7 +19,7 @@ required_environment_variables:
     help: "Get one free at https://fdc.nal.usda.gov/api-key-signup/ — or skip to use DEMO_KEY with lower rate limits"
     required_for: "higher rate limits on food/nutrition lookups (DEMO_KEY works without signup)"
     optional: true
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Fitness & Nutrition

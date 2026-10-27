@@ -5,7 +5,7 @@ description: Guide for using the Sentry CLI to interact with Sentry from the com
 requires:
   bins: ["sentry"]
   auth: true
-category: backend-api
+category: terminal-system-tools
 ---
 
 # Sentry CLI Usage Guide

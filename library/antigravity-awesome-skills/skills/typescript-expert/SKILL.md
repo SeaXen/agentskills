@@ -7,7 +7,7 @@ description: ">-"
   issues including complex type gymnastics, build performance, debugging, and
   architectural decisions. If a specialized expert is a better fit, I will
   recommend switching and stop.
-category: software-engineering
+category: programming-languages-core
 bundle: [typescript-type-expert, typescript-build-expert]
 displayName: TypeScript
 color: blue

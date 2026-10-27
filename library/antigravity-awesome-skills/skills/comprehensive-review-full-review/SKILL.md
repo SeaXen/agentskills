@@ -3,7 +3,7 @@ name: comprehensive-review-full-review
 description: "Use when working with comprehensive review full review"
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 ## Use this skill when

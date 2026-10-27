@@ -4,7 +4,7 @@ description: "Create beautiful visual art in .png and .pdf documents using desig
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
-category: design-creative
+category: graphics-branding-design
 ---
 
 These are instructions for creating design philosophies - aesthetic movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files, and .png files.

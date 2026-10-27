@@ -11,7 +11,7 @@ metadata:
     category: productivity
     requires_toolsets: [terminal]
     supersedes: [find-nearby]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Maps Skill

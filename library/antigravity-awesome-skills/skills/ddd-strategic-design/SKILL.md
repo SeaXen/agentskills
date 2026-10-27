@@ -4,7 +4,7 @@ description: "Design DDD strategic artifacts including subdomains, bounded conte
 risk: safe
 source: self
 tags: [ddd, strategic-design, bounded-context, ubiquitous-language]
-category: software-engineering
+category: frontend-ui-components
 ---
 
 # DDD Strategic Design

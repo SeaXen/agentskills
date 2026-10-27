@@ -3,7 +3,7 @@ name: loki-mode
 description: "Multi-agent autonomous startup system for Claude Code. Triggers on \"Loki Mode\". Orchestrates 100+ specialized agents across engineering, QA, DevOps, security, data/ML, business operations,..."
 risk: unknown
 source: community
-category: security-audit
+category: multi-agent-orchestration
 ---
 
 # Loki Mode - Multi-Agent Autonomous Startup System

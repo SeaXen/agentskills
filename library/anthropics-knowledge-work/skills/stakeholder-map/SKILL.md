@@ -1,7 +1,7 @@
 ---
 name: stakeholder-map
 description: Map the people in a deal or account - roles, influence, sentiment, who's missing, and your best access path to the people you haven't reached. Use when the user asks "who are the players at [account]", "who's my way in", "am I single-threaded on [deal]", "map the stakeholders", or "who else should I be talking to".
-category: business-operations
+category: business-sales-crm
 ---
 
 # Stakeholder Map

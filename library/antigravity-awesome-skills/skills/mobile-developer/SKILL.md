@@ -8,7 +8,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: mobile-development
+category: mobile-ios-android
 ---
 
 ## Use this skill when

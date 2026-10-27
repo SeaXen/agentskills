@@ -5,7 +5,7 @@ platforms: [linux, macos, windows]
 version: 1.0.0
 author: Willard Moore
 license: MIT
-category: software-engineering
+category: autonomous-agents-hermes
 metadata:
   hermes:
     tags: [communication, decision-making, proposals, trade-offs]

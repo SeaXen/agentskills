@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [debugging, python, pdb, debugpy, breakpoints, dap, post-mortem]
     related_skills: [systematic-debugging, node-inspect-debugger]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Python Debugger (pdb + debugpy)

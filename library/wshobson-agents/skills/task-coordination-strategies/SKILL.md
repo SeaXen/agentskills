@@ -2,7 +2,7 @@
 name: task-coordination-strategies
 description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent work with proper task descriptions and workload balancing. Use this skill when breaking down work for agent teams, managing task dependencies, or monitoring team progress.
 version: 1.0.2
-category: ai-agents
+category: code-quality-refactoring
 ---
 
 # Task Coordination Strategies

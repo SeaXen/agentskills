@@ -1,7 +1,7 @@
 ---
 name: full-text-search
 description: 'Use for product search: FtsSearchRepo, pg_search/pg_like/Elasticsearch, mapping migrations, projections, Outbox sync, reindexing and performance. Excludes agent web search.'
-category: ai-agents
+category: lobehub-ecosystem
 ---
 
 # Product Full-Text Search

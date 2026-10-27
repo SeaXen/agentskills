@@ -3,7 +3,7 @@ name: enrich-lead
 description: "Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions."
 user-invocable: true
 argument-hint: "[name, company, LinkedIn URL, or email]"
-category: business-operations
+category: business-sales-crm
 ---
 
 # Enrich Lead

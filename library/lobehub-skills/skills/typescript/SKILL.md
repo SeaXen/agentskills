@@ -2,7 +2,7 @@
 name: typescript
 description: 'Use for TypeScript style and type safety when editing TS/TSX/MTS, including imports, async code and error suppression.'
 user-invocable: false
-category: software-engineering
+category: lobehub-ecosystem
 ---
 
 # TypeScript Code Style Guide

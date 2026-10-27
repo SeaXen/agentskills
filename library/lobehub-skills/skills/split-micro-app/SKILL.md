@@ -2,7 +2,7 @@
 name: split-micro-app
 description: 'Use for standalone micro apps: React Router SSR/SSG, Cloud overlays, Workers, CDN/R2, SEO/OG, gateway routes, previews, Docker integration and SSR bundle isolation.'
 user-invocable: false
-category: devops-cloud
+category: lobehub-ecosystem
 ---
 
 # Micro App: Split, SSR, SEO, Gateway

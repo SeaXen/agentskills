@@ -5,7 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: software-engineering
+category: database-sql-relational
 ---
 
 # WhatsApp Business Automation via Rube MCP

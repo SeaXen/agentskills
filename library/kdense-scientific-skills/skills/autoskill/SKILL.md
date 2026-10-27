@@ -23,7 +23,7 @@ metadata:
     - name: FOUNDRY_API_KEY
       required: false
       description: Optional Foundry access for drafting.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # autoskill

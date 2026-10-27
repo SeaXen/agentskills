@@ -5,7 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: productivity-workflow
+category: productivity-workspace-tools
 ---
 
 # Google Calendar Automation via Rube MCP

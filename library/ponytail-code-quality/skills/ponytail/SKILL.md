@@ -8,7 +8,7 @@ description: >
   over-engineering or bloat. Levels: lite, full (default), ultra.
 argument-hint: "[lite|full|ultra|off]"
 license: MIT
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Ponytail

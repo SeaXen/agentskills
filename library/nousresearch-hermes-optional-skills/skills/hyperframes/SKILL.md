@@ -13,7 +13,7 @@ metadata:
     related_skills: [manim-video, meme-generation]
     category: creative
     requires_toolsets: [terminal]
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # HyperFrames

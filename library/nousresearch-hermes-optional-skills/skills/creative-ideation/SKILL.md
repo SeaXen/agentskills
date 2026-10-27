@@ -11,7 +11,7 @@ metadata:
     tags: [Creative, Ideation, Brainstorming, Methods, Inspiration]
     category: creative
     requires_toolsets: []
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Creative Ideation

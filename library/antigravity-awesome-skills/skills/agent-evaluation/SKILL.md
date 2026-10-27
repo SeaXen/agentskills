@@ -3,7 +3,7 @@ name: agent-evaluation
 description: "Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability metrics, and production monitoring\u2014where even top agents achieve less than 50% on re..."
 source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
-category: testing-qa
+category: prompt-llm-engineering
 ---
 
 # Agent Evaluation

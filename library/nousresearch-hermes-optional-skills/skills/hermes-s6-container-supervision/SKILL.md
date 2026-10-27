@@ -10,7 +10,7 @@ metadata:
   hermes:
     tags: [docker, s6, supervision, gateway, profiles]
     related_skills: [hermes-agent]
-category: devops-cloud
+category: autonomous-agents-hermes
 ---
 
 # Hermes s6-overlay Container Supervision

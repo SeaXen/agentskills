@@ -3,7 +3,7 @@ name: aws-cloud-patterns
 description: AWS Cloud Architecture and serverless design patterns. Use when architecting AWS solutions, writing Lambda functions, configuring S3 buckets, designing DynamoDB single-table schemas, setting up API Gateway, or enforcing IAM least-privilege policies.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: backend-api
+category: architecture-system-design
 ---
 
 # AWS Cloud Patterns

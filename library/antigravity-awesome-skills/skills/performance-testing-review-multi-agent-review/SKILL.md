@@ -3,7 +3,7 @@ name: performance-testing-review-multi-agent-review
 description: "Use when working with performance testing review multi agent review"
 risk: unknown
 source: community
-category: testing-qa
+category: testing-unit-tdd
 ---
 
 # Multi-Agent Code Review Orchestration Tool

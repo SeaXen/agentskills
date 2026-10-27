@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Coding-Agent, Blackbox, Multi-Agent, Judge, Multi-Model]
     related_skills: [claude-code, codex, hermes-agent]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Blackbox CLI

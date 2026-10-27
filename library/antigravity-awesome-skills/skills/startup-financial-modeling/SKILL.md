@@ -8,7 +8,7 @@ metadata:
   version: 1.0.0
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Startup Financial Modeling

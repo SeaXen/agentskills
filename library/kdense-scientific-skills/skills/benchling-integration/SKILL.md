@@ -35,7 +35,7 @@ metadata:
     - name: BENCHLING_STAGING_API_KEY
       required: false
       description: Staging API key (multi-env setups).
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Benchling Integration

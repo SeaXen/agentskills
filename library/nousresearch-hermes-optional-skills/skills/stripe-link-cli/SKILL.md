@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Payments, Stripe, Link, Checkout, MPP]
     related_skills: [mpp-agent, stripe-projects]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Stripe Link CLI Skill

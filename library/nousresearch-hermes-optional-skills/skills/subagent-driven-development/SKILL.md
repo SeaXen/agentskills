@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [delegation, subagent, implementation, workflow, parallel]
     related_skills: [requesting-code-review, test-driven-development]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Subagent-Driven Development

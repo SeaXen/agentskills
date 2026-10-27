@@ -18,7 +18,7 @@ tags:
   - solana
   - ethereum
   - wallet-forensics
-category: ai-agents
+category: web3-smart-contracts
 ---
 
 # Crypto BD Agent — Autonomous Business Development for Exchanges

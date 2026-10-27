@@ -1,7 +1,7 @@
 ---
 name: risk-assessment
 description: Identify, assess, and mitigate operational risks. Trigger with "what are the risks", "risk assessment", "risk register", "what could go wrong", or when the user is evaluating risks associated with a project, vendor, process, or decision.
-category: business-operations
+category: prompt-llm-engineering
 ---
 
 # Risk Assessment

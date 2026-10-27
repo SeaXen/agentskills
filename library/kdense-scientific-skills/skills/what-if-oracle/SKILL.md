@@ -8,7 +8,7 @@ metadata:
   skill-author: AHK Strategies (ashrafkahoush-ux)
   upstream: https://github.com/ashrafkahoush-ux/claude-consciousness-skills
   research-doi: 10.5281/zenodo.18736841, 10.5281/zenodo.18807387
-category: academic-research
+category: scientific-bio-data
 ---
 
 # What-If Oracle — Research Scenario Planning

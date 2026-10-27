@@ -3,7 +3,7 @@ name: upstash-qstash
 description: "Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task delivery without managing infrastructure. Use when: qstash, upstash queue, serverless cron, schedul..."
 source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
-category: software-engineering
+category: productivity-workspace-tools
 ---
 
 # Upstash QStash

@@ -3,7 +3,7 @@ name: nodejs-backend-patterns
 description: "Build production-ready Node.js backend services with Express/Fastify, implementing middleware patterns, error handling, authentication, database integration, and API design best practices. Use when..."
 risk: unknown
 source: community
-category: database-storage
+category: backend-api-design
 ---
 
 # Node.js Backend Patterns

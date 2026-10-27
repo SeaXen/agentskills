@@ -11,7 +11,7 @@ metadata:
     category: creative
     homepage: https://github.com/blader/humanizer
     related_skills: [songwriting-and-ai-music]
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # Humanizer: Remove AI Writing Patterns

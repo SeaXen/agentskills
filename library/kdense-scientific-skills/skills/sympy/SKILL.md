@@ -9,7 +9,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "1.14.0"
   skill-author: K-Dense Inc.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # SymPy - Symbolic Mathematics in Python

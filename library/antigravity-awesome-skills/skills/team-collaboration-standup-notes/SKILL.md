@@ -3,7 +3,7 @@ name: team-collaboration-standup-notes
 description: "You are an expert team communication specialist focused on async-first standup practices, AI-assisted note generation from commit history, and effective remote team coordination patterns."
 risk: unknown
 source: community
-category: productivity-workflow
+category: git-version-control
 ---
 
 # Standup Notes Generator

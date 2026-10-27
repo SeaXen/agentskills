@@ -5,7 +5,7 @@ version: 1.0.0
 author: Teknium (teknium1), Hermes Agent
 license: MIT
 platforms: [linux, macos, windows]
-category: security-audit
+category: autonomous-agents-hermes
 triggers:
   - "investigate this repository"
   - "investigate [owner/repo]"

@@ -2,7 +2,7 @@
 name: portable-deploy-qa
 description: (Legacy alias for app-production-readiness) Build portable apps (any stack - TypeScript, Python, Go, Rust) for localhost, Docker, Vercel, Netlify, Railway, Render, Fly.io, Cloudflare Free plan, then run an adaptive 21-gate production-readiness review. Automatically forwards to the full 21-gate app-production-readiness skill.
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
-category: testing-qa
+category: devops-docker-cicd
 ---
 
 # Portable Deploy + QA (Upgraded to app-production-readiness)

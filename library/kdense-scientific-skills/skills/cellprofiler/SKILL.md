@@ -8,7 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   upstream-version: "4.2.8"
   last-reviewed: "2026-09-30"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # CellProfiler quantitative microscopy

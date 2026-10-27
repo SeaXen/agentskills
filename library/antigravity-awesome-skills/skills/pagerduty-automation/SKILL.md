@@ -5,7 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # PagerDuty Automation via Rube MCP

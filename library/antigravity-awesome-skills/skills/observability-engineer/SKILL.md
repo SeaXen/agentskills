@@ -8,7 +8,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: software-engineering
+category: frontend-ui-components
 ---
 You are an observability engineer specializing in production-grade monitoring, logging, tracing, and reliability systems for enterprise-scale applications.
 

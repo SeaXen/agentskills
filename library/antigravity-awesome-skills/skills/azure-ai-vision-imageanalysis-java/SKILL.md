@@ -4,7 +4,7 @@ description: "Build image analysis applications with Azure AI Vision SDK for Jav
 package: com.azure:azure-ai-vision-imageanalysis
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Azure AI Vision Image Analysis SDK for Java

@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [RAG, Pinecone, Memory, Research, Vector Database, Agent, Retrieval]
-category: database-storage
+category: autonomous-agents-hermes
 ---
 
 # Pinecone Research — Agent RAG & Long-Term Memory

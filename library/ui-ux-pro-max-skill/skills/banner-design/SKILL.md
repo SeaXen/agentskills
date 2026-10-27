@@ -6,7 +6,7 @@ license: MIT
 metadata:
   author: claudekit
   version: "1.0.0"
-category: frontend-ui
+category: frontend-ui-components
 ---
 
 # Banner Design - Multi-Format Creative Banner System

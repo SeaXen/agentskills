@@ -10,7 +10,7 @@ metadata:
   hermes:
     tags: [architecture, diagrams, SVG, HTML, visualization, infrastructure, cloud]
     related_skills: [concept-diagrams, excalidraw]
-category: frontend-ui
+category: diagrams-technical-visuals
 ---
 
 # Architecture Diagram Skill

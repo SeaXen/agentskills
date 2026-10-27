@@ -6,7 +6,7 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
-category: testing-qa
+category: testing-unit-tdd
 ---
 
 # IDOR Vulnerability Testing

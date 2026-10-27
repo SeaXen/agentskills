@@ -10,7 +10,7 @@ prerequisites:
 metadata:
   hermes:
     tags: [Canvas, LMS, Education, Courses, Assignments]
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # Canvas LMS — Course & Assignment Access

@@ -2,7 +2,7 @@
 name: dialogue-audio
 description: "Multi-speaker dialogue audio creation with ElevenLabs and Dia TTS. Covers speaker tags, emotion control, pacing, conversation flow, and post-production. Use for: podcasts, audiobooks, explainers, character dialogue, conversational content. Triggers: dialogue audio, multi speaker, conversation audio, dia tts, two speakers, podcast audio, character voices, voice acting, dialogue generation, conversation tts, multi voice, speaker tags, dialogue recording, elevenlabs dialogue, eleven labs conversation"
 allowed-tools: Bash(belt *)
-category: design-creative
+category: audio-voice-sound
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

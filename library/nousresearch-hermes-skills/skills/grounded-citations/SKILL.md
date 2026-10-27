@@ -10,7 +10,7 @@ metadata:
     tags: [Research, Citations, Grounding, Sources, Web, Reports]
     category: research
     related_skills: [arxiv, pdf, reddit-reading, rss-feeds, youtube-content]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Grounded Citations

@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Sparse Autoencoders, SAE, Mechanistic Interpretability, Feature Discovery, Superposition]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # SAELens: Sparse Autoencoders for Mechanistic Interpretability

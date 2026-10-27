@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [finance, valuation, dcf, excel, openpyxl, modeling, investment-banking]
     related_skills: [excel-author, pptx-author, comps-analysis, lbo-model, 3-statement-model]
-category: business-operations
+category: business-finance-accounting
 ---
 
 ## Environment

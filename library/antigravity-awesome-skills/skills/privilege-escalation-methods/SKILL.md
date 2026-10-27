@@ -6,7 +6,7 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 
 # Privilege Escalation Methods

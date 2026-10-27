@@ -10,7 +10,7 @@ metadata:
     tags: [article-illustration, creative, image-generation]
     category: creative
     homepage: https://github.com/JimLiu/baoyu-skills#baoyu-article-illustrator
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Article Illustrator

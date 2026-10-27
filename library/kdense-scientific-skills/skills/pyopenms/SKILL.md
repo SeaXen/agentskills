@@ -9,7 +9,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "3.6.0"
   skill-author: K-Dense Inc.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # PyOpenMS

@@ -1,5 +1,5 @@
 ---
-category: ai-agents
+category: lobehub-ecosystem
 ---
 
 \<task_skill_guides>

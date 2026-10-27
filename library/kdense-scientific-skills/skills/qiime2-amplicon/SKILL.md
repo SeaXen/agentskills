@@ -8,7 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   upstream-version: "2026.7"
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # QIIME 2 paired-end 16S amplicons

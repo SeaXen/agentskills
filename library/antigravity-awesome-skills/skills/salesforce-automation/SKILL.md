@@ -5,7 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: software-engineering
+category: business-sales-crm
 ---
 
 # Salesforce Automation via Rube MCP

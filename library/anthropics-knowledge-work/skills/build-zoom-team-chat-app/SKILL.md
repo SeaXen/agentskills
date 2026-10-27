@@ -9,7 +9,7 @@ triggers:
   - "chatbot api"
   - "zoom slash commands"
   - "zoom chat integration"
-category: business-operations
+category: terminal-system-tools
 ---
 
 # /build-zoom-team-chat-app

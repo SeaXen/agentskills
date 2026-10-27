@@ -6,7 +6,7 @@ description: "|"
 package: azure-ai-transcription
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure AI Transcription SDK for Python

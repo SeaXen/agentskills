@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [comic, knowledge-comic, creative, image-generation]
     homepage: https://github.com/JimLiu/baoyu-skills#baoyu-comic
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Knowledge Comic Creator

@@ -11,7 +11,7 @@ triggers:
   - "batch transcription"
   - "fast mode transcription"
   - "build platform jwt"
-category: business-operations
+category: security-compliance-auth
 ---
 
 # Zoom AI Services Scribe

@@ -13,7 +13,7 @@ metadata:
     - name: OPENROUTER_API_KEY
       required: false
       description: OpenRouter API key for optional schematic generation and review.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # LaTeX Research Posters

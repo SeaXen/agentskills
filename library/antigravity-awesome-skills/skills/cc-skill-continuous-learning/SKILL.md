@@ -5,7 +5,7 @@ author: affaan-m
 version: "1.0"
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # cc-skill-continuous-learning

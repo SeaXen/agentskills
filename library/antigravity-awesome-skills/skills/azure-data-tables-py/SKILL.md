@@ -6,7 +6,7 @@ description: "|"
 package: azure-data-tables
 risk: unknown
 source: community
-category: software-engineering
+category: data-engineering-ml
 ---
 
 # Azure Tables SDK for Python

@@ -4,7 +4,7 @@ description: "Extract text, tables, and structured data from documents using Azu
 package: "@azure-rest/ai-document-intelligence"
 risk: unknown
 source: community
-category: software-engineering
+category: backend-api-design
 ---
 
 # Azure Document Intelligence REST SDK for TypeScript

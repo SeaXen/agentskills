@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Fine-Tuning, PEFT, LoRA, QLoRA, Parameter-Efficient, Adapters, Low-Rank, Memory Optimization, Multi-Adapter]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # PEFT (Parameter-Efficient Fine-Tuning)

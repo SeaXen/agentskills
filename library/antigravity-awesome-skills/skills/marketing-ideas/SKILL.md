@@ -3,7 +3,7 @@ name: marketing-ideas
 description: "Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system."
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 # Marketing Ideas for SaaS (with Feasibility Scoring)
 

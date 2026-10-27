@@ -6,7 +6,7 @@ author: Eric Andrade
 created: 2025-02-01
 updated: 2026-02-04
 platforms: [github-copilot-cli, claude-code, codex]
-category: design-creative
+category: video-motion-production
 tags: [video, summarization, transcription, youtube, content-analysis]
 risk: safe
 source: community

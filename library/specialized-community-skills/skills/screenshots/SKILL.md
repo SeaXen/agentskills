@@ -3,7 +3,7 @@ name: screenshots
 description: "Generate marketing screenshots of your app using Playwright. Use when the user wants to create screenshots for Product Hunt, social media, landing pages, or documentation."
 source: "https://github.com/Shpigford/skills/tree/main/screenshots"
 risk: safe
-category: testing-qa
+category: testing-playwright-e2e
 ---
 
 # Screenshots

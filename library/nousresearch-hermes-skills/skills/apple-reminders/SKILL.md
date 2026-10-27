@@ -10,7 +10,7 @@ metadata:
     tags: [Reminders, tasks, todo, macOS, Apple]
 prerequisites:
   commands: [remindctl]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Apple Reminders

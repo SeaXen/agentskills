@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Email, Inbox, Triage, Replies, Productivity]
     related_skills: [himalaya, google-workspace]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Email Inbox Triage

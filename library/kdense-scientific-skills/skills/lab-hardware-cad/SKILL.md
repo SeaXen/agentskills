@@ -9,7 +9,7 @@ metadata:
   skill-author: K-Dense Inc.
   last-reviewed: "2026-10-01"
   build123d-version: "0.13.0"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Lab Hardware CAD

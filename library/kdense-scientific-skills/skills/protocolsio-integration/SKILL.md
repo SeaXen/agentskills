@@ -19,7 +19,7 @@ metadata:
       - name: PROTOCOLS_IO_ACCESS_TOKEN
         required: false
         description: Bearer token for authenticated protocols.io REST reads.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # protocols.io Integration

@@ -2,7 +2,7 @@
 name: graphify
 description: "any input (code, docs, papers, images) - knowledge graph - clustered communities - HTML + JSON + audit report"
 trigger: /graphify
-category: security-audit
+category: frontend-ui-components
 ---
 
 # /graphify

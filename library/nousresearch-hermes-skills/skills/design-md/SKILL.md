@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [design, design-system, tokens, ui, accessibility, wcag, tailwind, dtcg, google]
     related_skills: [popular-web-designs, claude-design, excalidraw, architecture-diagram]
-category: frontend-ui
+category: autonomous-agents-hermes
 ---
 
 # DESIGN.md Skill

@@ -2,7 +2,7 @@
 name: resume-tailor
 description: Tailor an existing resume to a specific job description, using an optional episode bank (past project inventory, brag doc, STAR notes) to source concrete evidence. Includes a dedicated branch for design roles (graphic, product, UX) covering portfolios, case studies, and client work. Use this whenever the user is applying to a job and mentions a JD, a job posting URL, a company they're targeting, "this role", or asks to revise, rewrite, review, adapt, or "optimize" a resume or CV. Also use it for cover letters and application questions tied to a specific posting, and when the user pastes a resume and asks "does this work for X". Do not use it for building a resume from scratch with no target role.
 license: MIT
-category: software-engineering
+category: git-version-control
 ---
 
 # Resume Tailor

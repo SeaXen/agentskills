@@ -11,7 +11,7 @@ metadata:
     related_skills: [obsidian]
 prerequisites:
   commands: [memo]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Apple Notes

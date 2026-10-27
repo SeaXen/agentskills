@@ -8,7 +8,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: software-engineering
+category: programming-languages-core
 ---
 You are a TypeScript expert specializing in advanced typing and enterprise-grade development.
 

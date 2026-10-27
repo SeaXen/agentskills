@@ -4,7 +4,7 @@ description: Deploy and manage projects on Vercel using token-based authenticati
 metadata:
   author: vercel
   version: "1.0.0"
-category: devops-cloud
+category: devops-docker-cicd
 ---
 
 # Vercel CLI with Tokens

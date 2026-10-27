@@ -8,7 +8,7 @@ metadata:
   skill-author: BGPT
   website: https://bgpt.pro/mcp/
   last-reviewed: "2026-09-30"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # BGPT Paper Search

@@ -3,7 +3,7 @@ name: tdd-workflows-tdd-red
 description: "Generate failing tests for the TDD red phase to define expected behavior and edge cases."
 risk: unknown
 source: community
-category: testing-qa
+category: cloudflare-edge
 ---
 
 Write comprehensive failing tests following TDD red phase principles.

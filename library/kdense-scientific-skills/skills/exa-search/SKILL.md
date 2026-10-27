@@ -15,7 +15,7 @@ metadata:
     - name: EXA_API_KEY
       required: true
       description: Exa search API key.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Exa Web Toolkit

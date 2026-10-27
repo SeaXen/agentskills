@@ -10,7 +10,7 @@ metadata:
   hermes:
     tags: [ASCII, Art, Banners, Creative, Unicode, Text-Art, pyfiglet, figlet, cowsay, boxes]
     related_skills: [excalidraw]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # ASCII Art Skill

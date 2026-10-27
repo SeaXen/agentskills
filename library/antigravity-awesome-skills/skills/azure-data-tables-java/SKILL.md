@@ -4,7 +4,7 @@ description: "Build table storage applications with Azure Tables SDK for Java. U
 package: com.azure:azure-data-tables
 risk: unknown
 source: community
-category: backend-api
+category: database-nosql-serverless
 ---
 
 # Azure Tables SDK for Java

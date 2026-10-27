@@ -7,7 +7,7 @@ metadata:
   version: "1.5"
   skill-author: Kuan-lin Huang
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Phylogenetics

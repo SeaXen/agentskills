@@ -9,7 +9,7 @@ metadata:
   skill-author: "Helena Bioinformatics"
   website: "https://folklore.helena.bio"
   github: "https://github.com/helena-bioinformatics/folklore-mcp"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Folklore Variant Evidence

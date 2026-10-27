@@ -8,7 +8,7 @@ metadata:
   version: "1.5"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-30"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # COBRApy - Constraint-Based Reconstruction and Analysis

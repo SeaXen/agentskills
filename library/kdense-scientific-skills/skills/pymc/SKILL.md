@@ -8,7 +8,7 @@ metadata:
   version: "2.0"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # PyMC Bayesian Modeling

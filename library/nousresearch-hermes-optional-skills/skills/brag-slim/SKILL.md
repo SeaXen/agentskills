@@ -13,7 +13,7 @@ metadata:
     upstream:
       repo: latent-spaces/brag
       path: skills/brag-slim
-category: design-creative
+category: autonomous-agents-hermes
 ---
 
 # Brag Slim (upstream-maintained)

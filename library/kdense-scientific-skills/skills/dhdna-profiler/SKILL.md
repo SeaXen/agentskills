@@ -7,7 +7,7 @@ metadata:
   version: "2.0"
   last-reviewed: "2026-09-30"
   skill-author: AHK Strategies (ashrafkahoush-ux)
-category: academic-research
+category: scientific-bio-data
 ---
 
 # DHDNA Profiler — Text Pattern Annotation

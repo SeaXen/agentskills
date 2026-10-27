@@ -4,7 +4,7 @@ description: "Node.js development principles and decision-making. Framework sele
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
-category: security-audit
+category: architecture-system-design
 ---
 
 # Node.js Best Practices

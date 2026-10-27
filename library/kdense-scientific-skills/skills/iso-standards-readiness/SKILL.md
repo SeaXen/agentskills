@@ -9,7 +9,7 @@ metadata:
   skill-author: K-Dense Inc.
   supersedes: iso-13485-certification
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # ISO Standards Readiness Evidence Preparation

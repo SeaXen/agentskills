@@ -3,7 +3,7 @@ name: git-pushing
 description: "Stage, commit, and push git changes with conventional commit messages. Use when user wants to commit and push changes, mentions pushing to remote, or asks to save and push their work. Also activate..."
 risk: unknown
 source: community
-category: software-engineering
+category: git-version-control
 ---
 
 # Git Push Workflow

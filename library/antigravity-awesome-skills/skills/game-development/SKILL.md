@@ -4,7 +4,7 @@ description: "Game development orchestrator. Routes to platform-specific skills 
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 risk: unknown
 source: community
-category: software-engineering
+category: multi-agent-orchestration
 ---
 
 # Game Development

@@ -5,7 +5,7 @@ argument-hint: "[topic] [slide-count]"
 metadata:
   author: claudekit
   version: "1.0.0"
-category: frontend-ui
+category: frontend-ui-components
 ---
 
 # Slides

@@ -10,7 +10,7 @@ description: >
   hiring workflow from job post through DocuSign envelope creation via browser.
   Does NOT screen or rank applicants.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: business-strategy-legal
 ---
 
 # Job Post Builder

@@ -13,7 +13,7 @@ description: ">-"
   hig-components-search, hig-components-controls, hig-components-dialogs.
 risk: unknown
 source: community
-category: software-engineering
+category: frontend-ui-components
 ---
 
 # Apple HIG: Menus and Buttons

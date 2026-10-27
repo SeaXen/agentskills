@@ -2,7 +2,7 @@
 name: synthesize-research
 description: Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations.
 argument-hint: "<research topic or question>"
-category: business-operations
+category: business-strategy-legal
 ---
 
 # Synthesize Research

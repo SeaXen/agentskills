@@ -1,7 +1,7 @@
 ---
 name: process-optimization
 description: Analyze and improve business processes. Trigger with "this process is slow", "how can we improve", "streamline this workflow", "too many steps", "bottleneck", or when the user describes an inefficient process they want to fix.
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # Process Optimization

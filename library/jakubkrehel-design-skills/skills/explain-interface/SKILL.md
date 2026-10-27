@@ -2,7 +2,7 @@
 name: explain-interface
 description: Explains how a website, a visual effect or an animation was built, from a live URL or a screenshot.
 disable-model-invocation: true
-category: frontend-ui
+category: frontend-motion-animation
 ---
 
 # Explain interface

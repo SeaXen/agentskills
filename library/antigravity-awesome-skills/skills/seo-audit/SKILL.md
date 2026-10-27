@@ -9,7 +9,7 @@ description: ">"
   schema-markup.
 risk: unknown
 source: community
-category: security-audit
+category: code-quality-refactoring
 ---
 
 # SEO Audit

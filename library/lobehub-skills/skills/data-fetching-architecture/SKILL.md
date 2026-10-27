@@ -2,7 +2,7 @@
 name: data-fetching-architecture
 description: 'Use for client APIs, SWR hooks, cache invalidation, async errors, useEffect migration, home first paint and persistent caches.'
 user-invocable: false
-category: software-engineering
+category: lobehub-ecosystem
 ---
 
 # LobeHub Data Fetching Architecture

@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Payments, Stripe, Projects, Provisioning, Infrastructure]
     related_skills: [stripe-link-cli, mpp-agent]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Stripe Projects Skill

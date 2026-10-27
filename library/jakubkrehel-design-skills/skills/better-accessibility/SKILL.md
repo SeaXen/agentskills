@@ -1,7 +1,7 @@
 ---
 name: better-accessibility
 description: Reviews and fixes keyboard and focus behavior, ARIA, accessible names, forms, screen-reader announcements, motion and zoom against WCAG 2.2.
-category: frontend-ui
+category: frontend-motion-animation
 ---
 
 # Accessibility

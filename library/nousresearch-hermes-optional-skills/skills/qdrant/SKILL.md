@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [RAG, Vector Search, Qdrant, Semantic Search, Embeddings, Similarity Search, HNSW, Production, Distributed]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Qdrant - Vector Similarity Search Engine

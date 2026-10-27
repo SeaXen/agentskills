@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Tokenization, HuggingFace, BPE, WordPiece, Unigram, Fast Tokenization, Rust, Custom Tokenizer, Alignment Tracking, Production]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # HuggingFace Tokenizers - Fast Tokenization for NLP

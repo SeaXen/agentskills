@@ -10,7 +10,7 @@ metadata:
     tags: [Education, Flashcards, Spaced Repetition, Learning, Quiz, YouTube]
     requires_toolsets: [terminal]
     category: productivity
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Memento Flashcards — Spaced-Repetition Flashcard Skill

@@ -3,7 +3,7 @@ name: wiki-qa
 description: "Answers questions about a code repository using source file analysis. Use when the user asks a question about how something works, wants to understand a component, or needs help navigating the code..."
 risk: unknown
 source: community
-category: testing-qa
+category: frontend-ui-components
 ---
 
 # Wiki Q&A

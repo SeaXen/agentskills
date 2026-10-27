@@ -12,7 +12,7 @@ triggers:
   - "zoomphonesms"
   - "phone crm integration"
   - "call element"
-category: business-operations
+category: security-compliance-auth
 ---
 
 # /build-zoom-phone-integration

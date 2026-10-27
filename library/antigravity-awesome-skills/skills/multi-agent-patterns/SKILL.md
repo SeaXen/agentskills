@@ -3,7 +3,7 @@ name: multi-agent-patterns
 description: "Master orchestrator, peer-to-peer, and hierarchical multi-agent architectures"
 source: "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/multi-agent-patterns"
 risk: safe
-category: ai-agents
+category: architecture-system-design
 ---
 
 ## When to Use This Skill

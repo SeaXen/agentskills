@@ -1,7 +1,7 @@
 ---
 name: response-compliance
 description: 'Use for OpenResponses/Response API compliance tests, endpoint schema failures and test runs.'
-category: testing-qa
+category: lobehub-ecosystem
 ---
 
 # OpenResponses Compliance Test

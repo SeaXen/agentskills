@@ -10,7 +10,7 @@ metadata:
     tags: [science, chemistry, pharmacology, research, health]
 prerequisites:
   commands: [curl, python]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Drug Discovery & Pharmaceutical Research

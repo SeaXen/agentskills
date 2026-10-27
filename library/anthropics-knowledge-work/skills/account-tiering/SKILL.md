@@ -1,7 +1,7 @@
 ---
 name: account-tiering
 description: Score and tier a list of accounts (or your full book) against ICP fit and engagement signals to prioritize where to spend time. Use when the user asks to "tier my accounts", "prioritize my book", "which accounts should I focus on", or "score these accounts".
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # Account Tiering

@@ -4,7 +4,7 @@ description: "Build call automation workflows with Azure Communication Services 
 package: com.azure:azure-communication-callautomation
 risk: unknown
 source: community
-category: design-creative
+category: programming-languages-core
 ---
 
 # Azure Communication Call Automation (Java)

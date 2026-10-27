@@ -1,7 +1,7 @@
 ---
 name: dev
 description: Development workflows for the playwright-cli repository. Use when the user asks about rolling dependencies, releasing, or other repo maintenance tasks.
-category: testing-qa
+category: testing-playwright-e2e
 ---
 
 # Development skills

@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [wizard, setup, onboarding, credentials, secrets, migration, bash, human-in-the-loop]
     related_skills: []
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Setup Wizard Generator

@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Infrastructure, Serverless, GPU, Cloud, Deployment, Modal]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Modal Serverless GPU

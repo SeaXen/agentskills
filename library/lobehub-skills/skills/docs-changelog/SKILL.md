@@ -1,7 +1,7 @@
 ---
 name: docs-changelog
 description: 'Use for EN/ZH website product changelogs in docs/changelog/*.mdx. Excludes GitHub Release notes.'
-category: software-engineering
+category: lobehub-ecosystem
 ---
 
 # Docs Changelog Writing Guide

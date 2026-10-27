@@ -12,7 +12,7 @@ metadata:
   tech-stack: SEO, social-media-platforms
 risk: unknown
 source: community
-category: design-creative
+category: audio-voice-sound
 ---
 
 # Content Creator

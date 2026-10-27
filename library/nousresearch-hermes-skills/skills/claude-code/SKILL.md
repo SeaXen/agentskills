@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Coding-Agent, Claude, Anthropic, Code-Review, Refactoring, PTY, Automation]
     related_skills: [codex, hermes-agent, opencode]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Claude Code — Hermes Orchestration Guide

@@ -5,7 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: software-engineering
+category: database-sql-relational
 ---
 
 # Gmail Automation via Rube MCP

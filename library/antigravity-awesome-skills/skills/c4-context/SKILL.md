@@ -10,7 +10,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: software-engineering
+category: architecture-system-design
 ---
 
 # C4 Context Level: System Context

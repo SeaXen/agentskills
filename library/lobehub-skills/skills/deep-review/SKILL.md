@@ -1,7 +1,7 @@
 ---
 name: deep-review
 description: 'Use for independent PR, diff or branch review; not explanations. Full multi-agent review requires an explicit deep-review request.'
-category: ai-agents
+category: lobehub-ecosystem
 ---
 
 # Deep Review

@@ -13,7 +13,7 @@ metadata:
     category: research
     related_skills: [arxiv, subagent-driven-development]
     requires_toolsets: [terminal, files]
-category: academic-research
+category: autonomous-agents-hermes
 ---
 
 # Research Paper Writing Pipeline

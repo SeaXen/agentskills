@@ -9,7 +9,7 @@ description: ">"
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
-category: software-engineering
+category: database-sql-relational
 ---
 
 ---

@@ -2,7 +2,7 @@
 name: ux-audit
 description: 'Audit a page / surface against the Designing Interfaces pattern language + the ux skill checklists, then land findings. Three layers — static (code), visual (screenshots), dynamic (automated user journey + perf). Use to run a repeatable, standards-based UX review of one screen.'
 argument-hint: '<page-or-surface> [--l1 | --l2 | --l3]'
-category: security-audit
+category: lobehub-ecosystem
 ---
 
 # UX Audit

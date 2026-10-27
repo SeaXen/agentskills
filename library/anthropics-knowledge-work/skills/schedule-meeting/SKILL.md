@@ -1,7 +1,7 @@
 ---
 name: schedule-meeting
 description: Find a time, draft the invite, and book the meeting on Google Calendar or Outlook - then log it to the CRM as an event on the right account and opportunity. Use when the user says "schedule a follow-up with [contact]", "book the demo with [account]", "find time with [name] next week", "send my Calendly link", or "get the QBR on the calendar".
-category: business-operations
+category: productivity-workspace-tools
 ---
 
 # Schedule Meeting

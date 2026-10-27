@@ -12,7 +12,7 @@ metadata:
     related_skills: [hermes-agent]
 prerequisites:
   pip: [honcho-ai]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Honcho Memory for Hermes

@@ -2,7 +2,7 @@
 name: i18n-localization
 description: Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL support.
 allowed-tools: Read, Glob, Grep
-category: software-engineering
+category: architecture-system-design
 ---
 
 # i18n & Localization

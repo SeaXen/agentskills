@@ -3,7 +3,7 @@ name: firecrawl-scraper
 description: "Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API"
 risk: unknown
 source: community
-category: backend-api
+category: backend-api-design
 ---
 
 # firecrawl-scraper

@@ -1,7 +1,7 @@
 ---
 name: oracledb
 description: Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring schema metadata, analyzing query performance, monitoring active sessions and resource consumption, and managing storage and object health.
-category: database-storage
+category: database-sql-relational
 ---
 
 ## Usage

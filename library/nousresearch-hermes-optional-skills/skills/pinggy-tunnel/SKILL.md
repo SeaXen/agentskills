@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [Pinggy, Tunnel, Networking, SSH, Webhook, Localhost]
     related_skills: []
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # Pinggy Tunnel Skill

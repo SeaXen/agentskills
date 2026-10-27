@@ -10,7 +10,7 @@ metadata:
   hermes:
     tags: [diagrams, svg, visualization, education, physics, chemistry, engineering]
     related_skills: [architecture-diagram, excalidraw]
-category: frontend-ui
+category: diagrams-technical-visuals
 ---
 
 # Concept Diagrams

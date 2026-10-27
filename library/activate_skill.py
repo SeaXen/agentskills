@@ -207,7 +207,7 @@ def list_categories():
         for c_slug, c_info in cdata["categories"].items():
             print(f" • {c_slug:22} | {c_info['count']:4}   | {c_info['title']}")
         print("=" * 70)
-        print(f"Total: {cdata['total_skills']} unique skills organized across {len(cdata['categories'])} categories.")
+        print(f"Total: {cdata.get('total_unique_skills', cdata.get('total_skills', 0))} unique skills organized across {len(cdata['categories'])} categories.")
         print(f"Direct browsing: {os.path.join(AGENTS_DIR, 'category')}\n")
     else:
         print("❌ categories_index.json not found.")
@@ -223,7 +223,7 @@ def list_category_skills(cat_name):
             return
         info = cdata["categories"][cat_name]
         print(f"\n📂 Category: {info['title']} ({len(info['skills'])} skills)")
-        print(f"Description: {info['description']}")
+        if 'description' in info: print(f"Description: {info['description']}")
         print("=" * 75)
         print(f"{'Skill Name':30} | {'Status':8} | {'Repository'}")
         print("-" * 75)

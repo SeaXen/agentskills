@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [RSS, Atom, Feeds, Monitoring, Research, Blogs, Releases]
     related_skills: [reddit-reading, competitor-news-monitor, grounded-citations, youtube-content, blogwatcher]
-category: software-engineering
+category: autonomous-agents-hermes
 ---
 
 # RSS Feeds Skill

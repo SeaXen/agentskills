@@ -15,7 +15,7 @@ description: >
   "how much cash is sitting in the warehouse," "what is not moving," or "draft
   a PO for my supplier."
 allowed-tools: Read, WebFetch
-category: business-operations
+category: code-quality-refactoring
 ---
 
 # Inventory Planner

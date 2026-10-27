@@ -1,7 +1,7 @@
 ---
 name: write-landing-docs
 description: 'Use for public LobeHub website documentation under docs/**, including self-hosting, deployment, migration, and configuration guides. Excludes product changelogs and source-code API docs.'
-category: backend-api
+category: lobehub-ecosystem
 ---
 
 # Write Landing Docs

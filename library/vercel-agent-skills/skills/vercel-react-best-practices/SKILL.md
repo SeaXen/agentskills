@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: vercel
   version: "1.0.0"
-category: devops-cloud
+category: devops-docker-cicd
 ---
 
 # Vercel React Best Practices

@@ -18,7 +18,7 @@ metadata:
   last-reviewed: "2026-09-30"
   upstream-version: "dnaerys 0.2.1; proto R1.20.0"
   skill-author: Dnaerys
-category: academic-research
+category: scientific-bio-data
 ---
 
 # OneKGPd: Individual-Level Queries over the 1000 Genomes Project

@@ -7,7 +7,7 @@ description:
   skipped validation, and unreviewed high-risk designs.
 risk: unknown
 source: community
-category: software-engineering
+category: multi-agent-orchestration
 ---
 
 # Design Orchestration (Meta-Skill)

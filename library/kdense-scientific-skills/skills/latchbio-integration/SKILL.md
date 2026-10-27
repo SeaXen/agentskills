@@ -8,7 +8,7 @@ metadata:
   version: "2.3"
   last-reviewed: "2026-09-30"
   skill-author: K-Dense Inc.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # LatchBio Integration

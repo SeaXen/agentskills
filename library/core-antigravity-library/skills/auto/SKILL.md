@@ -3,7 +3,7 @@ name: auto-project-intel
 description: Auto-generated project-specific knowledge repository containing learned conventions, project gotchas, bug fixes, and configuration patterns for the Managment workspace.
 allowed-tools: Read, Grep, Glob
 version: 1.0
-category: software-engineering
+category: architecture-system-design
 ---
 
 # Auto-Generated Project Intelligence

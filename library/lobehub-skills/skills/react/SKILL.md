@@ -2,7 +2,7 @@
 name: react
 description: 'Use for TSX components, UI libraries, styling, state locality, layout, render performance and memoization.'
 user-invocable: false
-category: frontend-ui
+category: lobehub-ecosystem
 ---
 
 # React Component Writing Guide

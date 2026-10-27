@@ -4,7 +4,7 @@ description: "Modern React patterns and principles. Hooks, composition, performa
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
-category: frontend-ui
+category: programming-languages-core
 ---
 
 # React Patterns

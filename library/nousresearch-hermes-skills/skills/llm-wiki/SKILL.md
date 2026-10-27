@@ -10,7 +10,7 @@ metadata:
     tags: [wiki, knowledge-base, research, notes, markdown, rag-alternative]
     category: research
     related_skills: [obsidian, arxiv]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # Karpathy's LLM Wiki

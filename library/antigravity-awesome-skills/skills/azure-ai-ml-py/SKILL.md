@@ -6,7 +6,7 @@ description: "|"
 package: azure-ai-ml
 risk: unknown
 source: community
-category: software-engineering
+category: data-engineering-ml
 ---
 
 # Azure Machine Learning SDK v2 for Python

@@ -7,7 +7,7 @@ metadata:
   version: "2.4"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-10-01"
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Scientific Hypothesis Generation

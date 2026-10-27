@@ -7,7 +7,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: frontend-ui
+category: security-compliance-auth
 ---
 
 ## Use this skill when

@@ -10,7 +10,7 @@ metadata:
   hermes:
     tags: [Abliteration, Uncensoring, Refusal-Removal, LLM, Weight-Projection, SVD, Mechanistic-Interpretability, HuggingFace, Model-Surgery]
     related_skills: [serving-llms-vllm, llama-cpp, huggingface-tokenizers]
-category: ai-agents
+category: autonomous-agents-hermes
 ---
 
 # OBLITERATUS Skill

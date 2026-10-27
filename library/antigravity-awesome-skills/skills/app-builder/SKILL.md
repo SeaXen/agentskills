@@ -4,7 +4,7 @@ description: "Main application building orchestrator. Creates full-stack applica
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash, Agent
 risk: unknown
 source: community
-category: frontend-ui
+category: fullstack-web-frameworks
 ---
 
 # App Builder - Application Building Orchestrator

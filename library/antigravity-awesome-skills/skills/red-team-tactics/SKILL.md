@@ -4,7 +4,7 @@ description: "Red team tactics principles based on MITRE ATT&CK. Attack phases, 
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
-category: security-audit
+category: security-vulnerability-audit
 ---
 
 # Red Team Tactics

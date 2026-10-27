@@ -14,7 +14,7 @@ description: >
   a KPI dashboard." Reach for it even when the owner names the metrics without
   using the word report.
 allowed-tools: Read, WebFetch
-category: business-operations
+category: frontend-ui-components
 ---
 
 # Report Builder

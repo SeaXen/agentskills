@@ -9,7 +9,7 @@ metadata:
   last-reviewed: "2026-10-01"
   tested-rdkit: "2026.03.6"
   skill-author: K-Dense Inc.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # RDKit Cheminformatics Toolkit

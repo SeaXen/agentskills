@@ -6,7 +6,7 @@ description: "|"
 package: azure-servicebus
 risk: unknown
 source: community
-category: software-engineering
+category: code-quality-refactoring
 ---
 
 # Azure Service Bus SDK for Python

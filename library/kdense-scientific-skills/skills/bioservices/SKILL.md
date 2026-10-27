@@ -13,7 +13,7 @@ metadata:
     - name: NCBI_EMAIL
       required: false
       description: Contact email for the EMBL-EBI hosted NCBI BLAST service.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # BioServices

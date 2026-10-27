@@ -3,7 +3,7 @@ name: nestjs-expert
 description: Enterprise NestJS backend architecture, dependency injection, modular systems, guards, interceptors, pipes, microservices, and testing. Use when building scalable NestJS services, structuring modules, configuring auth guards, or integrating Swagger OpenAPI.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
-category: testing-qa
+category: backend-api-design
 ---
 
 # NestJS Expert

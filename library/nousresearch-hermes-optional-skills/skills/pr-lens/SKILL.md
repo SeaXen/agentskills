@@ -11,7 +11,7 @@ metadata:
     category: software-development
     related_skills: []
     upstream: https://github.com/coldteadotai/pr-lens (pinned 0993b4d)
-category: software-engineering
+category: diagrams-technical-visuals
 ---
 
 # PR Lens Skill

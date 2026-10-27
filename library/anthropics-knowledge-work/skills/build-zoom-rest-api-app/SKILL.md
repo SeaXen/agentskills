@@ -26,7 +26,7 @@ triggers:
   - "webhook verification"
   - "crc"
   - "download_url"
-category: backend-api
+category: backend-api-design
 ---
 
 # /build-zoom-rest-api-app

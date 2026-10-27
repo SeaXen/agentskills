@@ -18,7 +18,7 @@ triggers:
   - oauth error 4733
   - oauth error 4735
   - redirect uri mismatch
-category: business-operations
+category: security-compliance-auth
 ---
 
 # Zoom OAuth

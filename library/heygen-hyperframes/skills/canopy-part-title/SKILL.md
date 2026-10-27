@@ -1,7 +1,7 @@
 ---
 name: canopy-part-title
 description: Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 12s, 11 variables.
-category: design-creative
+category: video-motion-production
 ---
 
 # Canopy Part Title

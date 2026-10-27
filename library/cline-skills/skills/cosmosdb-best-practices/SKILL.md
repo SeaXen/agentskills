@@ -9,7 +9,7 @@ description: |
 metadata:
   author: cosmosdb-agent-kit
   version: "1.0.0"
-category: database-storage
+category: database-nosql-serverless
 ---
 
 # Azure Cosmos DB Best Practices

@@ -1,7 +1,7 @@
 ---
 name: agent-testing-bot
 description: 'Use for real bot-channel acceptance in Discord, Slack, Telegram, WeChat/Weixin, Lark/Feishu, QQ or iMessage on macOS. Extends acceptance with native chat apps.'
-category: testing-qa
+category: lobehub-ecosystem
 ---
 
 # Agent Testing — Bot Channels (LobeHub project skill)

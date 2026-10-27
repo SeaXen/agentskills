@@ -1,7 +1,7 @@
 ---
 name: heterogeneous-agent
 description: 'Use for external-agent launchers and execution identity, Claude Code/Codex adapters, IPC, event mapping, sessions, persistence and tool-call chains.'
-category: ai-agents
+category: lobehub-ecosystem
 ---
 
 # Heterogeneous Agent Development

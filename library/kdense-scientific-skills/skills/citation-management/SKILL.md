@@ -22,7 +22,7 @@ metadata:
     - name: OPENALEX_API_KEY
       required: false
       description: Optional OpenAlex key for a higher account budget.
-category: academic-research
+category: scientific-bio-data
 ---
 
 # Citation Management
