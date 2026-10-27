@@ -22,6 +22,7 @@ metadata:
     - name: ZOTERO_LIBRARY_TYPE
       required: false
       description: 'Zotero library type: ''user'' or ''group'' (default ''user'').'
+category: academic-research
 ---
 
 # Pyzotero

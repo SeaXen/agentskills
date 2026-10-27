@@ -13,6 +13,7 @@ metadata:
     upstream:
       repo: tt-a1i/archify
       path: archify
+category: data-ml
 ---
 
 # Archify (upstream-maintained)

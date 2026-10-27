@@ -3,6 +3,7 @@ name: database-query-optimizer
 description: Advanced database query optimization, EXPLAIN ANALYZE interpretation, indexing strategies, and deadlock prevention. Use when debugging slow SQL queries, analyzing query plans, designing composite or partial indexes, or resolving database connection bottlenecks.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: database-storage
 ---
 
 # Database Query Optimizer

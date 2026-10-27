@@ -8,6 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   upstream-version: "5.0.1"
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # RELION single-particle refinement

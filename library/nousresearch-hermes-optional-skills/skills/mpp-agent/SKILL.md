@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Payments, MPP, HTTP-402, Tempo, Stripe]
     related_skills: [stripe-link-cli, stripe-projects]
+category: ai-agents
 ---
 
 # MPP Agent Skill

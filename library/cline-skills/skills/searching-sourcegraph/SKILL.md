@@ -1,6 +1,7 @@
 ---
 name: searching-sourcegraph
 description: Use when the user needs to search or navigate code with Sourcegraph MCP tools. Provides disciplined search workflows for finding implementations, understanding systems, debugging issues, fixing bugs, and reviewing code.
+category: software-engineering
 ---
 
 # Searching Sourcegraph

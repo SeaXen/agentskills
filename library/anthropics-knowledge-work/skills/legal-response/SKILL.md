@@ -2,6 +2,7 @@
 name: legal-response
 description: Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas.
 argument-hint: "[inquiry-type]"
+category: business-operations
 ---
 
 # /legal-response -- Generate Response from Templates

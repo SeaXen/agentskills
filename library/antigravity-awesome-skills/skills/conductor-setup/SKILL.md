@@ -6,6 +6,7 @@ metadata:
   argument-hint: "[--resume]"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Conductor Setup

@@ -3,6 +3,7 @@ name: expo-deployment
 description: "Deploy Expo apps to production"
 source: "https://github.com/expo/skills/tree/main/plugins/expo-deployment"
 risk: safe
+category: devops-cloud
 ---
 
 # Expo Deployment

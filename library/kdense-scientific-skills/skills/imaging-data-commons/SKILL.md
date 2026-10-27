@@ -11,6 +11,7 @@ metadata:
   idc-index: "0.12.5"
   idc-data-version: "v24"
   repository: https://github.com/ImagingDataCommons/imaging-data-commons-skill
+category: academic-research
 ---
 
 # Imaging Data Commons

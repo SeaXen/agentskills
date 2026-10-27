@@ -9,7 +9,7 @@ platforms: [linux, macos]
 metadata:
   hermes:
     tags: [vLLM, Inference Serving, PagedAttention, Continuous Batching, High Throughput, Production, OpenAI API, Quantization, Tensor Parallelism]
-
+category: backend-api
 ---
 
 # vLLM - High-Performance LLM Serving

@@ -13,6 +13,7 @@ metadata:
     - name: PARALLEL_API_KEY
       required: false
       description: Parallel API key; optional when CLI login credentials are available.
+category: academic-research
 ---
 
 # Parallel Web Toolkit

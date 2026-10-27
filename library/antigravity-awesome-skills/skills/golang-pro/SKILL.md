@@ -9,6 +9,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
+category: software-engineering
 ---
 You are a Go expert specializing in modern Go 1.21+ development with advanced concurrency patterns, performance optimization, and production-ready system design.
 

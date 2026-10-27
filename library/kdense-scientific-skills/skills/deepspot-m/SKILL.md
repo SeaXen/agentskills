@@ -8,6 +8,7 @@ metadata:
   version: "1.2"
   skill-author: Ratschlab, ETH Zurich
   last-reviewed: "2026-09-30"
+category: academic-research
 ---
 
 # DeepSpot-M

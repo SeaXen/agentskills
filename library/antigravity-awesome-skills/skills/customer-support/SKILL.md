@@ -9,6 +9,7 @@ metadata:
   model: haiku
 risk: unknown
 source: community
+category: business-operations
 ---
 
 ## Use this skill when

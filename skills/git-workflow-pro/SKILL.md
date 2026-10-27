@@ -3,6 +3,7 @@ name: git-workflow-pro
 description: Advanced Git operations, conventional commits, interactive rebase, bisect, worktrees, and release branch management. Use when restructuring messy commit history, performing interactive rebases, resolving complex merge conflicts, finding regressions with git bisect, or managing worktrees.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: software-engineering
 ---
 
 # Git Workflow Pro

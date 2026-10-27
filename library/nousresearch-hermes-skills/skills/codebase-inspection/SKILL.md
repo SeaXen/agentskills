@@ -11,6 +11,7 @@ metadata:
     related_skills: [github]
 prerequisites:
   commands: [pygount]
+category: software-engineering
 ---
 
 # Codebase Inspection with pygount

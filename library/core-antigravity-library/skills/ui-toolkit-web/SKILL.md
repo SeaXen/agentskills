@@ -10,6 +10,7 @@ triggers:
   - "zoom video ui toolkit"
   - "uitoolkit"
   - "ready-made zoom ui"
+category: design-creative
 ---
 
 # Zoom Video SDK UI Toolkit

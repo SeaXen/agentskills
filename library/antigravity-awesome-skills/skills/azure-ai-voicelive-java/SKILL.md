@@ -6,6 +6,7 @@ description: "|"
 package: com.azure:azure-ai-voicelive
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure AI VoiceLive SDK for Java

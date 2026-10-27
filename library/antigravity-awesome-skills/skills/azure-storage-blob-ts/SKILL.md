@@ -5,6 +5,7 @@ description: "|"
 package: "@azure/storage-blob"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # @azure/storage-blob (TypeScript/JavaScript)

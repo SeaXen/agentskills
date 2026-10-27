@@ -14,6 +14,7 @@ description: >
   closed, now do the 1099s," "run the quarterly estimate off the closed
   numbers," or "just the contractor W-9 list."
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Tax Season Organizer

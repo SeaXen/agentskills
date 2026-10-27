@@ -2,6 +2,7 @@
 name: upstash-workflow
 description: 'Use for Upstash Workflow/QStash handlers, triggers, durable steps and async fan-out.'
 user-invocable: false
+category: software-engineering
 ---
 
 # Upstash Workflow Implementation Guide

@@ -9,6 +9,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: frontend-ui
 ---
 
 # C4 Component Level: [Component Name]

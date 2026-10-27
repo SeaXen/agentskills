@@ -12,6 +12,7 @@ metadata:
     category: creative
     homepage: https://github.com/danilo-znamerovszkij/draw-your-font
     related_skills: [pixel-art]
+category: frontend-ui
 ---
 
 # draw-your-font

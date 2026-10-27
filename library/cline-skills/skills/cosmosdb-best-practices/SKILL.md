@@ -9,6 +9,7 @@ description: |
 metadata:
   author: cosmosdb-agent-kit
   version: "1.0.0"
+category: database-storage
 ---
 
 # Azure Cosmos DB Best Practices

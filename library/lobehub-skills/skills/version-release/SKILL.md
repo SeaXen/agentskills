@@ -3,6 +3,7 @@ name: version-release
 description: 'Version release workflow — release process and GitHub Release notes (not docs/changelog pages).'
 disable-model-invocation: true
 argument-hint: '[minor|patch] [version?]'
+category: software-engineering
 ---
 
 # Version Release Workflow

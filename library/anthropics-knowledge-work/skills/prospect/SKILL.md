@@ -3,6 +3,7 @@ name: prospect
 description: "Full ICP-to-leads pipeline. Describe your ideal customer in plain English and get a ranked table of enriched decision-maker leads with emails and phone numbers."
 user-invocable: true
 argument-hint: "[describe your ideal customer]"
+category: business-operations
 ---
 
 # Prospect

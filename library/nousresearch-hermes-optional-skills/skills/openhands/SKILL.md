@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Coding-Agent, OpenHands, Model-Agnostic, LiteLLM]
     related_skills: [claude-code, codex, opencode, hermes-agent]
+category: ai-agents
 ---
 
 # OpenHands CLI

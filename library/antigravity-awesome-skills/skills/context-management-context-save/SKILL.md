@@ -3,6 +3,7 @@ name: context-management-context-save
 description: "Use when working with context management context save"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Context Save Tool: Intelligent Context Management Specialist

@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [infographic, visual-summary, creative, image-generation]
     homepage: https://github.com/JimLiu/baoyu-skills#baoyu-infographic
+category: software-engineering
 ---
 
 # Infographic Generator

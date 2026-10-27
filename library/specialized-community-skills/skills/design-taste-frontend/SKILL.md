@@ -11,6 +11,7 @@ description: >-
   "AI-made", sloppy, or asks to make it look designed, premium, award-level or less like every other
   site. Also for app screens: dashboards, admin and analytics views, settings, inboxes and other screens
   people work in, with their own run and rules.
+category: frontend-ui
 ---
 
 # tasteskill v2

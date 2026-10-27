@@ -8,6 +8,7 @@ description: >
   delegation. Model-agnostic reliability runtime for coding agents --
   measured, not claimed.
 license: MIT
+category: software-engineering
 ---
 
 # GRAVITAS -- Engineering Reliability Runtime

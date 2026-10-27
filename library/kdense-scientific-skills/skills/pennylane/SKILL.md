@@ -9,6 +9,7 @@ metadata:
   skill-author: K-Dense Inc.
   last-reviewed: "2026-10-01"
   upstream-version: "0.45.1"
+category: academic-research
 ---
 
 # PennyLane

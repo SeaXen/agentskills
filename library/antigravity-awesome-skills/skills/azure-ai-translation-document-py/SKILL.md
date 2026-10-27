@@ -6,6 +6,7 @@ description: "|"
 package: azure-ai-translation-document
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure AI Document Translation SDK for Python

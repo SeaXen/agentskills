@@ -14,6 +14,7 @@ description: >
   integration. Do NOT use this for the open-source Python library
   (Agent, Browser, Tools config) — use the open-source skill instead.
 allowed-tools: Read
+category: testing-qa
 ---
 
 # Browser Use Cloud Reference

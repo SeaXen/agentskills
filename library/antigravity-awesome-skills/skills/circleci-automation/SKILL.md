@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: testing-qa
 ---
 
 # CircleCI Automation via Rube MCP

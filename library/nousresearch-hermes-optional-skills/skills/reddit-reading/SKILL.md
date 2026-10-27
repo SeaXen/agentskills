@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Reddit, Social Media, Research, Discussions, Community]
     related_skills: [rss-feeds, grounded-citations, blocked-page-recovery, xurl]
+category: software-engineering
 ---
 
 # Reddit Reading Skill

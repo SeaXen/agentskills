@@ -3,6 +3,7 @@ name: go-playwright
 description: "Expert capability for robust, stealthy, and efficient browser automation using Playwright Go."
 risk: safe
 source: https://github.com/playwright-community/playwright-go
+category: testing-qa
 ---
 
 # Playwright Go Automation Expert

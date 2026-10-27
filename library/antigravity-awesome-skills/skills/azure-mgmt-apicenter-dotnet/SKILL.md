@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.ApiCenter
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.ApiCenter (.NET)

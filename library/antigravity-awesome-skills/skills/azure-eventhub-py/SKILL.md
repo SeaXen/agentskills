@@ -6,6 +6,7 @@ description: "|"
 package: azure-eventhub
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Event Hubs SDK for Python

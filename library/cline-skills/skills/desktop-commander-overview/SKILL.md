@@ -3,6 +3,7 @@ name: desktop-commander-overview
 description: Use for Desktop Commander MCP capabilities — persistent shells and REPLs, long-running processes, filesystem beyond the workspace, structured files (.xlsx, .docx, .pdf, images) and large local data files such as CSVs, ripgrep search at scale, SSH, or cross-turn state.
 version: 0.1.0
 audience: agent
+category: software-engineering
 ---
 
 # Desktop Commander MCP

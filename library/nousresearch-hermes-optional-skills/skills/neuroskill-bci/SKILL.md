@@ -10,6 +10,7 @@ metadata:
     tags: [BCI, neurofeedback, health, focus, EEG, cognitive-state, biometrics, neuroskill]
     category: health
     related_skills: []
+category: software-engineering
 ---
 
 # NeuroSkill BCI Integration

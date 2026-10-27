@@ -1,6 +1,7 @@
 ---
 name: better-ui
 description: Polishes surfaces, icons and motion with exact values for border radius, optical alignment, shadows, icon states and animation.
+category: frontend-ui
 ---
 
 # UI polish

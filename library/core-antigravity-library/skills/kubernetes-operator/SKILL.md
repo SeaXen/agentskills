@@ -3,6 +3,7 @@ name: kubernetes-operator
 description: Kubernetes orchestration, Helm chart authoring, production manifest design, and cluster debugging. Use when writing k8s manifests, configuring Helm charts, troubleshooting CrashLoopBackOff, defining ingress/services, or setting up pod autoscaling.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: devops-cloud
 ---
 
 # Kubernetes Operator

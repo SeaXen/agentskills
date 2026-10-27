@@ -6,6 +6,7 @@ description: "|"
 package: azure-ai-contentunderstanding
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure AI Content Understanding SDK for Python

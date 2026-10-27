@@ -8,6 +8,7 @@ metadata:
   model: haiku
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 ## Use this skill when

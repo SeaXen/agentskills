@@ -1,6 +1,7 @@
 ---
 name: debug-frontend-with-browser
 description: 'Use for intermittent UI, stale state, ordering, navigation or browser-only bugs. Extends acceptance with boundary tracing and regression diagnosis.'
+category: frontend-ui
 ---
 
 # Debug Frontend with Browser

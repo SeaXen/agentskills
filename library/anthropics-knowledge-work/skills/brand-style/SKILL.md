@@ -13,6 +13,7 @@ description: >
   docs instead," or anything about the look or format of what the plugin
   hands them.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Brand Style

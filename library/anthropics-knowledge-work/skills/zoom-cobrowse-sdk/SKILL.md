@@ -9,6 +9,7 @@ triggers:
   - "agent assist"
   - "customer support screen share"
   - "zoom cobrowse"
+category: business-operations
 ---
 
 # Zoom Cobrowse SDK - Web Development

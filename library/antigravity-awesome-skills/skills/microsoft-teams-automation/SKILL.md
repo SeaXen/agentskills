@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Microsoft Teams Automation via Rube MCP

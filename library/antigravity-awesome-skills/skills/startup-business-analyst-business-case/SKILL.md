@@ -5,6 +5,7 @@ description: "Generate comprehensive investor-ready business case document with"
 allowed-tools: Read Write Edit Glob Grep Bash WebSearch WebFetch
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Business Case Generator

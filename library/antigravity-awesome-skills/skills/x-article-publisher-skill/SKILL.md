@@ -3,6 +3,7 @@ name: x-article-publisher-skill
 description: "Publish articles to X/Twitter"
 source: "https://github.com/wshuyi/x-article-publisher-skill"
 risk: safe
+category: software-engineering
 ---
 
 # X Article Publisher Skill

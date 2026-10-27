@@ -2,6 +2,7 @@
 name: project-overview
 description: 'Use for the OSS repository map, code-layer lookup, apps/packages/src ownership and business stubs.'
 user-invocable: false
+category: software-engineering
 ---
 
 # LobeHub Project Overview

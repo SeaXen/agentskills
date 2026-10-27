@@ -12,6 +12,7 @@ metadata:
     requires_toolsets: [kanban]
 environments:
   - kanban
+category: software-engineering
 ---
 
 # SDLC Review Skill

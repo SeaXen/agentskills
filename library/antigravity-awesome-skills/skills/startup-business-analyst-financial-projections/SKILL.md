@@ -5,6 +5,7 @@ description: "Create detailed 3-5 year financial model with revenue, costs, cash
 allowed-tools: Read Write Edit Glob Grep Bash WebSearch WebFetch
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Financial Projections

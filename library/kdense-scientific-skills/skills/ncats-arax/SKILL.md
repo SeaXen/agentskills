@@ -8,6 +8,7 @@ metadata:
   version: "1.2"
   last-reviewed: "2026-09-30"
   skill-author: neuroepithelial
+category: academic-research
 ---
 
 # NCATS ARAX

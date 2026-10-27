@@ -8,6 +8,7 @@ metadata:
   last-reviewed: "2026-09-30"
   upstream-version: "0.99.2"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # Pi Agent

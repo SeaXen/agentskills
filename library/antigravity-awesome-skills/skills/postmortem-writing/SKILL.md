@@ -3,6 +3,7 @@ name: postmortem-writing
 description: "Write effective blameless postmortems with root cause analysis, timelines, and action items. Use when conducting incident reviews, writing postmortem documents, or improving incident response proce..."
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Postmortem Writing

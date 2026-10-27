@@ -1,6 +1,7 @@
 ---
 name: finishing-a-development-branch
 description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work
+category: software-engineering
 ---
 
 # Finishing a Development Branch

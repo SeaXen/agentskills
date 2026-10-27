@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Coding-Agent, Antigravity, CLI, Auth, Plugins, Sandbox]
     related_skills: [grok, codex, claude-code, hermes-agent]
+category: ai-agents
 ---
 
 # Antigravity CLI (`agy`)

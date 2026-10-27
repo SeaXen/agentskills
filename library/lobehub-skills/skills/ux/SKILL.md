@@ -2,6 +2,7 @@
 name: ux
 description: 'Use for product design principles and UX checks when designing or implementing user-facing flows.'
 user-invocable: false
+category: software-engineering
 ---
 
 # UX — Design Values & Execution Checklists

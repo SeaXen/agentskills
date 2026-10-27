@@ -3,6 +3,7 @@ name: debugging-toolkit-smart-debug
 description: "Use when working with debugging toolkit smart debug"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 ## Use this skill when

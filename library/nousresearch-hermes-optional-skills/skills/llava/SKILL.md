@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [LLaVA, Vision-Language, Multimodal, Visual Question Answering, Image Chat, CLIP, Vicuna, Conversational AI, Instruction Tuning, VQA]
-
+category: software-engineering
 ---
 
 # LLaVA - Large Language and Vision Assistant

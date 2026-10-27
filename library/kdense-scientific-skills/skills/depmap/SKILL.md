@@ -7,6 +7,7 @@ metadata:
   version: "1.2"
   skill-author: Kuan-lin Huang
   last-reviewed: "2026-09-30"
+category: academic-research
 ---
 
 # DepMap — Cancer Dependency Map

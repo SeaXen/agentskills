@@ -9,7 +9,7 @@ platforms: [linux, macos]
 metadata:
   hermes:
     tags: [Fine-Tuning, Axolotl, LLM, LoRA, QLoRA, DPO, KTO, ORPO, GRPO, YAML, HuggingFace, DeepSpeed, Multimodal]
-
+category: ai-agents
 ---
 
 # Axolotl Skill

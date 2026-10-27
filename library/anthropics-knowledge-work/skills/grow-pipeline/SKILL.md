@@ -2,6 +2,7 @@
 name: grow-pipeline
 description: Fills the funnel end to end without the owner babysitting it — reads the market and the competition for context, builds a ranked list of named prospects with a reason attached to each, writes personalized outreach in the owner's own voice, and logs every touch to the CRM. Chains lead-finder, outreach-composer, and crm-autopilot behind a web-native market read, with an owner approval at every handoff. Use this whenever the owner wants more pipeline rather than one specific piece of it, including phrasings like "I need more leads," "fill my funnel," "who should I be calling and what do I say," "find me customers like my best ones and reach out," "build me a prospect list and write the emails," or "sales has gone quiet, get something moving." Reach for it when the owner describes wanting new business generally rather than asking for a list or a single email.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 Run the pipeline-building chain: a web-native market read for context, then `lead-finder` for the list, `outreach-composer` for the copy, and `crm-autopilot` for the record. Each skill keeps its own gates, and this command does not loosen any of them.

@@ -2,6 +2,7 @@
 name: alint-ruleset
 description: "Maintain LobeHub's model-backed alint rule set in packages/alint: author a rule, calibrate its false positives against real source, decide its severity (warn vs error) from real PR data, and track its token cost. Use for adding or narrowing an alint rule, classifying findings as true/false positives, promoting or demoting a rule, or running the weekly rule-set review."
 argument-hint: "add <rule> | calibrate <rule> | promote | weekly"
+category: software-engineering
 ---
 
 # alint rule set

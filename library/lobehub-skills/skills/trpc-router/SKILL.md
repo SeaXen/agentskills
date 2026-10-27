@@ -2,6 +2,7 @@
 name: trpc-router
 description: 'Use for server TRPC routers, procedures and API endpoints in apps/server/src/routers.'
 user-invocable: false
+category: backend-api
 ---
 
 # TRPC Router Guide

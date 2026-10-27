@@ -6,6 +6,7 @@ description: "|"
 package: azure_messaging_eventhubs
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Event Hubs SDK for Rust

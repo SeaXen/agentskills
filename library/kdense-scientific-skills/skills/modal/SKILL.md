@@ -16,6 +16,7 @@ metadata:
     - name: MODAL_TOKEN_SECRET
       required: false
       description: Modal token secret.
+category: academic-research
 ---
 
 # Modal

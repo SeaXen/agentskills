@@ -3,6 +3,7 @@ name: typescript-expert
 description: Modern TypeScript 5+ type system architecture, strict mode standards, type-level programming, generics, and performance optimization. Use when authoring complex types, eliminating type assertions, configuring strict tsconfigs, or debugging compile-time errors.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: software-engineering
 ---
 
 # TypeScript Expert

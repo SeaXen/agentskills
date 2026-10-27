@@ -9,6 +9,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "0.6.2"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # Pymoo - Multi-Objective Optimization in Python

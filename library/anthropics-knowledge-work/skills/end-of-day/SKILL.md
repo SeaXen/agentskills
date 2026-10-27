@@ -1,6 +1,7 @@
 ---
 name: end-of-day
 description: The closing beat of the day - every call processed or explicitly skipped, the CRM brought current, commitments captured, and tomorrow's top three teed up. Use when the user says "end of day", "close out my day", "process today's calls", "EOD", or on an evening schedule. Companion bookend to daily-briefing.
+category: business-operations
 ---
 
 # End of Day

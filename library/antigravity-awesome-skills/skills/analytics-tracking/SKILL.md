@@ -8,6 +8,7 @@ description: ">"
   not just firing events.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Analytics Tracking & Measurement Strategy

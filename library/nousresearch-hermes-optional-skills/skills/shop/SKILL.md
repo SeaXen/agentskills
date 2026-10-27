@@ -13,6 +13,7 @@ metadata:
     related_skills: [shopify, maps]
     homepage: https://shop.app
     upstream: https://shop.app/SKILL.md
+category: software-engineering
 ---
 
 # Shop CLI Skill

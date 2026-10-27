@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.Sql
 risk: unknown
 source: community
+category: database-storage
 ---
 
 # Azure.ResourceManager.Sql (.NET)

@@ -1,6 +1,7 @@
 ---
 name: builtin-tool
 description: 'Use for LobeHub builtin agent tools: manifests, executors, runtimes, inspectors, renders, streaming and intervention.'
+category: ai-agents
 ---
 
 # Builtin Tool Authoring Guide

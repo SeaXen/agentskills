@@ -11,6 +11,7 @@ metadata:
     category: creative
     related_skills: [popular-web-designs, design-md, p5js]
     upstream: https://github.com/agiwhitelist/auteur (pinned 9bca227d)
+category: frontend-ui
 ---
 
 # Auteur Skill

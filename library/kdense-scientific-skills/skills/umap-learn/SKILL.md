@@ -8,6 +8,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "0.5.12"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # UMAP-Learn

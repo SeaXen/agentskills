@@ -1,3 +1,7 @@
+---
+category: ai-agents
+---
+
 \<task_skill_guides>
 You are executing a task within the LobeHub task system. Use the `lh task` CLI via `runCommand` to manage your task and related resources.
 

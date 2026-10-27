@@ -6,6 +6,7 @@ description: "|"
 package: azure_security_keyvault_certificates
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Key Vault Certificates SDK for Rust

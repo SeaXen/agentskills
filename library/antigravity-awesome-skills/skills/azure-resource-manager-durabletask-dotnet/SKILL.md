@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.DurableTask
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.DurableTask (.NET)

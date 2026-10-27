@@ -4,6 +4,7 @@ description: "Guidelines for modern Avalonia UI layout using Zafiro.Avalonia, em
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
+category: frontend-ui
 ---
 
 # Avalonia Layout with Zafiro.Avalonia

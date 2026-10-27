@@ -13,6 +13,7 @@ description: ">"
   and activity ring data integration.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Apple HIG: Status Components

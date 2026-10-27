@@ -15,6 +15,7 @@ description: ">"
   hig-technologies for VoiceOver and Siri.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Apple HIG: Inputs

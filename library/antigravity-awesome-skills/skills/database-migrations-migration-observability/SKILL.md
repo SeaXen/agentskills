@@ -7,6 +7,7 @@ metadata:
   tags: database, cdc, debezium, kafka, prometheus, grafana, monitoring
 risk: unknown
 source: community
+category: database-storage
 ---
 
 # Migration Observability and Real-time Monitoring

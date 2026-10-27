@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.ApiManagement
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.ApiManagement (.NET)

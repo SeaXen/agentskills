@@ -5,6 +5,7 @@ description: "|"
 package: Azure.AI.Projects
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.AI.Projects (.NET)

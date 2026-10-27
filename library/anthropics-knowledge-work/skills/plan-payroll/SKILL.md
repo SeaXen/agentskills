@@ -2,6 +2,7 @@
 name: plan-payroll
 description: Runs the payroll-confidence chain end to end — forecasts cash across the payroll window with cash-flow-snapshot, ranks and drafts overdue-invoice reminders with invoice-chase to close any gap, then assembles timesheets, flags every anomaly, and stages the run with payroll-prep. On Gusto the run is staged for the owner to submit; on QuickBooks Payroll, or with no payroll system, the last step is a validated run sheet the owner keys in. This chain never presses the payroll button. Builds on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), with Gmail or M365, PayPal, Square, Stripe, and either Gusto or QuickBooks Payroll adding detail, and falls back to CSV and timesheet uploads. Use it whenever payroll is the worry, including "can I make payroll," "payroll is due Friday," "plan payroll," "will I have enough to pay the crew," or "I need to run payroll but money is tight." Accepts optional horizon and payroll-date arguments.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Plan Payroll

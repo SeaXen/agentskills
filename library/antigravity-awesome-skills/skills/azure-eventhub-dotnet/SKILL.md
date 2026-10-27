@@ -5,6 +5,7 @@ description: "|"
 package: Azure.Messaging.EventHubs
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.Messaging.EventHubs (.NET)

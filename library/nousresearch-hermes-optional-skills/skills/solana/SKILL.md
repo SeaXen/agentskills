@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Solana, Blockchain, Crypto, Web3, RPC, DeFi, NFT]
     related_skills: []
+category: web3-crypto
 ---
 
 # Solana Blockchain Skill

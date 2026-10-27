@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.ApplicationInsights
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.ApplicationInsights (.NET)

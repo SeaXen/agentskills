@@ -3,6 +3,7 @@ name: compaction
 description: >-
   Triggers on-demand context compaction: persists critical state into durable artifacts,
   flushes obsolete transient turn history, and signals the runtime to compact context.
+category: core-antigravity
 ---
 
 # On-Demand Context Compaction Protocol

@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [questionnaire, decision, async, stakeholder, discovery, communication]
     related_skills: [meeting-action-items, document-to-action-items]
+category: software-engineering
 ---
 
 # Decision Questionnaire

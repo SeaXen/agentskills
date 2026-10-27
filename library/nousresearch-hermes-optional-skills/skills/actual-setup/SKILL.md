@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [actual, actual-inc, provider, local-inference, relay, gguf, setup]
     category: devops
+category: ai-agents
 ---
 
 # Actual Computer Setup Skill

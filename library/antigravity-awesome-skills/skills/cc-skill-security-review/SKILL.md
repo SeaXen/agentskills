@@ -5,6 +5,7 @@ author: affaan-m
 version: "1.0"
 risk: unknown
 source: community
+category: security-audit
 ---
 
 # Security Review Skill

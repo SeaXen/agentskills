@@ -16,6 +16,7 @@ metadata:
       - name: OPEN_NOTEBOOK_PASSWORD
         required: false
         description: Instance password used as the Bearer token when auth is enabled.
+category: academic-research
 ---
 
 # Open Notebook

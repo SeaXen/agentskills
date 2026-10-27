@@ -1,6 +1,7 @@
 ---
 name: split-large-file
 description: 'Refactor a source file over 1200 lines into a directory of cohesive modules without changing behavior, test-first. Use when asked to split, decompose, or shrink a large file (拆分大文件, 拆文件, 重构大文件); with no file given, pick one.'
+category: testing-qa
 ---
 
 # Split a Large File

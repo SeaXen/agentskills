@@ -1,6 +1,7 @@
 ---
 name: "playwright-interactive"
 description: "Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging."
+category: testing-qa
 ---
 
 # Playwright Interactive Skill

@@ -12,6 +12,7 @@ metadata:
     tags: [here.now, herenow, publish, deploy, hosting, static-site, web, share, URL, drive, storage]
     homepage: https://here.now
     requires_toolsets: [terminal]
+category: devops-cloud
 ---
 
 # here.now

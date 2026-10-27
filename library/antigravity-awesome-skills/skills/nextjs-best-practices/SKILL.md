@@ -4,6 +4,7 @@ description: "Next.js App Router principles. Server Components, data fetching, r
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
+category: frontend-ui
 ---
 
 # Next.js Best Practices

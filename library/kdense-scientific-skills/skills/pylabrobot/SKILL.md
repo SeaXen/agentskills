@@ -9,6 +9,7 @@ metadata:
   skill-author: "K-Dense Inc."
   pylabrobot-version: "0.2.2"
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # PyLabRobot

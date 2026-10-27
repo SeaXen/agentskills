@@ -1,6 +1,7 @@
 ---
 name: build-design
 description: Builds UI from a Figma file or a design image so it matches the design, using the project's existing tokens and components.
+category: design-creative
 ---
 
 # Build design

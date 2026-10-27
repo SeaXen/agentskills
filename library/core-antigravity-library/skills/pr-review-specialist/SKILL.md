@@ -3,6 +3,7 @@ name: pr-review-specialist
 description: High-impact Pull Request (PR) reviews, automated diff analysis, severity calibration, and security flagging. Use when reviewing PRs, analyzing diffs, providing structured code review feedback, or checking for introduced regressions.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: security-audit
 ---
 
 # Pull Request Review Specialist

@@ -8,6 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   upstream-version: "26.9.0.0"
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # PyBaMM battery experiments

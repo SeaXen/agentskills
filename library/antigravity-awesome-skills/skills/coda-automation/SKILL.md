@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Coda Automation via Rube MCP

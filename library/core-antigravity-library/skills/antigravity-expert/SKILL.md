@@ -3,6 +3,7 @@ name: antigravity-expert
 description: Complete mastery of Google Antigravity platform architecture. Use when authoring or debugging Antigravity skills, hierarchical rules (GEMINI.md, AGENTS.md), slash command workflows, subagent orchestration, lifecycle hooks, and Model Context Protocol (MCP) integrations.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: core-antigravity
 ---
 
 # Google Antigravity Expert

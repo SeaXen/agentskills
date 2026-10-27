@@ -1,6 +1,7 @@
 ---
 name: crm-hygiene-check
 description: Read-only audit of your CRM opportunities for missing fields, stale dates, and stage mismatches - outputs a fix checklist to apply by hand or through update-opportunity. Use when the user asks "check my CRM hygiene", "check my Salesforce or HubSpot data", "clean up my CRM", "audit my opps", "what's missing in the CRM", or "clean up my pipeline".
+category: security-audit
 ---
 
 # CRM Hygiene Check

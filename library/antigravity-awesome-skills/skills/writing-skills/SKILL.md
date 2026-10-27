@@ -10,6 +10,7 @@ metadata:
     tier-2-expanded, tier-3-platform
 risk: unknown
 source: community
+category: ai-agents
 ---
 
 # Writing Skills (Excellence)

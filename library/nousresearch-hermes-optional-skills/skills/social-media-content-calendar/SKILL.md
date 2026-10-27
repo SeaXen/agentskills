@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Social-Media, Content-Calendar, Campaigns, Publishing]
     related_skills: [xurl, humanizer]
+category: productivity-workflow
 ---
 
 # Social Media Content Calendar

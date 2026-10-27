@@ -8,6 +8,7 @@ metadata:
   skill-author: K-Dense Inc. (PrimeKG original from Harvard MIMS)
   last-reviewed: "2026-10-01"
   tested-pandas: "3.0.6"
+category: academic-research
 ---
 
 # PrimeKG Knowledge Graph

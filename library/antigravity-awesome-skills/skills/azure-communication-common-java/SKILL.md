@@ -4,6 +4,7 @@ description: "Azure Communication Services common utilities for Java. Use when w
 package: com.azure:azure-communication-common
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Communication Common (Java)

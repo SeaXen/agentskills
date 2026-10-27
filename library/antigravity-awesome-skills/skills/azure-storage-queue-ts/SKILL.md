@@ -5,6 +5,7 @@ description: "|"
 package: "@azure/storage-queue"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # @azure/storage-queue (TypeScript/JavaScript)

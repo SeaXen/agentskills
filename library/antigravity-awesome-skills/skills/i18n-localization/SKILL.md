@@ -4,6 +4,7 @@ description: "Internationalization and localization patterns. Detecting hardcode
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # i18n & Localization

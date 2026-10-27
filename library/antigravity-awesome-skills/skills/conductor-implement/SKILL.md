@@ -5,6 +5,7 @@ metadata:
   argument-hint: "[track-id] [--task X.Y] [--phase N]"
 risk: unknown
 source: community
+category: testing-qa
 ---
 
 # Implement Track

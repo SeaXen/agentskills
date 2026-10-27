@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [ASCII, Video, FFmpeg, Terminal-Art]
     related_skills: []
+category: design-creative
 ---
 
 # ASCII Video Production Pipeline

@@ -7,6 +7,7 @@ description: "|"
 package: Azure.ResourceManager.ArizeAIObservabilityEval
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.ArizeAIObservabilityEval

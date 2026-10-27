@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [yuanbao, mention, at, group, members, 元宝, 派, 艾特]
     related_skills: []
+category: software-engineering
 ---
 
 # Yuanbao Group Interaction

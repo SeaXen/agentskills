@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Documents, OCR, Action-Items, Deadlines, Extraction]
     related_skills: [pdf, pdf, docx, notion]
+category: software-engineering
 ---
 
 # Document to Action Items

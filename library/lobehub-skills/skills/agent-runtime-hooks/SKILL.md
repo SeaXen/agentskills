@@ -2,6 +2,7 @@
 name: agent-runtime-hooks
 description: 'Use for agent lifecycle hooks, tool mocks, intervention, sub-agent calls and context compression.'
 user-invocable: false
+category: ai-agents
 ---
 
 # Agent Runtime Hooks

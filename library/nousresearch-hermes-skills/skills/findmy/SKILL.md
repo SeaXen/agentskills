@@ -8,6 +8,7 @@ platforms: [macos]
 metadata:
   hermes:
     tags: [FindMy, AirTag, location, tracking, macOS, Apple]
+category: software-engineering
 ---
 
 # Find My (Apple)

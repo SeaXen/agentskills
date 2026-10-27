@@ -2,6 +2,7 @@
 name: agent-tracing
 description: 'Use for agent traces by operation ID (拉线上 tracing): failed tools, arguments/results, available tools, execution location, LLM calls and context.'
 user-invocable: false
+category: ai-agents
 ---
 
 # Agent Tracing CLI Guide

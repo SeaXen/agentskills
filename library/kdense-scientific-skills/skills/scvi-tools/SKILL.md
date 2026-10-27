@@ -8,6 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   last-reviewed: "2026-10-01"
   upstream-version: "1.5.1"
+category: academic-research
 ---
 
 # scvi-tools

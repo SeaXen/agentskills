@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # ConvertKit (Kit) Automation via Rube MCP

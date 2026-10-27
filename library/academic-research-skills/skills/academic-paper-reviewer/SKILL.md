@@ -10,6 +10,7 @@ metadata:
   related_skills:
     - academic-paper
     - academic-pipeline
+category: academic-research
 ---
 
 # Academic Paper Reviewer v1.11.1 — Multi-Perspective Academic Paper Review Agent Team

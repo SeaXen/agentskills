@@ -5,6 +5,7 @@ metadata:
   argument-hint: "[track-id | track-id:phase | track-id:task]"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Revert Track

@@ -2,6 +2,7 @@
 name: pr
 description: "Create a PR for the current branch (targets `canary` by default), including splitting one cross-layer branch into ordered stacked PRs so a lower layer (db / shared package / server TRPC) merges before its callers (desktop / CLI / UI). Use when the user asks to create / submit a PR, or to split a branch because clients call a server contract that isn't on the trunk yet. Triggers on 'pr', 'create pr', 'submit pr', 'open a PR', 'pull request', 'split this PR', 'stacked PR', 'backend should merge first', '提 PR', '提个 PR', '新建 PR', '拆 PR', '后端先合', '分层合并'."
 user-invocable: true
+category: business-operations
 ---
 
 # Create Pull Request

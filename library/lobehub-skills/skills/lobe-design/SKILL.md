@@ -17,6 +17,7 @@ description: >
   bootstrap checks; in-product UI copy by product profile (consumer / SaaS / admin / developer), with
   zh-CN typography. Trigger on lobe-design, lobe-ui, lobehub, LobeChat UI, 控制台, 后台, 看板, 落地页, 官网,
   截图还原, 设计稿, 设计系统统一, 打磨, polish, refine, 审查, 上线前检查, 组件选择, 设计准则, AI 味, 文案, 措辞, 中英文空格, 初始化, AGENTS.md.
+category: frontend-ui
 ---
 
 # lobe-design

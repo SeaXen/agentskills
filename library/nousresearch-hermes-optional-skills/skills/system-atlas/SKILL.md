@@ -11,6 +11,7 @@ metadata:
     category: creative
     related_skills: [architecture-diagram, excalidraw]
     upstream: https://github.com/inkboard/system-atlas (pinned f7005f2)
+category: frontend-ui
 ---
 
 # System Atlas Skill

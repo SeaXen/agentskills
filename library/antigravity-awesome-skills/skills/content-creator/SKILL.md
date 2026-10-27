@@ -12,6 +12,7 @@ metadata:
   tech-stack: SEO, social-media-platforms
 risk: unknown
 source: community
+category: design-creative
 ---
 
 # Content Creator

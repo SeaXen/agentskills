@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Multimodal, CLIP, Vision-Language, Zero-Shot, Image Classification, OpenAI, Image Search, Cross-Modal Retrieval, Content Moderation]
-
+category: software-engineering
 ---
 
 # CLIP - Contrastive Language-Image Pre-Training

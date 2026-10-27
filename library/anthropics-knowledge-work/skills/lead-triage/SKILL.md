@@ -1,6 +1,7 @@
 ---
 name: lead-triage
 description: Score and route an inbound lead, or rank a backlog of leads, against your ICP and qualification framework, then recommend a priority and next action. Use when the user asks "triage this lead", "triage my leads", "rank my lead backlog", "is [company] a good lead", "qualify [lead]", or pastes or uploads lead info.
+category: business-operations
 ---
 
 # Lead Triage

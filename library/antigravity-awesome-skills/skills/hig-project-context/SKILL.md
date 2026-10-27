@@ -11,6 +11,7 @@ description: ">-"
   hig-technologies can provide targeted advice without repetitive questions.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Apple HIG: Project Context

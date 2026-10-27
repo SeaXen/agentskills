@@ -2,6 +2,7 @@
 name: draft-offer
 description: Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp package (base, equity, signing bonus), writing the offer letter text itself, or prepping negotiation guidance for the hiring manager.
 argument-hint: "<role and level>"
+category: business-operations
 ---
 
 # /draft-offer

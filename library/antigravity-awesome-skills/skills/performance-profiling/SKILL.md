@@ -4,6 +4,7 @@ description: "Performance profiling principles. Measurement, analysis, and optim
 allowed-tools: Read, Glob, Grep, Bash
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Performance Profiling

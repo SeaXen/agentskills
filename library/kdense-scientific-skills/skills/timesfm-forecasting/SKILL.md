@@ -9,6 +9,7 @@ metadata:
   skill-author: Clayton Young / Superior Byte Works, LLC (@borealBytes)
   last-reviewed: "2026-10-01"
   tested-package: "timesfm 3.0.2"
+category: academic-research
 ---
 
 # TimesFM Forecasting

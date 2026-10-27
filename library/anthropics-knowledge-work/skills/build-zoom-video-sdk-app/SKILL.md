@@ -16,6 +16,7 @@ triggers:
   - "screen sharing"
   - "virtual background"
   - "native video sdk"
+category: design-creative
 ---
 
 # /build-zoom-video-sdk-app

@@ -6,6 +6,7 @@ description: "|"
 package: azure-containerregistry
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Container Registry SDK for Python

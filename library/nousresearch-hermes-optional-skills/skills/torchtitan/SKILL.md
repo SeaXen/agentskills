@@ -9,7 +9,7 @@ platforms: [linux, macos]
 metadata:
   hermes:
     tags: [Model Architecture, Distributed Training, TorchTitan, FSDP2, Tensor Parallel, Pipeline Parallel, Context Parallel, Float8, Llama, Pretraining]
-
+category: software-engineering
 ---
 
 # TorchTitan - PyTorch Native Distributed LLM Pretraining

@@ -23,6 +23,7 @@ metadata:
     tags: [Shopify, E-commerce, Commerce, API, GraphQL]
     related_skills: [airtable, xurl]
     homepage: https://shopify.dev/docs/api/admin-graphql
+category: backend-api
 ---
 
 # Shopify — Admin & Storefront GraphQL APIs

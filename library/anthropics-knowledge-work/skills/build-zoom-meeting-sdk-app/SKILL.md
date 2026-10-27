@@ -17,6 +17,7 @@ triggers:
   - "waiting room"
   - "hide meeting info"
   - "hide meeting password"
+category: business-operations
 ---
 
 # /build-zoom-meeting-sdk-app

@@ -11,6 +11,7 @@ metadata:
     homepage: https://github.com/JulienTant/blogwatcher-cli
 prerequisites:
   commands: [blogwatcher-cli]
+category: software-engineering
 ---
 
 # Blogwatcher

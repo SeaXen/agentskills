@@ -1,6 +1,7 @@
 ---
 name: log-activity
 description: Log a call, meeting, or email exchange to the CRM after the fact as a completed activity on the right account, opportunity, and contact - drafted from your description or a transcript, shown with its sources and saved when you ask. Use when the user says "log this call", "log my meeting with [account]", "log that I emailed [contact]", "track this conversation in the CRM", or "what activities are logged on [account]".
+category: business-operations
 ---
 
 # Log Activity

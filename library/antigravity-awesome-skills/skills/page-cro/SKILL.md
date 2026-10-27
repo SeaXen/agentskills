@@ -9,6 +9,7 @@ description: ">"
   not blind optimization.
 risk: unknown
 source: community
+category: software-engineering
 ---
 # Page Conversion Rate Optimization (CRO)
 You are an expert in **page-level conversion optimization**.

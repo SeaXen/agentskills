@@ -1,6 +1,7 @@
 ---
 name: customer-voice
 description: Surface what customers are actually saying - direct attributed quotes on a topic across call transcripts and email, across your accounts. Use when the user asks "what are customers saying about [topic]", "pull quotes on [objection/feature/competitor]", "voice of customer on [X]", or "what's coming up in calls".
+category: business-operations
 ---
 
 # Customer Voice

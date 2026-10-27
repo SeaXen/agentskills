@@ -4,6 +4,7 @@ description: "Run Playwright tests at scale using Azure Playwright Workspaces (f
 package: "@azure/playwright"
 risk: unknown
 source: community
+category: testing-qa
 ---
 
 # Azure Playwright Workspaces SDK for TypeScript

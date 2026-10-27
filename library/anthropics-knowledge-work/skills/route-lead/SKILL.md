@@ -1,6 +1,7 @@
 ---
 name: route-lead
 description: Decide who owns an unrouted lead or opportunity and manage the handoff - deterministic routing by the org's own rules, a routing card the human router accepts or overrides, and drafted handoff notes. Use when the user says "route this lead", "who should own [lead/opp]", "work the routing queue", "assign [company] to a rep", or on a scheduled intake sweep.
+category: business-operations
 ---
 
 # Route Lead

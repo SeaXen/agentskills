@@ -15,6 +15,7 @@ metadata:
       `--workspace dir:/abs/path` discipline are adapted from alt-glitch's
       original multi-agent video pipeline at
       https://github.com/NousResearch/kanban-video-pipeline.
+category: design-creative
 ---
 
 # Kanban Video Orchestrator

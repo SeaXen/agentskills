@@ -6,6 +6,7 @@ description: "|"
 package: azure-messaging-webpubsubservice
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Web PubSub Service SDK for Python

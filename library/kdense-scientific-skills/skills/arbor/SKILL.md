@@ -9,6 +9,7 @@ metadata:
   last-reviewed: "2026-09-30"
   upstream-version: "arbor-agent 0.1.4"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # Arbor — Autonomous Optimization via Hypothesis Tree Refinement

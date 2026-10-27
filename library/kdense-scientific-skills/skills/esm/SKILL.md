@@ -8,6 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-30"
   upstream-version: "3.4.1.post1"
+category: academic-research
 ---
 
 # ESM: protein generation, embeddings, and folding

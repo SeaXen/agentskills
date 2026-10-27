@@ -14,6 +14,7 @@ triggers:
   - parody song
   - adapting a song
   - AI music generation
+category: software-engineering
 ---
 
 # Songwriting & AI Music Generation

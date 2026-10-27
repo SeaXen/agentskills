@@ -12,6 +12,7 @@ description: ">"
   hig-components-layout for navigation structures, hig-components-content for content display.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Apple HIG: Platform Design

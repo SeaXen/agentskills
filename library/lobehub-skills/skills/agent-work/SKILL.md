@@ -2,6 +2,7 @@
 name: agent-work
 description: 'Use for the Agent Work output registry: registration, deduplication, cards, skill providers, CLI scanners and Work types.'
 user-invocable: false
+category: ai-agents
 ---
 
 # Agent Works

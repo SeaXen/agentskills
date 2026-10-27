@@ -9,6 +9,7 @@ metadata:
     zero-downtime
 risk: unknown
 source: community
+category: database-storage
 ---
 
 # SQL Database Migration Strategy and Implementation

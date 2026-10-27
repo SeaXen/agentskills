@@ -4,6 +4,7 @@ description: "Build content moderation applications with Azure AI Content Safety
 package: com.azure:azure-ai-contentsafety
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure AI Content Safety SDK for Java

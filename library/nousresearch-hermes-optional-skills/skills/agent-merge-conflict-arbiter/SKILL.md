@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Multi-Agent, Git, Merge-Conflict, Kanban, Arbitration]
     related_skills: [hermes-agent]
+category: ai-agents
 ---
 
 # Agent Merge-Conflict Arbiter

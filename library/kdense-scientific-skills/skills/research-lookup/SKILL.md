@@ -16,6 +16,7 @@ metadata:
     - name: OPENROUTER_API_KEY
       required: false
       description: Optional OpenRouter key for explicit Perplexity use.
+category: academic-research
 ---
 
 # Research Lookup

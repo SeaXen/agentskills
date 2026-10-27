@@ -10,6 +10,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 ## Use this skill when

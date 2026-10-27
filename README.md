@@ -2,23 +2,53 @@
 
 <div align="center">
 
-[![Skills](https://img.shields.io/badge/Skills-594_Total-2563EB?style=for-the-badge&logo=anthropic)](./skills)
+[![Skills](https://img.shields.io/badge/Skills-87_Active_HotSet-2563EB?style=for-the-badge&logo=anthropic)](./skills)
 [![Specialist Agents](https://img.shields.io/badge/Specialist_Agents-20-7C3AED?style=for-the-badge)](./agents)
 [![Workflows](https://img.shields.io/badge/Autonomous_Workflows-17-059669?style=for-the-badge)](./workflows)
+[![Categories](https://img.shields.io/badge/Categories-16_Functional_Domains-10B981?style=for-the-badge)](./category)
 [![Repositories](https://img.shields.io/badge/Upstream_Origins-36_Sources-D97706?style=for-the-badge)](./SKILLS_PROVENANCE.md)
 [![Offline Reserve Library](https://img.shields.io/badge/Offline_Reserve_Library-2,031_Skills-DC2626?style=for-the-badge)](./library)
 
 **The complete, production-grade intelligence suite for AI agents (Antigravity IDE, Claude Code, Cursor, Windsurf, Cline).**  
-594 active modular skills, 20 domain-specialist personas, 17 automated slash workflows, and 2,031 offline reserve library skills across 36 repositories.
+87 curated active hot-set skills, 16 functional category directories (1,878+ cataloged skills), 20 domain-specialist personas, 17 automated slash workflows, and 2,031 offline reserve library skills across 36 repositories.
 
 [Quick Start](#-quick-start--installation) • [Upstream Repositories](#-upstream-repositories-breakdown) • [How to Update](#-how-to-update) • [Architecture](#-directory-architecture) • [Provenance Registry](./SKILLS_PROVENANCE.md)
 
 </div>
 
+
+---
+
+## 🗂️ Functional Categories Taxonomy (`.agents/category/`)
+
+All 1,878+ skills across active workspace and offline library repositories are classified into **16 functional category folders** in [`.agents/category/`](./category). Every folder contains **Windows directory junctions** for seamless in-editor browsing and a complete Markdown catalog:
+
+| Category Folder | Domain | Description |
+| :--- | :--- | :--- |
+| **[`core-antigravity`](./category/core-antigravity)** | ⚔️ Core Kit Protocols | Colosseum battle, telemetry, benchmark, OWL, compaction, and prompt engineering. |
+| **[`software-engineering`](./category/software-engineering)** | 🏛️ Code Craft & Architecture | Clean code standards, refactoring, code review, git worktrees, and architecture. |
+| **[`frontend-ui`](./category/frontend-ui)** | 🎨 Frontend & UI Motion | React 19, Next.js, Tailwind CSS, Emil animations, Radix UI, and Shadcn components. |
+| **[`backend-api`](./category/backend-api)** | ⚡ Backend & Microservices | API design, Node.js, Python, NestJS, microservices, and hardened REST endpoints. |
+| **[`database-storage`](./category/database-storage)** | 🗄️ Database & Query Tuning | PostgreSQL, Supabase, Neon serverless, SQLite, Drizzle ORM, and Prisma. |
+| **[`devops-cloud`](./category/devops-cloud)** | ☁️ Cloud & Infrastructure | Vercel, Cloudflare Pages/Workers, Docker, Kubernetes, CI/CD, and deployment. |
+| **[`security-audit`](./category/security-audit)** | 🛡️ Security & Pentesting | Vulnerability scanning, threat modeling, red teaming, OWASP, and smart contracts. |
+| **[`testing-qa`](./category/testing-qa)** | 🧪 Automated Testing & QA | Playwright headless testing, E2E automation, TDD workflows, and mutation tests. |
+| **[`ai-agents`](./category/ai-agents)** | 🤖 Autonomous AI Agents | Hermes skills, LobeHub capabilities, multi-agent orchestration, and prompt design. |
+| **[`data-ml`](./category/data-ml)** | 📊 Data Engineering & ML | BigQuery SQL optimization, Dataproc, Apache Spark, Dataflow, and notebooks. |
+| **[`mobile-development`](./category/mobile-development)** | 📱 Mobile Apps (iOS/Android) | React Native, Flutter, Swift, Kotlin, Expo, and Apple HIG guidelines. |
+| **[`web3-crypto`](./category/web3-crypto)** | 🪙 Web3 & Blockchain | Solidity smart contracts, EVM security, DeFi protocol templates, and tokens. |
+| **[`design-creative`](./category/design-creative)** | 🎬 Creative Design & Video | HeyGen Hyperframes, Lemo Opuscar video, Remotion React, and 3D Three.js. |
+| **[`business-operations`](./category/business-operations)** | 💼 Enterprise & Operations | Accounting, invoices, AP processing, financial models, CRM, and sales outreach. |
+| **[`productivity-workflow`](./category/productivity-workflow)** | 🚀 Productivity & Team Ops | Notion integrations, Slack search & messaging, Linear tracking, and standups. |
+| **academic-research** | 🔬 Academic & Bio-Research | K-Dense scientific skills, paper writing pipeline, literature review, and RNA-QC. |
+
+> 💡 **Tip**: Browse any category in your file explorer at `D:\Repo\.agents\category\<domain>` to see and open skills directly!
+
 ---
 
 ## 📖 Table of Contents
 1. [Overview](#-overview)
+2. [Functional Categories Taxonomy (`category/`)](#-functional-categories-taxonomy)
 2. [Quick Start & Installation](#-quick-start--installation)
    - [Clone Full Vault](#1-install-full-vault-together-recommended)
    - [Install Individual Repositories](#2-install-individual-repositories-via-npx-skills)
@@ -42,7 +72,7 @@ Modern AI coding agents become dramatically more capable when augmented with tar
 
 This vault consolidates the highest-quality open-source and proprietary agent skills into a single, standardized, and version-controlled repository:
 - **594 Verified Skills**: Covering React 19, Cloudflare, Next.js, Postgres, smart contract security, UI animation, literature research, and enterprise operations.
-- **Zero Prompt Bloat**: Configured to work seamlessly with Antigravity context budgeting (~89 active hot skills, 594 installed in `.agents/skills`, 2,031 in offline reserve library across 36 repositories).
+- **Zero Prompt Bloat**: Configured to work seamlessly with Antigravity context budgeting (87 active hot-set engineering skills in `.agents/skills`, 16 organized domain categories in `.agents/category`, and 2,031 skills in offline reserve library across 36 repositories).
 - **100% Traceable Provenance**: Every skill is locked to its upstream author, source URL, and git hash in `skills-lock.json`.
 
 ---
@@ -1368,6 +1398,7 @@ python .agents/update.py --tag database-sql
 ├── workflows/                  # 17 Autonomous slash command workflows (/battle, /owl, /debug, etc.)
 ├── rules/                      # Core behavioral rules (GEMINI.md, brainsyncory.md)
 ├── scripts/                    # Validation scripts (checklist.py, verify_all.py)
+├── category/                   # 16 Functional Category Directories with in-editor browsing & indexes
 ├── library/                    # Offline reserve store (2,031 skills across 36 repositories)
 │   └── activate_skill.py       # Instant 1-command hot-set activation utility
 ├── .shared/                    # Shared dataset matrices (ui-ux-pro-max palettes, typography, icons)

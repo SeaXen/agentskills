@@ -1,6 +1,7 @@
 ---
 name: product-design
 description: 'Use for new surfaces, redesigns and vague product asks: establish user tasks and business meaning. Built-screen audits and visual polish have separate skills.'
+category: software-engineering
 ---
 
 # Product Design

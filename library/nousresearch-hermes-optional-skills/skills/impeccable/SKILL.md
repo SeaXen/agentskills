@@ -13,6 +13,7 @@ metadata:
     upstream:
       repo: pbakaus/impeccable
       path: .hermes/skills/impeccable
+category: frontend-ui
 ---
 
 # Impeccable (upstream-maintained)

@@ -12,6 +12,7 @@ metadata:
   hermes:
     tags: [Airtable, Productivity, Database, API]
     homepage: https://airtable.com/developers/web/api/introduction
+category: database-storage
 ---
 
 # Airtable — Bases, Tables & Records

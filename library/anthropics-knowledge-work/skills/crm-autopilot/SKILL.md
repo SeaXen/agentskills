@@ -14,6 +14,7 @@ description: >
   data entry," or "my pipeline is out of date." Reach for it when the owner
   describes a call or meeting worth recording, even without naming the CRM.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # CRM Autopilot

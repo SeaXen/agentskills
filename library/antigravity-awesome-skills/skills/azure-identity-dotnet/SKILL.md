@@ -5,6 +5,7 @@ description: "|"
 package: Azure.Identity
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.Identity (.NET)

@@ -3,6 +3,7 @@ name: service-mesh-observability
 description: "Implement comprehensive observability for service meshes including distributed tracing, metrics, and visualization. Use when setting up mesh monitoring, debugging latency issues, or implementing SL..."
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Service Mesh Observability

@@ -3,6 +3,7 @@ id: save-to-spotify
 name: save-to-spotify
 description: Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich timeline (chapters plus in-player images, external links, and Spotify entity cards), and a cover image. Also use for raw media saves, show/episode management, and timeline navigation.
 enabled: true
+category: design-creative
 ---
 
 # Audio Content Production Skill

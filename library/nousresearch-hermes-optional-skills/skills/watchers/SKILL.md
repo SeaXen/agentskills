@@ -11,6 +11,7 @@ metadata:
     category: devops
     requires_toolsets: [terminal]
     related_skills: []
+category: software-engineering
 ---
 
 # Watchers

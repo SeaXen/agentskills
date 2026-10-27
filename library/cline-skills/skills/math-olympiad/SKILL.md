@@ -12,6 +12,7 @@ description:
   rather than bluff. If LaTeX is available, produces a clean PDF after
   verification passes."
 version: 0.1.0
+category: software-engineering
 ---
 
 # Math Olympiad Solver

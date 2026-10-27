@@ -10,7 +10,7 @@ metadata:
   hermes:
     tags: [Multimodal, Audio Generation, Text-to-Music, Text-to-Audio, MusicGen]
     related_skills: [heartmula, songwriting-and-ai-music]
-
+category: design-creative
 ---
 
 # AudioCraft: Audio Generation

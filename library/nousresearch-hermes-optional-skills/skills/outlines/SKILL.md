@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Prompt Engineering, Outlines, Structured Generation, JSON Schema, Pydantic, Local Models, Grammar-Based Generation, vLLM, Transformers, Type Safety]
-
+category: ai-agents
 ---
 
 # Outlines: Structured Text Generation

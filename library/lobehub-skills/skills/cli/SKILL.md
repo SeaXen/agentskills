@@ -2,6 +2,7 @@
 name: cli
 description: LobeHub CLI (@lobehub/cli) development guide — commands, subcommands, architecture.
 disable-model-invocation: true
+category: software-engineering
 ---
 
 # LobeHub CLI Development Guide

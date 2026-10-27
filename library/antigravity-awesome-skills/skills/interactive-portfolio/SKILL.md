@@ -3,6 +3,7 @@ name: interactive-portfolio
 description: "Expert in building portfolios that actually land jobs and clients - not just showing work, but creating memorable experiences. Covers developer portfolios, designer portfolios, creative portfolios,..."
 source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
+category: software-engineering
 ---
 
 # Interactive Portfolio

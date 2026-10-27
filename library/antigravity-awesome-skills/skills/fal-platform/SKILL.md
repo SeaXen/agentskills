@@ -3,6 +3,7 @@ name: fal-platform
 description: "Platform APIs for model management, pricing, and usage tracking"
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-platform/SKILL.md"
 risk: safe
+category: business-operations
 ---
 
 # Fal Platform

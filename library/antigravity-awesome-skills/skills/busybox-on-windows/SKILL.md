@@ -4,6 +4,7 @@ description: "How to use a Win32 build of BusyBox to run many of the standard UN
 license: MIT
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 BusyBox is a single binary that implements many common Unix tools.

@@ -6,6 +6,7 @@ license: MIT
 metadata:
   author: claudekit
   version: "2.1.0"
+category: frontend-ui
 ---
 
 # Design

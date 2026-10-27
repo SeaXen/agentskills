@@ -15,6 +15,7 @@ metadata:
       - name: PAPERCLIP_API_KEY
         required: false
         description: Paperclip API key from https://paperclip.gxl.ai/keys. Existing OAuth credentials also work; installation and help do not require a key.
+category: academic-research
 ---
 
 # Paperclip CLI

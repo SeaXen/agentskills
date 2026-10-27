@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Research, Arxiv, Papers, Academic, Science, API]
     related_skills: [pdf]
+category: academic-research
 ---
 
 # arXiv Research

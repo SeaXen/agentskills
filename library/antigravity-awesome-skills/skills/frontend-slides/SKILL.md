@@ -3,6 +3,7 @@ name: frontend-slides
 description: "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a..."
 source: https://github.com/zarazhangrui/frontend-slides
 risk: safe
+category: frontend-ui
 ---
 
 # Frontend Slides Skill

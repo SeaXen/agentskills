@@ -9,6 +9,7 @@ description: >
   "review this contract," "what am I signing," "red flags," "flag any concerns,"
   "check the payment terms," or uploads/forwards a contract or legal agreement.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Contract Review

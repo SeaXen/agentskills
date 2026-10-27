@@ -6,6 +6,7 @@ description: "|"
 package: azure-monitor-opentelemetry
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Monitor OpenTelemetry Distro for Python

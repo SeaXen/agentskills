@@ -6,6 +6,7 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Wireshark Network Traffic Analysis

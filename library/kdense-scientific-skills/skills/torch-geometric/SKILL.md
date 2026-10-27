@@ -7,6 +7,7 @@ metadata:
   version: "1.4"
   last-reviewed: "2026-10-01"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # PyTorch Geometric (PyG)

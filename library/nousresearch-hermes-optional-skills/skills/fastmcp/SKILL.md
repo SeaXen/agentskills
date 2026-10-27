@@ -12,6 +12,7 @@ metadata:
     related_skills: [hermes-agent, mcporter]
 prerequisites:
   commands: [python]
+category: testing-qa
 ---
 
 # FastMCP

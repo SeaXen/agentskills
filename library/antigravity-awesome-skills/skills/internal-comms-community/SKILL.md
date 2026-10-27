@@ -4,6 +4,7 @@ description: "A set of resources to help me write all kinds of internal communic
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 ## When to use this skill

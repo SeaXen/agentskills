@@ -6,6 +6,7 @@ description: "|"
 package: azure-storage-blob
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Blob Storage SDK for Python

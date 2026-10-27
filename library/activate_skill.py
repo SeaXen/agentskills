@@ -10,6 +10,8 @@ Usage:
   python activate_skill.py remove <name>              - Deactivate / remove skill from workspace
   python activate_skill.py move <name> --to <hot|store|reserve> - Move skill between storage tiers
   python activate_skill.py repos                      - List all offline repositories in library
+  python activate_skill.py categories                 - List all 16 functional categories & counts
+  python activate_skill.py category <name>            - List all skills in a specific category
   python activate_skill.py info <name>                - Inspect skill documentation & frontmatter
 """
 
@@ -191,6 +193,46 @@ def move_skill(skill_name, target_tier):
         remove_skill(skill_name)
         print(f"📦 '{skill_name}' moved to Offline Reserve only (0 active context tokens)")
 
+
+def list_categories():
+    cat_file = os.path.join(AGENTS_DIR, "category", "categories_index.json")
+    if os.path.exists(cat_file):
+        import json
+        with open(cat_file, "r", encoding="utf-8") as f:
+            cdata = json.load(f)
+        print("\n🗂️ AGENTSKILLS FUNCTIONAL CATEGORIES:")
+        print("=" * 70)
+        print(f"{'Category Slug':24} | {'Skills':7} | {'Domain Title'}")
+        print("-" * 70)
+        for c_slug, c_info in cdata["categories"].items():
+            print(f" • {c_slug:22} | {c_info['count']:4}   | {c_info['title']}")
+        print("=" * 70)
+        print(f"Total: {cdata['total_skills']} unique skills organized across {len(cdata['categories'])} categories.")
+        print(f"Direct browsing: {os.path.join(AGENTS_DIR, 'category')}\n")
+    else:
+        print("❌ categories_index.json not found.")
+
+def list_category_skills(cat_name):
+    cat_file = os.path.join(AGENTS_DIR, "category", "categories_index.json")
+    if os.path.exists(cat_file):
+        import json
+        with open(cat_file, "r", encoding="utf-8") as f:
+            cdata = json.load(f)
+        if cat_name not in cdata["categories"]:
+            print(f"❌ Unknown category '{cat_name}'. Run 'activate_skill.py categories' to view valid categories.")
+            return
+        info = cdata["categories"][cat_name]
+        print(f"\n📂 Category: {info['title']} ({len(info['skills'])} skills)")
+        print(f"Description: {info['description']}")
+        print("=" * 75)
+        print(f"{'Skill Name':30} | {'Status':8} | {'Repository'}")
+        print("-" * 75)
+        for s in info["skills"]:
+            status = "🟢 Active" if s["is_active"] else "📦 Library"
+            print(f" • {s['name']:28} | {status:8} | {s['repo']}")
+        print("=" * 75)
+        print(f"To link any skill: python activate_skill.py link <skill-name>\n")
+
 def list_repos():
     repos = get_all_library_repos()
     total_skills = sum(r['count'] for r in repos.values())
@@ -233,8 +275,12 @@ if __name__ == '__main__':
         remove_skill(args[1])
     elif cmd == 'move' and len(args) >= 4 and args[2] == '--to':
         move_skill(args[1], args[3])
-    elif cmd in ['repos', 'repositories', 'list']:
+    elif cmd in ['repos', 'repositories']:
         list_repos()
+    elif cmd in ['categories', 'cats']:
+        list_categories()
+    elif cmd in ['category', 'cat'] and len(args) >= 2:
+        list_category_skills(args[1])
     elif cmd == 'info' and len(args) >= 2:
         info_skill(args[1])
     else:

@@ -6,6 +6,7 @@ description: "|"
 package: com.azure:azure-ai-projects
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure AI Projects SDK for Java

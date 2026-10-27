@@ -10,6 +10,7 @@ metadata:
     tags: [science, chemistry, pharmacology, research, health]
 prerequisites:
   commands: [curl, python]
+category: software-engineering
 ---
 
 # Drug Discovery & Pharmaceutical Research

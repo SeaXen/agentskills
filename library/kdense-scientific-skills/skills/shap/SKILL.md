@@ -9,6 +9,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "0.52.0"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # SHAP

@@ -3,6 +3,7 @@ name: docker-expert
 description: Docker containerization and Compose architecture. Use when creating Dockerfiles, optimizing multi-stage builds, managing docker-compose stacks, configuring networking, and securing containerized production environments.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: devops-cloud
 ---
 
 # Docker Expert

@@ -1,6 +1,7 @@
 ---
 name: meme-scout
 description: Comprehensive tool for scouting trending meme coins on DEX platforms like DexScreener. Use for discovering trending tokens, analyzing price movements, volume data, and risk assessments. Supports multiple timeframes (5m, 1h, 6h, 24h) and includes risk checking capabilities for specific tokens.
+category: web3-crypto
 ---
 
 # Meme Scout

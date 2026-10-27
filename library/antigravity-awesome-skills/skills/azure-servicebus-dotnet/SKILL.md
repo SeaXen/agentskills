@@ -5,6 +5,7 @@ description: "|"
 package: Azure.Messaging.ServiceBus
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.Messaging.ServiceBus (.NET)

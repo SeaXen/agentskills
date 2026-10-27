@@ -5,6 +5,7 @@ argument-hint: "[update|review|create] [args]"
 metadata:
   author: claudekit
   version: "1.0.0"
+category: frontend-ui
 ---
 
 # Brand

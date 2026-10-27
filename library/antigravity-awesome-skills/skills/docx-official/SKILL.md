@@ -4,6 +4,7 @@ description: "Comprehensive document creation, editing, and analysis with suppor
 license: Proprietary. LICENSE.txt has complete terms
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # DOCX creation, editing, and analysis

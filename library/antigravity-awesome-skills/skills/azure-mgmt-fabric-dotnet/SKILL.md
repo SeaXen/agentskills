@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.Fabric
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.Fabric (.NET)

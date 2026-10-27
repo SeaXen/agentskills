@@ -19,6 +19,7 @@ triggers:
   - "participant video on"
   - "participant video off"
   - "single individual video stream"
+category: design-creative
 ---
 
 # Zoom Realtime Media Streams (RTMS)

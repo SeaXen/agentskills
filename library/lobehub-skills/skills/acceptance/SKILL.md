@@ -14,6 +14,7 @@ description: >
   'local test', 'manual test', 'test report', 'test with cli', 'test in
   electron', 'test desktop', or any local end-to-end verification task. Needs no
   ambient ids, and never depends on running inside a LobeHub conversation.
+category: software-engineering
 ---
 
 # Acceptance (Builder Self-Evidence)

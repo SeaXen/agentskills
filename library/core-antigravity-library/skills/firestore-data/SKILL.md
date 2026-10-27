@@ -1,6 +1,7 @@
 ---
 name: firestore-data
 description: Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides flexible document manipulation and structured querying.
+category: software-engineering
 ---
 
 ## Usage

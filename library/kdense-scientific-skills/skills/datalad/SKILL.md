@@ -8,6 +8,7 @@ metadata:
   version: "1.2"
   last-reviewed: "2026-09-30"
   skill-author: Dylan Pulver
+category: academic-research
 ---
 
 # DataLad

@@ -11,6 +11,7 @@ metadata:
     tags: [Creative, Ideation, Brainstorming, Methods, Inspiration]
     category: creative
     requires_toolsets: []
+category: software-engineering
 ---
 
 # Creative Ideation

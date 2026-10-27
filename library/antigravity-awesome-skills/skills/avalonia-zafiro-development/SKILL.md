@@ -3,6 +3,7 @@ name: avalonia-zafiro-development
 description: "Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro toolkit."
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Avalonia Zafiro Development

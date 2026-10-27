@@ -9,7 +9,7 @@ platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [Post-Training, SimPO, Preference Optimization, Alignment, DPO Alternative, Reference-Free, LLM Alignment, Efficient Training]
-
+category: ai-agents
 ---
 
 # SimPO - Simple Preference Optimization

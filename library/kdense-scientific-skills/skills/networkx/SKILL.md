@@ -8,6 +8,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "3.7"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # NetworkX

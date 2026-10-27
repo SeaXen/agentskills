@@ -2,6 +2,7 @@
 name: drizzle
 description: 'Use for Drizzle schemas and queries: tables, indexes, relations, joins and inferred types. Rollout belongs to db-migrations.'
 user-invocable: false
+category: database-storage
 ---
 
 # Drizzle ORM Schema Style Guide

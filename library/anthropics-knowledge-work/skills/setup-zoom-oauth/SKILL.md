@@ -1,6 +1,7 @@
 ---
 name: setup-zoom-oauth
 description: Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes, handling token refresh, or debugging auth failures.
+category: business-operations
 ---
 
 # /setup-zoom-oauth

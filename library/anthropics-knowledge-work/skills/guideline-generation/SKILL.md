@@ -9,6 +9,7 @@ description: >
   or uploads brand documents, transcripts, or meeting recordings for brand
   analysis. Also triggers when the user has a discovery report and wants to
   convert it into actionable guidelines.
+category: design-creative
 ---
 
 # Guideline Generation

@@ -7,6 +7,7 @@ metadata:
   version: "1.5"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # GeoMaster

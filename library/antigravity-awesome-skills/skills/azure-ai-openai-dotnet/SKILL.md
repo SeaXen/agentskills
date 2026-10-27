@@ -5,6 +5,7 @@ description: "|"
 package: Azure.AI.OpenAI
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.AI.OpenAI (.NET)

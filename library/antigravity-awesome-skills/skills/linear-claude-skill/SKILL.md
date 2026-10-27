@@ -5,6 +5,7 @@ allowed-tools:
 - WebFetch(domain: linear.app)
 source: "https://github.com/wrsmith108/linear-claude-skill"
 risk: safe
+category: productivity-workflow
 ---
 
 ## When to Use This Skill

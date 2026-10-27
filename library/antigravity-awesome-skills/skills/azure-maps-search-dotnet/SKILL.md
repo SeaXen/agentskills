@@ -5,6 +5,7 @@ description: "|"
 package: Azure.Maps.Search
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Maps (.NET)

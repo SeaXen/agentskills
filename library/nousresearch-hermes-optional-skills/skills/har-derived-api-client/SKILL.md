@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Browser, HAR, API, Reverse-Engineering, Playwright]
     category: web-development
+category: testing-qa
 ---
 
 # HAR-Derived API Client

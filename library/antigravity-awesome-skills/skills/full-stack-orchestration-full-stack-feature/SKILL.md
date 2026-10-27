@@ -3,6 +3,7 @@ name: full-stack-orchestration-full-stack-feature
 description: "Use when working with full stack orchestration full stack feature"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 ## Use this skill when

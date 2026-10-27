@@ -19,6 +19,7 @@ metadata:
           ],
       },
   }
+category: testing-qa
 ---
 
 # Browser Use

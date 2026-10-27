@@ -2,6 +2,7 @@
 name: break
 description: Renders a component you choose under every scenario that can reach it on a temporary page and stress tests it.
 disable-model-invocation: true
+category: frontend-ui
 ---
 
 # Break

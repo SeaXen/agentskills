@@ -5,6 +5,7 @@ description: "|"
   Triggers: "azure-storage-file-share", "ShareServiceClient", "ShareClient", "file share", "SMB".
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Storage File Share SDK for Python

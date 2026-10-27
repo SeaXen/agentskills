@@ -12,6 +12,7 @@ metadata:
     homepage: https://github.com/D4Vinci/Scrapling
 prerequisites:
   commands: [scrapling, python]
+category: devops-cloud
 ---
 
 # Scrapling

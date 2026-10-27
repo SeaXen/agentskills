@@ -10,6 +10,7 @@ metadata:
   upstream-neuroconv: "0.10.2"
   upstream-pynwb: "4.2.0"
   upstream-nwbinspector: "0.7.2"
+category: academic-research
 ---
 
 # Validated NWB conversion

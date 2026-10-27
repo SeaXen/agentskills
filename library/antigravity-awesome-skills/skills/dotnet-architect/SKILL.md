@@ -9,6 +9,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: backend-api
 ---
 
 ## Use this skill when

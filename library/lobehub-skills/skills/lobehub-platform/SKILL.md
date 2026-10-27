@@ -1,6 +1,7 @@
 ---
 name: lobehub-platform
 description: Comprehensive LobeHub AI Platform architecture reference: agent groups, bot connectors (Discord, Slack, Telegram, WeChat, Lark, Feishu, QQ), plugins, memory, traces, and workspace management.
+category: productivity-workflow
 ---
 
 # LobeHub Platform Architecture & Connectors

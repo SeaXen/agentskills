@@ -3,6 +3,7 @@ name: mutation-testing
 description: Mutation testing methodologies and frameworks (Stryker, Mutmut). Use when evaluating test suite effectiveness, identifying false-positive tests, killing surviving mutants, or auditing code coverage quality beyond raw line metrics.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: testing-qa
 ---
 
 # Mutation Testing Expert

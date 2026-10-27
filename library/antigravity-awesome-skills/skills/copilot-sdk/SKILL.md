@@ -3,6 +3,7 @@ name: copilot-sdk
 description: "Build applications powered by GitHub Copilot using the Copilot SDK. Use when creating programmatic integrations with Copilot across Node.js/TypeScript, Python, Go, or .NET. Covers session managemen..."
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # GitHub Copilot SDK

@@ -8,6 +8,7 @@ metadata:
   version: "1.3"
   last-reviewed: "2026-09-30"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # Aeon Time Series Machine Learning

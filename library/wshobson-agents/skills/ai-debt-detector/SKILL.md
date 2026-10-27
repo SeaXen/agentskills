@@ -6,6 +6,7 @@ description: >-
   handling seems thin, when orphaned resources or missing cleanup are suspected,
   or when the agent claims done but hidden debt may exist. Catches the specific
   failure patterns AI agents produce that humans would not.
+category: software-engineering
 ---
 
 # AI Debt Detector

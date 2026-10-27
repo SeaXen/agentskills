@@ -6,6 +6,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: testing-qa
 ---
 
 ## Use this skill when

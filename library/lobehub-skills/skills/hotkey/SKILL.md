@@ -2,6 +2,7 @@
 name: hotkey
 description: 'Use for keyboard shortcuts, registration, key combinations, scope, conflicts and shortcut tooltips.'
 user-invocable: false
+category: software-engineering
 ---
 
 # Adding Keyboard Shortcuts Guide

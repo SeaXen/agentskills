@@ -32,6 +32,7 @@ metadata:
       - name: OMERO_SECURE
         required: false
         description: Secure transport toggle; default true.
+category: academic-research
 ---
 
 # OMERO Integration

@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.BotService
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.BotService (.NET)

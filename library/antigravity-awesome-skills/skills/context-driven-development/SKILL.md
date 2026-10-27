@@ -7,6 +7,7 @@ metadata:
   version: 1.0.0
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Context-Driven Development

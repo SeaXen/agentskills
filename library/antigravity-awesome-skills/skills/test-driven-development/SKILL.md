@@ -3,6 +3,7 @@ name: test-driven-development
 description: "Use when implementing any feature or bugfix, before writing implementation code"
 risk: unknown
 source: community
+category: testing-qa
 ---
 
 # Test-Driven Development (TDD)

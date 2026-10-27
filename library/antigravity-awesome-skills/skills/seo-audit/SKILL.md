@@ -9,6 +9,7 @@ description: ">"
   schema-markup.
 risk: unknown
 source: community
+category: security-audit
 ---
 
 # SEO Audit

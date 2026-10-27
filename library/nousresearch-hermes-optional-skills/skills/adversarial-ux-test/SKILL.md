@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [qa, ux, testing, adversarial, dogfood, personas, user-testing]
     related_skills: [dogfood]
+category: testing-qa
 ---
 
 # Adversarial UX Test

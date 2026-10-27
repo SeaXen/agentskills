@@ -4,6 +4,7 @@ description: >-
   Activates the OWL (Optimized Workforce Learning) decoupled multi-agent pipeline:
   uses DeepInvestigator for root-cause analysis and edge-case attacks, and DeepCoder
   for verified code synthesis and iterative improvement.
+category: core-antigravity
 ---
 
 # OWL (Optimized Workforce Learning) Pipeline

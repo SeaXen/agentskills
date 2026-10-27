@@ -6,6 +6,7 @@ description: "|"
 package: azure-ai-vision-imageanalysis
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure AI Vision Image Analysis SDK for Python

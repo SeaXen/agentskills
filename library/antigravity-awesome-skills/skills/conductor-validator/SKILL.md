@@ -9,6 +9,7 @@ metadata:
   color: cyan
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Check if conductor directory exists

@@ -11,6 +11,7 @@ metadata:
   hermes:
     tags: [Notion, Productivity, Notes, Database, API, CLI, Workers]
     homepage: https://developers.notion.com
+category: database-storage
 ---
 
 # Notion

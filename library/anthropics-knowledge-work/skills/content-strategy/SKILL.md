@@ -7,6 +7,7 @@ description: >
   output only — no calendars or assets. Use when the user asks what to post,
   wants a content plan, asks what's selling, or what to promote this month.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Content Strategy

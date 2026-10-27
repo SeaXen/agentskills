@@ -2,6 +2,7 @@
 name: testing
 description: 'Use for Vitest tests, mocks, coverage and failing-test diagnosis.'
 user-invocable: false
+category: testing-qa
 ---
 
 # LobeHub Testing Guide

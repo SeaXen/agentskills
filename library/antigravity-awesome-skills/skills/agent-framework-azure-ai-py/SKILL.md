@@ -4,6 +4,7 @@ description: "Build Azure AI Foundry agents using the Microsoft Agent Framework 
 package: agent-framework-azure-ai
 risk: unknown
 source: community
+category: ai-agents
 ---
 
 # Agent Framework Azure Hosted Agents

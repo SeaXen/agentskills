@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.Redis
 risk: unknown
 source: community
+category: database-storage
 ---
 
 # Azure.ResourceManager.Redis (.NET)

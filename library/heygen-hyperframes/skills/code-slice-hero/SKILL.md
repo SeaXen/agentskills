@@ -1,6 +1,7 @@
 ---
 name: code-slice-hero
 description: A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear headline. HyperFrames block, 1920×1080, 8s, 18 variables.
+category: design-creative
 ---
 
 # Code Slice Hero

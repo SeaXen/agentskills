@@ -8,6 +8,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
+category: web3-crypto
 ---
 
 ## Use this skill when

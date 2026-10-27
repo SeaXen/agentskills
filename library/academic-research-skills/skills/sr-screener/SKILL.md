@@ -11,6 +11,7 @@ metadata:
     - deep-research
     - academic-paper
     - academic-pipeline
+category: academic-research
 ---
 
 # SR-Screener v1.0.0 — Protocol-Driven Screening Decisions

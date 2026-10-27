@@ -7,6 +7,7 @@ metadata:
   version: "1.4"
   skill-author: Kuan-lin Huang
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # Glycoengineering

@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: productivity-workflow
 ---
 
 # Outlook Calendar Automation via Rube MCP

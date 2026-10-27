@@ -1,6 +1,7 @@
 ---
 name: deal-advance-gap
 description: Forward-looking gap check on one opportunity - exactly what is missing to advance it to the next stage and to close, with who does what by when. Use when the user asks "what's missing to advance [deal]", "what do I need to move [opp] forward", "why is [deal] stuck", or "what's between [account] and a close".
+category: business-operations
 ---
 
 # Deal Advance Gap

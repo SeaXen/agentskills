@@ -7,6 +7,7 @@ metadata:
   version: "1.5"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-30"
+category: academic-research
 ---
 
 # Adaptyv Bio Foundry API

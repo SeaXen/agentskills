@@ -5,6 +5,7 @@ metadata:
   argument-hint: "[track-id] [--detailed]"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Conductor Status

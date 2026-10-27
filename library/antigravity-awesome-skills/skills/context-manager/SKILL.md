@@ -9,6 +9,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 ## Use this skill when

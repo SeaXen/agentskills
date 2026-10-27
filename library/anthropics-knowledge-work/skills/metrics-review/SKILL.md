@@ -2,6 +2,7 @@
 name: metrics-review
 description: Review and analyze product metrics with trend analysis and actionable insights. Use when running a weekly, monthly, or quarterly metrics review, investigating a sudden spike or drop, comparing performance against targets, or turning raw numbers into a scorecard with recommended actions.
 argument-hint: "<time period or metric focus>"
+category: business-operations
 ---
 
 # Metrics Review

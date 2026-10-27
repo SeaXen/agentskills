@@ -9,6 +9,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "0.13.2"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # Seaborn Statistical Visualization

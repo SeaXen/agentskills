@@ -12,6 +12,7 @@ triggers:
   - "getengagementcontext"
   - "onengagementstatuschange"
   - "zoom contact center app"
+category: business-operations
 ---
 
 # /build-zoom-contact-center-app

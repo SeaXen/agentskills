@@ -2,6 +2,7 @@
 name: desktop
 description: Electron desktop development guide — IPC handlers, controllers, preload scripts, window/menu management.
 disable-model-invocation: true
+category: software-engineering
 ---
 
 # Desktop Development Guide

@@ -14,6 +14,7 @@ description: >
   "I want a refund," "check my orders," or "anything about to blow up."
 compatibility: "Works from pasted or forwarded text alone. Atlassian, HubSpot, Mail, PayPal, Shopify, Square, Stripe, Zoho Desk all optional and deepen the workflow."
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Ticket Deflector

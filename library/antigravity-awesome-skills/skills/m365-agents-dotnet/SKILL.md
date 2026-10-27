@@ -5,6 +5,7 @@ description: "|"
 package: Microsoft.Agents.Hosting.AspNetCore, Microsoft.Agents.Authentication.Msal, Microsoft.Agents.CopilotStudio.Client
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Microsoft 365 Agents SDK (.NET)

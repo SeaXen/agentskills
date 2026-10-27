@@ -6,6 +6,7 @@ author: Hugging Face
 license: MIT
 tags: [huggingface, hf, models, datasets, hub, mlops]
 platforms: [linux, macos, windows]
+category: software-engineering
 ---
 
 # Hugging Face CLI (`hf`) Reference Guide

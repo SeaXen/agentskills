@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Prices, Availability, Shopping, Travel, Alerts]
     related_skills: [maps]
+category: software-engineering
 ---
 
 # Product Price Monitor

@@ -2,6 +2,7 @@
 name: spa-routes
 description: 'Use for SPA routes and page segments: Web/desktop/mobile/popup routers, redirects and src/routes-to-features boundaries.'
 user-invocable: false
+category: mobile-development
 ---
 
 # SPA Routes and Features Guide

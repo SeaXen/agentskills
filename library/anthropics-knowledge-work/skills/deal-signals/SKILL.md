@@ -1,6 +1,7 @@
 ---
 name: deal-signals
 description: Proactive watch over your book - deals gone quiet, close dates slipping into view, champion changes, renewal windows opening, competitor mentions - surfaced as a short alert digest you can act on. Use when the user asks "what changed in my book", "any deals gone quiet", "what should I be worried about today", "run my deal signals", or sets it up as a recurring scheduled task.
+category: business-operations
 ---
 
 # Deal Signals

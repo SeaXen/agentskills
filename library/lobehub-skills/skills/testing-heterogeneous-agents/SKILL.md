@@ -2,6 +2,7 @@
 name: testing-heterogeneous-agents
 description: 'Manually runs the live LobeHub official-provider compatibility matrix across Claude Code, Codex, Grok Build, Kimi Code, Pi, and TRAE when explicitly invoked by the user.'
 disable-model-invocation: true
+category: testing-qa
 ---
 
 # Testing Heterogeneous Agents

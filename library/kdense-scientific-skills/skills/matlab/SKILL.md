@@ -11,6 +11,7 @@ metadata:
   version: "1.4"
   skill-author: "K-Dense Inc."
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # MATLAB and GNU Octave

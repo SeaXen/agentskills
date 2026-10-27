@@ -11,6 +11,7 @@ description: >
   owes me money," mentions overdue invoices, or wants to follow up on
   unpaid invoices.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Invoice Chase

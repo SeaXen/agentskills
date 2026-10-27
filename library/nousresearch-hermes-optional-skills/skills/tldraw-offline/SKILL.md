@@ -10,6 +10,7 @@ metadata:
     tags: [tldraw, canvas, whiteboard, document-script, diagramming]
     category: creative
     related_skills: []
+category: design-creative
 ---
 
 # tldraw offline Skill

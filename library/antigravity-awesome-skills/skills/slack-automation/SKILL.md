@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: productivity-workflow
 ---
 
 # Slack Automation via Rube MCP

@@ -2,6 +2,7 @@
 name: i18n
 description: 'Use for user-facing strings and react-i18next locale keys, namespaces, interpolation, translations or bun run i18n.'
 user-invocable: false
+category: frontend-ui
 ---
 
 # LobeHub Internationalization Guide

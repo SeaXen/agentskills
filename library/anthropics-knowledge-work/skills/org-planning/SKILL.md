@@ -1,6 +1,7 @@
 ---
 name: org-planning
 description: Headcount planning, org design, and team structure optimization. Trigger with "org planning", "headcount plan", "team structure", "reorg", "who should we hire next", or when the user is thinking about team size, reporting structure, or organizational design.
+category: business-operations
 ---
 
 # Org Planning

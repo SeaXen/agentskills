@@ -3,6 +3,7 @@ name: pricing-strategy
 description: "Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives."
 risk: unknown
 source: community
+category: business-operations
 ---
 
 # Pricing Strategy

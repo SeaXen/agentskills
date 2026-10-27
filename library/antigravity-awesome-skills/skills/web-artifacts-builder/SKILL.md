@@ -4,6 +4,7 @@ description: "Suite of tools for creating elaborate, multi-component claude.ai H
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
+category: frontend-ui
 ---
 
 # Web Artifacts Builder

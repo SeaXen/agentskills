@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.PostgreSql
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.ResourceManager.PostgreSql (.NET)

@@ -16,6 +16,7 @@ description: >
   for it when the owner mentions applicants, resumes, candidates, or being
   buried in a hiring inbox.
 allowed-tools: Read, WebFetch
+category: business-operations
 ---
 
 # Hiring Screener

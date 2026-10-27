@@ -9,6 +9,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-version: "1.9.1"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # Scikit-learn

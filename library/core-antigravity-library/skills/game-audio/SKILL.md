@@ -4,6 +4,7 @@ description: "Game audio principles. Sound design, music integration, adaptive a
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
+category: design-creative
 ---
 
 # Game Audio Principles

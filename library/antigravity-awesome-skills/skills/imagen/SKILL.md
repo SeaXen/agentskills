@@ -3,6 +3,7 @@ name: imagen
 description: "|"
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen"
 risk: safe
+category: software-engineering
 ---
 
 # Imagen - AI Image Generation Skill

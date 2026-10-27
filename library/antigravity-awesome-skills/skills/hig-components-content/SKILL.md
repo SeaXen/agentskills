@@ -14,6 +14,7 @@ description: ">"
   platform-specific component behavior.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Apple HIG: Content Components

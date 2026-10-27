@@ -11,6 +11,7 @@ metadata:
     related_skills: [obsidian]
 prerequisites:
   commands: [memo]
+category: software-engineering
 ---
 
 # Apple Notes

@@ -5,6 +5,7 @@ description: "|"
 package: Azure.Search.Documents
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.Search.Documents (.NET)

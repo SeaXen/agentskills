@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Manim, Animation, Math, Video]
     related_skills: []
+category: design-creative
 ---
 
 # Manim Video Production Pipeline

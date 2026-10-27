@@ -1,6 +1,7 @@
 ---
 name: agent-signal
 description: 'Use for Agent Signal sources, actions, policies, middleware, workflow handoff and deduplication.'
+category: ai-agents
 ---
 
 # Agent Signal

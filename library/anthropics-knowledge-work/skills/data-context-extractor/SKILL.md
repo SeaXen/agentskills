@@ -13,6 +13,7 @@ description: >
 
   Use when data analysts want Claude to understand their company's specific data warehouse,
   terminology, metrics definitions, and common query patterns.
+category: business-operations
 ---
 
 # Data Context Extractor

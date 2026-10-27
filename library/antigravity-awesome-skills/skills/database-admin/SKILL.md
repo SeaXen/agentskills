@@ -10,6 +10,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: database-storage
 ---
 
 ## Use this skill when

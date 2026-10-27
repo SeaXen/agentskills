@@ -5,6 +5,7 @@ description: "|"
 package: Azure.AI.DocumentIntelligence
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.AI.DocumentIntelligence (.NET)

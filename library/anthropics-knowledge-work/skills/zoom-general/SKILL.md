@@ -13,6 +13,7 @@ triggers:
   - "cross-product"
   - "apis vs mcp"
   - "api vs mcp"
+category: backend-api
 ---
 
 # Zoom General (Cross-Product Skills)

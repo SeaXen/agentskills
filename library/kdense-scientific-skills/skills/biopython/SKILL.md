@@ -16,6 +16,7 @@ metadata:
     - name: NCBI_API_KEY
       required: false
       description: NCBI API key to raise Entrez rate limits.
+category: academic-research
 ---
 
 # Biopython: Computational Molecular Biology in Python

@@ -13,6 +13,7 @@ metadata:
     upstream:
       repo: latent-spaces/brag
       path: skills/brag
+category: design-creative
 ---
 
 # Brag (upstream-maintained)

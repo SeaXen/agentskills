@@ -10,6 +10,7 @@ metadata:
     tags: [property, rental, real-estate, listings, desktop, cards]
     category: productivity
     related_skills: []
+category: software-engineering
 ---
 
 # Property Listings Skill

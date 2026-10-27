@@ -2,6 +2,7 @@
 name: chat-sdk
 description: 'Use for multi-platform bots built with chat SDK: webhooks, mentions, slash commands, cards, modals and streaming.'
 user-invocable: false
+category: software-engineering
 ---
 
 # Chat SDK

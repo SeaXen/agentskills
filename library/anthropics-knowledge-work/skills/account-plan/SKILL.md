@@ -1,6 +1,7 @@
 ---
 name: account-plan
 description: Build or refresh a strategic account plan - current state, goals, stakeholder coverage, opportunity map, risks, and the action plan - written to a doc and key fields synced to the CRM. Use when the user says "build an account plan for [account]", "update the [account] plan", "account planning for [account]", or before a planning cycle / QBR.
+category: business-operations
 ---
 
 # Account Plan

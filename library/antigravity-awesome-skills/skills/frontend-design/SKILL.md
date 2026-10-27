@@ -4,6 +4,7 @@ description: "Create distinctive, production-grade frontend interfaces with inte
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
+category: frontend-ui
 ---
 
 # Frontend Design (Distinctive, Production-Grade)

@@ -13,6 +13,7 @@ description: >
   workflow," or "I want this to happen every Monday." Reach for it when they
   describe a routine, even without asking for automation.
 allowed-tools: Read, WebFetch
+category: ai-agents
 ---
 
 # Build Agent

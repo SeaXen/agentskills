@@ -2,6 +2,7 @@
 name: modal
 description: 'Use for modals, dialogs and confirmations with createModal, confirmModal, ModalHost or base-ui modal APIs.'
 user-invocable: false
+category: software-engineering
 ---
 
 # Modal Imperative API Guide

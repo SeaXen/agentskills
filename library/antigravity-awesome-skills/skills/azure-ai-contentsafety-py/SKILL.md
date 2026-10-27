@@ -6,6 +6,7 @@ description: "|"
 package: azure-ai-contentsafety
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure AI Content Safety SDK for Python

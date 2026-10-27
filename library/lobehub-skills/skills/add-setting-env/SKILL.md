@@ -3,6 +3,7 @@ name: add-setting-env
 description: Add server-side environment variables that control default values for user settings.
 disable-model-invocation: true
 argument-hint: '[setting-name]'
+category: software-engineering
 ---
 
 # Adding Environment Variable for User Settings

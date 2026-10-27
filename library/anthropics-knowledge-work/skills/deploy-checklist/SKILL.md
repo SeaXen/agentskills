@@ -2,6 +2,7 @@
 name: deploy-checklist
 description: Pre-deployment verification checklist. Use when about to ship a release, deploying a change with database migrations or feature flags, verifying CI status and approvals before going to production, or documenting rollback triggers ahead of time.
 argument-hint: "[service or release name]"
+category: database-storage
 ---
 
 # /deploy-checklist

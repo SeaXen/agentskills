@@ -3,6 +3,7 @@ name: incident-postmortem
 description: Site Reliability Engineering (SRE) incident postmortem authoring, root-cause analysis (5 Whys), and timeline reconstruction. Use when documenting production outages, conducting post-incident reviews, analyzing failure modes, or creating corrective preventative action plans.
 allowed-tools: Read, Write, Edit, Glob, Grep
 version: 1.0
+category: software-engineering
 ---
 
 # Incident Postmortem & SRE Analysis

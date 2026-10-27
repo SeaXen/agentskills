@@ -15,6 +15,7 @@ description: >-
   postgres, database, backend, Claimable Neon, neon.new, or a no-signup database.
 metadata:
   source: https://github.com/neondatabase/agent-skills/tree/main/skills/neon
+category: database-storage
 ---
 
 # Neon

@@ -5,6 +5,7 @@ description: "|"
 package: Azure.AI.VoiceLive
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure.AI.VoiceLive (.NET)

@@ -3,6 +3,7 @@ name: antigravity-workflows
 description: "Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, security audits, AI agent builds, and browser QA."
 source: self
 risk: none
+category: security-audit
 ---
 
 # Antigravity Workflows

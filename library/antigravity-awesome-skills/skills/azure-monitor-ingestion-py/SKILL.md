@@ -6,6 +6,7 @@ description: "|"
 package: azure-monitor-ingestion
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Monitor Ingestion SDK for Python

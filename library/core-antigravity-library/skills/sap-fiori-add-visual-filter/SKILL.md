@@ -5,6 +5,7 @@ argument-hint: field name (e.g., Category, Status)
 metadata:
   author: sap-fiori-tools
   version: "0.0.4"
+category: software-engineering
 ---
 
 # SAP Fiori Visual Filter

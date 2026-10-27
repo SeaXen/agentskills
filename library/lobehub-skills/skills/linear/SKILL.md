@@ -2,6 +2,7 @@
 name: linear
 description: 'Use for Linear issues, LOBE-xxx links, status updates, completion comments and sub-issue trees.'
 user-invocable: false
+category: productivity-workflow
 ---
 
 # Linear Issue Management

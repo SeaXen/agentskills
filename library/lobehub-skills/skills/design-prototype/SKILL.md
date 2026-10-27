@@ -1,6 +1,7 @@
 ---
 name: design-prototype
 description: 'Use for interactive HTML prototypes (交互原型) with the real LobeHub UI stack. Excludes production UI implementation.'
+category: frontend-ui
 ---
 
 # Design Prototype

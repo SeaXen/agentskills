@@ -9,7 +9,7 @@
 Antigravity Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas
-- **104 Active Skills** - Domain-specific knowledge modules
+- **87 Active Hot-Set Skills** - Curated daily-driver engineering skills - Domain-specific knowledge modules
 - **2,031 Library Reserve Skills** - Offline capability archive across 36 repositories (`.agent/library/`)
 - **17 Workflows** - Slash command procedures
 
@@ -21,7 +21,8 @@ Antigravity Kit is a modular system consisting of:
 .agent/
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
-├── skills/                  # 104 Active Skills
+├── skills/                  # 87 Active Hot-Set Skills
+├── category/                # 16 Functional Category Directories & Navigation Indexes
 ├── library/                 # 2,031 Offline Reserve Skills (36 repositories) & Activator
 ├── workflows/               # 17 Slash Commands
 ├── rules/                   # Global Rules

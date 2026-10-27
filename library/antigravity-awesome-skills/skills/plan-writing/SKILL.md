@@ -4,6 +4,7 @@ description: "Structured task planning with clear breakdowns, dependencies, and 
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Plan Writing

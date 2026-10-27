@@ -4,6 +4,7 @@ description: "Send SMS messages with Azure Communication Services SMS Java SDK. 
 package: com.azure:azure-communication-sms
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Communication SMS (Java)

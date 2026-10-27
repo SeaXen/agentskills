@@ -11,6 +11,7 @@ metadata:
     homepage: https://www.openhue.io/cli
 prerequisites:
   commands: [openhue]
+category: software-engineering
 ---
 
 # OpenHue CLI

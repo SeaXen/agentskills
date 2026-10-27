@@ -3,6 +3,7 @@ name: popup-cro
 description: "Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without harming user experience or brand trust."
 risk: unknown
 source: community
+category: software-engineering
 ---
 # Popup CRO
 

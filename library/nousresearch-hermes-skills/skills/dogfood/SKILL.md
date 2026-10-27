@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [qa, testing, browser, web, dogfood]
     related_skills: []
+category: testing-qa
 ---
 
 # Dogfood: Systematic Web Application QA Testing

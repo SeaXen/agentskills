@@ -9,6 +9,7 @@ metadata:
   last-reviewed: "2026-09-30"
   upstream-version: "4.0.0"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # deepTools: NGS Data Analysis Toolkit

@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [finance, three-statement, income-statement, balance-sheet, cash-flow, excel, openpyxl, modeling]
     related_skills: [excel-author, pptx-author, dcf-model, lbo-model]
+category: business-operations
 ---
 
 ## Environment

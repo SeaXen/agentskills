@@ -13,6 +13,7 @@ triggers:
   - "rivet lambda"
   - "rivet team chat"
   - "rivet chatbot"
+category: backend-api
 ---
 
 # Zoom Rivet SDK

@@ -8,6 +8,7 @@ metadata:
   last-reviewed: "2026-10-01"
   upstream-versions: "Nextflow 26.04.6; nf-core tools 4.1.0; nf-test 0.9.5"
   skill-author: K-Dense Inc.
+category: academic-research
 ---
 
 # Nextflow

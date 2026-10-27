@@ -7,6 +7,7 @@ metadata:
   version: "1.3"
   last-reviewed: "2026-10-01"
   skill-author: Kuan-lin Huang
+category: academic-research
 ---
 
 # Molecular Dynamics

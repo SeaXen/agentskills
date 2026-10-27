@@ -4,6 +4,7 @@ description: "Build real-time chat applications with Azure Communication Service
 package: com.azure:azure-communication-chat
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Azure Communication Chat (Java)

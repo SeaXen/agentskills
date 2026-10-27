@@ -3,6 +3,7 @@ name: culture-index
 description: "Index and search culture documentation"
 source: "https://github.com/trailofbits/skills/tree/main/plugins/culture-index"
 risk: safe
+category: software-engineering
 ---
 
 # Culture Index

@@ -2,6 +2,7 @@
 name: performance-report
 description: Build a marketing performance report with key metrics, trend analysis, wins and misses, and prioritized optimization recommendations. Use when wrapping a campaign, when preparing weekly, monthly, or quarterly channel summaries for stakeholders, or when you need data translated into an executive summary with next-period priorities.
 argument-hint: "<time period or campaign>"
+category: business-operations
 ---
 
 # Performance Report

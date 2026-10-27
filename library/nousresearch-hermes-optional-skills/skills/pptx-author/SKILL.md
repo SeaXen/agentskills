@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [powerpoint, pptx, python-pptx, presentation, finance]
     related_skills: [excel-author, powerpoint]
+category: business-operations
 ---
 
 # pptx-author

@@ -7,6 +7,7 @@ description: ">"
   improve lead quality without breaking compliance or downstream workflows.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Form Conversion Rate Optimization (Form CRO)

@@ -1,6 +1,7 @@
 ---
 name: run-eval-harbor
 description: 'Run and diagnose existing Harbor or FrontierHarness evaluations against local production LobeHub or LobeHub Cloud, on a local Docker host, SSH worker, or Runta. Use for eval infrastructure, target preflight, lh CLI injection, Harbor smoke or job runs, resume, and failure triage. Excludes authoring Harbor tasks and product acceptance.'
+category: devops-cloud
 ---
 
 # Run Eval Harbor

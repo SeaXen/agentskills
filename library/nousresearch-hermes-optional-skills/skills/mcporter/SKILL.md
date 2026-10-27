@@ -11,6 +11,7 @@ metadata:
     homepage: https://mcporter.dev
 prerequisites:
   commands: [npx]
+category: backend-api
 ---
 
 # mcporter

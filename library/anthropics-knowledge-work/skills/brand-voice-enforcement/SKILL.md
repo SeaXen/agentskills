@@ -10,6 +10,7 @@ description: >
   "use our brand tone", "make this sound like us", "rewrite this in our tone",
   or "this doesn't sound on-brand". Not for generating guidelines from scratch
   (use guideline-generation) or discovering brand materials (use discover-brand).
+category: design-creative
 ---
 
 # Brand Voice Enforcement

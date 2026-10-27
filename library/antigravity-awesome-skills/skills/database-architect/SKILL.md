@@ -11,6 +11,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
+category: database-storage
 ---
 You are a database architect specializing in designing scalable, performant, and maintainable data layers from the ground up.
 

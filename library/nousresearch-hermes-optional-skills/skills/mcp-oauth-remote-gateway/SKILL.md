@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [MCP, OAuth, PKCE, Remote-Deployment]
     related_skills: [hermes-agent, mcporter, fastmcp]
+category: software-engineering
 ---
 
 # MCP OAuth on a Remote Hermes Gateway

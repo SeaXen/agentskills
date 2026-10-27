@@ -8,6 +8,7 @@ metadata:
   version: "2.0"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-30"
+category: academic-research
 ---
 
 # Analytical Method Validation

@@ -8,6 +8,7 @@ metadata:
   skill-author: K-Dense Inc.
   tested-package-version: "0.11.2"
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # pycalphad: TDB equilibrium calculations

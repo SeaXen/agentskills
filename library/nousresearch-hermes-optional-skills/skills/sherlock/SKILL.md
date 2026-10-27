@@ -11,6 +11,7 @@ metadata:
     category: security
 prerequisites:
   commands: [sherlock]
+category: security-audit
 ---
 
 # Sherlock OSINT Username Search

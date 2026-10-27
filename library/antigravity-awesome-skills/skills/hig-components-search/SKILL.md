@@ -12,6 +12,7 @@ description: ">-"
   hig-patterns.
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Apple HIG: Navigation Components

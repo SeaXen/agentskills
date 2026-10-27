@@ -3,6 +3,7 @@ name: fal-upscale
 description: "Upscale and enhance image and video resolution using AI"
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-upscale/SKILL.md"
 risk: safe
+category: design-creative
 ---
 
 # Fal Upscale

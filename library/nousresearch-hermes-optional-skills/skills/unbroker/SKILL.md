@@ -13,6 +13,7 @@ metadata:
     category: security
     related_skills: [google-workspace, agentmail, himalaya, scrapling, osint-investigation]
     homepage: https://github.com/NousResearch/hermes-agent
+category: security-audit
 ---
 
 # unbroker

@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [Hyperliquid, Blockchain, Crypto, Trading, Perpetuals, Spot, DeFi]
     related_skills: []
+category: web3-crypto
 ---
 
 # Hyperliquid Skill

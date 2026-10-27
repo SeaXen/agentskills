@@ -8,6 +8,7 @@ metadata:
   skill-author: Paperzilla Inc
   upstream-version: "pz 0.7.1"
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # Paperzilla

@@ -3,6 +3,7 @@ name: add-model-provider
 description: Add an AI model provider to LobeHub, including runtime integration, model cards, configuration, branding, documentation, and acceptance. Also use for provider documentation updates; adding models to an existing provider does not require a new provider integration.
 disable-model-invocation: true
 argument-hint: '[provider-name]'
+category: software-engineering
 ---
 
 # Add a Model Provider

@@ -5,6 +5,7 @@ description: "Generate comprehensive market opportunity analysis with TAM/SAM/SO
 allowed-tools: Read Write Edit Glob Grep Bash WebSearch WebFetch
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # Market Opportunity Analysis

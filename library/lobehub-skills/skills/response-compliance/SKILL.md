@@ -1,6 +1,7 @@
 ---
 name: response-compliance
 description: 'Use for OpenResponses/Response API compliance tests, endpoint schema failures and test runs.'
+category: testing-qa
 ---
 
 # OpenResponses Compliance Test

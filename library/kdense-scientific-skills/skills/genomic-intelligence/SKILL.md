@@ -14,6 +14,7 @@ metadata:
     - name: GI_API_KEY
       required: false
       description: Optional gi_ bearer key for the REST /v1 API and higher MCP rate and concurrency limits. The hosted MCP demo runs keyless; request a key at contact@genomicintelligence.ai.
+category: academic-research
 ---
 
 # Genomic Intelligence — DNA Sequence Models

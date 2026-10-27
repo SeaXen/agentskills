@@ -16,6 +16,7 @@ description: >
   and an Academy recommendation belong together. Only recommend on a strong
   match; never invent Academy content.
 license: Complete terms in LICENSE.txt
+category: frontend-ui
 ---
 
 # Claude Academy guide

@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [planning, adversarial, interview, decision-tree, pre-implementation, review, alignment]
     related_skills: [requesting-code-review, subagent-driven-development, test-driven-development]
+category: business-operations
 ---
 
 # Grill Me

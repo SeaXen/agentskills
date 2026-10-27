@@ -10,6 +10,7 @@ metadata:
     tags: [docker, containers, devops, infrastructure, compose, images, volumes, networks, debugging]
     category: devops
     requires_toolsets: [terminal]
+category: devops-cloud
 ---
 
 # Docker Management

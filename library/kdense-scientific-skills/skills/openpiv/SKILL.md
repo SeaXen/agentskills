@@ -9,6 +9,7 @@ metadata:
   skill-author: OpenPIV Team
   tested-against: "openpiv 0.26.1"
   last-reviewed: "2026-10-01"
+category: academic-research
 ---
 
 # OpenPIV

@@ -14,6 +14,7 @@ metadata:
       - name: OPENROUTER_API_KEY
         required: true
         description: OpenRouter API key used for image generation.
+category: academic-research
 ---
 
 # Generate Image

@@ -10,6 +10,7 @@ metadata:
     tags: [ast, codemod, refactoring, structural-search, code-search, rewrite, tree-sitter]
     category: software-development
     related_skills: [simplify-code, systematic-debugging]
+category: software-engineering
 ---
 
 # ast-grep

@@ -12,6 +12,7 @@ metadata:
     category: creative
     related_skills: [p5js, claude-design, manim-video]
     upstream: https://github.com/achimala/dream-loop
+category: design-creative
 ---
 
 # Dream Loop Skill

@@ -4,6 +4,7 @@ description: "Tailwind CSS v4 principles. CSS-first configuration, container que
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
+category: frontend-ui
 ---
 
 # Tailwind CSS Patterns (v4 - 2025)

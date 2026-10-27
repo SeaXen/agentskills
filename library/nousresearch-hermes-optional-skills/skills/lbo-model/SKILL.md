@@ -9,6 +9,7 @@ metadata:
   hermes:
     tags: [finance, valuation, lbo, private-equity, excel, openpyxl, modeling]
     related_skills: [excel-author, pptx-author, dcf-model, 3-statement-model]
+category: business-operations
 ---
 
 ## Environment

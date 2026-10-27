@@ -2,6 +2,7 @@
 name: code-review-checklist
 description: Code review guidelines covering code quality, security, and best practices.
 allowed-tools: Read, Glob, Grep
+category: security-audit
 ---
 
 # Code Review Checklist

@@ -2,6 +2,7 @@
 name: debug-package
 description: 'Use for debug() logging, lobe-* namespaces, DEBUG/localStorage.debug configuration and log formatting.'
 user-invocable: false
+category: ai-agents
 ---
 
 # Debug Package Usage Guide

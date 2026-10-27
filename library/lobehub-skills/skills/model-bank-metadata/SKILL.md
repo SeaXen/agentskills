@@ -2,6 +2,7 @@
 name: model-bank-metadata
 description: 'Use for model knowledgeCutoff, family and generation metadata: onboarding, corrections, research and bulk backfills.'
 user-invocable: false
+category: software-engineering
 ---
 
 # Model-Bank Metadata (knowledgeCutoff / family / generation)

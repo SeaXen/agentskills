@@ -4,6 +4,7 @@ description: "Find company & contact data. Turn your agent into a prospecting pl
 compatibility: Run with `npx @vibeprospecting/vpai@latest`. If the CLI does not work and the user's agent environment supports connectors, suggest the Vibe Prospecting connector to the user.
 metadata:
   version: "0.1.62"
+category: business-operations
 ---
 
 # Vibe Prospecting CLI

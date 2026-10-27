@@ -3,6 +3,7 @@ name: incident-response-incident-response
 description: "Use when working with incident response incident response"
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 ## Use this skill when

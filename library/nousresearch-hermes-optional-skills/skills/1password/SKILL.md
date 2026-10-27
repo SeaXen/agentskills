@@ -16,6 +16,7 @@ setup:
       prompt: "1Password Service Account Token"
       provider_url: "https://developer.1password.com/docs/service-accounts/"
       secret: true
+category: security-audit
 ---
 
 # 1Password CLI

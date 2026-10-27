@@ -25,6 +25,7 @@ metadata:
       - video-generation
     related_skills: [stable-diffusion]
     category: creative
+category: design-creative
 ---
 
 # ComfyUI

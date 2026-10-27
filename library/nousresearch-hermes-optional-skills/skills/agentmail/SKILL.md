@@ -17,6 +17,7 @@ required_environment_variables:
     help: "Create one at https://console.agentmail.to — or run the CLI self-signup flow in references/signup.md to obtain a key without one."
     required_for: "authenticating the agentmail CLI; not needed before self-signup"
     optional: true
+category: ai-agents
 ---
 
 # AgentMail Skill

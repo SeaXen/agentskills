@@ -7,6 +7,7 @@ metadata:
   version: "1.1"
   skill-author: K-Dense Inc.
   last-reviewed: "2026-09-30"
+category: academic-research
 ---
 
 # FlowKit

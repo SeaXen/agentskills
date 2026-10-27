@@ -9,6 +9,7 @@ metadata:
   model: haiku
 risk: unknown
 source: community
+category: software-engineering
 ---
 
 # C4 Code Level: [Directory Name]

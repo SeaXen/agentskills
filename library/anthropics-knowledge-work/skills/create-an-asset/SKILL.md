@@ -1,6 +1,7 @@
 ---
 name: create-an-asset
 description: Build a customer deck, one-pager or leave-behind from your account data, call notes and approved materials, with no made-up numbers. Use when the user asks for a sales asset, one-pager, deck, leave-behind, "create an asset for [prospect]", or "make something for [account]".
+category: business-operations
 ---
 
 # Create an Asset

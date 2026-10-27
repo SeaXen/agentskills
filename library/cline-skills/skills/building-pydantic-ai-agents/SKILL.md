@@ -6,6 +6,7 @@ compatibility: Requires Python 3.10+
 metadata:
   version: "1.1.0"
   author: pydantic
+category: testing-qa
 ---
 
 # Building AI Agents with Pydantic AI

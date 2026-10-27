@@ -1,6 +1,7 @@
 ---
 name: llm-generation
 description: 'Use for application prompts, generateObject/generateText, model selection and generation tracing. Excludes provider adapters and agent snapshots.'
+category: ai-agents
 ---
 
 # LLM Generation
