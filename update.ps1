@@ -3,7 +3,8 @@ param(
     [switch]$AwesomeOnly,
     [switch]$About,
     [switch]$Tags,
-    [string]$Tag = ""
+    [string]$Tag = "",
+    [string]$Find = ""
 )
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -13,5 +14,6 @@ if ($AwesomeOnly) { $argsList += "--awesome" }
 if ($About) { $argsList += "--about" }
 if ($Tags) { $argsList += "--tags" }
 if ($Tag -ne "") { $argsList += @("--tag", $Tag) }
+if ($Find -ne "") { $argsList += @("--find", $Find) }
 
 python "$scriptDir\update.py" @argsList

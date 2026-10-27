@@ -1,0 +1,40 @@
+name: Auto Update Skills Vault
+
+on:
+  schedule:
+    # Run every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-vault:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run automated skills updater
+        run: |
+          python update.py --no-push
+
+      - name: Commit and push changes if updated
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(automated): weekly upstream skills & library sync"
+          branch: main

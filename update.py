@@ -1,14 +1,15 @@
 """
-AgentSkills Automated Vault Updater & Tag Search Tool
+AgentSkills Automated Vault Updater & Skill Discovery Tool
 Author: SeaXen (https://github.com/SeaXen/agentskills)
 
 Usage:
     python update.py                 # Update everything and git push to GitHub
     python update.py --no-push       # Update everything locally without pushing
-    python update.py --awesome       # Only sync antigravity-awesome-skills
-    python update.py --about         # Display repository details, metadata & stats
+    python update.py --awesome       # Only sync awesome-skills library
+    python update.py --about         # Display repository metadata, inventory & stats
     python update.py --tags          # List all available skill domain tags & counts
-    python update.py --tag <name>    # Search & list skills matching a tag or keyword
+    python update.py --tag <name>    # Search & list skills matching a domain tag
+    python update.py --find <query>  # Search across ALL 1,476 skills (installed + library)
 """
 
 import os
@@ -18,7 +19,6 @@ import subprocess
 import json
 import re
 from datetime import datetime
-from collections import defaultdict
 
 # Enforce UTF-8 output on Windows
 if sys.platform == 'win32':
@@ -29,11 +29,12 @@ repo_root = os.path.dirname(agents_dir)
 skills_dir = os.path.join(agents_dir, 'skills')
 library_dir = os.path.join(agents_dir, 'library')
 awesome_skills_dir = os.path.join(library_dir, 'antigravity-awesome-skills')
+awesome_skills_sub = os.path.join(awesome_skills_dir, 'skills')
 lockfile_path = os.path.join(agents_dir, 'skills-lock.json')
 provenance_path = os.path.join(agents_dir, 'SKILLS_PROVENANCE.md')
 readme_path = os.path.join(agents_dir, 'README.md')
 
-# Tag taxonomy
+# Domain tag taxonomy
 TAG_KEYWORDS = {
     'frontend': ['react', 'nextjs', 'tailwind', 'css', 'design', 'ui', 'view', 'web', 'canvas', 'svg', 'd3', 'shadcn', 'component', 'taste'],
     'animation-craft': ['animate', 'animation', 'emil', 'craft', 'micro', 'motion', 'apple'],
@@ -58,7 +59,7 @@ def load_skills():
 
 def show_about():
     skills = load_skills()
-    awesome_cnt = len(os.listdir(os.path.join(awesome_skills_dir, 'skills'))) if os.path.exists(os.path.join(awesome_skills_dir, 'skills')) else 882
+    awesome_cnt = len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 882
     print("""
 =================================================================
   ⚡ AGENTSKILLS VAULT (SeaXen/agentskills) ⚡
@@ -68,22 +69,23 @@ def show_about():
   Purpose:        Production-grade modular intelligence for AI agents
 -----------------------------------------------------------------
   📊 VAULT INVENTORY:
-    • Total Installed Skills:     594 modular skills
+    • Installed Skills (Active):  594 modular skills (.agents/skills)
     • Upstream Repositories:      32 distinct sources
     • Specialist Agent Personas:  20 agents (.agents/agents)
     • Autonomous Workflows:       17 slash commands (.agents/workflows)
-    • Offline Awesome Library:    {} extensions (.agents/library)
-    • Active Hot-Set Set:         89 curated skills (.agent/skills)
+    • Awesome Library Skills:     {} extensions (.agents/library)
+    • Total Available Skills:     {} combined skills
+    • Active Hot-Set:             89 curated skills (.agent/skills)
 -----------------------------------------------------------------
-  🏷️ GITHUB ABOUT & TOPICS (Suggested):
+  🏷️ GITHUB ABOUT & TOPICS:
     Description:
-      "The ultimate modular AI agent skills vault (594 skills, 20 agents, 17 workflows) for Antigravity, Claude Code, Cursor, and Windsurf."
+      "The ultimate modular AI agent skills vault (594 skills, 20 agents, 17 workflows, 882 library extensions) for Antigravity, Claude Code, Cursor, and Windsurf."
 
     Topics / Tags:
       agent-skills, ai-agents, antigravity-ide, claude-code, cursor,
-      windsurf, prompt-engineering, developer-tools, react, nextjs,
-      cloudflare, ui-ux, emil-kowalski, testing, web3, rust, python
-=================================================================""".format(awesome_cnt))
+      windsurf, prompt-engineering, developer-tools, emil-kowalski, vercel,
+      nextjs, cloudflare, testing, web3, rust, python
+=================================================================""".format(awesome_cnt, len(skills) + awesome_cnt))
 
 def show_tags():
     skills = load_skills()
@@ -115,6 +117,37 @@ def search_by_tag(query):
         print(f" • {name:35} [{src}]")
     print("=" * 65)
 
+def find_global(query):
+    """Search across ALL 1,476 skills (installed 594 + 882 library)"""
+    q = query.lower()
+    skills = load_skills()
+    
+    installed_matches = []
+    for name, info in skills.items():
+        if q in name.lower():
+            installed_matches.append((name, info.get('source', 'installed'), 'Installed (.agents/skills)'))
+
+    library_matches = []
+    if os.path.exists(awesome_skills_sub):
+        for name in os.listdir(awesome_skills_sub):
+            if q in name.lower() and name not in skills:
+                library_matches.append((name, 'benjaminasterA/antigravity-awesome-skills', 'Awesome Library (On-Demand)'))
+
+    total = len(installed_matches) + len(library_matches)
+    print(f"\n🔎 Global Search for '{query}': {total} matches across vault")
+    print("=" * 75)
+    if installed_matches:
+        print("📦 Installed Skills (.agents/skills):")
+        for name, src, loc in sorted(installed_matches):
+            print(f"  ✓ {name:35} [{src}]")
+    if library_matches:
+        print("\n📚 Available in Awesome Library (Activate with: python library/activate_skill.py <name>):")
+        for name, src, loc in sorted(library_matches)[:20]:
+            print(f"  + {name:35} [awesome-library]")
+        if len(library_matches) > 20:
+            print(f"  ... and {len(library_matches) - 20} more in library.")
+    print("=" * 75)
+
 def clean_nested():
     nested_agents = os.path.join(agents_dir, '.agents')
     if os.path.exists(nested_agents):
@@ -122,7 +155,8 @@ def clean_nested():
         shutil.rmtree(nested_agents, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
 
 def sync_awesome_skills():
-    print("\n[1/5] Syncing benjaminasterA/antigravity-awesome-skills...")
+    """Sync ONLY skills/ and skills_index.json from upstream, eliminating repo bloat"""
+    print("\n[1/5] Syncing pure skills from benjaminasterA/antigravity-awesome-skills...")
     temp_dir = os.path.join(repo_root, '.temp_awesome_clone')
     if os.path.exists(temp_dir):
         shutil.rmtree(temp_dir, ignore_errors=True)
@@ -134,28 +168,27 @@ def sync_awesome_skills():
             temp_dir
         ], capture_output=True, text=True, check=True)
 
-        temp_git = os.path.join(temp_dir, '.git')
-        if os.path.exists(temp_git):
-            import stat
-            shutil.rmtree(temp_git, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+        os.makedirs(awesome_skills_sub, exist_ok=True)
+        
+        # Copy ONLY skills/ directory
+        temp_skills = os.path.join(temp_dir, 'skills')
+        if os.path.exists(temp_skills):
+            for skill_name in os.listdir(temp_skills):
+                s_src = os.path.join(temp_skills, skill_name)
+                s_dst = os.path.join(awesome_skills_sub, skill_name)
+                if os.path.isdir(s_src):
+                    if os.path.exists(s_dst):
+                        shutil.rmtree(s_dst, ignore_errors=True)
+                    shutil.copytree(s_src, s_dst)
 
-        os.makedirs(awesome_skills_dir, exist_ok=True)
-        for item in os.listdir(temp_dir):
-            src = os.path.join(temp_dir, item)
-            dst = os.path.join(awesome_skills_dir, item)
-            if os.path.isdir(src):
-                for root, dirs, files in os.walk(src):
-                    rel = os.path.relpath(root, src)
-                    dest_root = os.path.join(dst, rel)
-                    os.makedirs(dest_root, exist_ok=True)
-                    for f in files:
-                        shutil.copy2(os.path.join(root, f), os.path.join(dest_root, f))
-            else:
-                shutil.copy2(src, dst)
+        # Copy skills_index.json if present
+        idx_src = os.path.join(temp_dir, 'skills_index.json')
+        if os.path.exists(idx_src):
+            shutil.copy2(idx_src, os.path.join(awesome_skills_dir, 'skills_index.json'))
 
         shutil.rmtree(temp_dir, ignore_errors=True)
-        awesome_count = len(os.listdir(os.path.join(awesome_skills_dir, 'skills'))) if os.path.exists(os.path.join(awesome_skills_dir, 'skills')) else 0
-        print(f"✓ antigravity-awesome-skills synced successfully ({awesome_count} total skills).")
+        awesome_count = len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 0
+        print(f"✓ Pure skills synced successfully ({awesome_count} total skills, zero repo bloat).")
         return awesome_count
     except Exception as e:
         print(f"⚠️ Failed to sync awesome skills: {e}")
@@ -244,6 +277,13 @@ if __name__ == '__main__':
             search_by_tag(args[idx + 1])
         else:
             show_tags()
+        sys.exit(0)
+    elif '--find' in args:
+        idx = args.index('--find')
+        if idx + 1 < len(args):
+            find_global(args[idx + 1])
+        else:
+            print("Please specify a search keyword: python update.py --find <keyword>")
         sys.exit(0)
 
     print("=" * 65)
