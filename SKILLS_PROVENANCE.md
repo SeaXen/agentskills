@@ -29,6 +29,13 @@
 
 ---
 
+> [!TIP]
+> **Folder Naming Convention (`#` Prefix for Non-Repo Collections)**:  
+> Folders prefixed with **`#`** (e.g. [`#specialized-community-skills`](./library/%23specialized-community-skills), [`#core-antigravity-library`](./library/%23core-antigravity-library), and [`#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)) are **composite local collections or native workspace standards** that do NOT originate from a single 1:1 upstream git repository.  
+> The `#` prefix groups them together at the top of file managers for effortless visual distinction from upstream-cloned repositories.
+
+---
+
 ## 📚 Complete Offline Reserve Library Repositories (36 Repositories, 2,031 Skills)
 
 Every repository below is fully preserved on disk in `.agents/library/`, ready for zero-latency instant activation into your active workspace without incurring active prompt token overhead:
@@ -41,13 +48,13 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`anthropics-knowledge-work`](./library/anthropics-knowledge-work)** | 💼 Enterprise Operations, Finance, Marketing & Sales | 216 | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`anthropics-official-skills`](./library/anthropics-official-skills)** | 🤖 Official Anthropic Skills & Document Automation | 20 | [anthropics/skills](https://github.com/anthropics/skills) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`antigravity-awesome-skills`](./library/antigravity-awesome-skills)** | 🌟 Curated Open-Source Agent Skills Ecosystem | 876 | [benjaminasterA/antigravity-awesome-skills](https://github.com/benjaminasterA/antigravity-awesome-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`antigravity-elite-protocols`](./library/antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & Decoupled Learning | 4 | [antigravity-elite-protocols](https://github.com/antigravity-elite-protocols) | `python .agents/library/activate_skill.py link <skill>` |
+| **[`#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & Decoupled Learning | 4 | [antigravity-elite-protocols](https://github.com/antigravity-elite-protocols) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`browser-use-skills`](./library/browser-use-skills)** | Specialized Developer & AI Capabilities | 6 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`chezou-productivity-skills`](./library/chezou-productivity-skills)** | Specialized Developer & AI Capabilities | 3 | [chezou/skills](https://github.com/chezou/skills) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`cline-skills`](./library/cline-skills)** | 🛠️ Tooling, Automation & Terminal Integrations | 17 | [cline/skills](https://github.com/cline/skills) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`cloudflare-security-audit`](./library/cloudflare-security-audit)** | Specialized Developer & AI Capabilities | 1 | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`cloudflare-skills`](./library/cloudflare-skills)** | ☁️ Cloudflare Workers, D1 & Next.js on Edge | 4 | [cloudflare/skills](https://github.com/cloudflare/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`core-antigravity-library`](./library/core-antigravity-library)** | 🏛️ Core Standards, Architecture & Engineering Practices | 162 | [core-antigravity-library](https://github.com/core-antigravity-library) | `python .agents/library/activate_skill.py link <skill>` |
+| **[`#core-antigravity-library`](./library/%23core-antigravity-library)** | 🏛️ Core Standards, Architecture & Engineering Practices | 162 | [core-antigravity-library](https://github.com/core-antigravity-library) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`crypto-skills`](./library/crypto-skills)** | 🪙 Smart Contract Security & DeFi Architecture | 6 | [kukapay/crypto-skills](https://github.com/kukapay/crypto-skills) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`diagram-design`](./library/diagram-design)** | Specialized Developer & AI Capabilities | 1 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`emilkowalski-skills`](./library/emilkowalski-skills)** | ✨ Micro-interactions, Motion Craft & Animation Design | 15 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `python .agents/library/activate_skill.py link <skill>` |
@@ -65,7 +72,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`obra-superpowers`](./library/obra-superpowers)** | 🔮 Developer Diagnostics & Workspace Execution | 15 | [obra/superpowers](https://github.com/obra/superpowers) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`pbakaus-impeccable`](./library/pbakaus-impeccable)** | Specialized Developer & AI Capabilities | 1 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`ponytail-code-quality`](./library/ponytail-code-quality)** | Specialized Developer & AI Capabilities | 6 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`specialized-community-skills`](./library/specialized-community-skills)** | 🧩 Specialized Integrations (Playwright, Supabase, Neon, Shadcn, Caveman, Sentry, Apple) | 20 | [specialized-community-skills](https://github.com/specialized-community-skills) | `python .agents/library/activate_skill.py link <skill>` |
+| **[`#specialized-community-skills`](./library/%23specialized-community-skills)** | 🧩 Specialized Integrations (Playwright, Supabase, Neon, Shadcn, Caveman, Sentry, Apple) | 20 | [specialized-community-skills](https://github.com/specialized-community-skills) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`taste-skill`](./library/taste-skill)** | Specialized Developer & AI Capabilities | 1 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`ui-ux-pro-max-skill`](./library/ui-ux-pro-max-skill)** | 🎨 Design Reasoning, Typography & Stack Palettes | 6 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`vercel-agent-skills`](./library/vercel-agent-skills)** | ▲ Vercel React 19, Next.js & Server Action Patterns | 9 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | `python .agents/library/activate_skill.py link <skill>` |
@@ -130,13 +137,13 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 - **Machine Index**: [`skills_index.json`](./library/antigravity-awesome-skills/skills_index.json)
 - **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
 
-### Antigravity Colosseum & Telemetry Protocols (`antigravity-elite-protocols`)
-- **Folder Path**: [`library/antigravity-elite-protocols`](./library/antigravity-elite-protocols)
+### Antigravity Colosseum & Telemetry Protocols (`#antigravity-elite-protocols`)
+- **Folder Path**: [`library/#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)
 - **Upstream Repository**: [https://github.com/antigravity-elite-protocols](https://github.com/antigravity-elite-protocols)
 - **Total Skills**: 4 modular skills
 - **Category**: ⚔️ Colosseum Battle, Telemetry & Decoupled Learning
-- **Local Documentation**: [README.md](./library/antigravity-elite-protocols/README.md)
-- **Machine Index**: [`skills_index.json`](./library/antigravity-elite-protocols/skills_index.json)
+- **Local Documentation**: [README.md](./library/%23antigravity-elite-protocols/README.md)
+- **Machine Index**: [`skills_index.json`](./library/%23antigravity-elite-protocols/skills_index.json)
 - **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
 
 ### 🌐 Browser-Use Autonomous Web Navigation & QA (`browser-use-skills`)
@@ -184,13 +191,13 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 - **Machine Index**: [`skills_index.json`](./library/cloudflare-skills/skills_index.json)
 - **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
 
-### Antigravity Core Engineering & Design Systems (`core-antigravity-library`)
-- **Folder Path**: [`library/core-antigravity-library`](./library/core-antigravity-library)
+### Antigravity Core Engineering & Design Systems (`#core-antigravity-library`)
+- **Folder Path**: [`library/#core-antigravity-library`](./library/%23core-antigravity-library)
 - **Upstream Repository**: [https://github.com/core-antigravity-library](https://github.com/core-antigravity-library)
 - **Total Skills**: 162 modular skills
 - **Category**: 🏛️ Core Standards, Architecture & Engineering Practices
-- **Local Documentation**: [README.md](./library/core-antigravity-library/README.md)
-- **Machine Index**: [`skills_index.json`](./library/core-antigravity-library/skills_index.json)
+- **Local Documentation**: [README.md](./library/%23core-antigravity-library/README.md)
+- **Machine Index**: [`skills_index.json`](./library/%23core-antigravity-library/skills_index.json)
 - **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
 
 ### Web3 & DeFi Protocol Engineering (`crypto-skills`)
@@ -346,13 +353,13 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 - **Machine Index**: [`skills_index.json`](./library/ponytail-code-quality/skills_index.json)
 - **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
 
-### Specialized Community Skills & Integrations (`specialized-community-skills`)
-- **Folder Path**: [`library/specialized-community-skills`](./library/specialized-community-skills)
+### Specialized Community Skills & Integrations (`#specialized-community-skills`)
+- **Folder Path**: [`library/#specialized-community-skills`](./library/%23specialized-community-skills)
 - **Upstream Repository**: [https://github.com/specialized-community-skills](https://github.com/specialized-community-skills)
 - **Total Skills**: 20 modular skills
 - **Category**: 🧩 Specialized Integrations (Playwright, Supabase, Neon, Shadcn, Caveman, Sentry, Apple)
-- **Local Documentation**: [README.md](./library/specialized-community-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/specialized-community-skills/skills_index.json)
+- **Local Documentation**: [README.md](./library/%23specialized-community-skills/README.md)
+- **Machine Index**: [`skills_index.json`](./library/%23specialized-community-skills/skills_index.json)
 - **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
 
 ### 🎨 Anti-Slop Art Direction & Design Taste (`taste-skill`)

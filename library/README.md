@@ -28,13 +28,13 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | **[`anthropics-knowledge-work`](./anthropics-knowledge-work)** | 💼 Operations, Finance, Marketing & Sales | 216 | [`JSON`](./anthropics-knowledge-work/skills_index.json) | [Guide](./anthropics-knowledge-work/README.md) |
 | **[`anthropics-official-skills`](./anthropics-official-skills)** | 🤖 Official Anthropic Skills & Docs | 20 | [`JSON`](./anthropics-official-skills/skills_index.json) | [Guide](./anthropics-official-skills/README.md) |
 | **[`antigravity-awesome-skills`](./antigravity-awesome-skills)** | 🌟 Curated Open-Source Skills Ecosystem | 882 | [`JSON`](./antigravity-awesome-skills/skills_index.json) | [Guide](./antigravity-awesome-skills/README.md) |
-| **[`antigravity-elite-protocols`](./antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & OWL | 4 | [`JSON`](./antigravity-elite-protocols/skills_index.json) | [Guide](./antigravity-elite-protocols/README.md) |
+| **[`#antigravity-elite-protocols`](./%23antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & OWL | 4 | [`JSON`](./antigravity-elite-protocols/skills_index.json) | [Guide](./antigravity-elite-protocols/README.md) |
 | **[`browser-use-skills`](./browser-use-skills)** | 🌐 Autonomous Web Navigation, Cloud & QA | 6 | [`JSON`](./browser-use-skills/skills_index.json) | [Guide](./browser-use-skills/README.md) |
 | **[`chezou-productivity-skills`](./chezou-productivity-skills)** | 💼 Enterprise Company Intelligence & Career | 3 | [`JSON`](./chezou-productivity-skills/skills_index.json) | [Guide](./chezou-productivity-skills/README.md) |
 | **[`cline-skills`](./cline-skills)** | 🛠️ System Tools & Terminal Automation | 17 | [`JSON`](./cline-skills/skills_index.json) | [Guide](./cline-skills/README.md) |
 | **[`cloudflare-security-audit`](./cloudflare-security-audit)** | 🛡️ Enterprise Security & Vulnerability Auditing | 1 | [`JSON`](./cloudflare-security-audit/skills_index.json) | [Guide](./cloudflare-security-audit/README.md) |
 | **[`cloudflare-skills`](./cloudflare-skills)** | ☁️ Cloudflare Workers, Wrangler & Edge | 4 | [`JSON`](./cloudflare-skills/skills_index.json) | [Guide](./cloudflare-skills/README.md) |
-| **[`core-antigravity-library`](./core-antigravity-library)** | 🏛️ Core Standards, Architecture & Engineering | 162 | [`JSON`](./core-antigravity-library/skills_index.json) | [Guide](./core-antigravity-library/README.md) |
+| **[`#core-antigravity-library`](./%23core-antigravity-library)** | 🏛️ Core Standards, Architecture & Engineering | 162 | [`JSON`](./core-antigravity-library/skills_index.json) | [Guide](./core-antigravity-library/README.md) |
 | **[`crypto-skills`](./crypto-skills)** | 🪙 Smart Contract Security & DeFi Protocols | 6 | [`JSON`](./crypto-skills/skills_index.json) | [Guide](./crypto-skills/README.md) |
 | **[`diagram-design`](./diagram-design)** | 📊 Branded Architecture & Technical Diagrams | 1 | [`JSON`](./diagram-design/skills_index.json) | [Guide](./diagram-design/README.md) |
 | **[`emilkowalski-skills`](./emilkowalski-skills)** | ✨ Micro-interactions, Motion & Polish (Emil Kowalski) | 15 | [`JSON`](./emilkowalski-skills/skills_index.json) | [Guide](./emilkowalski-skills/README.md) |
@@ -52,7 +52,7 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | **[`obra-superpowers`](./obra-superpowers)** | 🔮 Developer Diagnostics & Tooling (Obra) | 15 | [`JSON`](./obra-superpowers/skills_index.json) | [Guide](./obra-superpowers/README.md) |
 | **[`pbakaus-impeccable`](./pbakaus-impeccable)** | ✨ Impeccable Design, Polish & Frontend Craft | 1 | [`JSON`](./pbakaus-impeccable/skills_index.json) | [Guide](./pbakaus-impeccable/README.md) |
 | **[`ponytail-code-quality`](./ponytail-code-quality)** | 🧹 Ponytail Code Quality & Tech Debt Suite | 6 | [`JSON`](./ponytail-code-quality/skills_index.json) | [Guide](./ponytail-code-quality/README.md) |
-| **[`specialized-community-skills`](./specialized-community-skills)** | 🧩 Integrations (Playwright, Supabase, Neon) | 20 | [`JSON`](./specialized-community-skills/skills_index.json) | [Guide](./specialized-community-skills/README.md) |
+| **[`#specialized-community-skills`](./%23specialized-community-skills)** | 🧩 Integrations (Playwright, Supabase, Neon) | 20 | [`JSON`](./specialized-community-skills/skills_index.json) | [Guide](./specialized-community-skills/README.md) |
 | **[`taste-skill`](./taste-skill)** | 🎨 Anti-Slop Art Direction & Design Taste | 1 | [`JSON`](./taste-skill/skills_index.json) | [Guide](./taste-skill/README.md) |
 | **[`ui-ux-pro-max-skill`](./ui-ux-pro-max-skill)** | 🎨 UI/UX Design System Reasoning | 6 | [`JSON`](./ui-ux-pro-max-skill/skills_index.json) | [Guide](./ui-ux-pro-max-skill/README.md) |
 | **[`vercel-agent-skills`](./vercel-agent-skills)** | ▲ Vercel React 19, Next.js & Server Actions | 9 | [`JSON`](./vercel-agent-skills/skills_index.json) | [Guide](./vercel-agent-skills/README.md) |

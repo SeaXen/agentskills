@@ -58,9 +58,26 @@ def load_skills():
     return {}
 
 def show_about():
-    skills = load_skills()
-    awesome_cnt = len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 876
-    print("""
+    installed_cnt = len([s for s in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, s)) and not s.startswith('.')]) if os.path.exists(skills_dir) else 0
+    lib_repos = [d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.')] if os.path.exists(library_dir) else []
+    lib_cnt = len(lib_repos)
+    
+    total_lib_skills = 0
+    idx_p = os.path.join(library_dir, 'skills_index.json')
+    if os.path.exists(idx_p):
+        try:
+            with open(idx_p, 'r', encoding='utf-8') as f:
+                total_lib_skills = len(json.load(f))
+        except Exception:
+            pass
+            
+    cat_dir = os.path.join(agents_dir, 'category')
+    cat_cnt = len([d for d in os.listdir(cat_dir) if os.path.isdir(os.path.join(cat_dir, d)) and not d.startswith('.')]) if os.path.exists(cat_dir) else 0
+    
+    agents_cnt = len([a for a in os.listdir(os.path.join(agents_dir, 'agents')) if a.endswith('.md')]) if os.path.exists(os.path.join(agents_dir, 'agents')) else 20
+    wf_cnt = len([w for w in os.listdir(os.path.join(agents_dir, 'workflows')) if w.endswith('.md')]) if os.path.exists(os.path.join(agents_dir, 'workflows')) else 17
+
+    print(f"""
 =================================================================
   ⚡ AGENTSKILLS VAULT (SeaXen/agentskills) ⚡
 =================================================================
@@ -69,16 +86,16 @@ def show_about():
   Purpose:        Production-grade modular intelligence for AI agents
 -----------------------------------------------------------------
   📊 VAULT INVENTORY:
-    • Installed Skills (Active):  594 modular skills (.agents/skills)
-    • Offline Reserve Repos:      17 repositories (.agents/library)
-    • Total Offline Skills:       1,470 combined skills
-    • Specialist Agent Personas:  20 agents (.agents/agents)
-    • Autonomous Workflows:       17 slash commands (.agents/workflows)
-    • Active Hot-Set Set:         89 curated skills (.agent/skills)
+    • Installed Skills (Active):  {installed_cnt} modular skills (.agents/skills)
+    • Offline Reserve Repos:      {lib_cnt} repositories (.agents/library)
+    • Total Offline Skills:       {total_lib_skills:,} combined skills
+    • Granular Categories:        {cat_cnt} functional domains (.agents/category)
+    • Specialist Agent Personas:  {agents_cnt} agents (.agents/agents)
+    • Autonomous Workflows:       {wf_cnt} slash commands (.agents/workflows)
 -----------------------------------------------------------------
   🏷️ GITHUB ABOUT & TOPICS:
     Description:
-      "The ultimate modular AI agent skills vault (594 skills, 20 agents, 17 workflows, 1,470 reserve skills) for Antigravity, Claude Code, Cursor, and Windsurf."
+      "The ultimate modular AI agent skills vault ({total_lib_skills:,} reserve skills, {cat_cnt} categories, {agents_cnt} agents, {wf_cnt} workflows) for Antigravity, Claude Code, Cursor, and Windsurf."
 
     Topics / Tags:
       agent-skills, ai-agents, antigravity-ide, claude-code, cursor,
