@@ -234,6 +234,79 @@ def sync_library_mirrors():
                     updated += 1
     print(f"✓ Synchronized {updated} skills across offline library repositories.")
 
+
+def rebuild_all_indexes():
+    """Regenerate skills_index.json for every repo in library/ and master library/skills_index.json"""
+    print("\n[4b/6] Updating skills_index.json across all 17 library repos and master index...")
+    if not os.path.exists(library_dir):
+        return
+
+    all_vault_skills = []
+    repo_folders = sorted([d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.')])
+
+    for repo_folder in repo_folders:
+        repo_path = os.path.join(library_dir, repo_folder)
+        skills_sub = os.path.join(repo_path, 'skills')
+        if not os.path.exists(skills_sub):
+            continue
+
+        repo_skills_index = []
+        skill_names = sorted([s for s in os.listdir(skills_sub) if os.path.isdir(os.path.join(skills_sub, s))])
+
+        for s_name in skill_names:
+            s_path = os.path.join(skills_sub, s_name)
+            skill_md = os.path.join(s_path, 'SKILL.md')
+            desc = "Specialized agent intelligence skill."
+            allowed_tools = []
+
+            if os.path.exists(skill_md):
+                try:
+                    with open(skill_md, 'r', encoding='utf-8', errors='ignore') as mf:
+                        m_content = mf.read(3000)
+                    m = re.search(r'description:\s*(?:>-\s*|\|\s*)?(.*?)(?:\n[a-zA-Z0-9_-]+:|\n---)', m_content, re.DOTALL)
+                    if m:
+                        desc = re.sub(r'\s+', ' ', m.group(1).strip().replace('\n', ' '))
+                    else:
+                        m2 = re.search(r'#\s+[^\n]+\n+([^\n#]+)', m_content)
+                        if m2:
+                            desc = m2.group(1).strip()
+                    m_tools = re.search(r'allowed-tools:\s*(.+)', m_content)
+                    if m_tools:
+                        allowed_tools = [t.strip() for t in m_tools.group(1).split(',')]
+                except Exception:
+                    pass
+
+            text = f"{s_name} {desc}".lower()
+            cat = "general-development"
+            for c_name, kws in TAG_KEYWORDS.items():
+                if any(kw in text for kw in kws):
+                    cat = c_name
+                    break
+
+            entry = {
+                "id": s_name,
+                "name": s_name,
+                "repository": repo_folder,
+                "category": cat,
+                "description": desc,
+                "path": f"library/{repo_folder}/skills/{s_name}",
+                "activation_cmd": f"python .agents/library/activate_skill.py activate {s_name}",
+                "link_cmd": f"python .agents/library/activate_skill.py link {s_name}"
+            }
+            if allowed_tools:
+                entry["allowed_tools"] = allowed_tools
+
+            repo_skills_index.append(entry)
+            all_vault_skills.append(entry)
+
+        with open(os.path.join(repo_path, 'skills_index.json'), 'w', encoding='utf-8') as rf:
+            json.dump(repo_skills_index, rf, indent=2)
+
+    master_index_file = os.path.join(library_dir, 'skills_index.json')
+    with open(master_index_file, 'w', encoding='utf-8') as mf:
+        json.dump(all_vault_skills, mf, indent=2)
+    print(f"✓ Re-indexed {len(repo_folders)} repository indexes and Master index ({len(all_vault_skills)} skills).")
+
 def rebuild_documentation():
     print("\n[4/6] Re-indexing skills and rebuilding documentation...")
     if os.path.exists(lockfile_path):
@@ -261,6 +334,7 @@ def rebuild_documentation():
         json.dump(lock_data, f, indent=2)
 
     print(f"✓ Total skills verified on disk: {len(current_skills)}")
+    rebuild_all_indexes()
 
 def git_commit_and_push():
     print("\n[5/6] Checking Git status in .agents...")
@@ -287,7 +361,10 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     clean_nested()
 
-    if '--about' in args:
+    if '--index' in args or '--reindex' in args:
+        rebuild_all_indexes()
+        sys.exit(0)
+    elif '--about' in args:
         show_about()
         sys.exit(0)
     elif '--tags' in args or '--list-tags' in args:

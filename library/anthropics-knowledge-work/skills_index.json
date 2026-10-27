@@ -1,0 +1,2335 @@
+[
+  {
+    "id": "accessibility-review",
+    "name": "accessibility-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with \"audit accessibility\", \"check a11y\", \"is this accessible?\", or when reviewing a design for color contrast, keyboard navigation, touch target size, or screen reader behavior before handoff.",
+    "path": "library/anthropics-knowledge-work/skills/accessibility-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate accessibility-review",
+    "link_cmd": "python .agents/library/activate_skill.py link accessibility-review"
+  },
+  {
+    "id": "account-context",
+    "name": "account-context",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "360-degree view of an account - CRM data, recent email threads, docs, transcripts, and internal chat chatter, synthesized into one brief. Use when the user asks \"tell me about [account]\" (an existing customer; for a prospect, account-research), \"account context for [name]\", \"what's going on with [account]\", or \"catch me up on [account]\".",
+    "path": "library/anthropics-knowledge-work/skills/account-context",
+    "activation_cmd": "python .agents/library/activate_skill.py activate account-context",
+    "link_cmd": "python .agents/library/activate_skill.py link account-context"
+  },
+  {
+    "id": "account-plan",
+    "name": "account-plan",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Build or refresh a strategic account plan - current state, goals, stakeholder coverage, opportunity map, risks, and the action plan - written to a doc and key fields synced to the CRM. Use when the user says \"build an account plan for [account]\", \"update the [account] plan\", \"account planning for [account]\", or before a planning cycle / QBR.",
+    "path": "library/anthropics-knowledge-work/skills/account-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate account-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link account-plan"
+  },
+  {
+    "id": "account-research",
+    "name": "account-research",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Research a target company and optionally a specific contact - company overview, recent news, likely priorities, and fit against your ICP. Cross-references existing CRM records. Use when the user asks to \"research [company]\", \"look into [company]\", \"prospect research on [company]\", \"look up [person]\", \"intel on [prospect]\", \"who is [person] at [company]\", or \"tell me about [company]\" when the company is a prospect rather than an existing account.",
+    "path": "library/anthropics-knowledge-work/skills/account-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate account-research",
+    "link_cmd": "python .agents/library/activate_skill.py link account-research"
+  },
+  {
+    "id": "account-tiering",
+    "name": "account-tiering",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Score and tier a list of accounts (or your full book) against ICP fit and engagement signals to prioritize where to spend time. Use when the user asks to \"tier my accounts\", \"prioritize my book\", \"which accounts should I focus on\", or \"score these accounts\".",
+    "path": "library/anthropics-knowledge-work/skills/account-tiering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate account-tiering",
+    "link_cmd": "python .agents/library/activate_skill.py link account-tiering"
+  },
+  {
+    "id": "ad-manager",
+    "name": "ad-manager",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> The ads consultant that becomes an ads agent. Reads paid-ad performance natively through the TikTok Ads connector, or via a build-connector Zapier connection for other ad platforms, explains in plain English what is working and what is burning money, recommends budget, targeting, and creative changes with the dollar impact of each, drafts new ad copy in the owner's voice plus Canva creative briefs, and \u2014 only after an explicit yes \u2014 executes the approved changes in the ad account. Works from exported CSV reports when nothing is connected, the normal starting point. Use this whenever the owner talks about ads or ad spend at all, including \"are my ads working,\" \"what's my ROI on ads,\" \"I'm spending money on Facebook and I don't know what I'm getting,\" \"should I turn this campaign off,\" \"my cost per lead is going up,\" \"write me a new ad,\" \"who should I be targeting,\" or \"the ad guy quit.\"",
+    "path": "library/anthropics-knowledge-work/skills/ad-manager",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ad-manager",
+    "link_cmd": "python .agents/library/activate_skill.py link ad-manager",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "analyze",
+    "name": "analyze",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Answer data questions -- from quick lookups to full analyses. Use when looking up a single metric, investigating what's driving a trend or drop, comparing segments over time, or preparing a formal data report for stakeholders.",
+    "path": "library/anthropics-knowledge-work/skills/analyze",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analyze",
+    "link_cmd": "python .agents/library/activate_skill.py link analyze"
+  },
+  {
+    "id": "ap-processor",
+    "name": "ap-processor",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Works the bill pile end to end: reads bills and vendor statements out of the AP inbox or from uploaded PDFs and phone photos, pulls out vendor, amount, due date, and line detail, codes each one to the right account and job, matches it against the purchase order and the receiving ticket, then stages the entries and a proposed payment run in QuickBooks, Xero, or NetSuite for the owner to approve in one pass. Nothing is entered and nothing is paid without an explicit yes. Reach for this whenever bills, vendor invoices, or paying people comes up \u2014 including \"what do I owe,\" \"the bills are piling up,\" \"pull the invoices out of my email and into QuickBooks,\" \"code these for me,\" \"who needs to get paid this week,\" \"did we get billed twice,\" or when the owner forwards a supplier invoice with no message at all. Use it before cash-flow-snapshot or month-end-prep so those run on real payables instead of a guess.",
+    "path": "library/anthropics-knowledge-work/skills/ap-processor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ap-processor",
+    "link_cmd": "python .agents/library/activate_skill.py link ap-processor",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "architecture",
+    "name": "architecture",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Create or evaluate an architecture decision record (ADR). Use when choosing between technologies (e.g., Kafka vs SQS), documenting a design decision with trade-offs and consequences, reviewing a system design proposal, or designing a new component from requirements and constraints.",
+    "path": "library/anthropics-knowledge-work/skills/architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link architecture"
+  },
+  {
+    "id": "audit-support",
+    "name": "audit-support",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when generating testing workpapers, selecting audit samples, classifying control deficiencies, or preparing for internal or external audits.",
+    "path": "library/anthropics-knowledge-work/skills/audit-support",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audit-support",
+    "link_cmd": "python .agents/library/activate_skill.py link audit-support"
+  },
+  {
+    "id": "brand-review",
+    "name": "brand-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Review content against your brand voice, style guide, and messaging pillars, flagging deviations by severity with specific before/after fixes. Use when checking a draft before it ships, when auditing copy for voice consistency and terminology, or when screening for unsubstantiated claims, missing disclaimers, and other legal flags.",
+    "path": "library/anthropics-knowledge-work/skills/brand-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brand-review",
+    "link_cmd": "python .agents/library/activate_skill.py link brand-review"
+  },
+  {
+    "id": "brand-style",
+    "name": "brand-style",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Sets and updates the owner's brand look and output preferences, which every page and document the plugin produces then follows automatically. Captures the brand from a pasted website link or a plain-words description \u2014 never a hex code, color picker, or upload \u2014 previews it on a sample page, asks how they want their outputs delivered (visual artifacts, Word docs, markdown, Notion pages, Canva Docs, or best-for-the-skill), and saves both to the business profile. Runs inside smb-onboard on first setup and stands alone forever after. Use when the owner says \"update my brand,\" \"we rebranded,\" \"change my colors,\" \"make the reports match our new look,\" \"change how you give me reports,\" \"I want Word docs instead,\" or anything about the look or format of what the plugin hands them.",
+    "path": "library/anthropics-knowledge-work/skills/brand-style",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brand-style",
+    "link_cmd": "python .agents/library/activate_skill.py link brand-style",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "brand-voice-enforcement",
+    "name": "brand-voice-enforcement",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> This skill applies brand guidelines to content creation. It should be used when the user asks to \"write an email\", \"draft a proposal\", \"create a pitch deck\", \"write a LinkedIn post\", \"draft a presentation\", \"write a Slack message\", \"draft sales content\", or any content creation request where brand voice should be applied. Also triggers on \"on-brand\", \"brand voice\", \"enforce voice\", \"apply brand guidelines\", \"brand-aligned content\", \"write in our voice\", \"use our brand tone\", \"make this sound like us\", \"rewrite this in our tone\", or \"this doesn't sound on-brand\". Not for generating guidelines from scratch (use guideline-generation) or discovering brand materials (use discover-brand).",
+    "path": "library/anthropics-knowledge-work/skills/brand-voice-enforcement",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brand-voice-enforcement",
+    "link_cmd": "python .agents/library/activate_skill.py link brand-voice-enforcement"
+  },
+  {
+    "id": "brief",
+    "name": "brief",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Generate contextual briefings for legal work \u2014 daily summary, topic research, or incident response. Use when starting your day and need a scan of legal-relevant items across email, calendar, and contracts, when researching a specific legal question across internal sources, or when a developing situation (data breach, litigation threat, regulatory inquiry) needs rapid context.",
+    "path": "library/anthropics-knowledge-work/skills/brief",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brief",
+    "link_cmd": "python .agents/library/activate_skill.py link brief"
+  },
+  {
+    "id": "build-agent",
+    "name": "build-agent",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Turns a task the owner keeps doing by hand into a named, reusable skill they can trigger by name or put on a schedule. Watches them do it once or listens to them describe it, works out what varies and what stays fixed, writes the skill with approval checkpoints in the right places, registers it with the router, and shares it with the team. This is how a business gets a workflow nobody shipped for them. Use this whenever the owner describes something repetitive they wish were automatic \u2014 including phrasings like \"I do this every week,\" \"can you remember how to do this,\" \"make this a thing I can just ask for,\" \"build me an agent,\" \"automate this for me,\" \"turn this into a workflow,\" or \"I want this to happen every Monday.\" Reach for it when they describe a routine, even without asking for automation.",
+    "path": "library/anthropics-knowledge-work/skills/build-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link build-agent",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "build-connector",
+    "name": "build-connector",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Gets Claude talking to a tool nobody built an official connector for. Works out what the system is, checks the Claude connector directory for an existing connector first, and when there isn't one connects the tool through Zapier \u2014 never by hand-building against a raw API \u2014 with credentials handled safely and approval gates on anything that writes. This is what turns \"my ERP isn't supported\" into an afternoon. Use this whenever the owner names a tool that isn't connected \u2014 including phrasings like \"can you connect to my,\" \"make my tools talk to each other,\" \"there's no API for this,\" \"pull data out of my field service software,\" \"I use ServiceTrade and it's not on the list,\" or \"is there any way to get at this data.\" Reach for it whenever an unsupported system is blocking something else.",
+    "path": "library/anthropics-knowledge-work/skills/build-connector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-connector",
+    "link_cmd": "python .agents/library/activate_skill.py link build-connector",
+    "allowed_tools": [
+      "Read",
+      "WebFetch",
+      "ToolSearch"
+    ]
+  },
+  {
+    "id": "build-dashboard",
+    "name": "build-dashboard",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an executive overview with KPI cards, turning query results into a shareable self-contained report, building a team monitoring snapshot, or needing multiple charts with filters in one browser-openable file.",
+    "path": "library/anthropics-knowledge-work/skills/build-dashboard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-dashboard",
+    "link_cmd": "python .agents/library/activate_skill.py link build-dashboard"
+  },
+  {
+    "id": "build-zoom-bot",
+    "name": "build-zoom-bot",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Build a Zoom meeting bot, recorder, or real-time media workflow. Use when joining meetings programmatically, processing live media or transcripts, or combining Meeting SDK, RTMS, and backend services.",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-bot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-bot",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-bot"
+  },
+  {
+    "id": "build-zoom-contact-center-app",
+    "name": "build-zoom-contact-center-app",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "\"Reference skill for Zoom Contact Center. Use after routing to a contact-center workflow when implementing app, web, or native integrations; engagement context and state handling; campaigns; callbacks; or version-drift troubleshooting.\"",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-contact-center-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-contact-center-app",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-contact-center-app"
+  },
+  {
+    "id": "build-zoom-meeting-app",
+    "name": "build-zoom-meeting-app",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Build or embed a Zoom meeting flow. Use when implementing Meeting SDK joins, web or mobile meeting embeds, meeting lifecycle flows, or when deciding between Meeting SDK and Video SDK.",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-meeting-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-meeting-app",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-meeting-app"
+  },
+  {
+    "id": "build-zoom-meeting-sdk-app",
+    "name": "build-zoom-meeting-sdk-app",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Reference skill for Zoom Meeting SDK. Use after routing to a meeting-embed workflow when implementing real Zoom meeting joins, platform-specific SDK behavior, auth and join flows, waiting room issues, or meeting bot patterns.",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-meeting-sdk-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-meeting-sdk-app",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-meeting-sdk-app"
+  },
+  {
+    "id": "build-zoom-phone-integration",
+    "name": "build-zoom-phone-integration",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "\"Reference skill for Zoom Phone. Use after routing to a phone workflow when implementing OAuth, Phone APIs, webhooks, Smart Embed events, URI schemes, CRM or CTI dialers, or call handling automation.\"",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-phone-integration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-phone-integration",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-phone-integration"
+  },
+  {
+    "id": "build-zoom-rest-api-app",
+    "name": "build-zoom-rest-api-app",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "\"Reference skill for Zoom REST API. Use after choosing an API-based workflow when you need endpoint selection, resource-management patterns, OAuth requirements, rate-limit awareness, or API error debugging.\"",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-rest-api-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-rest-api-app",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-rest-api-app"
+  },
+  {
+    "id": "build-zoom-team-chat-app",
+    "name": "build-zoom-team-chat-app",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "\"Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.\"",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-team-chat-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-team-chat-app",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-team-chat-app"
+  },
+  {
+    "id": "build-zoom-video-sdk-app",
+    "name": "build-zoom-video-sdk-app",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Reference skill for Zoom Video SDK. Use after routing to a custom-session workflow when the user needs full control over the video experience rather than an actual Zoom meeting.",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-video-sdk-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-video-sdk-app",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-video-sdk-app"
+  },
+  {
+    "id": "build-zoom-virtual-agent",
+    "name": "build-zoom-virtual-agent",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "\"Reference skill for Zoom Virtual Agent. Use after routing to a virtual-agent workflow when implementing web embeds, Android or iOS wrapper integrations, knowledge-base sync, lifecycle handling, or troubleshooting.\"",
+    "path": "library/anthropics-knowledge-work/skills/build-zoom-virtual-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-zoom-virtual-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link build-zoom-virtual-agent"
+  },
+  {
+    "id": "business-pulse",
+    "name": "business-pulse",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Produces a one-page cross-functional business snapshot for SMB owners \u2014 cash position (the ledger: MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), sales trend (PayPal/Square/Stripe), pipeline movement (HubSpot), this week's commitments (Calendar), urgent watch-list items (Gmail or M365, Slack), and the single most important thing needing attention today. Proactively tries every available connector and gracefully scopes to whatever is connected \u2014 one connector gives a partial pulse; the full stack gives the full picture. Trigger when the user asks how the business is doing, wants a snapshot, a daily brief, a Friday recap, or says anything like \"what am I missing\" or \"catch me up on the business.\" A start-of-week briefing routes to /monday-brief, which runs this skill as its first link.",
+    "path": "library/anthropics-knowledge-work/skills/business-pulse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-pulse",
+    "link_cmd": "python .agents/library/activate_skill.py link business-pulse",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "call-list",
+    "name": "call-list",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Builds today's call list. Runs lead-triage to rank the top-5 leads most worth calling, supplies talking points from email history, blocks time on the calendar, and drafts follow-up messages. Trigger on \"call list,\" \"who am I calling today,\" \"top five to call today,\" or \"block time for calls.\" An owner who wants leads scored or ranked with no calendar blocks routes to lead-triage directly. Accepts optional count and date arguments.",
+    "path": "library/anthropics-knowledge-work/skills/call-list",
+    "activation_cmd": "python .agents/library/activate_skill.py activate call-list",
+    "link_cmd": "python .agents/library/activate_skill.py link call-list",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "call-prep",
+    "name": "call-prep",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Pre-call brief for an upcoming meeting - attendees, account history, prior call context from transcripts, open opportunity status, and suggested discovery questions. Use when the user asks \"prep me for [meeting/company]\", \"call prep [company]\", \"I'm meeting with [company], prep me\", \"get me ready for [meeting]\", or \"what do I need to know before my [time] call\".",
+    "path": "library/anthropics-knowledge-work/skills/call-prep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate call-prep",
+    "link_cmd": "python .agents/library/activate_skill.py link call-prep"
+  },
+  {
+    "id": "call-summary",
+    "name": "call-summary",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Turn a call transcript or call notes into a customer follow-up email draft, an internal chat summary, and proposed CRM updates. Use when the user says \"call summary\", \"follow up on my [company] call\", \"summarize my call with [account]\", \"write the recap\", \"process this transcript\", \"process my call notes\", \"capture the objections and next steps\", or pastes rough notes or a transcript after a discovery, demo, or negotiation call.",
+    "path": "library/anthropics-knowledge-work/skills/call-summary",
+    "activation_cmd": "python .agents/library/activate_skill.py activate call-summary",
+    "link_cmd": "python .agents/library/activate_skill.py link call-summary"
+  },
+  {
+    "id": "campaign-plan",
+    "name": "campaign-plan",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Generate a full campaign brief with objectives, audience, messaging, channel strategy, content calendar, and success metrics. Use when planning a product launch, lead-gen push, or awareness campaign, when you need a week-by-week content calendar with dependencies, or when translating a marketing goal into a structured, executable plan.",
+    "path": "library/anthropics-knowledge-work/skills/campaign-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate campaign-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link campaign-plan"
+  },
+  {
+    "id": "canva-creator",
+    "name": "canva-creator",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Takes an approved content brief and executes a campaign end-to-end: builds the posting calendar, generates Canva designs for social posts, drafts caption and email copy, and stages social sends in HubSpot. Canva is used for social posts only (Instagram, Facebook, X, LinkedIn) \u2014 email content is drafted as plain text and surfaced inline for the owner to send from their own tool. Every step requires explicit owner approval. This is the one-shot campaign executor: a finished brief goes in, a complete campaign comes out. Use when the owner hands off an approved brief or points at one \u2014 \"run this brief,\" \"execute the campaign,\" \"turn this brief into posts,\" \"build the campaign from the plan we approved.\" For day-to-day posting with no brief \u2014 \"I need to post more,\" \"what should we post\" \u2014 use social-content-engine instead; it owns the standing calendar.",
+    "path": "library/anthropics-knowledge-work/skills/canva-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate canva-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link canva-creator",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "capacity-plan",
+    "name": "capacity-plan",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "Plan resource capacity \u2014 workload analysis and utilization forecasting. Use when heading into quarterly planning, the team feels overallocated and you need the numbers, deciding whether to hire or deprioritize, or stress-testing whether upcoming projects fit the people you have.",
+    "path": "library/anthropics-knowledge-work/skills/capacity-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate capacity-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link capacity-plan"
+  },
+  {
+    "id": "cash-flow-snapshot",
+    "name": "cash-flow-snapshot",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Reads AR/AP, historical cash timing, and known fixed costs from the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) or from PayPal, Square, or Stripe \u2014 or a CSV upload \u2014 and produces a 30/60/90-day cash flow forecast with percentage-variance confidence bands and named risk flags. Delivers a chat summary and a downloadable XLSX. Use when the user asks \"forecast my cash flow,\" \"will I make payroll,\" mentions \"runway,\" or says \"cash crunch.\" Falls back to CSV upload when no connector is live.",
+    "path": "library/anthropics-knowledge-work/skills/cash-flow-snapshot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cash-flow-snapshot",
+    "link_cmd": "python .agents/library/activate_skill.py link cash-flow-snapshot",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "change-request",
+    "name": "change-request",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Create a change management request with impact analysis and rollback plan. Use when proposing a system or process change that needs approval, preparing a change record for CAB review, documenting risk and rollback steps before a deployment, or planning stakeholder communications for a rollout.",
+    "path": "library/anthropics-knowledge-work/skills/change-request",
+    "activation_cmd": "python .agents/library/activate_skill.py activate change-request",
+    "link_cmd": "python .agents/library/activate_skill.py link change-request"
+  },
+  {
+    "id": "choose-zoom-approach",
+    "name": "choose-zoom-approach",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Choose the right Zoom architecture for a use case. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Zoom MCP, Phone, Contact Center, or a hybrid approach.",
+    "path": "library/anthropics-knowledge-work/skills/choose-zoom-approach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate choose-zoom-approach",
+    "link_cmd": "python .agents/library/activate_skill.py link choose-zoom-approach"
+  },
+  {
+    "id": "close-management",
+    "name": "close-management",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Manage the month-end close process with task sequencing, dependencies, and status tracking. Use when planning the close calendar, tracking close progress, identifying blockers, or sequencing close activities by day.",
+    "path": "library/anthropics-knowledge-work/skills/close-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate close-management",
+    "link_cmd": "python .agents/library/activate_skill.py link close-management"
+  },
+  {
+    "id": "close-month",
+    "name": "close-month",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Closes the books and turns them into a decision as a three-link chain \u2014 month-end-prep reconciles the ledger against every connected payment processor and writes the P&L narrative, cash-flow-snapshot then refreshes the 30/60/90-day forecast off the newly closed numbers rather than raw ones, and report-builder publishes and distributes the close packet. Requires a ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) and uses Gusto, PayPal, Ramp, Shopify, Square, and Stripe when connected, falling back to statement or CSV uploads. Trigger on \"close the month,\" \"month-end,\" \"close the books,\" \"reconcile,\" \"send the close packet to my accountant,\" or when the owner asks why revenue or margin moved last month. An owner who wants only the reconciliation and its flags, with no forecast refresh and no packet distribution, routes to month-end-prep directly.",
+    "path": "library/anthropics-knowledge-work/skills/close-month",
+    "activation_cmd": "python .agents/library/activate_skill.py activate close-month",
+    "link_cmd": "python .agents/library/activate_skill.py link close-month",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "close-plan",
+    "name": "close-plan",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Build the business case and mutual action plan for a deal - the why-buy/why-now story, the ROI framing, and the dated step-by-step path to signature shared with the customer. Use when the user says \"build a close plan for [deal]\", \"mutual action plan for [account]\", \"business case for [opp]\", or \"what's the path to signature\".",
+    "path": "library/anthropics-knowledge-work/skills/close-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate close-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link close-plan"
+  },
+  {
+    "id": "code-review",
+    "name": "code-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, \"review this before I merge\", \"is this code safe?\", or when checking a change for N+1 queries, injection risks, missing edge cases, or error handling gaps.",
+    "path": "library/anthropics-knowledge-work/skills/code-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review"
+  },
+  {
+    "id": "comp-analysis",
+    "name": "comp-analysis",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Analyze compensation \u2014 benchmarking, band placement, and equity modeling. Trigger with \"what should we pay a [role]\", \"is this offer competitive\", \"model this equity grant\", or when uploading comp data to find outliers and retention risks.",
+    "path": "library/anthropics-knowledge-work/skills/comp-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate comp-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link comp-analysis"
+  },
+  {
+    "id": "competitive-brief",
+    "name": "competitive-brief",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Research competitors and generate a positioning and messaging comparison with content gaps, opportunities, and threats. Use when building sales battlecards, when finding positioning gaps and messaging angles competitors haven't claimed, or when a competitor makes a move and you need to assess the impact.",
+    "path": "library/anthropics-knowledge-work/skills/competitive-brief",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competitive-brief",
+    "link_cmd": "python .agents/library/activate_skill.py link competitive-brief"
+  },
+  {
+    "id": "competitive-intelligence",
+    "name": "competitive-intelligence",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Competitive analysis two ways - the in-deal play against a named competitor, and win/loss patterns, competitor mentions, and battlecards across the book. Use when the user asks \"competitive intel\", \"research competitors\", \"how do we compare to [competitor]\", \"what's new with [competitor]\", \"battlecard for [competitor]\", \"how do we beat [competitor]\", \"what's the play against [competitor] in [deal]\", \"where are we losing to [competitor]\", \"win/loss patterns\", \"competitive analysis\", \"refresh the battlecards\", or on a weekly schedule.",
+    "path": "library/anthropics-knowledge-work/skills/competitive-intelligence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competitive-intelligence",
+    "link_cmd": "python .agents/library/activate_skill.py link competitive-intelligence"
+  },
+  {
+    "id": "compliance-check",
+    "name": "compliance-check",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Run a compliance check on a proposed action, product feature, or business initiative, surfacing applicable regulations, required approvals, and risk areas. Use when launching a feature that touches personal data, when marketing or product proposes something with regulatory implications, or when you need to know which approvals and jurisdictional requirements apply before proceeding.",
+    "path": "library/anthropics-knowledge-work/skills/compliance-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate compliance-check",
+    "link_cmd": "python .agents/library/activate_skill.py link compliance-check"
+  },
+  {
+    "id": "compliance-tracking",
+    "name": "compliance-tracking",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Track compliance requirements and audit readiness. Trigger with \"compliance\", \"audit prep\", \"SOC 2\", \"ISO 27001\", \"GDPR\", \"regulatory requirement\", or when the user needs help tracking, preparing for, or documenting compliance activities.",
+    "path": "library/anthropics-knowledge-work/skills/compliance-tracking",
+    "activation_cmd": "python .agents/library/activate_skill.py activate compliance-tracking",
+    "link_cmd": "python .agents/library/activate_skill.py link compliance-tracking"
+  },
+  {
+    "id": "compose-outreach",
+    "name": "compose-outreach",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "\"Generate personalized outreach messages using Common Room signals. Triggers on 'draft outreach to [person]', 'write an email to [name]', 'compose a message for [contact]', or any outreach drafting request.\"",
+    "path": "library/anthropics-knowledge-work/skills/compose-outreach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate compose-outreach",
+    "link_cmd": "python .agents/library/activate_skill.py link compose-outreach"
+  },
+  {
+    "id": "contact-research",
+    "name": "contact-research",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "\"Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question.\"",
+    "path": "library/anthropics-knowledge-work/skills/contact-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate contact-research",
+    "link_cmd": "python .agents/library/activate_skill.py link contact-research"
+  },
+  {
+    "id": "content-creation",
+    "name": "content-creation",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Draft marketing content across channels \u2014 blog posts, social media, email newsletters, landing pages, press releases, and case studies. Use when writing any marketing content, when you need channel-specific formatting, SEO-optimized copy, headline options, or calls to action.",
+    "path": "library/anthropics-knowledge-work/skills/content-creation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-creation",
+    "link_cmd": "python .agents/library/activate_skill.py link content-creation"
+  },
+  {
+    "id": "content-strategy",
+    "name": "content-strategy",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Analyzes sales data from PayPal and QuickBooks to find top performers and slow movers, layers in seasonality, and produces a prioritized 30-day content brief: what to push, what offers to run, what to hold. Strategic output only \u2014 no calendars or assets. Use when the user asks what to post, wants a content plan, asks what's selling, or what to promote this month.",
+    "path": "library/anthropics-knowledge-work/skills/content-strategy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-strategy",
+    "link_cmd": "python .agents/library/activate_skill.py link content-strategy",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "contract-review",
+    "name": "contract-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Lightweight NDA, MSA, and vendor contract review for SMBs without legal on staff. Reads contracts from local files, mail attachments (Gmail or M365), a connected file store (Google Drive or M365), or DocuSign envelopes; flags non-standard terms; explains risks in plain English; and outputs a marked-up redline as a separate DOCX. Use when the user says \"review this contract,\" \"what am I signing,\" \"red flags,\" \"flag any concerns,\" \"check the payment terms,\" or uploads/forwards a contract or legal agreement.",
+    "path": "library/anthropics-knowledge-work/skills/contract-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate contract-review",
+    "link_cmd": "python .agents/library/activate_skill.py link contract-review",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "cowork-plugin-customizer",
+    "name": "cowork-plugin-customizer",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "> Customize a Claude Code plugin for a specific organization's tools and workflows. Use when: customize plugin, set up plugin, configure plugin, tailor plugin, adjust plugin settings, customize plugin connectors, customize plugin skill, tweak plugin, modify plugin configuration.",
+    "path": "library/anthropics-knowledge-work/skills/cowork-plugin-customizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cowork-plugin-customizer",
+    "link_cmd": "python .agents/library/activate_skill.py link cowork-plugin-customizer"
+  },
+  {
+    "id": "create-an-asset",
+    "name": "create-an-asset",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Build a customer deck, one-pager or leave-behind from your account data, call notes and approved materials, with no made-up numbers. Use when the user asks for a sales asset, one-pager, deck, leave-behind, \"create an asset for [prospect]\", or \"make something for [account]\".",
+    "path": "library/anthropics-knowledge-work/skills/create-an-asset",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-an-asset",
+    "link_cmd": "python .agents/library/activate_skill.py link create-an-asset"
+  },
+  {
+    "id": "create-cowork-plugin",
+    "name": "create-cowork-plugin",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Guide users through creating a new plugin from scratch in a cowork session. Use when users want to create a plugin, build a plugin, make a new plugin, develop a plugin, scaffold a plugin, start a plugin from scratch, or design a plugin. This skill requires Cowork mode with access to the outputs directory for delivering the final .plugin file.",
+    "path": "library/anthropics-knowledge-work/skills/create-cowork-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-cowork-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link create-cowork-plugin"
+  },
+  {
+    "id": "create-viz",
+    "name": "create-viz",
+    "repository": "anthropics-knowledge-work",
+    "category": "backend-api",
+    "description": "Create publication-quality visualizations with Python. Use when turning query results or a DataFrame into a chart, selecting the right chart type for a trend or comparison, generating a plot for a report or presentation, or needing an interactive chart with hover and zoom.",
+    "path": "library/anthropics-knowledge-work/skills/create-viz",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-viz",
+    "link_cmd": "python .agents/library/activate_skill.py link create-viz"
+  },
+  {
+    "id": "crm-autopilot",
+    "name": "crm-autopilot",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Keeps the CRM current without the owner ever opening it. Creates and updates contacts and deals from email, calendar, and call transcripts; logs activity automatically; drafts follow-ups on deals that have gone quiet; and maintains a next-step queue so nothing sits unowned. Runs on demand or on a schedule, includes a hygiene sweep for duplicates and stale records, and builds a lightweight CRM in a spreadsheet for owners who don't have one. Use this whenever CRM data or pipeline hygiene comes up \u2014 including phrasings like \"update my CRM,\" \"log this call,\" \"clean up HubSpot,\" \"clean up Salesforce,\" \"add this to the deal,\" \"turn my meeting into a deal note,\" \"which deals have gone quiet,\" \"I hate data entry,\" or \"my pipeline is out of date.\" Reach for it when the owner describes a call or meeting worth recording, even without naming the CRM.",
+    "path": "library/anthropics-knowledge-work/skills/crm-autopilot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate crm-autopilot",
+    "link_cmd": "python .agents/library/activate_skill.py link crm-autopilot",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "crm-hygiene-check",
+    "name": "crm-hygiene-check",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "Read-only audit of your CRM opportunities for missing fields, stale dates, and stage mismatches - outputs a fix checklist to apply by hand or through update-opportunity. Use when the user asks \"check my CRM hygiene\", \"check my Salesforce or HubSpot data\", \"clean up my CRM\", \"audit my opps\", \"what's missing in the CRM\", or \"clean up my pipeline\".",
+    "path": "library/anthropics-knowledge-work/skills/crm-hygiene-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate crm-hygiene-check",
+    "link_cmd": "python .agents/library/activate_skill.py link crm-hygiene-check"
+  },
+  {
+    "id": "customer-escalation",
+    "name": "customer-escalation",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Package an escalation for engineering, product, or leadership with full context. Use when a bug needs engineering attention beyond normal support, multiple customers report the same issue, a customer is threatening to churn, or an issue has sat unresolved past its SLA.",
+    "path": "library/anthropics-knowledge-work/skills/customer-escalation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate customer-escalation",
+    "link_cmd": "python .agents/library/activate_skill.py link customer-escalation"
+  },
+  {
+    "id": "customer-health",
+    "name": "customer-health",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Health check on a customer account and QBR-ready prep - relationship strength, engagement trend, risk signals, value delivered, and the agenda that makes the review worth their time. Use when the user asks \"how healthy is [account]\", \"customer health check\", \"prep the [account] QBR\", \"business review prep\", or \"are we at risk with [customer]\".",
+    "path": "library/anthropics-knowledge-work/skills/customer-health",
+    "activation_cmd": "python .agents/library/activate_skill.py activate customer-health",
+    "link_cmd": "python .agents/library/activate_skill.py link customer-health"
+  },
+  {
+    "id": "customer-research",
+    "name": "customer-research",
+    "repository": "anthropics-knowledge-work",
+    "category": "research-academic",
+    "description": "Multi-source research on a customer question or topic with source attribution. Use when a customer asks something you need to look up, investigating whether a bug has been reported before, checking what was previously told to a specific account, or gathering background before drafting a response.",
+    "path": "library/anthropics-knowledge-work/skills/customer-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate customer-research",
+    "link_cmd": "python .agents/library/activate_skill.py link customer-research"
+  },
+  {
+    "id": "customer-voice",
+    "name": "customer-voice",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Surface what customers are actually saying - direct attributed quotes on a topic across call transcripts and email, across your accounts. Use when the user asks \"what are customers saying about [topic]\", \"pull quotes on [objection/feature/competitor]\", \"voice of customer on [X]\", or \"what's coming up in calls\".",
+    "path": "library/anthropics-knowledge-work/skills/customer-voice",
+    "activation_cmd": "python .agents/library/activate_skill.py activate customer-voice",
+    "link_cmd": "python .agents/library/activate_skill.py link customer-voice"
+  },
+  {
+    "id": "daily-briefing",
+    "name": "daily-briefing",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Morning rundown - today's meetings with account context, opps closing soon with stale flags, waiting customer emails, and the day's top actions. Use when the user says \"daily briefing\", \"daily brief\", \"morning briefing\", \"what's my day\", \"what's on my plate today\", \"prep my day\", \"start my day\", \"morning rundown\", or on a schedule.",
+    "path": "library/anthropics-knowledge-work/skills/daily-briefing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate daily-briefing",
+    "link_cmd": "python .agents/library/activate_skill.py link daily-briefing"
+  },
+  {
+    "id": "data-context-extractor",
+    "name": "data-context-extractor",
+    "repository": "anthropics-knowledge-work",
+    "category": "database-sql",
+    "description": "> Generate or improve a company-specific data analysis skill by extracting tribal knowledge from analysts. BOOTSTRAP MODE - Triggers: \"Create a data context skill\", \"Set up data analysis for our warehouse\", \"Help me create a skill for our database\", \"Generate a data skill for [company]\" \u2192 Discovers schemas, asks key questions, generates initial skill with reference files ITERATION MODE - Triggers: \"Add context about [domain]\", \"The skill needs more info about [topic]\", \"Update the data skill with [metrics/tables/terminology]\", \"Improve the [domain] reference\" \u2192 Loads existing skill, asks targeted questions, appends/updates reference files Use when data analysts want Claude to understand their company's specific data warehouse, terminology, metrics definitions, and common query patterns.",
+    "path": "library/anthropics-knowledge-work/skills/data-context-extractor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate data-context-extractor",
+    "link_cmd": "python .agents/library/activate_skill.py link data-context-extractor"
+  },
+  {
+    "id": "deal-advance-gap",
+    "name": "deal-advance-gap",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Forward-looking gap check on one opportunity - exactly what is missing to advance it to the next stage and to close, with who does what by when. Use when the user asks \"what's missing to advance [deal]\", \"what do I need to move [opp] forward\", \"why is [deal] stuck\", or \"what's between [account] and a close\".",
+    "path": "library/anthropics-knowledge-work/skills/deal-advance-gap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deal-advance-gap",
+    "link_cmd": "python .agents/library/activate_skill.py link deal-advance-gap"
+  },
+  {
+    "id": "deal-review",
+    "name": "deal-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Deep-dive on a single opportunity - signal-adjusted health score, risks, gaps in qualification, and recommended next actions. Use when the user asks \"review the [account] deal\", \"deal review on [opp]\", \"is [opp] going to close\", or \"what's the risk on [deal]\".",
+    "path": "library/anthropics-knowledge-work/skills/deal-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deal-review",
+    "link_cmd": "python .agents/library/activate_skill.py link deal-review"
+  },
+  {
+    "id": "deal-signals",
+    "name": "deal-signals",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Proactive watch over your book - deals gone quiet, close dates slipping into view, champion changes, renewal windows opening, competitor mentions - surfaced as a short alert digest you can act on. Use when the user asks \"what changed in my book\", \"any deals gone quiet\", \"what should I be worried about today\", \"run my deal signals\", or sets it up as a recurring scheduled task.",
+    "path": "library/anthropics-knowledge-work/skills/deal-signals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deal-signals",
+    "link_cmd": "python .agents/library/activate_skill.py link deal-signals"
+  },
+  {
+    "id": "deal-slip-scenario",
+    "name": "deal-slip-scenario",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Model what happens to your number if a deal slips, shrinks, or dies - quota impact, coverage ratio change, and the substitute pipeline needed to stay on plan. Use when the user asks \"what if [deal] slips\", \"what happens if [account] pushes to next quarter\", \"can I still hit my number without [deal]\", or \"model losing [deal]\".",
+    "path": "library/anthropics-knowledge-work/skills/deal-slip-scenario",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deal-slip-scenario",
+    "link_cmd": "python .agents/library/activate_skill.py link deal-slip-scenario"
+  },
+  {
+    "id": "debug",
+    "name": "debug",
+    "repository": "anthropics-knowledge-work",
+    "category": "devops-cloud",
+    "description": "Structured debugging session \u2014 reproduce, isolate, diagnose, and fix. Trigger with an error message or stack trace, \"this works in staging but not prod\", \"something broke after the deploy\", or when behavior diverges from expected and the cause isn't obvious.",
+    "path": "library/anthropics-knowledge-work/skills/debug",
+    "activation_cmd": "python .agents/library/activate_skill.py activate debug",
+    "link_cmd": "python .agents/library/activate_skill.py link debug"
+  },
+  {
+    "id": "debug-zoom",
+    "name": "debug-zoom",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Debug a broken Zoom integration by isolating the failure point and routing into the right Zoom references. Use when auth, API, webhook, SDK, or MCP behavior is failing and you need a ranked hypothesis list plus verification steps.",
+    "path": "library/anthropics-knowledge-work/skills/debug-zoom",
+    "activation_cmd": "python .agents/library/activate_skill.py activate debug-zoom",
+    "link_cmd": "python .agents/library/activate_skill.py link debug-zoom"
+  },
+  {
+    "id": "debug-zoom-integration",
+    "name": "debug-zoom-integration",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflows are failing and you need to isolate the layer before proposing a fix.",
+    "path": "library/anthropics-knowledge-work/skills/debug-zoom-integration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate debug-zoom-integration",
+    "link_cmd": "python .agents/library/activate_skill.py link debug-zoom-integration"
+  },
+  {
+    "id": "deploy-checklist",
+    "name": "deploy-checklist",
+    "repository": "anthropics-knowledge-work",
+    "category": "database-sql",
+    "description": "Pre-deployment verification checklist. Use when about to ship a release, deploying a change with database migrations or feature flags, verifying CI status and approvals before going to production, or documenting rollback triggers ahead of time.",
+    "path": "library/anthropics-knowledge-work/skills/deploy-checklist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deploy-checklist",
+    "link_cmd": "python .agents/library/activate_skill.py link deploy-checklist"
+  },
+  {
+    "id": "design-critique",
+    "name": "design-critique",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Get structured design feedback on usability, hierarchy, and consistency. Trigger with \"review this design\", \"critique this mockup\", \"what do you think of this screen?\", or when sharing a Figma link or screenshot for feedback at any stage from exploration to final polish.",
+    "path": "library/anthropics-knowledge-work/skills/design-critique",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-critique",
+    "link_cmd": "python .agents/library/activate_skill.py link design-critique"
+  },
+  {
+    "id": "design-handoff",
+    "name": "design-handoff",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Generate developer handoff specs from a design. Use when a design is ready for engineering and needs a spec sheet covering layout, design tokens, component props, interaction states, responsive breakpoints, edge cases, and animation details.",
+    "path": "library/anthropics-knowledge-work/skills/design-handoff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-handoff",
+    "link_cmd": "python .agents/library/activate_skill.py link design-handoff"
+  },
+  {
+    "id": "design-mcp-workflow",
+    "name": "design-mcp-workflow",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Design a Zoom MCP workflow for Claude. Use when deciding whether Zoom MCP fits a task, when planning tool-based AI workflows, or when separating MCP responsibilities from REST API responsibilities.",
+    "path": "library/anthropics-knowledge-work/skills/design-mcp-workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-mcp-workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link design-mcp-workflow"
+  },
+  {
+    "id": "design-system",
+    "name": "design-system",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Audit, document, or extend your design system. Use when checking for naming inconsistencies or hardcoded values across components, writing documentation for a component's variants, states, and accessibility notes, or designing a new pattern that fits the existing system.",
+    "path": "library/anthropics-knowledge-work/skills/design-system",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-system",
+    "link_cmd": "python .agents/library/activate_skill.py link design-system"
+  },
+  {
+    "id": "digest",
+    "name": "digest",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Generate a daily or weekly digest of activity across all connected sources. Use when catching up after time away, starting the day and wanting a summary of mentions and action items, or reviewing a week's decisions and document updates grouped by project.",
+    "path": "library/anthropics-knowledge-work/skills/digest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate digest",
+    "link_cmd": "python .agents/library/activate_skill.py link digest"
+  },
+  {
+    "id": "discover-brand",
+    "name": "discover-brand",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> This skill orchestrates autonomous discovery of brand materials across enterprise platforms (Notion, Confluence, Google Drive, Box, SharePoint, Figma, Gong, Granola, Slack). It should be used when the user asks to \"discover brand materials\", \"find brand documents\", \"search for brand guidelines\", \"audit brand content\", \"what brand materials do we have\", \"find our style guide\", \"where are our brand docs\", \"do we have a style guide\", \"discover brand voice\", \"brand content audit\", or \"find brand assets\".",
+    "path": "library/anthropics-knowledge-work/skills/discover-brand",
+    "activation_cmd": "python .agents/library/activate_skill.py activate discover-brand",
+    "link_cmd": "python .agents/library/activate_skill.py link discover-brand"
+  },
+  {
+    "id": "documentation",
+    "name": "documentation",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Write and maintain technical documentation. Trigger with \"write docs for\", \"document this\", \"create a README\", \"write a runbook\", \"onboarding guide\", or when the user needs help with any form of technical writing \u2014 API docs, architecture docs, or operational runbooks.",
+    "path": "library/anthropics-knowledge-work/skills/documentation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate documentation",
+    "link_cmd": "python .agents/library/activate_skill.py link documentation"
+  },
+  {
+    "id": "draft-content",
+    "name": "draft-content",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Draft blog posts, social media, email newsletters, landing pages, press releases, and case studies with channel-specific formatting and SEO recommendations. Use when writing any marketing content, when you need headline or subject line options, or when adapting a message for a specific platform, audience, and brand voice.",
+    "path": "library/anthropics-knowledge-work/skills/draft-content",
+    "activation_cmd": "python .agents/library/activate_skill.py activate draft-content",
+    "link_cmd": "python .agents/library/activate_skill.py link draft-content"
+  },
+  {
+    "id": "draft-offer",
+    "name": "draft-offer",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp package (base, equity, signing bonus), writing the offer letter text itself, or prepping negotiation guidance for the hiring manager.",
+    "path": "library/anthropics-knowledge-work/skills/draft-offer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate draft-offer",
+    "link_cmd": "python .agents/library/activate_skill.py link draft-offer"
+  },
+  {
+    "id": "draft-outreach",
+    "name": "draft-outreach",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Draft a personalized outreach email or multi-touch sequence to a prospect, create it as an email draft for review, and add the contact to a sequence in your sales engagement tool when asked. Use when the user asks to \"draft outreach to [person/company]\", \"write a cold email to [prospect]\", \"re-engage [prospect]\", \"draft a 3-touch sequence\", or \"reach out to [person]\".",
+    "path": "library/anthropics-knowledge-work/skills/draft-outreach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate draft-outreach",
+    "link_cmd": "python .agents/library/activate_skill.py link draft-outreach"
+  },
+  {
+    "id": "draft-response",
+    "name": "draft-response",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Draft a professional customer-facing response tailored to the situation and relationship. Use when answering a product question, responding to an escalation or outage, delivering bad news like a delay or won't-fix, declining a feature request, or replying to a billing issue.",
+    "path": "library/anthropics-knowledge-work/skills/draft-response",
+    "activation_cmd": "python .agents/library/activate_skill.py activate draft-response",
+    "link_cmd": "python .agents/library/activate_skill.py link draft-response"
+  },
+  {
+    "id": "email-sequence",
+    "name": "email-sequence",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Design and draft multi-email sequences with full copy, timing, branching logic, exit conditions, and performance benchmarks. Use when building onboarding, lead nurture, re-engagement, win-back, or product launch flows, when you need a complete drip campaign with A/B test suggestions, or when mapping a sequence end-to-end with a flow diagram.",
+    "path": "library/anthropics-knowledge-work/skills/email-sequence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate email-sequence",
+    "link_cmd": "python .agents/library/activate_skill.py link email-sequence"
+  },
+  {
+    "id": "end-of-day",
+    "name": "end-of-day",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "The closing beat of the day - every call processed or explicitly skipped, the CRM brought current, commitments captured, and tomorrow's top three teed up. Use when the user says \"end of day\", \"close out my day\", \"process today's calls\", \"EOD\", or on an evening schedule. Companion bookend to daily-briefing.",
+    "path": "library/anthropics-knowledge-work/skills/end-of-day",
+    "activation_cmd": "python .agents/library/activate_skill.py activate end-of-day",
+    "link_cmd": "python .agents/library/activate_skill.py link end-of-day"
+  },
+  {
+    "id": "enrich-lead",
+    "name": "enrich-lead",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "\"Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions.\"",
+    "path": "library/anthropics-knowledge-work/skills/enrich-lead",
+    "activation_cmd": "python .agents/library/activate_skill.py activate enrich-lead",
+    "link_cmd": "python .agents/library/activate_skill.py link enrich-lead"
+  },
+  {
+    "id": "expansion-whitespace",
+    "name": "expansion-whitespace",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Find the expansion whitespace in an account or a book - what they own vs. what they could own, the evidence for each play, and the open opps to create. Use when the user asks \"what's the whitespace at [account]\", \"where can I expand [account]\", \"upsell opportunities in my book\", or \"which customers should I be growing\".",
+    "path": "library/anthropics-knowledge-work/skills/expansion-whitespace",
+    "activation_cmd": "python .agents/library/activate_skill.py activate expansion-whitespace",
+    "link_cmd": "python .agents/library/activate_skill.py link expansion-whitespace"
+  },
+  {
+    "id": "explore-data",
+    "name": "explore-data",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Profile and explore a dataset to understand its shape, quality, and patterns. Use when encountering a new table or file, checking null rates and column distributions, spotting data quality issues like duplicates or suspicious values, or deciding which dimensions and metrics to analyze.",
+    "path": "library/anthropics-knowledge-work/skills/explore-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate explore-data",
+    "link_cmd": "python .agents/library/activate_skill.py link explore-data"
+  },
+  {
+    "id": "financial-statements",
+    "name": "financial-statements",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, closing the books and need to flag material variances, comparing actuals to budget, building a financial summary for leadership review, or looking up GAAP presentation requirements and period-end adjustments.",
+    "path": "library/anthropics-knowledge-work/skills/financial-statements",
+    "activation_cmd": "python .agents/library/activate_skill.py activate financial-statements",
+    "link_cmd": "python .agents/library/activate_skill.py link financial-statements"
+  },
+  {
+    "id": "forecast",
+    "name": "forecast",
+    "repository": "anthropics-knowledge-work",
+    "category": "research-academic",
+    "description": "Generate the commit / best-case / pipeline narrative for a forecast call or a 1:1 with your manager - what's closing, what's at risk, what changed since last time. Use when the user asks \"write my forecast\", \"forecast narrative\", \"prep for forecast call\", \"prep for my quarterly forecast call\", \"which deals should I commit vs. call upside\", \"forecast from this pipeline export\", or \"prep for my 1:1 with my manager\".",
+    "path": "library/anthropics-knowledge-work/skills/forecast",
+    "activation_cmd": "python .agents/library/activate_skill.py activate forecast",
+    "link_cmd": "python .agents/library/activate_skill.py link forecast"
+  },
+  {
+    "id": "grant-rfp-writer",
+    "name": "grant-rfp-writer",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Finds grant and solicitation opportunities the organization actually qualifies for, runs a hard go/no-go before anyone starts writing, drafts the application or response from past submissions and real program data, and tracks every deadline and reporting obligation that follows an award. Built for nonprofits, government contractors, and education, and it filters daily feeds like SAM.gov or DIBBS down to the handful worth bidding. Runs on Google Drive or M365 with DocuSign and Calendar deepening it, and works from uploaded past submissions plus web research when nothing is connected. Use this whenever a funding or bidding opportunity is in play \u2014 including \"find grants we qualify for,\" \"should we bid this,\" \"draft the response to this RFP,\" \"we've got 50 solicitations to filter,\" \"what's due on the federal grant,\" or \"help me write the proposal narrative.\"",
+    "path": "library/anthropics-knowledge-work/skills/grant-rfp-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grant-rfp-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link grant-rfp-writer",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "grow-pipeline",
+    "name": "grow-pipeline",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Fills the funnel end to end without the owner babysitting it \u2014 reads the market and the competition for context, builds a ranked list of named prospects with a reason attached to each, writes personalized outreach in the owner's own voice, and logs every touch to the CRM. Chains lead-finder, outreach-composer, and crm-autopilot behind a web-native market read, with an owner approval at every handoff. Use this whenever the owner wants more pipeline rather than one specific piece of it, including phrasings like \"I need more leads,\" \"fill my funnel,\" \"who should I be calling and what do I say,\" \"find me customers like my best ones and reach out,\" \"build me a prospect list and write the emails,\" or \"sales has gone quiet, get something moving.\" Reach for it when the owner describes wanting new business generally rather than asking for a list or a single email.",
+    "path": "library/anthropics-knowledge-work/skills/grow-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grow-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link grow-pipeline",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "growth-pulse",
+    "name": "growth-pulse",
+    "repository": "anthropics-knowledge-work",
+    "category": "finance-crypto",
+    "description": "> Answers one question for an SMB owner \u2014 is the growth engine actually working? Pulls sales trend by channel, funnel conversion, campaign return, best and worst performing products, and customer sentiment from whatever is connected, then ends with the three growth actions worth taking this week. The growth-side twin of business-pulse, which covers the finance side. Use this whenever the owner asks how marketing or sales is performing, whether a campaign paid off, where leads are coming from, why the pipeline is stalling, which products are moving, or says anything like \"is my marketing working,\" \"growth check,\" \"how's the funnel,\" or \"where should I put my money next month.\" Reach for it even when the owner names a single channel rather than growth overall.",
+    "path": "library/anthropics-knowledge-work/skills/growth-pulse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate growth-pulse",
+    "link_cmd": "python .agents/library/activate_skill.py link growth-pulse",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "guideline-generation",
+    "name": "guideline-generation",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> This skill generates, creates, or builds brand voice guidelines from source materials. It should be used when the user asks to \"generate brand guidelines\", \"create a style guide\", \"extract brand voice\", \"create guidelines from calls\", \"consolidate brand materials\", \"analyze my sales calls for brand voice\", \"build a brand playbook from documents\", \"synthesize a voice and tone guide\", or uploads brand documents, transcripts, or meeting recordings for brand analysis. Also triggers when the user has a discovery report and wants to convert it into actionable guidelines.",
+    "path": "library/anthropics-knowledge-work/skills/guideline-generation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate guideline-generation",
+    "link_cmd": "python .agents/library/activate_skill.py link guideline-generation"
+  },
+  {
+    "id": "handle-objection",
+    "name": "handle-objection",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Work through a live objection or competitive threat - what's really being said, the response that has worked before, and the proof points to use, grounded in your own win/loss history and customer quotes. Use when the user says \"they said we're too expensive\", \"how do I respond to [objection]\", \"[competitor] is in the deal\", \"help me handle this pushback\", or pastes an objection from an email or call.",
+    "path": "library/anthropics-knowledge-work/skills/handle-objection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate handle-objection",
+    "link_cmd": "python .agents/library/activate_skill.py link handle-objection"
+  },
+  {
+    "id": "hiring-screener",
+    "name": "hiring-screener",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Takes a pile of applications and turns it into a ranked shortlist, scored only against the job's stated rubric, with drafted replies to every candidate, scheduled interviews, and an onboarding checklist for whoever gets hired. Picks up where job-post-builder leaves off and carries the funnel through to first day, including the payroll setup handoff. Runs on Gmail and Google Calendar, deepens with Gusto, DocuSign, and Drive or M365, and works entirely from uploaded resumes with drafted replies the owner sends by hand. Use this whenever the owner has applicants to deal with \u2014 including phrasings like \"I've got 40 resumes and no time,\" \"who should I interview,\" \"screen these applications,\" \"help me narrow this down,\" \"set up interviews for the top three,\" or \"I need to tell the rest no.\" Reach for it when the owner mentions applicants, resumes, candidates, or being buried in a hiring inbox.",
+    "path": "library/anthropics-knowledge-work/skills/hiring-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hiring-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link hiring-screener",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "inbox-manager",
+    "name": "inbox-manager",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "> Turns a full inbox into a short, ranked list of what actually needs the owner. Reads the mail, sorts it into needs-you, drafted-and-waiting, and handled, writes replies in the owner's own voice, pulls out the action items and deadlines buried in long threads, files what is finished, and hands bills, leads, and scheduling requests to the skills that own them. Works from pasted or forwarded email text when no mailbox is connected. Use this whenever the owner mentions email at all \u2014 including \"drowning in email,\" \"I have 300 unread,\" \"what emails need me,\" \"go through my inbox,\" \"clean up my email,\" \"did I miss anything,\" \"who am I supposed to get back to,\" \"draft a reply to this,\" or \"catch me up on my mail.\" Reach for it for one forwarded message as readily as for a whole morning's backlog.",
+    "path": "library/anthropics-knowledge-work/skills/inbox-manager",
+    "activation_cmd": "python .agents/library/activate_skill.py activate inbox-manager",
+    "link_cmd": "python .agents/library/activate_skill.py link inbox-manager",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "inbox-sweep",
+    "name": "inbox-sweep",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Batch-process unread customer emails - classify, prioritize, and draft replies. Use when the user asks \"sweep my inbox\", \"what customer emails need a reply\", \"draft replies to my customer emails\", or \"what needs a response\".",
+    "path": "library/anthropics-knowledge-work/skills/inbox-sweep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate inbox-sweep",
+    "link_cmd": "python .agents/library/activate_skill.py link inbox-sweep"
+  },
+  {
+    "id": "incident-response",
+    "name": "incident-response",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "Run an incident response workflow \u2014 triage, communicate, and write postmortem. Trigger with \"we have an incident\", \"production is down\", an alert that needs severity assessment, a status update mid-incident, or when writing a blameless postmortem after resolution.",
+    "path": "library/anthropics-knowledge-work/skills/incident-response",
+    "activation_cmd": "python .agents/library/activate_skill.py activate incident-response",
+    "link_cmd": "python .agents/library/activate_skill.py link incident-response"
+  },
+  {
+    "id": "instrument-data-to-allotrope",
+    "name": "instrument-data-to-allotrope",
+    "repository": "anthropics-knowledge-work",
+    "category": "backend-api",
+    "description": "Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) JSON format or flattened 2D CSV. Use this skill when scientists need to standardize instrument data for LIMS systems, data lakes, or downstream analysis. Supports auto-detection of instrument types. Outputs include full ASM JSON, flattened CSV for easy import, and exportable Python code for data engineers. Common triggers include converting instrument files, standardizing lab data, preparing data for upload to LIMS/ELN systems, or generating parser code for production pipelines.",
+    "path": "library/anthropics-knowledge-work/skills/instrument-data-to-allotrope",
+    "activation_cmd": "python .agents/library/activate_skill.py activate instrument-data-to-allotrope",
+    "link_cmd": "python .agents/library/activate_skill.py link instrument-data-to-allotrope"
+  },
+  {
+    "id": "interview-prep",
+    "name": "interview-prep",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Create structured interview plans with competency-based questions and scorecards. Trigger with \"interview plan for\", \"interview questions for\", \"how should we interview\", \"scorecard for\", or when the user is preparing to interview candidates.",
+    "path": "library/anthropics-knowledge-work/skills/interview-prep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate interview-prep",
+    "link_cmd": "python .agents/library/activate_skill.py link interview-prep"
+  },
+  {
+    "id": "inventory-planner",
+    "name": "inventory-planner",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Works out what to reorder and when, from what is actually selling: pulls sales history and stock on hand from Shopify, Square, NetSuite, or an uploaded CSV, computes 7-day and 28-day sales velocity per item, projects a conservative stockout date for each, sizes a 60-day reorder quantity, and drafts the purchase orders and vendor emails to cover it. Flags the money sitting still too \u2014 overstock, dead stock, and zero-velocity items, reported as slow movers to clear rather than things to buy more of. Seasonality is applied where the history supports it and named where it does not. Nothing is ordered and no vendor is emailed without approval. Reach for this whenever stock comes up \u2014 \"what do I need to reorder,\" \"am I going to run out,\" \"what should I order this month,\" \"we keep running out of filters,\" \"how much cash is sitting in the warehouse,\" \"what is not moving,\" or \"draft a PO for my supplier.\"",
+    "path": "library/anthropics-knowledge-work/skills/inventory-planner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate inventory-planner",
+    "link_cmd": "python .agents/library/activate_skill.py link inventory-planner",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "invoice-chase",
+    "name": "invoice-chase",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Drafts overdue-invoice reminder emails from the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) plus PayPal, Stripe, and Airwallex data, matched to each customer's payment history and tone (gentle for good customers, firm for repeat late payers). Sends via PayPal with owner approval; everything else queues as a mail draft, with the Airwallex hosted pay link included where one exists. Use when the user asks \"who owes me money,\" mentions overdue invoices, or wants to follow up on unpaid invoices.",
+    "path": "library/anthropics-knowledge-work/skills/invoice-chase",
+    "activation_cmd": "python .agents/library/activate_skill.py activate invoice-chase",
+    "link_cmd": "python .agents/library/activate_skill.py link invoice-chase",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "job-post-builder",
+    "name": "job-post-builder",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Builds end-to-end hiring packets \u2014 job post, structured interview guide with scoring rubric, and offer letter template \u2014 from a hiring brief. Triggers on: \"help me hire\", \"we're hiring for\", \"write a job post\", \"job description\", \"JD\", \"open role\", \"create a job ad\", \"interview questions\", \"scoring rubric\", \"draft an offer letter\", \"send an offer\", \"make a hiring packet\", or any request to recruit for a position. When in doubt, trigger \u2014 covers the full hiring workflow from job post through DocuSign envelope creation via browser. Does NOT screen or rank applicants.",
+    "path": "library/anthropics-knowledge-work/skills/job-post-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate job-post-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link job-post-builder",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "journal-entry",
+    "name": "journal-entry",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review.",
+    "path": "library/anthropics-knowledge-work/skills/journal-entry",
+    "activation_cmd": "python .agents/library/activate_skill.py activate journal-entry",
+    "link_cmd": "python .agents/library/activate_skill.py link journal-entry"
+  },
+  {
+    "id": "journal-entry-prep",
+    "name": "journal-entry-prep",
+    "repository": "anthropics-knowledge-work",
+    "category": "finance-crypto",
+    "description": "Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry.",
+    "path": "library/anthropics-knowledge-work/skills/journal-entry-prep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate journal-entry-prep",
+    "link_cmd": "python .agents/library/activate_skill.py link journal-entry-prep"
+  },
+  {
+    "id": "kb-article",
+    "name": "kb-article",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Draft a knowledge base article from a resolved issue or common question. Use when a ticket resolution is worth documenting for self-service, the same question keeps coming up, a workaround needs to be published, or a known issue should be communicated to customers.",
+    "path": "library/anthropics-knowledge-work/skills/kb-article",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kb-article",
+    "link_cmd": "python .agents/library/activate_skill.py link kb-article"
+  },
+  {
+    "id": "knowledge-synthesis",
+    "name": "knowledge-synthesis",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Combines search results from multiple sources into coherent, deduplicated answers with source attribution. Handles confidence scoring based on freshness and authority, and summarizes large result sets effectively.",
+    "path": "library/anthropics-knowledge-work/skills/knowledge-synthesis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate knowledge-synthesis",
+    "link_cmd": "python .agents/library/activate_skill.py link knowledge-synthesis"
+  },
+  {
+    "id": "lead-finder",
+    "name": "lead-finder",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Builds a ranked list of prospects worth contacting. Works out the owner's ideal customer profile from the customers they already have, finds look-alike companies and the right contact at each, enriches them with firmographics and buying signals, scores them, and delivers the list as an XLSX, with an offer to also create the records in the CRM. Runs on Apollo when connected and falls back to web research plus an uploaded customer list when it isn't. Use this whenever the owner wants new prospects, a target list, or help finding customers \u2014 including phrasings like \"who should I be calling,\" \"find me more customers like my best ones,\" \"build me a prospect list,\" \"I need leads,\" \"who else looks like Acme,\" or \"help me find companies in this area that need what we do.\" Reach for it even when the owner describes the customer they want rather than asking for a list.",
+    "path": "library/anthropics-knowledge-work/skills/lead-finder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lead-finder",
+    "link_cmd": "python .agents/library/activate_skill.py link lead-finder",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "lead-triage",
+    "name": "lead-triage",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Score and route an inbound lead, or rank a backlog of leads, against your ICP and qualification framework, then recommend a priority and next action. Use when the user asks \"triage this lead\", \"triage my leads\", \"rank my lead backlog\", \"is [company] a good lead\", \"qualify [lead]\", or pastes or uploads lead info.",
+    "path": "library/anthropics-knowledge-work/skills/lead-triage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lead-triage",
+    "link_cmd": "python .agents/library/activate_skill.py link lead-triage"
+  },
+  {
+    "id": "legal-response",
+    "name": "legal-response",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Generate a response to a common legal inquiry using configured templates, with built-in escalation checks for situations that shouldn't use a templated reply. Use when responding to data subject requests, litigation hold notices, vendor legal questions, NDA requests from business teams, or subpoenas.",
+    "path": "library/anthropics-knowledge-work/skills/legal-response",
+    "activation_cmd": "python .agents/library/activate_skill.py activate legal-response",
+    "link_cmd": "python .agents/library/activate_skill.py link legal-response"
+  },
+  {
+    "id": "legal-risk-assessment",
+    "name": "legal-risk-assessment",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating contract risk, assessing deal exposure, classifying issues by severity, or determining whether a matter needs senior counsel or outside legal review.",
+    "path": "library/anthropics-knowledge-work/skills/legal-risk-assessment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate legal-risk-assessment",
+    "link_cmd": "python .agents/library/activate_skill.py link legal-risk-assessment"
+  },
+  {
+    "id": "log-activity",
+    "name": "log-activity",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Log a call, meeting, or email exchange to the CRM after the fact as a completed activity on the right account, opportunity, and contact - drafted from your description or a transcript, shown with its sources and saved when you ask. Use when the user says \"log this call\", \"log my meeting with [account]\", \"log that I emailed [contact]\", \"track this conversation in the CRM\", or \"what activities are logged on [account]\".",
+    "path": "library/anthropics-knowledge-work/skills/log-activity",
+    "activation_cmd": "python .agents/library/activate_skill.py activate log-activity",
+    "link_cmd": "python .agents/library/activate_skill.py link log-activity"
+  },
+  {
+    "id": "marketing-monday",
+    "name": "marketing-monday",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Delivers the weekly growth briefing as one merged read \u2014 whether the growth engine is working, what customers are saying in public and private, what competitors actually changed, and the three growth actions worth taking this week. The growth twin of the Monday brief, chaining growth-pulse and review-reputation and adding a web-native competitor scan, merged into a single page rather than three reports. Offers to run on a weekly cadence once, and sets it up on a yes. Use this whenever the owner wants a recurring or one-off growth check, including phrasings like \"how's marketing doing,\" \"growth check for the week,\" \"give me my Monday growth brief,\" \"what should I be doing about growth this week,\" \"are we winning or losing out there,\" or \"set up a weekly marketing update.\" Reach for it when the owner asks how the business is growing rather than how it is paying its bills.",
+    "path": "library/anthropics-knowledge-work/skills/marketing-monday",
+    "activation_cmd": "python .agents/library/activate_skill.py activate marketing-monday",
+    "link_cmd": "python .agents/library/activate_skill.py link marketing-monday",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "meeting-briefing",
+    "name": "meeting-briefing",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed.",
+    "path": "library/anthropics-knowledge-work/skills/meeting-briefing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate meeting-briefing",
+    "link_cmd": "python .agents/library/activate_skill.py link meeting-briefing"
+  },
+  {
+    "id": "memory-management",
+    "name": "memory-management",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base.",
+    "path": "library/anthropics-knowledge-work/skills/memory-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate memory-management",
+    "link_cmd": "python .agents/library/activate_skill.py link memory-management"
+  },
+  {
+    "id": "metrics-review",
+    "name": "metrics-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Review and analyze product metrics with trend analysis and actionable insights. Use when running a weekly, monthly, or quarterly metrics review, investigating a sudden spike or drop, comparing performance against targets, or turning raw numbers into a scorecard with recommended actions.",
+    "path": "library/anthropics-knowledge-work/skills/metrics-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate metrics-review",
+    "link_cmd": "python .agents/library/activate_skill.py link metrics-review"
+  },
+  {
+    "id": "monday-brief",
+    "name": "monday-brief",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Runs the owner's Monday morning briefing as a two-link chain \u2014 business-pulse for the cross-connector snapshot of cash, sales, and pipeline, and report-builder for any saved KPI reports the owner has already defined \u2014 then reads the week ahead straight from Calendar and mail and merges all three parts into a single one-page Monday document, delivered per the owner's stored output preference. Requires no connectors and degrades gracefully, building from whatever of the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), Calendar, DocuSign, Expensify, Gmail or M365, HubSpot, PayPal, Ramp, RingEx Chat, Shopify, Slack, Stripe, and TikTok Ads is connected, or from pasted and uploaded data when none are. Trigger on \"Monday brief,\" \"start my week,\" \"what do I need to know this week,\" \"weekly briefing,\" \"catch me up before Monday,\" or when the owner schedules a recurring start-of-week update.",
+    "path": "library/anthropics-knowledge-work/skills/monday-brief",
+    "activation_cmd": "python .agents/library/activate_skill.py activate monday-brief",
+    "link_cmd": "python .agents/library/activate_skill.py link monday-brief",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "month-end-prep",
+    "name": "month-end-prep",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Reconciles the accounting ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) against PayPal, Shopify, Square, and Stripe settlements, flags transactions that need attention, suspicious duplicates, and missing receipts, then writes a plain-English P&L narrative and exports a close packet (xlsx + one-page PDF). This is the first link of the /close-month command; a request to close the month or the books routes there, and the command runs this skill before refreshing the forecast and distributing the packet. Use this skill directly only when the owner wants the reconciliation alone, with no forecast refresh and no distribution: \"just reconcile, no packet,\" \"what's missing from the books,\" \"flag the duplicates and missing receipts,\" or \"write the P&L narrative for this month.\"",
+    "path": "library/anthropics-knowledge-work/skills/month-end-prep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate month-end-prep",
+    "link_cmd": "python .agents/library/activate_skill.py link month-end-prep",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "nextflow-development",
+    "name": "nextflow-development",
+    "repository": "anthropics-knowledge-work",
+    "category": "backend-api",
+    "description": "Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when analyzing RNA-seq, WGS/WES, or ATAC-seq data\u2014either local FASTQs or public datasets from GEO/SRA. Triggers on nf-core, Nextflow, FASTQ analysis, variant calling, gene expression, differential expression, GEO reanalysis, GSE/GSM/SRR accessions, or samplesheet creation.",
+    "path": "library/anthropics-knowledge-work/skills/nextflow-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nextflow-development",
+    "link_cmd": "python .agents/library/activate_skill.py link nextflow-development"
+  },
+  {
+    "id": "onboarding",
+    "name": "onboarding",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, building the pre-start task list (accounts, equipment, buddy), scheduling Day 1 and Week 1, or setting 30/60/90-day goals for a new team member.",
+    "path": "library/anthropics-knowledge-work/skills/onboarding",
+    "activation_cmd": "python .agents/library/activate_skill.py activate onboarding",
+    "link_cmd": "python .agents/library/activate_skill.py link onboarding"
+  },
+  {
+    "id": "org-planning",
+    "name": "org-planning",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Headcount planning, org design, and team structure optimization. Trigger with \"org planning\", \"headcount plan\", \"team structure\", \"reorg\", \"who should we hire next\", or when the user is thinking about team size, reporting structure, or organizational design.",
+    "path": "library/anthropics-knowledge-work/skills/org-planning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate org-planning",
+    "link_cmd": "python .agents/library/activate_skill.py link org-planning"
+  },
+  {
+    "id": "outreach-composer",
+    "name": "outreach-composer",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Writes prospect outreach and follow-up sequences that sound like the owner wrote them, not like an AI did. Learns a voice profile from the owner's own sent mail, grounds every message in something specific about that prospect, builds the follow-up sequence behind it, queues every send for approval, and logs each touch to the CRM. Runs draft-only when no mail connector is available, so the copy can be pasted anywhere. Use this whenever the owner needs to reach out to prospects or customers \u2014 including phrasings like \"write this cold email,\" \"draft a follow-up,\" \"reach out to these leads,\" \"what do I say to them,\" \"I need a sequence for this list,\" \"nudge the people who didn't reply,\" or \"write it but don't make it sound like a robot.\" Reach for it whenever outreach copy is the deliverable, even for a single message.",
+    "path": "library/anthropics-knowledge-work/skills/outreach-composer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate outreach-composer",
+    "link_cmd": "python .agents/library/activate_skill.py link outreach-composer",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "pay-the-bills",
+    "name": "pay-the-bills",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Works the bill pile from the AP inbox all the way to a staged payment run \u2014 reads and codes every bill, then checks the cash position before a dollar is committed, then stages the run for one-click approval and keeps the books tidy for close. Coding and paying are two separate decisions with two separate approvals, and the cash check sits between them on purpose. Runs on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) and a mail connector (Gmail or M365), deepens with Expensify and Ramp, and works from uploaded PDFs or phone photos with the run sheet exported for manual entry. Use it when the owner says \"pay the bills,\" \"the bills are piling up,\" \"what do I owe,\" \"who needs to get paid this week,\" \"can I afford to pay these,\" or forwards a stack of vendor invoices.",
+    "path": "library/anthropics-knowledge-work/skills/pay-the-bills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pay-the-bills",
+    "link_cmd": "python .agents/library/activate_skill.py link pay-the-bills",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "payroll-prep",
+    "name": "payroll-prep",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Gets payroll ready to run without anyone getting shorted: pulls timesheets from Gusto, QuickBooks Payroll, or an uploaded spreadsheet, totals regular, overtime, and PTO hours by person, flags every anomaly it finds \u2014 missed punches, overtime spikes, rate changes, mid-period hires and terminations, hours off the schedule \u2014 and stages the run for the owner to approve line by line before a dollar moves. Anomalies are always raised, never quietly corrected. Once the owner runs it, the journal posts to the ledger or goes to the bookkeeper. Reach for this whenever payroll comes up at all \u2014 \"run payroll,\" \"payroll is due,\" \"check the timecards,\" \"did everyone clock out,\" \"how many hours did the crew put in,\" \"why is payroll so high this week,\" \"I need to pay the guys Friday\" \u2014 and use it after cash-flow-snapshot when the owner is worried about whether payroll clears.",
+    "path": "library/anthropics-knowledge-work/skills/payroll-prep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate payroll-prep",
+    "link_cmd": "python .agents/library/activate_skill.py link payroll-prep",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "people-report",
+    "name": "people-report",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Generate headcount, attrition, diversity, or org health reports. Use when pulling a headcount snapshot for leadership, analyzing turnover trends by team, preparing diversity representation metrics, or assessing span of control and flight risk across the org.",
+    "path": "library/anthropics-knowledge-work/skills/people-report",
+    "activation_cmd": "python .agents/library/activate_skill.py activate people-report",
+    "link_cmd": "python .agents/library/activate_skill.py link people-report"
+  },
+  {
+    "id": "performance-report",
+    "name": "performance-report",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Build a marketing performance report with key metrics, trend analysis, wins and misses, and prioritized optimization recommendations. Use when wrapping a campaign, when preparing weekly, monthly, or quarterly channel summaries for stakeholders, or when you need data translated into an executive summary with next-period priorities.",
+    "path": "library/anthropics-knowledge-work/skills/performance-report",
+    "activation_cmd": "python .agents/library/activate_skill.py activate performance-report",
+    "link_cmd": "python .agents/library/activate_skill.py link performance-report"
+  },
+  {
+    "id": "performance-review",
+    "name": "performance-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Structure a performance review with self-assessment, manager template, and calibration prep. Use when review season kicks off and you need a self-assessment template, writing a manager review for a direct report, prepping rating distributions and promotion cases for calibration, or turning vague feedback into specific behavioral examples.",
+    "path": "library/anthropics-knowledge-work/skills/performance-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate performance-review",
+    "link_cmd": "python .agents/library/activate_skill.py link performance-review"
+  },
+  {
+    "id": "pipeline-review",
+    "name": "pipeline-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Stage-by-stage pipeline health check - coverage, aging, conversion, and at-risk deals - from CRM opportunity data. Use when the user asks \"review my pipeline\", \"pipeline health\", \"where's my pipeline stuck\", \"weekly pipeline review\", \"which deals should I focus on this week\", \"any stale or stuck deals\", \"which deals have past close dates\", \"which deals are single-threaded\", or \"check my pipeline coverage against my number\".",
+    "path": "library/anthropics-knowledge-work/skills/pipeline-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pipeline-review",
+    "link_cmd": "python .agents/library/activate_skill.py link pipeline-review"
+  },
+  {
+    "id": "plan-payroll",
+    "name": "plan-payroll",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Runs the payroll-confidence chain end to end \u2014 forecasts cash across the payroll window with cash-flow-snapshot, ranks and drafts overdue-invoice reminders with invoice-chase to close any gap, then assembles timesheets, flags every anomaly, and stages the run with payroll-prep. On Gusto the run is staged for the owner to submit; on QuickBooks Payroll, or with no payroll system, the last step is a validated run sheet the owner keys in. This chain never presses the payroll button. Builds on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), with Gmail or M365, PayPal, Square, Stripe, and either Gusto or QuickBooks Payroll adding detail, and falls back to CSV and timesheet uploads. Use it whenever payroll is the worry, including \"can I make payroll,\" \"payroll is due Friday,\" \"plan payroll,\" \"will I have enough to pay the crew,\" or \"I need to run payroll but money is tight.\" Accepts optional horizon and payroll-date arguments.",
+    "path": "library/anthropics-knowledge-work/skills/plan-payroll",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-payroll",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-payroll",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "plan-zoom-integration",
+    "name": "plan-zoom-integration",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Turn a Zoom integration idea into an implementation plan with architecture, auth, and delivery milestones. Use when you need a practical build plan, phased delivery sequence, risk list, and next-step recommendation.",
+    "path": "library/anthropics-knowledge-work/skills/plan-zoom-integration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-zoom-integration",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-zoom-integration"
+  },
+  {
+    "id": "plan-zoom-product",
+    "name": "plan-zoom-product",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Choose the right Zoom building surface for a use case and explain the tradeoffs clearly. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Phone, Contact Center, or MCP for a specific product idea or integration goal.",
+    "path": "library/anthropics-knowledge-work/skills/plan-zoom-product",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-zoom-product",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-zoom-product"
+  },
+  {
+    "id": "policy-lookup",
+    "name": "policy-lookup",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Find and explain company policies in plain language. Trigger with \"what's our PTO policy\", \"can I work remotely from another country\", \"how do expenses work\", or any plain-language question about benefits, travel, leave, or handbook rules.",
+    "path": "library/anthropics-knowledge-work/skills/policy-lookup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate policy-lookup",
+    "link_cmd": "python .agents/library/activate_skill.py link policy-lookup"
+  },
+  {
+    "id": "probe-sdk",
+    "name": "probe-sdk",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "\"Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing browser compatibility, media permissions, audio or video diagnostics, and network readiness before users join.\"",
+    "path": "library/anthropics-knowledge-work/skills/probe-sdk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate probe-sdk",
+    "link_cmd": "python .agents/library/activate_skill.py link probe-sdk"
+  },
+  {
+    "id": "process-doc",
+    "name": "process-doc",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Document a business process \u2014 flowcharts, RACI, and SOPs. Use when formalizing a process that lives in someone's head, building a RACI to clarify who owns what, writing an SOP for a handoff or audit, or capturing the exceptions and edge cases of how work actually gets done.",
+    "path": "library/anthropics-knowledge-work/skills/process-doc",
+    "activation_cmd": "python .agents/library/activate_skill.py activate process-doc",
+    "link_cmd": "python .agents/library/activate_skill.py link process-doc"
+  },
+  {
+    "id": "process-optimization",
+    "name": "process-optimization",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Analyze and improve business processes. Trigger with \"this process is slow\", \"how can we improve\", \"streamline this workflow\", \"too many steps\", \"bottleneck\", or when the user describes an inefficient process they want to fix.",
+    "path": "library/anthropics-knowledge-work/skills/process-optimization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate process-optimization",
+    "link_cmd": "python .agents/library/activate_skill.py link process-optimization"
+  },
+  {
+    "id": "product-brainstorming",
+    "name": "product-brainstorming",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "Brainstorm product ideas, explore problem spaces, and challenge assumptions as a thinking partner. Use when exploring a new opportunity, generating solutions to a product problem, stress-testing an idea, or when a PM needs to think out loud with a sharp sparring partner before converging on a direction.",
+    "path": "library/anthropics-knowledge-work/skills/product-brainstorming",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-brainstorming",
+    "link_cmd": "python .agents/library/activate_skill.py link product-brainstorming"
+  },
+  {
+    "id": "proposal-builder",
+    "name": "proposal-builder",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Turns whatever came out of a discovery conversation \u2014 a call transcript, a voice memo, jobsite photos, an RFP document, a set of drawings, or scrappy notes \u2014 into a branded, costed proposal, estimate, or statement of work built on the owner's own templates and historical pricing. Routes it for signature and triggers the deposit invoice once it's accepted. Works entirely from uploaded files when no connector is available, producing DOCX and PDF the owner can send themselves. Use this whenever a quote, bid, estimate, proposal, or SOW is the deliverable \u2014 including phrasings like \"write this up for them,\" \"put together a quote,\" \"I need to bid this job,\" \"turn my notes into a proposal,\" \"respond to this RFP,\" or \"price this out.\" Reach for it when the owner describes a job they just looked at, even without saying the word quote.",
+    "path": "library/anthropics-knowledge-work/skills/proposal-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate proposal-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link proposal-builder",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "prospect",
+    "name": "prospect",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "\"Full ICP-to-leads pipeline. Describe your ideal customer in plain English and get a ranked table of enriched decision-maker leads with emails and phone numbers.\"",
+    "path": "library/anthropics-knowledge-work/skills/prospect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prospect",
+    "link_cmd": "python .agents/library/activate_skill.py link prospect"
+  },
+  {
+    "id": "reactivate",
+    "name": "reactivate",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Wins back customers who have quietly stopped buying \u2014 finds the ones whose gap has stretched past their own normal rhythm or who are showing churn signals, ranks them by what the relationship was worth, drafts a win-back message per customer in the owner's voice, and sends and logs only what the owner approves. Chains review-reputation, outreach-composer, and crm-autopilot, and keeps the rule that the first touch acknowledges the gap without pitching. Use this whenever the owner is worried about customers drifting away, including phrasings like \"who hasn't ordered in a while,\" \"win back my old customers,\" \"which customers have gone quiet,\" \"we lost some regulars,\" \"reach out to the people who stopped calling,\" or \"how do I get them back.\" Reach for it when the owner names a customer they have not heard from, as readily as for a full win-back campaign.",
+    "path": "library/anthropics-knowledge-work/skills/reactivate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reactivate",
+    "link_cmd": "python .agents/library/activate_skill.py link reactivate",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "reconciliation",
+    "name": "reconciliation",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items.",
+    "path": "library/anthropics-knowledge-work/skills/reconciliation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reconciliation",
+    "link_cmd": "python .agents/library/activate_skill.py link reconciliation"
+  },
+  {
+    "id": "recruiting-pipeline",
+    "name": "recruiting-pipeline",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Track and manage recruiting pipeline stages. Trigger with \"recruiting update\", \"candidate pipeline\", \"how many candidates\", \"hiring status\", or when the user discusses sourcing, screening, interviewing, or extending offers.",
+    "path": "library/anthropics-knowledge-work/skills/recruiting-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate recruiting-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link recruiting-pipeline"
+  },
+  {
+    "id": "renewal-radar",
+    "name": "renewal-radar",
+    "repository": "anthropics-knowledge-work",
+    "category": "backend-api",
+    "description": "Upcoming renewals with timing, risk, and uplift potential - and the renewal opportunity records to keep them honest. Use when the user asks \"what renewals are coming up\", \"renewal radar\", \"is [account] going to renew\", \"prep the [account] renewal\", or \"which renewals are at risk\".",
+    "path": "library/anthropics-knowledge-work/skills/renewal-radar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate renewal-radar",
+    "link_cmd": "python .agents/library/activate_skill.py link renewal-radar"
+  },
+  {
+    "id": "rep-context",
+    "name": "rep-context",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Leader's prep on a single rep before a 1:1 - their pipeline, recent activity, what they've been working on per chat and calendar, and where they might need help. Use when the user asks \"prep for my 1:1 with [rep]\" (a rep you manage), \"how is [rep] doing\", or \"what's [rep] working on\".",
+    "path": "library/anthropics-knowledge-work/skills/rep-context",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rep-context",
+    "link_cmd": "python .agents/library/activate_skill.py link rep-context"
+  },
+  {
+    "id": "report-builder",
+    "name": "report-builder",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Turns a plain-English description of a recurring report into a real, repeatable report \u2014 defines the metrics, pulls them from whatever data sources are connected, delivers a chat summary plus an XLSX workbook, and saves the definition so the same report reruns on demand or on a schedule. Handles anything from \"sales by location versus last year\" to AR aging to labor as a percentage of revenue. Works fully from an uploaded CSV or XLSX when no connector is available. Use this whenever the owner asks for a report, dashboard, KPI pack, metrics summary, or recurring numbers \u2014 including phrasings like \"can you track this every week,\" \"I need to see these numbers monthly,\" \"build me a report on,\" \"same report as last time,\" or \"put together a KPI dashboard.\" Reach for it even when the owner names the metrics without using the word report.",
+    "path": "library/anthropics-knowledge-work/skills/report-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate report-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link report-builder",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "report-pack",
+    "name": "report-pack",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Delivers the owner's custom recurring report pack on a set cadence \u2014 runs the saved report definition from report-builder, wraps it in a business-pulse snapshot so the numbers have context, and hands over one chat summary plus the workbook. Defined once, then delivered on schedule without being asked again. Runs on any single connected data source, or entirely from an uploaded CSV or XLSX. Use it when the owner asks for their report pack, their weekly or monthly numbers, \"send me the usual report,\" \"run my report pack,\" \"set this up to come every Monday,\" or \"I want these numbers on a schedule.\"",
+    "path": "library/anthropics-knowledge-work/skills/report-pack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate report-pack",
+    "link_cmd": "python .agents/library/activate_skill.py link report-pack",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "research-synthesis",
+    "name": "research-synthesis",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey results, usability test notes, support tickets, or NPS responses that need to be distilled into patterns, user segments, and prioritized next steps.",
+    "path": "library/anthropics-knowledge-work/skills/research-synthesis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate research-synthesis",
+    "link_cmd": "python .agents/library/activate_skill.py link research-synthesis"
+  },
+  {
+    "id": "restock",
+    "name": "restock",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Turns what is actually selling into a reorder decision and gets it all the way into the books \u2014 computes sales velocity and conservative stockout dates per item, sizes the reorder, drafts the purchase order and the vendor email, and then stages the matching entry so the bill matches against the PO when it arrives. Flags the money sitting still too, so dead stock gets cleared instead of reordered. Runs on Shopify, Square, or an uploaded sales and stock CSV, and deepens with QuickBooks, Gmail or M365, Calendar, and NetSuite. No PO is sent and no vendor is emailed without approval. Use it when the owner says \"what do I need to reorder,\" \"am I going to run out,\" \"restock,\" \"we keep running out of filters,\" \"draft a PO for my supplier,\" or \"how much cash is sitting in the warehouse.\"",
+    "path": "library/anthropics-knowledge-work/skills/restock",
+    "activation_cmd": "python .agents/library/activate_skill.py activate restock",
+    "link_cmd": "python .agents/library/activate_skill.py link restock",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "review-contract",
+    "name": "review-contract",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Review a contract against your organization's negotiation playbook \u2014 flag deviations, generate redlines, provide business impact analysis. Use when reviewing vendor or customer agreements, when you need clause-by-clause analysis against standard positions, or when preparing a negotiation strategy with prioritized redlines and fallback positions.",
+    "path": "library/anthropics-knowledge-work/skills/review-contract",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-contract",
+    "link_cmd": "python .agents/library/activate_skill.py link review-contract"
+  },
+  {
+    "id": "review-reputation",
+    "name": "review-reputation",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Watches what customers are saying in public and in private, then does something about it. Aggregates Google, Yelp, and Facebook reviews alongside disputes, tickets, and email into themes backed by verbatim quotes; drafts a reply to every review in the owner's own voice for approval; spots customers who have gone quiet or look likely to leave; and drafts win-back offers for the ones worth keeping. With Shopify connected, order and fulfillment patterns become a sentiment signal too. Works from pasted or exported reviews when nothing is connected. Use this whenever the owner asks about reviews, ratings, reputation, complaints, or repeat business \u2014 including \"what are people saying about us,\" \"did we get any bad reviews,\" \"how do I respond to this one-star,\" \"our rating dropped,\" \"which customers have gone quiet,\" \"who hasn't ordered in a while,\" \"how do I win them back,\" or \"are customers happy.\"",
+    "path": "library/anthropics-knowledge-work/skills/review-reputation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-reputation",
+    "link_cmd": "python .agents/library/activate_skill.py link review-reputation",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "risk-assessment",
+    "name": "risk-assessment",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Identify, assess, and mitigate operational risks. Trigger with \"what are the risks\", \"risk assessment\", \"risk register\", \"what could go wrong\", or when the user is evaluating risks associated with a project, vendor, process, or decision.",
+    "path": "library/anthropics-knowledge-work/skills/risk-assessment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate risk-assessment",
+    "link_cmd": "python .agents/library/activate_skill.py link risk-assessment"
+  },
+  {
+    "id": "rivet-sdk",
+    "name": "rivet-sdk",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "\"Reference skill for Zoom Rivet SDK. Use after routing to a Rivet-based server workflow when implementing auth handling, webhook consumers, API wrappers, multi-module composition, or Lambda receiver patterns.\"",
+    "path": "library/anthropics-knowledge-work/skills/rivet-sdk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rivet-sdk",
+    "link_cmd": "python .agents/library/activate_skill.py link rivet-sdk"
+  },
+  {
+    "id": "roadmap-update",
+    "name": "roadmap-update",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deciding what moves to make room, shifting priorities after new information comes in, moving timelines due to a dependency slip, or building a Now/Next/Later view from scratch.",
+    "path": "library/anthropics-knowledge-work/skills/roadmap-update",
+    "activation_cmd": "python .agents/library/activate_skill.py activate roadmap-update",
+    "link_cmd": "python .agents/library/activate_skill.py link roadmap-update"
+  },
+  {
+    "id": "route-lead",
+    "name": "route-lead",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Decide who owns an unrouted lead or opportunity and manage the handoff - deterministic routing by the org's own rules, a routing card the human router accepts or overrides, and drafted handoff notes. Use when the user says \"route this lead\", \"who should own [lead/opp]\", \"work the routing queue\", \"assign [company] to a rep\", or on a scheduled intake sweep.",
+    "path": "library/anthropics-knowledge-work/skills/route-lead",
+    "activation_cmd": "python .agents/library/activate_skill.py activate route-lead",
+    "link_cmd": "python .agents/library/activate_skill.py link route-lead"
+  },
+  {
+    "id": "runbook",
+    "name": "runbook",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Create or update an operational runbook for a recurring task or procedure. Use when documenting a task that on-call or ops needs to run repeatably, turning tribal knowledge into exact step-by-step commands, adding troubleshooting and rollback steps to an existing procedure, or writing escalation paths for when things go wrong.",
+    "path": "library/anthropics-knowledge-work/skills/runbook",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runbook",
+    "link_cmd": "python .agents/library/activate_skill.py link runbook"
+  },
+  {
+    "id": "schedule-meeting",
+    "name": "schedule-meeting",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Find a time, draft the invite, and book the meeting on Google Calendar or Outlook - then log it to the CRM as an event on the right account and opportunity. Use when the user says \"schedule a follow-up with [contact]\", \"book the demo with [account]\", \"find time with [name] next week\", \"send my Calendly link\", or \"get the QBR on the calendar\".",
+    "path": "library/anthropics-knowledge-work/skills/schedule-meeting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate schedule-meeting",
+    "link_cmd": "python .agents/library/activate_skill.py link schedule-meeting"
+  },
+  {
+    "id": "scientific-problem-selection",
+    "name": "scientific-problem-selection",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "This skill should be used when scientists need help with research problem selection, project ideation, troubleshooting stuck projects, or strategic scientific decisions. Use this skill when users ask to pitch a new research idea, work through a project problem, evaluate project risks, plan research strategy, navigate decision trees, or get help choosing what scientific problem to work on. Typical requests include \"I have an idea for a project\", \"I'm stuck on my research\", \"help me evaluate this project\", \"what should I work on\", or \"I need strategic advice about my research\".",
+    "path": "library/anthropics-knowledge-work/skills/scientific-problem-selection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-problem-selection",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-problem-selection"
+  },
+  {
+    "id": "scribe",
+    "name": "scribe",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "\"Reference skill for Zoom AI Services Scribe. Use after routing to a transcription workflow when handling uploaded or stored media, Build-platform JWT auth, fast mode transcription, batch jobs, or transcript pipeline design.\"",
+    "path": "library/anthropics-knowledge-work/skills/scribe",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scribe",
+    "link_cmd": "python .agents/library/activate_skill.py link scribe"
+  },
+  {
+    "id": "scvi-tools",
+    "name": "scvi-tools",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Deep learning for single-cell analysis using scvi-tools. This skill should be used when users need (1) data integration and batch correction with scVI/scANVI, (2) ATAC-seq analysis with PeakVI, (3) CITE-seq multi-modal analysis with totalVI, (4) multiome RNA+ATAC analysis with MultiVI, (5) spatial transcriptomics deconvolution with DestVI, (6) label transfer and reference mapping with scANVI/scArches, (7) RNA velocity with veloVI, or (8) any deep learning-based single-cell method. Triggers include mentions of scVI, scANVI, totalVI, PeakVI, MultiVI, DestVI, veloVI, sysVI, scArches, variational autoencoder, VAE, batch correction, data integration, multi-modal, CITE-seq, multiome, reference mapping, latent space.",
+    "path": "library/anthropics-knowledge-work/skills/scvi-tools",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scvi-tools",
+    "link_cmd": "python .agents/library/activate_skill.py link scvi-tools"
+  },
+  {
+    "id": "search",
+    "name": "search",
+    "repository": "anthropics-knowledge-work",
+    "category": "database-sql",
+    "description": "Search across all connected sources in one query. Trigger with \"find that doc about...\", \"what did we decide on...\", \"where was the conversation about...\", or when looking for a decision, document, or discussion that could live in chat, email, cloud storage, or a project tracker.",
+    "path": "library/anthropics-knowledge-work/skills/search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate search",
+    "link_cmd": "python .agents/library/activate_skill.py link search"
+  },
+  {
+    "id": "search-strategy",
+    "name": "search-strategy",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per source, translates queries into source-specific syntax, ranks results by relevance, and handles ambiguity and fallback strategies.",
+    "path": "library/anthropics-knowledge-work/skills/search-strategy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate search-strategy",
+    "link_cmd": "python .agents/library/activate_skill.py link search-strategy"
+  },
+  {
+    "id": "seo-ai-visibility",
+    "name": "seo-ai-visibility",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Audits and fixes both halves of being found \u2014 classic search and AI answers. Search side: rankings, site structure, page speed, titles and descriptions, and content that answers what customers search for. AI side: whether assistant crawlers can reach the site, pages render without JavaScript, an llms.txt file, schema.org data, and presence in the directories assistants read. For online stores it also runs a bulk catalog cleanup, rewriting product titles, descriptions, alt text, and SEO fields in approved batches. Works on any public website with no connector. Use this whenever the owner talks about being found online, including \"nobody finds us on Google,\" \"how do I show up in ChatGPT,\" \"make my website AI friendly,\" \"SEO audit,\" \"GEO,\" \"AEO,\" \"AI search visibility,\" \"my competitor ranks above me,\" \"fix my product listings,\" or \"I asked an AI about my industry and we weren't in the answer.\"",
+    "path": "library/anthropics-knowledge-work/skills/seo-ai-visibility",
+    "activation_cmd": "python .agents/library/activate_skill.py activate seo-ai-visibility",
+    "link_cmd": "python .agents/library/activate_skill.py link seo-ai-visibility",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "seo-audit",
+    "name": "seo-audit",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Run a comprehensive SEO audit \u2014 keyword research, on-page analysis, content gaps, technical checks, and competitor comparison. Use when assessing a site's SEO health, when finding keyword opportunities and content gaps competitors own, or when you need a prioritized action plan split into quick wins and strategic investments.",
+    "path": "library/anthropics-knowledge-work/skills/seo-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate seo-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link seo-audit"
+  },
+  {
+    "id": "sequence-load",
+    "name": "sequence-load",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "\"Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow.\"",
+    "path": "library/anthropics-knowledge-work/skills/sequence-load",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sequence-load",
+    "link_cmd": "python .agents/library/activate_skill.py link sequence-load"
+  },
+  {
+    "id": "setup",
+    "name": "setup",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "First-run setup - checks which tools are connected, shows what's connected and what each one unlocks, learns how you write from your sent email, and renders a starter dashboard right away with no upfront interview. When tools are missing it walks through connecting the CRM, then email, then calendar, showing something useful after each. Use on first open, or when the user says \"set me up\", \"get started\", \"what's connected\", \"learn my voice\", \"match my writing style\", or \"onboard me\".",
+    "path": "library/anthropics-knowledge-work/skills/setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup",
+    "link_cmd": "python .agents/library/activate_skill.py link setup"
+  },
+  {
+    "id": "setup-zoom-mcp",
+    "name": "setup-zoom-mcp",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Decide when Zoom MCP is the right fit and produce a safe setup plan for Claude. Use when planning AI workflows over Zoom data, deciding between MCP and REST, or defining a hybrid MCP architecture.",
+    "path": "library/anthropics-knowledge-work/skills/setup-zoom-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-zoom-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-zoom-mcp"
+  },
+  {
+    "id": "setup-zoom-oauth",
+    "name": "setup-zoom-oauth",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes, handling token refresh, or debugging auth failures.",
+    "path": "library/anthropics-knowledge-work/skills/setup-zoom-oauth",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-zoom-oauth",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-zoom-oauth"
+  },
+  {
+    "id": "setup-zoom-webhooks",
+    "name": "setup-zoom-webhooks",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Reference skill for Zoom webhooks. Use after routing to an event-driven workflow when implementing subscriptions, signature verification, delivery handling, retries, or event-type selection.",
+    "path": "library/anthropics-knowledge-work/skills/setup-zoom-webhooks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-zoom-webhooks",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-zoom-webhooks"
+  },
+  {
+    "id": "setup-zoom-websockets",
+    "name": "setup-zoom-websockets",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Reference skill for Zoom WebSockets. Use after routing to a low-latency event workflow when persistent connections, faster event delivery, or security constraints make WebSockets preferable to webhooks.",
+    "path": "library/anthropics-knowledge-work/skills/setup-zoom-websockets",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-zoom-websockets",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-zoom-websockets"
+  },
+  {
+    "id": "signature-request",
+    "name": "signature-request",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Prepare and route a document for e-signature \u2014 run a pre-signature checklist, configure signing order, and send for execution. Use when a contract is finalized and ready to sign, when verifying entity names, exhibits, and signature blocks before sending, or when setting up an envelope with sequential or parallel signers.",
+    "path": "library/anthropics-knowledge-work/skills/signature-request",
+    "activation_cmd": "python .agents/library/activate_skill.py activate signature-request",
+    "link_cmd": "python .agents/library/activate_skill.py link signature-request"
+  },
+  {
+    "id": "single-cell-rna-qc",
+    "name": "single-cell-rna-qc",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based filtering and comprehensive visualizations. Use when users request QC analysis, filtering low-quality cells, assessing data quality, or following scverse/scanpy best practices for single-cell analysis.",
+    "path": "library/anthropics-knowledge-work/skills/single-cell-rna-qc",
+    "activation_cmd": "python .agents/library/activate_skill.py activate single-cell-rna-qc",
+    "link_cmd": "python .agents/library/activate_skill.py link single-cell-rna-qc"
+  },
+  {
+    "id": "slack-messaging",
+    "name": "slack-messaging",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax",
+    "path": "library/anthropics-knowledge-work/skills/slack-messaging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate slack-messaging",
+    "link_cmd": "python .agents/library/activate_skill.py link slack-messaging"
+  },
+  {
+    "id": "slack-search",
+    "name": "slack-search",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Guidance for effectively searching Slack to find messages, files, channels, and people",
+    "path": "library/anthropics-knowledge-work/skills/slack-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate slack-search",
+    "link_cmd": "python .agents/library/activate_skill.py link slack-search"
+  },
+  {
+    "id": "smb-onboard",
+    "name": "smb-onboard",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Claude as the trainer. Walks an SMB owner through connecting their first two tools, runs one recipe to prove immediate value, interviews them about their business (industry, size, top three headaches), stores that context persistently so every other skill benefits, and sets a weekly check-in cadence. Use when the owner is getting started or says any of: \"set me up,\" \"setup,\" \"help me get set up,\" \"get started,\" \"help me get started,\" \"get me started,\" \"what can you do,\" \"I'm new to this,\" or is in their first session.",
+    "path": "library/anthropics-knowledge-work/skills/smb-onboard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate smb-onboard",
+    "link_cmd": "python .agents/library/activate_skill.py link smb-onboard",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "smb-router",
+    "name": "smb-router",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> The front door to the Small Business plugin. Listens to what the owner needs right now \u2014 vague or specific \u2014 and routes them to the best skill or slash command for the moment. Also serves as a guide: explains what's available, suggests what to try next, and adapts recommendations based on stored business context. Trigger whenever the owner asks \"what can you do,\" \"help me with my business,\" \"what should I focus on,\" \"I don't know where to start,\" or any open-ended business request that doesn't clearly match a single skill.",
+    "path": "library/anthropics-knowledge-work/skills/smb-router",
+    "activation_cmd": "python .agents/library/activate_skill.py activate smb-router",
+    "link_cmd": "python .agents/library/activate_skill.py link smb-router",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "social-content-engine",
+    "name": "social-content-engine",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling posting calendar, learns the owner's voice, generates on-brand Canva graphics, writes captions that sound like them, repurposes one asset into every channel format, and stages posts for approval instead of publishing on its own. Pulls product photos and prices from Shopify when connected; with no connectors, drafts the calendar and asset briefs for manual posting. Use this whenever the owner talks about posting, content, or social \u2014 including \"I need to post more,\" \"we've gone quiet on Instagram,\" \"what should we post this month,\" \"make the content,\" \"give me a month of posts,\" \"write this in my voice,\" \"repurpose this,\" or \"set up our content calendar.\" Reach for it for a single post as readily as for a full quarter. One handoff: a finished, approved campaign brief goes to canva-creator; this skill owns the standing operation.",
+    "path": "library/anthropics-knowledge-work/skills/social-content-engine",
+    "activation_cmd": "python .agents/library/activate_skill.py activate social-content-engine",
+    "link_cmd": "python .agents/library/activate_skill.py link social-content-engine",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "source-management",
+    "name": "source-management",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Manages connected MCP sources for enterprise search. Detects available sources, guides users to connect new ones, handles source priority ordering, and manages rate limiting awareness.",
+    "path": "library/anthropics-knowledge-work/skills/source-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate source-management",
+    "link_cmd": "python .agents/library/activate_skill.py link source-management"
+  },
+  {
+    "id": "sox-testing",
+    "name": "sox-testing",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency.",
+    "path": "library/anthropics-knowledge-work/skills/sox-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sox-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link sox-testing"
+  },
+  {
+    "id": "speed-to-lead",
+    "name": "speed-to-lead",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Makes sure no inbound lead goes unanswered. Watches web forms, the shared inbox, and the CRM for new inquiries, qualifies each one against the owner's criteria, drafts a reply in the owner's voice with real meeting times for the owner to approve and send, routes anything hot to a human right away, and logs the whole thing to the CRM. Never sends on its own. Built to run on a schedule so overnight inquiries are drafted and sorted by morning, and works from forwarded or pasted inquiries when no connector is available. Use this whenever the owner is worried about inbound leads or response time \u2014 including phrasings like \"leads are going cold,\" \"did anyone answer that inquiry,\" \"I keep missing form submissions,\" \"nothing falls through the cracks,\" \"handle my inbound,\" \"respond to this lead,\" or \"we lose people because nobody gets back fast enough.\" Reach for it for a single unanswered inquiry as readily as for a standing setup.",
+    "path": "library/anthropics-knowledge-work/skills/speed-to-lead",
+    "activation_cmd": "python .agents/library/activate_skill.py activate speed-to-lead",
+    "link_cmd": "python .agents/library/activate_skill.py link speed-to-lead",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "sprint-planning",
+    "name": "sprint-planning",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Plan a sprint \u2014 scope work, estimate capacity, set goals, and draft a sprint plan. Use when kicking off a new sprint, sizing a backlog against team availability (accounting for PTO and meetings), deciding what's P0 vs. stretch, or handling carryover from the last sprint.",
+    "path": "library/anthropics-knowledge-work/skills/sprint-planning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sprint-planning",
+    "link_cmd": "python .agents/library/activate_skill.py link sprint-planning"
+  },
+  {
+    "id": "sql-queries",
+    "name": "sql-queries",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations.",
+    "path": "library/anthropics-knowledge-work/skills/sql-queries",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sql-queries",
+    "link_cmd": "python .agents/library/activate_skill.py link sql-queries"
+  },
+  {
+    "id": "stakeholder-map",
+    "name": "stakeholder-map",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Map the people in a deal or account - roles, influence, sentiment, who's missing, and your best access path to the people you haven't reached. Use when the user asks \"who are the players at [account]\", \"who's my way in\", \"am I single-threaded on [deal]\", \"map the stakeholders\", or \"who else should I be talking to\".",
+    "path": "library/anthropics-knowledge-work/skills/stakeholder-map",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stakeholder-map",
+    "link_cmd": "python .agents/library/activate_skill.py link stakeholder-map"
+  },
+  {
+    "id": "stakeholder-update",
+    "name": "stakeholder-update",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Generate a stakeholder update tailored to audience and cadence. Use when writing a weekly or monthly status for leadership, announcing a launch, escalating a risk or blocker, or translating the same progress into exec-brief, engineering-detail, or customer-facing versions.",
+    "path": "library/anthropics-knowledge-work/skills/stakeholder-update",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stakeholder-update",
+    "link_cmd": "python .agents/library/activate_skill.py link stakeholder-update"
+  },
+  {
+    "id": "standup",
+    "name": "standup",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Generate a standup update from recent activity. Use when preparing for daily standup, summarizing yesterday's commits and PRs and ticket moves, formatting work into yesterday/today/blockers, or structuring a few rough notes into a shareable update.",
+    "path": "library/anthropics-knowledge-work/skills/standup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate standup",
+    "link_cmd": "python .agents/library/activate_skill.py link standup"
+  },
+  {
+    "id": "start",
+    "name": "start",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Initialize the productivity system and open the dashboard. Use when setting up the plugin for the first time, bootstrapping working memory from your existing task list, or decoding the shorthand (nicknames, acronyms, project codenames) you use in your todos.",
+    "path": "library/anthropics-knowledge-work/skills/start",
+    "activation_cmd": "python .agents/library/activate_skill.py activate start",
+    "link_cmd": "python .agents/library/activate_skill.py link start"
+  },
+  {
+    "id": "statistical-analysis",
+    "name": "statistical-analysis",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "Apply statistical methods including descriptive stats, trend analysis, outlier detection, and hypothesis testing. Use when analyzing distributions, testing for significance, detecting anomalies, computing correlations, or interpreting statistical results.",
+    "path": "library/anthropics-knowledge-work/skills/statistical-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate statistical-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link statistical-analysis"
+  },
+  {
+    "id": "status-report",
+    "name": "status-report",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Generate a status report with KPIs, risks, and action items. Use when writing a weekly or monthly update for leadership, summarizing project health with green/yellow/red status, surfacing risks and decisions that need stakeholder attention, or turning a pile of project tracker activity into a readable narrative.",
+    "path": "library/anthropics-knowledge-work/skills/status-report",
+    "activation_cmd": "python .agents/library/activate_skill.py activate status-report",
+    "link_cmd": "python .agents/library/activate_skill.py link status-report"
+  },
+  {
+    "id": "synthesize-research",
+    "name": "synthesize-research",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of interview notes, survey responses, or support tickets to make sense of, need to extract themes and rank findings by frequency and impact, or want to turn raw feedback into roadmap recommendations.",
+    "path": "library/anthropics-knowledge-work/skills/synthesize-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate synthesize-research",
+    "link_cmd": "python .agents/library/activate_skill.py link synthesize-research"
+  },
+  {
+    "id": "system-design",
+    "name": "system-design",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the user needs help with API design, data modeling, or service boundaries.",
+    "path": "library/anthropics-knowledge-work/skills/system-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate system-design",
+    "link_cmd": "python .agents/library/activate_skill.py link system-design"
+  },
+  {
+    "id": "task-management",
+    "name": "task-management",
+    "repository": "anthropics-knowledge-work",
+    "category": "general-development",
+    "description": "Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/complete tasks, or needs help tracking commitments.",
+    "path": "library/anthropics-knowledge-work/skills/task-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate task-management",
+    "link_cmd": "python .agents/library/activate_skill.py link task-management"
+  },
+  {
+    "id": "tax-prep",
+    "name": "tax-prep",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Prepares tax materials as a two-link chain \u2014 month-end-prep confirms the books are closed and reconciled first, then tax-season-organizer calculates the quarterly estimated payment or builds the year-end 1099-NEC list and accountant packet from those closed numbers. Requires a ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books); uses Gusto, PayPal, and Stripe when connected, else CSV upload. US federal tax math; a non-US business gets the closed-books packet. Prep material for a CPA, never tax advice, nothing filed. Trigger on \"quarterly taxes,\" \"estimated tax payment,\" \"how much should I set aside,\" \"1099s,\" \"1099-NEC,\" \"W-9s,\" \"year-end tax prep,\" \"get my books ready for my accountant,\" any phrasing that suggests a tax deadline is coming, or a question about net profit or YTD income that sounds like worry about a tax bill. An owner who says the period's books are already closed routes to tax-season-organizer directly.",
+    "path": "library/anthropics-knowledge-work/skills/tax-prep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tax-prep",
+    "link_cmd": "python .agents/library/activate_skill.py link tax-prep",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "tax-season-organizer",
+    "name": "tax-season-organizer",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "> Prepares tax-season materials for the owner's accountant, not tax advice. US federal tax; a non-US business gets its closed-books packet instead. Two modes: (1) quarterly estimated tax from YTD net income in the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books); (2) year-end 1099 prep, scanning the ledger, PayPal, and Stripe for contractors paid over USD 600 into a 1099-NEC list with missing W-9 flags. Any tax request routes first to /tax-prep, which confirms the books are closed and reconciled before running this skill. Use this skill directly only when the owner says the period's books are already closed: \"books are closed, now do the 1099s,\" \"run the quarterly estimate off the closed numbers,\" or \"just the contractor W-9 list.\"",
+    "path": "library/anthropics-knowledge-work/skills/tax-season-organizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tax-season-organizer",
+    "link_cmd": "python .agents/library/activate_skill.py link tax-season-organizer",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "team-pipeline",
+    "name": "team-pipeline",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Leader view - roll up a team's pipeline by rep and stage, flag at-risk deals, and surface coaching moments. Use when the user asks \"show my team's pipeline\", \"team forecast\", \"prep for my team's pipeline review\", or \"where does my team need help\".",
+    "path": "library/anthropics-knowledge-work/skills/team-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate team-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link team-pipeline"
+  },
+  {
+    "id": "tech-debt",
+    "name": "tech-debt",
+    "repository": "anthropics-knowledge-work",
+    "category": "testing-qa",
+    "description": "Identify, categorize, and prioritize technical debt. Trigger with \"tech debt\", \"technical debt audit\", \"what should we refactor\", \"code health\", or when the user asks about code quality, refactoring priorities, or maintenance backlog.",
+    "path": "library/anthropics-knowledge-work/skills/tech-debt",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tech-debt",
+    "link_cmd": "python .agents/library/activate_skill.py link tech-debt"
+  },
+  {
+    "id": "testing-strategy",
+    "name": "testing-strategy",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Design test strategies and test plans. Trigger with \"how should we test\", \"test strategy for\", \"write tests for\", \"test plan\", \"what tests do we need\", or when the user needs help with testing approaches, coverage, or test architecture.",
+    "path": "library/anthropics-knowledge-work/skills/testing-strategy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate testing-strategy",
+    "link_cmd": "python .agents/library/activate_skill.py link testing-strategy"
+  },
+  {
+    "id": "ticket-deflector",
+    "name": "ticket-deflector",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "> Reads a forwarded customer email or ticket, pulls order and refund status from a payments connector (PayPal, Square, or Stripe) or Shopify, account history from the CRM, and open tickets from a support desk (Zoho Desk), drafts a tone-matched reply in the owner's writing voice, and can issue a refund through the payments connector with explicit owner approval. With Shopify connected it also runs a proactive order-triage mode that surfaces orders needing attention \u2014 unfulfilled past the promised window, payment problems, pending refunds, stuck shipments \u2014 and drafts the next action for each before the customer has to ask. Use when the user says \"draft a response,\" \"answer this customer,\" \"where's my order,\" \"I want a refund,\" \"check my orders,\" or \"anything about to blow up.\"",
+    "path": "library/anthropics-knowledge-work/skills/ticket-deflector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ticket-deflector",
+    "link_cmd": "python .agents/library/activate_skill.py link ticket-deflector",
+    "allowed_tools": [
+      "Read",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "ticket-triage",
+    "name": "ticket-triage",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Triage and prioritize a support ticket or customer issue. Use when a new ticket comes in and needs categorization, assigning P1-P4 priority, deciding which team should handle it, or checking whether it's a duplicate or known issue before routing.",
+    "path": "library/anthropics-knowledge-work/skills/ticket-triage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ticket-triage",
+    "link_cmd": "python .agents/library/activate_skill.py link ticket-triage"
+  },
+  {
+    "id": "triage-nda",
+    "name": "triage-nda",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YELLOW (counsel review), or RED (full legal review). Use when a new NDA arrives from sales or business development, when screening for embedded non-solicits, non-competes, or missing carveouts, or when deciding whether an NDA can be signed under standard delegation.",
+    "path": "library/anthropics-knowledge-work/skills/triage-nda",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage-nda",
+    "link_cmd": "python .agents/library/activate_skill.py link triage-nda"
+  },
+  {
+    "id": "update",
+    "name": "update",
+    "repository": "anthropics-knowledge-work",
+    "category": "sales-marketing",
+    "description": "Sync tasks and refresh memory from your current activity. Use when pulling new assignments from your project tracker into TASKS.md, triaging stale or overdue tasks, filling memory gaps for unknown people or projects, or running a comprehensive scan to catch todos buried in chat and email.",
+    "path": "library/anthropics-knowledge-work/skills/update",
+    "activation_cmd": "python .agents/library/activate_skill.py activate update",
+    "link_cmd": "python .agents/library/activate_skill.py link update"
+  },
+  {
+    "id": "update-opportunity",
+    "name": "update-opportunity",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Guided updates to an opportunity - push the stage, move the close date, set next steps, fix amount or forecast category. Shows the before/after, writes what you ask for or accept, and verifies with a record link. Use when the user says \"push [deal] to [stage]\", \"move the close date on [opp]\", \"update next steps on [account]\", \"mark [deal] commit\", or accepts a suggested update from another skill.",
+    "path": "library/anthropics-knowledge-work/skills/update-opportunity",
+    "activation_cmd": "python .agents/library/activate_skill.py activate update-opportunity",
+    "link_cmd": "python .agents/library/activate_skill.py link update-opportunity"
+  },
+  {
+    "id": "user-research",
+    "name": "user-research",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Plan, conduct, and synthesize user research. Trigger with \"user research plan\", \"interview guide\", \"usability test\", \"survey design\", \"research questions\", or when the user needs help with any aspect of understanding their users through research.",
+    "path": "library/anthropics-knowledge-work/skills/user-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate user-research",
+    "link_cmd": "python .agents/library/activate_skill.py link user-research"
+  },
+  {
+    "id": "ux-copy",
+    "name": "ux-copy",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Write or review UX copy \u2014 microcopy, error messages, empty states, CTAs. Trigger with \"write copy for\", \"what should this button say?\", \"review this error message\", or when naming a CTA, wording a confirmation dialog, filling an empty state, or writing onboarding text.",
+    "path": "library/anthropics-knowledge-work/skills/ux-copy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ux-copy",
+    "link_cmd": "python .agents/library/activate_skill.py link ux-copy"
+  },
+  {
+    "id": "validate-data",
+    "name": "validate-data",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "QA an analysis before sharing -- methodology, accuracy, and bias checks. Use when reviewing an analysis before a stakeholder presentation, spot-checking calculations and aggregation logic, verifying a SQL query's results look right, or assessing whether conclusions are actually supported by the data.",
+    "path": "library/anthropics-knowledge-work/skills/validate-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate validate-data",
+    "link_cmd": "python .agents/library/activate_skill.py link validate-data"
+  },
+  {
+    "id": "variance-analysis",
+    "name": "variance-analysis",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Decompose financial variances into drivers with narrative explanations and waterfall analysis. Use when analyzing budget vs. actual, period-over-period changes, revenue or expense variances, or preparing variance commentary for leadership.",
+    "path": "library/anthropics-knowledge-work/skills/variance-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate variance-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link variance-analysis"
+  },
+  {
+    "id": "vendor-check",
+    "name": "vendor-check",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Check the status of existing agreements with a vendor across all connected systems \u2014 CLM, CRM, email, and document storage \u2014 with gap analysis and upcoming deadlines. Use when onboarding or renewing a vendor, when you need a consolidated view of what's signed and what's missing (MSA, DPA, SOW), or when checking for approaching expirations and surviving obligations.",
+    "path": "library/anthropics-knowledge-work/skills/vendor-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vendor-check",
+    "link_cmd": "python .agents/library/activate_skill.py link vendor-check"
+  },
+  {
+    "id": "vendor-review",
+    "name": "vendor-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Evaluate a vendor \u2014 cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, deciding whether to renew or replace a contract, comparing two vendors side-by-side, or building a TCO breakdown and negotiation points before procurement sign-off.",
+    "path": "library/anthropics-knowledge-work/skills/vendor-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vendor-review",
+    "link_cmd": "python .agents/library/activate_skill.py link vendor-review"
+  },
+  {
+    "id": "view-pdf",
+    "name": "view-pdf",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually \u2014 annotate, highlight, stamp, fill form fields, place signature/initials, or review markup together. Not for summarization or text extraction (use native Read instead).",
+    "path": "library/anthropics-knowledge-work/skills/view-pdf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate view-pdf",
+    "link_cmd": "python .agents/library/activate_skill.py link view-pdf"
+  },
+  {
+    "id": "weekly-prep-brief",
+    "name": "weekly-prep-brief",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "\"Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on 'weekly prep brief', 'prepare my week', 'what calls do I have this week', 'Monday prep', or any weekly planning request.\"",
+    "path": "library/anthropics-knowledge-work/skills/weekly-prep-brief",
+    "activation_cmd": "python .agents/library/activate_skill.py activate weekly-prep-brief",
+    "link_cmd": "python .agents/library/activate_skill.py link weekly-prep-brief"
+  },
+  {
+    "id": "weekly-wrap",
+    "name": "weekly-wrap",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "End-of-week summary for a rep or leader - what closed, what moved, what slipped, and what's on deck Monday. Optionally drafts a chat post to the team channel. Use when the user says \"weekly wrap\", \"week in review\", \"what happened this week\", or \"Friday summary\".",
+    "path": "library/anthropics-knowledge-work/skills/weekly-wrap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate weekly-wrap",
+    "link_cmd": "python .agents/library/activate_skill.py link weekly-wrap"
+  },
+  {
+    "id": "win-loss-review",
+    "name": "win-loss-review",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Analyze recently closed opportunities to find patterns in what wins and what loses - stage of loss, common objections from transcripts, deal characteristics. Leader-focused. Use when the user asks \"win loss review\", \"why are we losing deals\", \"what's working\", or \"analyze closed opps\".",
+    "path": "library/anthropics-knowledge-work/skills/win-loss-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate win-loss-review",
+    "link_cmd": "python .agents/library/activate_skill.py link win-loss-review"
+  },
+  {
+    "id": "write-query",
+    "name": "write-query",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Write optimized SQL for your dialect with best practices. Use when translating a natural-language data need into SQL, building a multi-CTE query with joins and aggregations, optimizing a query against a large partitioned table, or getting dialect-specific syntax for Snowflake, BigQuery, Postgres, etc.",
+    "path": "library/anthropics-knowledge-work/skills/write-query",
+    "activation_cmd": "python .agents/library/activate_skill.py activate write-query",
+    "link_cmd": "python .agents/library/activate_skill.py link write-query"
+  },
+  {
+    "id": "write-spec",
+    "name": "write-spec",
+    "repository": "anthropics-knowledge-work",
+    "category": "finance-crypto",
+    "description": "Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague idea or user request into a structured document, scoping a feature with goals and non-goals, defining success metrics and acceptance criteria, or breaking a big ask into a phased spec.",
+    "path": "library/anthropics-knowledge-work/skills/write-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate write-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link write-spec"
+  },
+  {
+    "id": "zoom-apps-sdk",
+    "name": "zoom-apps-sdk",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Reference skill for Zoom Apps SDK. Use after routing to an in-client app workflow when building web apps that run inside Zoom meetings, webinars, the main client, or Zoom Phone.",
+    "path": "library/anthropics-knowledge-work/skills/zoom-apps-sdk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate zoom-apps-sdk",
+    "link_cmd": "python .agents/library/activate_skill.py link zoom-apps-sdk"
+  },
+  {
+    "id": "zoom-cobrowse-sdk",
+    "name": "zoom-cobrowse-sdk",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "\"Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing.\"",
+    "path": "library/anthropics-knowledge-work/skills/zoom-cobrowse-sdk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate zoom-cobrowse-sdk",
+    "link_cmd": "python .agents/library/activate_skill.py link zoom-cobrowse-sdk"
+  },
+  {
+    "id": "zoom-general",
+    "name": "zoom-general",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Cross-product Zoom reference skill. Use after the workflow is clear when you need shared platform guidance, app-model comparisons, authentication context, scopes, marketplace considerations, or API-vs-MCP routing.",
+    "path": "library/anthropics-knowledge-work/skills/zoom-general",
+    "activation_cmd": "python .agents/library/activate_skill.py activate zoom-general",
+    "link_cmd": "python .agents/library/activate_skill.py link zoom-general"
+  },
+  {
+    "id": "zoom-mcp",
+    "name": "zoom-mcp",
+    "repository": "anthropics-knowledge-work",
+    "category": "frontend",
+    "description": "Guidance for the bundled Zoom MCP connectors. Use after routing to an MCP workflow when planning or troubleshooting tool-based access to meetings, recordings, meeting assets, or transcripts. Route Zoom Docs requests to the dedicated Docs MCP server and Whiteboard-specific requests to `zoom-mcp/whiteboard`.",
+    "path": "library/anthropics-knowledge-work/skills/zoom-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate zoom-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link zoom-mcp"
+  },
+  {
+    "id": "zoom-oauth",
+    "name": "zoom-oauth",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Reference skill for Zoom authentication. Use after routing to an auth workflow when choosing app credentials, grant types, scopes, token refresh behavior, or debugging Zoom OAuth failures.",
+    "path": "library/anthropics-knowledge-work/skills/zoom-oauth",
+    "activation_cmd": "python .agents/library/activate_skill.py activate zoom-oauth",
+    "link_cmd": "python .agents/library/activate_skill.py link zoom-oauth"
+  },
+  {
+    "id": "zoom-rtms",
+    "name": "zoom-rtms",
+    "repository": "anthropics-knowledge-work",
+    "category": "agent-orchestration",
+    "description": "Reference skill for Zoom RTMS. Use after routing to a live-media workflow when processing real-time audio, video, chat, transcripts, screen share, or contact-center voice streams.",
+    "path": "library/anthropics-knowledge-work/skills/zoom-rtms",
+    "activation_cmd": "python .agents/library/activate_skill.py activate zoom-rtms",
+    "link_cmd": "python .agents/library/activate_skill.py link zoom-rtms"
+  }
+]
