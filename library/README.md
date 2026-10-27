@@ -9,6 +9,14 @@
 
 ---
 
+
+> 💡 **What is this folder? (Beginner Explanation)**  
+> Think of `.agents/skills` as your **Kitchen** (where your AI cooks using active skills), and this `.agents/library` folder as your **Warehouse** (where 1,563 skills are kept on storage shelves).  
+> Keeping skills in this warehouse costs **0 AI prompt tokens** and keeps your AI fast. Whenever you need a skill, you just bring it to the kitchen with 1 command:  
+> `python .agents/library/activate_skill.py link <skill-name>`
+
+---
+
 ## 📑 Complete Repository Directory & Indexes
 
 Every repository is self-contained with its own `skills/` folder, local `skills_index.json`, and individual operational guide:

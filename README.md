@@ -48,6 +48,44 @@ This vault consolidates the highest-quality open-source and proprietary agent sk
 ---
 
 
+---
+
+## 🚦 Beginner's Cheat Sheet (The Only 3 Commands You Need!)
+
+If all the different commands and tools feel overwhelming, don't worry! **You only need 3 simple actions for your daily work:**
+
+### 1️⃣ Find any skill in your vault
+```powershell
+python update.py --find <name>
+# Example: python update.py --find animation
+```
+
+### 2️⃣ Turn ON a skill from your offline warehouse
+```powershell
+python library/activate_skill.py link <skill-name>
+# Example: python library/activate_skill.py link hyperframes
+```
+*(This makes the skill instantly available to your AI assistant without duplicating disk space!)*
+
+### 3️⃣ Update everything & backup to your GitHub
+```powershell
+python update.py
+```
+*(Or simply double-click `update.bat` in Windows File Explorer!)*
+
+---
+
+### ❓ NPX vs. Python — Made Super Simple:
+* **Why does everyone talk about `npx`?**  
+  `npx` is for **downloading skills from the internet** into a project. Any person anywhere can install skills from your GitHub by running:  
+  `npx -y skills add SeaXen/agentskills --skill <name>`
+* **Why do we use `python` locally?**  
+  Python is your **private local manager**. It manages your on-disk storage room of **1,563 reserve skills** so they don't slow down your AI's brain with unnecessary prompt tokens.
+* **Prefer npm instead of python?**  
+  You can also type `npm run find <name>`, `npm run link <name>`, or `npm run update`!
+
+---
+
 ## ⚡ 1-Click Instant Install
 
 You can install the entire AgentSkills vault (594 skills, 20 agents, 17 workflows) into **any project workspace** with a single command:
