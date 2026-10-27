@@ -3,10 +3,10 @@
 > **Workspace**: `D:\Repo\.agents`  
 > **Active Installed Skills**: 87 curated engineering skills in `.agents/skills`  
 > **Category Directories**: 38 granular functional domains in `.agents/category` (1,878+ standalone real skills)
-> **Offline Reserve Library**: 2,031 skills across 36 repositories in `.agents/library`  
+> **Offline Reserve Library**: 2,031 skills across 37 repositories in `.agents/library`  
 > **Specialist Personas**: 20 domain agents  
 > **Autonomous Workflows**: 17 slash commands  
-> **Total Origin Repositories**: 36 upstream sources cataloged  
+> **Total Origin Repositories**: 37 upstream sources cataloged  
 > **Last Synced**: 2026-10-27  
 > **Purpose**: Complete tracking of every skill's upstream origin, author, repository URL, and exact CLI commands to activate or update.
 
@@ -18,7 +18,7 @@
    ```bash
    python .agents/update.py --find <keyword>
    ```
-2. **Activate Any Skill from the 36 Offline Repositories**:
+2. **Activate Any Skill from the 37 Offline Repositories**:
    ```bash
    python .agents/library/activate_skill.py link <skill-name>
    ```
@@ -36,7 +36,7 @@
 
 ---
 
-## 📚 Complete Offline Reserve Library Repositories (36 Repositories, 2,031 Skills)
+## 📚 Complete Offline Reserve Library Repositories (37 Repositories, 2,031 Skills)
 
 Every repository below is fully preserved on disk in `.agents/library/`, ready for zero-latency instant activation into your active workspace without incurring active prompt token overhead:
 
@@ -51,6 +51,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & Decoupled Learning | 4 | [antigravity-elite-protocols](https://github.com/antigravity-elite-protocols) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`browser-use-skills`](./library/browser-use-skills)** | Specialized Developer & AI Capabilities | 6 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`chezou-productivity-skills`](./library/chezou-productivity-skills)** | Specialized Developer & AI Capabilities | 3 | [chezou/skills](https://github.com/chezou/skills) | `python .agents/library/activate_skill.py link <skill>` |
+| **[`claude-vibe-skills`](./library/claude-vibe-skills)** | 🧹 Code Quality, Security Gates & Release Workflow | 1 | [darthrater78/claude-vibe-skills](https://github.com/darthrater78/claude-vibe-skills) | `python .agents/library/activate_skill.py link dev-skills` |
 | **[`cline-skills`](./library/cline-skills)** | 🛠️ Tooling, Automation & Terminal Integrations | 17 | [cline/skills](https://github.com/cline/skills) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`cloudflare-security-audit`](./library/cloudflare-security-audit)** | Specialized Developer & AI Capabilities | 1 | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `python .agents/library/activate_skill.py link <skill>` |
 | **[`cloudflare-skills`](./library/cloudflare-skills)** | ☁️ Cloudflare Workers, D1 & Next.js on Edge | 4 | [cloudflare/skills](https://github.com/cloudflare/skills) | `python .agents/library/activate_skill.py link <skill>` |

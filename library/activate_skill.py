@@ -38,7 +38,7 @@ def get_all_library_repos():
     repos = {}
     for item in os.listdir(SCRIPT_DIR):
         fp = os.path.join(SCRIPT_DIR, item)
-        if os.path.isdir(fp) and not item.startswith('.'):
+        if os.path.isdir(fp) and not item.startswith('.') and item != '__pycache__':
             skills_sub = os.path.join(fp, 'skills')
             if os.path.exists(skills_sub):
                 skills = [s for s in os.listdir(skills_sub) if os.path.isdir(os.path.join(skills_sub, s))]

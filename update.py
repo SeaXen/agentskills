@@ -59,7 +59,7 @@ def load_skills():
 
 def show_about():
     installed_cnt = len([s for s in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, s)) and not s.startswith('.')]) if os.path.exists(skills_dir) else 0
-    lib_repos = [d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.')] if os.path.exists(library_dir) else []
+    lib_repos = [d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.') and d != '__pycache__'] if os.path.exists(library_dir) else []
     lib_cnt = len(lib_repos)
     
     total_lib_skills = 0
@@ -72,7 +72,7 @@ def show_about():
             pass
             
     cat_dir = os.path.join(agents_dir, 'category')
-    cat_cnt = len([d for d in os.listdir(cat_dir) if os.path.isdir(os.path.join(cat_dir, d)) and not d.startswith('.')]) if os.path.exists(cat_dir) else 0
+    cat_cnt = len([d for d in os.listdir(cat_dir) if os.path.isdir(os.path.join(cat_dir, d)) and not d.startswith('.') and d != '__pycache__']) if os.path.exists(cat_dir) else 0
     
     agents_cnt = len([a for a in os.listdir(os.path.join(agents_dir, 'agents')) if a.endswith('.md')]) if os.path.exists(os.path.join(agents_dir, 'agents')) else 20
     wf_cnt = len([w for w in os.listdir(os.path.join(agents_dir, 'workflows')) if w.endswith('.md')]) if os.path.exists(os.path.join(agents_dir, 'workflows')) else 17
@@ -308,7 +308,7 @@ def rebuild_all_indexes():
         return
 
     all_vault_skills = []
-    repo_folders = sorted([d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.')])
+    repo_folders = sorted([d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.') and d != '__pycache__'])
 
     for repo_folder in repo_folders:
         repo_path = os.path.join(library_dir, repo_folder)
@@ -432,7 +432,7 @@ def rebuild_documentation():
         lock_data = {'version': 1, 'skills': {}}
 
     existing_dict = lock_data.get('skills', {})
-    current_skills = sorted([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith('.')])
+    current_skills = sorted([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith('.') and d != '__pycache__'])
 
     # Keep skills-lock.json strictly in sync with installed active skills
     synced_dict = {}

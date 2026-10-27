@@ -31,6 +31,7 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | **[`#antigravity-elite-protocols`](./%23antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & OWL | 4 | [`JSON`](./antigravity-elite-protocols/skills_index.json) | [Guide](./antigravity-elite-protocols/README.md) |
 | **[`browser-use-skills`](./browser-use-skills)** | 🌐 Autonomous Web Navigation, Cloud & QA | 6 | [`JSON`](./browser-use-skills/skills_index.json) | [Guide](./browser-use-skills/README.md) |
 | **[`chezou-productivity-skills`](./chezou-productivity-skills)** | 💼 Enterprise Company Intelligence & Career | 3 | [`JSON`](./chezou-productivity-skills/skills_index.json) | [Guide](./chezou-productivity-skills/README.md) |
+| **[`claude-vibe-skills`](./claude-vibe-skills)** | 🧹 Code Quality, Security Gates & Release Workflow | 1 | `dev-skills` |
 | **[`cline-skills`](./cline-skills)** | 🛠️ System Tools & Terminal Automation | 17 | [`JSON`](./cline-skills/skills_index.json) | [Guide](./cline-skills/README.md) |
 | **[`cloudflare-security-audit`](./cloudflare-security-audit)** | 🛡️ Enterprise Security & Vulnerability Auditing | 1 | [`JSON`](./cloudflare-security-audit/skills_index.json) | [Guide](./cloudflare-security-audit/README.md) |
 | **[`cloudflare-skills`](./cloudflare-skills)** | ☁️ Cloudflare Workers, Wrangler & Edge | 4 | [`JSON`](./cloudflare-skills/skills_index.json) | [Guide](./cloudflare-skills/README.md) |
