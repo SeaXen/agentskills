@@ -424,19 +424,23 @@ def sync_category_directories():
         print("✓ All 1,878 category skills are already up to date (zero sync overhead).")
 
 def rebuild_documentation():
-    print("\n[4/6] Re-indexing skills and rebuilding documentation...")
+    print("\n[4/6] Re-indexing skills and synchronizing skills-lock.json...")
     if os.path.exists(lockfile_path):
         with open(lockfile_path, 'r', encoding='utf-8') as f:
             lock_data = json.load(f)
     else:
-        lock_data = {'skills': {}}
+        lock_data = {'version': 1, 'skills': {}}
 
-    skills_dict = lock_data.get('skills', {})
-    current_skills = sorted([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d))])
+    existing_dict = lock_data.get('skills', {})
+    current_skills = sorted([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith('.')])
 
+    # Keep skills-lock.json strictly in sync with installed active skills
+    synced_dict = {}
     for s in current_skills:
-        if s not in skills_dict:
-            skills_dict[s] = {
+        if s in existing_dict:
+            synced_dict[s] = existing_dict[s]
+        else:
+            synced_dict[s] = {
                 'source': 'local-library',
                 'sourceType': 'local',
                 'sourceUrl': 'local-library',
@@ -445,11 +449,11 @@ def rebuild_documentation():
                 'updatedAt': datetime.now().isoformat() + 'Z'
             }
 
-    lock_data['skills'] = skills_dict
+    lock_data['skills'] = synced_dict
     with open(lockfile_path, 'w', encoding='utf-8') as f:
         json.dump(lock_data, f, indent=2)
 
-    print(f"✓ Total skills verified on disk: {len(current_skills)}")
+    print(f"✓ Synchronized skills-lock.json: exactly {len(synced_dict)} active skills tracked.")
     rebuild_all_indexes()
 
 def git_commit_and_push():
