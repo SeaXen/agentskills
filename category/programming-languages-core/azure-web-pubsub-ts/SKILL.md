@@ -4,7 +4,6 @@ description: "Build real-time messaging applications using Azure Web PubSub SDKs
 package: "@azure/web-pubsub, @azure/web-pubsub-client"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Web PubSub SDKs for TypeScript

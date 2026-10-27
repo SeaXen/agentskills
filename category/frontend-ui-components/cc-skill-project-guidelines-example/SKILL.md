@@ -5,7 +5,6 @@ author: affaan-m
 version: "1.0"
 risk: unknown
 source: community
-category: frontend-ui-components
 ---
 
 # Project Guidelines Skill (Example)

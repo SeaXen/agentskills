@@ -10,7 +10,6 @@ metadata:
     tier-2-expanded, tier-3-platform
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Writing Skills (Excellence)

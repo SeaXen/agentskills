@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 
 # Box Automation via Rube MCP

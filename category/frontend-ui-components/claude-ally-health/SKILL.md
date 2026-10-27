@@ -3,7 +3,6 @@ name: claude-ally-health
 description: "A health assistant skill for medical information analysis, symptom tracking, and wellness guidance."
 source: "https://github.com/huifer/Claude-Ally-Health"
 risk: safe
-category: frontend-ui-components
 ---
 
 # Claude Ally Health

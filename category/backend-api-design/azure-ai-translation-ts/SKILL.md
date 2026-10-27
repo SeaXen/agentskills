@@ -4,7 +4,6 @@ description: "Build translation applications using Azure Translation SDKs for Ja
 package: "@azure-rest/ai-translation-text, @azure-rest/ai-translation-document"
 risk: unknown
 source: community
-category: backend-api-design
 ---
 
 # Azure Translation SDKs for TypeScript

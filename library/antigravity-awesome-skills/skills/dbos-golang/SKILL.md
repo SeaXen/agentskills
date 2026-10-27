@@ -10,7 +10,6 @@ metadata:
   organization: DBOS
   date: February 2026
   abstract: Comprehensive guide for building fault-tolerant Go applications with DBOS. Covers workflows, steps, queues, communication patterns, and best practices for durable execution.
-category: programming-languages-core
 ---
 
 # DBOS Go Best Practices

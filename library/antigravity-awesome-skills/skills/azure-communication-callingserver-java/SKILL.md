@@ -4,7 +4,6 @@ description: "Azure Communication Services CallingServer (legacy) Java SDK. Note
 package: com.azure:azure-communication-callingserver
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Communication CallingServer (Java) - DEPRECATED

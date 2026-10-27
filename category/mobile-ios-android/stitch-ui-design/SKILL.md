@@ -3,7 +3,6 @@ name: stitch-ui-design
 description: "Expert guide for creating effective prompts for Google Stitch AI UI design tool. Use when user wants to design UI/UX in Stitch, create app interfaces, generate mobile/web designs, or needs help cra..."
 risk: safe
 source: "self"
-category: mobile-ios-android
 ---
 
 # Stitch UI Design Prompting

@@ -34,7 +34,8 @@ except:
 SKIP_DIRS = {
     'node_modules', '.next', 'dist', 'build', '.git', '.github',
     '__pycache__', '.vscode', '.idea', 'coverage', 'test', 'tests',
-    '__tests__', 'spec', 'docs', 'documentation', 'examples'
+    '__tests__', 'spec', 'docs', 'documentation', 'examples',
+    '.gemini', '.agent', '.cursor'
 }
 
 # Files to skip (not pages)
@@ -82,8 +83,8 @@ def find_pages(project_path: Path) -> list:
     files = []
     for pattern in patterns:
         for f in project_path.glob(pattern):
-            # Skip excluded directories
-            if any(skip in f.parts for skip in SKIP_DIRS):
+            # Skip excluded directories and hidden dotfolders
+            if any(skip in f.parts for skip in SKIP_DIRS) or any(part.startswith('.') for part in f.parts):
                 continue
             
             # Check if it's likely a page

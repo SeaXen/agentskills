@@ -3,7 +3,6 @@ name: github-actions-templates
 description: "Create production-ready GitHub Actions workflows for automated testing, building, and deploying applications. Use when setting up CI/CD with GitHub Actions, automating development workflows, or cre..."
 risk: unknown
 source: community
-category: devops-docker-cicd
 ---
 
 # GitHub Actions Templates

@@ -4,7 +4,6 @@ description: "Python development principles and decision-making. Framework selec
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Python Patterns

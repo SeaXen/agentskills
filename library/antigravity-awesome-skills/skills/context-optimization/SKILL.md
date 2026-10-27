@@ -3,7 +3,6 @@ name: context-optimization
 description: "Apply compaction, masking, and caching strategies"
 source: "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-optimization"
 risk: safe
-category: core-antigravity-protocols
 ---
 
 ## When to Use This Skill

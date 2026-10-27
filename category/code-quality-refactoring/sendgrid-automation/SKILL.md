@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # SendGrid Automation via Rube MCP

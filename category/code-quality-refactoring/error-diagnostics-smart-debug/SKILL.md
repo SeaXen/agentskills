@@ -3,7 +3,6 @@ name: error-diagnostics-smart-debug
 description: "Use when working with error diagnostics smart debug"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 ## Use this skill when

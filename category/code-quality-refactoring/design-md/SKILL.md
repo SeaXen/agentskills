@@ -3,7 +3,6 @@ name: design-md
 description: "Analyze Stitch projects and synthesize a semantic design system into DESIGN.md files"
 source: "https://github.com/google-labs-code/stitch-skills/tree/main/skills/design-md"
 risk: safe
-category: code-quality-refactoring
 ---
 
 # Stitch DESIGN.md Skill

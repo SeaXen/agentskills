@@ -4,7 +4,6 @@ description: "Build real-time voice AI applications using Azure AI Voice Live SD
 package: azure-ai-voicelive
 risk: unknown
 source: community
-category: audio-voice-sound
 ---
 
 # Azure AI Voice Live SDK

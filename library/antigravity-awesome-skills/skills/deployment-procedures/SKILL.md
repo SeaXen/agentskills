@@ -4,7 +4,6 @@ description: "Production deployment principles and decision-making. Safe deploym
 allowed-tools: Read, Glob, Grep, Bash
 risk: unknown
 source: community
-category: devops-docker-cicd
 ---
 
 # Deployment Procedures

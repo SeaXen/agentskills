@@ -9,7 +9,6 @@ metadata:
     analysis
 risk: unknown
 source: community
-category: security-vulnerability-audit
 ---
 # SAST Security Plugin
 

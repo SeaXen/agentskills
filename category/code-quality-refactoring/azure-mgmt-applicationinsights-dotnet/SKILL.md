@@ -5,7 +5,6 @@ description: "|"
 package: Azure.ResourceManager.ApplicationInsights
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure.ResourceManager.ApplicationInsights (.NET)

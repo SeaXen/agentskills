@@ -3,7 +3,6 @@ name: vexor
 description: "Vector-powered CLI for semantic file search with a Claude/Codex skill"
 source: "https://github.com/scarletkc/vexor"
 risk: safe
-category: database-nosql-serverless
 ---
 
 # Vexor

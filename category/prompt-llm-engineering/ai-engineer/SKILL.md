@@ -8,7 +8,6 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 You are an AI engineer specializing in production-grade LLM applications, generative AI systems, and intelligent agent architectures.
 

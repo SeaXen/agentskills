@@ -4,7 +4,6 @@ description: "Azure Key Vault Secrets Java SDK for secret management. Use when s
 package: com.azure:azure-security-keyvault-secrets
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Key Vault Secrets (Java)

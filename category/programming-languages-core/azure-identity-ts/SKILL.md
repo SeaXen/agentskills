@@ -4,7 +4,6 @@ description: "Authenticate to Azure services using Azure Identity SDK for JavaSc
 package: "@azure/identity"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Identity SDK for TypeScript

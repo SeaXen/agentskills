@@ -9,7 +9,6 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 ## Use this skill when

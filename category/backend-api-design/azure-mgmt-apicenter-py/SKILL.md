@@ -6,7 +6,6 @@ description: "|"
 package: azure-mgmt-apicenter
 risk: unknown
 source: community
-category: backend-api-design
 ---
 
 # Azure API Center Management SDK for Python

@@ -3,7 +3,6 @@ name: security-bluebook-builder
 description: "Build security Blue Books for sensitive apps"
 source: "https://github.com/SHADOWPR0/security-bluebook-builder"
 risk: safe
-category: security-vulnerability-audit
 ---
 
 # Security Bluebook Builder

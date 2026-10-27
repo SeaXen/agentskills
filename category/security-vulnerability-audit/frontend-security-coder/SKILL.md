@@ -8,7 +8,6 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: security-vulnerability-audit
 ---
 
 ## Use this skill when

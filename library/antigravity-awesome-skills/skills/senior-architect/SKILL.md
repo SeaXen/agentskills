@@ -3,7 +3,6 @@ name: senior-architect
 description: "Comprehensive software architecture skill for designing scalable, maintainable systems using ReactJS, NextJS, NodeJS, Express, React Native, Swift, Kotlin, Flutter, Postgres, GraphQL, Go, Python. I..."
 risk: unknown
 source: community
-category: backend-api-design
 ---
 
 # Senior Architect

@@ -4,7 +4,6 @@ description: "Knowledge and utilities for creating animated GIFs optimized for S
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
-category: frontend-motion-animation
 ---
 
 # Slack GIF Creator

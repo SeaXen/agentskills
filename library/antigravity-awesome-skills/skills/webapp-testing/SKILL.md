@@ -4,7 +4,6 @@ description: "Toolkit for interacting with and testing local web applications us
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
-category: testing-playwright-e2e
 ---
 
 # Web Application Testing

@@ -3,7 +3,6 @@ name: go-concurrency-patterns
 description: "Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building concurrent Go applications, implementing worker pools, or debugging race conditions."
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 # Go Concurrency Patterns

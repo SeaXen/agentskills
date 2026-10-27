@@ -4,7 +4,6 @@ description: "Manage cryptographic keys using Azure Key Vault Keys SDK for JavaS
 package: "@azure/keyvault-keys"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Key Vault Keys SDK for TypeScript

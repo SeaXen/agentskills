@@ -3,7 +3,6 @@ name: solidity-security
 description: "Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity patterns. Use when writing smart contracts, auditing existing contracts, or implementin..."
 risk: unknown
 source: community
-category: web3-smart-contracts
 ---
 
 # Solidity Security

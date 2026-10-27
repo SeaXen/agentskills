@@ -1,9 +1,7 @@
 ---
 name: performance-profiling
-description: "Performance profiling principles. Measurement, analysis, and optimization techniques."
+description: Performance profiling principles. Measurement, analysis, and optimization techniques.
 allowed-tools: Read, Glob, Grep, Bash
-risk: unknown
-source: community
 category: code-quality-refactoring
 ---
 
@@ -144,6 +142,3 @@ category: code-quality-refactoring
 ---
 
 > **Remember:** The fastest code is code that doesn't run. Remove before optimizing.
-
-## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.

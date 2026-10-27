@@ -8,7 +8,6 @@ disable-model-invocation: true
 allowed-tools: Bash, Read, Write, AskUserQuestion, WebSearch
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 
 # last30days: Research Any Topic from the Last 30 Days

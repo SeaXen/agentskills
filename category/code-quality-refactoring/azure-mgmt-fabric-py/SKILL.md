@@ -5,7 +5,6 @@ description: "|"
   Triggers: "azure-mgmt-fabric", "FabricMgmtClient", "Fabric capacity", "Microsoft Fabric", "Power BI capacity".
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure Fabric Management SDK for Python

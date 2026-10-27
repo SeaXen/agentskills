@@ -3,7 +3,6 @@ name: web-performance-optimization
 description: "Optimize website and web application performance including loading speed, Core Web Vitals, bundle size, caching strategies, and runtime performance"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Web Performance Optimization

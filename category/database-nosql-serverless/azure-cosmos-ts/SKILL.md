@@ -5,7 +5,6 @@ description: "|"
 package: "@azure/cosmos"
 risk: unknown
 source: community
-category: database-nosql-serverless
 ---
 
 # @azure/cosmos (TypeScript/JavaScript)

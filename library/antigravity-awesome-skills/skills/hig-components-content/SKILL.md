@@ -14,7 +14,6 @@ description: ">"
   platform-specific component behavior.
 risk: unknown
 source: community
-category: frontend-ui-components
 ---
 
 # Apple HIG: Content Components

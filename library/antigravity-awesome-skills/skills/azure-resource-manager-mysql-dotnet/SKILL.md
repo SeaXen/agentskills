@@ -5,7 +5,6 @@ description: "|"
 package: Azure.ResourceManager.MySql
 risk: unknown
 source: community
-category: database-sql-relational
 ---
 
 # Azure.ResourceManager.MySql (.NET)

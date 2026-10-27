@@ -6,7 +6,6 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Active Directory Attacks

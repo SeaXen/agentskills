@@ -3,7 +3,6 @@ name: incident-response-incident-response
 description: "Use when working with incident response incident response"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 ## Use this skill when

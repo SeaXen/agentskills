@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Google Sheets Automation via Rube MCP

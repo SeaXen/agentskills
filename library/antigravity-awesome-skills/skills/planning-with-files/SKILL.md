@@ -33,7 +33,6 @@ hooks:
           command: "${CLAUDE_PLUGIN_ROOT}/scripts/check-complete.sh"
 risk: unknown
 source: community
-category: frontend-ui-components
 ---
 
 # Planning with Files

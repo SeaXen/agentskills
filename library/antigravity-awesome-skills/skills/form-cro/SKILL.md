@@ -7,7 +7,6 @@ description: ">"
   improve lead quality without breaking compliance or downstream workflows.
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Form Conversion Rate Optimization (Form CRO)

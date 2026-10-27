@@ -8,7 +8,6 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 ## Use this skill when

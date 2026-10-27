@@ -3,7 +3,6 @@ name: debugging-toolkit-smart-debug
 description: "Use when working with debugging toolkit smart debug"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 ## Use this skill when

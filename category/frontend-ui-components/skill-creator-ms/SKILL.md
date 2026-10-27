@@ -3,7 +3,6 @@ name: skill-creator-ms
 description: "Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Foundry services. Use when creating new skills or updating existing skills."
 risk: unknown
 source: community
-category: frontend-ui-components
 ---
 
 # Skill Creator

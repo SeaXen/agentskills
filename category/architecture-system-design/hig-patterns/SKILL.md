@@ -14,7 +14,6 @@ description: ">"
   hig-components-layout for navigation, hig-components-content for data display.
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 # Apple HIG: Interaction Patterns

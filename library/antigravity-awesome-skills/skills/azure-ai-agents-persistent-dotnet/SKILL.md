@@ -5,7 +5,6 @@ description: "|"
 package: Azure.AI.Agents.Persistent
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure.AI.Agents.Persistent (.NET)

@@ -4,7 +4,6 @@ description: "Build applications using Azure App Configuration SDK for JavaScrip
 package: "@azure/app-configuration"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure App Configuration SDK for TypeScript

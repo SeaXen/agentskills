@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: database-sql-relational
 ---
 
 # DocuSign Automation via Rube MCP

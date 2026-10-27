@@ -4,7 +4,6 @@ description: "Guide for creating high-quality MCP (Model Context Protocol) serve
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 
 # MCP Server Development Guide

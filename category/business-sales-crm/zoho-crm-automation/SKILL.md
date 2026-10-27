@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: business-sales-crm
 ---
 
 # Zoho CRM Automation via Rube MCP

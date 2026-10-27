@@ -7,7 +7,6 @@ description: "|"
 package: com.azure:azure-monitor-opentelemetry-exporter
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Monitor OpenTelemetry Exporter for Java

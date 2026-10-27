@@ -4,7 +4,6 @@ description: "Plan and route Domain-Driven Design work from strategic modeling t
 risk: safe
 source: self
 tags: [ddd, domain, bounded-context, architecture]
-category: architecture-system-design
 ---
 
 # Domain-Driven Design

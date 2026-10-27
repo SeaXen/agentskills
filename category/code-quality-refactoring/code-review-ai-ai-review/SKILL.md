@@ -3,7 +3,6 @@ name: code-review-ai-ai-review
 description: "You are an expert AI-powered code review specialist combining automated static analysis, intelligent pattern recognition, and modern DevOps practices. Leverage AI tools (GitHub Copilot, Qodo, GPT-5, C"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # AI-Powered Code Review Specialist

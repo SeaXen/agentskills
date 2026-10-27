@@ -7,7 +7,6 @@ metadata:
   model: haiku
 risk: unknown
 source: community
-category: business-sales-crm
 ---
 
 ## Use this skill when

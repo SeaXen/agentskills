@@ -1,9 +1,7 @@
 ---
 name: 2d-games
-description: "2D game development principles. Sprites, tilemaps, physics, camera."
+description: 2D game development principles. Sprites, tilemaps, physics, camera.
 allowed-tools: Read, Write, Edit, Glob, Grep
-risk: unknown
-source: community
 ---
 
 # 2D Game Development
@@ -119,6 +117,3 @@ source: community
 ---
 
 > **Remember:** 2D is about clarity. Every pixel should communicate.
-
-## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.

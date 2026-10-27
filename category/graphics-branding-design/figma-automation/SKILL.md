@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: graphics-branding-design
 ---
 
 # Figma Automation via Rube MCP

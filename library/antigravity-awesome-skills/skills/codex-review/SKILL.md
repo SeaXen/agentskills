@@ -3,7 +3,6 @@ name: codex-review
 description: "Professional code review with auto CHANGELOG generation, integrated with Codex AI"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # codex-review

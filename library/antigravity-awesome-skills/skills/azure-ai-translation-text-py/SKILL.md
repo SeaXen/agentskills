@@ -6,7 +6,6 @@ description: "|"
 package: azure-ai-translation-text
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure AI Text Translation SDK for Python

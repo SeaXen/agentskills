@@ -6,7 +6,6 @@ description: "|"
 package: azure-storage-file-datalake
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 
 # Azure Data Lake Storage Gen2 SDK for Python

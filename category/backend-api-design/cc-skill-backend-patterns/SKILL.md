@@ -5,7 +5,6 @@ author: affaan-m
 version: "1.0"
 risk: unknown
 source: community
-category: backend-api-design
 ---
 
 # Backend Development Patterns

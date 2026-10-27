@@ -3,7 +3,6 @@ name: receiving-code-review
 description: "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performat..."
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Code Review Reception

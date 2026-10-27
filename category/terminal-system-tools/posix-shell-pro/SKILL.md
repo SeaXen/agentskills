@@ -7,7 +7,6 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: terminal-system-tools
 ---
 
 ## Use this skill when

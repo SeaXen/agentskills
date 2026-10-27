@@ -1,9 +1,7 @@
 ---
 name: multiplayer
-description: "Multiplayer game development principles. Architecture, networking, synchronization."
+description: Multiplayer game development principles. Architecture, networking, synchronization.
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
-risk: unknown
-source: community
 ---
 
 # Multiplayer Game Development
@@ -132,6 +130,3 @@ Server: Validate → did projectile actually hit?
 ---
 
 > **Remember:** Never trust the client. The server is the source of truth.
-
-## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.

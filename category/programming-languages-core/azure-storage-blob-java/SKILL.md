@@ -4,7 +4,6 @@ description: "Build blob storage applications with Azure Storage Blob SDK for Ja
 package: com.azure:azure-storage-blob
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Storage Blob SDK for Java

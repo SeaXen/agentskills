@@ -4,7 +4,6 @@ description: "Mobile-first design and engineering doctrine for iOS and Android a
 allowed-tools: Read, Glob, Grep, Bash
 risk: unknown
 source: community
-category: mobile-ios-android
 ---
 # Mobile Design System
 

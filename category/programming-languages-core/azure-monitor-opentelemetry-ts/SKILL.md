@@ -4,7 +4,6 @@ description: "Instrument applications with Azure Monitor and OpenTelemetry for J
 package: "@azure/monitor-opentelemetry"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Monitor OpenTelemetry SDK for TypeScript

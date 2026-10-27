@@ -3,7 +3,6 @@ name: tool-design
 description: "Build tools that agents can use effectively, including architectural reduction patterns"
 source: "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/tool-design"
 risk: safe
-category: architecture-system-design
 ---
 
 ## When to Use This Skill

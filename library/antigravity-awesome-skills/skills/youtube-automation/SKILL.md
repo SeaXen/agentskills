@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: database-sql-relational
 ---
 
 # YouTube Automation via Rube MCP

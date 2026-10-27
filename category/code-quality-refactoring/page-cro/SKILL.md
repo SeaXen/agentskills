@@ -9,7 +9,6 @@ description: ">"
   not blind optimization.
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 # Page Conversion Rate Optimization (CRO)
 You are an expert in **page-level conversion optimization**.

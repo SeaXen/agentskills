@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: git-version-control
 ---
 
 # GitHub Automation via Rube MCP

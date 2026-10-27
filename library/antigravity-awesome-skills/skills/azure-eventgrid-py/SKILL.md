@@ -6,7 +6,6 @@ description: "|"
 package: azure-eventgrid
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure Event Grid SDK for Python

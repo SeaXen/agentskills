@@ -4,7 +4,6 @@ description: "Generative Engine Optimization for AI search engines (ChatGPT, Cla
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
-category: business-strategy-legal
 ---
 
 # GEO Fundamentals

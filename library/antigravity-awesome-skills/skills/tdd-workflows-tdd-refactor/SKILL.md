@@ -3,7 +3,6 @@ name: tdd-workflows-tdd-refactor
 description: "Use when working with tdd workflows tdd refactor"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 ## Use this skill when

@@ -7,7 +7,6 @@ metadata:
   model: haiku
 risk: unknown
 source: community
-category: diagrams-technical-visuals
 ---
 
 ## Use this skill when

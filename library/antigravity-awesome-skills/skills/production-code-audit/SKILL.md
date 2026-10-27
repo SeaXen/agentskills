@@ -3,7 +3,6 @@ name: production-code-audit
 description: "Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then systematically transform it to production-grade, corporate-level professional quality with optimizations"
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 # Production Code Audit

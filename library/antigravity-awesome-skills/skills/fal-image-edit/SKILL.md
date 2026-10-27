@@ -3,7 +3,6 @@ name: fal-image-edit
 description: "AI-powered image editing with style transfer and object removal"
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-image-edit/SKILL.md"
 risk: safe
-category: code-quality-refactoring
 ---
 
 # Fal Image Edit

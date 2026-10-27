@@ -5,7 +5,6 @@ description: "|"
 package: "@azure/ai-voicelive"
 risk: unknown
 source: community
-category: audio-voice-sound
 ---
 
 # @azure/ai-voicelive (JavaScript/TypeScript)

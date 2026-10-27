@@ -4,7 +4,6 @@ description: "AI operational modes (brainstorm, implement, debug, review, teach,
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
-category: multi-agent-orchestration
 ---
 
 # Behavioral Modes - Adaptive AI Operating Modes

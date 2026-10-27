@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: devops-docker-cicd
 ---
 
 # Render Automation via Rube MCP

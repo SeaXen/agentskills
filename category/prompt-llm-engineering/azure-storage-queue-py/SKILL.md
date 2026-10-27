@@ -6,7 +6,6 @@ description: "|"
 package: azure-storage-queue
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 
 # Azure Queue Storage SDK for Python

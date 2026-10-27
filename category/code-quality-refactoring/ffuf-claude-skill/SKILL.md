@@ -3,7 +3,6 @@ name: ffuf-claude-skill
 description: "Web fuzzing with ffuf"
 source: "https://github.com/jthack/ffuf_claude_skill"
 risk: safe
-category: code-quality-refactoring
 ---
 
 # Ffuf Claude Skill

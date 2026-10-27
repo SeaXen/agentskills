@@ -4,7 +4,6 @@ description: "Build event streaming applications using Azure Event Hubs SDK for 
 package: "@azure/event-hubs"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Event Hubs SDK for TypeScript

@@ -5,7 +5,6 @@ description: "|"
 package: Azure.Messaging.EventHubs
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure.Messaging.EventHubs (.NET)

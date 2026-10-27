@@ -5,7 +5,6 @@ metadata:
   argument-hint: "[track-id] [--detailed]"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Conductor Status

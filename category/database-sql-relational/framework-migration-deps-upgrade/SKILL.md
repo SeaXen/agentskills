@@ -3,7 +3,6 @@ name: framework-migration-deps-upgrade
 description: "You are a dependency management expert specializing in safe, incremental upgrades of project dependencies. Plan and execute dependency updates with minimal risk, proper testing, and clear migration pa"
 risk: unknown
 source: community
-category: database-sql-relational
 ---
 
 # Dependency Upgrade Strategy

@@ -8,7 +8,6 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: data-engineering-ml
 ---
 
 ## Use this skill when

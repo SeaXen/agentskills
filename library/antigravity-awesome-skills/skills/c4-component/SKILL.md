@@ -9,7 +9,6 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 # C4 Component Level: [Component Name]

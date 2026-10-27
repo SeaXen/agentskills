@@ -4,7 +4,6 @@ description: "Architectural decision-making framework. Requirements analysis, tr
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 # Architecture Decision Framework

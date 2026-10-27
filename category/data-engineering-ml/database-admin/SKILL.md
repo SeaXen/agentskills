@@ -10,7 +10,6 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
-category: data-engineering-ml
 ---
 
 ## Use this skill when

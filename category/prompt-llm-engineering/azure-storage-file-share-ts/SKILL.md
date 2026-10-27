@@ -5,7 +5,6 @@ description: "|"
 package: "@azure/storage-file-share"
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 
 # @azure/storage-file-share (TypeScript/JavaScript)

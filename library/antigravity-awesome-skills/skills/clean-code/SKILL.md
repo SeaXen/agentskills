@@ -4,7 +4,6 @@ description: "Applies principles from Robert C. Martin's 'Clean Code'. Use this 
 user-invocable: true
 risk: safe
 source: "ClawForge (https://github.com/jackjin1997/ClawForge)"
-category: code-quality-refactoring
 ---
 
 # Clean Code Skill

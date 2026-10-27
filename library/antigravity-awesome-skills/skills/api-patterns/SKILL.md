@@ -4,7 +4,6 @@ description: "API design principles and decision-making. REST vs GraphQL vs tRPC
 allowed-tools: Read, Write, Edit, Glob, Grep
 risk: unknown
 source: community
-category: backend-api-design
 ---
 
 # API Patterns

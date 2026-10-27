@@ -5,7 +5,6 @@ description: "|"
 package: "@microsoft/agents-hosting, @microsoft/agents-hosting-express, @microsoft/agents-activity, @microsoft/agents-copilotstudio-client"
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Microsoft 365 Agents SDK (TypeScript)

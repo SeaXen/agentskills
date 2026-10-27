@@ -4,7 +4,6 @@ description: "Build real-time streaming applications with Azure Event Hubs SDK f
 package: com.azure:azure-messaging-eventhubs
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Event Hubs SDK for Java

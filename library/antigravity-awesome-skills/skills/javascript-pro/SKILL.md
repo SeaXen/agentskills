@@ -8,7 +8,6 @@ metadata:
   model: inherit
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 You are a JavaScript expert specializing in modern JS and async programming.
 

@@ -3,7 +3,6 @@ name: upgrading-expo
 description: "Upgrade Expo SDK versions"
 source: "https://github.com/expo/skills/tree/main/plugins/upgrading-expo"
 risk: safe
-category: mobile-ios-android
 ---
 
 # Upgrading Expo

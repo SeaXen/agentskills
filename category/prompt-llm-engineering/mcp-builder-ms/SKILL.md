@@ -3,7 +3,6 @@ name: mcp-builder-ms
 description: "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate exte..."
 risk: unknown
 source: community
-category: prompt-llm-engineering
 ---
 
 # MCP Server Development Guide

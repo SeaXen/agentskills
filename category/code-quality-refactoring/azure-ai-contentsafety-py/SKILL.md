@@ -6,7 +6,6 @@ description: "|"
 package: azure-ai-contentsafety
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure AI Content Safety SDK for Python

@@ -4,7 +4,6 @@ description: "Multi-agent orchestration patterns. Use when multiple independent 
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
-category: multi-agent-orchestration
 ---
 
 # Native Parallel Agents

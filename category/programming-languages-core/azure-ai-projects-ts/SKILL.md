@@ -4,7 +4,6 @@ description: "Build AI applications using Azure AI Projects SDK for JavaScript (
 package: "@azure/ai-projects"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure AI Projects SDK for TypeScript

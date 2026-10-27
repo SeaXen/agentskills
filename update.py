@@ -175,9 +175,37 @@ def clean_nested():
         import stat
         shutil.rmtree(nested_agents, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
 
-def sync_awesome_skills():
-    """Sync ONLY skills/ and skills_index.json from upstream, eliminating repo bloat"""
-    print("\n[1/6] Syncing pure skills from benjaminasterA/antigravity-awesome-skills...")
+def sync_awesome_skills(force=False):
+    """Sync pure skills/ and skills_index.json from upstream with smart commit checking"""
+    print("\n[1/6] Checking benjaminasterA/antigravity-awesome-skills for upstream updates...")
+    commit_file = os.path.join(awesome_skills_dir, '.upstream_commit')
+    last_commit = ''
+    if os.path.exists(commit_file):
+        try:
+            with open(commit_file, 'r', encoding='utf-8') as cf:
+                last_commit = cf.read().strip()
+        except Exception:
+            pass
+
+    remote_commit = ''
+    try:
+        ls_res = subprocess.run([
+            'git', 'ls-remote',
+            'https://github.com/benjaminasterA/antigravity-awesome-skills.git',
+            'HEAD'
+        ], capture_output=True, text=True, timeout=10)
+        if ls_res.returncode == 0 and ls_res.stdout:
+            remote_commit = ls_res.stdout.split()[0].strip()
+    except Exception:
+        pass
+
+    has_skills = os.path.exists(awesome_skills_sub) and len(os.listdir(awesome_skills_sub)) > 800
+
+    if not force and remote_commit and last_commit and remote_commit == last_commit and has_skills:
+        print(f"✓ antigravity-awesome-skills is already up to date with upstream HEAD ({remote_commit[:8]}).")
+        return len(os.listdir(awesome_skills_sub))
+
+    print("⬇️  Downloading fresh skills from upstream...")
     temp_dir = os.path.join(repo_root, '.temp_awesome_clone')
     if os.path.exists(temp_dir):
         shutil.rmtree(temp_dir, ignore_errors=True)
@@ -197,13 +225,21 @@ def sync_awesome_skills():
                 s_src = os.path.join(temp_skills, skill_name)
                 s_dst = os.path.join(awesome_skills_sub, skill_name)
                 if os.path.isdir(s_src):
-                    if os.path.exists(s_dst):
-                        shutil.rmtree(s_dst, ignore_errors=True)
-                    shutil.copytree(s_src, s_dst)
+                    src_md = os.path.join(s_src, 'SKILL.md')
+                    dst_md = os.path.join(s_dst, 'SKILL.md')
+                    needs_copy = not os.path.exists(dst_md) or (os.path.exists(src_md) and os.path.getmtime(src_md) > os.path.getmtime(dst_md))
+                    if needs_copy:
+                        if os.path.exists(s_dst):
+                            shutil.rmtree(s_dst, ignore_errors=True)
+                        shutil.copytree(s_src, s_dst)
 
         idx_src = os.path.join(temp_dir, 'skills_index.json')
         if os.path.exists(idx_src):
             shutil.copy2(idx_src, os.path.join(awesome_skills_dir, 'skills_index.json'))
+
+        if remote_commit:
+            with open(commit_file, 'w', encoding='utf-8') as cf:
+                cf.write(remote_commit)
 
         shutil.rmtree(temp_dir, ignore_errors=True)
         awesome_count = len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 0
@@ -213,7 +249,7 @@ def sync_awesome_skills():
         print(f"⚠️ Failed to sync awesome skills: {e}")
         if os.path.exists(temp_dir):
             shutil.rmtree(temp_dir, ignore_errors=True)
-        return 0
+        return len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 0
 
 def run_skills_update():
     print("\n[2/6] Checking for upstream updates across all skills (via npx skills update)...")
@@ -237,7 +273,6 @@ def sync_library_mirrors():
     if not os.path.exists(skills_dir) or not os.path.exists(library_dir):
         return
 
-    # Check each library repo
     updated = 0
     for repo_f in os.listdir(library_dir):
         if repo_f == 'antigravity-awesome-skills':
@@ -248,10 +283,22 @@ def sync_library_mirrors():
                 src_skill = os.path.join(skills_dir, s_name)
                 dst_skill = os.path.join(lib_repo_skills, s_name)
                 if os.path.exists(src_skill):
-                    shutil.rmtree(dst_skill, ignore_errors=True)
-                    shutil.copytree(src_skill, dst_skill)
-                    updated += 1
-    print(f"✓ Synchronized {updated} skills across offline library repositories.")
+                    src_md = os.path.join(src_skill, 'SKILL.md')
+                    dst_md = os.path.join(dst_skill, 'SKILL.md')
+                    needs_copy = False
+                    if not os.path.exists(dst_md):
+                        needs_copy = True
+                    elif os.path.exists(src_md) and os.path.getmtime(src_md) > os.path.getmtime(dst_md):
+                        needs_copy = True
+                    
+                    if needs_copy:
+                        shutil.rmtree(dst_skill, ignore_errors=True)
+                        shutil.copytree(src_skill, dst_skill)
+                        updated += 1
+    if updated > 0:
+        print(f"✓ Synchronized {updated} updated skills across offline library repositories.")
+    else:
+        print("✓ All offline library reserve bundles are already up to date.")
 
 
 def rebuild_all_indexes():
@@ -334,8 +381,10 @@ def sync_category_directories():
     if not os.path.exists(cat_dir):
         return
 
+    active_skills = set(os.listdir(skills_dir)) if os.path.exists(skills_dir) else set()
+    lib_repo_paths = [os.path.join(library_dir, r, "skills") for r in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, r, "skills"))]
+
     updated = 0
-    # Update existing real skill folders in category
     for cat_slug in os.listdir(cat_dir):
         c_path = os.path.join(cat_dir, cat_slug)
         if not os.path.isdir(c_path):
@@ -344,23 +393,35 @@ def sync_category_directories():
             s_dst = os.path.join(c_path, s_name)
             if not os.path.isdir(s_dst):
                 continue
-            # Check if active skills has an update
-            active_src = os.path.join(skills_dir, s_name)
-            if os.path.exists(active_src):
-                shutil.rmtree(s_dst, ignore_errors=True)
-                shutil.copytree(active_src, s_dst)
-                updated += 1
-                continue
-            # Check library repos for update
-            for r in os.listdir(library_dir):
-                lib_src = os.path.join(library_dir, r, "skills", s_name)
-                if os.path.exists(lib_src):
-                    shutil.rmtree(s_dst, ignore_errors=True)
-                    shutil.copytree(lib_src, s_dst)
-                    updated += 1
-                    break
 
-    print(f"✓ Synchronized {updated} real skills across 38 functional category folders.")
+            dst_md = os.path.join(s_dst, "SKILL.md")
+            src_skill = None
+            if s_name in active_skills:
+                src_skill = os.path.join(skills_dir, s_name)
+            else:
+                for lr in lib_repo_paths:
+                    candidate = os.path.join(lr, s_name)
+                    if os.path.exists(candidate):
+                        src_skill = candidate
+                        break
+
+            if src_skill:
+                src_md = os.path.join(src_skill, "SKILL.md")
+                needs_update = False
+                if not os.path.exists(dst_md):
+                    needs_update = True
+                elif os.path.exists(src_md) and os.path.getmtime(src_md) > os.path.getmtime(dst_md):
+                    needs_update = True
+
+                if needs_update:
+                    shutil.rmtree(s_dst, ignore_errors=True)
+                    shutil.copytree(src_skill, s_dst)
+                    updated += 1
+
+    if updated > 0:
+        print(f"✓ Synchronized {updated} modified skills into .agents/category/ directories.")
+    else:
+        print("✓ All 1,878 category skills are already up to date (zero sync overhead).")
 
 def rebuild_documentation():
     print("\n[4/6] Re-indexing skills and rebuilding documentation...")
@@ -446,10 +507,11 @@ if __name__ == '__main__':
     print(f"📁 Workspace Root:      {repo_root}")
     print("=" * 65)
 
-    sync_awesome_skills()
+    sync_awesome_skills(force='--awesome' in args or '--force-awesome' in args)
     if '--awesome' not in args:
         run_skills_update()
     sync_library_mirrors()
+    sync_category_directories()
     rebuild_documentation()
     if '--no-push' not in args:
         git_commit_and_push()

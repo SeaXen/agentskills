@@ -4,7 +4,6 @@ description: "Build messaging applications using Azure Service Bus SDK for JavaS
 package: "@azure/service-bus"
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Service Bus SDK for TypeScript

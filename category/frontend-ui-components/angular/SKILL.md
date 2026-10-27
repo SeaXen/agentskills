@@ -7,7 +7,6 @@ description: ">-"
   management, performance optimization, and migration to modern patterns.
 risk: safe
 source: self
-category: frontend-ui-components
 ---
 
 # Angular Expert

@@ -9,7 +9,6 @@ metadata:
   model: haiku
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 # C4 Code Level: [Directory Name]

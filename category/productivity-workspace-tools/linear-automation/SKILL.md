@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: productivity-workspace-tools
 ---
 
 # Linear Automation via Rube MCP

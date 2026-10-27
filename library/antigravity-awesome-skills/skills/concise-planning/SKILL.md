@@ -3,7 +3,6 @@ name: concise-planning
 description: "Use when a user asks for a plan for a coding task, to generate a clear, actionable, and atomic checklist."
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Concise Planning

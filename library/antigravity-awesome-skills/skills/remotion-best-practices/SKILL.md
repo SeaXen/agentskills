@@ -7,7 +7,6 @@ metadata:
   tags: remotion, video, react, animation, composition
 risk: unknown
 source: community
-category: video-motion-production
 ---
 
 ## When to use

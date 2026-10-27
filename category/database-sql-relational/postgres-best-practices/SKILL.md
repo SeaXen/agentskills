@@ -7,7 +7,6 @@ metadata:
   version: "1.0.0"
 risk: unknown
 source: community
-category: database-sql-relational
 ---
 
 # Supabase Postgres Best Practices

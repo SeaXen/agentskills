@@ -3,7 +3,6 @@ name: tavily-web
 description: "Web search, content extraction, crawling, and research capabilities using Tavily API"
 risk: unknown
 source: community
-category: backend-api-design
 ---
 
 # tavily-web

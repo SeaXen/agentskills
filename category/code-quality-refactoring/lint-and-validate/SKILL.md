@@ -1,9 +1,7 @@
 ---
 name: lint-and-validate
-description: "Automatic quality control, linting, and static analysis procedures. Use after every code modification to ensure syntax correctness and project standards. Triggers onKeywords: lint, format, check, v..."
+description: "Automatic quality control, linting, and static analysis procedures. Use after every code modification to ensure syntax correctness and project standards. Triggers on keywords: lint, format, check, validate, types, static analysis."
 allowed-tools: Read, Glob, Grep, Bash
-risk: unknown
-source: community
 category: code-quality-refactoring
 ---
 
@@ -46,6 +44,3 @@ category: code-quality-refactoring
 | `scripts/lint_runner.py` | Unified lint check | `python scripts/lint_runner.py <project_path>` |
 | `scripts/type_coverage.py` | Type coverage analysis | `python scripts/type_coverage.py <project_path>` |
 
-
-## When to Use
-This skill is applicable to execute the workflow or actions described in the overview.

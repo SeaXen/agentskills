@@ -4,7 +4,6 @@ description: "Documentation templates and structure guidelines. README, API docs
 allowed-tools: Read, Glob, Grep
 risk: unknown
 source: community
-category: backend-api-design
 ---
 
 # Documentation Templates

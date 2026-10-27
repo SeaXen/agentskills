@@ -8,7 +8,6 @@ metadata:
   model: opus
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 ## Use this skill when

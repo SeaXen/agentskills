@@ -14,7 +14,6 @@ description: ">"
   interaction patterns, hig-technologies for Siri and system integration.
 risk: unknown
 source: community
-category: frontend-ui-components
 ---
 
 # Apple HIG: System Experiences

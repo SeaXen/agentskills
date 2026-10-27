@@ -6,7 +6,6 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
-category: frontend-ui-components
 ---
 
 # HTML Injection Testing

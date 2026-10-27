@@ -5,7 +5,6 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
-category: graphics-branding-design
 ---
 
 # Canva Automation via Rube MCP

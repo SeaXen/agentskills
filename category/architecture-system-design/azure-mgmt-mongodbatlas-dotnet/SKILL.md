@@ -4,7 +4,6 @@ description: "Manage MongoDB Atlas Organizations as Azure ARM resources using Az
 package: Azure.ResourceManager.MongoDBAtlas
 risk: unknown
 source: community
-category: architecture-system-design
 ---
 
 # Azure.ResourceManager.MongoDBAtlas SDK

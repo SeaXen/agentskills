@@ -3,7 +3,6 @@ name: wiki-onboarding
 description: "Generates two complementary onboarding guides \u2014 a Principal-Level architectural deep-dive and a Zero-to-Hero contributor walkthrough. Use when the user wants onboarding documentation fo..."
 risk: unknown
 source: community
-category: business-strategy-legal
 ---
 
 # Wiki Onboarding Guide Generator

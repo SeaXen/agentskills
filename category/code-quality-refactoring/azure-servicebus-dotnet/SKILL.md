@@ -5,7 +5,6 @@ description: "|"
 package: Azure.Messaging.ServiceBus
 risk: unknown
 source: community
-category: code-quality-refactoring
 ---
 
 # Azure.Messaging.ServiceBus (.NET)

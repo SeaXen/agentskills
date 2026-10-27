@@ -6,7 +6,6 @@ description: "|"
 package: azure_data_cosmos
 risk: unknown
 source: community
-category: programming-languages-core
 ---
 
 # Azure Cosmos DB SDK for Rust
