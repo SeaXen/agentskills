@@ -117,6 +117,8 @@ def search_by_tag(query):
     print("=" * 65)
 
 def find_global(query):
+    # Normalize path if passed as official/category/skill
+    query = query.strip().rstrip('/').split('/')[-1]
     """Search across ALL 1,470 skills in vault"""
     q = query.lower()
     skills = load_skills()

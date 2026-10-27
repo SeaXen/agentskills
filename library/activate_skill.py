@@ -49,6 +49,8 @@ def get_all_library_repos():
     return repos
 
 def find_skill_source(skill_name):
+    # Support Hermes 'official/category/skill-name' or relative paths
+    skill_name = skill_name.strip().rstrip('/').split('/')[-1]
     repos = get_all_library_repos()
     for repo_name, rdata in repos.items():
         if skill_name in rdata['skills']:
@@ -219,6 +221,8 @@ if __name__ == '__main__':
         sys.exit(0)
 
     cmd = args[0].lower()
+    if len(args) >= 2 and cmd != 'search':
+        args[1] = args[1].strip().rstrip('/').split('/')[-1]
     if cmd == 'search' and len(args) >= 2:
         search_skills(args[1])
     elif cmd == 'activate' and len(args) >= 2:
