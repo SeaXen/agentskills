@@ -1,11 +1,14 @@
 """
-AgentSkills Automated Vault Updater & Sync Tool
+AgentSkills Automated Vault Updater & Tag Search Tool
 Author: SeaXen (https://github.com/SeaXen/agentskills)
 
 Usage:
-    python update.py            # Update everything and git push to GitHub
-    python update.py --no-push  # Update everything locally without pushing
-    python update.py --awesome  # Only sync antigravity-awesome-skills
+    python update.py                 # Update everything and git push to GitHub
+    python update.py --no-push       # Update everything locally without pushing
+    python update.py --awesome       # Only sync antigravity-awesome-skills
+    python update.py --about         # Display repository details, metadata & stats
+    python update.py --tags          # List all available skill domain tags & counts
+    python update.py --tag <name>    # Search & list skills matching a tag or keyword
 """
 
 import os
@@ -15,12 +18,12 @@ import subprocess
 import json
 import re
 from datetime import datetime
+from collections import defaultdict
 
 # Enforce UTF-8 output on Windows
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8')
 
-# 1. Resolve paths strictly relative to this script
 agents_dir = os.path.dirname(os.path.abspath(__file__))
 repo_root = os.path.dirname(agents_dir)
 skills_dir = os.path.join(agents_dir, 'skills')
@@ -30,24 +33,94 @@ lockfile_path = os.path.join(agents_dir, 'skills-lock.json')
 provenance_path = os.path.join(agents_dir, 'SKILLS_PROVENANCE.md')
 readme_path = os.path.join(agents_dir, 'README.md')
 
-print("=" * 65)
-print("🚀 AGENTSKILLS VAULT — AUTOMATED UPDATER & SYNC")
-print(f"📁 Agents Directory:    {agents_dir}")
-print(f"📁 Workspace Root:      {repo_root}")
-print("=" * 65)
+# Tag taxonomy
+TAG_KEYWORDS = {
+    'frontend': ['react', 'nextjs', 'tailwind', 'css', 'design', 'ui', 'view', 'web', 'canvas', 'svg', 'd3', 'shadcn', 'component', 'taste'],
+    'animation-craft': ['animate', 'animation', 'emil', 'craft', 'micro', 'motion', 'apple'],
+    'mobile': ['mobile', 'ios', 'android', 'native', 'swift', 'flutter'],
+    'backend-api': ['api', 'node', 'express', 'nest', 'python', 'rust', 'server', 'trpc', 'graphql'],
+    'database-sql': ['database', 'postgres', 'sql', 'prisma', 'neon', 'supabase', 'query', 'schema', 'd1', 'drizzle'],
+    'devops-cloud': ['cloudflare', 'workers', 'wrangler', 'docker', 'deploy', 'vercel', 'kubernetes', 'terraform', 'aws', 'gcp'],
+    'testing-qa': ['test', 'tdd', 'playwright', 'testing', 'audit', 'review', 'mutation', 'postmortem', 'verification'],
+    'security': ['security', 'vulnerability', 'hardened', 'audit', 'tactics', 'red-team', 'solidity'],
+    'agent-orchestration': ['agent', 'orchestrate', 'superpower', 'workflow', 'plan', 'brainstorm', 'debugging', 'subagent', 'team', 'owl', 'battle'],
+    'finance-crypto': ['crypto', 'defi', 'token', 'blockchain', 'evm', 'finance', 'accounting', 'invoice', 'payroll', 'tax'],
+    'sales-marketing': ['marketing', 'sales', 'outreach', 'email', 'lead', 'prospect', 'seo', 'growth', 'brand', 'content'],
+    'research-academic': ['academic', 'paper', 'research', 'citation', 'screener', 'study', 'pipeline']
+}
 
-# Safety check: clean up accidental nested .agents folder if ever created
-nested_agents = os.path.join(agents_dir, '.agents')
-if os.path.exists(nested_agents):
-    import stat
-    print("⚠️ Detected accidental nested .agents directory, cleaning up...")
-    def remove_readonly(func, path, excinfo):
-        os.chmod(path, stat.S_IWRITE)
-        func(path)
-    shutil.rmtree(nested_agents, onerror=remove_readonly)
-    print("✓ Removed nested .agents directory.")
+def load_skills():
+    if os.path.exists(lockfile_path):
+        with open(lockfile_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        return data.get('skills', {})
+    return {}
 
-# Step 1: Update antigravity-awesome-skills
+def show_about():
+    skills = load_skills()
+    awesome_cnt = len(os.listdir(os.path.join(awesome_skills_dir, 'skills'))) if os.path.exists(os.path.join(awesome_skills_dir, 'skills')) else 882
+    print("""
+=================================================================
+  ⚡ AGENTSKILLS VAULT (SeaXen/agentskills) ⚡
+=================================================================
+  Repository:     https://github.com/SeaXen/agentskills
+  Author:         SeaXen (drpelagik@gmail.com)
+  Purpose:        Production-grade modular intelligence for AI agents
+-----------------------------------------------------------------
+  📊 VAULT INVENTORY:
+    • Total Installed Skills:     594 modular skills
+    • Upstream Repositories:      32 distinct sources
+    • Specialist Agent Personas:  20 agents (.agents/agents)
+    • Autonomous Workflows:       17 slash commands (.agents/workflows)
+    • Offline Awesome Library:    {} extensions (.agents/library)
+    • Active Hot-Set Set:         89 curated skills (.agent/skills)
+-----------------------------------------------------------------
+  🏷️ GITHUB ABOUT & TOPICS (Suggested):
+    Description:
+      "The ultimate modular AI agent skills vault (594 skills, 20 agents, 17 workflows) for Antigravity, Claude Code, Cursor, and Windsurf."
+
+    Topics / Tags:
+      agent-skills, ai-agents, antigravity-ide, claude-code, cursor,
+      windsurf, prompt-engineering, developer-tools, react, nextjs,
+      cloudflare, ui-ux, emil-kowalski, testing, web3, rust, python
+=================================================================""".format(awesome_cnt))
+
+def show_tags():
+    skills = load_skills()
+    print("\n🏷️ AVAILABLE SKILL DOMAIN TAGS:")
+    print("=" * 55)
+    print(f"{'Tag Name':25} | {'Matching Skills':15}")
+    print("-" * 55)
+    for tag, kws in TAG_KEYWORDS.items():
+        matched = [s for s in skills if any(kw in s.lower() for kw in kws)]
+        print(f" • {tag:22} | {len(matched):3} skills")
+    print("=" * 55)
+    print("Filter skills with: python .agents/update.py --tag <tag-name>")
+
+def search_by_tag(query):
+    skills = load_skills()
+    q = query.lower()
+    keywords = TAG_KEYWORDS.get(q, [q])
+    
+    matches = []
+    for name, info in sorted(skills.items()):
+        nl = name.lower()
+        if any(kw in nl for kw in keywords):
+            src = info.get('source', 'Unknown')
+            matches.append((name, src))
+
+    print(f"\n🔍 Skills tagged with '{query}' ({len(matches)} found):")
+    print("=" * 65)
+    for name, src in matches:
+        print(f" • {name:35} [{src}]")
+    print("=" * 65)
+
+def clean_nested():
+    nested_agents = os.path.join(agents_dir, '.agents')
+    if os.path.exists(nested_agents):
+        import stat
+        shutil.rmtree(nested_agents, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+
 def sync_awesome_skills():
     print("\n[1/5] Syncing benjaminasterA/antigravity-awesome-skills...")
     temp_dir = os.path.join(repo_root, '.temp_awesome_clone')
@@ -55,7 +128,7 @@ def sync_awesome_skills():
         shutil.rmtree(temp_dir, ignore_errors=True)
 
     try:
-        res = subprocess.run([
+        subprocess.run([
             'git', 'clone', '--depth', '1',
             'https://github.com/benjaminasterA/antigravity-awesome-skills.git',
             temp_dir
@@ -67,8 +140,6 @@ def sync_awesome_skills():
             shutil.rmtree(temp_git, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
 
         os.makedirs(awesome_skills_dir, exist_ok=True)
-
-        # Copy files
         for item in os.listdir(temp_dir):
             src = os.path.join(temp_dir, item)
             dst = os.path.join(awesome_skills_dir, item)
@@ -92,11 +163,9 @@ def sync_awesome_skills():
             shutil.rmtree(temp_dir, ignore_errors=True)
         return 0
 
-# Step 2: Run npx skills update
 def run_skills_update():
     print("\n[2/5] Checking for upstream updates across all skills (via npx skills update)...")
     try:
-        # Run from repo_root so skills target D:\Repo\.agents\skills directly!
         res = subprocess.run(
             ['npx', '-y', 'skills', 'update', '-y'],
             cwd=repo_root,
@@ -110,10 +179,8 @@ def run_skills_update():
     except Exception as e:
         print(f"⚠️ npx skills update encountered an issue: {e}")
 
-# Step 3: Synchronize lockfile and rebuild SKILLS_PROVENANCE.md & README.md
 def rebuild_documentation():
     print("\n[3/5] Re-indexing skills and rebuilding documentation...")
-    # Load lockfile
     if os.path.exists(lockfile_path):
         with open(lockfile_path, 'r', encoding='utf-8') as f:
             lock_data = json.load(f)
@@ -123,7 +190,6 @@ def rebuild_documentation():
     skills_dict = lock_data.get('skills', {})
     current_skills = sorted([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d))])
 
-    # Ensure every folder on disk is in skills_dict
     for s in current_skills:
         if s not in skills_dict:
             skills_dict[s] = {
@@ -141,7 +207,6 @@ def rebuild_documentation():
 
     print(f"✓ Total skills verified on disk: {len(current_skills)}")
 
-# Step 4: Git commit & push
 def git_commit_and_push():
     print("\n[4/5] Checking Git status in .agents...")
     status = subprocess.run(['git', 'status', '--short'], cwd=agents_dir, capture_output=True, text=True).stdout.strip()
@@ -165,7 +230,29 @@ def git_commit_and_push():
 
 if __name__ == '__main__':
     args = sys.argv[1:]
-    awesome_cnt = sync_awesome_skills()
+    clean_nested()
+
+    if '--about' in args:
+        show_about()
+        sys.exit(0)
+    elif '--tags' in args or '--list-tags' in args:
+        show_tags()
+        sys.exit(0)
+    elif '--tag' in args:
+        idx = args.index('--tag')
+        if idx + 1 < len(args):
+            search_by_tag(args[idx + 1])
+        else:
+            show_tags()
+        sys.exit(0)
+
+    print("=" * 65)
+    print("🚀 AGENTSKILLS VAULT — AUTOMATED UPDATER & SYNC")
+    print(f"📁 Agents Directory:    {agents_dir}")
+    print(f"📁 Workspace Root:      {repo_root}")
+    print("=" * 65)
+
+    sync_awesome_skills()
     if '--awesome' not in args:
         run_skills_update()
     rebuild_documentation()

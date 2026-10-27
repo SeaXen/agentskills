@@ -1280,6 +1280,43 @@ Located in [`.agents/workflows/`](./workflows):
 
 ---
 
+
+---
+
+## 🏷️ Skill Domain Tags & Filter Tool
+
+You can filter, search, and inspect the 594 skills by category tags using the built-in `--tag` CLI:
+
+| Domain Tag | Skills Count | Description |
+| :--- | :---: | :--- |
+| **`frontend`** | 113 | React 19, Next.js, Tailwind v4, Shadcn, design tokens |
+| **`testing-qa`** | 43 | Unit, integration, Playwright E2E, mutation testing, PR reviews |
+| **`agent-orchestration`** | 45 | Subagent delegation, /battle, /owl, /compaction, multi-agent teams |
+| **`sales-marketing`** | 33 | Content strategy, outreach composition, lead discovery, SEO |
+| **`devops-cloud`** | 23 | Cloudflare Workers, Wrangler, Docker, Vercel, Terraform |
+| **`research-academic`** | 21 | Deep research, academic literature screening, paper review |
+| **`backend-api`** | 13 | Node, Express, NestJS, Python, Rust, OpenAPI, tRPC |
+| **`security`** | 13 | OWASP hardening, red-team tactics, smart contract audits |
+| **`animation-craft`** | 12 | Emil Kowalski animations, micro-interactions, Apple HIG |
+| **`finance-crypto`** | 11 | DeFi templates, smart contract security, invoicing |
+| **`database-sql`** | 9 | Postgres, Drizzle, Prisma, Neon, Supabase, query optimizer |
+| **`mobile`** | 6 | iOS HIG, Android Jetpack, React Native, Flutter |
+
+### CLI Search & Tag Commands:
+```powershell
+# Display vault about info & metadata:
+python .agents/update.py --about
+
+# List all available domain tags:
+python .agents/update.py --tags
+
+# Filter skills by tag:
+python .agents/update.py --tag animation-craft
+python .agents/update.py --tag cloudflare
+python .agents/update.py --tag security
+python .agents/update.py --tag database-sql
+```
+
 ## 🏛️ Directory Architecture
 
 ```text
