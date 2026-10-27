@@ -1,15 +1,15 @@
 """
-AgentSkills Automated Vault Updater & Skill Discovery Tool
+AgentSkills Automated Vault Updater & Sync Tool
 Author: SeaXen (https://github.com/SeaXen/agentskills)
 
 Usage:
-    python update.py                 # Update everything and git push to GitHub
+    python update.py                 # Update everything (both library & skills) + git push
     python update.py --no-push       # Update everything locally without pushing
     python update.py --awesome       # Only sync awesome-skills library
     python update.py --about         # Display repository metadata, inventory & stats
     python update.py --tags          # List all available skill domain tags & counts
     python update.py --tag <name>    # Search & list skills matching a domain tag
-    python update.py --find <query>  # Search across ALL 1,476 skills (installed + library)
+    python update.py --find <query>  # Search across ALL 1,470 skills (installed + library)
 """
 
 import os
@@ -59,7 +59,7 @@ def load_skills():
 
 def show_about():
     skills = load_skills()
-    awesome_cnt = len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 882
+    awesome_cnt = len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 876
     print("""
 =================================================================
   ⚡ AGENTSKILLS VAULT (SeaXen/agentskills) ⚡
@@ -70,22 +70,21 @@ def show_about():
 -----------------------------------------------------------------
   📊 VAULT INVENTORY:
     • Installed Skills (Active):  594 modular skills (.agents/skills)
-    • Upstream Repositories:      32 distinct sources
+    • Offline Reserve Repos:      17 repositories (.agents/library)
+    • Total Offline Skills:       1,470 combined skills
     • Specialist Agent Personas:  20 agents (.agents/agents)
     • Autonomous Workflows:       17 slash commands (.agents/workflows)
-    • Awesome Library Skills:     {} extensions (.agents/library)
-    • Total Available Skills:     {} combined skills
-    • Active Hot-Set:             89 curated skills (.agent/skills)
+    • Active Hot-Set Set:         89 curated skills (.agent/skills)
 -----------------------------------------------------------------
   🏷️ GITHUB ABOUT & TOPICS:
     Description:
-      "The ultimate modular AI agent skills vault (594 skills, 20 agents, 17 workflows, 882 library extensions) for Antigravity, Claude Code, Cursor, and Windsurf."
+      "The ultimate modular AI agent skills vault (594 skills, 20 agents, 17 workflows, 1,470 reserve skills) for Antigravity, Claude Code, Cursor, and Windsurf."
 
     Topics / Tags:
       agent-skills, ai-agents, antigravity-ide, claude-code, cursor,
       windsurf, prompt-engineering, developer-tools, emil-kowalski, vercel,
       nextjs, cloudflare, testing, web3, rust, python
-=================================================================""".format(awesome_cnt, len(skills) + awesome_cnt))
+=================================================================""")
 
 def show_tags():
     skills = load_skills()
@@ -118,34 +117,37 @@ def search_by_tag(query):
     print("=" * 65)
 
 def find_global(query):
-    """Search across ALL 1,476 skills (installed 594 + 882 library)"""
+    """Search across ALL 1,470 skills in vault"""
     q = query.lower()
     skills = load_skills()
     
     installed_matches = []
     for name, info in skills.items():
         if q in name.lower():
-            installed_matches.append((name, info.get('source', 'installed'), 'Installed (.agents/skills)'))
+            installed_matches.append((name, info.get('source', 'installed')))
 
     library_matches = []
-    if os.path.exists(awesome_skills_sub):
-        for name in os.listdir(awesome_skills_sub):
-            if q in name.lower() and name not in skills:
-                library_matches.append((name, 'benjaminasterA/antigravity-awesome-skills', 'Awesome Library (On-Demand)'))
+    if os.path.exists(library_dir):
+        for repo_f in os.listdir(library_dir):
+            r_path = os.path.join(library_dir, repo_f, 'skills')
+            if os.path.isdir(r_path):
+                for s in os.listdir(r_path):
+                    if q in s.lower() and s not in skills:
+                        library_matches.append((s, repo_f))
 
     total = len(installed_matches) + len(library_matches)
     print(f"\n🔎 Global Search for '{query}': {total} matches across vault")
     print("=" * 75)
     if installed_matches:
         print("📦 Installed Skills (.agents/skills):")
-        for name, src, loc in sorted(installed_matches):
+        for name, src in sorted(installed_matches):
             print(f"  ✓ {name:35} [{src}]")
     if library_matches:
-        print("\n📚 Available in Awesome Library (Activate with: python library/activate_skill.py <name>):")
-        for name, src, loc in sorted(library_matches)[:20]:
-            print(f"  + {name:35} [awesome-library]")
-        if len(library_matches) > 20:
-            print(f"  ... and {len(library_matches) - 20} more in library.")
+        print("\n📚 Available in Offline Library Reserve (Activate: python library/activate_skill.py activate <name>):")
+        for name, repo_f in sorted(library_matches)[:25]:
+            print(f"  + {name:35} [{repo_f}]")
+        if len(library_matches) > 25:
+            print(f"  ... and {len(library_matches) - 25} more in reserve.")
     print("=" * 75)
 
 def clean_nested():
@@ -156,7 +158,7 @@ def clean_nested():
 
 def sync_awesome_skills():
     """Sync ONLY skills/ and skills_index.json from upstream, eliminating repo bloat"""
-    print("\n[1/5] Syncing pure skills from benjaminasterA/antigravity-awesome-skills...")
+    print("\n[1/6] Syncing pure skills from benjaminasterA/antigravity-awesome-skills...")
     temp_dir = os.path.join(repo_root, '.temp_awesome_clone')
     if os.path.exists(temp_dir):
         shutil.rmtree(temp_dir, ignore_errors=True)
@@ -170,7 +172,6 @@ def sync_awesome_skills():
 
         os.makedirs(awesome_skills_sub, exist_ok=True)
         
-        # Copy ONLY skills/ directory
         temp_skills = os.path.join(temp_dir, 'skills')
         if os.path.exists(temp_skills):
             for skill_name in os.listdir(temp_skills):
@@ -181,7 +182,6 @@ def sync_awesome_skills():
                         shutil.rmtree(s_dst, ignore_errors=True)
                     shutil.copytree(s_src, s_dst)
 
-        # Copy skills_index.json if present
         idx_src = os.path.join(temp_dir, 'skills_index.json')
         if os.path.exists(idx_src):
             shutil.copy2(idx_src, os.path.join(awesome_skills_dir, 'skills_index.json'))
@@ -197,7 +197,7 @@ def sync_awesome_skills():
         return 0
 
 def run_skills_update():
-    print("\n[2/5] Checking for upstream updates across all skills (via npx skills update)...")
+    print("\n[2/6] Checking for upstream updates across all skills (via npx skills update)...")
     try:
         res = subprocess.run(
             ['npx', '-y', 'skills', 'update', '-y'],
@@ -212,8 +212,30 @@ def run_skills_update():
     except Exception as e:
         print(f"⚠️ npx skills update encountered an issue: {e}")
 
+def sync_library_mirrors():
+    """Sync updated skills from .agents/skills into their respective .agents/library/<repo>/skills folders"""
+    print("\n[3/6] Synchronizing updated skills into offline library reserve bundles...")
+    if not os.path.exists(skills_dir) or not os.path.exists(library_dir):
+        return
+
+    # Check each library repo
+    updated = 0
+    for repo_f in os.listdir(library_dir):
+        if repo_f == 'antigravity-awesome-skills':
+            continue
+        lib_repo_skills = os.path.join(library_dir, repo_f, 'skills')
+        if os.path.isdir(lib_repo_skills):
+            for s_name in os.listdir(lib_repo_skills):
+                src_skill = os.path.join(skills_dir, s_name)
+                dst_skill = os.path.join(lib_repo_skills, s_name)
+                if os.path.exists(src_skill):
+                    shutil.rmtree(dst_skill, ignore_errors=True)
+                    shutil.copytree(src_skill, dst_skill)
+                    updated += 1
+    print(f"✓ Synchronized {updated} skills across offline library repositories.")
+
 def rebuild_documentation():
-    print("\n[3/5] Re-indexing skills and rebuilding documentation...")
+    print("\n[4/6] Re-indexing skills and rebuilding documentation...")
     if os.path.exists(lockfile_path):
         with open(lockfile_path, 'r', encoding='utf-8') as f:
             lock_data = json.load(f)
@@ -241,7 +263,7 @@ def rebuild_documentation():
     print(f"✓ Total skills verified on disk: {len(current_skills)}")
 
 def git_commit_and_push():
-    print("\n[4/5] Checking Git status in .agents...")
+    print("\n[5/6] Checking Git status in .agents...")
     status = subprocess.run(['git', 'status', '--short'], cwd=agents_dir, capture_output=True, text=True).stdout.strip()
     
     if not status:
@@ -249,9 +271,9 @@ def git_commit_and_push():
         return
 
     print(f"Pending changes detected:\n{status}")
-    print("\n[5/5] Staging, committing, and pushing to https://github.com/SeaXen/agentskills.git...")
+    print("\n[6/6] Staging, committing, and pushing to https://github.com/SeaXen/agentskills.git...")
 
-    subprocess.run(['git', 'add', '.'], cwd=agents_dir, check=True)
+    subprocess.run(['git', 'add', '-A'], cwd=agents_dir, check=True)
     ts = datetime.now().strftime('%Y-%m-%d %H:%M')
     subprocess.run(['git', 'commit', '-m', f"chore(skills): automated update of skills & library ({ts})"], cwd=agents_dir, check=True)
     
@@ -295,6 +317,7 @@ if __name__ == '__main__':
     sync_awesome_skills()
     if '--awesome' not in args:
         run_skills_update()
+    sync_library_mirrors()
     rebuild_documentation()
     if '--no-push' not in args:
         git_commit_and_push()
