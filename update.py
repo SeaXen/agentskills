@@ -174,6 +174,12 @@ def clean_nested():
     if os.path.exists(nested_agents):
         import stat
         shutil.rmtree(nested_agents, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+    if os.path.exists(library_dir):
+        import stat
+        for root, dirs, files in os.walk(library_dir):
+            if '.git' in dirs:
+                gp = os.path.join(root, '.git')
+                shutil.rmtree(gp, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
 
 def sync_awesome_skills(force=False):
     """Sync pure skills/ and skills_index.json from upstream with smart commit checking"""
