@@ -80,7 +80,7 @@ python update.py
   `npx` is for **downloading skills from the internet** into a project. Any person anywhere can install skills from your GitHub by running:  
   `npx -y skills add SeaXen/agentskills --skill <name>`
 * **Why do we use `python` locally?**  
-  Python is your **private local manager**. It manages your on-disk storage room of **1,563 reserve skills** so they don't slow down your AI's brain with unnecessary prompt tokens.
+  Python is your **private local manager**. It manages your on-disk storage room of **1763 reserve skills** so they don't slow down your AI's brain with unnecessary prompt tokens.
 * **Prefer npm instead of python?**  
   You can also type `npm run find <name>`, `npm run link <name>`, or `npm run update`!
 

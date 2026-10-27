@@ -1,17 +1,16 @@
 # 📚 AgentSkills Offline Reserve Library
 
-> **Total Offline Skills**: 1563 total skills across 28 upstream repositories  
-> **Offline Repositories**: 28 standardized repository bundles  
-> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1563 skills cataloged)  
+> **Total Offline Skills**: 1763 total skills across 32 upstream repositories  
+> **Offline Repositories**: 32 standardized repository bundles  
+> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1763 skills cataloged)  
 > **Individual Repo Indexes**: Every single repository includes its own local `skills_index.json`  
 > **Context Cost**: **0 Active Tokens** (Never loaded into system prompt until activated)  
 > **Purpose**: Serves as your on-disk warehouse for all agent skills across all upstream repositories.
 
 ---
 
-
 > 💡 **What is this folder? (Beginner Explanation)**  
-> Think of `.agents/skills` as your **Kitchen** (where your AI cooks using active skills), and this `.agents/library` folder as your **Warehouse** (where 1,563 skills are kept on storage shelves).  
+> Think of `.agents/skills` as your **Kitchen** (where your AI cooks using active skills), and this `.agents/library` folder as your **Warehouse** (where 1763 skills are kept on storage shelves).  
 > Keeping skills in this warehouse costs **0 AI prompt tokens** and keeps your AI fast. Whenever you need a skill, you just bring it to the kitchen with 1 command:  
 > `python .agents/library/activate_skill.py link <skill-name>`
 
@@ -30,6 +29,8 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | **[`anthropics-official-skills`](./anthropics-official-skills)** | 🤖 Official Anthropic Skills & Docs | 20 | [`JSON`](./anthropics-official-skills/skills_index.json) | [Guide](./anthropics-official-skills/README.md) |
 | **[`antigravity-awesome-skills`](./antigravity-awesome-skills)** | 🌟 Curated Open-Source Skills Ecosystem | 882 | [`JSON`](./antigravity-awesome-skills/skills_index.json) | [Guide](./antigravity-awesome-skills/README.md) |
 | **[`antigravity-elite-protocols`](./antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & OWL | 4 | [`JSON`](./antigravity-elite-protocols/skills_index.json) | [Guide](./antigravity-elite-protocols/README.md) |
+| **[`browser-use-skills`](./browser-use-skills)** | 🌐 Autonomous Web Navigation, Cloud & QA | 6 | [`JSON`](./browser-use-skills/skills_index.json) | [Guide](./browser-use-skills/README.md) |
+| **[`chezou-productivity-skills`](./chezou-productivity-skills)** | 💼 Enterprise Company Intelligence & Career | 3 | [`JSON`](./chezou-productivity-skills/skills_index.json) | [Guide](./chezou-productivity-skills/README.md) |
 | **[`cline-skills`](./cline-skills)** | 🛠️ System Tools & Terminal Automation | 17 | [`JSON`](./cline-skills/skills_index.json) | [Guide](./cline-skills/README.md) |
 | **[`cloudflare-security-audit`](./cloudflare-security-audit)** | 🛡️ Enterprise Security & Vulnerability Auditing | 1 | [`JSON`](./cloudflare-security-audit/skills_index.json) | [Guide](./cloudflare-security-audit/README.md) |
 | **[`cloudflare-skills`](./cloudflare-skills)** | ☁️ Cloudflare Workers, Wrangler & Edge | 4 | [`JSON`](./cloudflare-skills/skills_index.json) | [Guide](./cloudflare-skills/README.md) |
@@ -40,6 +41,8 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | **[`graphify-labs`](./graphify-labs)** | 🧠 Codebase Knowledge Graphs & Architecture | 1 | [`JSON`](./graphify-labs/skills_index.json) | [Guide](./graphify-labs/README.md) |
 | **[`heygen-hyperframes`](./heygen-hyperframes)** | 🎬 HeyGen Hyperframes Video & Motion Skills | 20 | [`JSON`](./heygen-hyperframes/skills_index.json) | [Guide](./heygen-hyperframes/README.md) |
 | **[`humanize-skills`](./humanize-skills)** | ✍️ Writing, Tone & Anti-AI Detection | 1 | [`JSON`](./humanize-skills/skills_index.json) | [Guide](./humanize-skills/README.md) |
+| **[`jakubkrehel-design-skills`](./jakubkrehel-design-skills)** | 🎨 Modern UI/UX, Accessibility & Interface Polish | 14 | [`JSON`](./jakubkrehel-design-skills/skills_index.json) | [Guide](./jakubkrehel-design-skills/README.md) |
+| **[`kdense-scientific-skills`](./kdense-scientific-skills)** | 🔬 Computational Biology, Chemistry & Science (K-Dense) | 177 | [`JSON`](./kdense-scientific-skills/skills_index.json) | [Guide](./kdense-scientific-skills/README.md) |
 | **[`lemomo-opuscar`](./lemomo-opuscar)** | 🎥 Generative Code Cinema & Short Films | 1 | [`JSON`](./lemomo-opuscar/skills_index.json) | [Guide](./lemomo-opuscar/README.md) |
 | **[`magentosh-superpowers`](./magentosh-superpowers)** | ⚡ Multi-Agent Workflows & Orchestration | 86 | [`JSON`](./magentosh-superpowers/skills_index.json) | [Guide](./magentosh-superpowers/README.md) |
 | **[`mattpocock-skills`](./mattpocock-skills)** | 🧙 Software Engineering, TDD & Architecture (Matt Pocock) | 38 | [`JSON`](./mattpocock-skills/skills_index.json) | [Guide](./mattpocock-skills/README.md) |
@@ -59,20 +62,20 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 Each repository as well as the library root contains a structured `skills_index.json` designed for programmatic exploration, agent tools, and fast scriptable indexing.
 
 ### Master Index vs. Repository Indexes
-1. **Master Index ([`library/skills_index.json`](./skills_index.json))**: Single JSON array indexing all **1,542 skills** across all 28 library repos.
-2. **Individual Repo Indexes (`<repo>/skills_index.json`)**: Scoped to each repository bundle (e.g. `heygen-hyperframes/skills_index.json`).
+1. **Master Index ([`library/skills_index.json`](./skills_index.json))**: Single JSON array indexing all **1763 skills** across all 32 library repos.
+2. **Individual Repo Indexes (`<repo>/skills_index.json`)**: Scoped to each repository bundle (e.g. `kdense-scientific-skills/skills_index.json`).
 
 ### Standard JSON Schema
 ```json
 {
-  "id": "hyperframes",
-  "name": "hyperframes",
-  "repository": "heygen-hyperframes",
-  "category": "frontend",
-  "description": "Hyperframes code-driven video engine and frame compiler...",
-  "path": "library/heygen-hyperframes/skills/hyperframes",
-  "activation_cmd": "python .agents/library/activate_skill.py activate hyperframes",
-  "link_cmd": "python .agents/library/activate_skill.py link hyperframes"
+  "id": "13c-metabolic-flux",
+  "name": "13c-metabolic-flux",
+  "repository": "kdense-scientific-skills",
+  "category": "research-academic",
+  "description": "Calculates metabolic flux distribution from 13C isotope labeling experiments...",
+  "path": "library/kdense-scientific-skills/skills/13c-metabolic-flux",
+  "activation_cmd": "python .agents/library/activate_skill.py activate 13c-metabolic-flux",
+  "link_cmd": "python .agents/library/activate_skill.py link 13c-metabolic-flux"
 }
 ```
 
@@ -117,7 +120,7 @@ python .agents/library/activate_skill.py move <skill-name> --to hot
 python .agents/library/activate_skill.py move <skill-name> --to reserve
 ```
 
-### 6. 🔎 Search All 1,542 Skills
+### 6. 🔎 Search All 1763 Skills
 ```powershell
 python .agents/library/activate_skill.py search <keyword>
 # or using update.py
