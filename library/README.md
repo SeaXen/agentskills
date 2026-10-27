@@ -1,8 +1,8 @@
 # 📚 AgentSkills Offline Reserve Library
 
-> **Total Offline Skills**: 1542 total skills across 28 upstream repositories  
+> **Total Offline Skills**: 1563 total skills across 28 upstream repositories  
 > **Offline Repositories**: 28 standardized repository bundles  
-> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1542 skills cataloged)  
+> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1563 skills cataloged)  
 > **Individual Repo Indexes**: Every single repository includes its own local `skills_index.json`  
 > **Context Cost**: **0 Active Tokens** (Never loaded into system prompt until activated)  
 > **Purpose**: Serves as your on-disk warehouse for all agent skills across all upstream repositories.
@@ -16,7 +16,7 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | Repository Folder | Category | Skills | Index | Individual Guide |
 | :--- | :--- | :---: | :---: | :--- |
 | **[`academic-research-skills`](./academic-research-skills)** | 📚 Academic Research & Literature Pipeline | 5 | [`JSON`](./academic-research-skills/skills_index.json) | [Guide](./academic-research-skills/README.md) |
-| **[`addyosmani-agent-skills`](./addyosmani-agent-skills)** | 🔍 Software Craft & Observability (Addy Osmani) | 4 | [`JSON`](./addyosmani-agent-skills/skills_index.json) | [Guide](./addyosmani-agent-skills/README.md) |
+| **[`addyosmani-agent-skills`](./addyosmani-agent-skills)** | 🔍 Software Craft & Observability (Addy Osmani) | 25 | [`JSON`](./addyosmani-agent-skills/skills_index.json) | [Guide](./addyosmani-agent-skills/README.md) |
 | **[`anatomy-isometric-design`](./anatomy-isometric-design)** | 📐 Isometric SVG Technical Architecture & Design | 1 | [`JSON`](./anatomy-isometric-design/skills_index.json) | [Guide](./anatomy-isometric-design/README.md) |
 | **[`anthropics-knowledge-work`](./anthropics-knowledge-work)** | 💼 Operations, Finance, Marketing & Sales | 216 | [`JSON`](./anthropics-knowledge-work/skills_index.json) | [Guide](./anthropics-knowledge-work/README.md) |
 | **[`anthropics-official-skills`](./anthropics-official-skills)** | 🤖 Official Anthropic Skills & Docs | 20 | [`JSON`](./anthropics-official-skills/skills_index.json) | [Guide](./anthropics-official-skills/README.md) |

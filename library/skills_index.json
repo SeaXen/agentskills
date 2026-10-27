@@ -50,6 +50,106 @@
     "link_cmd": "python .agents/library/activate_skill.py link sr-screener"
   },
   {
+    "id": "api-and-interface-design",
+    "name": "api-and-interface-design",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.",
+    "path": "library/addyosmani-agent-skills/skills/api-and-interface-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate api-and-interface-design",
+    "link_cmd": "python .agents/library/activate_skill.py link api-and-interface-design"
+  },
+  {
+    "id": "browser-testing-with-devtools",
+    "name": "browser-testing-with-devtools",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data. Requires the chrome-devtools MCP server to be configured.",
+    "path": "library/addyosmani-agent-skills/skills/browser-testing-with-devtools",
+    "activation_cmd": "python .agents/library/activate_skill.py activate browser-testing-with-devtools",
+    "link_cmd": "python .agents/library/activate_skill.py link browser-testing-with-devtools"
+  },
+  {
+    "id": "ci-cd-and-automation",
+    "name": "ci-cd-and-automation",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.",
+    "path": "library/addyosmani-agent-skills/skills/ci-cd-and-automation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ci-cd-and-automation",
+    "link_cmd": "python .agents/library/activate_skill.py link ci-cd-and-automation"
+  },
+  {
+    "id": "code-review-and-quality",
+    "name": "code-review-and-quality",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. Use when asked to review a diff or a pull request, even when the diff is pasted inline.",
+    "path": "library/addyosmani-agent-skills/skills/code-review-and-quality",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review-and-quality",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review-and-quality"
+  },
+  {
+    "id": "code-simplification",
+    "name": "code-simplification",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity.",
+    "path": "library/addyosmani-agent-skills/skills/code-simplification",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-simplification",
+    "link_cmd": "python .agents/library/activate_skill.py link code-simplification"
+  },
+  {
+    "id": "constraint-driven-development",
+    "name": "constraint-driven-development",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on which dimensions matter, supplies sane default thresholds when they have no number in mind, records everything in CONSTRAINTS.md, and watches the diff for a weakened bar \u2014 new @ts-ignore or eslint-disable suppressions, skipped or deleted tests, assertions stripped out, unimplemented stubs, thresholds edited down. Use when no quality bar is written down, when the user says \"set up constraints\" or \"define our standards\", when the user wants dimensions they care about \u2014 accessibility, web performance, coverage \u2014 set up as enforced constraints, when an agent keeps silencing checks or skipping tests to get to green, when you need a coverage or performance threshold and don't know what number to pick, or when an agent writes more code than anyone will read.",
+    "path": "library/addyosmani-agent-skills/skills/constraint-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate constraint-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link constraint-driven-development"
+  },
+  {
+    "id": "context-engineering",
+    "name": "context-engineering",
+    "repository": "addyosmani-agent-skills",
+    "category": "agent-orchestration",
+    "description": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.",
+    "path": "library/addyosmani-agent-skills/skills/context-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate context-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link context-engineering"
+  },
+  {
+    "id": "debugging-and-error-recovery",
+    "name": "debugging-and-error-recovery",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need to figure out what broke and why \u2014 a systematic approach to finding and fixing the root cause rather than guessing.",
+    "path": "library/addyosmani-agent-skills/skills/debugging-and-error-recovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate debugging-and-error-recovery",
+    "link_cmd": "python .agents/library/activate_skill.py link debugging-and-error-recovery"
+  },
+  {
+    "id": "deprecation-and-migration",
+    "name": "deprecation-and-migration",
+    "repository": "addyosmani-agent-skills",
+    "category": "backend-api",
+    "description": "Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when migrating a database schema in production, such as renaming or dropping a column without downtime (expand/contract). Use when deciding whether to maintain or sunset existing code.",
+    "path": "library/addyosmani-agent-skills/skills/deprecation-and-migration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deprecation-and-migration",
+    "link_cmd": "python .agents/library/activate_skill.py link deprecation-and-migration"
+  },
+  {
+    "id": "documentation-and-adrs",
+    "name": "documentation-and-adrs",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Records decisions and documentation. Use when you need to document an architecture decision (ADR) or the reasoning behind a design choice, when changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.",
+    "path": "library/addyosmani-agent-skills/skills/documentation-and-adrs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate documentation-and-adrs",
+    "link_cmd": "python .agents/library/activate_skill.py link documentation-and-adrs"
+  },
+  {
     "id": "doubt-driven-development",
     "name": "doubt-driven-development",
     "repository": "addyosmani-agent-skills",
@@ -58,6 +158,16 @@
     "path": "library/addyosmani-agent-skills/skills/doubt-driven-development",
     "activation_cmd": "python .agents/library/activate_skill.py activate doubt-driven-development",
     "link_cmd": "python .agents/library/activate_skill.py link doubt-driven-development"
+  },
+  {
+    "id": "frontend-ui-engineering",
+    "name": "frontend-ui-engineering",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG accessibility requirements, managing state, or when the output needs to look and feel production-quality rather than AI-generated.",
+    "path": "library/addyosmani-agent-skills/skills/frontend-ui-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frontend-ui-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link frontend-ui-engineering"
   },
   {
     "id": "git-workflow-and-versioning",
@@ -70,6 +180,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link git-workflow-and-versioning"
   },
   {
+    "id": "idea-refine",
+    "name": "idea-refine",
+    "repository": "addyosmani-agent-skills",
+    "category": "testing-qa",
+    "description": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on \"ideate\", \"refine this idea\", or \"stress-test my plan\".",
+    "path": "library/addyosmani-agent-skills/skills/idea-refine",
+    "activation_cmd": "python .agents/library/activate_skill.py activate idea-refine",
+    "link_cmd": "python .agents/library/activate_skill.py link idea-refine"
+  },
+  {
     "id": "incremental-implementation",
     "name": "incremental-implementation",
     "repository": "addyosmani-agent-skills",
@@ -80,6 +200,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link incremental-implementation"
   },
   {
+    "id": "interview-me",
+    "name": "interview-me",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlying intent. Use when an ask is underspecified (\"build me X\" without \"for whom\" or \"why now\"), when the user explicitly invokes (\"interview me\", \"grill me\", \"are we sure?\", \"stress-test my thinking\"), or when you catch yourself silently filling in ambiguous requirements before any plan, spec, or code exists.",
+    "path": "library/addyosmani-agent-skills/skills/interview-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate interview-me",
+    "link_cmd": "python .agents/library/activate_skill.py link interview-me"
+  },
+  {
     "id": "observability-and-instrumentation",
     "name": "observability-and-instrumentation",
     "repository": "addyosmani-agent-skills",
@@ -88,6 +218,86 @@
     "path": "library/addyosmani-agent-skills/skills/observability-and-instrumentation",
     "activation_cmd": "python .agents/library/activate_skill.py activate observability-and-instrumentation",
     "link_cmd": "python .agents/library/activate_skill.py link observability-and-instrumentation"
+  },
+  {
+    "id": "performance-optimization",
+    "name": "performance-optimization",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks.",
+    "path": "library/addyosmani-agent-skills/skills/performance-optimization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate performance-optimization",
+    "link_cmd": "python .agents/library/activate_skill.py link performance-optimization"
+  },
+  {
+    "id": "planning-and-task-breakdown",
+    "name": "planning-and-task-breakdown",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.",
+    "path": "library/addyosmani-agent-skills/skills/planning-and-task-breakdown",
+    "activation_cmd": "python .agents/library/activate_skill.py activate planning-and-task-breakdown",
+    "link_cmd": "python .agents/library/activate_skill.py link planning-and-task-breakdown"
+  },
+  {
+    "id": "security-and-hardening",
+    "name": "security-and-hardening",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or when checking a login flow is safe against the OWASP Top Ten. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. Use when auditing dependencies for known vulnerabilities, triaging package-manager audit findings, or assessing supply-chain risk in a new package. Use when personal data or privacy compliance (GDPR, CCPA) is involved.",
+    "path": "library/addyosmani-agent-skills/skills/security-and-hardening",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-and-hardening",
+    "link_cmd": "python .agents/library/activate_skill.py link security-and-hardening"
+  },
+  {
+    "id": "shipping-and-launch",
+    "name": "shipping-and-launch",
+    "repository": "addyosmani-agent-skills",
+    "category": "devops-cloud",
+    "description": "Prepares production launches. Use when preparing to deploy to production, or when asking what needs to be in place before shipping. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.",
+    "path": "library/addyosmani-agent-skills/skills/shipping-and-launch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shipping-and-launch",
+    "link_cmd": "python .agents/library/activate_skill.py link shipping-and-launch"
+  },
+  {
+    "id": "source-driven-development",
+    "name": "source-driven-development",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Grounds every implementation decision in official documentation. Use when you want to verify an approach against the official docs before implementing it, or when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
+    "path": "library/addyosmani-agent-skills/skills/source-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate source-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link source-driven-development"
+  },
+  {
+    "id": "spec-driven-development",
+    "name": "spec-driven-development",
+    "repository": "addyosmani-agent-skills",
+    "category": "frontend",
+    "description": "Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when drafting a PRD or requirements document with objectives and scope, or when requirements are unclear, ambiguous, or only exist as a vague idea. Use when a single requirement spans several independently testable capabilities and needs decomposing into a capability map of modules before specifying.",
+    "path": "library/addyosmani-agent-skills/skills/spec-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spec-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link spec-driven-development"
+  },
+  {
+    "id": "test-driven-development",
+    "name": "test-driven-development",
+    "repository": "addyosmani-agent-skills",
+    "category": "testing-qa",
+    "description": "Drives development with tests using the red-green-refactor loop. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code works, when a bug report arrives, or when you're about to modify existing functionality. Use when asked to add tests to a function, fix a bug in it or change its behavior, even when the code is pasted inline and the request does not mention tests.",
+    "path": "library/addyosmani-agent-skills/skills/test-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link test-driven-development"
+  },
+  {
+    "id": "using-agent-skills",
+    "name": "using-agent-skills",
+    "repository": "addyosmani-agent-skills",
+    "category": "agent-orchestration",
+    "description": "Discovers and invokes agent skills. Use when starting a session, or when you need to decide which skill or workflow applies to the piece of work at hand. This is the meta-skill that governs how all other skills are discovered and invoked.",
+    "path": "library/addyosmani-agent-skills/skills/using-agent-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate using-agent-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link using-agent-skills"
   },
   {
     "id": "anatomy",

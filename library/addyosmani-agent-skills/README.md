@@ -1,95 +1,58 @@
-# Engineering Craft & Observability (Addy Osmani)
+# 🔍 Addy Osmani Agent Skills Suite
 
-> **Category**: 🔍 Doubt-Driven Development & Software Craft  
-> **Source / Upstream URL**: [https://github.com/addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)  
-> **Total Skills in Reserve**: 4 skills  
-> **Storage Mode**: Offline Reserve on Disk Only (0 Active Context Tokens)
+> **Upstream Repository**: [https://github.com/addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)  
+> **Total Skills**: 25 modular skills  
+> **Status**: Offline Reserve (0 prompt tokens until activated)  
 
----
-
-## 📖 Operational Playbook
-
-### 1. 📥 How to Install / Activate into Active Workspace
-To activate any skill from this offline reserve into your active AI workspace (`.agents/skills/`):
-
-#### Via Central Activator CLI (Recommended):
-```powershell
-python .agents/library/activate_skill.py activate doubt-driven-development
-```
-
-#### Via Direct Copy (PowerShell):
-```powershell
-Copy-Item -Recurse -Force ".agents/library/addyosmani-agent-skills/skills/doubt-driven-development" ".agents/skills/"
-```
-
-#### Via Direct Copy (Bash):
-```bash
-cp -r .agents/library/addyosmani-agent-skills/skills/doubt-driven-development .agents/skills/
-```
+Software craft, system architecture, performance optimization, and quality engineering skills by Addy Osmani (Chrome / Google).
 
 ---
 
-### 2. 🔗 How to Link (Symlink / Junction)
-If you want to use the skill without duplicating disk space, create a Directory Junction (Windows) or Symbolic Link (Linux/macOS):
+## 📦 Included Modular Skills (25)
 
-#### Via Central Activator CLI:
-```powershell
-python .agents/library/activate_skill.py link doubt-driven-development
-```
-
-#### Manual Windows Junction:
-```powershell
-cmd /c mklink /J ".agents\skills\doubt-driven-development" ".agents\library\addyosmani-agent-skills\skills\doubt-driven-development"
-```
-
-#### Manual Linux / macOS Symlink:
-```bash
-ln -s "$(pwd)/.agents/library/addyosmani-agent-skills/skills/doubt-driven-development" ".agents/skills/doubt-driven-development"
-```
-
----
-
-### 3. 🔄 How to Update
-To update this skill collection from its upstream source:
-```powershell
-# Update via master vault updater:
-python .agents/update.py
-
-# Or update this repository directly via npx skills:
-npx skills add addyosmani/agent-skills
-```
-
----
-
-### 4. 🗑️ How to Remove / Deactivate
-To remove an activated skill from your active workspace and return it to offline reserve:
-
-#### Via Central Activator CLI:
-```powershell
-python .agents/library/activate_skill.py remove doubt-driven-development
-```
-
-#### Manual PowerShell:
-```powershell
-Remove-Item -Recurse -Force ".agents/skills/doubt-driven-development"
-```
+| Skill Name | Purpose | Quick Activate |
+| :--- | :--- | :--- |
+| `api-and-interface-design` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate api-and-interface-design` |
+| `browser-testing-with-devtools` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate browser-testing-with-devtools` |
+| `ci-cd-and-automation` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate ci-cd-and-automation` |
+| `code-review-and-quality` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate code-review-and-quality` |
+| `code-simplification` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate code-simplification` |
+| `constraint-driven-development` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate constraint-driven-development` |
+| `context-engineering` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate context-engineering` |
+| `debugging-and-error-recovery` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate debugging-and-error-recovery` |
+| `deprecation-and-migration` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate deprecation-and-migration` |
+| `documentation-and-adrs` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate documentation-and-adrs` |
+| `doubt-driven-development` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate doubt-driven-development` |
+| `frontend-ui-engineering` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate frontend-ui-engineering` |
+| `git-workflow-and-versioning` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate git-workflow-and-versioning` |
+| `idea-refine` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate idea-refine` |
+| `incremental-implementation` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate incremental-implementation` |
+| `interview-me` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate interview-me` |
+| `observability-and-instrumentation` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate observability-and-instrumentation` |
+| `performance-optimization` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate performance-optimization` |
+| `planning-and-task-breakdown` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate planning-and-task-breakdown` |
+| `security-and-hardening` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate security-and-hardening` |
+| `shipping-and-launch` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate shipping-and-launch` |
+| `source-driven-development` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate source-driven-development` |
+| `spec-driven-development` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate spec-driven-development` |
+| `test-driven-development` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate test-driven-development` |
+| `using-agent-skills` | Addy Osmani software craft skill | `python .agents/library/activate_skill.py activate using-agent-skills` |
 
 ---
 
-### 5. 🚚 How to Move (Migrate Between Tiers)
-To move a skill between the **Active Hot Set** (`.agent/skills`), **Workspace Store** (`.agents/skills`), or **Offline Reserve** (`.agents/library`):
+## 🛠️ How to Use
+
+### 1. 📥 Activate a Skill into Workspace
 ```powershell
-python .agents/library/activate_skill.py move doubt-driven-development --to hot
-python .agents/library/activate_skill.py move doubt-driven-development --to reserve
+python .agents/library/activate_skill.py activate <skill-name>
 ```
 
----
+### 2. 🔗 Link (Symlink without copying)
+```powershell
+python .agents/library/activate_skill.py link <skill-name>
+```
 
-## 📑 Included Skills Catalog (4 Skills)
-
-| Skill Name | Description |
-| :--- | :--- |
-| **`doubt-driven-development`** | Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when you want every assumption cross-examined before p... |
-| **`git-workflow-and-versioning`** | Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted work in... |
-| **`incremental-implementation`** | Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more than one file, or when pickin... |
-| **`observability-and-instrumentation`** | Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feat... |
+### 3. 🗑️ Deactivate / Remove
+```powershell
+python .agents/library/activate_skill.py remove <skill-name>
+```
