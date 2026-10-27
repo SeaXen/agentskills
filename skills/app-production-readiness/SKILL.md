@@ -151,11 +151,11 @@ Run reviewer prompts in [panel-review/](references/panel-review/README.md) acros
 | `scripts/review.py` | Complete orchestrator: scope → fix → measure → judge → `qa/report.md` | `python scripts/review.py --root <root> --serve [--fix] [--json]` |
 | `scripts/bootstrap_env.py` | Environment dependency checker and installer (Playwright, browsers, Lighthouse) | `python scripts/bootstrap_env.py [--install] [--json]` |
 | `scripts/serve.py` | Starts app for review using production or dev runner | `python scripts/serve.py --root <root> [--dev] [--wait]` |
-| `scripts/fixes.py` | Safe auto-fixes: `.env.example`, `.gitignore`, `.dockerignore`, `robots.txt`, LICENSE, Next headers | `python scripts/fixes.py --root <root> [--only env-example,dockerignore]` |
+| `scripts/fixes.py` | Safe auto-fixes: `.env.example`, `.dockerignore`, `robots.txt`, LICENSE, Next headers | `python scripts/fixes.py --root <root> [--only env-example,dockerignore]` |
 | `scripts/framework_profiles.py` | Profile layer preventing framework defaults from being marked as defects | `python scripts/framework_profiles.py <root>` |
 | `scripts/gate_scope.py` | Scopes the 21 gates to the codebase in front of you | `python scripts/gate_scope.py --root <root>` |
 | `scripts/detect_env.py` | Detects port, URL, package manager, framework, routes, healthz | `python scripts/detect_env.py <root>` |
-| `scripts/preflight.py` | Production-readiness checks (**31 checks** with framework scoping) | `python scripts/preflight.py <root>` |
+| `scripts/preflight.py` | Production-readiness checks (**30 checks** with framework scoping) | `python scripts/preflight.py <root>` |
 | `scripts/security_scan.py` | Secrets and insecure patterns scanner | `python scripts/security_scan.py <root>` |
 | `scripts/security_audit.py` | Deep security audit ledger and finding validator | `python scripts/security_audit.py --root <root>` |
 | `scripts/dep_audit.py` | Dependency vulnerability audit for npm, pip, cargo, go | `python scripts/dep_audit.py <root>` |
@@ -194,47 +194,6 @@ Run reviewer prompts in [panel-review/](references/panel-review/README.md) acros
 | `scripts/absorbed_rules.py` | Rules from absorbed doc skills | imported |
 | `scripts/fixtures/make_sample_app.py` | Fixture generator for good/broken apps | `python scripts/fixtures/make_sample_app.py` |
 | `scripts/absorbed/verify_manifest.py` | Hash integrity verifier for absorbed sibling tools | `python scripts/absorbed/verify_manifest.py` |
-| `scripts/absorbed/refresh_manifest.py` | Re-pins an absorbed copy and declares the local patch | `python scripts/absorbed/refresh_manifest.py --file <name> --reason "<why>"` |
-| `scripts/refresh_knowledge.py` | Verifies (or re-copies) the absorbed knowledge pack in `references/knowledge/` | `python scripts/refresh_knowledge.py [--rebuild]` |
-
-### Remediation engine
-
-`scripts/remediate.py` applies the mechanical blockers it can fix safely and
-writes a recipe for everything it cannot. `--dry-run` writes nothing at all -
-not the source, not the backup, not the log. Every touched file is backed up
-pristine under `qa/fix-backup/<session>/` and can be restored with
-`--rollback`. Details: [autonomous-remediation-engine.md](autonomous-remediation-engine.md).
-
-### Absorbed-code integrity
-
-The 14 absorbed scripts in `scripts/absorbed/` are copies of tools from sibling
-skills so this skill works on its own. `MANIFEST.json` records the sha256 of
-every copy. A copy may carry a **declared local patch** (hardening that had to
-happen here); such an entry records `identical_to_source: false`, the
-`upstream_sha256` it was patched from and a `patch_reason`.
-
-```bash
-python scripts/absorbed/verify_manifest.py            # integrity + patch warnings
-python scripts/absorbed/refresh_manifest.py --file vulnerability_security_scan.py --reason "<why>"
-python scripts/absorbed/refresh_manifest.py --file vulnerability_security_scan.py --drop-patch
-```
-
-An undeclared edit is drift and fails the verifier; a declared patch never
-does. Full policy: [scripts/absorbed/README.md](scripts/absorbed/README.md).
-
-The same contract covers the **absorbed knowledge pack** in
-`references/knowledge/` (86 markdown files copied verbatim from sibling
-skills). `references/knowledge/MANIFEST.json` records the sha256 of every
-copy and of the original it came from, so a corrupted or edited copy is
-detected instead of shipped.
-
-```bash
-python scripts/refresh_knowledge.py            # verify every copy against the manifest
-python scripts/refresh_knowledge.py --rebuild  # re-copy the originals and rewrite the manifest
-```
-
-`scripts/skill_check.py` runs both integrity checks and additionally fails the
-package if any text file contains double-encoded (mojibake) text.
 
 ### Exit-code contract
 - `0`: Checked and passed.
@@ -245,77 +204,24 @@ Tool failures (unreachable server, failed test runner) report `UNSUPPORTED` (Exi
 Evidence artifacts must reside in the target project (`<app>/qa/...`). To point to an external directory, use `--artifact-dir <dir>`.
 Unverified sign-offs are marked `UNVERIFIABLE`.
 
-`review.py` follows the same rule at the run level:
-
-| Exit | Meaning |
-|------|---------|
-| `0` | every applicable gate was VERIFIED (gates waiting on a human sign-off are reported as NEEDS-HUMAN and only fail the run with `--strict`) |
-| `1` | at least one gate was CONTRADICTED **or** UNSUPPORTED - a gate that could not be measured is not a pass |
-| `2` | the review could not run (e.g. the project root does not exist) |
-
-### Gate semantics that decide a pass or a fail
-
-These are the rules that used to let a broken app through:
-
-- **Gate H (tests)** - a project with no detectable test command is **CONTRADICTED**
-  ("the project ships no detectable tests"), and a runner that exits 0 after
-  running **0 tests** is **CONTRADICTED** too. Only an unparsable count is
-  UNSUPPORTED (the measurement itself failed).
-- **Gate K (observability)** - the signals are detected by
-  `absorbed_rules.observability_signals()`, one definition shared with the
-  advisory, so the verdict can never contradict the advisory. 3 or more
-  signals = VERIFIED, fewer = CONTRADICTED with the missing ones listed.
-- **Gate G (SEO)** - a route that never answered has no metadata to check, so
-  the gate is UNSUPPORTED for that route instead of a silent VERIFIED.
-- **Gate T (payments/e-mail)** - the check reports every property it could
-  confirm (`confirmed` in the JSON payload), so a pass means "this was found",
-  not "nothing was checked".
-- **Gate C (design sign-off)** - an `approved` verdict can only be recorded when
-  the rubric actually passed, and an explicit `rejected` verdict **fails** the
-  gate (it is a decision, not a missing signature). The sign-off is bound to
-  the measured markup through a source digest, so a redesign invalidates it.
-- **Gate U (code quality)** - an absorbed checker that could not run at all
-  (tool not installed) is a WARNING, never a blocking failure. Only real
-  findings in the app block.
-- **Gate J (docs/DX)** - a developer's own, gitignored `.env` is a warning; a
-  `.env` that git actually tracks is a blocking "hardcoded secret".
-- **Gate E (security)** - the claim is "zero HIGH vulnerabilities", which
-  includes dependency CVEs. When the CVE scan could not run (tool missing,
-  offline) the gate is **UNSUPPORTED**, never VERIFIED with a footnote. A
-  project with no dependency manifest has nothing to audit and still passes.
-- **Gate L (free-tier)** - the README is the evidence, so a README without a
-  limits table is a **CONTRADICTED** app, not an unmeasurable gate. Only a
-  missing README stays UNSUPPORTED.
-
 ### Self-Tests
 
-Every suite is a pytest module; run the whole set with `python -m pytest scripts/ -q`.
-
+Execute test suites:
 ```bash
 python -m pytest scripts/test_advanced.py -q       # 76 tests
-python -m pytest scripts/test_qa_scripts.py -q     # 51 tests
-python -m pytest scripts/test_gates_extended.py -q # 57 tests
-python -m pytest scripts/test_absorbed.py -q       # 34 tests
-python -m pytest scripts/test_scope.py -q          # 24 tests
-python -m pytest scripts/test_phase6.py -q        # 45 tests
+python -m pytest scripts/test_gates_extended.py -q # 45 tests
+python -m pytest scripts/test_qa_scripts.py -q     # 49 tests
+python -m pytest scripts/test_absorbed.py -q       # 23 tests
+python -m pytest scripts/test_scope.py -q          # 22 tests
+python -m pytest scripts/test_phase6.py -q        # 35 tests
 python -m pytest scripts/test_signoff.py -q        # 27 tests
-python -m pytest scripts/test_frameworks.py -q     # 36 tests
+python -m pytest scripts/test_frameworks.py -q     # 33 tests
 python -m pytest scripts/test_measurement_failures.py -q # 11 tests
 python -m pytest scripts/test_absorption.py -q      # 16 tests
-python -m pytest scripts/test_docs.py -q           # 11 tests
-python -m pytest scripts/test_remediation.py -q    # 24 tests
-python -m pytest scripts/test_preflight.py -q      # 34 tests
-python -m pytest scripts/test_checker_units.py -q # 29 tests
+python -m pytest scripts/test_docs.py -q           # doc-consistency
+python scripts/test_preflight.py                   # secret-heuristic self-test
 ```
-Total: **475 tests**.
-
-`scripts/test_preflight.py` also runs standalone (`python scripts/test_preflight.py`)
-and prints one line per case; it imports the shipped heuristic from
-`preflight.py`, so it cannot pass while the real scanner drifts.
-
-`scripts/test_docs.py` keeps this file honest: it fails when a script is
-undocumented, when a reference is orphaned, or when a count in this block stops
-matching what pytest collects.
+Total: **346 tests**.
 
 ## 5. End-to-End Workflow
 

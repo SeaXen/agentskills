@@ -61,13 +61,12 @@ import sys
 from pathlib import Path
 
 # Directories that never hold project source.
-# "qa" holds review evidence and remediation backups - it is never source code.
 SKIP_DIRS = {
     "node_modules", ".git", "dist", "build", ".next", ".nuxt", "out", "coverage",
     ".vercel", ".netlify", ".wrangler", ".svelte-kit", ".turbo", ".cache",
     ".pytest_cache", "__pycache__", ".venv", "venv", "target", ".gradle",
     ".agent", ".agents", ".claude", ".cursor", ".vscode", "vendor",
-    "fixtures", "__fixtures__", "qa",
+    "fixtures", "__fixtures__",
 }
 
 # A directory holding one of these is a project of its own.

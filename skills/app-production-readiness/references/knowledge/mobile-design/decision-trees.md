@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'mobile-design' (source: mobile-design/decision-trees.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\decision-trees.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Mobile Decision Trees
@@ -14,78 +14,78 @@
 
 ```
 WHAT ARE YOU BUILDING?
-        │
-        ├── Need OTA updates without app store review?
-        │   │
-        │   ├── Yes → React Native + Expo
-        │   │         ├── Expo Go for development
-        │   │         ├── EAS Update for production OTA
-        │   │         └── Best for: rapid iteration, web teams
-        │   │
-        │   └── No → Continue ▼
-        │
-        ├── Need pixel-perfect custom UI across platforms?
-        │   │
-        │   ├── Yes → Flutter
-        │   │         ├── Custom rendering engine
-        │   │         ├── Single UI for iOS + Android
-        │   │         └── Best for: branded, visual apps
-        │   │
-        │   └── No → Continue ▼
-        │
-        ├── Heavy native features (ARKit, HealthKit, specific sensors)?
-        │   │
-        │   ├── iOS only → SwiftUI / UIKit
-        │   │              └── Maximum native capability
-        │   │
-        │   ├── Android only → Kotlin + Jetpack Compose
-        │   │                  └── Maximum native capability
-        │   │
-        │   └── Both → Consider native with shared logic
-        │              └── Kotlin Multiplatform for shared
-        │
-        ├── Existing web team + TypeScript codebase?
-        │   │
-        │   └── Yes → React Native
-        │             ├── Familiar paradigm for React devs
-        │             ├── Share code with web (limited)
-        │             └── Large ecosystem
-        │
-        └── Enterprise with existing Flutter team?
-            │
-            └── Yes → Flutter
-                      └── Leverage existing expertise
+        â”‚
+        â”œâ”€â”€ Need OTA updates without app store review?
+        â”‚   â”‚
+        â”‚   â”œâ”€â”€ Yes â†’ React Native + Expo
+        â”‚   â”‚         â”œâ”€â”€ Expo Go for development
+        â”‚   â”‚         â”œâ”€â”€ EAS Update for production OTA
+        â”‚   â”‚         â””â”€â”€ Best for: rapid iteration, web teams
+        â”‚   â”‚
+        â”‚   â””â”€â”€ No â†’ Continue â–¼
+        â”‚
+        â”œâ”€â”€ Need pixel-perfect custom UI across platforms?
+        â”‚   â”‚
+        â”‚   â”œâ”€â”€ Yes â†’ Flutter
+        â”‚   â”‚         â”œâ”€â”€ Custom rendering engine
+        â”‚   â”‚         â”œâ”€â”€ Single UI for iOS + Android
+        â”‚   â”‚         â””â”€â”€ Best for: branded, visual apps
+        â”‚   â”‚
+        â”‚   â””â”€â”€ No â†’ Continue â–¼
+        â”‚
+        â”œâ”€â”€ Heavy native features (ARKit, HealthKit, specific sensors)?
+        â”‚   â”‚
+        â”‚   â”œâ”€â”€ iOS only â†’ SwiftUI / UIKit
+        â”‚   â”‚              â””â”€â”€ Maximum native capability
+        â”‚   â”‚
+        â”‚   â”œâ”€â”€ Android only â†’ Kotlin + Jetpack Compose
+        â”‚   â”‚                  â””â”€â”€ Maximum native capability
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Both â†’ Consider native with shared logic
+        â”‚              â””â”€â”€ Kotlin Multiplatform for shared
+        â”‚
+        â”œâ”€â”€ Existing web team + TypeScript codebase?
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Yes â†’ React Native
+        â”‚             â”œâ”€â”€ Familiar paradigm for React devs
+        â”‚             â”œâ”€â”€ Share code with web (limited)
+        â”‚             â””â”€â”€ Large ecosystem
+        â”‚
+        â””â”€â”€ Enterprise with existing Flutter team?
+            â”‚
+            â””â”€â”€ Yes â†’ Flutter
+                      â””â”€â”€ Leverage existing expertise
 ```
 
 ### Framework Comparison
 
 | Factor | React Native | Flutter | Native (Swift/Kotlin) |
 |--------|-------------|---------|----------------------|
-| **OTA Updates** | ✅ Expo | ❌ No | ❌ No |
+| **OTA Updates** | âœ… Expo | âŒ No | âŒ No |
 | **Learning Curve** | Low (React devs) | Medium | Higher |
 | **Performance** | Good | Excellent | Best |
 | **UI Consistency** | Platform-native | Identical | Platform-native |
 | **Bundle Size** | Medium | Larger | Smallest |
 | **Native Access** | Via bridges | Via channels | Direct |
-| **Hot Reload** | ✅ | ✅ | ✅ (Xcode 15+) |
+| **Hot Reload** | âœ… | âœ… | âœ… (Xcode 15+) |
 
 ### When to Choose Native
 
 ```
 CHOOSE NATIVE WHEN:
-├── Maximum performance required (games, 3D)
-├── Deep OS integration needed
-├── Platform-specific features are core
-├── Team has native expertise
-├── App store presence is primary
-└── Long-term maintenance priority
+â”œâ”€â”€ Maximum performance required (games, 3D)
+â”œâ”€â”€ Deep OS integration needed
+â”œâ”€â”€ Platform-specific features are core
+â”œâ”€â”€ Team has native expertise
+â”œâ”€â”€ App store presence is primary
+â””â”€â”€ Long-term maintenance priority
 
 AVOID NATIVE WHEN:
-├── Limited budget/time
-├── Need rapid iteration
-├── Identical UI on both platforms
-├── Team is web-focused
-└── Cross-platform is priority
+â”œâ”€â”€ Limited budget/time
+â”œâ”€â”€ Need rapid iteration
+â”œâ”€â”€ Identical UI on both platforms
+â”œâ”€â”€ Team is web-focused
+â””â”€â”€ Cross-platform is priority
 ```
 
 ---
@@ -96,89 +96,89 @@ AVOID NATIVE WHEN:
 
 ```
 WHAT'S YOUR STATE COMPLEXITY?
-        │
-        ├── Simple app, few screens, minimal shared state
-        │   │
-        │   └── Zustand (or just useState/Context)
-        │       ├── Minimal boilerplate
-        │       ├── Easy to understand
-        │       └── Scales OK to medium
-        │
-        ├── Primarily server data (API-driven)
-        │   │
-        │   └── TanStack Query (React Query) + Zustand
-        │       ├── Query for server state
-        │       ├── Zustand for UI state
-        │       └── Excellent caching, refetching
-        │
-        ├── Complex app with many features
-        │   │
-        │   └── Redux Toolkit + RTK Query
-        │       ├── Predicable, debuggable
-        │       ├── RTK Query for API
-        │       └── Good for large teams
-        │
-        └── Atomic, granular state needs
-            │
-            └── Jotai
-                ├── Atom-based (like Recoil)
-                ├── Minimizes re-renders
-                └── Good for derived state
+        â”‚
+        â”œâ”€â”€ Simple app, few screens, minimal shared state
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Zustand (or just useState/Context)
+        â”‚       â”œâ”€â”€ Minimal boilerplate
+        â”‚       â”œâ”€â”€ Easy to understand
+        â”‚       â””â”€â”€ Scales OK to medium
+        â”‚
+        â”œâ”€â”€ Primarily server data (API-driven)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ TanStack Query (React Query) + Zustand
+        â”‚       â”œâ”€â”€ Query for server state
+        â”‚       â”œâ”€â”€ Zustand for UI state
+        â”‚       â””â”€â”€ Excellent caching, refetching
+        â”‚
+        â”œâ”€â”€ Complex app with many features
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Redux Toolkit + RTK Query
+        â”‚       â”œâ”€â”€ Predicable, debuggable
+        â”‚       â”œâ”€â”€ RTK Query for API
+        â”‚       â””â”€â”€ Good for large teams
+        â”‚
+        â””â”€â”€ Atomic, granular state needs
+            â”‚
+            â””â”€â”€ Jotai
+                â”œâ”€â”€ Atom-based (like Recoil)
+                â”œâ”€â”€ Minimizes re-renders
+                â””â”€â”€ Good for derived state
 ```
 
 ### Flutter State Decision
 
 ```
 WHAT'S YOUR STATE COMPLEXITY?
-        │
-        ├── Simple app, learning Flutter
-        │   │
-        │   └── Provider (or setState)
-        │       ├── Official, simple
-        │       ├── Built into Flutter
-        │       └── Good for small apps
-        │
-        ├── Modern, type-safe, testable
-        │   │
-        │   └── Riverpod 2.0
-        │       ├── Compile-time safety
-        │       ├── Code generation
-        │       ├── Excellent for medium-large apps
-        │       └── Recommended for new projects
-        │
-        ├── Enterprise, strict patterns needed
-        │   │
-        │   └── BLoC
-        │       ├── Event → State pattern
-        │       ├── Very testable
-        │       ├── More boilerplate
-        │       └── Good for large teams
-        │
-        └── Quick prototyping
-            │
-            └── GetX (with caution)
-                ├── Fast to implement
-                ├── Less strict patterns
-                └── Can become messy at scale
+        â”‚
+        â”œâ”€â”€ Simple app, learning Flutter
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Provider (or setState)
+        â”‚       â”œâ”€â”€ Official, simple
+        â”‚       â”œâ”€â”€ Built into Flutter
+        â”‚       â””â”€â”€ Good for small apps
+        â”‚
+        â”œâ”€â”€ Modern, type-safe, testable
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Riverpod 2.0
+        â”‚       â”œâ”€â”€ Compile-time safety
+        â”‚       â”œâ”€â”€ Code generation
+        â”‚       â”œâ”€â”€ Excellent for medium-large apps
+        â”‚       â””â”€â”€ Recommended for new projects
+        â”‚
+        â”œâ”€â”€ Enterprise, strict patterns needed
+        â”‚   â”‚
+        â”‚   â””â”€â”€ BLoC
+        â”‚       â”œâ”€â”€ Event â†’ State pattern
+        â”‚       â”œâ”€â”€ Very testable
+        â”‚       â”œâ”€â”€ More boilerplate
+        â”‚       â””â”€â”€ Good for large teams
+        â”‚
+        â””â”€â”€ Quick prototyping
+            â”‚
+            â””â”€â”€ GetX (with caution)
+                â”œâ”€â”€ Fast to implement
+                â”œâ”€â”€ Less strict patterns
+                â””â”€â”€ Can become messy at scale
 ```
 
 ### State Management Anti-Patterns
 
 ```
-❌ DON'T:
-├── Use global state for everything
-├── Mix state management approaches
-├── Store server state in local state
-├── Skip state normalization
-├── Overuse Context (re-render heavy)
-└── Put navigation state in app state
+âŒ DON'T:
+â”œâ”€â”€ Use global state for everything
+â”œâ”€â”€ Mix state management approaches
+â”œâ”€â”€ Store server state in local state
+â”œâ”€â”€ Skip state normalization
+â”œâ”€â”€ Overuse Context (re-render heavy)
+â””â”€â”€ Put navigation state in app state
 
-✅ DO:
-├── Server state → Query library
-├── UI state → Minimal, local first
-├── Lift state only when needed
-├── Choose ONE approach per project
-└── Keep state close to where it's used
+âœ… DO:
+â”œâ”€â”€ Server state â†’ Query library
+â”œâ”€â”€ UI state â†’ Minimal, local first
+â”œâ”€â”€ Lift state only when needed
+â”œâ”€â”€ Choose ONE approach per project
+â””â”€â”€ Keep state close to where it's used
 ```
 
 ---
@@ -187,25 +187,25 @@ WHAT'S YOUR STATE COMPLEXITY?
 
 ```
 HOW MANY TOP-LEVEL DESTINATIONS?
-        │
-        ├── 2 destinations
-        │   └── Consider: Top tabs or simple stack
-        │
-        ├── 3-5 destinations (equal importance)
-        │   └── ✅ Tab Bar / Bottom Navigation
-        │       ├── Most common pattern
-        │       └── Easy discovery
-        │
-        ├── 5+ destinations
-        │   │
-        │   ├── All important → Drawer Navigation
-        │   │                   └── Hidden but many options
-        │   │
-        │   └── Some less important → Tab bar + drawer hybrid
-        │
-        └── Single linear flow?
-            └── Stack Navigation only
-                └── Onboarding, checkout, etc.
+        â”‚
+        â”œâ”€â”€ 2 destinations
+        â”‚   â””â”€â”€ Consider: Top tabs or simple stack
+        â”‚
+        â”œâ”€â”€ 3-5 destinations (equal importance)
+        â”‚   â””â”€â”€ âœ… Tab Bar / Bottom Navigation
+        â”‚       â”œâ”€â”€ Most common pattern
+        â”‚       â””â”€â”€ Easy discovery
+        â”‚
+        â”œâ”€â”€ 5+ destinations
+        â”‚   â”‚
+        â”‚   â”œâ”€â”€ All important â†’ Drawer Navigation
+        â”‚   â”‚                   â””â”€â”€ Hidden but many options
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Some less important â†’ Tab bar + drawer hybrid
+        â”‚
+        â””â”€â”€ Single linear flow?
+            â””â”€â”€ Stack Navigation only
+                â””â”€â”€ Onboarding, checkout, etc.
 ```
 
 ### Navigation by App Type
@@ -225,48 +225,48 @@ HOW MANY TOP-LEVEL DESTINATIONS?
 
 ```
 WHAT TYPE OF DATA?
-        │
-        ├── Sensitive (tokens, passwords, keys)
-        │   │
-        │   └── ✅ Secure Storage
-        │       ├── iOS: Keychain
-        │       ├── Android: EncryptedSharedPreferences
-        │       └── RN: expo-secure-store / react-native-keychain
-        │
-        ├── User preferences (settings, theme)
-        │   │
-        │   └── ✅ Key-Value Storage
-        │       ├── iOS: UserDefaults
-        │       ├── Android: SharedPreferences
-        │       └── RN: AsyncStorage / MMKV
-        │
-        ├── Structured data (entities, relationships)
-        │   │
-        │   └── ✅ Database
-        │       ├── SQLite (expo-sqlite, sqflite)
-        │       ├── Realm (NoSQL, reactive)
-        │       └── WatermelonDB (large datasets)
-        │
-        ├── Large files (images, documents)
-        │   │
-        │   └── ✅ File System
-        │       ├── iOS: Documents / Caches directory
-        │       ├── Android: Internal/External storage
-        │       └── RN: react-native-fs / expo-file-system
-        │
-        └── Cached API data
-            │
-            └── ✅ Query Library Cache
-                ├── TanStack Query (RN)
-                ├── Riverpod async (Flutter)
-                └── Automatic invalidation
+        â”‚
+        â”œâ”€â”€ Sensitive (tokens, passwords, keys)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ âœ… Secure Storage
+        â”‚       â”œâ”€â”€ iOS: Keychain
+        â”‚       â”œâ”€â”€ Android: EncryptedSharedPreferences
+        â”‚       â””â”€â”€ RN: expo-secure-store / react-native-keychain
+        â”‚
+        â”œâ”€â”€ User preferences (settings, theme)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ âœ… Key-Value Storage
+        â”‚       â”œâ”€â”€ iOS: UserDefaults
+        â”‚       â”œâ”€â”€ Android: SharedPreferences
+        â”‚       â””â”€â”€ RN: AsyncStorage / MMKV
+        â”‚
+        â”œâ”€â”€ Structured data (entities, relationships)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ âœ… Database
+        â”‚       â”œâ”€â”€ SQLite (expo-sqlite, sqflite)
+        â”‚       â”œâ”€â”€ Realm (NoSQL, reactive)
+        â”‚       â””â”€â”€ WatermelonDB (large datasets)
+        â”‚
+        â”œâ”€â”€ Large files (images, documents)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ âœ… File System
+        â”‚       â”œâ”€â”€ iOS: Documents / Caches directory
+        â”‚       â”œâ”€â”€ Android: Internal/External storage
+        â”‚       â””â”€â”€ RN: react-native-fs / expo-file-system
+        â”‚
+        â””â”€â”€ Cached API data
+            â”‚
+            â””â”€â”€ âœ… Query Library Cache
+                â”œâ”€â”€ TanStack Query (RN)
+                â”œâ”€â”€ Riverpod async (Flutter)
+                â””â”€â”€ Automatic invalidation
 ```
 
 ### Storage Comparison
 
 | Storage | Speed | Security | Capacity | Use Case |
 |---------|-------|----------|----------|----------|
-| Secure Storage | Medium | 🔒 High | Small | Tokens, secrets |
+| Secure Storage | Medium | ðŸ”’ High | Small | Tokens, secrets |
 | Key-Value | Fast | Low | Medium | Settings |
 | SQLite | Fast | Low | Large | Structured data |
 | File System | Medium | Low | Very Large | Media, documents |
@@ -278,41 +278,41 @@ WHAT TYPE OF DATA?
 
 ```
 HOW CRITICAL IS OFFLINE?
-        │
-        ├── Nice to have (works when possible)
-        │   │
-        │   └── Cache last data + show stale
-        │       ├── Simple implementation
-        │       ├── TanStack Query with staleTime
-        │       └── Show "last updated" timestamp
-        │
-        ├── Essential (core functionality offline)
-        │   │
-        │   └── Offline-first architecture
-        │       ├── Local database as source of truth
-        │       ├── Sync to server when online
-        │       ├── Conflict resolution strategy
-        │       └── Queue actions for later sync
-        │
-        └── Real-time critical (collaboration, chat)
-            │
-            └── WebSocket + local queue
-                ├── Optimistic updates
-                ├── Eventual consistency
-                └── Complex conflict handling
+        â”‚
+        â”œâ”€â”€ Nice to have (works when possible)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Cache last data + show stale
+        â”‚       â”œâ”€â”€ Simple implementation
+        â”‚       â”œâ”€â”€ TanStack Query with staleTime
+        â”‚       â””â”€â”€ Show "last updated" timestamp
+        â”‚
+        â”œâ”€â”€ Essential (core functionality offline)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Offline-first architecture
+        â”‚       â”œâ”€â”€ Local database as source of truth
+        â”‚       â”œâ”€â”€ Sync to server when online
+        â”‚       â”œâ”€â”€ Conflict resolution strategy
+        â”‚       â””â”€â”€ Queue actions for later sync
+        â”‚
+        â””â”€â”€ Real-time critical (collaboration, chat)
+            â”‚
+            â””â”€â”€ WebSocket + local queue
+                â”œâ”€â”€ Optimistic updates
+                â”œâ”€â”€ Eventual consistency
+                â””â”€â”€ Complex conflict handling
 ```
 
 ### Offline Implementation Patterns
 
 ```
 1. CACHE-FIRST (Simple)
-   Request → Check cache → If stale, fetch → Update cache
+   Request â†’ Check cache â†’ If stale, fetch â†’ Update cache
    
 2. STALE-WHILE-REVALIDATE
-   Request → Return cached → Fetch update → Update UI
+   Request â†’ Return cached â†’ Fetch update â†’ Update UI
    
 3. OFFLINE-FIRST (Complex)
-   Action → Write to local DB → Queue sync → Sync when online
+   Action â†’ Write to local DB â†’ Queue sync â†’ Sync when online
    
 4. SYNC ENGINE
    Use: Firebase, Realm Sync, Supabase realtime
@@ -325,49 +325,49 @@ HOW CRITICAL IS OFFLINE?
 
 ```
 WHAT AUTH TYPE NEEDED?
-        │
-        ├── Simple email/password
-        │   │
-        │   └── Token-based (JWT)
-        │       ├── Store refresh token securely
-        │       ├── Access token in memory
-        │       └── Silent refresh flow
-        │
-        ├── Social login (Google, Apple, etc.)
-        │   │
-        │   └── OAuth 2.0 + PKCE
-        │       ├── Use platform SDKs
-        │       ├── Deep link callback
-        │       └── Apple Sign-In required for iOS
-        │
-        ├── Enterprise/SSO
-        │   │
-        │   └── OIDC / SAML
-        │       ├── Web view or system browser
-        │       └── Handle redirect properly
-        │
-        └── Biometric (FaceID, fingerprint)
-            │
-            └── Local auth + secure token
-                ├── Biometrics unlock stored token
-                ├── Not a replacement for server auth
-                └── Fallback to PIN/password
+        â”‚
+        â”œâ”€â”€ Simple email/password
+        â”‚   â”‚
+        â”‚   â””â”€â”€ Token-based (JWT)
+        â”‚       â”œâ”€â”€ Store refresh token securely
+        â”‚       â”œâ”€â”€ Access token in memory
+        â”‚       â””â”€â”€ Silent refresh flow
+        â”‚
+        â”œâ”€â”€ Social login (Google, Apple, etc.)
+        â”‚   â”‚
+        â”‚   â””â”€â”€ OAuth 2.0 + PKCE
+        â”‚       â”œâ”€â”€ Use platform SDKs
+        â”‚       â”œâ”€â”€ Deep link callback
+        â”‚       â””â”€â”€ Apple Sign-In required for iOS
+        â”‚
+        â”œâ”€â”€ Enterprise/SSO
+        â”‚   â”‚
+        â”‚   â””â”€â”€ OIDC / SAML
+        â”‚       â”œâ”€â”€ Web view or system browser
+        â”‚       â””â”€â”€ Handle redirect properly
+        â”‚
+        â””â”€â”€ Biometric (FaceID, fingerprint)
+            â”‚
+            â””â”€â”€ Local auth + secure token
+                â”œâ”€â”€ Biometrics unlock stored token
+                â”œâ”€â”€ Not a replacement for server auth
+                â””â”€â”€ Fallback to PIN/password
 ```
 
 ### Auth Token Storage
 
 ```
-❌ NEVER store tokens in:
-├── AsyncStorage (plain text)
-├── Redux/state (not persisted correctly)
-├── Local storage equivalent
-└── Logs or debug output
+âŒ NEVER store tokens in:
+â”œâ”€â”€ AsyncStorage (plain text)
+â”œâ”€â”€ Redux/state (not persisted correctly)
+â”œâ”€â”€ Local storage equivalent
+â””â”€â”€ Logs or debug output
 
-✅ ALWAYS store tokens in:
-├── iOS: Keychain
-├── Android: EncryptedSharedPreferences
-├── Expo: SecureStore
-├── Biometric-protected if available
+âœ… ALWAYS store tokens in:
+â”œâ”€â”€ iOS: Keychain
+â”œâ”€â”€ Android: EncryptedSharedPreferences
+â”œâ”€â”€ Expo: SecureStore
+â”œâ”€â”€ Biometric-protected if available
 ```
 
 ---
@@ -378,54 +378,54 @@ WHAT AUTH TYPE NEEDED?
 
 ```
 RECOMMENDED STACK:
-├── Framework: React Native + Expo (OTA for pricing)
-├── Navigation: Tab bar (Home, Search, Cart, Account)
-├── State: TanStack Query (products) + Zustand (cart)
-├── Storage: SecureStore (auth) + SQLite (cart cache)
-├── Offline: Cache products, queue cart actions
-└── Auth: Email/password + Social + Apple Pay
+â”œâ”€â”€ Framework: React Native + Expo (OTA for pricing)
+â”œâ”€â”€ Navigation: Tab bar (Home, Search, Cart, Account)
+â”œâ”€â”€ State: TanStack Query (products) + Zustand (cart)
+â”œâ”€â”€ Storage: SecureStore (auth) + SQLite (cart cache)
+â”œâ”€â”€ Offline: Cache products, queue cart actions
+â””â”€â”€ Auth: Email/password + Social + Apple Pay
 
 KEY DECISIONS:
-├── Product images: Lazy load, cache aggressively
-├── Cart: Sync across devices via API
-├── Checkout: Secure, minimal steps
-└── Deep links: Product shares, marketing
+â”œâ”€â”€ Product images: Lazy load, cache aggressively
+â”œâ”€â”€ Cart: Sync across devices via API
+â”œâ”€â”€ Checkout: Secure, minimal steps
+â””â”€â”€ Deep links: Product shares, marketing
 ```
 
 ### Social/Content App
 
 ```
 RECOMMENDED STACK:
-├── Framework: React Native or Flutter
-├── Navigation: Tab bar (Feed, Search, Create, Notifications, Profile)
-├── State: TanStack Query (feed) + Zustand (UI)
-├── Storage: SQLite (feed cache, drafts)
-├── Offline: Cache feed, queue posts
-└── Auth: Social login primary, Apple required
+â”œâ”€â”€ Framework: React Native or Flutter
+â”œâ”€â”€ Navigation: Tab bar (Feed, Search, Create, Notifications, Profile)
+â”œâ”€â”€ State: TanStack Query (feed) + Zustand (UI)
+â”œâ”€â”€ Storage: SQLite (feed cache, drafts)
+â”œâ”€â”€ Offline: Cache feed, queue posts
+â””â”€â”€ Auth: Social login primary, Apple required
 
 KEY DECISIONS:
-├── Feed: Infinite scroll, memoized items
-├── Media: Upload queuing, background upload
-├── Push: Deep link to content
-└── Real-time: WebSocket for notifications
+â”œâ”€â”€ Feed: Infinite scroll, memoized items
+â”œâ”€â”€ Media: Upload queuing, background upload
+â”œâ”€â”€ Push: Deep link to content
+â””â”€â”€ Real-time: WebSocket for notifications
 ```
 
 ### Productivity/SaaS App
 
 ```
 RECOMMENDED STACK:
-├── Framework: Flutter (consistent UI) or RN
-├── Navigation: Drawer or Tab bar
-├── State: Riverpod/BLoC or Redux Toolkit
-├── Storage: SQLite (offline), SecureStore (auth)
-├── Offline: Full offline editing, sync
-└── Auth: SSO/OIDC for enterprise
+â”œâ”€â”€ Framework: Flutter (consistent UI) or RN
+â”œâ”€â”€ Navigation: Drawer or Tab bar
+â”œâ”€â”€ State: Riverpod/BLoC or Redux Toolkit
+â”œâ”€â”€ Storage: SQLite (offline), SecureStore (auth)
+â”œâ”€â”€ Offline: Full offline editing, sync
+â””â”€â”€ Auth: SSO/OIDC for enterprise
 
 KEY DECISIONS:
-├── Data sync: Conflict resolution strategy
-├── Collaborative: Real-time or eventual?
-├── Files: Large file handling
-└── Enterprise: MDM, compliance
+â”œâ”€â”€ Data sync: Conflict resolution strategy
+â”œâ”€â”€ Collaborative: Real-time or eventual?
+â”œâ”€â”€ Files: Large file handling
+â””â”€â”€ Enterprise: MDM, compliance
 ```
 
 ---
@@ -449,29 +449,29 @@ KEY DECISIONS:
 If project details are vague, ASK:
 
 1. "Will this need OTA updates without app store review?"
-   → Affects framework choice (Expo = yes)
+   â†’ Affects framework choice (Expo = yes)
 
 2. "Do iOS and Android need identical UI?"
-   → Affects framework (Flutter = identical)
+   â†’ Affects framework (Flutter = identical)
 
 3. "What's the offline requirement?"
-   → Affects architecture complexity
+   â†’ Affects architecture complexity
 
 4. "Is there an existing backend/auth system?"
-   → Affects auth and API approach
+   â†’ Affects auth and API approach
 
 5. "What devices? Phone only, or tablet?"
-   → Affects navigation and layout
+   â†’ Affects navigation and layout
 
 6. "Enterprise or consumer?"
-   → Affects auth (SSO), security, compliance
+   â†’ Affects auth (SSO), security, compliance
 ```
 
 ---
 
 ## 9. Anti-Pattern Decisions
 
-### ❌ Decision Anti-Patterns
+### âŒ Decision Anti-Patterns
 
 | Anti-Pattern | Why It's Bad | Better Approach |
 |--------------|--------------|-----------------|
@@ -489,31 +489,32 @@ If project details are vague, ASK:
 ### Framework Quick Pick
 
 ```
-OTA needed?           → React Native + Expo
-Identical UI?         → Flutter
-Maximum performance?  → Native
-Web team?            → React Native
-Quick prototype?     → Expo
+OTA needed?           â†’ React Native + Expo
+Identical UI?         â†’ Flutter
+Maximum performance?  â†’ Native
+Web team?            â†’ React Native
+Quick prototype?     â†’ Expo
 ```
 
 ### State Quick Pick
 
 ```
-Simple app?          → Zustand / Provider
-Server-heavy?        → TanStack Query / Riverpod
-Enterprise?          → Redux / BLoC
-Atomic state?        → Jotai
+Simple app?          â†’ Zustand / Provider
+Server-heavy?        â†’ TanStack Query / Riverpod
+Enterprise?          â†’ Redux / BLoC
+Atomic state?        â†’ Jotai
 ```
 
 ### Storage Quick Pick
 
 ```
-Secrets?             → SecureStore / Keychain
-Settings?            → AsyncStorage / UserDefaults
-Structured data?     → SQLite
-API cache?           → Query library
+Secrets?             â†’ SecureStore / Keychain
+Settings?            â†’ AsyncStorage / UserDefaults
+Structured data?     â†’ SQLite
+API cache?           â†’ Query library
 ```
 
 ---
 
 > **Remember:** These trees are guides for THINKING, not rules to follow blindly. Every project has unique constraints. ASK clarifying questions when requirements are vague, and choose based on actual needs, not defaults.
+

@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/rules/state-lift-state.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\rules\state-lift-state.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -60,7 +60,7 @@ function ForwardMessageDialog() {
 function ForwardMessageComposer({ onInputChange }) {
   const [state, setState] = useState(initialState)
   useEffect(() => {
-    onInputChange(state.input) // Sync on every change 😬
+    onInputChange(state.input) // Sync on every change ðŸ˜¬
   }, [state.input])
 }
 ```
@@ -125,4 +125,5 @@ component, it can still access the composer's state and actions from outside the
 UI itself.
 
 **Key insight:** Components that need shared state don't have to be visually
-nested inside each other—they just need to be within the same provider.
+nested inside each otherâ€”they just need to be within the same provider.
+

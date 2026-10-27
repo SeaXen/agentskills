@@ -55,14 +55,8 @@ SIGNATURE_VERIFY = re.compile(
     r"(?i)constructEvent|verify_header|verifySignature|signatures\[|"
     r"stripe\.webhooks|verify\s*\(\s*payload|hmac|signature")
 IDEMPOTENCY = re.compile(r"(?i)idempotency_?key|Idempotency-Key|idempotencyKey")
-MINOR_UNITS = re.compile(
-    r"(?i)(amount|price|total)\s*[:=]\s*(\d+)\s*\*\s*100|"
-    r"Math\.round\([^)]*\*\s*100|"
-    r"minor_?units|"
-    r"[A-Za-z_$][\w$]*cents\b|"      # priceCents, amount_cents, priceInCents
-    r"\bcents\b|"                    # a cents variable
-    r"unit_?amount|"                # Stripe's minor-unit field
-    r"in_?cents")
+MINOR_UNITS = re.compile(r"(?i)(amount|price|total)\s*[:=]\s*(\d+)\s*\*\s*100|"
+                         r"Math\.round\([^)]*\*\s*100|minor_?units|in_?cents")
 CURRENCY = re.compile(r"(?i)\bcurrency\b")
 HARD_KEY = re.compile(r"(?i)(sk_(live|test)_[A-Za-z0-9]{10,}|pk_live_[A-Za-z0-9]{10,}|"
                       r"SG\.[A-Za-z0-9]{10,}|AC[A-Fa-f0-9]{32})")
@@ -122,37 +116,6 @@ def analyse_payments(root, blob, files, markup=()):
     return findings
 
 
-def payment_positives(root, blob, files, markup=()):
-    """The payment properties that were actually confirmed.
-
-    A gate that only reports what is broken cannot show that anything was
-    checked. These entries are the positive half of the same measurement.
-    """
-    confirmed = []
-    provider = CARD_PROVIDER_RE.search(blob)
-    if provider:
-        confirmed.append(("a payment provider is used", provider.group(0).lower()))
-    card_fields = [str(p.relative_to(root)) for p, t in files if CARD_FIELD.search(t)]
-    card_fields += [str(p.relative_to(root)) for p, t in markup if CARD_FIELD.search(t)]
-    if provider and not card_fields:
-        confirmed.append(("card data is not collected by your own form",
-                          "no card input found"))
-    if WEBHOOK.search(blob) and SIGNATURE_VERIFY.search(blob):
-        confirmed.append(("the webhook signature is verified",
-                          "a signature check is present"))
-    currency = CURRENCY.search(blob)
-    if currency:
-        confirmed.append(("the payment carries an explicit currency",
-                          currency.group(0)))
-    if MINOR_UNITS.search(blob):
-        confirmed.append(("amounts use integer minor units",
-                          "an integer minor-unit amount was found"))
-    if IDEMPOTENCY.search(blob):
-        confirmed.append(("the payment call carries an idempotency key",
-                          "an idempotency key was found"))
-    return confirmed
-
-
 def analyse_email(root, blob, files):
     findings = []
     has_provider = bool(MAIL_PROVIDER_RE.search(blob))
@@ -188,34 +151,6 @@ def analyse_email(root, blob, files):
                              f"{p.relative_to(root)}"))
             break
     return findings
-
-
-def email_positives(root, blob, files):
-    """The email properties that were actually confirmed."""
-    confirmed = []
-    provider = MAIL_PROVIDER_RE.search(blob)
-    if provider:
-        confirmed.append(("a transactional email provider is configured",
-                          provider.group(0).lower()))
-    sends = [p for p, t in files if MAIL_SEND.search(t)]
-    if sends:
-        handled = 0
-        for p, t in files:
-            for m in MAIL_SEND.finditer(t):
-                window = t[m.end(): m.end() + 400]
-                if MAIL_ERROR.search(window):
-                    handled += 1
-                    break
-        if handled:
-            confirmed.append(("mail sends handle their failures",
-                              f"{handled} send call(s) with error handling"))
-    templates = [p for p, t in read_files(root, MAIL_EXT)]
-    if templates:
-        confirmed.append(("mail templates live outside the code",
-                          f"{len(templates)} template file(s)"))
-    if provider and not HEADER_INJECTION.search(blob):
-        confirmed.append(("no user input is concatenated into a mail header", ""))
-    return confirmed
 
 
 def main() -> int:
@@ -257,18 +192,12 @@ def main() -> int:
             result.fail(check, detail, "MEDIUM")
         else:
             result.warn(check, detail)
-    for name, detail in (payment_positives(root, blob, files, markup)
-                         + email_positives(root, blob, files)):
-        result.add(name, True, required=True, detail=detail)
 
     payload = print_report(result, json_mode, extra={
         "payment_findings": [{"severity": s, "check": c, "detail": d}
                              for s, c, d in payments],
         "email_findings": [{"severity": s, "check": c, "detail": d}
                            for s, c, d in emails],
-        "confirmed": [{"check": n, "detail": d} for n, d in
-                      (payment_positives(root, blob, files, markup)
-                       + email_positives(root, blob, files))],
     })
     emit([], payload, json_mode)
     return 1 if result.blocking else 0

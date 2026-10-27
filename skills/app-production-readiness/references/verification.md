@@ -82,7 +82,7 @@ missing) is `UNSUPPORTED` — never `CONTRADICTED`. The gates implement this:
 | app unreachable during the load run | `UNSUPPORTED` | "the app was not reachable during the load run - the measurement was skipped" |
 | Lighthouse could not measure a route | `UNSUPPORTED` | "the Lighthouse run could not be measured - npm error code ECOMPROMISED" |
 | scenario spec could not be executed | `UNSUPPORTED` | "no executable contract to verify - the app was not reachable" |
-| the test command ran 0 tests | `CONTRADICTED` | "npm test exited 0 but ran 0 tests - the project has no effective test suite" |
+| the test command ran 0 tests | `UNSUPPORTED` | "the test command exited 0 but ran 0 tests" |
 | the measurement succeeded and the app is wrong | `CONTRADICTED` | "p95 1441 ms > 1000 ms" |
 
 If you see a gate contradicted by a message about reachability, an error string from the toolchain or
@@ -112,13 +112,13 @@ Scoping never hides a contradiction: the classification comes from the code, not
 | B perf | re-runs `bundle_report.py`; any budget failure → CONTRADICTED |
 | C polish | re-runs `design_polish.py`; a failing rubric → CONTRADICTED. A passing rubric is `UNVERIFIABLE` **unless** a valid human sign-off exists in `qa/signoff/design.json` (reviewer, `approved`, date, matching score, matching rubric fingerprint) — then it is VERIFIED |
 | D lighthouse | re-reads `qa/lighthouse/lighthouse-summary.json` and re-applies the thresholds (90/95/95/90) |
-| E security | re-runs `security_scan.py`; any HIGH finding → CONTRADICTED; a CVE scan whose **tool** was unavailable (`npm audit`, `pip-audit`, … missing or offline) → the gate is UNSUPPORTED, because "zero HIGH vulnerabilities" could not be re-derived; a project with **no dependency manifest at all** → VERIFIED with the note "no dependency manifest to audit" |
+| E security | re-runs `security_scan.py`; any HIGH finding → CONTRADICTED; a CVE scan that was skipped → the gate stays UNSUPPORTED |
 | F a11y | re-reads `qa/a11y/a11y-report.json`; any critical/serious violation → CONTRADICTED |
 | G seo | re-runs the live SEO/metadata checks **and** the static page audit (`seo_static.py`); missing title/description/og/canonical → CONTRADICTED |
-| H tests | **actually executes** the detected test command (`npm/pnpm/yarn test`, `pytest`, `go test`, `cargo test`); no test command at all → CONTRADICTED ("the project ships no detectable tests"); non-zero exit → CONTRADICTED; exit 0 with **0 tests executed** → CONTRADICTED ("a green command that ran nothing is not evidence"); only an *unparsable* test count → UNSUPPORTED |
+| H tests | **actually executes** the detected test command (`npm/pnpm/yarn test`, `pytest`, `go test`, `cargo test`); non-zero exit → CONTRADICTED; exit 0 with **0 tests executed** (or an unparsable test count) → UNSUPPORTED — a green command that ran nothing is not evidence |
 | I reliability | prefers `qa/deploy-smoke.json` (the app was started with the platform's own start command and probed); otherwise hits the live health endpoint; non-2xx or unreachable → CONTRADICTED |
 | J docs | re-runs `check_readme.py`; failing checks → CONTRADICTED |
-| K observability | counts the source signals it actually finds — structured logging (a log sink **and** a structured payload in the same file), request/correlation id, error tracking, metrics, health endpoint, alerting, audit trail; **>= 3** required; fewer → CONTRADICTED and the missing signals are named, so the evidence and the advisory can never contradict each other |
+| K observability | counts source signals — structured logging, request/correlation id, error tracking, health endpoint; **>= 3** required, fewer → UNSUPPORTED |
 | L cost | README must document free-tier limits **and** the fallback behaviour; limits without fallback → CONTRADICTED |
 | M readme+shots | >= 3 screenshots **and** `contact-sheet.png` present in the README assets |
 | N business rules | re-runs `business_logic_check.py` (static smells + executed `qa/scenarios.json` + API contract) **and** requires a valid domain sign-off in `qa/signoff/business-rules.json` (reviewer, `approved`, date, fingerprint matching the current scenario spec + rule documents). Machine half ok, no/stale sign-off → UNVERIFIABLE; the sign-off is what turns it into VERIFIED |

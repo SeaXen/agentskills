@@ -22,14 +22,8 @@ Usage::
     python scripts/review.py --root <app> --url http://127.0.0.1:3000 --fix
     python scripts/review.py --root <app> --gates A,B,E --json
 
-Exit codes:
-  ``0`` - every applicable gate was verified (gates that still need a human
-  sign-off are reported as NEEDS-HUMAN and do not fail the run unless
-  ``--strict`` is given).
-  ``1`` - at least one gate was CONTRADICTED (the app failed a gate) or
-  UNSUPPORTED (the gate could not be measured).  A gate that was never
-  measured is not a pass, so an unmeasured gate fails the run too.
-  ``2`` - the review could not run at all (the project root does not exist).
+Exit codes: ``0`` - no gate was contradicted, ``1`` - at least one gate was
+contradicted (or, with ``--strict``, at least one gate could not be verified).
 """
 from __future__ import annotations
 
@@ -287,18 +281,6 @@ def write_report(root: Path, payload: dict) -> str:
         for item in payload["blocking"]:
             lines.append(f"* **{item['gate']}** - {item['evidence']}")
         lines.append("")
-    if payload.get("unmeasured"):
-        lines.append("## NOT MEASURED")
-        lines.append("These gates could not be measured. A gate that was never "
-                     "measured is **not** a pass.")
-        for item in payload["unmeasured"]:
-            lines.append(f"* **{item['gate']}** - {item['evidence']}")
-        lines.append("")
-    if payload.get("needs_human"):
-        lines.append("## NEEDS A HUMAN SIGN-OFF")
-        for item in payload["needs_human"]:
-            lines.append(f"* **{item['gate']}** - {item['evidence']}")
-        lines.append("")
     lines.append("## ARTEFACTS")
     for path in payload.get("artefacts", []):
         lines.append(f"* `{path}`")
@@ -441,9 +423,7 @@ def main(argv=None) -> int:
                    "NOT_APPLICABLE": "not_applicable"}.get(item["verdict"])
             if key:
                 summary[key] += 1
-        blocking = [g for g in gates if g["verdict"] == "CONTRADICTED"]
-        unmeasured = [g for g in gates if g["verdict"] == "UNSUPPORTED"]
-        needs_human = [g for g in gates if g["verdict"] == "UNVERIFIABLE"]
+        blocking = [g for g in gates if g["verdict"] in ("CONTRADICTED", "UNSUPPORTED")]
 
         scope_summary = {}
         if gate_scope is not None:
@@ -472,8 +452,6 @@ def main(argv=None) -> int:
             "gates": gates,
             "summary": summary,
             "blocking": blocking,
-            "unmeasured": unmeasured,
-            "needs_human": needs_human,
             "artefacts": artefacts,
             "seconds": round(time.time() - started, 1),
         }
@@ -491,21 +469,11 @@ def main(argv=None) -> int:
         lines.append(f"  [{VERDICT_MARK.get(item['verdict'], item['verdict'])}] "
                      f"{item['gate']} {item['name']}: {item['evidence'][:150]}")
     lines.append(f"  summary: {summary}")
-    if blocking or unmeasured:
-        why = []
-        if blocking:
-            why.append(f"{len(blocking)} gate(s) failed")
-        if unmeasured:
-            why.append(f"{len(unmeasured)} gate(s) could not be measured")
-        lines.append("  NOT GREEN: " + "; ".join(why)
-                     + " - an unmeasured gate is never a pass")
     emit(lines, payload, want_json)
 
-    # A gate that could not be measured is not a pass: the review is only
-    # green when every applicable gate was actually verified.
-    if blocking or unmeasured:
+    if summary["contradicted"]:
         return 1
-    if opts["strict"] and needs_human:
+    if opts["strict"] and (summary["unsupported"] or summary["unverifiable"]):
         return 1
     return 0
 

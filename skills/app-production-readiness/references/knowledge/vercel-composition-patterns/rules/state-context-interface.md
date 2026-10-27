@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/rules/state-context-interface.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\rules\state-context-interface.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -12,7 +12,7 @@ tags: composition, context, state, typescript, dependency-injection
 
 Define a **generic interface** for your component context with three parts:
 `state`, `actions`, and `meta`. This interface is a contract that any provider
-can implement—enabling the same UI components to work with completely different
+can implementâ€”enabling the same UI components to work with completely different
 state implementations.
 
 **Core principle:** Lift state, compose internals, make state
@@ -140,7 +140,7 @@ function ChannelProvider({ channelId, children }: Props) {
 
 **Custom UI outside the component can access state and actions:**
 
-The provider boundary is what matters—not the visual nesting. Components that
+The provider boundary is what mattersâ€”not the visual nesting. Components that
 need shared state don't have to be inside the `Composer.Frame`. They just need
 to be within the provider.
 
@@ -192,3 +192,4 @@ lifting state into providers.
 
 The UI is reusable bits you compose together. The state is dependency-injected
 by the provider. Swap the provider, keep the UI.
+

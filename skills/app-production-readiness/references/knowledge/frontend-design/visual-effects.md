@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'frontend-design' (source: frontend-design/visual-effects.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\visual-effects.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Visual Effects Reference
@@ -14,10 +14,10 @@
 
 ```
 Key Properties:
-├── Semi-transparent background (not solid)
-├── Backdrop blur (frosted glass effect)
-├── Subtle border (for definition)
-└── Often: light shadow for depth
+â”œâ”€â”€ Semi-transparent background (not solid)
+â”œâ”€â”€ Backdrop blur (frosted glass effect)
+â”œâ”€â”€ Subtle border (for definition)
+â””â”€â”€ Often: light shadow for depth
 ```
 
 ### The Pattern (Customize Values)
@@ -42,11 +42,11 @@ Key Properties:
 ```
 
 ### When to Use Glassmorphism
-- ✅ Over colorful/image backgrounds
-- ✅ Modals, overlays, cards
-- ✅ Navigation bars with scrolling content behind
-- ❌ Text-heavy content (readability issues)
-- ❌ Simple solid backgrounds (pointless)
+- âœ… Over colorful/image backgrounds
+- âœ… Modals, overlays, cards
+- âœ… Navigation bars with scrolling content behind
+- âŒ Text-heavy content (readability issues)
+- âŒ Simple solid backgrounds (pointless)
 
 ### When NOT to Use
 - Low contrast situations
@@ -61,9 +61,9 @@ Key Properties:
 
 ```
 Key Concept: Soft, extruded elements using DUAL shadows
-├── Light shadow (from light source direction)
-├── Dark shadow (opposite direction)
-└── Background matches surrounding (same color)
+â”œâ”€â”€ Light shadow (from light source direction)
+â”œâ”€â”€ Dark shadow (opposite direction)
+â””â”€â”€ Background matches surrounding (same color)
 ```
 
 ### The Pattern
@@ -91,7 +91,7 @@ Key Concept: Soft, extruded elements using DUAL shadows
 ```
 
 ### Accessibility Warning
-⚠️ **Low contrast** - use sparingly, ensure clear boundaries
+âš ï¸ **Low contrast** - use sparingly, ensure clear boundaries
 
 ### When to Use
 - Decorative elements
@@ -106,11 +106,11 @@ Key Concept: Soft, extruded elements using DUAL shadows
 
 ```
 Higher elevation = larger shadow
-├── Level 0: No shadow (flat on surface)
-├── Level 1: Subtle shadow (slightly raised)
-├── Level 2: Medium shadow (cards, buttons)
-├── Level 3: Large shadow (modals, dropdowns)
-└── Level 4: Deep shadow (floating elements)
+â”œâ”€â”€ Level 0: No shadow (flat on surface)
+â”œâ”€â”€ Level 1: Subtle shadow (slightly raised)
+â”œâ”€â”€ Level 2: Medium shadow (cards, buttons)
+â”œâ”€â”€ Level 3: Large shadow (modals, dropdowns)
+â””â”€â”€ Level 4: Deep shadow (floating elements)
 ```
 
 ### Shadow Properties to Adjust
@@ -144,18 +144,18 @@ box-shadow: OFFSET-X OFFSET-Y BLUR SPREAD COLOR;
 
 | Type | Pattern | Use Case |
 |------|---------|----------|
-| **Linear** | Color A → Color B along line | Backgrounds, buttons, headers |
-| **Radial** | Center → outward | Spotlights, focal points |
+| **Linear** | Color A â†’ Color B along line | Backgrounds, buttons, headers |
+| **Radial** | Center â†’ outward | Spotlights, focal points |
 | **Conic** | Around center | Pie charts, creative effects |
 
 ### Creating Harmonious Gradients
 
 ```
 Good Gradient Rules:
-├── Use ADJACENT colors on wheel (analogous)
-├── Or same hue with different lightness
-├── Avoid complementary (can look harsh)
-└── Add middle stops for smoother transitions
+â”œâ”€â”€ Use ADJACENT colors on wheel (analogous)
+â”œâ”€â”€ Or same hue with different lightness
+â”œâ”€â”€ Avoid complementary (can look harsh)
+â””â”€â”€ Add middle stops for smoother transitions
 ```
 
 ### Gradient Syntax Pattern
@@ -178,10 +178,10 @@ Good Gradient Rules:
 
 ```
 Multiple radial gradients overlapped:
-├── Each at different position
-├── Each with transparent falloff
-├── **Mandatory for "Wow" factor in Hero sections**
-└── Creates organic, colorful effect (Search: "Aurora Gradient CSS")
+â”œâ”€â”€ Each at different position
+â”œâ”€â”€ Each with transparent falloff
+â”œâ”€â”€ **Mandatory for "Wow" factor in Hero sections**
+â””â”€â”€ Creates organic, colorful effect (Search: "Aurora Gradient CSS")
 ```
 
 ---
@@ -192,18 +192,18 @@ Multiple radial gradients overlapped:
 
 ```
 Technique: Pseudo-element with gradient background
-├── Element has padding = border width
-├── Pseudo-element fills with gradient
-└── Mask or clip creates border effect
+â”œâ”€â”€ Element has padding = border width
+â”œâ”€â”€ Pseudo-element fills with gradient
+â””â”€â”€ Mask or clip creates border effect
 ```
 
 ### Animated Borders
 
 ```
 Technique: Rotating gradient or conic sweep
-├── Pseudo-element larger than content
-├── Animation rotates the gradient
-└── Overflow hidden clips to shape
+â”œâ”€â”€ Pseudo-element larger than content
+â”œâ”€â”€ Animation rotates the gradient
+â””â”€â”€ Overflow hidden clips to shape
 ```
 
 ### Glow Borders
@@ -298,28 +298,28 @@ background:
 
 ```
 Instead of viewport breakpoints:
-├── Component responds to ITS container
-├── Truly modular, reusable components
-└── Syntax: @container (condition) { }
+â”œâ”€â”€ Component responds to ITS container
+â”œâ”€â”€ Truly modular, reusable components
+â””â”€â”€ Syntax: @container (condition) { }
 ```
 
 ### :has() Selector (Concept)
 
 ```
 Parent styling based on children:
-├── "Parent that has X child"
-├── Enables previously impossible patterns
-└── Progressive enhancement approach
+â”œâ”€â”€ "Parent that has X child"
+â”œâ”€â”€ Enables previously impossible patterns
+â””â”€â”€ Progressive enhancement approach
 ```
 
 ### Scroll-Driven Animations (Concept)
 
 ```
 Animation progress tied to scroll:
-├── Entry/exit animations on scroll
-├── Parallax effects
-├── Progress indicators
-└── View-based or scroll-based timeline
+â”œâ”€â”€ Entry/exit animations on scroll
+â”œâ”€â”€ Parallax effects
+â”œâ”€â”€ Progress indicators
+â””â”€â”€ View-based or scroll-based timeline
 ```
 
 ---
@@ -330,14 +330,14 @@ Animation progress tied to scroll:
 
 ```
 CHEAP to animate (GPU):
-├── transform (translate, scale, rotate)
-└── opacity
+â”œâ”€â”€ transform (translate, scale, rotate)
+â””â”€â”€ opacity
 
 EXPENSIVE to animate (CPU):
-├── width, height
-├── top, left, right, bottom
-├── margin, padding
-└── box-shadow (recalculates)
+â”œâ”€â”€ width, height
+â”œâ”€â”€ top, left, right, bottom
+â”œâ”€â”€ margin, padding
+â””â”€â”€ box-shadow (recalculates)
 ```
 
 ### will-change Usage
@@ -375,12 +375,13 @@ Before applying any effect:
 
 ### Anti-Patterns
 
-- ❌ Glassmorphism on every element (kitsch)
-- ❌ Dark + neon as default (lazy AI look)
-- ❌ **Static/Flat designs with no depth (FAILED)**
-- ❌ Effects that hurt readability
-- ❌ Animations without purpose
+- âŒ Glassmorphism on every element (kitsch)
+- âŒ Dark + neon as default (lazy AI look)
+- âŒ **Static/Flat designs with no depth (FAILED)**
+- âŒ Effects that hurt readability
+- âŒ Animations without purpose
 
 ---
 
 > **Remember**: Effects enhance meaning. Choose based on purpose and context, not because it "looks cool."
+

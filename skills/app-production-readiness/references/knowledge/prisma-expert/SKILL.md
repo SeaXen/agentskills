@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'prisma-expert' (source: prisma-expert/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'prisma-expert' (D:\Repo\.agents\skills\prisma-expert\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -26,7 +26,7 @@ version: 1.0
 
 ---
 
-## 📋 Global Prisma Client Pattern (Next.js / Node.js)
+## ðŸ“‹ Global Prisma Client Pattern (Next.js / Node.js)
 
 ```typescript
 import { PrismaClient } from '@prisma/client';
@@ -46,7 +46,7 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
 ---
 
-## 📋 Schema Design Standards
+## ðŸ“‹ Schema Design Standards
 
 - Always add `@id @default(cuid())` or `@default(uuid())` for scalable IDs.
 - Index foreign key lookup columns: `@@index([userId])`.
@@ -55,9 +55,10 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Calling `new PrismaClient()` inside request handlers or middleware.
-- ❌ Running `prisma db push` in production pipelines (risks silent data loss).
-- ❌ Using `findMany()` without pagination limits (`take`, `skip` / cursor).
-- ❌ Performing sequential queries in loops instead of `prisma.$transaction()` or batch `findMany({ where: { id: { in: ids } } })`.
+- âŒ Calling `new PrismaClient()` inside request handlers or middleware.
+- âŒ Running `prisma db push` in production pipelines (risks silent data loss).
+- âŒ Using `findMany()` without pagination limits (`take`, `skip` / cursor).
+- âŒ Performing sequential queries in loops instead of `prisma.$transaction()` or batch `findMany({ where: { id: { in: ids } } })`.
+

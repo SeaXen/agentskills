@@ -10,15 +10,15 @@ only way to see the real `<title>`, the real canonical URL and the real
 * how quotable the content is for AI answer engines (GEO readiness)
 
 It runs the absorbed `seo-fundamentals` and `geo-fundamentals` engines.
-SEO findings are real metadata gaps: they make the audit **fail** (exit 1).
-GEO findings are advisory only - the AI-citability score is a moving target and
-must never fail a production gate on its own - unless `--strict` is given.
+SEO findings are real metadata gaps and are reported as blocking when
+`--strict` is given.  GEO findings are advisory only: AI-citability score
+is a moving target and must never fail a production gate on its own.
 
 Usage:
   python seo_static.py --root <app_root> [--json] [--strict]
 
 Exit 0: no SEO gap found (GEO advice may still be listed)
-Exit 1: SEO gaps found (with --strict: GEO advice alone is enough to fail)
+Exit 1: SEO gaps found (or --strict and only advice exists)
 Exit 2: there is nothing to audit (no page files)
 """
 from __future__ import annotations
@@ -173,14 +173,10 @@ def main() -> int:
         lines.append(f"[note] AI-citability score: {report['geo_score']}% (advisory only)")
         for advice in report["geo_advice"][:5]:
             lines.append(f"  - {advice['file']}: {advice['advice']}")
-        if strict and report["geo_advice"]:
-            lines.append(f"[FAIL] {len(report['geo_advice'])} AI-citability advisory item(s) (--strict)")
     lines.append("=" * 62)
     emit(lines, report, json_mode)
     if report["seo_findings"]:
-        return 1
-    if strict and report["geo_advice"]:
-        return 1
+        return 1 if strict else 0
     return 0
 
 

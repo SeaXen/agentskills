@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'site-specification' (source: site-specification/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'site-specification' (D:\Repo\.agents\skills\site-specification\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -328,3 +328,4 @@ Present the extracted spec to the user for confirmation. Use the table format be
 | Typography | [primaryFont] + [secondaryFont] |
 
 Then ask: "Does this capture your vision? Let me know if you'd like to adjust anything before we proceed to design options."
+

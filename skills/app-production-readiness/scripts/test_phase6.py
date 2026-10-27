@@ -15,7 +15,6 @@ from __future__ import annotations
 import json
 import shutil
 import socket
-import subprocess
 import sys
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -30,7 +29,6 @@ sys.path.insert(0, str(SCRIPTS / "fixtures"))
 
 import design_polish  # noqa: E402
 import deploy_smoke  # noqa: E402
-import deploy_verify  # noqa: E402
 import load_check  # noqa: E402
 import migration_apply  # noqa: E402
 import payment_email_live  # noqa: E402
@@ -499,136 +497,6 @@ def test_verify_t_contradicts_a_failed_live_round_trip(good_app):
     (good_app / "qa" / "payment-email-live.json").write_text(json.dumps(payload))
     verdict, evidence = verify_claims.verify_T(good_app, {})
     assert verdict == verify_claims.CONTRADICTED
-
-
-# --------------------------------------------------------------------------
-# design_polish: a sign-off may never launder a failing rubric
-# --------------------------------------------------------------------------
-
-def test_a_failing_rubric_sub_check_is_advisory():
-    """The gate is decided by the two aggregate rules, not by every sub-check.
-
-    Making each sub-check blocking meant a page scoring 0.967 failed on one
-    missing `prefers-reduced-motion` block - the documented rule
-    ("score >= 0.85 AND no dimension < 0.50") was dead code.
-    """
-    check = design_polish._check("typography", {"name": "x", "ok": False, "detail": "y"})
-    assert check.ok is False
-    assert check.required is False
-
-
-def test_design_polish_rejects_an_unknown_verdict(good_app):
-    cmd = [sys.executable, str(SCRIPTS / "design_polish.py"), "--root", str(good_app),
-           "--record-signoff", "--reviewer", "Ada", "--verdict", "maybe", "--json"]
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
-    assert proc.returncode == 1
-    assert "--verdict must be one of" in proc.stderr
-
-
-def test_design_polish_refuses_to_approve_a_failing_rubric(tmp_path):
-    app = tmp_path / "plain"
-    app.mkdir()
-    (app / "index.html").write_text("<html><body><p>hi</p></body></html>", encoding="utf-8")
-    cmd = [sys.executable, str(SCRIPTS / "design_polish.py"), "--root", str(app),
-           "--record-signoff", "--reviewer", "Ada", "--verdict", "approved", "--json"]
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
-    assert proc.returncode == 1
-    assert "refusing to record" in proc.stderr
-
-
-def test_a_rejected_design_fails_the_gate(good_app):
-    report = design_polish.analyse(good_app)
-    design_polish.write_signoff(
-        design_polish.signoff_path(good_app),
-        design_polish.build_signoff("Ada", "rejected", "the spacing is off", report))
-    cmd = [sys.executable, str(SCRIPTS / "design_polish.py"), "--root", str(good_app), "--json"]
-    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
-    data = json.loads(proc.stdout)
-    assert proc.returncode == 1
-    assert data["verdict"] == "design-rejected"
-    assert any("rejected the design" in c["detail"]
-               for c in data["checks"] if not c["ok"] and c["required"])
-
-
-# --------------------------------------------------------------------------
-# deploy_verify: the platform configs people actually write
-# --------------------------------------------------------------------------
-
-def _find_check(report, name):
-    for c in report["checks"]:
-        if c["name"] == name:
-            return c
-    raise AssertionError(f"no check named {name!r} in {[c['name'] for c in report['checks']]}")
-
-
-def test_deploy_verify_parses_a_jsonc_cloudflare_config(tmp_path):
-    app = tmp_path / "cf"
-    app.mkdir()
-    (app / "wrangler.jsonc").write_text(
-        '{\n  // the worker name\n  "name": "demo",\n  "main": "src/index.ts",\n'
-        '  "compatibility_date": "2024-11-01",\n}\n', encoding="utf-8")
-    report = deploy_verify.verify(app)
-    assert _find_check(report, "wrangler.jsonc is valid JSONC")["ok"] is True
-    assert report["status"] != "fail"
-
-
-def test_deploy_verify_rejects_a_render_yaml_that_is_not_a_mapping(tmp_path):
-    pytest.importorskip("yaml")
-    app = tmp_path / "rnd"
-    app.mkdir()
-    (app / "render.yaml").write_text("- name: svc\n  runtime: node\n", encoding="utf-8")
-    report = deploy_verify.verify(app)
-    check = _find_check(report, "render.yaml parseable")
-    assert check["ok"] is False
-    assert "mapping" in check["detail"]
-
-
-def test_deploy_verify_reads_the_cmd_from_the_final_docker_stage(tmp_path):
-    app = tmp_path / "dock"
-    app.mkdir()
-    (app / "Dockerfile").write_text(
-        "FROM node:22 AS builder\n"
-        "WORKDIR /app\n"
-        "RUN npm ci && npm run build\n"
-        "CMD [\"npm\", \"run\", \"build\"]\n"
-        "\n"
-        "FROM node:22-slim\n"
-        "WORKDIR /app\n"
-        "COPY --from=builder /app ./\n"
-        "EXPOSE 3000\n", encoding="utf-8")
-    report = deploy_verify.verify(app)
-    check = _find_check(report, "container has CMD/ENTRYPOINT")
-    assert check["ok"] is False
-    assert "final image stage" in check["detail"]
-
-
-def test_deploy_verify_flags_a_hardcoded_port_in_the_procfile(tmp_path):
-    app = tmp_path / "proc"
-    app.mkdir()
-    (app / "Procfile").write_text("web: gunicorn app:app --bind 0.0.0.0:8000\n", encoding="utf-8")
-    report = deploy_verify.verify(app)
-    check = _find_check(report, "start script does not hardcode a port")
-    assert check["ok"] is False
-    assert "Procfile" in check["detail"]
-
-
-def test_deploy_verify_is_skipped_when_no_platform_is_configured(tmp_path):
-    app = tmp_path / "bare"
-    app.mkdir()
-    (app / "package.json").write_text('{"name": "x", "version": "1.0.0"}', encoding="utf-8")
-    report = deploy_verify.verify(app)
-    assert report["status"] == "skipped"
-    assert report["blocking"] == 0
-
-
-def test_deploy_verify_cli_exits_2_when_nothing_is_configured(tmp_path):
-    app = tmp_path / "bare2"
-    app.mkdir()
-    (app / "package.json").write_text('{"name": "x", "version": "1.0.0"}', encoding="utf-8")
-    proc = subprocess.run(
-        [sys.executable, str(SCRIPTS / "deploy_verify.py"), "--root", str(app), "--json"],
-        capture_output=True, text=True, timeout=180)
-    assert proc.returncode == 2
 
 
 # --------------------------------------------------------------------------

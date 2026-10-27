@@ -25,6 +25,7 @@ import socket
 import subprocess
 import sys
 import threading
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -655,12 +656,12 @@ def test_verify_claims_marks_non_passed_gates_as_not_claimed(app_copy):
 
 @pytest.mark.parametrize("output,expected", [
     ("# tests 1\n# pass 1\n# fail 0", 1),
-    ("ℹ tests 3\nℹ pass 3", 3),
+    ("â„¹ tests 3\nâ„¹ pass 3", 3),
     ("1 passed in 0.12s", 1),
     ("Tests:       2 passed, 2 total", 2),
     ("test result: ok. 4 passed; 0 failed", 4),
     ("ok  \tgithub.com/x/y\t0.01s", 1),
-    ("ℹ tests 0\nℹ pass 0", 0),
+    ("â„¹ tests 0\nâ„¹ pass 0", 0),
     ("everything is fine", None),
     ("", None),
 ])

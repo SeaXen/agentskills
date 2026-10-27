@@ -39,7 +39,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from qa_common import emit, parse_cli, resolve_root, root_error  # noqa: E402
-from qa_ext import (GateResult, http_request, print_report, read_files)  # noqa: E402
+from qa_ext import (GateResult, http_request, print_report, read_files,  # noqa: E402
+                     run_absorbed)
 import signoff as signoff_mod  # noqa: E402
 
 SIGNOFF_NAME = "privacy.json"
@@ -88,7 +89,7 @@ def _storage_pii(root: Path):
     hits = []
     for path, text in read_files(root, CODE_EXT):
         for m in STORAGE.finditer(text):
-            key = m.group(3)
+            key = m.group(2)
             window = text[m.end(): m.end() + 200]
             if STORAGE_PII.search(key) or STORAGE_PII.search(window):
                 hits.append(f"{path.relative_to(root)}:{text[:m.start()].count(chr(10)) + 1} ({key})")

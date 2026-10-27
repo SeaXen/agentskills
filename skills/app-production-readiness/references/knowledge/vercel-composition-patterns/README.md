@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/README.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\README.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # React Composition Patterns
@@ -39,11 +39,11 @@ lifting state, and composing internals.
 
 ## Core Principles
 
-1. **Composition over configuration** — Instead of adding props, let consumers
+1. **Composition over configuration** â€” Instead of adding props, let consumers
    compose
-2. **Lift your state** — State in providers, not trapped in components
-3. **Compose your internals** — Subcomponents access context, not props
-4. **Explicit variants** — Create ThreadComposer, EditComposer, not Composer
+2. **Lift your state** â€” State in providers, not trapped in components
+3. **Compose your internals** â€” Subcomponents access context, not props
+4. **Explicit variants** â€” Create ThreadComposer, EditComposer, not Composer
    with isThread
 
 ## Creating a New Rule
@@ -61,3 +61,4 @@ lifting state, and composing internals.
 - `CRITICAL` - Foundational patterns, prevents unmaintainable code
 - `HIGH` - Significant maintainability improvements
 - `MEDIUM` - Good practices for cleaner code
+

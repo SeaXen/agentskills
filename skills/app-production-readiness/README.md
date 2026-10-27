@@ -84,7 +84,7 @@ python -m pytest scripts/ -q                    # run the test suite
 # and write qa/report.md + qa/summary.json
 python scripts/review.py --root . --serve
 
-# Apply safe mechanical fixes first (.env.example, .gitignore, .dockerignore, robots.txt, LICENSE, security headers)
+# Apply safe mechanical fixes first (.env.example, .dockerignore, robots.txt, LICENSE, security headers)
 python scripts/review.py --root . --serve --fix
 
 # Against an already running server
@@ -99,17 +99,9 @@ python scripts/review.py --root . --url http://127.0.0.1:3000
 # empty catch blocks, and generates AI agent recipes for complex function refactoring
 python scripts/remediate.py --root .
 
-# See what would change without touching a single file
-python scripts/remediate.py --root . --dry-run
-
 # Revert changes if needed
 python scripts/remediate.py --root . --rollback
 ```
-
-Every edit is backed up under `qa/fix-backup/` before it happens, so
-`--rollback` restores the pristine files. A codemod that cannot be applied
-safely (a CORS wildcard with no allowlist in the project, for example) is
-reported and turned into an agent recipe instead of a guess.
 
 `--serve` starts the app with the platform start command, falls back to the dev
 server when there is no production build, and says so in the report - a dev
@@ -124,7 +116,7 @@ python scripts/gate_scope.py --root .
 # 1. Environment discovery (port, URL, package manager, framework, routes, healthz)
 python scripts/detect_env.py .
 
-# 2. File/config preflight (up to 31 checks)
+# 2. File/config preflight (up to 30 checks)
 python scripts/preflight.py .
 
 # 3. Security + dependency CVEs
@@ -264,12 +256,10 @@ Then run the per-app pipeline for each one and roll the results up into a single
 The skill ships its own test suite and a package health-check:
 
 ```bash
-python -m pytest scripts/ -q                    # 475 tests
-python scripts/test_preflight.py                # secret-heuristic self-test (standalone)
-python scripts/skill_check.py --root .          # package health
-python scripts/absorbed/verify_manifest.py      # absorbed-code integrity
-python scripts/absorbed/refresh_manifest.py --help  # re-pin a declared patch
-python scripts/refresh_knowledge.py              # absorbed-knowledge integrity
+python -m pytest scripts/ -q     # 346 tests
+python scripts/test_preflight.py # 30 preflight checks
+python scripts/skill_check.py --root .            # package health
+python scripts/absorbed/verify_manifest.py        # absorbed-code integrity
 ```
 
 ---
@@ -280,9 +270,7 @@ This package **contains** the functionality of these skills — you do not need 
 
 `frontend-design` · `mobile-design` · `i18n-localization` · `api-patterns` · `database-design` · `seo-fundamentals` · `geo-fundamentals` · `webapp-testing` · `lint-and-validate` · `nextjs-react-expert` · `performance-profiling` · `testing-patterns` · `vulnerability-scanner` · `review-team` (reviewer prompts in `references/panel-review/`) · `security-audit` (schema, validators and playbooks in `references/security/`)
 
-They live in `scripts/absorbed/` with a sha256 manifest (`scripts/absorbed/MANIFEST.json`) proving exactly what was taken and from where. A copy that had to be hardened locally carries a **declared patch** in the manifest (its own hash, the upstream hash it was patched from, and the reason) - an undeclared edit is drift and fails the integrity check.
-
-The same guarantee covers the **absorbed knowledge pack** (`references/knowledge/`, 86 markdown files copied verbatim from sibling skills): `references/knowledge/MANIFEST.json` records the sha256 of every copy and of its original, `scripts/refresh_knowledge.py --check` verifies them and `--rebuild` re-copies them. `scripts/skill_check.py` fails the package if a copy drifted or if any text file contains double-encoded (mojibake) text.
+They live in `scripts/absorbed/` with a sha256 manifest (`scripts/absorbed/MANIFEST.json`) proving exactly what was taken and from where.
 
 ---
 
@@ -291,12 +279,11 @@ The same guarantee covers the **absorbed knowledge pack** (`references/knowledge
 ```
 SKILL.md                  the skill definition (gates, workflow, report format)
 README.md                 this file
-autonomous-remediation-engine.md   the remediation engine: handlers, safety rules, CLI
 assets/                   README template for the app under review
 references/               depth gates, checklists, deploy matrix, free-tier limits,
                           verification, deep modes, panel review, security playbooks
 scripts/                  50+ stdlib-only tools (review, remediation, bootstrap, gates)
-scripts/absorbed/         14 third-party engines + sha256 manifest + integrity tooling
+scripts/absorbed/         14 third-party engines + sha256 manifest
 scripts/security_audit_pack/  security-audit schema + validators
 scripts/fixtures/         sample app generator (good + deliberately broken variants)
 ```
@@ -314,12 +301,6 @@ Everything runs on the Python standard library. Nothing is fetched at runtime ex
 | `2` | **skipped** — the tool could not run (missing dependency, nothing to measure) |
 
 Exit code `2` is never a pass. If a gate could not be measured, the report says so.
-
-`review.py` applies the same rule to the whole run: it exits `1` when any gate
-was contradicted **or** could not be measured (an unmeasured gate is not a
-pass) and `0` only when every applicable gate was verified. Gates that wait
-for a human sign-off are reported as `NEEDS-HUMAN` and only fail the run with
-`--strict`.
 
 ---
 

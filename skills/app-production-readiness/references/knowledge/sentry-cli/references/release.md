@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'sentry-cli' (source: sentry-cli/references/release.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\release.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -167,3 +167,4 @@ sentry release deploy my-org/1.0.0 production
 ```
 
 All commands also support `--json`, `--fields`, `--help`, `--log-level`, and `--verbose` flags.
+

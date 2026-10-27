@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'mobile-design' (source: mobile-design/mobile-debugging.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\mobile-debugging.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Mobile Debugging Guide
@@ -9,16 +9,16 @@
 
 ---
 
-## 🧠 MOBILE DEBUGGING MINDSET
+## ðŸ§  MOBILE DEBUGGING MINDSET
 
 ```
 Web Debugging:      Mobile Debugging:
-┌──────────────┐    ┌──────────────┐
-│  Browser     │    │  JS Bridge   │
-│  DevTools    │    │  Native UI   │
-│  Network Tab │    │  GPU/Memory  │
-└──────────────┘    │  Threads     │
-                    └──────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Browser     â”‚    â”‚  JS Bridge   â”‚
+â”‚  DevTools    â”‚    â”‚  Native UI   â”‚
+â”‚  Network Tab â”‚    â”‚  GPU/Memory  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜    â”‚  Threads     â”‚
+                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 **Key Differences:**
@@ -29,9 +29,9 @@ Web Debugging:      Mobile Debugging:
 
 ---
 
-## 🚫 AI DEBUGGING ANTI-PATTERNS
+## ðŸš« AI DEBUGGING ANTI-PATTERNS
 
-| ❌ Default | ✅ Mobile-Correct |
+| âŒ Default | âœ… Mobile-Correct |
 |------------|-------------------|
 | "Add console.logs" | Use Flipper / Reactotron |
 | "Check network tab" | Use Charles Proxy / Proxyman |
@@ -43,7 +43,7 @@ Web Debugging:      Mobile Debugging:
 
 ## 1. The Toolset
 
-### ⚡ React Native & Expo
+### âš¡ React Native & Expo
 
 | Tool | Purpose | Best For |
 |------|---------|----------|
@@ -51,7 +51,7 @@ Web Debugging:      Mobile Debugging:
 | **Flipper** | Layout/Network/db | Native + JS bridge |
 | **Expo Tools** | Element inspector | Quick UI checks |
 
-### 🛠️ Native Layer (The Deep Dive)
+### ðŸ› ï¸ Native Layer (The Deep Dive)
 
 | Tool | Platform | Command | Why Use? |
 |------|----------|---------|----------|
@@ -64,7 +64,7 @@ Web Debugging:      Mobile Debugging:
 
 ## 2. Common Debugging Workflows
 
-### 🕵️ "The App Just Crashed" (Red Screen vs Crash to Home)
+### ðŸ•µï¸ "The App Just Crashed" (Red Screen vs Crash to Home)
 
 **Scenario A: Red Screen (JS Error)**
 - **Cause:** Undefined is not an object, import error.
@@ -74,13 +74,13 @@ Web Debugging:      Mobile Debugging:
 - **Cause:** Native module failure, memory OOM, permission usage without declaration.
 - **Tools:**
     - **Android:** `adb logcat *:E` (Filter for Errors)
-    - **iOS:** Open Xcode → Window → Devices → View Device Logs
+    - **iOS:** Open Xcode â†’ Window â†’ Devices â†’ View Device Logs
 
-> **💡 Pro Tip:** If app crashes immediately on launch, it's almost 100% a native configuration issue (Info.plist, AndroidManifest.xml).
+> **ðŸ’¡ Pro Tip:** If app crashes immediately on launch, it's almost 100% a native configuration issue (Info.plist, AndroidManifest.xml).
 
-### 🌐 "API Request Failed" (Network)
+### ðŸŒ "API Request Failed" (Network)
 
-**Web:** Open Chrome DevTools → Network.
+**Web:** Open Chrome DevTools â†’ Network.
 **Mobile:** *You usually can't see this easily.*
 
 **Solution 1: Reactotron/Flipper**
@@ -90,7 +90,7 @@ Web Debugging:      Mobile Debugging:
 - **Hard but powerful.** See ALL traffic even from native SDKs.
 - Requires installing SSL cert on device.
 
-### 🐢 "The UI is Laggy" (Performance)
+### ðŸ¢ "The UI is Laggy" (Performance)
 
 **Don't guess.** measure.
 - **React Native:** Performance Monitor (Shake menu).
@@ -111,11 +111,11 @@ Web Debugging:      Mobile Debugging:
 ### iOS
 - **Pod Issues:** `pod deintegrate && pod install`.
 - **Signing Errors:** Check Team ID and Bundle Identifier.
-- **Cache:** Xcode → Product → Clean Build Folder.
+- **Cache:** Xcode â†’ Product â†’ Clean Build Folder.
 
 ---
 
-## 📝 DEBUGGING CHECKLIST
+## ðŸ“ DEBUGGING CHECKLIST
 
 - [ ] **Is it a JS or Native crash?** (Red screen or home screen?)
 - [ ] **Did you clean build?** (Native caches are aggressive)
@@ -123,3 +123,4 @@ Web Debugging:      Mobile Debugging:
 - [ ] **Did you check the native logs?** (Not just terminal output)
 
 > **Remember:** If JavaScript looks perfect but the app fails, look closer at the Native side.
+

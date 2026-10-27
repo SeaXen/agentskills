@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'frontend-design' (source: frontend-design/ux-psychology.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\ux-psychology.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # UX Psychology Reference
@@ -14,7 +14,7 @@
 **Principle:** The time to make a decision increases logarithmically with the number of choices.
 
 ```
-Decision Time = a + b × log₂(n + 1)
+Decision Time = a + b Ã— logâ‚‚(n + 1)
 Where n = number of choices
 ```
 
@@ -26,11 +26,11 @@ Where n = number of choices
 
 **Example:**
 ```
-❌ Bad: 15 menu items in one nav
-✅ Good: 5 main categories + "More" 
+âŒ Bad: 15 menu items in one nav
+âœ… Good: 5 main categories + "More" 
 
-❌ Bad: 20 form fields at once
-✅ Good: 3-step wizard with 5-7 fields each
+âŒ Bad: 20 form fields at once
+âœ… Good: 3-step wizard with 5-7 fields each
 ```
 
 ---
@@ -40,13 +40,13 @@ Where n = number of choices
 **Principle:** Time to reach a target = function of distance and size.
 
 ```
-MT = a + b × log₂(1 + D/W)
+MT = a + b Ã— logâ‚‚(1 + D/W)
 Where D = distance, W = width
 ```
 
 **Application:**
 - CTAs: Make primary buttons larger (min 44px height)
-- Touch targets: 44×44px minimum on mobile
+- Touch targets: 44Ã—44px minimum on mobile
 - Placement: Important actions near natural cursor position
 - Corners: "Magic corners" (infinite edge = easy to hit)
 
@@ -67,7 +67,7 @@ Where D = distance, W = width
 
 ### Miller's Law
 
-**Principle:** Average person can hold 7±2 chunks in working memory.
+**Principle:** Average person can hold 7Â±2 chunks in working memory.
 
 **Application:**
 - Lists: Group into chunks of 5-7 items
@@ -77,11 +77,11 @@ Where D = distance, W = width
 
 **Chunking Example:**
 ```
-❌ 5551234567
-✅ 555-123-4567
+âŒ 5551234567
+âœ… 555-123-4567
 
-❌ Long paragraph of text without breaks
-✅ Short paragraphs
+âŒ Long paragraph of text without breaks
+âœ… Short paragraphs
    With bullet points
    And subheadings
 ```
@@ -134,7 +134,7 @@ Long landing page:
 - CTA repeated at bottom
 ```
 
-### Jakob’s Law
+### Jakobâ€™s Law
 
 **Principle:** Users spend most of their time on other sites. They prefer your site to work the same way as all the other sites they already know.
 
@@ -148,16 +148,16 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A website where clicking the logo takes you to an "About Us" page.
-✅ Good: Clicking the logo always returns the user to the Homepage.
+âŒ Bad: A website where clicking the logo takes you to an "About Us" page.
+âœ… Good: Clicking the logo always returns the user to the Homepage.
 
-❌ Bad: Using a "Star" icon to represent "Delete."
-✅ Good: Using a "Trash Can" icon to represent "Delete."
+âŒ Bad: Using a "Star" icon to represent "Delete."
+âœ… Good: Using a "Trash Can" icon to represent "Delete."
 ```
 
 ---
 
-### Tesler’s Law (Conservation of Complexity)
+### Teslerâ€™s Law (Conservation of Complexity)
 
 **Principle:** For any system, there is a certain amount of complexity which cannot be reduced, only shifted from user to software.
 
@@ -171,16 +171,16 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: Making users type "USD $" before every price field in a form.
-✅ Good: The app automatically prefixing the "$" based on the user's location.
+âŒ Bad: Making users type "USD $" before every price field in a form.
+âœ… Good: The app automatically prefixing the "$" based on the user's location.
 
-❌ Bad: Forcing users to manually select their "Card Type" (Visa/Mastercard).
-✅ Good: Detecting the card type automatically from the first four digits entered.
+âŒ Bad: Forcing users to manually select their "Card Type" (Visa/Mastercard).
+âœ… Good: Detecting the card type automatically from the first four digits entered.
 ```
 
 ---
 
-### Parkinson’s Law
+### Parkinsonâ€™s Law
 
 **Principle:** Any task will inflate until all available time is spent.
 
@@ -194,11 +194,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A 10-page registration form that allows users to browse away and lose data.
-✅ Good: A "One-Tap Sign In" using Google or Apple ID.
+âŒ Bad: A 10-page registration form that allows users to browse away and lose data.
+âœ… Good: A "One-Tap Sign In" using Google or Apple ID.
 
-❌ Bad: Giving a user an indefinite amount of time to fill out a bio.
-✅ Good: Providing a "Suggested Bios" feature to help them finish in seconds.
+âŒ Bad: Giving a user an indefinite amount of time to fill out a bio.
+âœ… Good: Providing a "Suggested Bios" feature to help them finish in seconds.
 ```
 
 ---
@@ -217,16 +217,16 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A button that does nothing for 2 seconds after being clicked.
-✅ Good: A button that immediately changes color and shows a "Loading" spinner.
+âŒ Bad: A button that does nothing for 2 seconds after being clicked.
+âœ… Good: A button that immediately changes color and shows a "Loading" spinner.
 
-❌ Bad: A blank white screen that appears while data is fetching.
-✅ Good: A skeleton screen showing the gray outlines of where content will appear.
+âŒ Bad: A blank white screen that appears while data is fetching.
+âœ… Good: A skeleton screen showing the gray outlines of where content will appear.
 ```
 
 ---
 
-### Postel’s Law (Robustness Principle)
+### Postelâ€™s Law (Robustness Principle)
 
 **Principle:** Be conservative in what you do, be liberal in what you accept from others.
 
@@ -240,16 +240,16 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: Rejecting a phone number because the user put a space in it.
-✅ Good: Accepting the input and stripping the spaces automatically.
+âŒ Bad: Rejecting a phone number because the user put a space in it.
+âœ… Good: Accepting the input and stripping the spaces automatically.
 
-❌ Bad: Forcing users to type "January" instead of "01" or "Jan."
-✅ Good: A date field that understands all three formats.
+âŒ Bad: Forcing users to type "January" instead of "01" or "Jan."
+âœ… Good: A date field that understands all three formats.
 ```
 
 ---
 
-### Occam’s Razor
+### Occamâ€™s Razor
 
 **Principle:** Among competing hypotheses that predict equally well, the one with the fewest assumptions should be selected. The simplest solution is usually the best.
 
@@ -263,11 +263,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A "Login" button that opens a new page, then email, then password.
-✅ Good: A single login modal that asks for both on one screen.
+âŒ Bad: A "Login" button that opens a new page, then email, then password.
+âœ… Good: A single login modal that asks for both on one screen.
 
-❌ Bad: Using 5 different font sizes and 4 colors on a single card.
-✅ Good: Using 2 font sizes and 1 accent color.
+âŒ Bad: Using 5 different font sizes and 4 colors on a single card.
+âœ… Good: Using 2 font sizes and 1 accent color.
 ```
 
 ---
@@ -288,11 +288,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: Large, equal gaps between every line of text in a form.
-✅ Good: Tight spacing between a label and its input, with larger gaps between pairs.
+âŒ Bad: Large, equal gaps between every line of text in a form.
+âœ… Good: Tight spacing between a label and its input, with larger gaps between pairs.
 
-❌ Bad: A "Submit" button floating in the middle of a page, far from the form.
-✅ Good: The "Submit" button placed directly under the last input field.
+âŒ Bad: A "Submit" button floating in the middle of a page, far from the form.
+âœ… Good: The "Submit" button placed directly under the last input field.
 ```
 
 ---
@@ -311,11 +311,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: Some links are blue, some are green, and some are just bold black.
-✅ Good: Every clickable text element in the app is the same shade of Blue.
+âŒ Bad: Some links are blue, some are green, and some are just bold black.
+âœ… Good: Every clickable text element in the app is the same shade of Blue.
 
-❌ Bad: Using a "Blue Button" for "Submit" and the same "Blue Button" for "Cancel."
-✅ Good: "Submit" is Solid Blue; "Cancel" is a Blue Outline (Ghost Button).
+âŒ Bad: Using a "Blue Button" for "Submit" and the same "Blue Button" for "Cancel."
+âœ… Good: "Submit" is Solid Blue; "Cancel" is a Blue Outline (Ghost Button).
 ```
 
 ---
@@ -334,11 +334,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A list of news articles where the text and image of different stories overlap.
-✅ Good: Each article is contained within its own white card on a light gray background.
+âŒ Bad: A list of news articles where the text and image of different stories overlap.
+âœ… Good: Each article is contained within its own white card on a light gray background.
 
-❌ Bad: A footer that has the same background color as the main body.
-✅ Good: A dark-themed footer that clearly separates legal links from page content.
+âŒ Bad: A footer that has the same background color as the main body.
+âœ… Good: A dark-themed footer that clearly separates legal links from page content.
 ```
 
 ---
@@ -357,16 +357,16 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A 3-step setup where the numbers "1", "2", and "3" are scattered.
-✅ Good: A horizontal line connecting "1", "2", and "3" to show a sequence.
+âŒ Bad: A 3-step setup where the numbers "1", "2", and "3" are scattered.
+âœ… Good: A horizontal line connecting "1", "2", and "3" to show a sequence.
 
-❌ Bad: Floating dropdown menus that don't touch the button that opened them.
-✅ Good: A dropdown menu that visually "attaches" to the parent button.
+âŒ Bad: Floating dropdown menus that don't touch the button that opened them.
+âœ… Good: A dropdown menu that visually "attaches" to the parent button.
 ```
 
 ---
 
-### Law of Prägnanz (Simplicity)
+### Law of PrÃ¤gnanz (Simplicity)
 
 **Principle:** People will perceive and interpret ambiguous or complex images as the simplest form possible, because it is the interpretation that requires the least cognitive effort.
 
@@ -380,11 +380,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A hyper-realistic 3D illustration of a file folder for the "Files" icon.
-✅ Good: A simple 2D outline of a folder.
+âŒ Bad: A hyper-realistic 3D illustration of a file folder for the "Files" icon.
+âœ… Good: A simple 2D outline of a folder.
 
-❌ Bad: A multi-colored, complex logo used as a loading spinner.
-✅ Good: A simple, single-color circular ring.
+âŒ Bad: A multi-colored, complex logo used as a loading spinner.
+âœ… Good: A simple, single-color circular ring.
 ```
 
 ---
@@ -403,18 +403,18 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A popup window that has no shadow or border, blending into the page.
-✅ Good: A modal with a drop shadow and a dimmed background overlay.
+âŒ Bad: A popup window that has no shadow or border, blending into the page.
+âœ… Good: A modal with a drop shadow and a dimmed background overlay.
 
-❌ Bad: White text placed directly over a busy, multi-colored photograph.
-✅ Good: White text placed over a dark semi-transparent "scrim."
+âŒ Bad: White text placed directly over a busy, multi-colored photograph.
+âœ… Good: White text placed over a dark semi-transparent "scrim."
 ```
 
 ---
 
 ### Law of Focal Point
 
-**Principle:** Whatever stands out visually will capture and hold the viewer’s attention first.
+**Principle:** Whatever stands out visually will capture and hold the viewerâ€™s attention first.
 
 **Application:**
 - **Entry:** Place the primary value proposition at the focal point.
@@ -426,11 +426,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A homepage with 5 buttons of the same size and color.
-✅ Good: One large "Get Started" button in a bright color.
+âŒ Bad: A homepage with 5 buttons of the same size and color.
+âœ… Good: One large "Get Started" button in a bright color.
 
-❌ Bad: A dashboard where "Total Revenue" is the same size as "System Version."
-✅ Good: "Total Revenue" displayed in huge, bold numbers at the top center.
+âŒ Bad: A dashboard where "Total Revenue" is the same size as "System Version."
+âœ… Good: "Total Revenue" displayed in huge, bold numbers at the top center.
 ```
 
 ---
@@ -451,11 +451,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A silent onboarding process that gives no indication of what's left.
-✅ Good: A checklist that shows "3 of 5 steps finished."
+âŒ Bad: A silent onboarding process that gives no indication of what's left.
+âœ… Good: A checklist that shows "3 of 5 steps finished."
 
-❌ Bad: An e-learning app that shows a checkmark even if a video was half-watched.
-✅ Good: A progress ring that stays half-full until the video is finished.
+âŒ Bad: An e-learning app that shows a checkmark even if a video was half-watched.
+âœ… Good: A progress ring that stays half-full until the video is finished.
 ```
 
 ### Goal Gradient Effect
@@ -472,11 +472,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A progress bar that starts at 0% and feels like a long climb.
-✅ Good: A bar that starts at 20% because the user "started" by opening the app.
+âŒ Bad: A progress bar that starts at 0% and feels like a long climb.
+âœ… Good: A bar that starts at 20% because the user "started" by opening the app.
 
-❌ Bad: A checkout flow where the "Final Review" feels like a surprise 5th step.
-✅ Good: Clearly labeling the steps: "Shipping > Payment > Almost Done!"
+âŒ Bad: A checkout flow where the "Final Review" feels like a surprise 5th step.
+âœ… Good: Clearly labeling the steps: "Shipping > Payment > Almost Done!"
 ```
 
 ### Peak-End Rule
@@ -493,16 +493,16 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: After a 20-minute tax filing process, the app just says "Submitted."
-✅ Good: A "Congratulations!" screen with a summary of the refund amount.
+âŒ Bad: After a 20-minute tax filing process, the app just says "Submitted."
+âœ… Good: A "Congratulations!" screen with a summary of the refund amount.
 
-❌ Bad: A game that ends with a simple "Game Over" text in plain font.
-✅ Good: A summary screen showing high scores with celebratory music.
+âŒ Bad: A game that ends with a simple "Game Over" text in plain font.
+âœ… Good: A summary screen showing high scores with celebratory music.
 ```
 
 ### Aesthetic-Usability Effect
 
-**Principle:** Users often perceive aesthetically pleasing design as design that’s more usable.
+**Principle:** Users often perceive aesthetically pleasing design as design thatâ€™s more usable.
 
 **Application:**
 - **Trust:** High-fidelity visuals buy "trust credit" for minor bugs.
@@ -514,11 +514,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A banking app with misaligned text and clashing 1990s colors.
-✅ Good: A sleek, modern banking app with smooth animations.
+âŒ Bad: A banking app with misaligned text and clashing 1990s colors.
+âœ… Good: A sleek, modern banking app with smooth animations.
 
-❌ Bad: Using low-resolution, pixelated stock photos.
-✅ Good: Using high-definition, custom brand illustrations.
+âŒ Bad: Using low-resolution, pixelated stock photos.
+âœ… Good: Using high-definition, custom brand illustrations.
 ```
 
 ### Anchoring Bias
@@ -535,11 +535,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: Only showing the price "$49."
-✅ Good: Showing "~~$99~~ $49 (50% Off)."
+âŒ Bad: Only showing the price "$49."
+âœ… Good: Showing "~~$99~~ $49 (50% Off)."
 
-❌ Bad: Sorting a list of laptops from cheapest to most expensive.
-✅ Good: Showing a high-end "Pro" model first to make others seem cheap.
+âŒ Bad: Sorting a list of laptops from cheapest to most expensive.
+âœ… Good: Showing a high-end "Pro" model first to make others seem cheap.
 ```
 
 ### Social Proof
@@ -556,11 +556,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A signup page with just a form.
-✅ Good: A signup page that says "Join 2 million designers."
+âŒ Bad: A signup page with just a form.
+âœ… Good: A signup page that says "Join 2 million designers."
 
-❌ Bad: Anonymous reviews with no names or photos.
-✅ Good: Reviews that include a face, a name, and a "Verified Buyer" tag.
+âŒ Bad: Anonymous reviews with no names or photos.
+âœ… Good: Reviews that include a face, a name, and a "Verified Buyer" tag.
 ```
 
 ### Scarcity Principle
@@ -577,11 +577,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A sale that never ends and has no countdown.
-✅ Good: A "Deal of the Day" with a ticking timer.
+âŒ Bad: A sale that never ends and has no countdown.
+âœ… Good: A "Deal of the Day" with a ticking timer.
 
-❌ Bad: Showing a product is available with no stock count.
-✅ Good: "Only 3 left at this price!"
+âŒ Bad: Showing a product is available with no stock count.
+âœ… Good: "Only 3 left at this price!"
 ```
 
 ### Authority Bias
@@ -598,11 +598,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A health blog written by "Admin."
-✅ Good: A health article "Reviewed by Dr. Jane Smith, Cardiologist."
+âŒ Bad: A health blog written by "Admin."
+âœ… Good: A health article "Reviewed by Dr. Jane Smith, Cardiologist."
 
-❌ Bad: A security app with no mentions of certifications.
-✅ Good: Displaying "ISO 27001 Certified" and "Norton Secured" logos.
+âŒ Bad: A security app with no mentions of certifications.
+âœ… Good: Displaying "ISO 27001 Certified" and "Norton Secured" logos.
 ```
 
 ### Loss Aversion
@@ -619,11 +619,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: "Click here to get a $10 coupon."
-✅ Good: "You have a $10 credit waiting. Use it before it expires tonight!"
+âŒ Bad: "Click here to get a $10 coupon."
+âœ… Good: "You have a $10 credit waiting. Use it before it expires tonight!"
 
-❌ Bad: "Cancel your subscription."
-✅ Good: "If you cancel, you will lose access to your 50 saved projects."
+âŒ Bad: "Cancel your subscription."
+âœ… Good: "If you cancel, you will lose access to your 50 saved projects."
 ```
 
 ### False-Consensus Effect
@@ -640,11 +640,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A designer deciding a feature is "intuitive" without testing it.
-✅ Good: Running an A/B test to see which version users prefer.
+âŒ Bad: A designer deciding a feature is "intuitive" without testing it.
+âœ… Good: Running an A/B test to see which version users prefer.
 
-❌ Bad: Building an app entirely in English because "everyone knows English."
-✅ Good: Adding localization based on actual user location data.
+âŒ Bad: Building an app entirely in English because "everyone knows English."
+âœ… Good: Adding localization based on actual user location data.
 ```
 
 ### Curse of Knowledge
@@ -661,11 +661,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: An error message saying "Exception: Null Pointer at 0x0045."
-✅ Good: An error message saying "Something went wrong. Please try refreshing."
+âŒ Bad: An error message saying "Exception: Null Pointer at 0x0045."
+âœ… Good: An error message saying "Something went wrong. Please try refreshing."
 
-❌ Bad: Navigating a cloud app using terms like "S3 Bucket Instances."
-✅ Good: Using simple terms like "File Storage."
+âŒ Bad: Navigating a cloud app using terms like "S3 Bucket Instances."
+âœ… Good: Using simple terms like "File Storage."
 ```
 
 ### Stepping Stone Effect (Foot-in-the-Door)
@@ -682,11 +682,11 @@ Long landing page:
 
 **Example:**
 ```
-❌ Bad: A "Start Free Trial" button that immediately requires credit card info.
-✅ Good: Asking for an email and password first, then offering the trial.
+âŒ Bad: A "Start Free Trial" button that immediately requires credit card info.
+âœ… Good: Asking for an email and password first, then offering the trial.
 
-❌ Bad: A survey that shows all 50 questions on one page.
-✅ Good: A survey that starts with one easy "Yes/No" question.
+âŒ Bad: A survey that shows all 50 questions on one page.
+âœ… Good: A survey that starts with one easy "Yes/No" question.
 ```
 
 ---
@@ -696,28 +696,28 @@ Long landing page:
 ### Three Levels of Processing
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  VISCERAL (Lizard Brain)                                    │
-│  ─────────────────────                                      │
-│  • Immediate, automatic reaction                            │
-│  • First impressions (first 50ms)                          │
-│  • Aesthetics: colors, shapes, imagery                      │
-│  • "Wow, this looks beautiful!"                            │
-├─────────────────────────────────────────────────────────────┤
-│  BEHAVIORAL (Functional Brain)                              │
-│  ─────────────────────────────                              │
-│  • Usability and function                                   │
-│  • Pleasure from effective use                              │
-│  • Performance, reliability, ease                           │
-│  • "This works exactly how I expected!"                    │
-├─────────────────────────────────────────────────────────────┤
-│  REFLECTIVE (Conscious Brain)                               │
-│  ─────────────────────────────                              │
-│  • Conscious thought and meaning                            │
-│  • Personal identity and values                             │
-│  • Long-term memory and loyalty                             │
-│  • "This brand represents who I am"                        │
-└─────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  VISCERAL (Lizard Brain)                                    â”‚
+â”‚  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€                                      â”‚
+â”‚  â€¢ Immediate, automatic reaction                            â”‚
+â”‚  â€¢ First impressions (first 50ms)                          â”‚
+â”‚  â€¢ Aesthetics: colors, shapes, imagery                      â”‚
+â”‚  â€¢ "Wow, this looks beautiful!"                            â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  BEHAVIORAL (Functional Brain)                              â”‚
+â”‚  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€                              â”‚
+â”‚  â€¢ Usability and function                                   â”‚
+â”‚  â€¢ Pleasure from effective use                              â”‚
+â”‚  â€¢ Performance, reliability, ease                           â”‚
+â”‚  â€¢ "This works exactly how I expected!"                    â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  REFLECTIVE (Conscious Brain)                               â”‚
+â”‚  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€                              â”‚
+â”‚  â€¢ Conscious thought and meaning                            â”‚
+â”‚  â€¢ Personal identity and values                             â”‚
+â”‚  â€¢ Long-term memory and loyalty                             â”‚
+â”‚  â€¢ "This brand represents who I am"                        â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Designing for Each Level
@@ -781,18 +781,18 @@ button.onclick = () => {
 ### Trust Signal Placement
 
 ```
-┌────────────────────────────────────────────────────┐
-│  HEADER: Trust banner ("Free shipping | 30-day    │
-│          returns | Secure checkout")               │
-├────────────────────────────────────────────────────┤
-│  HERO: Social proof ("Trusted by 10,000+")        │
-├────────────────────────────────────────────────────┤
-│  PRODUCT: Reviews visible, security badges         │
-├────────────────────────────────────────────────────┤
-│  CHECKOUT: Payment icons, SSL badge, guarantee     │
-├────────────────────────────────────────────────────┤
-│  FOOTER: Contact info, policies, certifications    │
-└────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  HEADER: Trust banner ("Free shipping | 30-day    â”‚
+â”‚          returns | Secure checkout")               â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  HERO: Social proof ("Trusted by 10,000+")        â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  PRODUCT: Reviews visible, security badges         â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  CHECKOUT: Payment icons, SSL badge, guarantee     â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  FOOTER: Contact info, policies, certifications    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Trust-Building CSS Patterns
@@ -812,7 +812,7 @@ button.onclick = () => {
 
 /* Secure form indicator */
 .secure-form::before {
-  content: '🔒 Secure form';
+  content: 'ðŸ”’ Secure form';
   display: block;
   font-size: 12px;
   color: #166534;
@@ -852,7 +852,7 @@ button.onclick = () => {
 
 **1. Simplify (Reduce Extraneous)**
 ```css
-/* Visual noise → Clean */
+/* Visual noise â†’ Clean */
 .card-busy {
   border: 2px solid red;
   background: linear-gradient(...);
@@ -896,7 +896,7 @@ button.onclick = () => {
     <!-- Common filters visible -->
   </div>
   <button onclick="toggleAdvanced()">
-    Advanced Options ▼
+    Advanced Options â–¼
   </button>
   <div class="filters-advanced" hidden>
     <!-- Complex filters hidden -->
@@ -906,10 +906,10 @@ button.onclick = () => {
 
 **4. Use Familiar Patterns**
 ```
-✅ Standard navigation placement
-✅ Expected icon meanings (🔍 = search)
-✅ Conventional form layouts
-✅ Common gesture patterns (swipe, pinch)
+âœ… Standard navigation placement
+âœ… Expected icon meanings (ðŸ” = search)
+âœ… Conventional form layouts
+âœ… Common gesture patterns (swipe, pinch)
 ```
 
 **5. Offload Information**
@@ -967,7 +967,7 @@ button.onclick = () => {
 ```html
 <!-- Real-time activity -->
 <div class="activity">
-  <span class="avatar">👤</span>
+  <span class="avatar">ðŸ‘¤</span>
   <span>Sarah from NYC just purchased</span>
 </div>
 
@@ -998,12 +998,12 @@ CHARACTERISTICS:
 - Visual learners
 
 DESIGN APPROACH:
-├── Colors: Vibrant, hypercolor, bold gradients
-├── Typography: Large, variable, experimental
-├── Layout: Vertical scroll, mobile-native
-├── Interactions: Fast, gamified, gesture-based
-├── Content: Short-form video, memes, stories
-└── Trust: Peer reviews > authority
+â”œâ”€â”€ Colors: Vibrant, hypercolor, bold gradients
+â”œâ”€â”€ Typography: Large, variable, experimental
+â”œâ”€â”€ Layout: Vertical scroll, mobile-native
+â”œâ”€â”€ Interactions: Fast, gamified, gesture-based
+â”œâ”€â”€ Content: Short-form video, memes, stories
+â””â”€â”€ Trust: Peer reviews > authority
 ```
 
 ### Millennials (Born 1981-1996)
@@ -1016,12 +1016,12 @@ CHARACTERISTICS:
 - Price-sensitive but quality-aware
 
 DESIGN APPROACH:
-├── Colors: Muted pastels, earth tones
-├── Typography: Clean, readable sans-serif
-├── Layout: Responsive, card-based
-├── Interactions: Smooth, purposeful animations
-├── Content: Value-driven, transparent
-└── Trust: Reviews, sustainability, values
+â”œâ”€â”€ Colors: Muted pastels, earth tones
+â”œâ”€â”€ Typography: Clean, readable sans-serif
+â”œâ”€â”€ Layout: Responsive, card-based
+â”œâ”€â”€ Interactions: Smooth, purposeful animations
+â”œâ”€â”€ Content: Value-driven, transparent
+â””â”€â”€ Trust: Reviews, sustainability, values
 ```
 
 ### Gen X (Born 1965-1980)
@@ -1034,12 +1034,12 @@ CHARACTERISTICS:
 - Balanced tech comfort
 
 DESIGN APPROACH:
-├── Colors: Professional, trustworthy
-├── Typography: Familiar, conservative
-├── Layout: Clear hierarchy, traditional
-├── Interactions: Functional, not flashy
-├── Content: Direct, fact-based
-└── Trust: Expertise, track record
+â”œâ”€â”€ Colors: Professional, trustworthy
+â”œâ”€â”€ Typography: Familiar, conservative
+â”œâ”€â”€ Layout: Clear hierarchy, traditional
+â”œâ”€â”€ Interactions: Functional, not flashy
+â”œâ”€â”€ Content: Direct, fact-based
+â””â”€â”€ Trust: Expertise, track record
 ```
 
 ### Baby Boomers (Born 1946-1964)
@@ -1052,12 +1052,12 @@ CHARACTERISTICS:
 - Less tech-confident
 
 DESIGN APPROACH:
-├── Colors: High contrast, simple palette
-├── Typography: Large (18px+), high contrast
-├── Layout: Simple, linear, spacious
-├── Interactions: Minimal, clear feedback
-├── Content: Comprehensive, detailed
-└── Trust: Phone numbers, real people
+â”œâ”€â”€ Colors: High contrast, simple palette
+â”œâ”€â”€ Typography: Large (18px+), high contrast
+â”œâ”€â”€ Layout: Simple, linear, spacious
+â”œâ”€â”€ Interactions: Minimal, clear feedback
+â”œâ”€â”€ Content: Comprehensive, detailed
+â””â”€â”€ Trust: Phone numbers, real people
 ```
 
 ---
@@ -1065,20 +1065,20 @@ DESIGN APPROACH:
 ## 7. Emotion Color Mapping
 
 ```
-┌────────────────────────────────────────────────────┐
-│  EMOTION          │  COLORS           │  USE       │
-├───────────────────┼───────────────────┼────────────┤
-│  Trust            │  Blue, Green      │  Finance   │
-│  Excitement       │  Red, Orange      │  Sales     │
-│  Calm             │  Blue, Soft green │  Wellness  │
-│  Luxury           │  Black, Gold      │  Premium   │
-│  Creativity       │  Teal, Pink       │  Art       │
-│  Energy           │  Yellow, Orange   │  Sports    │
-│  Nature           │  Green, Brown     │  Eco       │
-│  Happiness        │  Yellow, Orange   │  Kids      │
-│  Sophistication   │  Gray, Navy       │  Corporate │
-│  Urgency          │  Red              │  Errors    │
-└───────────────────┴───────────────────┴────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  EMOTION          â”‚  COLORS           â”‚  USE       â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  Trust            â”‚  Blue, Green      â”‚  Finance   â”‚
+â”‚  Excitement       â”‚  Red, Orange      â”‚  Sales     â”‚
+â”‚  Calm             â”‚  Blue, Soft green â”‚  Wellness  â”‚
+â”‚  Luxury           â”‚  Black, Gold      â”‚  Premium   â”‚
+â”‚  Creativity       â”‚  Teal, Pink       â”‚  Art       â”‚
+â”‚  Energy           â”‚  Yellow, Orange   â”‚  Sports    â”‚
+â”‚  Nature           â”‚  Green, Brown     â”‚  Eco       â”‚
+â”‚  Happiness        â”‚  Yellow, Orange   â”‚  Kids      â”‚
+â”‚  Sophistication   â”‚  Gray, Navy       â”‚  Corporate â”‚
+â”‚  Urgency          â”‚  Red              â”‚  Errors    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -1093,21 +1093,21 @@ DESIGN APPROACH:
 - [ ] **Jakob's Law:** Does the site follow standard web conventions that users already understand?
 - [ ] **Doherty Threshold:** Does the system provide feedback within 400ms? Are skeleton screens in place?
 - [ ] **Tesler's Law:** Has complexity been moved from the user to the system where possible?
-- [ ] **Parkinson’s Law:** Are there features like "One-Click Checkout" to minimize task completion time?
+- [ ] **Parkinsonâ€™s Law:** Are there features like "One-Click Checkout" to minimize task completion time?
 - [ ] **Von Restorff:** Does the primary CTA visually stand out from all other elements?
 - [ ] **Serial Position:** Is the most critical information at the very beginning or end of lists?
 - [ ] **Gestalt Laws:** Are related items physically grouped together (Proximity) or within a Card (Common Region)?
 - [ ] **Zeigarnik Effect:** Are there visual indicators (like progress bars) for incomplete tasks?
 - [ ] **Goal Gradient:** Is the user given a "head start" (e.g., 20% progress) to encourage completion?
 - [ ] **Peak-End Rule:** Does the final "Success" screen create a moment of delight?
-- [ ] **Occam’s Razor:** Have unnecessary visual or functional elements been removed?
+- [ ] **Occamâ€™s Razor:** Have unnecessary visual or functional elements been removed?
 - [ ] **Aesthetic-Usability:** Is the UI high-fidelity enough to build initial user trust?
 - [ ] **Trust & Authority:** Are security badges, reviews, and expert certifications visible?
 - [ ] **Social Proof:** Are real user numbers or testimonials visible at decision points?
 - [ ] **Scarcity & Urgency:** If used, is the scarcity real and ethical (e.g., actual low stock)?
 - [ ] **Loss Aversion:** Does the copy emphasize what the user stands to keep rather than just gain?
 - [ ] **Anchoring:** Is the pricing presented in a way that frames the desired choice as a great value?
-- [ ] **Postel’s Law:** Is the system flexible enough to accept various input formats without errors?
+- [ ] **Postelâ€™s Law:** Is the system flexible enough to accept various input formats without errors?
 - [ ] **False-Consensus:** Has the design been tested with real users rather than just the internal team?
 - [ ] **Curse of Knowledge:** Is the copy free of technical jargon and easy for a beginner to understand?
 - [ ] **Stepping Stone:** Does the funnel start with low-friction tasks (e.g., email only)?
@@ -1115,5 +1115,6 @@ DESIGN APPROACH:
 - [ ] **Emotional Design:** Does the color palette and imagery evoke the intended visceral reaction?
 - [ ] **Feedback:** Do all interactive elements have immediate hover, active, and success states?
 - [ ] **Accessibility:** Is the contrast ratio sufficient, and is the site navigable via keyboard/screen reader?
-- [ ] **Prägnanz:** Are icons and shapes simple enough to be recognized at a glance?
+- [ ] **PrÃ¤gnanz:** Are icons and shapes simple enough to be recognized at a glance?
 - [ ] **Figure/Ground:** Is it clear which element is in focus (e.g., using shadows or scrims for modals)?
+

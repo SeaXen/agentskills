@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'security-hardened-api' (source: security-hardened-api/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'security-hardened-api' (D:\Repo\.agents\skills\security-hardened-api\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -26,16 +26,16 @@ version: 1.0
 
 ---
 
-## 📋 Broken Object-Level Authorization (BOLA) Prevention Pattern
+## ðŸ“‹ Broken Object-Level Authorization (BOLA) Prevention Pattern
 
 ```typescript
-// ❌ VULNERABLE: Direct object reference without ownership check
+// âŒ VULNERABLE: Direct object reference without ownership check
 app.get('/api/documents/:id', async (req, res) => {
   const doc = await db.document.findUnique({ where: { id: req.params.id } });
   res.json(doc); // ANY user can view ANY document by ID!
 });
 
-// ✅ SECURE: Enforce tenant / user ownership boundary
+// âœ… SECURE: Enforce tenant / user ownership boundary
 app.get('/api/documents/:id', requireAuth, async (req, res) => {
   const doc = await db.document.findFirst({
     where: {
@@ -57,8 +57,9 @@ app.get('/api/documents/:id', requireAuth, async (req, res) => {
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Storing JWTs in unencrypted `localStorage` (vulnerable to XSS). Use `HttpOnly`, `Secure`, `SameSite=Strict` cookies.
-- ❌ Trusting headers like `X-Forwarded-For` without configuring trusted proxy hops.
-- ❌ Using `cors({ origin: '*' })` on authenticated API endpoints.
+- âŒ Storing JWTs in unencrypted `localStorage` (vulnerable to XSS). Use `HttpOnly`, `Secure`, `SameSite=Strict` cookies.
+- âŒ Trusting headers like `X-Forwarded-For` without configuring trusted proxy hops.
+- âŒ Using `cors({ origin: '*' })` on authenticated API endpoints.
+

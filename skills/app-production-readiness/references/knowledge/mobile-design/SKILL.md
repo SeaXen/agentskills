@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'mobile-design' (source: mobile-design/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ allowed-tools: Read, Glob, Grep, Bash
 
 ---
 
-## 🔧 Runtime Scripts
+## ðŸ”§ Runtime Scripts
 
 **Execute these for validation (don't read, just run):**
 
@@ -24,26 +24,26 @@ allowed-tools: Read, Glob, Grep, Bash
 
 ---
 
-## 🔴 MANDATORY: Read Reference Files Before Working!
+## ðŸ”´ MANDATORY: Read Reference Files Before Working!
 
-**⛔ DO NOT start development until you read the relevant files:**
+**â›” DO NOT start development until you read the relevant files:**
 
 ### Universal (Always Read)
 
 | File | Content | Status |
 |------|---------|--------|
-| **[mobile-design-thinking.md](mobile-design-thinking.md)** | **⚠️ ANTI-MEMORIZATION: Forces thinking, prevents AI defaults** | **⬜ CRITICAL FIRST** |
-| **[touch-psychology.md](touch-psychology.md)** | **Fitts' Law, gestures, haptics, thumb zone** | **⬜ CRITICAL** |
-| **[mobile-performance.md](mobile-performance.md)** | **RN/Flutter performance, 60fps, memory** | **⬜ CRITICAL** |
-| **[mobile-backend.md](mobile-backend.md)** | **Push notifications, offline sync, mobile API** | **⬜ CRITICAL** |
-| **[mobile-testing.md](mobile-testing.md)** | **Testing pyramid, E2E, platform-specific** | **⬜ CRITICAL** |
-| **[mobile-debugging.md](mobile-debugging.md)** | **Native vs JS debugging, Flipper, Logcat** | **⬜ CRITICAL** |
-| [mobile-navigation.md](mobile-navigation.md) | Tab/Stack/Drawer, deep linking | ⬜ Read |
-| [mobile-typography.md](mobile-typography.md) | System fonts, Dynamic Type, a11y | ⬜ Read |
-| [mobile-color-system.md](mobile-color-system.md) | OLED, dark mode, battery-aware | ⬜ Read |
-| [decision-trees.md](decision-trees.md) | Framework/state/storage selection | ⬜ Read |
+| **[mobile-design-thinking.md](mobile-design-thinking.md)** | **âš ï¸ ANTI-MEMORIZATION: Forces thinking, prevents AI defaults** | **â¬œ CRITICAL FIRST** |
+| **[touch-psychology.md](touch-psychology.md)** | **Fitts' Law, gestures, haptics, thumb zone** | **â¬œ CRITICAL** |
+| **[mobile-performance.md](mobile-performance.md)** | **RN/Flutter performance, 60fps, memory** | **â¬œ CRITICAL** |
+| **[mobile-backend.md](mobile-backend.md)** | **Push notifications, offline sync, mobile API** | **â¬œ CRITICAL** |
+| **[mobile-testing.md](mobile-testing.md)** | **Testing pyramid, E2E, platform-specific** | **â¬œ CRITICAL** |
+| **[mobile-debugging.md](mobile-debugging.md)** | **Native vs JS debugging, Flipper, Logcat** | **â¬œ CRITICAL** |
+| [mobile-navigation.md](mobile-navigation.md) | Tab/Stack/Drawer, deep linking | â¬œ Read |
+| [mobile-typography.md](mobile-typography.md) | System fonts, Dynamic Type, a11y | â¬œ Read |
+| [mobile-color-system.md](mobile-color-system.md) | OLED, dark mode, battery-aware | â¬œ Read |
+| [decision-trees.md](decision-trees.md) | Framework/state/storage selection | â¬œ Read |
 
-> 🧠 **mobile-design-thinking.md is PRIORITY!** This file ensures AI thinks instead of using memorized patterns.
+> ðŸ§  **mobile-design-thinking.md is PRIORITY!** This file ensures AI thinks instead of using memorized patterns.
 
 ### Platform-Specific (Read Based on Target)
 
@@ -53,13 +53,13 @@ allowed-tools: Read, Glob, Grep, Bash
 | **Android** | [platform-android.md](platform-android.md) | Material Design 3, Roboto, Compose patterns | Building for Android |
 | **Cross-Platform** | Both above | Platform divergence points | React Native / Flutter |
 
-> 🔴 **If building for iOS → Read platform-ios.md FIRST!**
-> 🔴 **If building for Android → Read platform-android.md FIRST!**
-> 🔴 **If cross-platform → Read BOTH and apply conditional platform logic!**
+> ðŸ”´ **If building for iOS â†’ Read platform-ios.md FIRST!**
+> ðŸ”´ **If building for Android â†’ Read platform-android.md FIRST!**
+> ðŸ”´ **If cross-platform â†’ Read BOTH and apply conditional platform logic!**
 
 ---
 
-## ⚠️ CRITICAL: ASK BEFORE ASSUMING (MANDATORY)
+## âš ï¸ CRITICAL: ASK BEFORE ASSUMING (MANDATORY)
 
 > **STOP! If the user's request is open-ended, DO NOT default to your favorites.**
 
@@ -74,13 +74,13 @@ allowed-tools: Read, Glob, Grep, Bash
 | **Offline** | "Does this need to work offline?" | Affects data strategy |
 | **Target devices** | "Phone only, or tablet support?" | Layout complexity |
 
-### ⛔ AI MOBILE ANTI-PATTERNS (YASAK LİSTESİ)
+### â›” AI MOBILE ANTI-PATTERNS (YASAK LÄ°STESÄ°)
 
-> 🚫 **These are AI default tendencies that MUST be avoided!**
+> ðŸš« **These are AI default tendencies that MUST be avoided!**
 
 #### Performance Sins
 
-| ❌ NEVER DO | Why It's Wrong | ✅ ALWAYS DO |
+| âŒ NEVER DO | Why It's Wrong | âœ… ALWAYS DO |
 |-------------|----------------|--------------|
 | **ScrollView for long lists** | Renders ALL items, memory explodes | Use `FlatList` / `FlashList` / `ListView.builder` |
 | **Inline renderItem function** | New function every render, all items re-render | `useCallback` + `React.memo` |
@@ -93,7 +93,7 @@ allowed-tools: Read, Glob, Grep, Bash
 
 #### Touch/UX Sins
 
-| ❌ NEVER DO | Why It's Wrong | ✅ ALWAYS DO |
+| âŒ NEVER DO | Why It's Wrong | âœ… ALWAYS DO |
 |-------------|----------------|--------------|
 | **Touch target < 44px** | Impossible to tap accurately, frustrating | Minimum 44pt (iOS) / 48dp (Android) |
 | **Spacing < 8px between targets** | Accidental taps on neighbors | Minimum 8-12px gap |
@@ -105,7 +105,7 @@ allowed-tools: Read, Glob, Grep, Bash
 
 #### Security Sins
 
-| ❌ NEVER DO | Why It's Wrong | ✅ ALWAYS DO |
+| âŒ NEVER DO | Why It's Wrong | âœ… ALWAYS DO |
 |-------------|----------------|--------------|
 | **Token in AsyncStorage** | Easily accessible, stolen on rooted device | `SecureStore` / `Keychain` / `EncryptedSharedPreferences` |
 | **Hardcode API keys** | Reverse engineered from APK/IPA | Environment variables, secure storage |
@@ -114,7 +114,7 @@ allowed-tools: Read, Glob, Grep, Bash
 
 #### Architecture Sins
 
-| ❌ NEVER DO | Why It's Wrong | ✅ ALWAYS DO |
+| âŒ NEVER DO | Why It's Wrong | âœ… ALWAYS DO |
 |-------------|----------------|--------------|
 | **Business logic in UI** | Untestable, unmaintainable | Service layer separation |
 | **Global state for everything** | Unnecessary re-renders, complexity | Local state default, lift when needed |
@@ -123,24 +123,24 @@ allowed-tools: Read, Glob, Grep, Bash
 
 ---
 
-## 📱 Platform Decision Matrix
+## ðŸ“± Platform Decision Matrix
 
 ### When to Unify vs Diverge
 
 ```
                     UNIFY (same on both)          DIVERGE (platform-specific)
-                    ───────────────────           ──────────────────────────
-Business Logic      ✅ Always                     -
-Data Layer          ✅ Always                     -
-Core Features       ✅ Always                     -
+                    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€           â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+Business Logic      âœ… Always                     -
+Data Layer          âœ… Always                     -
+Core Features       âœ… Always                     -
                     
-Navigation          -                             ✅ iOS: edge swipe, Android: back button
-Gestures            -                             ✅ Platform-native feel
-Icons               -                             ✅ SF Symbols vs Material Icons
-Date Pickers        -                             ✅ Native pickers feel right
-Modals/Sheets       -                             ✅ iOS: bottom sheet vs Android: dialog
-Typography          -                             ✅ SF Pro vs Roboto (or custom)
-Error Dialogs       -                             ✅ Platform conventions for alerts
+Navigation          -                             âœ… iOS: edge swipe, Android: back button
+Gestures            -                             âœ… Platform-native feel
+Icons               -                             âœ… SF Symbols vs Material Icons
+Date Pickers        -                             âœ… Native pickers feel right
+Modals/Sheets       -                             âœ… iOS: bottom sheet vs Android: dialog
+Typography          -                             âœ… SF Pro vs Roboto (or custom)
+Error Dialogs       -                             âœ… Platform conventions for alerts
 ```
 
 ### Quick Reference: Platform Defaults
@@ -148,7 +148,7 @@ Error Dialogs       -                             ✅ Platform conventions for a
 | Element | iOS | Android |
 |---------|-----|---------|
 | **Primary Font** | SF Pro / SF Compact | Roboto |
-| **Min Touch Target** | 44pt × 44pt | 48dp × 48dp |
+| **Min Touch Target** | 44pt Ã— 44pt | 48dp Ã— 48dp |
 | **Back Navigation** | Edge swipe left | System back button/gesture |
 | **Bottom Tab Icons** | SF Symbols | Material Symbols |
 | **Action Sheet** | UIActionSheet from bottom | Bottom Sheet / Dialog |
@@ -157,7 +157,7 @@ Error Dialogs       -                             ✅ Platform conventions for a
 
 ---
 
-## 🧠 Mobile UX Psychology (Quick Reference)
+## ðŸ§  Mobile UX Psychology (Quick Reference)
 
 ### Fitts' Law for Touch
 
@@ -165,24 +165,24 @@ Error Dialogs       -                             ✅ Platform conventions for a
 Desktop: Cursor is precise (1px)
 Mobile:  Finger is imprecise (~7mm contact area)
 
-→ Touch targets MUST be 44-48px minimum
-→ Important actions in THUMB ZONE (bottom of screen)
-→ Destructive actions AWAY from easy reach
+â†’ Touch targets MUST be 44-48px minimum
+â†’ Important actions in THUMB ZONE (bottom of screen)
+â†’ Destructive actions AWAY from easy reach
 ```
 
 ### Thumb Zone (One-Handed Usage)
 
 ```
-┌─────────────────────────────┐
-│      HARD TO REACH          │ ← Navigation, menu, back
-│        (stretch)            │
-├─────────────────────────────┤
-│      OK TO REACH            │ ← Secondary actions
-│       (natural)             │
-├─────────────────────────────┤
-│      EASY TO REACH          │ ← PRIMARY CTAs, tab bar
-│    (thumb's natural arc)    │ ← Main content interaction
-└─────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚      HARD TO REACH          â”‚ â† Navigation, menu, back
+â”‚        (stretch)            â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚      OK TO REACH            â”‚ â† Secondary actions
+â”‚       (natural)             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚      EASY TO REACH          â”‚ â† PRIMARY CTAs, tab bar
+â”‚    (thumb's natural arc)    â”‚ â† Main content interaction
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
         [  HOME  ]
 ```
 
@@ -200,12 +200,12 @@ For deep dive: [touch-psychology.md](touch-psychology.md)
 
 ---
 
-## ⚡ Performance Principles (Quick Reference)
+## âš¡ Performance Principles (Quick Reference)
 
 ### React Native Critical Rules
 
 ```typescript
-// ✅ CORRECT: Memoized renderItem + React.memo wrapper
+// âœ… CORRECT: Memoized renderItem + React.memo wrapper
 const ListItem = React.memo(({ item }: { item: Item }) => (
   <View style={styles.item}>
     <Text>{item.title}</Text>
@@ -217,7 +217,7 @@ const renderItem = useCallback(
   []
 );
 
-// ✅ CORRECT: FlatList with all optimizations
+// âœ… CORRECT: FlatList with all optimizations
 <FlatList
   data={items}
   renderItem={renderItem}
@@ -236,7 +236,7 @@ const renderItem = useCallback(
 ### Flutter Critical Rules
 
 ```dart
-// ✅ CORRECT: const constructors prevent rebuilds
+// âœ… CORRECT: const constructors prevent rebuilds
 class MyWidget extends StatelessWidget {
   const MyWidget({super.key}); // CONST!
 
@@ -251,7 +251,7 @@ class MyWidget extends StatelessWidget {
   }
 }
 
-// ✅ CORRECT: Targeted state with ValueListenableBuilder
+// âœ… CORRECT: Targeted state with ValueListenableBuilder
 ValueListenableBuilder<int>(
   valueListenable: counter,
   builder: (context, value, child) => Text('$value'),
@@ -263,22 +263,22 @@ ValueListenableBuilder<int>(
 
 ```
 GPU-accelerated (FAST):     CPU-bound (SLOW):
-├── transform               ├── width, height
-├── opacity                 ├── top, left, right, bottom
-└── (use these ONLY)        ├── margin, padding
-                            └── (AVOID animating these)
+â”œâ”€â”€ transform               â”œâ”€â”€ width, height
+â”œâ”€â”€ opacity                 â”œâ”€â”€ top, left, right, bottom
+â””â”€â”€ (use these ONLY)        â”œâ”€â”€ margin, padding
+                            â””â”€â”€ (AVOID animating these)
 ```
 
 For complete guide: [mobile-performance.md](mobile-performance.md)
 
 ---
 
-## 📝 CHECKPOINT (MANDATORY Before Any Mobile Work)
+## ðŸ“ CHECKPOINT (MANDATORY Before Any Mobile Work)
 
 > **Before writing ANY mobile code, you MUST complete this checkpoint:**
 
 ```
-🧠 CHECKPOINT:
+ðŸ§  CHECKPOINT:
 
 Platform:   [ iOS / Android / Both ]
 Framework:  [ React Native / Flutter / SwiftUI / Kotlin ]
@@ -296,7 +296,7 @@ Anti-Patterns I Will Avoid:
 
 **Example:**
 ```
-🧠 CHECKPOINT:
+ðŸ§  CHECKPOINT:
 
 Platform:   iOS + Android (Cross-platform)
 Framework:  React Native + Expo
@@ -308,42 +308,42 @@ Files Read: touch-psychology.md, mobile-performance.md, platform-ios.md, platfor
 3. Platform-specific navigation (edge swipe iOS, back button Android)
 
 Anti-Patterns I Will Avoid:
-1. ScrollView for lists → FlatList
-2. Inline renderItem → Memoized
-3. AsyncStorage for tokens → SecureStore
+1. ScrollView for lists â†’ FlatList
+2. Inline renderItem â†’ Memoized
+3. AsyncStorage for tokens â†’ SecureStore
 ```
 
-> 🔴 **Can't fill the checkpoint? → GO BACK AND READ THE SKILL FILES.**
+> ðŸ”´ **Can't fill the checkpoint? â†’ GO BACK AND READ THE SKILL FILES.**
 
 ---
 
-## 🔧 Framework Decision Tree
+## ðŸ”§ Framework Decision Tree
 
 ```
 WHAT ARE YOU BUILDING?
-        │
-        ├── Need OTA updates + rapid iteration + web team
-        │   └── ✅ React Native + Expo
-        │
-        ├── Need pixel-perfect custom UI + performance critical
-        │   └── ✅ Flutter
-        │
-        ├── Deep native features + single platform focus
-        │   ├── iOS only → SwiftUI
-        │   └── Android only → Kotlin + Jetpack Compose
-        │
-        ├── Existing RN codebase + new features
-        │   └── ✅ React Native (bare workflow)
-        │
-        └── Enterprise + existing Flutter codebase
-            └── ✅ Flutter
+        â”‚
+        â”œâ”€â”€ Need OTA updates + rapid iteration + web team
+        â”‚   â””â”€â”€ âœ… React Native + Expo
+        â”‚
+        â”œâ”€â”€ Need pixel-perfect custom UI + performance critical
+        â”‚   â””â”€â”€ âœ… Flutter
+        â”‚
+        â”œâ”€â”€ Deep native features + single platform focus
+        â”‚   â”œâ”€â”€ iOS only â†’ SwiftUI
+        â”‚   â””â”€â”€ Android only â†’ Kotlin + Jetpack Compose
+        â”‚
+        â”œâ”€â”€ Existing RN codebase + new features
+        â”‚   â””â”€â”€ âœ… React Native (bare workflow)
+        â”‚
+        â””â”€â”€ Enterprise + existing Flutter codebase
+            â””â”€â”€ âœ… Flutter
 ```
 
 For complete decision trees: [decision-trees.md](decision-trees.md)
 
 ---
 
-## 📋 Pre-Development Checklist
+## ðŸ“‹ Pre-Development Checklist
 
 ### Before Starting ANY Mobile Project
 
@@ -357,7 +357,7 @@ For complete decision trees: [decision-trees.md](decision-trees.md)
 
 ### Before Every Screen
 
-- [ ] **Touch targets ≥ 44-48px?**
+- [ ] **Touch targets â‰¥ 44-48px?**
 - [ ] **Primary CTA in thumb zone?**
 - [ ] **Loading state exists?**
 - [ ] **Error state with retry exists?**
@@ -376,7 +376,7 @@ For complete decision trees: [decision-trees.md](decision-trees.md)
 
 ---
 
-## 📚 Reference Files
+## ðŸ“š Reference Files
 
 For deeper guidance on specific areas:
 
@@ -395,3 +395,4 @@ For deeper guidance on specific areas:
 ---
 
 > **Remember:** Mobile users are impatient, interrupted, and using imprecise fingers on small screens. Design for the WORST conditions: bad network, one hand, bright sun, low battery. If it works there, it works everywhere.
+

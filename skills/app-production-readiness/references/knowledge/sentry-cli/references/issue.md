@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'sentry-cli' (source: sentry-cli/references/issue.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\issue.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -240,7 +240,7 @@ Mark an issue as resolved
 # Resolve immediately (no regression tracking)
 sentry issue resolve CLI-G5
 
-# Resolve in a specific release — future events on newer releases are
+# Resolve in a specific release â€” future events on newer releases are
 # regression-flagged
 sentry issue resolve CLI-G5 --in 0.26.1
 
@@ -251,7 +251,7 @@ sentry issue resolve CLI-G5 --in spotlight@1.2.3
 sentry issue resolve CLI-G5 --in @next
 sentry issue resolve CLI-G5 -i @next
 
-# Resolve in the current git HEAD — auto-detects the Sentry repo from
+# Resolve in the current git HEAD â€” auto-detects the Sentry repo from
 # your git origin remote (hard-errors if it can't)
 sentry issue resolve CLI-G5 --in @commit
 
@@ -280,7 +280,7 @@ Archive (ignore) an issue
 # Archive forever (fully silenced)
 sentry issue archive CLI-G5
 
-# Smart detection — unarchives when Sentry detects a spike in event frequency
+# Smart detection â€” unarchives when Sentry detects a spike in event frequency
 sentry issue archive CLI-G5 --until auto
 
 # Duration-based
@@ -288,13 +288,13 @@ sentry issue archive CLI-G5 --until 1h    # 1 hour
 sentry issue archive CLI-G5 --until 7d    # 7 days
 sentry issue archive CLI-G5 --until 2026-12-31  # specific date
 
-# Count-based — unarchive after N more events
+# Count-based â€” unarchive after N more events
 sentry issue archive CLI-G5 --until 100x
 
-# User-based — unarchive after N more users affected
+# User-based â€” unarchive after N more users affected
 sentry issue archive CLI-G5 --until 10u
 
-# Compound — count within a time window
+# Compound â€” count within a time window
 sentry issue archive CLI-G5 --until 100x/1h   # 100 events within 1 hour
 sentry issue archive CLI-G5 --until 10u/1d    # 10 users within 1 day
 
@@ -318,14 +318,15 @@ Merge 2+ issues into a single canonical group
 # Let Sentry auto-pick the parent (typically the largest by event count)
 sentry issue merge CLI-K9 CLI-15H CLI-15N
 
-# Pin the canonical parent explicitly — accepts the same formats as
+# Pin the canonical parent explicitly â€” accepts the same formats as
 # positional args, including org-qualified and project-alias forms
 sentry issue merge CLI-K9 CLI-15H CLI-15N --into CLI-K9
 sentry issue merge my-org/CLI-K9 my-org/CLI-15H --into my-org/CLI-K9
 sentry issue merge cli-k9 cli-15h --into cli-k9    # alias form
 
-# Cross-org merges are rejected — all issues must share an organization
+# Cross-org merges are rejected â€” all issues must share an organization
 # Non-error issue types (performance, info, etc.) cannot be merged
 ```
 
 All commands also support `--json`, `--fields`, `--help`, `--log-level`, and `--verbose` flags.
+

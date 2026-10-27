@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'docker-expert' (source: docker-expert/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'docker-expert' (D:\Repo\.agents\skills\docker-expert\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -26,7 +26,7 @@ version: 1.0
 
 ---
 
-## 📋 Production Multi-Stage Dockerfile Pattern (Node.js Example)
+## ðŸ“‹ Production Multi-Stage Dockerfile Pattern (Node.js Example)
 
 ```dockerfile
 # Stage 1: Dependencies
@@ -57,7 +57,7 @@ CMD ["node", "dist/index.js"]
 
 ---
 
-## 📋 Docker Compose Best Practices
+## ðŸ“‹ Docker Compose Best Practices
 
 - Use `.env` files for environment variables; never hardcode credentials.
 - Set container resource limits (`cpus`, `memory`).
@@ -66,9 +66,10 @@ CMD ["node", "dist/index.js"]
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Storing secrets or API keys in `ENV` instructions or Dockerfile layers.
-- ❌ Running `npm install` without copying lockfiles.
-- ❌ Leaving build tools (compilers, git, devDependencies) in production runtime containers.
-- ❌ Skipping `.dockerignore` (causing local `node_modules` or `.git` to copy into build contexts).
+- âŒ Storing secrets or API keys in `ENV` instructions or Dockerfile layers.
+- âŒ Running `npm install` without copying lockfiles.
+- âŒ Leaving build tools (compilers, git, devDependencies) in production runtime containers.
+- âŒ Skipping `.dockerignore` (causing local `node_modules` or `.git` to copy into build contexts).
+

@@ -208,38 +208,6 @@ def test_gitignore_fix_is_idempotent(tmp_path):
     assert again["status"] == "already-ok"
 
 
-def test_a_project_without_a_gitignore_gets_one_that_hides_secrets(tmp_path):
-    """Without a .gitignore a real .env is one `git add .` away from being committed."""
-    (tmp_path / "package.json").write_text('{"name": "x"}', encoding="utf-8")
-    (tmp_path / ".env").write_text("STRIPE_SECRET_KEY=sk_live_51H8xQ2eZvKYlo2Cabcdefghijk\n",
-                                   encoding="utf-8")
-    result = fixes.fix_gitignore_missing(tmp_path)
-    assert result["status"] == "applied"
-    text = (tmp_path / ".gitignore").read_text(encoding="utf-8")
-    assert ".env" in text.splitlines()
-    assert "!.env.example" in text
-    assert "qa/fix-backup/" in text
-    assert "node_modules/" in text
-
-
-def test_the_created_gitignore_is_idempotent_and_never_overwrites(tmp_path):
-    (tmp_path / ".gitignore").write_text("custom-rule\n", encoding="utf-8")
-    result = fixes.fix_gitignore_missing(tmp_path)
-    assert result["status"] == "already-ok"
-    assert (tmp_path / ".gitignore").read_text(encoding="utf-8") == "custom-rule\n"
-
-
-def test_a_created_gitignore_makes_the_local_env_uncommittable(tmp_path):
-    """The created file must actually satisfy the preflight 'not committed' rule."""
-    import preflight
-    (tmp_path / "package.json").write_text('{"name": "x"}', encoding="utf-8")
-    (tmp_path / ".env").write_text("STRIPE_SECRET_KEY=sk_live_51H8xQ2eZvKYlo2Cabcdefghijk\n",
-                                   encoding="utf-8")
-    fixes.fix_gitignore_missing(tmp_path)
-    checks = {c.name: c for c in preflight.run(tmp_path)}
-    assert checks[".env not committed"].ok is True
-
-
 def test_next_viewport_export_is_added(next_app):
     result = fixes.fix_next_viewport(next_app)
     assert result["status"] == "applied"

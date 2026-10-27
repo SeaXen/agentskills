@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'typescript-expert' (source: typescript-expert/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'typescript-expert' (D:\Repo\.agents\skills\typescript-expert\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -26,7 +26,7 @@ version: 1.0
 
 ---
 
-## 📋 Common Advanced Patterns
+## ðŸ“‹ Common Advanced Patterns
 
 ### 1. Discriminated Union with Exhaustive Check
 ```typescript
@@ -64,9 +64,10 @@ export type OrderId = Branded<string, 'OrderId'>;
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Type assertions via `as unknown as TargetType` to bypass the type checker.
-- ❌ Non-null assertions (`!`) without runtime guard checks.
-- ❌ Mutating arguments marked as readonly.
-- ❌ Using `Function` or `{}` as generic object types instead of `Record<string, unknown>`.
+- âŒ Type assertions via `as unknown as TargetType` to bypass the type checker.
+- âŒ Non-null assertions (`!`) without runtime guard checks.
+- âŒ Mutating arguments marked as readonly.
+- âŒ Using `Function` or `{}` as generic object types instead of `Record<string, unknown>`.
+

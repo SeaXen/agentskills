@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'ai-debt-detector' (source: ai-debt-detector/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'ai-debt-detector' (D:\Repo\.agents\skills\ai-debt-detector\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -72,3 +72,4 @@ After code generation, scan for these AI-specific debt patterns:
 ## Why This Exists
 
 AI agents systematically optimize for "looks correct" and "passes the happy path." They miss failure modes, orphan resources, and hallucinate dependencies at rates significantly higher than manual code. This skill forces an audit for those specific blind spots.
+

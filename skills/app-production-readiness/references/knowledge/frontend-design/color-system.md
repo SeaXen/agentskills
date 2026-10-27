@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'frontend-design' (source: frontend-design/color-system.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\color-system.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Color System Reference
@@ -14,24 +14,24 @@
 
 ```
                     YELLOW
-                      │
-           Yellow-    │    Yellow-
-           Green      │    Orange
-              ╲       │       ╱
-               ╲      │      ╱
-    GREEN ─────────── ● ─────────── ORANGE
-               ╱      │      ╲
-              ╱       │       ╲
-           Blue-      │    Red-
-           Green      │    Orange
-                      │
+                      â”‚
+           Yellow-    â”‚    Yellow-
+           Green      â”‚    Orange
+              â•²       â”‚       â•±
+               â•²      â”‚      â•±
+    GREEN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ â— â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ ORANGE
+               â•±      â”‚      â•²
+              â•±       â”‚       â•²
+           Blue-      â”‚    Red-
+           Green      â”‚    Orange
+                      â”‚
                      RED
-                      │
+                      â”‚
                    PURPLE
-                  ╱       ╲
+                  â•±       â•²
              Blue-         Red-
              Purple        Purple
-                  ╲       ╱
+                  â•²       â•±
                     BLUE
 ```
 
@@ -46,9 +46,9 @@
 | **Triadic** | 3 hues EQUIDISTANT on wheel | Vibrant, playful, creative |
 
 ### How to Choose a Scheme:
-1. **What's the project mood?** Calm → Analogous. Bold → Complementary.
-2. **How many colors needed?** Minimal → Monochromatic. Complex → Triadic.
-3. **Who's the audience?** Conservative → Monochromatic. Young → Triadic.
+1. **What's the project mood?** Calm â†’ Analogous. Bold â†’ Complementary.
+2. **How many colors needed?** Minimal â†’ Monochromatic. Complex â†’ Triadic.
+3. **Who's the audience?** Conservative â†’ Monochromatic. Young â†’ Triadic.
 
 ---
 
@@ -56,20 +56,20 @@
 
 ### Distribution Principle
 ```
-┌─────────────────────────────────────────────────┐
-│                                                 │
-│     60% PRIMARY (Background, large areas)       │
-│     → Should be neutral or calming              │
-│     → Carries the overall tone                  │
-│                                                 │
-├────────────────────────────────────┬────────────┤
-│                                    │            │
-│   30% SECONDARY                    │ 10% ACCENT │
-│   (Cards, sections, headers)       │ (CTAs,     │
-│   → Supports without dominating    │ highlights)│
-│                                    │ → Draws    │
-│                                    │   attention│
-└────────────────────────────────────┴────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                                 â”‚
+â”‚     60% PRIMARY (Background, large areas)       â”‚
+â”‚     â†’ Should be neutral or calming              â”‚
+â”‚     â†’ Carries the overall tone                  â”‚
+â”‚                                                 â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚                                    â”‚            â”‚
+â”‚   30% SECONDARY                    â”‚ 10% ACCENT â”‚
+â”‚   (Cards, sections, headers)       â”‚ (CTAs,     â”‚
+â”‚   â†’ Supports without dominating    â”‚ highlights)â”‚
+â”‚                                    â”‚ â†’ Draws    â”‚
+â”‚                                    â”‚   attentionâ”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Implementation Pattern
@@ -109,16 +109,16 @@
 | **Green** | Growth, nature, success | Can feel boring if overused |
 | **Red** | Passion, urgency, energy | High arousal, use sparingly |
 | **Orange** | Warmth, friendly, creative | Can feel cheap if saturated |
-| **Purple** | ⚠️ **BANNED** - AI overuses this! | Use Deep Teal/Maroon/Emerald instead |
+| **Purple** | âš ï¸ **BANNED** - AI overuses this! | Use Deep Teal/Maroon/Emerald instead |
 | **Yellow** | Optimism, attention, happy | Hard to read, use as accent |
 | **Black** | Elegance, power, modern | Can feel heavy |
 | **White** | Clean, minimal, open | Can feel sterile |
 
 ### Selection Process:
-1. **What industry?** → Narrow to 2-3 hue families
-2. **What emotion?** → Pick primary hue
-3. **What contrast?** → Decide light vs dark mode
-4. **ASK USER** → Confirm before proceeding
+1. **What industry?** â†’ Narrow to 2-3 hue families
+2. **What emotion?** â†’ Pick primary hue
+3. **What contrast?** â†’ Decide light vs dark mode
+4. **ASK USER** â†’ Confirm before proceeding
 
 ---
 
@@ -155,16 +155,16 @@ Given ANY base color, create a scale:
 
 ```
 Lightness Scale:
-  50  (lightest) → L: 97%
-  100            → L: 94%
-  200            → L: 86%
-  300            → L: 74%
-  400            → L: 66%
-  500 (base)     → L: 50-60%
-  600            → L: 48%
-  700            → L: 38%
-  800            → L: 30%
-  900 (darkest)  → L: 20%
+  50  (lightest) â†’ L: 97%
+  100            â†’ L: 94%
+  200            â†’ L: 86%
+  300            â†’ L: 74%
+  400            â†’ L: 66%
+  500 (base)     â†’ L: 50-60%
+  600            â†’ L: 48%
+  700            â†’ L: 38%
+  800            â†’ L: 30%
+  900 (darkest)  â†’ L: 20%
 ```
 
 ### Saturation Adjustments
@@ -185,12 +185,12 @@ Lightness Scale:
 **Step 1: Identify the Context**
 ```
 What type of project?
-├── E-commerce → Need trust + urgency balance
-├── SaaS/Dashboard → Need low-fatigue, data focus
-├── Health/Wellness → Need calming, natural feel
-├── Luxury/Premium → Need understated elegance
-├── Creative/Portfolio → Need personality, memorable
-└── Other → ASK the user
+â”œâ”€â”€ E-commerce â†’ Need trust + urgency balance
+â”œâ”€â”€ SaaS/Dashboard â†’ Need low-fatigue, data focus
+â”œâ”€â”€ Health/Wellness â†’ Need calming, natural feel
+â”œâ”€â”€ Luxury/Premium â†’ Need understated elegance
+â”œâ”€â”€ Creative/Portfolio â†’ Need personality, memorable
+â””â”€â”€ Other â†’ ASK the user
 ```
 
 **Step 2: Select Primary Hue Family**
@@ -224,19 +224,19 @@ Consider:
 
 ### Key Rules (No Fixed Codes)
 
-1. **Never pure black** → Use very dark gray with slight hue
-2. **Never pure white text** → Use 87-92% lightness
-3. **Reduce saturation** → Vibrant colors strain eyes in dark mode
-4. **Elevation = brightness** → Higher elements slightly lighter
+1. **Never pure black** â†’ Use very dark gray with slight hue
+2. **Never pure white text** â†’ Use 87-92% lightness
+3. **Reduce saturation** â†’ Vibrant colors strain eyes in dark mode
+4. **Elevation = brightness** â†’ Higher elements slightly lighter
 
 ### Contrast in Dark Mode
 
 ```
-Background layers (darker → lighter as elevation increases):
-Layer 0 (base)    → Darkest
-Layer 1 (cards)   → Slightly lighter
-Layer 2 (modals)  → Even lighter
-Layer 3 (popups)  → Lightest dark
+Background layers (darker â†’ lighter as elevation increases):
+Layer 0 (base)    â†’ Darkest
+Layer 1 (cards)   â†’ Slightly lighter
+Layer 2 (modals)  â†’ Even lighter
+Layer 3 (popups)  â†’ Lightest dark
 ```
 
 ### Adapting Colors for Dark Mode
@@ -292,7 +292,7 @@ Before finalizing any color choice, verify:
 
 ## 9. Anti-Patterns to Avoid
 
-### ❌ DON'T:
+### âŒ DON'T:
 - Copy the same hex codes every project
 - Default to purple/violet (AI tendency)
 - Default to dark mode + neon (AI tendency)
@@ -301,7 +301,7 @@ Before finalizing any color choice, verify:
 - Ignore user's industry context
 - Skip asking user preference
 
-### ✅ DO:
+### âœ… DO:
 - Generate fresh palette per project
 - Ask user about color preferences
 - Consider industry and audience
@@ -312,3 +312,4 @@ Before finalizing any color choice, verify:
 ---
 
 > **Remember**: Colors are decisions, not defaults. Every project deserves thoughtful selection based on its unique context.
+

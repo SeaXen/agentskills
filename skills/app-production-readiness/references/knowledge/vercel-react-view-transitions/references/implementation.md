@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-react-view-transitions' (source: vercel-react-view-transitions/references/implementation.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-react-view-transitions' (D:\Repo\.agents\skills\vercel-react-view-transitions\references\implementation.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Implementation Workflow
@@ -11,12 +11,12 @@ Use the official [React `<ViewTransition>` reference](https://react.dev/referenc
 
 Before writing any code, scan the codebase thoroughly. Search for:
 
-- **Every `<Link>` and `router.push`** — these are your navigation triggers. Open every file that contains one.
-- **Every `<Suspense>` boundary** — each one is a candidate for a reveal animation. Check what its fallback renders.
-- **Every page/route component** — list them all. Each page needs a VT placement decision.
-- **Persistent elements** — headers, navbars, sidebars, sticky controls that stay on screen across navigations. These need `viewTransitionName` isolation.
-- **Shared visual elements** — images, cards, or avatars that appear on both a source and target view (e.g., a thumbnail in a list and the same image on a detail page).
-- **Skeleton-to-content control pairs** — if a Suspense fallback renders a control (search input, tab bar) that also exists in the real content, both need a matching `viewTransitionName`.
+- **Every `<Link>` and `router.push`** â€” these are your navigation triggers. Open every file that contains one.
+- **Every `<Suspense>` boundary** â€” each one is a candidate for a reveal animation. Check what its fallback renders.
+- **Every page/route component** â€” list them all. Each page needs a VT placement decision.
+- **Persistent elements** â€” headers, navbars, sidebars, sticky controls that stay on screen across navigations. These need `viewTransitionName` isolation.
+- **Shared visual elements** â€” images, cards, or avatars that appear on both a source and target view (e.g., a thumbnail in a list and the same image on a detail page).
+- **Skeleton-to-content control pairs** â€” if a Suspense fallback renders a control (search input, tab bar) that also exists in the real content, both need a matching `viewTransitionName`.
 
 Then classify every navigation and produce a navigation map:
 
@@ -27,10 +27,10 @@ Then classify every navigation and produce a navigation map:
 | /detail/[id]    | /                    | back         | directional slide     |
 | /detail/[id]    | /detail/[other]      | sequential   | directional slide (ordered prev/next) or key+share crossfade |
 | /tab/[a]        | /tab/[b]             | lateral      | key+share crossfade   |
-| (Suspense)      | (content loads)      | —            | slide-up reveal       |
+| (Suspense)      | (content loads)      | â€”            | slide-up reveal       |
 ```
 
-For each shared element (`name` prop), note every navigation where a pair forms and where it doesn't — this determines whether you need `enter`/`exit` as a fallback alongside `share`.
+For each shared element (`name` prop), note every navigation where a pair forms and where it doesn't â€” this determines whether you need `enter`/`exit` as a fallback alongside `share`.
 
 ## Step 2: Add CSS Recipes
 
@@ -102,8 +102,8 @@ export function DirectionalTransition({ children }: { children: React.ReactNode 
 This also becomes the single place to adjust if you add new transition types later.
 
 **Rules:**
-- Always pair `enter` with `exit` — without an exit animation, the old page disappears instantly while the new one animates in.
-- Always include `default: "none"` in type map objects and `default="none"` on the component — otherwise it fires on every transition.
+- Always pair `enter` with `exit` â€” without an exit animation, the old page disappears instantly while the new one animates in.
+- Always include `default: "none"` in type map objects and `default="none"` on the component â€” otherwise it fires on every transition.
 - Place the directional `<ViewTransition>` in each page component, not in a layout. Layouts persist across navigations and never trigger enter/exit.
 - Only use directional slides for hierarchical navigation or ordered sequences (prev/next). Lateral/sibling navigation (tab-to-tab) should use a bare `<ViewTransition>` (cross-fade) or `default="none"`.
 
@@ -129,9 +129,9 @@ This example uses `slide-down` / `slide-up` for directional vertical motion. For
 
 **Rules:**
 - Always use `default="none"` on the content `<ViewTransition>` to prevent re-animation on revalidation or unrelated transitions.
-- Use simple string props (not type maps) on Suspense `<ViewTransition>`s — Suspense resolves fire as separate transitions with no type, so type-keyed props won't match.
+- Use simple string props (not type maps) on Suspense `<ViewTransition>`s â€” Suspense resolves fire as separate transitions with no type, so type-keyed props won't match.
 - A fallback/content `share` pair morphs between snapshots. Use it only when that interpolation is desired and does not distort layout or geometry.
-- If the same element appears in **both** the fallback and the content (a title, a heading), it flickers on reveal — an opacity dip. Render it **outside** the `<Suspense>` boundary (or pin it), so it isn't in both. See [Suspense reveal flicker](patterns.md#suspense-reveal-flicker).
+- If the same element appears in **both** the fallback and the content (a title, a heading), it flickers on reveal â€” an opacity dip. Render it **outside** the `<Suspense>` boundary (or pin it), so it isn't in both. See [Suspense reveal flicker](patterns.md#suspense-reveal-flicker).
 
 ## Step 6: Add Shared Element Transitions
 
@@ -143,7 +143,7 @@ For every shared visual element identified in Step 1, add matching named `<ViewT
   <Image src={photo.src} ... />
 </ViewTransition>
 
-// On the target view (e.g., detail page) — same name
+// On the target view (e.g., detail page) â€” same name
 <ViewTransition name={`photo-${photo.id}`} share="morph">
   <Image src={photo.src} ... />
 </ViewTransition>
@@ -151,12 +151,12 @@ For every shared visual element identified in Step 1, add matching named `<ViewT
 
 The `share="morph"` class uses the [Shared Element Morph](css-recipes.md#shared-element-morph) recipe (controlled duration + motion blur). For a simpler cross-fade, use `share="auto"` (browser default).
 
-When list items contain shared elements, compose both patterns with two nested `<ViewTransition>` layers — an outer keyed VT for list identity and an inner named VT for the cross-route pair. See [Composing Shared Elements with List Identity](../SKILL.md#composing-shared-elements-with-list-identity).
+When list items contain shared elements, compose both patterns with two nested `<ViewTransition>` layers â€” an outer keyed VT for list identity and an inner named VT for the cross-route pair. See [Composing Shared Elements with List Identity](../SKILL.md#composing-shared-elements-with-list-identity).
 
 **Rules:**
-- Names must be globally unique — use prefixes like `photo-${id}`.
+- Names must be globally unique â€” use prefixes like `photo-${id}`.
 - Add `default="none"` on list-side shared elements to prevent per-item cross-fades on filter/search updates.
-- The target must be **in the DOM at navigation time** for the pair to form. If it's behind a Suspense fallback (not rendered yet), no pair forms and it won't morph. It works when the target is present at the snapshot — render it above the data boundary, or have its data **cached/prefetched** so it resolves in time.
+- The target must be **in the DOM at navigation time** for the pair to form. If it's behind a Suspense fallback (not rendered yet), no pair forms and it won't morph. It works when the target is present at the snapshot â€” render it above the data boundary, or have its data **cached/prefetched** so it resolves in time.
 
 ## Step 7: Verify Each Navigation Path
 
@@ -171,3 +171,4 @@ Walk through every row in the navigation map from Step 1 and confirm:
 If any path produces no animation or competing animations, use the symptom-driven [troubleshooting guide](troubleshooting.md).
 
 For Next.js-specific implementation steps (`transitionTypes` on `<Link>`, prefetch behavior, and same-route dynamic segments), see [nextjs.md](nextjs.md).
+

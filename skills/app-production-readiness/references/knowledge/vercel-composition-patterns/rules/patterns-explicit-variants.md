@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/rules/patterns-explicit-variants.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\rules\patterns-explicit-variants.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -101,3 +101,4 @@ Each variant is explicit about:
 - What actions are available
 
 No boolean prop combinations to reason about. No impossible states.
+

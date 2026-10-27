@@ -21,7 +21,7 @@ from qa_common import (
     walk_files,
 )
 
-SKIP_DIRS = {"node_modules", ".git", "dist", "build", ".next", ".nuxt", "out", "coverage", ".turbo", "qa"}
+SKIP_DIRS = {"node_modules", ".git", "dist", "build", ".next", ".nuxt", "out", "coverage", ".turbo"}
 
 
 def read(p: Path, limit: int = 200_000) -> str:

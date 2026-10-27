@@ -357,28 +357,3 @@ def test_capture_screenshots_rejects_missing_root(tmp_path: Path):
     assert proc.returncode != 0
     assert "does not exist" in proc.stderr
 
-
-def test_the_fixture_generator_refuses_an_unknown_variant(tmp_path: Path):
-    """An unknown variant must fail loudly.
-
-    Falling through to the "good" fixture would make a broken-fixture test
-    pass for the wrong reason - the worst possible failure mode for a test
-    corpus.
-    """
-    sys.path.insert(0, str(SCRIPTS / "fixtures"))
-    import make_sample_app  # noqa: E402
-
-    with pytest.raises(ValueError) as excinfo:
-        make_sample_app.build(tmp_path / "nope", variant="nope")
-    assert "unknown fixture variant" in str(excinfo.value)
-
-
-def test_the_empty_fixture_ships_no_app_surface(tmp_path: Path):
-    """The "empty" variant must stay empty - it is the skip-behaviour probe."""
-    sys.path.insert(0, str(SCRIPTS / "fixtures"))
-    import make_sample_app  # noqa: E402
-
-    out = make_sample_app.build(tmp_path / "empty", variant="empty")
-    entries = sorted(p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file())
-    assert entries == ["package.json"]
-

@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'sentry-cli' (source: sentry-cli/references/sourcemap.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\sourcemap.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -82,7 +82,7 @@ Resolve and report sourcemap linkage for JavaScript files
 
 ```bash
 # Report how each JS file's sourcemap resolves and whether a debug ID
-# has been injected (read-only — never modifies files)
+# has been injected (read-only â€” never modifies files)
 sentry sourcemap resolve ./dist
 
 # Machine-readable output
@@ -90,3 +90,4 @@ sentry sourcemap resolve ./dist --json
 ```
 
 All commands also support `--json`, `--fields`, `--help`, `--log-level`, and `--verbose` flags.
+

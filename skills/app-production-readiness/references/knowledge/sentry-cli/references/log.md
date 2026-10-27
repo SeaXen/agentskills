@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'sentry-cli' (source: sentry-cli/references/log.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\log.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -85,3 +85,4 @@ sentry log view 968c763c740cfda8b6728f27fb9e9b01 -w
 ```
 
 All commands also support `--json`, `--fields`, `--help`, `--log-level`, and `--verbose` flags.
+

@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'python-patterns' (source: python-patterns/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'python-patterns' (D:\Repo\.agents\skills\python-patterns\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ---
 
-## ⚠️ How to Use This Skill
+## âš ï¸ How to Use This Skill
 
 This skill teaches **decision-making principles**, not fixed code to copy.
 
@@ -30,21 +30,21 @@ This skill teaches **decision-making principles**, not fixed code to copy.
 
 ```
 What are you building?
-│
-├── API-first / Microservices
-│   └── FastAPI (async, modern, fast)
-│
-├── Full-stack web / CMS / Admin
-│   └── Django (batteries-included)
-│
-├── Simple / Script / Learning
-│   └── Flask (minimal, flexible)
-│
-├── AI/ML API serving
-│   └── FastAPI (Pydantic, async, uvicorn)
-│
-└── Background workers
-    └── Celery + any framework
+â”‚
+â”œâ”€â”€ API-first / Microservices
+â”‚   â””â”€â”€ FastAPI (async, modern, fast)
+â”‚
+â”œâ”€â”€ Full-stack web / CMS / Admin
+â”‚   â””â”€â”€ Django (batteries-included)
+â”‚
+â”œâ”€â”€ Simple / Script / Learning
+â”‚   â””â”€â”€ Flask (minimal, flexible)
+â”‚
+â”œâ”€â”€ AI/ML API serving
+â”‚   â””â”€â”€ FastAPI (Pydantic, async, uvicorn)
+â”‚
+â””â”€â”€ Background workers
+    â””â”€â”€ Celery + any framework
 ```
 
 ### Comparison Principles
@@ -71,30 +71,30 @@ What are you building?
 
 ```
 async def is better when:
-├── I/O-bound operations (database, HTTP, file)
-├── Many concurrent connections
-├── Real-time features
-├── Microservices communication
-└── FastAPI/Starlette/Django ASGI
+â”œâ”€â”€ I/O-bound operations (database, HTTP, file)
+â”œâ”€â”€ Many concurrent connections
+â”œâ”€â”€ Real-time features
+â”œâ”€â”€ Microservices communication
+â””â”€â”€ FastAPI/Starlette/Django ASGI
 
 def (sync) is better when:
-├── CPU-bound operations
-├── Simple scripts
-├── Legacy codebase
-├── Team unfamiliar with async
-└── Blocking libraries (no async version)
+â”œâ”€â”€ CPU-bound operations
+â”œâ”€â”€ Simple scripts
+â”œâ”€â”€ Legacy codebase
+â”œâ”€â”€ Team unfamiliar with async
+â””â”€â”€ Blocking libraries (no async version)
 ```
 
 ### The Golden Rule
 
 ```
-I/O-bound → async (waiting for external)
-CPU-bound → sync + multiprocessing (computing)
+I/O-bound â†’ async (waiting for external)
+CPU-bound â†’ sync + multiprocessing (computing)
 
 Don't:
-├── Mix sync and async carelessly
-├── Use sync libraries in async code
-└── Force async for CPU work
+â”œâ”€â”€ Mix sync and async carelessly
+â”œâ”€â”€ Use sync libraries in async code
+â””â”€â”€ Force async for CPU work
 ```
 
 ### Async Library Selection
@@ -115,15 +115,15 @@ Don't:
 
 ```
 Always type:
-├── Function parameters
-├── Return types
-├── Class attributes
-├── Public APIs
+â”œâ”€â”€ Function parameters
+â”œâ”€â”€ Return types
+â”œâ”€â”€ Class attributes
+â”œâ”€â”€ Public APIs
 
 Can skip:
-├── Local variables (let inference work)
-├── One-off scripts
-├── Tests (usually)
+â”œâ”€â”€ Local variables (let inference work)
+â”œâ”€â”€ One-off scripts
+â”œâ”€â”€ Tests (usually)
 ```
 
 ### Common Type Patterns
@@ -131,11 +131,11 @@ Can skip:
 ```python
 # These are patterns, understand them:
 
-# Optional → might be None
+# Optional â†’ might be None
 from typing import Optional
 def find_user(id: int) -> Optional[User]: ...
 
-# Union → one of multiple types
+# Union â†’ one of multiple types
 def process(data: str | dict) -> None: ...
 
 # Generic collections
@@ -151,16 +151,16 @@ def apply(fn: Callable[[int], str]) -> str: ...
 
 ```
 When to use Pydantic:
-├── API request/response models
-├── Configuration/settings
-├── Data validation
-├── Serialization
+â”œâ”€â”€ API request/response models
+â”œâ”€â”€ Configuration/settings
+â”œâ”€â”€ Data validation
+â”œâ”€â”€ Serialization
 
 Benefits:
-├── Runtime validation
-├── Auto-generated JSON schema
-├── Works with FastAPI natively
-└── Clear error messages
+â”œâ”€â”€ Runtime validation
+â”œâ”€â”€ Auto-generated JSON schema
+â”œâ”€â”€ Works with FastAPI natively
+â””â”€â”€ Clear error messages
 ```
 
 ---
@@ -171,31 +171,31 @@ Benefits:
 
 ```
 Small project / Script:
-├── main.py
-├── utils.py
-└── requirements.txt
+â”œâ”€â”€ main.py
+â”œâ”€â”€ utils.py
+â””â”€â”€ requirements.txt
 
 Medium API:
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   └── schemas/
-├── tests/
-└── pyproject.toml
+â”œâ”€â”€ app/
+â”‚   â”œâ”€â”€ __init__.py
+â”‚   â”œâ”€â”€ main.py
+â”‚   â”œâ”€â”€ models/
+â”‚   â”œâ”€â”€ routes/
+â”‚   â”œâ”€â”€ services/
+â”‚   â””â”€â”€ schemas/
+â”œâ”€â”€ tests/
+â””â”€â”€ pyproject.toml
 
 Large application:
-├── src/
-│   └── myapp/
-│       ├── core/
-│       ├── api/
-│       ├── services/
-│       ├── models/
-│       └── ...
-├── tests/
-└── pyproject.toml
+â”œâ”€â”€ src/
+â”‚   â””â”€â”€ myapp/
+â”‚       â”œâ”€â”€ core/
+â”‚       â”œâ”€â”€ api/
+â”‚       â”œâ”€â”€ services/
+â”‚       â”œâ”€â”€ models/
+â”‚       â””â”€â”€ ...
+â”œâ”€â”€ tests/
+â””â”€â”€ pyproject.toml
 ```
 
 ### FastAPI Structure Principles
@@ -204,19 +204,19 @@ Large application:
 Organize by feature or layer:
 
 By layer:
-├── routes/ (API endpoints)
-├── services/ (business logic)
-├── models/ (database models)
-├── schemas/ (Pydantic models)
-└── dependencies/ (shared deps)
+â”œâ”€â”€ routes/ (API endpoints)
+â”œâ”€â”€ services/ (business logic)
+â”œâ”€â”€ models/ (database models)
+â”œâ”€â”€ schemas/ (Pydantic models)
+â””â”€â”€ dependencies/ (shared deps)
 
 By feature:
-├── users/
-│   ├── routes.py
-│   ├── service.py
-│   └── schemas.py
-└── products/
-    └── ...
+â”œâ”€â”€ users/
+â”‚   â”œâ”€â”€ routes.py
+â”‚   â”œâ”€â”€ service.py
+â”‚   â””â”€â”€ schemas.py
+â””â”€â”€ products/
+    â””â”€â”€ ...
 ```
 
 ---
@@ -227,36 +227,36 @@ By feature:
 
 ```
 Django supports async:
-├── Async views
-├── Async middleware
-├── Async ORM (limited)
-└── ASGI deployment
+â”œâ”€â”€ Async views
+â”œâ”€â”€ Async middleware
+â”œâ”€â”€ Async ORM (limited)
+â””â”€â”€ ASGI deployment
 
 When to use async in Django:
-├── External API calls
-├── WebSocket (Channels)
-├── High-concurrency views
-└── Background task triggering
+â”œâ”€â”€ External API calls
+â”œâ”€â”€ WebSocket (Channels)
+â”œâ”€â”€ High-concurrency views
+â””â”€â”€ Background task triggering
 ```
 
 ### Django Best Practices
 
 ```
 Model design:
-├── Fat models, thin views
-├── Use managers for common queries
-├── Abstract base classes for shared fields
+â”œâ”€â”€ Fat models, thin views
+â”œâ”€â”€ Use managers for common queries
+â”œâ”€â”€ Abstract base classes for shared fields
 
 Views:
-├── Class-based for complex CRUD
-├── Function-based for simple endpoints
-├── Use viewsets with DRF
+â”œâ”€â”€ Class-based for complex CRUD
+â”œâ”€â”€ Function-based for simple endpoints
+â”œâ”€â”€ Use viewsets with DRF
 
 Queries:
-├── select_related() for FKs
-├── prefetch_related() for M2M
-├── Avoid N+1 queries
-└── Use .only() for specific fields
+â”œâ”€â”€ select_related() for FKs
+â”œâ”€â”€ prefetch_related() for M2M
+â”œâ”€â”€ Avoid N+1 queries
+â””â”€â”€ Use .only() for specific fields
 ```
 
 ---
@@ -267,31 +267,31 @@ Queries:
 
 ```
 Use async def when:
-├── Using async database drivers
-├── Making async HTTP calls
-├── I/O-bound operations
-└── Want to handle concurrency
+â”œâ”€â”€ Using async database drivers
+â”œâ”€â”€ Making async HTTP calls
+â”œâ”€â”€ I/O-bound operations
+â””â”€â”€ Want to handle concurrency
 
 Use def when:
-├── Blocking operations
-├── Sync database drivers
-├── CPU-bound work
-└── FastAPI runs in threadpool automatically
+â”œâ”€â”€ Blocking operations
+â”œâ”€â”€ Sync database drivers
+â”œâ”€â”€ CPU-bound work
+â””â”€â”€ FastAPI runs in threadpool automatically
 ```
 
 ### Dependency Injection
 
 ```
 Use dependencies for:
-├── Database sessions
-├── Current user / Auth
-├── Configuration
-├── Shared resources
+â”œâ”€â”€ Database sessions
+â”œâ”€â”€ Current user / Auth
+â”œâ”€â”€ Configuration
+â”œâ”€â”€ Shared resources
 
 Benefits:
-├── Testability (mock dependencies)
-├── Clean separation
-├── Automatic cleanup (yield)
+â”œâ”€â”€ Testability (mock dependencies)
+â”œâ”€â”€ Clean separation
+â”œâ”€â”€ Automatic cleanup (yield)
 ```
 
 ### Pydantic v2 Integration
@@ -327,17 +327,17 @@ async def create(user: UserCreate) -> UserResponse:
 
 ```
 FastAPI BackgroundTasks:
-├── Quick operations
-├── No persistence needed
-├── Fire-and-forget
-└── Same process
+â”œâ”€â”€ Quick operations
+â”œâ”€â”€ No persistence needed
+â”œâ”€â”€ Fire-and-forget
+â””â”€â”€ Same process
 
 Celery/ARQ:
-├── Long-running tasks
-├── Need retry logic
-├── Distributed workers
-├── Persistent queue
-└── Complex workflows
+â”œâ”€â”€ Long-running tasks
+â”œâ”€â”€ Need retry logic
+â”œâ”€â”€ Distributed workers
+â”œâ”€â”€ Persistent queue
+â””â”€â”€ Complex workflows
 ```
 
 ---
@@ -348,25 +348,25 @@ Celery/ARQ:
 
 ```
 In FastAPI:
-├── Create custom exception classes
-├── Register exception handlers
-├── Return consistent error format
-└── Log without exposing internals
+â”œâ”€â”€ Create custom exception classes
+â”œâ”€â”€ Register exception handlers
+â”œâ”€â”€ Return consistent error format
+â””â”€â”€ Log without exposing internals
 
 Pattern:
-├── Raise domain exceptions in services
-├── Catch and transform in handlers
-└── Client gets clean error response
+â”œâ”€â”€ Raise domain exceptions in services
+â”œâ”€â”€ Catch and transform in handlers
+â””â”€â”€ Client gets clean error response
 ```
 
 ### Error Response Philosophy
 
 ```
 Include:
-├── Error code (programmatic)
-├── Message (human readable)
-├── Details (field-level when applicable)
-└── NOT stack traces (security)
+â”œâ”€â”€ Error code (programmatic)
+â”œâ”€â”€ Message (human readable)
+â”œâ”€â”€ Details (field-level when applicable)
+â””â”€â”€ NOT stack traces (security)
 ```
 
 ---
@@ -400,10 +400,10 @@ async def test_endpoint():
 
 ```
 Common fixtures:
-├── db_session → Database connection
-├── client → Test client
-├── authenticated_user → User with token
-└── sample_data → Test data setup
+â”œâ”€â”€ db_session â†’ Database connection
+â”œâ”€â”€ client â†’ Test client
+â”œâ”€â”€ authenticated_user â†’ User with token
+â””â”€â”€ sample_data â†’ Test data setup
 ```
 
 ---
@@ -424,7 +424,7 @@ Before implementing:
 
 ## 11. Anti-Patterns to Avoid
 
-### ❌ DON'T:
+### âŒ DON'T:
 - Default to Django for simple APIs (FastAPI may be better)
 - Use sync libraries in async code
 - Skip type hints for public APIs
@@ -432,13 +432,14 @@ Before implementing:
 - Ignore N+1 queries
 - Mix async and sync carelessly
 
-### ✅ DO:
+### âœ… DO:
 - Choose framework based on context
 - Ask about async requirements
 - Use Pydantic for validation
-- Separate concerns (routes → services → repos)
+- Separate concerns (routes â†’ services â†’ repos)
 - Test critical paths
 
 ---
 
-> **Remember**: Python patterns are about decision-making for YOUR specific context. Don't copy code—think about what serves your application best.
+> **Remember**: Python patterns are about decision-making for YOUR specific context. Don't copy codeâ€”think about what serves your application best.
+

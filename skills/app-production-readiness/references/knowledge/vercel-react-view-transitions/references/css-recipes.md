@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-react-view-transitions' (source: vercel-react-view-transitions/references/css-recipes.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-react-view-transitions' (D:\Repo\.agents\skills\vercel-react-view-transitions\references\css-recipes.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # CSS Animation Recipes
@@ -163,7 +163,7 @@ Usage:
 
 Usage: `<ViewTransition name={`product-${id}`} share="morph" />`
 
-**Note:** Shared element transitions take raster snapshots. For text with significant size differences (e.g., `<h3>` → `<h1>`), the old snapshot gets scaled up, producing a visible ghost artifact. Use `text-morph` for text shared elements.
+**Note:** Shared element transitions take raster snapshots. For text with significant size differences (e.g., `<h3>` â†’ `<h1>`), the old snapshot gets scaled up, producing a visible ghost artifact. Use `text-morph` for text shared elements.
 
 ## Text Morph
 
@@ -221,13 +221,13 @@ The `::view-transition` overlay captures all pointer events. React shrinks it to
 }
 ```
 
-Trade-offs: clicks can hit live elements under still-moving snapshots, and it only helps **unnamed** content — named participants are skipped by hit-testing for the transition's duration, no CSS override ([csswg#10930](https://github.com/w3c/csswg-drafts/issues/10930)). Weigh that before naming interactive elements; portal named popovers (see [Isolate Elements from Parent Animations](patterns.md#isolate-elements-from-parent-animations)).
+Trade-offs: clicks can hit live elements under still-moving snapshots, and it only helps **unnamed** content â€” named participants are skipped by hit-testing for the transition's duration, no CSS override ([csswg#10930](https://github.com/w3c/csswg-drafts/issues/10930)). Weigh that before naming interactive elements; portal named popovers (see [Isolate Elements from Parent Animations](patterns.md#isolate-elements-from-parent-animations)).
 
 ---
 
 ## No Root Cross-Fade (Live Root)
 
-The root cross-fades on every transition, freezing unnamed content behind a stale snapshot — hover and active styles stop rendering until it settles. `::view-transition-new(root)` is a **live** capture, so disabling the root animation keeps unnamed regions rendering (and, with the `pointer-events` recipe above, interactive):
+The root cross-fades on every transition, freezing unnamed content behind a stale snapshot â€” hover and active styles stop rendering until it settles. `::view-transition-new(root)` is a **live** capture, so disabling the root animation keeps unnamed regions rendering (and, with the `pointer-events` recipe above, interactive):
 
 ```css
 ::view-transition-old(root) {
@@ -238,9 +238,9 @@ The root cross-fades on every transition, freezing unnamed content behind a stal
 }
 ```
 
-Named and classed groups still animate — they stack above root. Trade-off: unnamed content swaps instantly, so regions that should fade need their own VT. This also removes the main reason to hand-name static chrome; keep names only for elements that must stack above animating groups.
+Named and classed groups still animate â€” they stack above root. Trade-off: unnamed content swaps instantly, so regions that should fade need their own VT. This also removes the main reason to hand-name static chrome; keep names only for elements that must stack above animating groups.
 
-Pairs well with enter-only reveals: skip the fallback-exit VT entirely (`<ViewTransition enter="auto" default="none">` around the content, nothing on the skeleton) — the skeleton snaps out live while the content fades in.
+Pairs well with enter-only reveals: skip the fallback-exit VT entirely (`<ViewTransition enter="auto" default="none">` around the content, nothing on the skeleton) â€” the skeleton snaps out live while the content fades in.
 
 ---
 
@@ -253,7 +253,7 @@ Pairs well with enter-only reveals: skip the fallback-exit VT entirely (`<ViewTr
 }
 ```
 
-Layer multiple pinned groups with z-index tiers — chrome at `100`, toasts/overlays that must beat everything at `200`.
+Layer multiple pinned groups with z-index tiers â€” chrome at `100`, toasts/overlays that must beat everything at `200`.
 
 ### Backdrop-Blur Workaround
 
@@ -270,7 +270,7 @@ For elements with `backdrop-filter`, hide the old snapshot to avoid flash:
 
 ### Floating Element Isolation (popovers, menus, tooltips, control clusters)
 
-Same freeze as persistent chrome. A floating/interactive element left rendered while a background transition runs is otherwise captured in the `root` snapshot and flickers as it settles. Give it a real, unique `view-transition-name` (never `none` — that's the CSS default = no isolation) and:
+Same freeze as persistent chrome. A floating/interactive element left rendered while a background transition runs is otherwise captured in the `root` snapshot and flickers as it settles. Give it a real, unique `view-transition-name` (never `none` â€” that's the CSS default = no isolation) and:
 
 ```css
 ::view-transition-group(popover) {
@@ -313,3 +313,4 @@ One shared-name indicator morphs between positions. Slide the group; disable old
   }
 }
 ```
+

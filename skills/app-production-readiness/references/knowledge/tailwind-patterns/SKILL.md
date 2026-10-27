@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'tailwind-patterns' (source: tailwind-patterns/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'tailwind-patterns' (D:\Repo\.agents\skills\tailwind-patterns\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -270,3 +270,4 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 ---
 
 > **Remember:** Tailwind v4 is CSS-first. Embrace CSS variables, container queries, and native features. The config file is now optional.
+

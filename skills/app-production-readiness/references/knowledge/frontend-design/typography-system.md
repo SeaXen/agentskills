@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'frontend-design' (source: frontend-design/typography-system.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\typography-system.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Typography System Reference
@@ -14,9 +14,9 @@
 
 ```
 A mathematical relationship between font sizes:
-├── Pick a BASE size (usually body text)
-├── Pick a RATIO (multiplier)
-└── Generate all sizes using: base × ratio^n
+â”œâ”€â”€ Pick a BASE size (usually body text)
+â”œâ”€â”€ Pick a RATIO (multiplier)
+â””â”€â”€ Generate all sizes using: base Ã— ratio^n
 ```
 
 ### Common Ratios and When to Use
@@ -37,14 +37,14 @@ A mathematical relationship between font sizes:
 Given: base = YOUR_BASE_SIZE, ratio = YOUR_RATIO
 
 Scale:
-├── xs:  base ÷ ratio²
-├── sm:  base ÷ ratio
-├── base: YOUR_BASE_SIZE
-├── lg:  base × ratio
-├── xl:  base × ratio²
-├── 2xl: base × ratio³
-├── 3xl: base × ratio⁴
-└── ... continue as needed
+â”œâ”€â”€ xs:  base Ã· ratioÂ²
+â”œâ”€â”€ sm:  base Ã· ratio
+â”œâ”€â”€ base: YOUR_BASE_SIZE
+â”œâ”€â”€ lg:  base Ã— ratio
+â”œâ”€â”€ xl:  base Ã— ratioÂ²
+â”œâ”€â”€ 2xl: base Ã— ratioÂ³
+â”œâ”€â”€ 3xl: base Ã— ratioâ´
+â””â”€â”€ ... continue as needed
 ```
 
 ### Choosing Base Size
@@ -64,9 +64,9 @@ Scale:
 
 ```
 Contrast + Harmony:
-├── Different ENOUGH to create hierarchy
-├── Similar ENOUGH to feel cohesive
-└── Usually: serif + sans, or display + neutral
+â”œâ”€â”€ Different ENOUGH to create hierarchy
+â”œâ”€â”€ Similar ENOUGH to feel cohesive
+â””â”€â”€ Usually: serif + sans, or display + neutral
 ```
 
 ### Pairing Strategies
@@ -82,10 +82,10 @@ Contrast + Harmony:
 
 ```
 When pairing, compare:
-├── x-height (height of lowercase letters)
-├── Letter width (narrow vs wide)
-├── Stroke contrast (thin/thick variation)
-└── Overall mood (formal vs casual)
+â”œâ”€â”€ x-height (height of lowercase letters)
+â”œâ”€â”€ Letter width (narrow vs wide)
+â”œâ”€â”€ Stroke contrast (thin/thick variation)
+â””â”€â”€ Overall mood (formal vs casual)
 ```
 
 ### Safe Pairing Patterns
@@ -99,10 +99,10 @@ When pairing, compare:
 
 ### Avoid
 
-- ❌ Two decorative fonts together
-- ❌ Similar fonts that conflict
-- ❌ More than 2-3 font families
-- ❌ Fonts with very different x-heights
+- âŒ Two decorative fonts together
+- âŒ Similar fonts that conflict
+- âŒ More than 2-3 font families
+- âŒ Fonts with very different x-heights
 
 ---
 
@@ -112,10 +112,10 @@ When pairing, compare:
 
 ```
 Line height depends on:
-├── Font size (larger text = less line height needed)
-├── Line length (longer lines = more line height)
-├── Font design (some fonts need more space)
-└── Content type (headings vs body)
+â”œâ”€â”€ Font size (larger text = less line height needed)
+â”œâ”€â”€ Line length (longer lines = more line height)
+â”œâ”€â”€ Font design (some fonts need more space)
+â””â”€â”€ Content type (headings vs body)
 ```
 
 ### Guidelines by Context
@@ -129,10 +129,10 @@ Line height depends on:
 
 ### Adjustment Factors
 
-- **Longer line length** → Increase line height
-- **Larger font size** → Decrease line height ratio
-- **All caps** → May need more line height
-- **Tight tracking** → May need more line height
+- **Longer line length** â†’ Increase line height
+- **Larger font size** â†’ Decrease line height ratio
+- **All caps** â†’ May need more line height
+- **Tight tracking** â†’ May need more line height
 
 ---
 
@@ -142,9 +142,9 @@ Line height depends on:
 
 ```
 The sweet spot: 45-75 characters per line
-├── < 45: Too choppy, breaks flow
-├── 45-75: Comfortable reading
-├── > 75: Eye tracking strain
+â”œâ”€â”€ < 45: Too choppy, breaks flow
+â”œâ”€â”€ 45-75: Comfortable reading
+â”œâ”€â”€ > 75: Eye tracking strain
 ```
 
 ### How to Measure
@@ -173,9 +173,9 @@ max-width: 65ch; /* ch = width of "0" character */
 
 ```
 Fixed sizes don't scale well:
-├── Desktop size too big on mobile
-├── Mobile size too small on desktop
-└── Breakpoint jumps feel jarring
+â”œâ”€â”€ Desktop size too big on mobile
+â”œâ”€â”€ Mobile size too small on desktop
+â””â”€â”€ Breakpoint jumps feel jarring
 ```
 
 ### Fluid Typography (clamp)
@@ -196,7 +196,7 @@ font-size: clamp(
 
 | Element | Scaling Behavior |
 |---------|-----------------|
-| Body text | Slight scaling (1rem → 1.125rem) |
+| Body text | Slight scaling (1rem â†’ 1.125rem) |
 | Subheadings | Moderate scaling |
 | Headings | More dramatic scaling |
 | Display text | Most dramatic scaling |
@@ -219,16 +219,16 @@ font-size: clamp(
 
 ```
 Good contrast = skip at least 2 weight levels
-├── 400 body + 700 heading = good
-├── 400 body + 500 emphasis = subtle
-├── 600 heading + 700 subheading = too similar
+â”œâ”€â”€ 400 body + 700 heading = good
+â”œâ”€â”€ 400 body + 500 emphasis = subtle
+â”œâ”€â”€ 600 heading + 700 subheading = too similar
 ```
 
 ### Avoid
 
-- ❌ Too many weights (max 3-4 per page)
-- ❌ Adjacent weights for hierarchy (400/500)
-- ❌ Heavy weights for long text
+- âŒ Too many weights (max 3-4 per page)
+- âŒ Adjacent weights for hierarchy (400/500)
+- âŒ Heavy weights for long text
 
 ---
 
@@ -238,16 +238,16 @@ Good contrast = skip at least 2 weight levels
 
 ```
 Large text (headings): tighter tracking
-├── Letters are big, gaps feel larger
-└── Slight negative tracking looks better
+â”œâ”€â”€ Letters are big, gaps feel larger
+â””â”€â”€ Slight negative tracking looks better
 
 Small text (body): normal or slightly wider
-├── Improves readability at small sizes
-└── Never negative for body text
+â”œâ”€â”€ Improves readability at small sizes
+â””â”€â”€ Never negative for body text
 
 ALL CAPS: always wider tracking
-├── Uppercase lacks ascenders/descenders
-└── Needs more space to feel right
+â”œâ”€â”€ Uppercase lacks ascenders/descenders
+â””â”€â”€ Needs more space to feel right
 ```
 
 ### Adjustment Guidelines
@@ -268,11 +268,11 @@ ALL CAPS: always wider tracking
 
 ```
 Ways to create hierarchy:
-├── SIZE (most obvious)
-├── WEIGHT (bold stands out)
-├── COLOR (contrast levels)
-├── SPACING (margins separate sections)
-└── POSITION (top = important)
+â”œâ”€â”€ SIZE (most obvious)
+â”œâ”€â”€ WEIGHT (bold stands out)
+â”œâ”€â”€ COLOR (contrast levels)
+â”œâ”€â”€ SPACING (margins separate sections)
+â””â”€â”€ POSITION (top = important)
 ```
 
 ### Typical Hierarchy
@@ -299,10 +299,10 @@ If squinting at the page, the hierarchy should still be clear.
 
 ```
 Users scan in F-pattern:
-├── Across the top (first line)
-├── Down the left side
-├── Across again (subheading)
-└── Continue down left
+â”œâ”€â”€ Across the top (first line)
+â”œâ”€â”€ Down the left side
+â”œâ”€â”€ Across again (subheading)
+â””â”€â”€ Continue down left
 ```
 
 **Implication**: Key info on left and in headings
@@ -337,12 +337,13 @@ Before finalizing typography:
 
 ### Anti-Patterns
 
-- ❌ Same fonts every project
-- ❌ Too many font families
-- ❌ Ignoring readability for style
-- ❌ Fixed sizes without responsiveness
-- ❌ Decorative fonts for body text
+- âŒ Same fonts every project
+- âŒ Too many font families
+- âŒ Ignoring readability for style
+- âŒ Fixed sizes without responsiveness
+- âŒ Decorative fonts for body text
 
 ---
 
 > **Remember**: Typography is about communication clarity. Choose based on content needs and audience, not personal preference.
+

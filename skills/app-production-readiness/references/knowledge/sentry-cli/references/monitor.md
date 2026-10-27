@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'sentry-cli' (source: sentry-cli/references/monitor.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\monitor.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -74,3 +74,4 @@ sentry monitor list --json
 ```
 
 All commands also support `--json`, `--fields`, `--help`, `--log-level`, and `--verbose` flags.
+

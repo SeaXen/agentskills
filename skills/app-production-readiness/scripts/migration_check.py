@@ -27,7 +27,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from qa_common import emit, parse_cli, resolve_root, root_error  # noqa: E402
-from qa_ext import GateResult, print_report, run_absorbed  # noqa: E402
+from qa_ext import GateResult, print_report, read_files, run_absorbed  # noqa: E402
 
 MIGRATION_DIRS = ("db/migrate", "migrations", "db/migrations", "alembic/versions",
                   "prisma/migrations", "database/migrations", "sql/migrations",
@@ -103,6 +103,9 @@ def analyse(root: Path):
                         "severity": "HIGH" if label != "DELETE without WHERE" else "MEDIUM",
                         "check": f"unguarded {label}",
                         "detail": f"{rel}:{line_no}"})
+        if re.search(r"CREATE\s+TABLE", text, re.I) and not re.search(
+                r"CREATE\s+TABLE\s+(IF\s+NOT\s+EXISTS|[\w\"`]+)", text, re.I | re.S):
+            pass
         if re.search(r"CREATE\s+(TABLE|INDEX|UNIQUE)", text, re.I) and not GUARD.search(text):
             findings.append({"severity": "MEDIUM",
                              "check": "non-idempotent DDL (no IF EXISTS / IF NOT EXISTS)",

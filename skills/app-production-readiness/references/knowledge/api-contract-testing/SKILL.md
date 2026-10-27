@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'api-contract-testing' (source: api-contract-testing/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'api-contract-testing' (D:\Repo\.agents\skills\api-contract-testing\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -25,7 +25,7 @@ version: 1.0
 
 ---
 
-## 📋 Consumer-Driven Pact Test Pattern (TypeScript)
+## ðŸ“‹ Consumer-Driven Pact Test Pattern (TypeScript)
 
 ```typescript
 import { PactV3, MatchersV3 } from '@pact-foundation/pact';
@@ -67,15 +67,16 @@ describe('User Service Contract', () => {
 
 ---
 
-## 📋 OpenAPI Schema Validation in CI
+## ðŸ“‹ OpenAPI Schema Validation in CI
 
 - Use `@stoplight/spectral-cli` to lint OpenAPI documents against corporate style guidelines.
 - Use `oas-diff` / `openapi-diff` in PR pipelines to automatically block pull requests containing breaking schema changes.
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Depending on live staging environments for microservice integration testing.
-- ❌ Testing entire unconstrained payloads instead of type matchers (`MatchersV3.string()`).
-- ❌ Breaking field types or omitting required parameters without bumping API major versions.
+- âŒ Depending on live staging environments for microservice integration testing.
+- âŒ Testing entire unconstrained payloads instead of type matchers (`MatchersV3.string()`).
+- âŒ Breaking field types or omitting required parameters without bumping API major versions.
+

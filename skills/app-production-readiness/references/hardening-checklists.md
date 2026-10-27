@@ -70,7 +70,7 @@ zero violations.
 
 ```bash
 python scripts/runtime_check.py --url <APP_URL> --routes /,/pricing --healthz /healthz
-python scripts/seo_static.py --root <app_root>          # static pages; exits 1 on a metadata gap (--strict also fails on GEO advice)
+python scripts/seo_static.py --root <app_root>          # static pages; --strict to fail on gaps
 ```
 
 ## Gate H — Tests (script: the app's own test command)
@@ -110,8 +110,7 @@ green is only accepted when the suite actually ran green.
 - [ ] Uptime check documented
 
 Gate K needs **>= 3 independent source signals** (structured logging, request/correlation id, error
-tracking, metrics, health endpoint, alerting, audit trail) before the verifier accepts the claim.
-Fewer signals -> `CONTRADICTED`, and the missing signals are named in the evidence.
+tracking, health endpoint) before the verifier accepts the claim. Fewer signals -> `UNSUPPORTED`.
 
 ## Gate L — Free-tier cost (script: verify_claims.py gate L)
 - [ ] Every service has a free tier; no paid-only API

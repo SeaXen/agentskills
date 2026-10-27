@@ -55,9 +55,3 @@ same thing with the same prompts, so the panel is one step inside a single
 review instead of a second tool the user has to remember.  The prompt files
 are copied verbatim; the file names are unchanged so a diff against the
 source skill stays readable.
-
-One exception: `clean-code.md` had its "Agent -> Script Mapping" commands
-pointed at `.agent/skills/...`, which is not this repository's layout and
-would fail with "no such file" if pasted.  Those paths were corrected to
-`.agents/skills/...`, and a note now says which of those tools are vendored
-in-skill under `scripts/absorbed/`.

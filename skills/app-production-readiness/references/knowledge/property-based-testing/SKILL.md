@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'property-based-testing' (source: property-based-testing/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'property-based-testing' (D:\Repo\.agents\skills\property-based-testing\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -26,7 +26,7 @@ version: 1.0
 
 ---
 
-## 📋 Fast-Check Pattern (TypeScript)
+## ðŸ“‹ Fast-Check Pattern (TypeScript)
 
 ```typescript
 import fc from 'fast-check';
@@ -58,7 +58,7 @@ describe('User Codec Property Tests', () => {
 
 ---
 
-## 📋 Common Invariant Archetypes
+## ðŸ“‹ Common Invariant Archetypes
 
 1. **Symmetric Operations**: `decrypt(encrypt(m, k), k) === m`.
 2. **Oracle Comparison**: Verifying an optimized algorithm against an unoptimized but provably correct simple implementation.
@@ -66,8 +66,9 @@ describe('User Codec Property Tests', () => {
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Re-implementing the function logic inside the property test assertion.
-- ❌ Testing with overly constrained input generators that miss real-world edge cases (empty strings, Unicode, null bytes, max integers).
-- ❌ Ignoring non-deterministic property test failures instead of investigating root-cause edge cases.
+- âŒ Re-implementing the function logic inside the property test assertion.
+- âŒ Testing with overly constrained input generators that miss real-world edge cases (empty strings, Unicode, null bytes, max integers).
+- âŒ Ignoring non-deterministic property test failures instead of investigating root-cause edge cases.
+

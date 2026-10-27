@@ -34,6 +34,7 @@ Usage
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import urllib.error
@@ -136,7 +137,7 @@ RULES: list[tuple[str, str, str, set[str] | None, str, str]] = [
     # --- copy / i18n -------------------------------------------------------
     ("copy-three-dots", "Typography", "medium", UI_EXT,
      r">\s*\.\.\.\s*<|\"\\.\\.\\.\"|'\\.\\.\\.'",
-     "use the ellipsis character … instead of three dots"),
+     "use the ellipsis character â€¦ instead of three dots"),
     ("i18n-locale-date", "Locale & i18n", "medium", {".jsx", ".tsx", ".js", ".ts"},
      r"toLocale(Date|Time)String\s*\(\s*\)", "locale-dependent formatting without an explicit locale"),
 
@@ -153,7 +154,7 @@ COMPILED = [
 MANUAL_CHECKS = [
     "the heading hierarchy is correct (no skipped levels) and every page has one h1",
     "async updates announce themselves (aria-live=polite) and never move focus unexpectedly",
-    "loading states are announced and end with an ellipsis (…); skeletons do not trap focus",
+    "loading states are announced and end with an ellipsis (â€¦); skeletons do not trap focus",
     "the destructive action is confirmed or undoable, and the URL reflects the current state",
     "interactive targets are at least 44x44 px and every gesture has a button alternative",
     "form errors are inline, mention the fix and move focus to the first invalid field",

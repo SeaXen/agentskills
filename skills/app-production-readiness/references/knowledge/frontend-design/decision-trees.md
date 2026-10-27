@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'frontend-design' (source: frontend-design/decision-trees.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\decision-trees.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Decision Trees & Context Templates
@@ -9,12 +9,12 @@
 
 ---
 
-## ⚠️ How to Use This File
+## âš ï¸ How to Use This File
 
 This file helps you DECIDE, not copy.
 
-- Decision trees → Help you THINK through options
-- Templates → Show STRUCTURE and PRINCIPLES, not exact values
+- Decision trees â†’ Help you THINK through options
+- Templates â†’ Show STRUCTURE and PRINCIPLES, not exact values
 - **Always ask user preferences** before applying
 - **Generate fresh palettes** based on context, don't copy hex codes
 - **Apply UX laws** from ux-psychology.md to validate decisions
@@ -24,19 +24,19 @@ This file helps you DECIDE, not copy.
 ## 1. Master Decision Tree
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     WHAT ARE YOU BUILDING?                   │
-└─────────────────────────────────────────────────────────────┘
-                              │
-        ┌─────────────────────┼─────────────────────┐
-        │                     │                     │
-        ▼                     ▼                     ▼
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                     WHAT ARE YOU BUILDING?                   â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                              â”‚
+        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+        â”‚                     â”‚                     â”‚
+        â–¼                     â–¼                     â–¼
    E-COMMERCE            SaaS/APP              CONTENT
    - Product pages       - Dashboard           - Blog
    - Checkout            - Tools               - Portfolio
    - Catalog             - Admin               - Landing
-        │                     │                     │
-        ▼                     ▼                     ▼
+        â”‚                     â”‚                     â”‚
+        â–¼                     â–¼                     â–¼
    PRINCIPLES:           PRINCIPLES:           PRINCIPLES:
    - Trust               - Functionality       - Storytelling
    - Action              - Clarity             - Emotion
@@ -51,41 +51,41 @@ This file helps you DECIDE, not copy.
 
 ```
 TARGET AUDIENCE
-      │
-      ├── Gen Z (18-25)
-      │   ├── Colors: Bold, vibrant, unexpected combinations
-      │   ├── Type: Large, expressive, variable
-      │   ├── Layout: Mobile-first, vertical, snackable
-      │   ├── Effects: Motion, gamification, interactive
-      │   └── Approach: Authentic, fast, no corporate feel
-      │
-      ├── Millennials (26-41)
-      │   ├── Colors: Muted, earthy, sophisticated
-      │   ├── Type: Clean, readable, functional
-      │   ├── Layout: Responsive, card-based, organized
-      │   ├── Effects: Subtle, purposeful only
-      │   └── Approach: Value-driven, transparent, sustainable
-      │
-      ├── Gen X (42-57)
-      │   ├── Colors: Professional, trusted, conservative
-      │   ├── Type: Familiar, clear, no-nonsense
-      │   ├── Layout: Traditional hierarchy, predictable
-      │   ├── Effects: Minimal, functional feedback
-      │   └── Approach: Direct, efficient, reliable
-      │
-      ├── Boomers (58+)
-      │   ├── Colors: High contrast, simple, clear
-      │   ├── Type: Large sizes, high readability
-      │   ├── Layout: Simple, linear, uncluttered
-      │   ├── Effects: None or very minimal
-      │   └── Approach: Clear, detailed, trustworthy
-      │
-      └── B2B / Enterprise
-          ├── Colors: Professional palette, muted
-          ├── Type: Clean, data-friendly, scannable
-          ├── Layout: Grid-based, organized, efficient
-          ├── Effects: Professional, subtle
-          └── Approach: Expert, solution-focused, ROI-driven
+      â”‚
+      â”œâ”€â”€ Gen Z (18-25)
+      â”‚   â”œâ”€â”€ Colors: Bold, vibrant, unexpected combinations
+      â”‚   â”œâ”€â”€ Type: Large, expressive, variable
+      â”‚   â”œâ”€â”€ Layout: Mobile-first, vertical, snackable
+      â”‚   â”œâ”€â”€ Effects: Motion, gamification, interactive
+      â”‚   â””â”€â”€ Approach: Authentic, fast, no corporate feel
+      â”‚
+      â”œâ”€â”€ Millennials (26-41)
+      â”‚   â”œâ”€â”€ Colors: Muted, earthy, sophisticated
+      â”‚   â”œâ”€â”€ Type: Clean, readable, functional
+      â”‚   â”œâ”€â”€ Layout: Responsive, card-based, organized
+      â”‚   â”œâ”€â”€ Effects: Subtle, purposeful only
+      â”‚   â””â”€â”€ Approach: Value-driven, transparent, sustainable
+      â”‚
+      â”œâ”€â”€ Gen X (42-57)
+      â”‚   â”œâ”€â”€ Colors: Professional, trusted, conservative
+      â”‚   â”œâ”€â”€ Type: Familiar, clear, no-nonsense
+      â”‚   â”œâ”€â”€ Layout: Traditional hierarchy, predictable
+      â”‚   â”œâ”€â”€ Effects: Minimal, functional feedback
+      â”‚   â””â”€â”€ Approach: Direct, efficient, reliable
+      â”‚
+      â”œâ”€â”€ Boomers (58+)
+      â”‚   â”œâ”€â”€ Colors: High contrast, simple, clear
+      â”‚   â”œâ”€â”€ Type: Large sizes, high readability
+      â”‚   â”œâ”€â”€ Layout: Simple, linear, uncluttered
+      â”‚   â”œâ”€â”€ Effects: None or very minimal
+      â”‚   â””â”€â”€ Approach: Clear, detailed, trustworthy
+      â”‚
+      â””â”€â”€ B2B / Enterprise
+          â”œâ”€â”€ Colors: Professional palette, muted
+          â”œâ”€â”€ Type: Clean, data-friendly, scannable
+          â”œâ”€â”€ Layout: Grid-based, organized, efficient
+          â”œâ”€â”€ Effects: Professional, subtle
+          â””â”€â”€ Approach: Expert, solution-focused, ROI-driven
 ```
 
 ---
@@ -96,30 +96,30 @@ TARGET AUDIENCE
 
 ```
 WHAT EMOTION/ACTION DO YOU WANT?
-            │
-            ├── Trust & Security
-            │   └── Consider: Blue family, professional neutrals
-            │       → ASK user for specific shade preference
-            │
-            ├── Growth & Health
-            │   └── Consider: Green family, natural tones
-            │       → ASK user if eco/nature/wellness focus
-            │
-            ├── Urgency & Action
-            │   └── Consider: Warm colors (orange/red) as ACCENTS
-            │       → Use sparingly, ASK if appropriate
-            │
-            ├── Luxury & Premium
-            │   └── Consider: Deep darks, metallics, restrained palette
-            │       → ASK about brand positioning
-            │
-            ├── Creative & Playful
-            │   └── Consider: Multi-color, unexpected combinations
-            │       → ASK about brand personality
-            │
-            └── Calm & Minimal
-                └── Consider: Neutrals with single accent
-                    → ASK what accent color fits brand
+            â”‚
+            â”œâ”€â”€ Trust & Security
+            â”‚   â””â”€â”€ Consider: Blue family, professional neutrals
+            â”‚       â†’ ASK user for specific shade preference
+            â”‚
+            â”œâ”€â”€ Growth & Health
+            â”‚   â””â”€â”€ Consider: Green family, natural tones
+            â”‚       â†’ ASK user if eco/nature/wellness focus
+            â”‚
+            â”œâ”€â”€ Urgency & Action
+            â”‚   â””â”€â”€ Consider: Warm colors (orange/red) as ACCENTS
+            â”‚       â†’ Use sparingly, ASK if appropriate
+            â”‚
+            â”œâ”€â”€ Luxury & Premium
+            â”‚   â””â”€â”€ Consider: Deep darks, metallics, restrained palette
+            â”‚       â†’ ASK about brand positioning
+            â”‚
+            â”œâ”€â”€ Creative & Playful
+            â”‚   â””â”€â”€ Consider: Multi-color, unexpected combinations
+            â”‚       â†’ ASK about brand personality
+            â”‚
+            â””â”€â”€ Calm & Minimal
+                â””â”€â”€ Consider: Neutrals with single accent
+                    â†’ ASK what accent color fits brand
 ```
 
 ### The Process:
@@ -134,31 +134,31 @@ WHAT EMOTION/ACTION DO YOU WANT?
 
 ```
 WHAT'S THE CONTENT TYPE?
-          │
-          ├── Data-Heavy (Dashboard, SaaS)
-          │   ├── Style: Sans-serif, clear, compact
-          │   ├── Scale: Tighter ratio (1.125-1.2)
-          │   └── Priority: Scannability, density
-          │
-          ├── Editorial (Blog, Magazine)
-          │   ├── Style: Serif heading + Sans body works well
-          │   ├── Scale: More dramatic (1.333+)
-          │   └── Priority: Reading comfort, hierarchy
-          │
-          ├── Modern Tech (Startup, SaaS Marketing)
-          │   ├── Style: Geometric or humanist sans
-          │   ├── Scale: Balanced (1.25)
-          │   └── Priority: Modern feel, clarity
-          │
-          ├── Luxury (Fashion, Premium)
-          │   ├── Style: Elegant serif or thin sans
-          │   ├── Scale: Dramatic (1.5-1.618)
-          │   └── Priority: Sophistication, whitespace
-          │
-          └── Playful (Kids, Games, Casual)
-              ├── Style: Rounded, friendly fonts
-              ├── Scale: Varied, expressive
-              └── Priority: Fun, approachable, readable
+          â”‚
+          â”œâ”€â”€ Data-Heavy (Dashboard, SaaS)
+          â”‚   â”œâ”€â”€ Style: Sans-serif, clear, compact
+          â”‚   â”œâ”€â”€ Scale: Tighter ratio (1.125-1.2)
+          â”‚   â””â”€â”€ Priority: Scannability, density
+          â”‚
+          â”œâ”€â”€ Editorial (Blog, Magazine)
+          â”‚   â”œâ”€â”€ Style: Serif heading + Sans body works well
+          â”‚   â”œâ”€â”€ Scale: More dramatic (1.333+)
+          â”‚   â””â”€â”€ Priority: Reading comfort, hierarchy
+          â”‚
+          â”œâ”€â”€ Modern Tech (Startup, SaaS Marketing)
+          â”‚   â”œâ”€â”€ Style: Geometric or humanist sans
+          â”‚   â”œâ”€â”€ Scale: Balanced (1.25)
+          â”‚   â””â”€â”€ Priority: Modern feel, clarity
+          â”‚
+          â”œâ”€â”€ Luxury (Fashion, Premium)
+          â”‚   â”œâ”€â”€ Style: Elegant serif or thin sans
+          â”‚   â”œâ”€â”€ Scale: Dramatic (1.5-1.618)
+          â”‚   â””â”€â”€ Priority: Sophistication, whitespace
+          â”‚
+          â””â”€â”€ Playful (Kids, Games, Casual)
+              â”œâ”€â”€ Style: Rounded, friendly fonts
+              â”œâ”€â”€ Scale: Varied, expressive
+              â””â”€â”€ Priority: Fun, approachable, readable
 ```
 
 ### Selection Process:
@@ -179,37 +179,37 @@ WHAT'S THE CONTENT TYPE?
 ### Color Thinking:
 ```
 E-commerce typically needs:
-├── Trust color (often blue family) → ASK preference
-├── Clean background (white/neutral) → depends on brand
-├── Action accent (for CTAs, sales) → depends on urgency level
-├── Success/error semantics → standard conventions work
-└── Brand integration → ASK about existing colors
+â”œâ”€â”€ Trust color (often blue family) â†’ ASK preference
+â”œâ”€â”€ Clean background (white/neutral) â†’ depends on brand
+â”œâ”€â”€ Action accent (for CTAs, sales) â†’ depends on urgency level
+â”œâ”€â”€ Success/error semantics â†’ standard conventions work
+â””â”€â”€ Brand integration â†’ ASK about existing colors
 ```
 
 ### Layout Principles:
 ```
-┌────────────────────────────────────────────────────┐
-│  HEADER: Brand + Search + Cart                      │
-│  (Keep essential actions visible)                   │
-├────────────────────────────────────────────────────┤
-│  TRUST ZONE: Why trust this site?                   │
-│  (Shipping, returns, security - if applicable)      │
-├────────────────────────────────────────────────────┤
-│  HERO: Primary message or offer                     │
-│  (Clear CTA, single focus)                          │
-├────────────────────────────────────────────────────┤
-│  CATEGORIES: Easy navigation                        │
-│  (Visual, filterable, scannable)                    │
-├────────────────────────────────────────────────────┤
-│  PRODUCTS: Easy comparison                          │
-│  (Price, rating, quick actions visible)             │
-├────────────────────────────────────────────────────┤
-│  SOCIAL PROOF: Why others trust                     │
-│  (Reviews, testimonials - if available)             │
-├────────────────────────────────────────────────────┤
-│  FOOTER: All the details                            │
-│  (Policies, contact, trust badges)                  │
-└────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  HEADER: Brand + Search + Cart                      â”‚
+â”‚  (Keep essential actions visible)                   â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  TRUST ZONE: Why trust this site?                   â”‚
+â”‚  (Shipping, returns, security - if applicable)      â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  HERO: Primary message or offer                     â”‚
+â”‚  (Clear CTA, single focus)                          â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  CATEGORIES: Easy navigation                        â”‚
+â”‚  (Visual, filterable, scannable)                    â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  PRODUCTS: Easy comparison                          â”‚
+â”‚  (Price, rating, quick actions visible)             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  SOCIAL PROOF: Why others trust                     â”‚
+â”‚  (Reviews, testimonials - if available)             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  FOOTER: All the details                            â”‚
+â”‚  (Policies, contact, trust badges)                  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Psychology to Apply:
@@ -230,11 +230,11 @@ E-commerce typically needs:
 ### Color Thinking:
 ```
 Dashboard typically needs:
-├── Background: Light OR dark (ASK preference)
-├── Surface: Slight contrast from background
-├── Primary accent: For key actions
-├── Data colors: Success/warning/danger semantics
-└── Muted: For secondary information
+â”œâ”€â”€ Background: Light OR dark (ASK preference)
+â”œâ”€â”€ Surface: Slight contrast from background
+â”œâ”€â”€ Primary accent: For key actions
+â”œâ”€â”€ Data colors: Success/warning/danger semantics
+â””â”€â”€ Muted: For secondary information
 ```
 
 ### Layout Principles:
@@ -242,18 +242,18 @@ Dashboard typically needs:
 Consider these patterns (not mandated):
 
 OPTION A: Sidebar + Content
-├── Fixed sidebar for navigation
-└── Main area for content
+â”œâ”€â”€ Fixed sidebar for navigation
+â””â”€â”€ Main area for content
 
 OPTION B: Top nav + Content
-├── Horizontal navigation
-└── More horizontal content space
+â”œâ”€â”€ Horizontal navigation
+â””â”€â”€ More horizontal content space
 
 OPTION C: Collapsed + Expandable
-├── Icon-only sidebar expands
-└── Maximum content area
+â”œâ”€â”€ Icon-only sidebar expands
+â””â”€â”€ Maximum content area
 
-→ ASK user about their navigation preference
+â†’ ASK user about their navigation preference
 ```
 
 ### Psychology to Apply:
@@ -273,36 +273,36 @@ OPTION C: Collapsed + Expandable
 ### Color Thinking:
 ```
 Landing page typically needs:
-├── Brand primary: Hero background or accent
-├── Clean secondary: Most of page
-├── CTA color: Stands out from everything
-├── Supporting: For sections, testimonials
-└── ASK about brand colors first!
+â”œâ”€â”€ Brand primary: Hero background or accent
+â”œâ”€â”€ Clean secondary: Most of page
+â”œâ”€â”€ CTA color: Stands out from everything
+â”œâ”€â”€ Supporting: For sections, testimonials
+â””â”€â”€ ASK about brand colors first!
 ```
 
 ### Structure Principles:
 ```
-┌────────────────────────────────────────────────────┐
-│  Navigation: Minimal, CTA visible                   │
-├────────────────────────────────────────────────────┤
-│  HERO: Hook + Value + CTA                          │
-│  (Most important section, biggest impact)           │
-├────────────────────────────────────────────────────┤
-│  PROBLEM: What pain do they have?                   │
-├────────────────────────────────────────────────────┤
-│  SOLUTION: How you solve it                         │
-├────────────────────────────────────────────────────┤
-│  PROOF: Why believe you?                            │
-│  (Testimonials, logos, stats)                       │
-├────────────────────────────────────────────────────┤
-│  HOW: Simple explanation of process                 │
-├────────────────────────────────────────────────────┤
-│  PRICING: If applicable                             │
-├────────────────────────────────────────────────────┤
-│  FAQ: Address objections                            │
-├────────────────────────────────────────────────────┤
-│  FINAL CTA: Repeat main action                      │
-└────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Navigation: Minimal, CTA visible                   â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  HERO: Hook + Value + CTA                          â”‚
+â”‚  (Most important section, biggest impact)           â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  PROBLEM: What pain do they have?                   â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  SOLUTION: How you solve it                         â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  PROOF: Why believe you?                            â”‚
+â”‚  (Testimonials, logos, stats)                       â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  HOW: Simple explanation of process                 â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  PRICING: If applicable                             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  FAQ: Address objections                            â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  FINAL CTA: Repeat main action                      â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Psychology to Apply:
@@ -322,30 +322,30 @@ Landing page typically needs:
 ### Color Thinking:
 ```
 Portfolio is personal - many options:
-├── Minimal: Neutrals + one signature accent
-├── Bold: Unexpected color choices
-├── Dark: Moody, artistic feel
-├── Light: Clean, professional feel
-└── ASK about personal brand identity!
+â”œâ”€â”€ Minimal: Neutrals + one signature accent
+â”œâ”€â”€ Bold: Unexpected color choices
+â”œâ”€â”€ Dark: Moody, artistic feel
+â”œâ”€â”€ Light: Clean, professional feel
+â””â”€â”€ ASK about personal brand identity!
 ```
 
 ### Structure Principles:
 ```
-┌────────────────────────────────────────────────────┐
-│  Navigation: Unique to your personality             │
-├────────────────────────────────────────────────────┤
-│  INTRO: Who you are, what you do                   │
-│  (Make it memorable, not generic)                   │
-├────────────────────────────────────────────────────┤
-│  WORK: Featured projects                            │
-│  (Large, visual, interactive)                       │
-├────────────────────────────────────────────────────┤
-│  ABOUT: Personal story                              │
-│  (Creates connection)                               │
-├────────────────────────────────────────────────────┤
-│  CONTACT: Easy to reach                             │
-│  (Clear, direct)                                    │
-└────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  Navigation: Unique to your personality             â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  INTRO: Who you are, what you do                   â”‚
+â”‚  (Make it memorable, not generic)                   â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  WORK: Featured projects                            â”‚
+â”‚  (Large, visual, interactive)                       â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  ABOUT: Personal story                              â”‚
+â”‚  (Creates connection)                               â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  CONTACT: Easy to reach                             â”‚
+â”‚  (Clear, direct)                                    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Psychology to Apply:
@@ -396,7 +396,7 @@ Small portfolio
 Basic form
 Single component
 ```
-→ Approach: Minimal decisions, focused execution
+â†’ Approach: Minimal decisions, focused execution
 
 ### Medium Projects (Days)
 ```
@@ -405,7 +405,7 @@ Dashboard with modules
 E-commerce category
 Complex forms
 ```
-→ Approach: Establish tokens, custom components
+â†’ Approach: Establish tokens, custom components
 
 ### Large Projects (Weeks)
 ```
@@ -414,8 +414,9 @@ E-commerce platform
 Custom design system
 Complex workflows
 ```
-→ Approach: Full design system, documentation, testing
+â†’ Approach: Full design system, documentation, testing
 
 ---
 
 > **Remember**: These templates show STRUCTURE and THINKING process. Every project needs fresh color, typography, and styling decisions based on its unique context. ASK when unclear.
+

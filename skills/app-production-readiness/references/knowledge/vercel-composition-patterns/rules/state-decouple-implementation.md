@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/rules/state-decouple-implementation.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\rules\state-decouple-implementation.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -11,7 +11,7 @@ tags: composition, state, architecture
 ## Decouple State Management from UI
 
 The provider component should be the only place that knows how state is managed.
-UI components consume the context interface—they don't know if state comes from
+UI components consume the context interfaceâ€”they don't know if state comes from
 useState, Zustand, or a server sync.
 
 **Incorrect (UI coupled to state implementation):**
@@ -114,3 +114,4 @@ function ChannelProvider({ channelId, children }) {
 
 The same `Composer.Input` component works with both providers because it only
 depends on the context interface, not the implementation.
+

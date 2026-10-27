@@ -7,6 +7,7 @@ Exit 0: no high-severity findings | Exit 1: high-severity findings present
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -23,8 +24,7 @@ from qa_common import (
     walk_files,
 )
 
-SKIP = {"node_modules", ".git", "dist", "build", ".next", ".nuxt", "out", "coverage", ".venv",
-        "qa"}
+SKIP = {"node_modules", ".git", "dist", "build", ".next", ".nuxt", "out", "coverage", ".venv"}
 SCAN_EXT = {".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".py", ".go", ".rb", ".php", ".env", ".yml", ".yaml", ".json"}
 CODE_EXT = {".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".py", ".go", ".vue", ".svelte", ".rb", ".php"}
 MAX_BYTES = 200_000

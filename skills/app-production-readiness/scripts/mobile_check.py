@@ -39,24 +39,6 @@ HOVER_ONLY = re.compile(r"(?i):hover\s*\{[^}]*opacity\s*:\s*0")
 SAFE_AREA = re.compile(r"(?i)env\(\s*safe-area-inset|viewport-fit\s*=\s*cover")
 TOUCH_SELECTORS = ("a", "button", "input", "select", "textarea", "[role=button]")
 
-# A selector only targets an interactive element when it names one as a type
-# selector (or as a role).  A plain substring test would treat every class
-# that happens to contain the letter "a" - ".card", ".btn-primary" - as a
-# touch target.
-INTERACTIVE_SELECTOR_RE = re.compile(
-    r"(?:^|[\s>+~])(?:a|button|input|select|textarea)\b"
-    r"|\[\s*role\s*=\s*['\"]?button['\"]?\s*\]",
-    re.I,
-)
-
-
-def _is_interactive_selector(selector: str) -> bool:
-    """True when any compound selector in the list targets a control."""
-    for compound in selector.split(","):
-        if INTERACTIVE_SELECTOR_RE.search(compound.strip()):
-            return True
-    return False
-
 
 def _framework_default_viewport(root):
     """Frameworks that inject a responsive viewport meta at runtime.
@@ -81,7 +63,7 @@ def _touch_targets(styles):
     for _path, text in styles:
         for selector, body in TAP_RULES.findall(text):
             selector = selector.strip()
-            if not _is_interactive_selector(selector):
+            if not any(sel in selector for sel in TOUCH_SELECTORS):
                 continue
             found += 1
             size = re.search(r"(?i)(?:min-)?(?:width|height)\s*:\s*(\d+)px", body)

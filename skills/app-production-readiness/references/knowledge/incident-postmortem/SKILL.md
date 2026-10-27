@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'incident-postmortem' (source: incident-postmortem/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'incident-postmortem' (D:\Repo\.agents\skills\incident-postmortem\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -25,7 +25,7 @@ version: 1.0
 
 ---
 
-## 📋 Blameless Postmortem Template
+## ðŸ“‹ Blameless Postmortem Template
 
 ```markdown
 # Incident Postmortem: [Incident Title / Outage Summary]
@@ -71,8 +71,9 @@ Brief non-technical summary of what broke, customer impact, and how it was resol
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Assigning blame to specific developers ("Alice committed a bad line").
-- ❌ Stopping at the superficial symptom ("the server ran out of memory") without answering why.
-- ❌ Failing to track preventative action items to completion after publishing the postmortem.
+- âŒ Assigning blame to specific developers ("Alice committed a bad line").
+- âŒ Stopping at the superficial symptom ("the server ran out of memory") without answering why.
+- âŒ Failing to track preventative action items to completion after publishing the postmortem.
+

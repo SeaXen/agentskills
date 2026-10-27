@@ -32,7 +32,7 @@ import json
 import re
 from pathlib import Path
 
-CODE_EXT = {".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".go", ".rs", ".rb", ".php", ".java", ".kt", ".vue", ".svelte", ".cs", ".swift", ".dart", ".scala", ".ex", ".exs", ".sh", ".bash", ".m", ".mm"}
+CODE_EXT = {".js", ".jsx", ".mjs", ".cjs", ".ts", ".tsx", ".py", ".go", ".rs", ".rb", ".php", ".java", ".kt", ".vue", ".svelte"}
 SKIP_DIRS = {
     "node_modules", ".git", "dist", "build", "out", ".next", ".nuxt", ".svelte-kit",
     "coverage", ".vercel", ".netlify", ".wrangler", ".turbo", ".cache", ".pytest_cache",
@@ -183,6 +183,7 @@ def api_hardening_findings(root: Path) -> list[dict]:
 # observability-and-instrumentation -> Gate K
 # --------------------------------------------------------------------------- #
 OBSERVABILITY_SIGNALS = {
+    "structured logging": (r"logger\.(info|warn|error|debug)\s*\(|console\.(info|warn|error)\s*\(\s*['\"]\w+['\"]\s*,|log\.(info|warn|error|debug)\s*\(", "logger"),
     "correlation id": (r"x-request-id|requestId|request_id|traceparent|correlation-?id", "req"),
     "error tracking": (r"sentry|@sentry|bugsnag|rollbar|datadog|newrelic|opentelemetry|@opentelemetry", "otel"),
     "metrics": (r"prom-client|prometheus|micrometer|openmetrics|/metrics|statsd", "prom"),
@@ -191,49 +192,15 @@ OBSERVABILITY_SIGNALS = {
     "audit trail": (r"audit_?log|audit trail|actor_id|performed_by", "audit"),
 }
 
-# "Structured logging" needs two things to be true in the *same* file: a log
-# sink and a structured payload. A bare console.log() is not structured, and a
-# JSON.stringify() that never reaches a log sink is not logging either.
-LOG_SINK = (r"logger\.(info|warn|error|debug)\s*\(|console\.(info|warn|error|log)\s*\("
-             r"|log\.(info|warn|error|debug)\s*\(|pino\.|winston|zerolog|zap\.|logrus|structlog")
-LOG_PAYLOAD = (r"JSON\.stringify\(\s*\{|logger\.\w+\(\s*\{|log\.\w+\(\s*\{"
-               r"|log\.\w+\(\s*\w+\s*,|logger\.\w+\(\s*\w+\s*,")
-
-ALL_OBSERVABILITY_SIGNALS = tuple(OBSERVABILITY_SIGNALS) + ("structured logging",)
-
-
-def observability_signals(root: Path) -> set[str]:
-    """Return the observability signals that are actually present in the source.
-
-    This is the single source of truth for Gate K: the verdict in
-    ``verify_claims.verify_K`` and the advisory in
-    ``observability_findings`` are both derived from it, so the report can
-    never claim a signal is present while advising that it is missing.
-    """
-    present: set[str] = set()
-    for path in _files(root, CODE_EXT):
-        text = _read(path)
-        if not text:
-            continue
-        if ("structured logging" not in present
-                and re.search(LOG_SINK, text, re.IGNORECASE)
-                and re.search(LOG_PAYLOAD, text, re.IGNORECASE)):
-            present.add("structured logging")
-        for name, (pattern, _) in OBSERVABILITY_SIGNALS.items():
-            if name in present:
-                continue
-            if re.search(pattern, text, re.IGNORECASE):
-                present.add(name)
-    return present
-
 
 def observability_findings(root: Path) -> list[dict]:
     """Report the observability signals that are missing, not the ones present."""
     findings: list[dict] = []
-    present = observability_signals(root)
-    if not present and not any(_files(root, CODE_EXT)):
+    corpus = "\n".join(_read(path) for path in _files(root, CODE_EXT))[:2_000_000]
+    if not corpus.strip():
         return findings
-    missing = [name for name in ALL_OBSERVABILITY_SIGNALS if name not in present]
+    missing = [name for name, (pattern, _) in OBSERVABILITY_SIGNALS.items()
+               if not re.search(pattern, corpus, re.IGNORECASE)]
     for name in missing:
         findings.append(_finding("LOW", "observability", root, root, 0,
                                  f"no {name} signal found in the source"))

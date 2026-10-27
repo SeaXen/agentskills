@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'mobile-design' (source: mobile-design/platform-ios.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\platform-ios.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # iOS Platform Guidelines
@@ -14,29 +14,29 @@
 
 ```
 CLARITY:
-├── Text is legible at every size
-├── Icons are precise and lucid
-├── Adornments are subtle and appropriate
-└── Focus on functionality drives design
+â”œâ”€â”€ Text is legible at every size
+â”œâ”€â”€ Icons are precise and lucid
+â”œâ”€â”€ Adornments are subtle and appropriate
+â””â”€â”€ Focus on functionality drives design
 
 DEFERENCE:
-├── UI helps people understand and interact
-├── Content fills the screen
-├── UI never competes with content
-└── Translucency hints at more content
+â”œâ”€â”€ UI helps people understand and interact
+â”œâ”€â”€ Content fills the screen
+â”œâ”€â”€ UI never competes with content
+â””â”€â”€ Translucency hints at more content
 
 DEPTH:
-├── Distinct visual layers convey hierarchy
-├── Transitions provide sense of depth
-├── Touch reveals functionality
-└── Content is elevated over UI
+â”œâ”€â”€ Distinct visual layers convey hierarchy
+â”œâ”€â”€ Transitions provide sense of depth
+â”œâ”€â”€ Touch reveals functionality
+â””â”€â”€ Content is elevated over UI
 ```
 
 ### iOS Design Values
 
 | Value | Implementation |
 |-------|----------------|
-| **Aesthetic Integrity** | Design matches function (game ≠ productivity) |
+| **Aesthetic Integrity** | Design matches function (game â‰  productivity) |
 | **Consistency** | Use system controls, familiar patterns |
 | **Direct Manipulation** | Touch directly affects content |
 | **Feedback** | Actions are acknowledged |
@@ -51,11 +51,11 @@ DEPTH:
 
 ```
 iOS System Fonts:
-├── SF Pro Text: Body text (< 20pt)
-├── SF Pro Display: Large titles (≥ 20pt)
-├── SF Pro Rounded: Friendly contexts
-├── SF Mono: Code, tabular data
-└── SF Compact: Apple Watch, smaller screens
+â”œâ”€â”€ SF Pro Text: Body text (< 20pt)
+â”œâ”€â”€ SF Pro Display: Large titles (â‰¥ 20pt)
+â”œâ”€â”€ SF Pro Rounded: Friendly contexts
+â”œâ”€â”€ SF Mono: Code, tabular data
+â””â”€â”€ SF Compact: Apple Watch, smaller screens
 ```
 
 ### iOS Type Scale (Dynamic Type)
@@ -77,16 +77,16 @@ iOS System Fonts:
 ### Dynamic Type Support (MANDATORY)
 
 ```swift
-// ❌ WRONG: Fixed font size
+// âŒ WRONG: Fixed font size
 Text("Hello")
     .font(.system(size: 17))
 
-// ✅ CORRECT: Dynamic Type
+// âœ… CORRECT: Dynamic Type
 Text("Hello")
     .font(.body) // Scales with user settings
 
 // React Native equivalent
-<Text style={{ fontSize: 17 }}> // ❌ Fixed
+<Text style={{ fontSize: 17 }}> // âŒ Fixed
 <Text style={styles.body}> // Use a dynamic scale system
 ```
 
@@ -110,21 +110,21 @@ Text("Hello")
 Use semantic colors for automatic dark mode:
 
 Primary:
-├── .label → Primary text
-├── .secondaryLabel → Secondary text
-├── .tertiaryLabel → Tertiary text
-├── .quaternaryLabel → Watermarks
+â”œâ”€â”€ .label â†’ Primary text
+â”œâ”€â”€ .secondaryLabel â†’ Secondary text
+â”œâ”€â”€ .tertiaryLabel â†’ Tertiary text
+â”œâ”€â”€ .quaternaryLabel â†’ Watermarks
 
 Backgrounds:
-├── .systemBackground → Main background
-├── .secondarySystemBackground → Grouped content
-├── .tertiarySystemBackground → Elevated content
+â”œâ”€â”€ .systemBackground â†’ Main background
+â”œâ”€â”€ .secondarySystemBackground â†’ Grouped content
+â”œâ”€â”€ .tertiarySystemBackground â†’ Elevated content
 
 Fills:
-├── .systemFill → Large shapes
-├── .secondarySystemFill → Medium shapes
-├── .tertiarySystemFill → Small shapes
-├── .quaternarySystemFill → Subtle shapes
+â”œâ”€â”€ .systemFill â†’ Large shapes
+â”œâ”€â”€ .secondarySystemFill â†’ Medium shapes
+â”œâ”€â”€ .tertiarySystemFill â†’ Small shapes
+â”œâ”€â”€ .quaternarySystemFill â†’ Subtle shapes
 ```
 
 ### System Accent Colors
@@ -146,10 +146,10 @@ Fills:
 iOS Dark Mode is not inverted light mode:
 
 LIGHT MODE:              DARK MODE:
-├── White backgrounds    ├── True black (#000) or near-black
-├── High saturation      ├── Desaturated colors
-├── Black text           ├── White/light gray text
-└── Drop shadows         └── Glows or no shadows
+â”œâ”€â”€ White backgrounds    â”œâ”€â”€ True black (#000) or near-black
+â”œâ”€â”€ High saturation      â”œâ”€â”€ Desaturated colors
+â”œâ”€â”€ Black text           â”œâ”€â”€ White/light gray text
+â””â”€â”€ Drop shadows         â””â”€â”€ Glows or no shadows
 
 RULE: Always use semantic colors for automatic adaptation.
 ```
@@ -161,17 +161,17 @@ RULE: Always use semantic colors for automatic adaptation.
 ### Safe Areas
 
 ```
-┌─────────────────────────────────────┐
-│░░░░░░░░░░░ Status Bar ░░░░░░░░░░░░░│ ← Top safe area inset
-├─────────────────────────────────────┤
-│                                     │
-│                                     │
-│         Safe Content Area           │
-│                                     │
-│                                     │
-├─────────────────────────────────────┤
-│░░░░░░░░░ Home Indicator ░░░░░░░░░░░│ ← Bottom safe area inset
-└─────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘ Status Bar â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â”‚ â† Top safe area inset
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚                                     â”‚
+â”‚                                     â”‚
+â”‚         Safe Content Area           â”‚
+â”‚                                     â”‚
+â”‚                                     â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘ Home Indicator â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â”‚ â† Bottom safe area inset
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 RULE: Never place interactive content in unsafe areas.
 ```
@@ -180,7 +180,7 @@ RULE: Never place interactive content in unsafe areas.
 
 | Element | Margin | Notes |
 |---------|--------|-------|
-| Screen edge → content | 16pt | Standard horizontal margin |
+| Screen edge â†’ content | 16pt | Standard horizontal margin |
 | Grouped table sections | 16pt top/bottom | Breathing room |
 | List item padding | 16pt horizontal | Standard cell padding |
 | Card internal padding | 16pt | Content within cards |
@@ -190,17 +190,17 @@ RULE: Never place interactive content in unsafe areas.
 
 ```
 iPhone Grid (Standard):
-├── 16pt margins (left/right)
-├── 8pt minimum spacing
-├── Content in 8pt multiples
+â”œâ”€â”€ 16pt margins (left/right)
+â”œâ”€â”€ 8pt minimum spacing
+â”œâ”€â”€ Content in 8pt multiples
 
 iPhone Grid (Compact):
-├── 8pt margins (when needed)
-├── 4pt minimum spacing
+â”œâ”€â”€ 8pt margins (when needed)
+â”œâ”€â”€ 4pt minimum spacing
 
 iPad Grid:
-├── 20pt margins (or more)
-├── Consider multi-column layouts
+â”œâ”€â”€ 20pt margins (or more)
+â”œâ”€â”€ Consider multi-column layouts
 ```
 
 ---
@@ -219,40 +219,40 @@ iPad Grid:
 ### Tab Bar Guidelines
 
 ```
-┌─────────────────────────────────────┐
-│                                     │
-│         Content Area                │
-│                                     │
-├─────────────────────────────────────┤
-│  🏠     🔍     ➕     ❤️     👤    │ ← Tab bar (49pt height)
-│ Home   Search  New   Saved  Profile │
-└─────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                     â”‚
+â”‚         Content Area                â”‚
+â”‚                                     â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  ðŸ      ðŸ”     âž•     â¤ï¸     ðŸ‘¤    â”‚ â† Tab bar (49pt height)
+â”‚ Home   Search  New   Saved  Profile â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Rules:
-├── 3-5 items maximum
-├── Icons: SF Symbols or custom (25×25pt)
-├── Labels: Always include (accessibility)
-├── Active state: Filled icon + tint color
-└── Tab bar always visible (don't hide on scroll)
+â”œâ”€â”€ 3-5 items maximum
+â”œâ”€â”€ Icons: SF Symbols or custom (25Ã—25pt)
+â”œâ”€â”€ Labels: Always include (accessibility)
+â”œâ”€â”€ Active state: Filled icon + tint color
+â””â”€â”€ Tab bar always visible (don't hide on scroll)
 ```
 
 ### Navigation Bar Guidelines
 
 ```
-┌─────────────────────────────────────┐
-│ < Back     Page Title      Edit    │ ← Navigation bar (44pt)
-├─────────────────────────────────────┤
-│                                     │
-│         Content Area                │
-│                                     │
-└─────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ < Back     Page Title      Edit    â”‚ â† Navigation bar (44pt)
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚                                     â”‚
+â”‚         Content Area                â”‚
+â”‚                                     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Rules:
-├── Back button: System chevron + previous title (or "Back")
-├── Title: Centered, dynamic font
-├── Right actions: Max 2 items
-├── Large title: Collapses on scroll (optional)
-└── Prefer text buttons over icons (clarity)
+â”œâ”€â”€ Back button: System chevron + previous title (or "Back")
+â”œâ”€â”€ Title: Centered, dynamic font
+â”œâ”€â”€ Right actions: Max 2 items
+â”œâ”€â”€ Large title: Collapses on scroll (optional)
+â””â”€â”€ Prefer text buttons over icons (clarity)
 ```
 
 ### Modal Presentations
@@ -284,19 +284,19 @@ Rules:
 ```
 Button Styles (UIKit/SwiftUI):
 
-┌──────────────────────────────┐
-│         Tinted               │ ← Primary action (filled)
-├──────────────────────────────┤
-│         Bordered             │ ← Secondary action (outline)
-├──────────────────────────────┤
-│         Plain                │ ← Tertiary action (text only)
-└──────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚         Tinted               â”‚ â† Primary action (filled)
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚         Bordered             â”‚ â† Secondary action (outline)
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚         Plain                â”‚ â† Tertiary action (text only)
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Sizes:
-├── Mini: Tight spaces
-├── Small: Compact UI
-├── Medium: Inline actions
-├── Large: Primary CTAs (44pt minimum height)
+â”œâ”€â”€ Mini: Tight spaces
+â”œâ”€â”€ Small: Compact UI
+â”œâ”€â”€ Medium: Inline actions
+â”œâ”€â”€ Large: Primary CTAs (44pt minimum height)
 ```
 
 ### Lists & Tables
@@ -304,17 +304,17 @@ Sizes:
 ```
 List Styles:
 
-.plain         → No separators, edge-to-edge
-.insetGrouped  → Rounded cards (default iOS 14+)
-.grouped       → Full-width sections
-.sidebar       → iPad sidebar navigation
+.plain         â†’ No separators, edge-to-edge
+.insetGrouped  â†’ Rounded cards (default iOS 14+)
+.grouped       â†’ Full-width sections
+.sidebar       â†’ iPad sidebar navigation
 
 Cell Accessories:
-├── Disclosure indicator (>) → Navigates to detail
-├── Detail button (i) → Shows info without navigation
-├── Checkmark (✓) → Selection
-├── Reorder (≡) → Drag to reorder
-└── Delete (-) → Swipe/edit mode delete
+â”œâ”€â”€ Disclosure indicator (>) â†’ Navigates to detail
+â”œâ”€â”€ Detail button (i) â†’ Shows info without navigation
+â”œâ”€â”€ Checkmark (âœ“) â†’ Selection
+â”œâ”€â”€ Reorder (â‰¡) â†’ Drag to reorder
+â””â”€â”€ Delete (-) â†’ Swipe/edit mode delete
 ```
 
 ### Text Fields
@@ -322,10 +322,10 @@ Cell Accessories:
 ```
 iOS Text Field Anatomy:
 
-┌─────────────────────────────────────┐
-│ 🔍 Search...                    ✕  │
-└─────────────────────────────────────┘
-  ↑                               ↑
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ ðŸ” Search...                    âœ•  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+  â†‘                               â†‘
   Leading icon                   Clear button
 
 Borders: Rounded rectangle
@@ -338,19 +338,19 @@ Clear button: Appears when has text
 
 ```
 When to Use:
-├── 2-5 related options
-├── Filter content
-├── Switch views
+â”œâ”€â”€ 2-5 related options
+â”œâ”€â”€ Filter content
+â”œâ”€â”€ Switch views
 
-┌───────┬───────┬───────┐
-│  All  │ Active│ Done  │
-└───────┴───────┴───────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  All  â”‚ Activeâ”‚ Done  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Rules:
-├── Equal width segments
-├── Text or icons (not both mixed)
-├── Max 5 segments
-└── Consider tabs if more complex
+â”œâ”€â”€ Equal width segments
+â”œâ”€â”€ Text or icons (not both mixed)
+â”œâ”€â”€ Max 5 segments
+â””â”€â”€ Consider tabs if more complex
 ```
 
 ---
@@ -361,10 +361,10 @@ Rules:
 
 ```
 Native UIRefreshControl behavior:
-├── Pull beyond threshold → Spinner appears
-├── Release → Refresh action triggered
-├── Loading state → Spinner spins
-├── Complete → Spinner disappears
+â”œâ”€â”€ Pull beyond threshold â†’ Spinner appears
+â”œâ”€â”€ Release â†’ Refresh action triggered
+â”œâ”€â”€ Loading state â†’ Spinner spins
+â”œâ”€â”€ Complete â†’ Spinner disappears
 
 RULE: Always use native UIRefreshControl (don't custom build).
 ```
@@ -374,10 +374,10 @@ RULE: Always use native UIRefreshControl (don't custom build).
 ```
 iOS swipe actions:
 
-← Swipe Left (Destructive)      Swipe Right (Constructive) →
-┌─────────────────────────────────────────────────────────────┐
-│                    List Item Content                        │
-└─────────────────────────────────────────────────────────────┘
+â† Swipe Left (Destructive)      Swipe Right (Constructive) â†’
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                    List Item Content                        â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Left swipe reveals: Archive, Delete, Flag
 Right swipe reveals: Pin, Star, Mark as Read
@@ -388,23 +388,23 @@ Full swipe: Triggers first action
 ### Context Menus
 
 ```
-Long press → Context menu appears
+Long press â†’ Context menu appears
 
-┌─────────────────────────────┐
-│       Preview Card          │
-├─────────────────────────────┤
-│  📋 Copy                    │
-│  📤 Share                   │
-│  ➕ Add to...               │
-├─────────────────────────────┤
-│  🗑️ Delete          (Red)   │
-└─────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚       Preview Card          â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  ðŸ“‹ Copy                    â”‚
+â”‚  ðŸ“¤ Share                   â”‚
+â”‚  âž• Add to...               â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  ðŸ—‘ï¸ Delete          (Red)   â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Rules:
-├── Preview: Show enlarged content
-├── Actions: Related to content
-├── Destructive: Last, in red
-└── Max ~8 actions (scrollable if more)
+â”œâ”€â”€ Preview: Show enlarged content
+â”œâ”€â”€ Actions: Related to content
+â”œâ”€â”€ Destructive: Last, in red
+â””â”€â”€ Max ~8 actions (scrollable if more)
 ```
 
 ### Sheets & Half-Sheets
@@ -412,22 +412,22 @@ Rules:
 ```
 iOS 15+ Sheets:
 
-┌─────────────────────────────────────┐
-│                                     │
-│        Parent View (dimmed)          │
-│                                     │
-├─────────────────────────────────────┤
-│  ═══  (Grabber)                     │ ← Drag to resize
-│                                     │
-│        Sheet Content                │
-│                                     │
-│                                     │
-└─────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                     â”‚
+â”‚        Parent View (dimmed)          â”‚
+â”‚                                     â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚  â•â•â•  (Grabber)                     â”‚ â† Drag to resize
+â”‚                                     â”‚
+â”‚        Sheet Content                â”‚
+â”‚                                     â”‚
+â”‚                                     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Detents:
-├── .medium → Half screen
-├── .large → Full screen (with safe area)
-├── Custom → Specific height
+â”œâ”€â”€ .medium â†’ Half screen
+â”œâ”€â”€ .large â†’ Full screen (with safe area)
+â”œâ”€â”€ Custom â†’ Specific height
 ```
 
 ---
@@ -440,14 +440,14 @@ Detents:
 SF Symbols: Apple's icon library (5000+ icons)
 
 Weights: Match text weight
-├── Ultralight / Thin / Light
-├── Regular / Medium / Semibold
-├── Bold / Heavy / Black
+â”œâ”€â”€ Ultralight / Thin / Light
+â”œâ”€â”€ Regular / Medium / Semibold
+â”œâ”€â”€ Bold / Heavy / Black
 
 Scales:
-├── .small → Inline with small text
-├── .medium → Standard UI
-├── .large → Emphasis, standalone
+â”œâ”€â”€ .small â†’ Inline with small text
+â”œâ”€â”€ .medium â†’ Standard UI
+â”œâ”€â”€ .large â†’ Emphasis, standalone
 ```
 
 ### Symbol Configurations
@@ -484,10 +484,10 @@ Image(systemName: "checkmark.circle")
 
 ```
 Every interactive element needs:
-├── Accessibility label (what it is)
-├── Accessibility hint (what it does) - optional
-├── Accessibility traits (button, link, etc.)
-└── Accessibility value (current state)
+â”œâ”€â”€ Accessibility label (what it is)
+â”œâ”€â”€ Accessibility hint (what it does) - optional
+â”œâ”€â”€ Accessibility traits (button, link, etc.)
+â””â”€â”€ Accessibility value (current state)
 
 SwiftUI:
 .accessibilityLabel("Play")
@@ -505,14 +505,14 @@ accessibilityRole="button"
 MANDATORY: Support Dynamic Type
 
 Users can set text size from:
-├── xSmall → 14pt body
-├── Small → 15pt body
-├── Medium → 16pt body
-├── Large (Default) → 17pt body
-├── xLarge → 19pt body
-├── xxLarge → 21pt body
-├── xxxLarge → 23pt body
-├── Accessibility sizes → up to 53pt
+â”œâ”€â”€ xSmall â†’ 14pt body
+â”œâ”€â”€ Small â†’ 15pt body
+â”œâ”€â”€ Medium â†’ 16pt body
+â”œâ”€â”€ Large (Default) â†’ 17pt body
+â”œâ”€â”€ xLarge â†’ 19pt body
+â”œâ”€â”€ xxLarge â†’ 21pt body
+â”œâ”€â”€ xxxLarge â†’ 23pt body
+â”œâ”€â”€ Accessibility sizes â†’ up to 53pt
 
 Your app MUST scale gracefully at all sizes.
 ```
@@ -545,8 +545,8 @@ AccessibilityInfo.isReduceMotionEnabled()
 - [ ] Dynamic Type supported
 - [ ] Safe areas respected
 - [ ] Navigation follows HIG (back gesture works)
-- [ ] Tab bar items ≤ 5
-- [ ] Touch targets ≥ 44pt
+- [ ] Tab bar items â‰¤ 5
+- [ ] Touch targets â‰¥ 44pt
 
 ### Before iOS Release
 
@@ -562,3 +562,4 @@ AccessibilityInfo.isReduceMotionEnabled()
 ---
 
 > **Remember:** iOS users have strong expectations from other iOS apps. Deviating from HIG patterns feels "broken" to them. When in doubt, use the native component.
+

@@ -12,6 +12,7 @@ Python interpreter.  The module provides:
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
@@ -118,23 +119,14 @@ SKIP_DIRS = {"node_modules", ".git", "dist", "build", "out", ".next", ".nuxt",
 
 
 def walk_files(root: Path, exts=None, skip_dirs=None):
-    """Yield files under root, skipping vendor/build directories.
-
-    The skip filter looks at the path RELATIVE to the project root: an
-    absolute-path test would hide every file of a project that simply lives
-    in a directory called ``build`` or ``out``.
-    """
+    """Yield files under root, skipping vendor/build directories."""
     skip = set(skip_dirs or SKIP_DIRS)
     exts = {e.lower() for e in exts} if exts else None
     root = Path(root)
     for path in sorted(root.rglob("*")):
         if not path.is_file():
             continue
-        try:
-            rel_parts = path.relative_to(root).parts
-        except ValueError:
-            rel_parts = path.parts
-        if any(part in skip for part in rel_parts):
+        if any(part in skip for part in path.parts):
             continue
         if exts and path.suffix.lower() not in exts:
             continue

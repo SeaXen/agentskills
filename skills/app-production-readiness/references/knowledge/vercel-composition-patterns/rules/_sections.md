@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/rules/_sections.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\rules\_sections.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Sections
@@ -30,3 +30,4 @@ context providers.
 
 **Impact:** MEDIUM  
 **Description:** React 19+ only. Don't use `forwardRef`; use `use()` instead of `useContext()`.
+

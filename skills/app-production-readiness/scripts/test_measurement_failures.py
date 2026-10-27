@@ -15,6 +15,7 @@ orchestrator bug where the server was stopped before the gates were judged.
 """
 
 import json
+import os
 import socket
 import subprocess
 import sys
@@ -292,7 +293,7 @@ def test_the_orchestrator_never_reports_a_measurement_failure_as_a_defect(tmp_pa
         "}).listen(port,'127.0.0.1');\n",
         encoding="utf-8")
     (app / "README.md").write_text("# tiny-app\n\nA tiny app.\n", encoding="utf-8")
-    _run("review.py", [
+    proc = _run("review.py", [
         "--root", app, "--serve", "--gates", "N,D,O", "--skip-tests",
         "--duration", "2",
     ], app)

@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/rules/react19-no-forwardref.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\rules\react19-no-forwardref.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -10,7 +10,7 @@ tags: react19, refs, context, hooks
 
 ## React 19 API Changes
 
-> **⚠️ React 19+ only.** Skip this if you're on React 18 or earlier.
+> **âš ï¸ React 19+ only.** Skip this if you're on React 18 or earlier.
 
 In React 19, `ref` is now a regular prop (no `forwardRef` wrapper needed), and `use()` replaces `useContext()`.
 
@@ -43,3 +43,4 @@ const value = use(MyContext)
 ```
 
 `use()` can also be called conditionally, unlike `useContext()`.
+

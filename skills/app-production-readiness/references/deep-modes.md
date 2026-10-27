@@ -1,4 +1,4 @@
-# Deep modes — turning judgement calls into evidence
+# Deep modes â€” turning judgement calls into evidence
 
 The static gates read the code. The deep modes **run** it. Five gaps used to be
 "a human has to trust this"; now each one has a script, an artefact, and an
@@ -24,7 +24,7 @@ All of them obey the skill-wide exit-code contract:
 
 ---
 
-## 1. Deploy smoke — does the app actually boot?
+## 1. Deploy smoke â€” does the app actually boot?
 
 `deploy_verify.py` parses `Dockerfile`, `vercel.json`, `netlify.toml`,
 `fly.toml`, `render.yaml`, `Procfile` and the package scripts. This one
@@ -59,7 +59,7 @@ Without one the mode reports **SKIPPED**, never a pass.
 
 ---
 
-## 2. Migration apply — do the migrations really run?
+## 2. Migration apply â€” do the migrations really run?
 
 ```bash
 python scripts/migration_apply.py --root <app_root>            # SQLite (default)
@@ -85,7 +85,7 @@ Steps 2-4 are what a static SQL review cannot tell you.
 
 ---
 
-## 3. Soak — is the tail still healthy after the run?
+## 3. Soak â€” is the tail still healthy after the run?
 
 ```bash
 python scripts/load_check.py --url http://127.0.0.1:3000 --routes / \
@@ -101,7 +101,7 @@ can see the shape of the run, not just the verdict.
 
 ---
 
-## 4. Live payment and email — does it work end to end?
+## 4. Live payment and email â€” does it work end to end?
 
 ```bash
 export STRIPE_SECRET_KEY=sk_test_...          # test mode only
@@ -112,7 +112,7 @@ python scripts/payment_email_live.py --root <app_root>
 
 * Stripe: creates a PaymentIntent (100 cents, USD) through the Stripe API.
 * Email: sends one real message through Resend to `QA_TEST_EMAIL`.
-* A **live** key (`sk_live_`, `rk_live_`) is refused — the script must never
+* A **live** key (`sk_live_`, `rk_live_`) is refused â€” the script must never
   move real money. That refusal is a blocking failure.
 * Without credentials nothing is sent and the mode is **SKIPPED** (exit 2).
 
@@ -120,7 +120,7 @@ Never commit these keys: put them in the environment, not in `.env`.
 
 ---
 
-## 5. The design sign-off — where the human decision lives
+## 5. The design sign-off â€” where the human decision lives
 
 The rubric can only measure what a machine can see. Taste is not
 machine-checkable, so the human decision is **recorded**, not forgotten in a
@@ -153,7 +153,7 @@ score and the per-dimension scores. A sign-off is rejected when
 * the reviewer is missing,
 * the verdict is not `approved`,
 * the date is missing, unparsable or in the future,
-* the recorded score does not match the current rubric score (±0.02),
+* the recorded score does not match the current rubric score (Â±0.02),
 * the fingerprint does not match the current measurement.
 
 So a sign-off can never be carried over to a version of the UI it never saw.
@@ -169,7 +169,7 @@ Effect on the report:
 
 ---
 
-## 6. The domain and legal sign-offs — gates N and Q
+## 6. The domain and legal sign-offs â€” gates N and Q
 
 Two gate questions are *not* software questions:
 
@@ -207,9 +207,9 @@ That writes `qa/signoff/business-rules.json` and `qa/signoff/privacy.json`:
 
 The **fingerprint is a hash of the content that was reviewed**:
 
-* Gate N → the scenario spec (`qa/scenarios.json`) **and** the rule
-  documents (`docs/rules.md`, `business-rules.md`, `domain-rules.md`, …).
-* Gate Q → the policy file(s) **and** the live policy route.
+* Gate N â†’ the scenario spec (`qa/scenarios.json`) **and** the rule
+  documents (`docs/rules.md`, `business-rules.md`, `domain-rules.md`, â€¦).
+* Gate Q â†’ the policy file(s) **and** the live policy route.
 
 Change one of those files and the fingerprint no longer matches, so the
 approval is rejected and the gate drops back to UNVERIFIABLE. That is the
@@ -219,7 +219,7 @@ Effect on the report:
 
 | Situation | Gate N / Q verdict |
 |---|---|
-| the machine half fails (a scenario fails, PII in logs, …) | CONTRADICTED |
+| the machine half fails (a scenario fails, PII in logs, â€¦) | CONTRADICTED |
 | the machine half cannot run (no scenario spec, no --url) | UNSUPPORTED |
 | machine half passes, no sign-off | UNVERIFIABLE, with the command to record one |
 | machine half passes, valid sign-off | VERIFIED |

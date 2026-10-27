@@ -238,12 +238,9 @@ def run_roundtrip(root: Path, engine, migrations) -> dict:
         finally:
             fresh.cleanup()
     else:
-        result["reapply"] = [
-            {"migration": mig["key"], "status": "skipped",
-             "detail": "re-apply on a fresh database needs a second "
-                       "PostgreSQL database; skipped"}
-            for mig in migrations
-        ]
+        result["reapply"] = [{"migration": m["key"], "status": "skipped",
+                              "detail": "re-apply on a fresh database needs a second "
+                                        "PostgreSQL database; skipped"}]
 
     # idempotency probe: run the chain twice on one database
     engine.run_file(migrations[0]["forward"]) if migrations else None
@@ -269,6 +266,7 @@ def main(argv=None) -> int:
         return 1
 
     pg_url = os.environ.get("QA_PG_URL") or os.environ.get("DATABASE_URL")
+    use_pg = False
     i = 0
     while i < len(argv):
         if argv[i] == "--pg-url" and i + 1 < len(argv):

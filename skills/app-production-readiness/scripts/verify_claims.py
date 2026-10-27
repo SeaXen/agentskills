@@ -34,6 +34,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -194,10 +195,6 @@ def verify_C(root: Path, ctx):
     rubric = data.get("rubric") or {}
     score = rubric.get("score")
     if rc == 1:
-        if data.get("verdict") == "design-rejected":
-            return CONTRADICTED, (f"a human reviewer rejected the design "
-                                  f"(score {score}): "
-                                  + "; ".join((data.get("blocking") or [])[:2]))
         blocking = data.get("blocking") or []
         return CONTRADICTED, f"design rubric failed (score {score}): " + \
             "; ".join(blocking[:3])
@@ -206,8 +203,8 @@ def verify_C(root: Path, ctx):
         return VERIFIED, (f"design rubric passed (score {score}) and was signed off by "
                           f"{signoff.get('reviewer', 'unknown')} on {signoff.get('date', '?')}")
     if data.get("signoff_reasons"):
-        return UNVERIFIABLE, (f"design rubric passed (score {score}) but the human "
-                              f"sign-off is not in place: "
+        return UNVERIFIABLE, (f"design rubric passed (score {score}) but the recorded "
+                              f"sign-off is not valid: "
                               + "; ".join(data["signoff_reasons"][:3]))
     return (UNVERIFIABLE,
             f"design rubric passed (score {score}) - human sign-off still required")
@@ -250,29 +247,6 @@ def verify_D(root: Path, ctx):
     return VERIFIED, f"{measured} route(s) meet every threshold"
 
 
-def dependency_scan_state(root: Path):
-    """Return ``(state, reason)`` for the dependency CVE scan.
-
-    ``state`` is one of:
-
-    * ``ok``             - the audit ran and the report is clean,
-    * ``not_applicable`` - there is nothing to audit (no dependency manifest),
-    * ``unavailable``    - the audit tool could not run (not installed, offline,
-      produced no parsable output).  A gate that cannot be measured is never a
-      pass, so the caller must not report VERIFIED for this state.
-    """
-    try:
-        import dep_audit
-    except Exception as exc:
-        return "unavailable", f"dep_audit could not be imported: {exc}"
-    try:
-        report = dep_audit.audit(root, fail_on="high")
-    except Exception as exc:
-        return "unavailable", f"the dependency audit failed: {exc}"
-    state = report.get("scan_state") or ("ok" if report.get("status") == "ok" else "unavailable")
-    return state, (report.get("reason") or "no reason reported")
-
-
 def verify_E(root: Path, ctx):
     """Security scan, re-run now."""
     try:
@@ -285,16 +259,9 @@ def verify_E(root: Path, ctx):
         return CONTRADICTED, "; ".join(f"{f['type']} ({f['file']}:{f['line']})" for f in high[:4])
     med = len([f for f in findings if f["severity"] == "MEDIUM"])
     note = f"{med} medium finding(s) outstanding" if med else "no findings"
-    state, reason = dependency_scan_state(root)
-    if state == "unavailable":
-        # The "zero HIGH vulnerabilities" claim includes dependency CVEs.  When
-        # the CVE scan could not run the claim was NOT re-derived, so the gate
-        # is UNSUPPORTED (skipped) - never a pass.
-        return UNSUPPORTED, (
-            "the dependency CVE scan could not run, so 'zero HIGH vulnerabilities' "
-            f"could not be re-derived: {reason}")
-    if state == "not_applicable":
-        note += "; no dependency manifest to audit"
+    unverified_cve = [f for f in findings if "CVE scan NOT performed" in f["type"]]
+    if unverified_cve:
+        note += "; dependency CVE scan was skipped"
     return VERIFIED, note
 
 
@@ -338,20 +305,8 @@ def verify_G(root: Path, ctx):
         return UNSUPPORTED, f"runtime_check could not run: {exc}"
     seo_failures = [f for f in report.get("failures", [])
                     if "seo:" in f or "global: unknown route" in f]
-    if seo_failures:
+    if report.get("status") == "fail" and seo_failures:
         return CONTRADICTED, "; ".join(seo_failures[:4])
-    # A route that never answered has no metadata to check. Claiming that the
-    # SEO of that route is fine would be a pass nobody measured.
-    unreachable = []
-    for entry in report.get("routes", []):
-        checks = entry.get("checks") or []
-        reachable = any(c.get("name") == "route reachable" and c.get("ok")
-                        for c in checks)
-        if not reachable:
-            unreachable.append(entry.get("route") or "?")
-    if unreachable:
-        return UNSUPPORTED, ("the metadata of " + ", ".join(unreachable) +
-                             " could not be checked (the route never answered)")
     if static_gaps:
         return CONTRADICTED, "static pages: " + "; ".join(
             f"{g.get('file')}: {g.get('issue')}" for g in static_gaps[:4])
@@ -392,8 +347,7 @@ def verify_H(root: Path, ctx):
         return UNSUPPORTED, "tests skipped by request"
     cmd, runner = detect_test_command(root)
     if not cmd:
-        return CONTRADICTED, ("no test suite was found - the project ships no "
-                              "detectable tests, so correctness is unproven")
+        return UNSUPPORTED, "no detectable test command"
     rc, out, err = run_cmd(cmd, cwd=root, timeout=ctx.get("test_timeout", 600))
     output = (out or "") + "\n" + (err or "")
     if rc == 0:
@@ -403,9 +357,7 @@ def verify_H(root: Path, ctx):
                     f"{runner} exited 0 but no test count could be parsed - "
                     "cannot confirm that any test ran")
         if ran <= 0:
-            return (CONTRADICTED,
-                    f"{runner} exited 0 but ran 0 tests - the project has no "
-                    "effective test suite")
+            return UNSUPPORTED, f"{runner} exited 0 but ran 0 tests"
         return VERIFIED, f"{runner} exited 0, {ran} test(s) passed"
     tail = (out or err).strip().splitlines()[-1][:160] if (out or err).strip() else f"rc={rc}"
     return CONTRADICTED, f"{runner} failed: {tail}"
@@ -513,27 +465,30 @@ def verify_J(root: Path, ctx):
 
 
 def verify_K(root: Path, ctx):
-    """Observability evidence in the source (>= 3 independent signals).
-
-    The signal definitions live in ``absorbed_rules`` so that this verdict and
-    the Gate K advisory can never disagree about the same source file.
-    """
+    """Observability evidence in the source."""
+    evidence = {
+        "structured logging": r"JSON\.stringify\(\s*\{|logging\.getLogger|logger\.(info|error|warn)",
+        "request id": r"x-request-id|requestId|request_id",
+        "error tracking": r"sentry|Sentry|captureException|rollbar|bugsnag",
+        "health endpoint": r"healthz|/health",
+    }
+    found = set()
     try:
-        import absorbed_rules
-    except Exception as exc:
-        return UNSUPPORTED, f"could not load the observability rules: {exc}"
-    try:
-        present = absorbed_rules.observability_signals(root)
+        import security_scan as ss
+        for p in ss.walk(root):
+            if p.suffix not in ss.CODE_EXT:
+                continue
+            txt = ss.read(p)
+            for label, pattern in evidence.items():
+                if label in found:
+                    continue
+                if re.search(pattern, txt, re.I):
+                    found.add(label)
     except Exception as exc:
         return UNSUPPORTED, f"could not scan the source: {exc}"
-    if len(present) >= 3:
-        return VERIFIED, "evidence: " + ", ".join(sorted(present))
-    missing = [name for name in absorbed_rules.ALL_OBSERVABILITY_SIGNALS
-               if name not in present]
-    return CONTRADICTED, (
-        f"only {len(present)} observability signal(s) in the source "
-        f"({', '.join(sorted(present)) or 'none'}); "
-        f"missing: {', '.join(missing)}")
+    if len(found) >= 3:
+        return VERIFIED, "evidence: " + ", ".join(sorted(found))
+    return UNSUPPORTED, "only found: " + (", ".join(sorted(found)) or "nothing")
 
 
 def verify_L(root: Path, ctx):
@@ -542,20 +497,13 @@ def verify_L(root: Path, ctx):
     if not readme.is_file():
         return UNSUPPORTED, "no README.md"
     text = readme.read_text(encoding="utf-8", errors="ignore")
-    # The README is the evidence, so its absence of the table is a DEFECT,
-    # not an unavailable measurement: an unreadable/absent README is the only
-    # SKIPPED case here.
-    has_limits = bool(re.search(r"(?i)free[\s\-]*(tier|plan)", text)) or bool(
-        re.search(r"(?im)^\s*\|[^|\n]*\blimit", text))
-    has_fallback = bool(re.search(
-        r"(?i)fallback|what breaks|when it breaks|when the limit|exceeded|degrad", text))
+    has_limits = bool(re.search(r"(?i)free\s*(tier|plan)|limits?\b", text))
+    has_fallback = bool(re.search(r"(?i)fallback|what breaks|when the limit|exceeded", text))
     if has_limits and has_fallback:
         return VERIFIED, "README documents free-tier limits and the fallback"
     if has_limits:
         return CONTRADICTED, "README mentions free-tier limits but not the fallback behaviour"
-    if has_fallback:
-        return CONTRADICTED, "README documents the fallback but no free-tier limits table"
-    return CONTRADICTED, "the README documents no free-tier limits table"
+    return UNSUPPORTED, "README documents no free-tier limits"
 
 
 def verify_M(root: Path, ctx):

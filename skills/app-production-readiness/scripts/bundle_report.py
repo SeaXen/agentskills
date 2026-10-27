@@ -35,7 +35,7 @@ CODE_EXT = {".js", ".mjs", ".cjs", ".css"}
 IMAGE_EXT = {".png", ".jpg", ".jpeg", ".webp", ".avif", ".gif", ".ico"}
 SKIP_DIRS = {"node_modules", ".git", "dist", "build", "out", "coverage", ".next",
              ".nuxt", ".svelte-kit", ".turbo", ".cache", "target", "vendor",
-             ".venv", "venv", "__pycache__", ".pytest_cache", "qa"}
+             ".venv", "venv", "__pycache__", ".pytest_cache"}
 
 
 def collect_assets(dist: Path):
@@ -152,6 +152,7 @@ def analyse(root: Path, route_budget_kb: int = 200, dep_budget_kb: int = 50) -> 
     # behind, so a half-finished build is never reported as a healthy bundle.
     try:
         import framework_profiles
+        profile = framework_profiles.profile(root)
         markers = framework_profiles.build_markers(root)
         if markers and not framework_profiles.build_is_real(root):
             check("build output present", False,

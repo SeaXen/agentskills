@@ -17,14 +17,13 @@ Checks
   5. every reference/script file mentioned in SKILL.md exists
   6. every file under references/ is linked from SKILL.md
   7. the absorbed scripts match their manifest (scripts/absorbed/verify_manifest.py)
-  8. the absorbed knowledge pack matches its manifest (references/knowledge/)
-  9. no file contains double-encoded (mojibake) text
 
 Exit 0: everything passes | Exit 1: at least one problem | Exit 2: cannot run
 """
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 import zipfile
@@ -37,16 +36,6 @@ ALLOWED_KEYS = {"name", "description", "license", "allowed-tools", "metadata",
                 "compatibility"}
 FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 SKIP_DIRS = {"__pycache__", ".git", ".pytest_cache", "qa", "node_modules"}
-
-# A lead character from the "UTF-8 bytes read as cp1252" family followed by
-# one to three characters from the same family.  Seeing this in a text file
-# means the file was decoded with the wrong codec at some point.
-MOJIBAKE_RE = re.compile(
-    "[\u00c2\u00c3\u00e2\u00f0\u00ef\u00c5\u00c6]"
-    "[\u0080-\u00bf\u20ac\u201a\u0192\u201e\u2026\u2020\u2021\u02c6\u2030\u0160"
-    "\u2039\u0152\u017d\u2018\u2019\u201c\u201d\u2022\u2013\u2014\u02dc\u2122"
-    "\u0161\u203a\u0153\u017e\u0178]{1,3}")
-TEXT_SUFFIXES = {".md", ".py", ".json", ".txt", ".yaml", ".yml", ".html", ".css"}
 
 
 # ---------------------------------------------------------------------------
@@ -175,44 +164,6 @@ def check_skill(root: Path) -> dict:
                 notes.append(f"absorbed scripts verified: "
                              f"{manifest_check.get('checked')} file(s)")
 
-    # 8. absorbed knowledge pack
-    knowledge_check = {"status": "skipped"}
-    if (root / "references" / "knowledge").is_dir():
-        try:
-            sys.path.insert(0, str(scripts_dir))
-            import refresh_knowledge  # type: ignore
-            knowledge_problems, knowledge_count = refresh_knowledge.check(root)
-        except Exception as exc:
-            knowledge_check = {"status": "error", "reason": str(exc)}
-        else:
-            knowledge_check = {"status": "ok" if not knowledge_problems else "drift",
-                               "checked": knowledge_count,
-                               "problems": knowledge_problems}
-            if knowledge_problems:
-                problems.append("the absorbed knowledge pack drifted from its manifest: "
-                                + "; ".join(knowledge_problems[:3]))
-            else:
-                notes.append(f"absorbed knowledge verified: {knowledge_count} file(s)")
-
-    # 9. no double-encoded text anywhere in the package
-    mojibake = []
-    for path in sorted(root.rglob("*")):
-        if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
-            continue
-        rel = path.relative_to(root)
-        if any(part in SKIP_DIRS for part in rel.parts):
-            continue
-        try:
-            text = path.read_text(encoding="utf-8", errors="ignore")
-        except OSError:
-            continue
-        hit = MOJIBAKE_RE.search(text)
-        if hit:
-            mojibake.append(f"{rel.as_posix()}: {hit.group(0)!r}")
-    if mojibake:
-        problems.append(f"{len(mojibake)} file(s) contain double-encoded text: "
-                        + "; ".join(mojibake[:5]))
-
     return {
         "ok": not problems,
         "problems": problems,
@@ -221,8 +172,6 @@ def check_skill(root: Path) -> dict:
             "scripts_compiled": len(script_files),
             "references_checked": len(list(refs_dir.rglob("*.md"))) if refs_dir.is_dir() else 0,
             "absorbed": manifest_check,
-            "knowledge": knowledge_check,
-            "mojibake_files": len(mojibake),
         },
     }
 

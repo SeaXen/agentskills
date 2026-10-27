@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'microservices-resilience' (source: microservices-resilience/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'microservices-resilience' (D:\Repo\.agents\skills\microservices-resilience\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -26,7 +26,7 @@ version: 1.0
 
 ---
 
-## 📋 Resilient Retry with Jitter Pattern (TypeScript)
+## ðŸ“‹ Resilient Retry with Jitter Pattern (TypeScript)
 
 ```typescript
 export async function retryWithBackoff<T>(
@@ -68,8 +68,9 @@ function isTransientError(error: any): boolean {
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Unbounded retries without maximum count or timeouts.
-- ❌ Retrying non-idempotent mutations without idempotency keys (risks duplicate charges).
-- ❌ Tight coupling without fallback responses or cached degraded states.
+- âŒ Unbounded retries without maximum count or timeouts.
+- âŒ Retrying non-idempotent mutations without idempotency keys (risks duplicate charges).
+- âŒ Tight coupling without fallback responses or cached degraded states.
+

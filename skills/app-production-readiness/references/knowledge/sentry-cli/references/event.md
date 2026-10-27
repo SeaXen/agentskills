@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'sentry-cli' (source: sentry-cli/references/event.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\event.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -105,11 +105,11 @@ Send a Sentry event
 - `-p, --platform <value> - Platform identifier (default: other)`
 - `-t, --tag <value>... - Tag as KEY:VALUE (repeat for multiple)`
 - `-e, --extra <value>... - Extra data as KEY:VALUE (repeat for multiple)`
-- `-u, --user <value>... - User info as KEY:VALUE — id, email, username, ip_address, or custom`
+- `-u, --user <value>... - User info as KEY:VALUE â€” id, email, username, ip_address, or custom`
 - `-f, --fingerprint <value>... - Custom fingerprint part (repeat for multiple)`
 - `--timestamp <value> - Event timestamp (Unix epoch, ISO 8601, or RFC 2822)`
 - `--no-environ - Do not include environment variables in the event`
-- `--logfile <value> - Path to a log file — last 100 lines are attached as breadcrumbs`
+- `--logfile <value> - Path to a log file â€” last 100 lines are attached as breadcrumbs`
 - `--with-categories - Parse 'CATEGORY: message' prefixes from logfile breadcrumbs`
 - `--raw - Send file contents as-is without parsing`
 
@@ -134,7 +134,7 @@ sentry event send -m "DB timeout" --fingerprint db-timeout --fingerprint {{ defa
 # Send a serialized Sentry Event object
 sentry event send ./crash.json
 
-# Send without re-parsing (raw mode — also supports pre-built envelopes)
+# Send without re-parsing (raw mode â€” also supports pre-built envelopes)
 sentry event send --raw ./crash.json
 sentry event send --raw ./captured.envelope
 
@@ -149,3 +149,4 @@ sentry send-event    # same as: sentry event send
 ```
 
 All commands also support `--json`, `--fields`, `--help`, `--log-level`, and `--verbose` flags.
+

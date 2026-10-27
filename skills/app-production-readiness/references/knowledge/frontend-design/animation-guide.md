@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'frontend-design' (source: frontend-design/animation-guide.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\animation-guide.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Animation Guidelines Reference
@@ -14,11 +14,11 @@
 
 ```
 Factors that determine animation speed:
-├── DISTANCE: Further travel = longer duration
-├── SIZE: Larger elements = slower animations
-├── COMPLEXITY: Complex = slower to process
-├── IMPORTANCE: Critical actions = clear feedback
-└── CONTEXT: Urgent = fast, luxurious = slow
+â”œâ”€â”€ DISTANCE: Further travel = longer duration
+â”œâ”€â”€ SIZE: Larger elements = slower animations
+â”œâ”€â”€ COMPLEXITY: Complex = slower to process
+â”œâ”€â”€ IMPORTANCE: Critical actions = clear feedback
+â””â”€â”€ CONTEXT: Urgent = fast, luxurious = slow
 ```
 
 ### Duration Ranges by Purpose
@@ -47,10 +47,10 @@ Ask yourself:
 
 ```
 Easing = how speed changes over time
-├── Linear: constant speed (mechanical, robotic)
-├── Ease-out: fast start, slow end (natural entry)
-├── Ease-in: slow start, fast end (natural exit)
-└── Ease-in-out: slow both ends (smooth, deliberate)
+â”œâ”€â”€ Linear: constant speed (mechanical, robotic)
+â”œâ”€â”€ Ease-out: fast start, slow end (natural entry)
+â”œâ”€â”€ Ease-in: slow start, fast end (natural exit)
+â””â”€â”€ Ease-in-out: slow both ends (smooth, deliberate)
 ```
 
 ### When to Use Each
@@ -90,27 +90,27 @@ Easing = how speed changes over time
 
 ```
 Purpose of micro-interactions:
-├── FEEDBACK: Confirm the action happened
-├── GUIDANCE: Show what's possible
-├── STATUS: Indicate current state
-└── DELIGHT: Small moments of joy
+â”œâ”€â”€ FEEDBACK: Confirm the action happened
+â”œâ”€â”€ GUIDANCE: Show what's possible
+â”œâ”€â”€ STATUS: Indicate current state
+â””â”€â”€ DELIGHT: Small moments of joy
 ```
 
 ### Button States
 
 ```
-Hover → slight visual change (lift, color, scale)
-Active → pressed feeling (scale down, shadow change)
-Focus → clear indicator (outline, ring)
-Loading → progress indicator (spinner, skeleton)
-Success → confirmation (check, color)
+Hover â†’ slight visual change (lift, color, scale)
+Active â†’ pressed feeling (scale down, shadow change)
+Focus â†’ clear indicator (outline, ring)
+Loading â†’ progress indicator (spinner, skeleton)
+Success â†’ confirmation (check, color)
 ```
 
 ### Principles
 
 1. **Respond immediately** (under 100ms perception)
 2. **Match the action** (press = `scale(0.95)`, hover = `translateY(-4px) + glow`)
-3. **Be bold but smooth** (Usta işi hissettir)
+3. **Be bold but smooth** (Usta iÅŸi hissettir)
 4. **Be consistent** (same actions = same feedback)
 
 ---
@@ -130,25 +130,25 @@ Success → confirmation (check, color)
 
 ```
 Purpose: Reduce perceived wait time
-├── Show layout shape immediately
-├── Animate subtly (shimmer, pulse)
-├── Replace with content when ready
-└── Feels faster than spinner
+â”œâ”€â”€ Show layout shape immediately
+â”œâ”€â”€ Animate subtly (shimmer, pulse)
+â”œâ”€â”€ Replace with content when ready
+â””â”€â”€ Feels faster than spinner
 ```
 
 ### Progress Indicators
 
 ```
 When to show progress:
-├── User-initiated action
-├── File uploads/downloads
-├── Multi-step processes
-└── Long operations
+â”œâ”€â”€ User-initiated action
+â”œâ”€â”€ File uploads/downloads
+â”œâ”€â”€ Multi-step processes
+â””â”€â”€ Long operations
 
 When NOT needed:
-├── Very quick operations
-├── Background tasks
-└── Initial page loads (skeleton better)
+â”œâ”€â”€ Very quick operations
+â”œâ”€â”€ Background tasks
+â””â”€â”€ Initial page loads (skeleton better)
 ```
 
 ---
@@ -159,9 +159,9 @@ When NOT needed:
 
 ```
 Simple rule: exit fast, enter slower
-├── Outgoing content fades quickly
-├── Incoming content animates in
-└── Avoids "everything moving at once"
+â”œâ”€â”€ Outgoing content fades quickly
+â”œâ”€â”€ Incoming content animates in
+â””â”€â”€ Avoids "everything moving at once"
 ```
 
 ### Common Patterns
@@ -177,10 +177,10 @@ Simple rule: exit fast, enter slower
 
 ```
 Navigation direction = animation direction
-├── Forward → slide from right
-├── Backward → slide from left
-├── Deeper → scale up from center
-├── Back up → scale down
+â”œâ”€â”€ Forward â†’ slide from right
+â”œâ”€â”€ Backward â†’ slide from left
+â”œâ”€â”€ Deeper â†’ scale up from center
+â”œâ”€â”€ Back up â†’ scale down
 ```
 
 ---
@@ -191,10 +191,10 @@ Navigation direction = animation direction
 
 ```
 Content appears as user scrolls:
-├── Reduces initial cognitive load
-├── Rewards exploration
-├── Must not feel sluggish
-└── Option to disable (accessibility)
+â”œâ”€â”€ Reduces initial cognitive load
+â”œâ”€â”€ Rewards exploration
+â”œâ”€â”€ Must not feel sluggish
+â””â”€â”€ Option to disable (accessibility)
 ```
 
 ### Trigger Points
@@ -247,20 +247,20 @@ Content appears as user scrolls:
 
 ```
 Celebrate appropriately:
-├── Minor action → subtle check/color
-├── Major action → more pronounced animation
-├── Completion → satisfying animation
-└── Match brand personality
+â”œâ”€â”€ Minor action â†’ subtle check/color
+â”œâ”€â”€ Major action â†’ more pronounced animation
+â”œâ”€â”€ Completion â†’ satisfying animation
+â””â”€â”€ Match brand personality
 ```
 
 ### Error States
 
 ```
 Draw attention without panic:
-├── Color change (semantic red)
-├── Shake animation (brief!)
-├── Focus on error field
-└── Clear messaging
+â”œâ”€â”€ Color change (semantic red)
+â”œâ”€â”€ Shake animation (brief!)
+â”œâ”€â”€ Focus on error field
+â””â”€â”€ Clear messaging
 ```
 
 ### Timing
@@ -277,15 +277,15 @@ Draw attention without panic:
 
 ```
 GPU-accelerated (FAST):
-├── transform: translate, scale, rotate
-└── opacity: 0 to 1
+â”œâ”€â”€ transform: translate, scale, rotate
+â””â”€â”€ opacity: 0 to 1
 
 CPU-intensive (SLOW):
-├── width, height
-├── top, left, right, bottom
-├── margin, padding
-├── border-radius changes
-└── box-shadow changes
+â”œâ”€â”€ width, height
+â”œâ”€â”€ top, left, right, bottom
+â”œâ”€â”€ margin, padding
+â”œâ”€â”€ border-radius changes
+â””â”€â”€ box-shadow changes
 ```
 
 ### Optimization Strategies
@@ -322,13 +322,14 @@ Before adding animation:
 
 ### Anti-Patterns
 
-- ❌ Same timing values every project
-- ❌ Animation for animation's sake
-- ❌ Ignoring reduced-motion preference
-- ❌ Animating expensive properties
-- ❌ Too many things animating at once
-- ❌ Delays that frustrate users
+- âŒ Same timing values every project
+- âŒ Animation for animation's sake
+- âŒ Ignoring reduced-motion preference
+- âŒ Animating expensive properties
+- âŒ Too many things animating at once
+- âŒ Delays that frustrate users
 
 ---
 
 > **Remember**: Animation is communication. Every motion should have meaning and serve the user experience.
+

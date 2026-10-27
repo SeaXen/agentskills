@@ -27,10 +27,7 @@ Usage:
 
 Exit 0: both artefacts produced and validated
 Exit 1: a validator rejected the artefacts (or the scan itself failed)
-Exit 2: no validator could run (the report schema is missing or unreadable)
-
-`--skip-validate` skips the *Node* validators only.  The portable Python
-validators always run, so the artefacts are never left unvalidated.
+Exit 2: node is unavailable - the artefacts are written but not validated
 """
 from __future__ import annotations
 
@@ -48,6 +45,7 @@ from qa_common import (  # noqa: E402
     resolve_out_dir,
     resolve_root,
     root_error,
+    run_cmd,
     which,
 )
 
@@ -382,11 +380,8 @@ def main() -> int:
     lines.append(f"findings.json : {findings_path}")
     lines.append(f"coverage-ledger.json: {ledger_path}")
 
-    rc_findings, out_findings = (None, "the Node validators were skipped by request")
-    rc_ledger, out_ledger = (None, "the Node validators were skipped by request")
-    if not skip_validate:
-        rc_findings, out_findings = _validate_node(PACK / "validate-findings.cjs", findings_path)
-        rc_ledger, out_ledger = _validate_node(PACK / "validate-coverage-ledger.cjs", ledger_path)
+    rc_findings, out_findings = _validate_node(PACK / "validate-findings.cjs", findings_path)
+    rc_ledger, out_ledger = _validate_node(PACK / "validate-coverage-ledger.cjs", ledger_path)
     report["validation"]["node_findings"] = {"rc": rc_findings, "output": out_findings}
     report["validation"]["node_coverage_ledger"] = {"rc": rc_ledger, "output": out_ledger}
 
@@ -396,8 +391,7 @@ def main() -> int:
     schema_errors = []
     findings_doc = load_json(findings_path)
     ledger_doc = load_json(ledger_path)
-    schema_available = isinstance(schema, dict)
-    if schema_available:
+    if isinstance(schema, dict):
         import schema_validate
         schema_errors = schema_validate.validate_findings(findings_doc, schema)
         ledger_errors = schema_validate.validate_ledger(ledger_doc)
@@ -406,19 +400,10 @@ def main() -> int:
         ledger_errors = ["report-schema.json is missing or unreadable"]
     report["validation"]["python_findings"] = {"errors": schema_errors}
     report["validation"]["python_coverage_ledger"] = {"errors": ledger_errors}
-    report["validation"]["schema_available"] = schema_available
 
     lines.append("-" * 62)
     ok = True
-    skipped = False
-    node_validated = (rc_findings == 0 and rc_ledger == 0)
-    if not schema_available and not node_validated:
-        # No validator could run at all: the schema is unavailable and the
-        # Node validators did not run.  That is a SKIP, never a silent pass.
-        skipped = True
-        lines.append("[SKIP] no validator could run: report-schema.json is missing "
-                     "or unreadable and the Node validators did not run")
-    elif schema_errors:
+    if schema_errors:
         ok = False
         lines.append(f"[FAIL] findings.json does not satisfy report-schema.json "
                      f"({len(schema_errors)} error(s)):")
@@ -426,13 +411,13 @@ def main() -> int:
             lines.append("  " + message)
     else:
         lines.append("[OK  ] findings.json satisfies report-schema.json")
-    if schema_available and ledger_errors:
+    if ledger_errors:
         ok = False
         lines.append(f"[FAIL] coverage-ledger.json breaks the ledger rules "
                      f"({len(ledger_errors)} error(s)):")
         for message in ledger_errors[:10]:
             lines.append("  " + message)
-    elif schema_available:
+    else:
         lines.append("[OK  ] coverage-ledger.json satisfies the ledger rules")
     for name, rc, out in (("findings.json", rc_findings, out_findings),
                           ("coverage-ledger.json", rc_ledger, out_ledger)):
@@ -447,13 +432,9 @@ def main() -> int:
             ok = False
     if not ok:
         report["status"] = "fail"
-    elif skipped:
-        report["status"] = "skipped"
     lines.append("=" * 62)
     emit(lines, report, json_mode)
-    if not ok:
-        return 1
-    return 2 if skipped else 0
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

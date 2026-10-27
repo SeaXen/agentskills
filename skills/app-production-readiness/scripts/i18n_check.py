@@ -20,6 +20,7 @@ Exit 0 = i18n posture ok, 1 = blocking findings, 2 = nothing to check.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path

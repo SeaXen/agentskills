@@ -51,7 +51,7 @@ Each app gets its own `qa/report.md` and `qa/summary.json`.
 ```
 for app in <roots>:
   1. DETECT    -> scripts/detect_env.py <app>      # port, pkg, framework, routes, healthz
-  2. PREFLIGHT -> scripts/preflight.py <app>       # required vs warning (up to 31 checks)
+  2. PREFLIGHT -> scripts/preflight.py <app>       # required vs warning (up to 30 checks)
   3. SECURITY  -> scripts/security_scan.py <app>   # HIGH findings
   4. DEPS      -> scripts/dep_audit.py <app>        # dependency CVEs (exit 2 = tool missing)
   5. DEPLOY    -> scripts/deploy_verify.py <app>    # are the claimed targets really wired?

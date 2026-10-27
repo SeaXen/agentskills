@@ -1,10 +1,10 @@
-<!-- Absorbed from the sibling skill 'mobile-design' (source: mobile-design/mobile-navigation.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\mobile-navigation.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Mobile Navigation Reference
 
 > Navigation patterns, deep linking, back handling, and tab/stack/drawer decisions.
-> **Navigation is the skeleton of your app—get it wrong and everything feels broken.**
+> **Navigation is the skeleton of your appâ€”get it wrong and everything feels broken.**
 
 ---
 
@@ -12,25 +12,25 @@
 
 ```
 WHAT TYPE OF APP?
-        │
-        ├── 3-5 top-level sections (equal importance)
-        │   └── ✅ Tab Bar / Bottom Navigation
-        │       Examples: Social, E-commerce, Utility
-        │
-        ├── Deep hierarchical content (drill down)
-        │   └── ✅ Stack Navigation
-        │       Examples: Settings, Email folders
-        │
-        ├── Many destinations (>5 top-level)
-        │   └── ✅ Drawer Navigation
-        │       Examples: Gmail, complex enterprise
-        │
-        ├── Single linear flow
-        │   └── ✅ Stack only (wizard/onboarding)
-        │       Examples: Checkout, Setup flow
-        │
-        └── Tablet/Foldable
-            └── ✅ Navigation Rail + List-Detail
+        â”‚
+        â”œâ”€â”€ 3-5 top-level sections (equal importance)
+        â”‚   â””â”€â”€ âœ… Tab Bar / Bottom Navigation
+        â”‚       Examples: Social, E-commerce, Utility
+        â”‚
+        â”œâ”€â”€ Deep hierarchical content (drill down)
+        â”‚   â””â”€â”€ âœ… Stack Navigation
+        â”‚       Examples: Settings, Email folders
+        â”‚
+        â”œâ”€â”€ Many destinations (>5 top-level)
+        â”‚   â””â”€â”€ âœ… Drawer Navigation
+        â”‚       Examples: Gmail, complex enterprise
+        â”‚
+        â”œâ”€â”€ Single linear flow
+        â”‚   â””â”€â”€ âœ… Stack only (wizard/onboarding)
+        â”‚       Examples: Checkout, Setup flow
+        â”‚
+        â””â”€â”€ Tablet/Foldable
+            â””â”€â”€ âœ… Navigation Rail + List-Detail
                 Examples: Mail, Notes on iPad
 ```
 
@@ -41,36 +41,36 @@ WHAT TYPE OF APP?
 ### When to Use
 
 ```
-✅ USE Tab Bar when:
-├── 3-5 top-level destinations
-├── Destinations are of equal importance
-├── User frequently switches between them
-├── Each tab has independent navigation stack
-└── App is used in short sessions
+âœ… USE Tab Bar when:
+â”œâ”€â”€ 3-5 top-level destinations
+â”œâ”€â”€ Destinations are of equal importance
+â”œâ”€â”€ User frequently switches between them
+â”œâ”€â”€ Each tab has independent navigation stack
+â””â”€â”€ App is used in short sessions
 
-❌ AVOID Tab Bar when:
-├── More than 5 destinations
-├── Destinations have clear hierarchy
-├── Tabs would be used very unequally
-└── Content flows in a sequence
+âŒ AVOID Tab Bar when:
+â”œâ”€â”€ More than 5 destinations
+â”œâ”€â”€ Destinations have clear hierarchy
+â”œâ”€â”€ Tabs would be used very unequally
+â””â”€â”€ Content flows in a sequence
 ```
 
 ### Tab Bar Best Practices
 
 ```
 iOS Tab Bar:
-├── Height: 49pt (83pt with home indicator)
-├── Max items: 5
-├── Icons: SF Symbols, 25×25pt
-├── Labels: Always show (accessibility)
-├── Active indicator: Tint color
+â”œâ”€â”€ Height: 49pt (83pt with home indicator)
+â”œâ”€â”€ Max items: 5
+â”œâ”€â”€ Icons: SF Symbols, 25Ã—25pt
+â”œâ”€â”€ Labels: Always show (accessibility)
+â”œâ”€â”€ Active indicator: Tint color
 
 Android Bottom Navigation:
-├── Height: 80dp
-├── Max items: 5 (3-5 ideal)
-├── Icons: Material Symbols, 24dp
-├── Labels: Always show
-├── Active indicator: Pill shape + filled icon
+â”œâ”€â”€ Height: 80dp
+â”œâ”€â”€ Max items: 5 (3-5 ideal)
+â”œâ”€â”€ Icons: Material Symbols, 24dp
+â”œâ”€â”€ Labels: Always show
+â”œâ”€â”€ Active indicator: Pill shape + filled icon
 ```
 
 ### Tab State Preservation
@@ -79,15 +79,15 @@ Android Bottom Navigation:
 RULE: Each tab maintains its own navigation stack.
 
 User journey:
-1. Home tab → Drill into item → Add to cart
+1. Home tab â†’ Drill into item â†’ Add to cart
 2. Switch to Profile tab
 3. Switch back to Home tab
-→ Should return to "Add to cart" screen, NOT home root
+â†’ Should return to "Add to cart" screen, NOT home root
 
 Implementation:
-├── React Navigation: Each tab has own navigator
-├── Flutter: IndexedStack for state preservation
-└── Never reset tab stack on switch
+â”œâ”€â”€ React Navigation: Each tab has own navigator
+â”œâ”€â”€ Flutter: IndexedStack for state preservation
+â””â”€â”€ Never reset tab stack on switch
 ```
 
 ---
@@ -121,22 +121,22 @@ Back: Screen slides out to right
 
 ```
 iOS:
-├── Edge swipe from left (system)
-├── Back button in nav bar (optional)
-├── Interactive pop gesture
-└── Never override swipe back without good reason
+â”œâ”€â”€ Edge swipe from left (system)
+â”œâ”€â”€ Back button in nav bar (optional)
+â”œâ”€â”€ Interactive pop gesture
+â””â”€â”€ Never override swipe back without good reason
 
 Android:
-├── System back button/gesture
-├── Up button in toolbar (optional, for drill-down)
-├── Predictive back animation (Android 14+)
-└── Must handle back correctly (Activity/Fragment)
+â”œâ”€â”€ System back button/gesture
+â”œâ”€â”€ Up button in toolbar (optional, for drill-down)
+â”œâ”€â”€ Predictive back animation (Android 14+)
+â””â”€â”€ Must handle back correctly (Activity/Fragment)
 
 Cross-Platform Rule:
-├── Back ALWAYS navigates up the stack
-├── Never hijack back for other purposes
-├── Confirm before discarding unsaved data
-└── Deep links should allow full back traversal
+â”œâ”€â”€ Back ALWAYS navigates up the stack
+â”œâ”€â”€ Never hijack back for other purposes
+â”œâ”€â”€ Confirm before discarding unsaved data
+â””â”€â”€ Deep links should allow full back traversal
 ```
 
 ---
@@ -146,40 +146,40 @@ Cross-Platform Rule:
 ### When to Use
 
 ```
-✅ USE Drawer when:
-├── More than 5 top-level destinations
-├── Less frequently accessed destinations
-├── Complex app with many features
-├── Need for branding/user info in nav
-└── Tablet/large screen with persistent drawer
+âœ… USE Drawer when:
+â”œâ”€â”€ More than 5 top-level destinations
+â”œâ”€â”€ Less frequently accessed destinations
+â”œâ”€â”€ Complex app with many features
+â”œâ”€â”€ Need for branding/user info in nav
+â””â”€â”€ Tablet/large screen with persistent drawer
 
-❌ AVOID Drawer when:
-├── 5 or fewer destinations (use tabs)
-├── All destinations equally important
-├── Mobile-first simple app
-└── Discoverability is critical (drawer is hidden)
+âŒ AVOID Drawer when:
+â”œâ”€â”€ 5 or fewer destinations (use tabs)
+â”œâ”€â”€ All destinations equally important
+â”œâ”€â”€ Mobile-first simple app
+â””â”€â”€ Discoverability is critical (drawer is hidden)
 ```
 
 ### Drawer Patterns
 
 ```
 Modal Drawer:
-├── Opens over content (scrim behind)
-├── Swipe to open from edge
-├── Hamburger icon ( ☰ ) triggers
-└── Most common on mobile
+â”œâ”€â”€ Opens over content (scrim behind)
+â”œâ”€â”€ Swipe to open from edge
+â”œâ”€â”€ Hamburger icon ( â˜° ) triggers
+â””â”€â”€ Most common on mobile
 
 Permanent Drawer:
-├── Always visible (large screens)
-├── Content shifts over
-├── Good for productivity apps
-└── Tablets, desktops
+â”œâ”€â”€ Always visible (large screens)
+â”œâ”€â”€ Content shifts over
+â”œâ”€â”€ Good for productivity apps
+â””â”€â”€ Tablets, desktops
 
 Navigation Rail (Android):
-├── Narrow vertical strip
-├── Icons + optional labels
-├── For tablets in portrait
-└── 80dp width
+â”œâ”€â”€ Narrow vertical strip
+â”œâ”€â”€ Icons + optional labels
+â”œâ”€â”€ For tablets in portrait
+â””â”€â”€ 80dp width
 ```
 
 ---
@@ -190,18 +190,18 @@ Navigation Rail (Android):
 
 ```
 PUSH (Stack):                    MODAL:
-├── Horizontal slide             ├── Vertical slide up (sheet)
-├── Part of hierarchy            ├── Separate task
-├── Back returns                 ├── Dismiss (X) returns
-├── Same navigation context      ├── Own navigation context
-└── "Drill in"                   └── "Focus on task"
+â”œâ”€â”€ Horizontal slide             â”œâ”€â”€ Vertical slide up (sheet)
+â”œâ”€â”€ Part of hierarchy            â”œâ”€â”€ Separate task
+â”œâ”€â”€ Back returns                 â”œâ”€â”€ Dismiss (X) returns
+â”œâ”€â”€ Same navigation context      â”œâ”€â”€ Own navigation context
+â””â”€â”€ "Drill in"                   â””â”€â”€ "Focus on task"
 
 USE MODAL for:
-├── Creating new content
-├── Settings/preferences
-├── Completing a transaction
-├── Self-contained workflows
-├── Quick actions
+â”œâ”€â”€ Creating new content
+â”œâ”€â”€ Settings/preferences
+â”œâ”€â”€ Completing a transaction
+â”œâ”€â”€ Self-contained workflows
+â”œâ”€â”€ Quick actions
 ```
 
 ### Modal Types
@@ -217,11 +217,11 @@ USE MODAL for:
 
 ```
 Users expect to dismiss modals by:
-├── Tapping X / Close button
-├── Swiping down (sheet)
-├── Tapping scrim (non-critical)
-├── System back (Android)
-├── Hardware back (old Android)
+â”œâ”€â”€ Tapping X / Close button
+â”œâ”€â”€ Swiping down (sheet)
+â”œâ”€â”€ Tapping scrim (non-critical)
+â”œâ”€â”€ System back (Android)
+â”œâ”€â”€ Hardware back (old Android)
 
 RULE: Only block dismissal for unsaved data.
 ```
@@ -234,18 +234,18 @@ RULE: Only block dismissal for unsaved data.
 
 ```
 Deep links enable:
-├── Push notification navigation
-├── Sharing content
-├── Marketing campaigns
-├── Spotlight/Search integration
-├── Widget navigation
-├── External app integration
+â”œâ”€â”€ Push notification navigation
+â”œâ”€â”€ Sharing content
+â”œâ”€â”€ Marketing campaigns
+â”œâ”€â”€ Spotlight/Search integration
+â”œâ”€â”€ Widget navigation
+â”œâ”€â”€ External app integration
 
 Building later is HARD:
-├── Requires navigation refactor
-├── Screen dependencies unclear
-├── Parameter passing complex
-└── Always plan deep links at start
+â”œâ”€â”€ Requires navigation refactor
+â”œâ”€â”€ Screen dependencies unclear
+â”œâ”€â”€ Parameter passing complex
+â””â”€â”€ Always plan deep links at start
 ```
 
 ### URL Structure
@@ -254,16 +254,16 @@ Building later is HARD:
 Scheme://host/path?params
 
 Examples:
-├── myapp://product/123
-├── https://myapp.com/product/123 (Universal/App Link)
-├── myapp://checkout?promo=SAVE20
-├── myapp://tab/profile/settings
+â”œâ”€â”€ myapp://product/123
+â”œâ”€â”€ https://myapp.com/product/123 (Universal/App Link)
+â”œâ”€â”€ myapp://checkout?promo=SAVE20
+â”œâ”€â”€ myapp://tab/profile/settings
 
 Hierarchy should match navigation:
-├── myapp://home
-├── myapp://home/product/123
-├── myapp://home/product/123/reviews
-└── URL path = navigation path
+â”œâ”€â”€ myapp://home
+â”œâ”€â”€ myapp://home/product/123
+â”œâ”€â”€ myapp://home/product/123/reviews
+â””â”€â”€ URL path = navigation path
 ```
 
 ### Deep Link Navigation Rules
@@ -271,27 +271,27 @@ Hierarchy should match navigation:
 ```
 1. FULL STACK CONSTRUCTION
    Deep link to myapp://product/123 should:
-   ├── Put Home at root of stack
-   ├── Push Product screen on top
-   └── Back button returns to Home
+   â”œâ”€â”€ Put Home at root of stack
+   â”œâ”€â”€ Push Product screen on top
+   â””â”€â”€ Back button returns to Home
 
 2. AUTHENTICATION AWARENESS
    If deep link requires auth:
-   ├── Save intended destination
-   ├── Redirect to login
-   ├── After login, navigate to destination
+   â”œâ”€â”€ Save intended destination
+   â”œâ”€â”€ Redirect to login
+   â”œâ”€â”€ After login, navigate to destination
 
 3. INVALID LINKS
    If deep link target doesn't exist:
-   ├── Navigate to fallback (home)
-   ├── Show error message
-   └── Never crash or blank screen
+   â”œâ”€â”€ Navigate to fallback (home)
+   â”œâ”€â”€ Show error message
+   â””â”€â”€ Never crash or blank screen
 
 4. STATEFUL NAVIGATION
    Deep link during active session:
-   ├── Don't blow away current stack
-   ├── Push on top OR
-   ├── Ask user if should navigate away
+   â”œâ”€â”€ Don't blow away current stack
+   â”œâ”€â”€ Push on top OR
+   â”œâ”€â”€ Ask user if should navigate away
 ```
 
 ---
@@ -302,17 +302,17 @@ Hierarchy should match navigation:
 
 ```
 SHOULD persist:
-├── Current tab selection
-├── Scroll position in lists
-├── Form draft data
-├── Recent navigation stack
-└── User preferences
+â”œâ”€â”€ Current tab selection
+â”œâ”€â”€ Scroll position in lists
+â”œâ”€â”€ Form draft data
+â”œâ”€â”€ Recent navigation stack
+â””â”€â”€ User preferences
 
 SHOULD NOT persist:
-├── Modal states (dialogs)
-├── Temporary UI states
-├── Stale data (refresh on return)
-├── Authentication state (use secure storage)
+â”œâ”€â”€ Modal states (dialogs)
+â”œâ”€â”€ Temporary UI states
+â”œâ”€â”€ Stale data (refresh on return)
+â”œâ”€â”€ Authentication state (use secure storage)
 ```
 
 ### Implementation
@@ -349,32 +349,32 @@ const handleStateChange = (state) => {
 
 ```
 iOS Transitions:
-├── Push: Slide from right
-├── Modal: Slide from bottom (sheet) or fade
-├── Tab switch: Cross-fade
-├── Interactive: Swipe to go back
+â”œâ”€â”€ Push: Slide from right
+â”œâ”€â”€ Modal: Slide from bottom (sheet) or fade
+â”œâ”€â”€ Tab switch: Cross-fade
+â”œâ”€â”€ Interactive: Swipe to go back
 
 Android Transitions:
-├── Push: Fade + slide from right
-├── Modal: Slide from bottom
-├── Tab switch: Cross-fade or none
-├── Shared element: Hero animations
+â”œâ”€â”€ Push: Fade + slide from right
+â”œâ”€â”€ Modal: Slide from bottom
+â”œâ”€â”€ Tab switch: Cross-fade or none
+â”œâ”€â”€ Shared element: Hero animations
 ```
 
 ### Custom Transitions
 
 ```
 When to custom:
-├── Brand identity requires it
-├── Shared element connections
-├── Special reveal effects
-└── Keep it subtle, <300ms
+â”œâ”€â”€ Brand identity requires it
+â”œâ”€â”€ Shared element connections
+â”œâ”€â”€ Special reveal effects
+â””â”€â”€ Keep it subtle, <300ms
 
 When to use default:
-├── Most of the time
-├── Standard drill-down
-├── Platform consistency
-└── Performance critical paths
+â”œâ”€â”€ Most of the time
+â”œâ”€â”€ Standard drill-down
+â”œâ”€â”€ Platform consistency
+â””â”€â”€ Performance critical paths
 ```
 
 ### Shared Element Transitions
@@ -383,23 +383,23 @@ When to use default:
 Connect elements between screens:
 
 Screen A: Product card with image
-            ↓ (tap)
+            â†“ (tap)
 Screen B: Product detail with same image (expanded)
 
 Image animates from card position to detail position.
 
 Implementation:
-├── React Navigation: shared element library
-├── Flutter: Hero widget
-├── SwiftUI: matchedGeometryEffect
-└── Compose: Shared element transitions
+â”œâ”€â”€ React Navigation: shared element library
+â”œâ”€â”€ Flutter: Hero widget
+â”œâ”€â”€ SwiftUI: matchedGeometryEffect
+â””â”€â”€ Compose: Shared element transitions
 ```
 
 ---
 
 ## 9. Navigation Anti-Patterns
 
-### ❌ Navigation Sins
+### âŒ Navigation Sins
 
 | Anti-Pattern | Problem | Solution |
 |--------------|---------|----------|
@@ -411,16 +411,16 @@ Implementation:
 | **Tab stack reset** | Work lost on switch | Preserve tab states |
 | **Modal for primary flow** | Can't back track | Use stack navigation |
 
-### ❌ AI Navigation Mistakes
+### âŒ AI Navigation Mistakes
 
 ```
 AI tends to:
-├── Use modals for everything (wrong)
-├── Forget tab state preservation (wrong)
-├── Skip deep linking (wrong)
-├── Override platform back behavior (wrong)
-├── Reset stack on tab switch (wrong)
-└── Ignore predictive back (Android 14+)
+â”œâ”€â”€ Use modals for everything (wrong)
+â”œâ”€â”€ Forget tab state preservation (wrong)
+â”œâ”€â”€ Skip deep linking (wrong)
+â”œâ”€â”€ Override platform back behavior (wrong)
+â”œâ”€â”€ Reset stack on tab switch (wrong)
+â””â”€â”€ Ignore predictive back (Android 14+)
 
 RULE: Use platform navigation patterns.
 Don't reinvent navigation.
@@ -458,4 +458,5 @@ Don't reinvent navigation.
 
 ---
 
-> **Remember:** Navigation is invisible when done right. Users shouldn't think about HOW to get somewhere—they just get there. If they notice navigation, something is wrong.
+> **Remember:** Navigation is invisible when done right. Users shouldn't think about HOW to get somewhereâ€”they just get there. If they notice navigation, something is wrong.
+

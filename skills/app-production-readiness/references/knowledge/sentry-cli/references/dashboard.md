@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'sentry-cli' (source: sentry-cli/references/dashboard.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\dashboard.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -85,9 +85,9 @@ Add a widget to a dashboard
 - `-g, --group-by <value>... - Group-by column (repeatable)`
 - `-s, --sort <value> - Order by (prefix - for desc, e.g. -count)`
 - `-n, --limit <value> - Result limit`
-- `-x, --col <value> - Grid column position (0-based, 0–5)`
+- `-x, --col <value> - Grid column position (0-based, 0â€“5)`
 - `-y, --row <value> - Grid row position (0-based)`
-- `--width <value> - Widget width in grid columns (1–6)`
+- `--width <value> - Widget width in grid columns (1â€“6)`
 - `--height <value> - Widget height in grid rows (min 1)`
 - `-l, --layout <value> - Layout mode: sequential (append in order) or dense (fill gaps) - (default: "sequential")`
 
@@ -131,9 +131,9 @@ Edit a widget in a dashboard
 - `-g, --group-by <value>... - Group-by column (repeatable)`
 - `-s, --sort <value> - Order by (prefix - for desc, e.g. -count)`
 - `-n, --limit <value> - Result limit`
-- `-x, --col <value> - Grid column position (0-based, 0–5)`
+- `-x, --col <value> - Grid column position (0-based, 0â€“5)`
 - `-y, --row <value> - Grid row position (0-based)`
-- `--width <value> - Widget width in grid columns (1–6)`
+- `--width <value> - Widget width in grid columns (1â€“6)`
 - `--height <value> - Widget height in grid rows (min 1)`
 
 **Examples:**
@@ -212,3 +212,4 @@ sentry dashboard restore my-org 12345 --revision 1
 ```
 
 All commands also support `--json`, `--fields`, `--help`, `--log-level`, and `--verbose` flags.
+

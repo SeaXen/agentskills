@@ -1,6 +1,6 @@
 {
   "generated": "2026-10-21",
-  "note": "Copies of runnable scripts from sibling skills. Integrity is checked with verify_manifest.py (sha256). The sibling skills are optional: when an original is missing, the copy is kept and reported as original-not-found. A copy may carry a declared local patch: then identical_to_source is false, sha256/bytes describe the shipped copy, upstream_sha256 pins the base revision, and patch_reason records why. Use refresh_manifest.py to re-pin hashes after an intentional change.",
+  "note": "Verbatim copies of runnable scripts from sibling skills. Integrity is checked with verify_manifest.py (sha256). The sibling skills are optional: when an original is missing, the copy is kept and reported as original-not-found.",
   "files": {
     "accessibility_checker.py": {
       "source_skill": "frontend-design",
@@ -96,11 +96,9 @@
     "vulnerability_security_scan.py": {
       "source_skill": "vulnerability-scanner",
       "source_path": "D:\\Repo\\.agents\\skills\\vulnerability-scanner\\scripts\\security_scan.py",
-      "sha256": "339f2ff01005670d0c9df54c2d6a8c26c925d740c729b037d5c431d722c5b59b",
-      "bytes": 18275,
-      "identical_to_source": false,
-      "upstream_sha256": "5a066b5ffeb57b29187aaa83f570279cb3b05f39521169a4ae407d19d37dc482",
-      "patch_reason": "Two local hardening edits: (1) the GCP credential regex now matches only credential-bearing names (CLIENT_SECRET|PRIVATE_KEY|API_KEY|KEY|CREDENTIAL|SECRET) instead of every GOOGLE_* assignment, which removed false positives on plain GOOGLE_CLOUD_PROJECT style config; (2) SKIP_DIRS gained coverage, .nyc_output, qa, .turbo and .cache so the scanner does not report its own audit artifacts."
+      "sha256": "5a066b5ffeb57b29187aaa83f570279cb3b05f39521169a4ae407d19d37dc482",
+      "bytes": 18170,
+      "identical_to_source": true
     }
   }
 }

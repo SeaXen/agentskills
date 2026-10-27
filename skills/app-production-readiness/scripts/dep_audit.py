@@ -23,6 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from qa_common import (
     emit,
+    load_json,
     parse_cli,
     resolve_root,
     root_error,
@@ -178,52 +179,44 @@ def audit_node(root: Path, eco: str, lock: str):
     """Audit a Node project with its own package manager."""
     if eco == "node-npm":
         if not lock:
-            return {"status": "skipped", "state": "not_applicable",
-                    "reason": "no package-lock.json (npm audit needs a lockfile)"}
+            return {"status": "skipped", "reason": "no package-lock.json (npm audit needs a lockfile)"}
         if not which("npm"):
-            return {"status": "skipped", "state": "unavailable", "reason": "npm is not installed"}
+            return {"status": "skipped", "reason": "npm is not installed"}
         rc, out, err = run_cmd(
             ["npm", "audit", "--json", "--omit=dev"], cwd=root, timeout=180)
         data = load_json_str(out)
         if data is None:
-            return {"status": "skipped", "state": "unavailable",
+            return {"status": "skipped",
                     "reason": f"npm audit produced no JSON (rc={rc}): {err.strip()[:200]}"}
         return {"status": "ok", "tool": "npm audit", "findings": _npm_findings(data)}
     if eco == "node-pnpm":
         if not which("pnpm"):
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": "pnpm is not installed (pnpm-lock.yaml present)"}
+            return {"status": "skipped", "reason": "pnpm is not installed (pnpm-lock.yaml present)"}
         rc, out, err = run_cmd(["pnpm", "audit", "--json"], cwd=root, timeout=180)
         data = load_json_str(out)
         if data is None:
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": f"pnpm audit produced no JSON: {err.strip()[:200]}"}
+            return {"status": "skipped", "reason": f"pnpm audit produced no JSON: {err.strip()[:200]}"}
         return {"status": "ok", "tool": "pnpm audit", "findings": _generic_findings(data)}
     if eco == "node-yarn":
         if not which("yarn"):
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": "yarn is not installed (yarn.lock present)"}
+            return {"status": "skipped", "reason": "yarn is not installed (yarn.lock present)"}
         rc, out, err = run_cmd(["yarn", "npm", "audit", "--json"], cwd=root, timeout=180)
         data = load_json_str(out)
         if data is None:
             rc, out, err = run_cmd(["yarn", "audit", "--json"], cwd=root, timeout=180)
             data = load_json_str(out)
         if data is None:
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": f"yarn audit produced no JSON: {err.strip()[:200]}"}
+            return {"status": "skipped", "reason": f"yarn audit produced no JSON: {err.strip()[:200]}"}
         return {"status": "ok", "tool": "yarn npm audit", "findings": _generic_findings(data)}
     if eco == "node-bun":
         if not which("bun"):
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": "bun is not installed (bun.lock present)"}
+            return {"status": "skipped", "reason": "bun is not installed (bun.lock present)"}
         rc, out, err = run_cmd(["bun", "audit", "--json"], cwd=root, timeout=180)
         data = load_json_str(out)
         if data is None:
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": f"bun audit produced no JSON: {err.strip()[:200]}"}
+            return {"status": "skipped", "reason": f"bun audit produced no JSON: {err.strip()[:200]}"}
         return {"status": "ok", "tool": "bun audit", "findings": _generic_findings(data)}
-    return {"status": "skipped", "state": "not_applicable",
-                    "reason": f"unsupported node ecosystem {eco}"}
+    return {"status": "skipped", "reason": f"unsupported node ecosystem {eco}"}
 
 
 def audit_python(root: Path, eco: str, lock: str):
@@ -232,15 +225,14 @@ def audit_python(root: Path, eco: str, lock: str):
                                cwd=root, timeout=300)
         data = load_json_str(out)
         if data is None:
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": f"pip-audit produced no JSON: {err.strip()[:200]}"}
+            return {"status": "skipped", "reason": f"pip-audit produced no JSON: {err.strip()[:200]}"}
         return {"status": "ok", "tool": "pip-audit", "findings": _generic_findings(data)}
     if which("uv") and (root / "uv.lock").is_file():
         rc, out, err = run_cmd(["uv", "pip", "audit", "--format", "json"], cwd=root, timeout=300)
         data = load_json_str(out)
         if data is not None:
             return {"status": "ok", "tool": "uv pip audit", "findings": _generic_findings(data)}
-    return {"status": "skipped", "state": "unavailable",
+    return {"status": "skipped",
             "reason": "pip-audit is not installed (pip install pip-audit) - no Python CVE scan performed"}
 
 
@@ -249,10 +241,9 @@ def audit_rust(root: Path, eco: str, lock: str):
         rc, out, err = run_cmd(["cargo-audit", "--json"], cwd=root, timeout=300)
         data = load_json_str(out)
         if data is None:
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": f"cargo-audit produced no JSON: {err.strip()[:200]}"}
+            return {"status": "skipped", "reason": f"cargo-audit produced no JSON: {err.strip()[:200]}"}
         return {"status": "ok", "tool": "cargo-audit", "findings": _generic_findings(data)}
-    return {"status": "skipped", "state": "unavailable",
+    return {"status": "skipped",
             "reason": "cargo-audit is not installed (cargo install cargo-audit) - no Rust CVE scan performed"}
 
 
@@ -261,8 +252,7 @@ def audit_go(root: Path, eco: str, lock: str):
         rc, out, err = run_cmd(["govulncheck", "-json", "./..."], cwd=root, timeout=300)
         data = load_json_str(out)
         if data is None:
-            return {"status": "skipped", "state": "unavailable",
-                    "reason": f"govulncheck produced no JSON: {err.strip()[:200]}"}
+            return {"status": "skipped", "reason": f"govulncheck produced no JSON: {err.strip()[:200]}"}
         findings = _generic_findings(data)
         if not findings:
             # govulncheck streams one JSON object per line.
@@ -271,7 +261,7 @@ def audit_go(root: Path, eco: str, lock: str):
                 if chunk:
                     findings.extend(_generic_findings(chunk))
         return {"status": "ok", "tool": "govulncheck", "findings": findings}
-    return {"status": "skipped", "state": "unavailable",
+    return {"status": "skipped",
             "reason": "govulncheck is not installed - no Go CVE scan performed"}
 
 
@@ -308,8 +298,7 @@ def audit(root: Path, fail_on: str = "high") -> dict:
     elif eco == "go":
         result = audit_go(root, eco, lock)
     else:
-        result = {"status": "skipped", "state": "not_applicable",
-                  "reason": "no recognised dependency manifest"}
+        result = {"status": "skipped", "reason": "no recognised dependency manifest"}
 
     findings = result.get("findings", []) or []
     blocking = [f for f in findings if _at_or_above(f.get("severity", ""), fail_on)]
@@ -323,7 +312,6 @@ def audit(root: Path, fail_on: str = "high") -> dict:
         "ecosystem": eco,
         "lockfile": lock,
         "status": result.get("status", "skipped"),
-        "scan_state": result.get("state") or ("ok" if result.get("status") == "ok" else "unavailable"),
         "tool": result.get("tool"),
         "reason": result.get("reason"),
         "fail_on": fail_on,

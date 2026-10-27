@@ -8,9 +8,6 @@ the change cannot change behaviour in a way the author did not intend:
 * ``.env.example`` is generated from the environment variables the code
   actually reads, and ``!.env.example`` is added to ``.gitignore`` when the
   ignore rule would swallow the template (a very common, very quiet bug).
-* a project with **no** ``.gitignore`` gets one that keeps ``.env``,
-  ``node_modules/`` and the local review backups out of git - without it a
-  real secret is one ``git add .`` away from being committed.
 * a Next.js root layout without ``export const viewport`` gets one, so the
   responsive viewport is explicit instead of an invisible framework default.
 * ``vercel.json`` without a ``framework`` key gets one, so the deploy target
@@ -69,15 +66,6 @@ SECURITY_HEADERS = {
     "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
 }
 
-# When set, every fixer computes its change but never touches the disk.
-_DRY_RUN = False
-
-
-def set_dry_run(flag: bool) -> None:
-    """Enable or disable dry-run mode for the whole fixer set."""
-    global _DRY_RUN
-    _DRY_RUN = bool(flag)
-
 
 # --------------------------------------------------------------------------
 # small helpers
@@ -91,8 +79,6 @@ def _read(path: Path) -> str:
 
 
 def _write(path: Path, text: str) -> bool:
-    if _DRY_RUN:
-        return True
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
@@ -102,21 +88,12 @@ def _write(path: Path, text: str) -> bool:
 
 
 def _backup(root: Path, path: Path) -> str:
-    """Copy the original file to ``qa/fix-backup/`` so a fix is reversible.
-
-    The pristine copy wins: a second run never overwrites the original backup
-    with an already-fixed version, so a rollback always restores the pre-fix
-    state.
-    """
-    if _DRY_RUN:
-        return ""
+    """Copy the original file to ``qa/fix-backup/`` so a fix is reversible."""
     try:
         rel = path.relative_to(root)
     except ValueError:
         rel = Path(path.name)
-    dest = root / "qa" / "fix-backup" / "latest" / rel
-    if dest.exists():
-        return str(dest.relative_to(root))
+    dest = root / "qa" / "fix-backup" / rel
     try:
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(path, dest)
@@ -179,58 +156,12 @@ def fix_env_example(root: Path) -> dict:
     text = existing + "\n".join(lines).lstrip("\n") + "\n"
     if not _write(target, text):
         return {"id": "env-example", "status": "failed", "detail": "could not write .env.example"}
+    if target.exists():
+        pass
     return {"id": "env-example", "status": "applied",
             "detail": f"created .env.example with {len(missing)} variable(s): "
                       + ", ".join(sorted(missing)),
             "files": [".env.example"]}
-
-
-_GITIGNORE_SEED = """# Secrets - never commit real credentials
-.env
-.env.*
-!.env.example
-
-# Dependencies
-node_modules/
-
-# Production readiness backups
-qa/fix-backup/
-
-# Caches
-__pycache__/
-*.pyc
-.pytest_cache/
-.coverage
-coverage/
-.venv/
-venv/
-
-# OS noise
-.DS_Store
-Thumbs.db
-"""
-
-
-def fix_gitignore_missing(root: Path) -> dict:
-    """Create a .gitignore when the project has none.
-
-    Without one, a local ``.env`` holding real secrets is a single
-    ``git add .`` away from being committed - exactly the failure preflight
-    reports as "no hardcoded secrets".  Creating the file is safe: ignore
-    rules never untrack files that are already committed, and nothing is
-    deleted or overwritten.
-    """
-    root = Path(root)
-    gi = root / ".gitignore"
-    if gi.is_file():
-        return {"id": "gitignore-missing", "status": "already-ok",
-                "detail": "the project already has a .gitignore"}
-    if not _write(gi, _GITIGNORE_SEED):
-        return {"id": "gitignore-missing", "status": "failed",
-                "detail": "could not write .gitignore"}
-    return {"id": "gitignore-missing", "status": "applied",
-            "detail": "created .gitignore (secrets, dependencies, backups, caches)",
-            "files": [".gitignore"]}
 
 
 def fix_gitignore_env_example(root: Path) -> dict:
@@ -315,16 +246,6 @@ def fix_next_viewport(root: Path) -> dict:
     for index, line in enumerate(lines):
         if line.startswith("import "):
             insert_at = index + 1
-    # A "use client" / "use server" directive must stay the FIRST statement of
-    # the module, otherwise Next.js stops treating the file as a client
-    # boundary. Never insert anything above it.
-    for index, line in enumerate(lines):
-        stripped = line.strip().strip(";").strip("'").strip('"')
-        if stripped in ("use client", "use server", "use strict"):
-            insert_at = max(insert_at, index + 1)
-        elif stripped and not stripped.startswith(("import ", "//", "/*", "*")):
-            # first real statement: everything after it is body code
-            break
     new_text = "\n".join(lines[:insert_at]) + export + "\n".join(lines[insert_at:])
     backup = _backup(root, layout)
     if not _write(layout, new_text):
@@ -608,7 +529,6 @@ def fix_gitignore_cloudflare(root: Path) -> dict:
 
 ALL_FIXES = [
     fix_env_example,
-    fix_gitignore_missing,
     fix_gitignore_env_example,
     fix_gitignore_qa_backups,
     fix_gitignore_cloudflare,
@@ -622,42 +542,18 @@ ALL_FIXES = [
 ]
 
 
-def _fix_key(name: str) -> str:
-    """Normalise a fix id so ``--only env-example`` and ``--only env_example``
-    both select the same fixer. The documented spelling uses hyphens, the
-    function names use underscores - without this the selection silently
-    matched nothing."""
-    return str(name).strip().lower().replace("-", "_")
-
-
-def apply_all(root, only=None, dry_run=False) -> list:
-    """Run every (or the selected) fix.  Returns one result dict per fix.
-
-    With ``dry_run=True`` the fixes are computed and reported but nothing is
-    written to disk; the reported status becomes ``planned`` so a caller can
-    never mistake a simulation for an applied change.
-    """
+def apply_all(root, only=None) -> list:
+    """Run every (or the selected) fix.  Returns one result dict per fix."""
     root = Path(root)
     results = []
-    wanted = {_fix_key(name) for name in (only or [])}
-    previous = _DRY_RUN
-    set_dry_run(dry_run)
-    try:
-        for fixer in ALL_FIXES:
-            if wanted and _fix_key(fixer.__name__.replace("fix_", "")) not in wanted:
-                continue
-            try:
-                results.append(fixer(root))
-            except Exception as exc:  # a broken fixer must not break the review
-                results.append({"id": fixer.__name__, "status": "failed",
-                                "detail": f"unexpected error: {exc}"})
-    finally:
-        set_dry_run(previous)
-    if dry_run:
-        for item in results:
-            if item.get("status") == "applied":
-                item["status"] = "planned"
-                item["detail"] = f"[dry run] {item.get('detail', '')}"
+    for fixer in ALL_FIXES:
+        if only and fixer.__name__.replace("fix_", "") not in only:
+            continue
+        try:
+            results.append(fixer(root))
+        except Exception as exc:  # a broken fixer must not break the review
+            results.append({"id": fixer.__name__, "status": "failed",
+                            "detail": f"unexpected error: {exc}"})
     return results
 
 
@@ -673,24 +569,14 @@ def main(argv=None) -> int:
     for index, arg in enumerate(argv):
         if arg == "--only" and index + 1 < len(argv):
             only = [p.strip() for p in argv[index + 1].split(",") if p.strip()]
-    if only:
-        known = {_fix_key(f.__name__.replace("fix_", "")) for f in ALL_FIXES}
-        unknown = [name for name in only if _fix_key(name) not in known]
-        if unknown:
-            print(f"[FAIL] unknown fix id(s): {', '.join(unknown)}")
-            print("       valid ids: " + ", ".join(sorted(known)))
-            return 1
-    results = apply_all(root, only, dry_run="--dry-run" in argv)
+    results = apply_all(root, only)
     applied = [r for r in results if r.get("status") == "applied"]
     lines = ["FIXES"]
-    if "--dry-run" in argv:
-        lines.append("  [dry run] nothing was written to disk")
     for item in results:
-        mark = {"applied": "[fixed]", "planned": "[plan]", "already-ok": "[ok]", "skipped": "[skip]",
+        mark = {"applied": "[fixed]", "already-ok": "[ok]", "skipped": "[skip]",
                 "failed": "[FAIL]"}.get(item.get("status"), "[?]")
         lines.append(f"  {mark} {item.get('id')}: {item.get('detail')}")
-    payload = {"fixes": results, "applied": len(applied), "total": len(results),
-               "dry_run": "--dry-run" in argv}
+    payload = {"fixes": results, "applied": len(applied), "total": len(results)}
     emit(lines, payload, want_json)
     return 1 if any(r.get("status") == "failed" for r in results) else 0
 

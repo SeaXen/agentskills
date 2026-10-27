@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'web-design-guidelines' (source: web-design-guidelines/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'web-design-guidelines' (D:\Repo\.agents\skills\web-design-guidelines\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -40,3 +40,4 @@ When a user provides a file or pattern argument:
 4. Output findings using the format specified in the guidelines
 
 If no files specified, ask the user which files to review.
+

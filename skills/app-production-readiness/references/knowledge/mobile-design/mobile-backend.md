@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'mobile-design' (source: mobile-design/mobile-backend.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\mobile-backend.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Mobile Backend Patterns
@@ -9,27 +9,27 @@
 
 ---
 
-## 🧠 MOBILE BACKEND MINDSET
+## ðŸ§  MOBILE BACKEND MINDSET
 
 ```
 Mobile clients are DIFFERENT from web clients:
-├── Unreliable network (2G, subway, elevator)
-├── Battery constraints (minimize wake-ups)
-├── Limited storage (can't cache everything)
-├── Interrupted sessions (calls, notifications)
-├── Diverse devices (old phones to flagships)
-└── Binary updates are slow (App Store review)
+â”œâ”€â”€ Unreliable network (2G, subway, elevator)
+â”œâ”€â”€ Battery constraints (minimize wake-ups)
+â”œâ”€â”€ Limited storage (can't cache everything)
+â”œâ”€â”€ Interrupted sessions (calls, notifications)
+â”œâ”€â”€ Diverse devices (old phones to flagships)
+â””â”€â”€ Binary updates are slow (App Store review)
 ```
 
 **Your backend must compensate for ALL of these.**
 
 ---
 
-## 🚫 AI MOBILE BACKEND ANTI-PATTERNS
+## ðŸš« AI MOBILE BACKEND ANTI-PATTERNS
 
 ### These are common AI mistakes when building mobile backends:
 
-| ❌ AI Default | Why It's Wrong | ✅ Mobile-Correct |
+| âŒ AI Default | Why It's Wrong | âœ… Mobile-Correct |
 |---------------|----------------|-------------------|
 | Same API for web and mobile | Mobile needs compact responses | Separate mobile endpoints OR field selection |
 | Full object responses | Wastes bandwidth, battery | Partial responses, pagination |
@@ -47,22 +47,22 @@ Mobile clients are DIFFERENT from web clients:
 ### Platform Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    YOUR BACKEND                                  │
-├─────────────────────────────────────────────────────────────────┤
-│                         │                                        │
-│              ┌──────────┴──────────┐                            │
-│              ▼                     ▼                            │
-│    ┌─────────────────┐   ┌─────────────────┐                    │
-│    │   FCM (Google)  │   │  APNs (Apple)   │                    │
-│    │   Firebase      │   │  Direct or FCM  │                    │
-│    └────────┬────────┘   └────────┬────────┘                    │
-│             │                     │                              │
-│             ▼                     ▼                              │
-│    ┌─────────────────┐   ┌─────────────────┐                    │
-│    │ Android Device  │   │   iOS Device    │                    │
-│    └─────────────────┘   └─────────────────┘                    │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                    YOUR BACKEND                                  â”‚
+â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+â”‚                         â”‚                                        â”‚
+â”‚              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                            â”‚
+â”‚              â–¼                     â–¼                            â”‚
+â”‚    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                    â”‚
+â”‚    â”‚   FCM (Google)  â”‚   â”‚  APNs (Apple)   â”‚                    â”‚
+â”‚    â”‚   Firebase      â”‚   â”‚  Direct or FCM  â”‚                    â”‚
+â”‚    â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”˜                    â”‚
+â”‚             â”‚                     â”‚                              â”‚
+â”‚             â–¼                     â–¼                              â”‚
+â”‚    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                    â”‚
+â”‚    â”‚ Android Device  â”‚   â”‚   iOS Device    â”‚                    â”‚
+â”‚    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### Push Types
@@ -75,7 +75,7 @@ Mobile clients are DIFFERENT from web clients:
 
 ### Anti-Patterns
 
-| ❌ NEVER | ✅ ALWAYS |
+| âŒ NEVER | âœ… ALWAYS |
 |----------|----------|
 | Send sensitive data in push | Push says "New message", app fetches content |
 | Overload with pushes | Batch, dedupe, respect quiet hours |
@@ -87,11 +87,11 @@ Mobile clients are DIFFERENT from web clients:
 
 ```
 TOKEN LIFECYCLE:
-├── App registers → Get token → Send to backend
-├── Token can change → App must re-register on start
-├── Token expires → Clean from database
-├── User uninstalls → Token becomes invalid (detect via error)
-└── Multiple devices → Store multiple tokens per user
+â”œâ”€â”€ App registers â†’ Get token â†’ Send to backend
+â”œâ”€â”€ Token can change â†’ App must re-register on start
+â”œâ”€â”€ Token expires â†’ Clean from database
+â”œâ”€â”€ User uninstalls â†’ Token becomes invalid (detect via error)
+â””â”€â”€ Multiple devices â†’ Store multiple tokens per user
 ```
 
 ---
@@ -102,22 +102,22 @@ TOKEN LIFECYCLE:
 
 ```
 WHAT TYPE OF DATA?
-        │
-        ├── Read-only (news, catalog)
-        │   └── Simple cache + TTL
-        │       └── ETag/Last-Modified for invalidation
-        │
-        ├── User-owned (notes, todos)
-        │   └── Last-write-wins (simple)
-        │       └── Or timestamp-based merge
-        │
-        ├── Collaborative (shared docs)
-        │   └── CRDT or OT required
-        │       └── Consider Firebase/Supabase
-        │
-        └── Critical (payments, inventory)
-            └── Server is source of truth
-                └── Optimistic UI + server confirmation
+        â”‚
+        â”œâ”€â”€ Read-only (news, catalog)
+        â”‚   â””â”€â”€ Simple cache + TTL
+        â”‚       â””â”€â”€ ETag/Last-Modified for invalidation
+        â”‚
+        â”œâ”€â”€ User-owned (notes, todos)
+        â”‚   â””â”€â”€ Last-write-wins (simple)
+        â”‚       â””â”€â”€ Or timestamp-based merge
+        â”‚
+        â”œâ”€â”€ Collaborative (shared docs)
+        â”‚   â””â”€â”€ CRDT or OT required
+        â”‚       â””â”€â”€ Consider Firebase/Supabase
+        â”‚
+        â””â”€â”€ Critical (payments, inventory)
+            â””â”€â”€ Server is source of truth
+                â””â”€â”€ Optimistic UI + server confirmation
 ```
 
 ### Conflict Resolution Strategies
@@ -134,19 +134,19 @@ WHAT TYPE OF DATA?
 
 ```
 CLIENT SIDE:
-├── User makes change → Write to local DB
-├── Add to sync queue → { action, data, timestamp, retries }
-├── Network available → Process queue FIFO
-├── Success → Remove from queue
-├── Failure → Retry with backoff (max 5 retries)
-└── Conflict → Apply resolution strategy
+â”œâ”€â”€ User makes change â†’ Write to local DB
+â”œâ”€â”€ Add to sync queue â†’ { action, data, timestamp, retries }
+â”œâ”€â”€ Network available â†’ Process queue FIFO
+â”œâ”€â”€ Success â†’ Remove from queue
+â”œâ”€â”€ Failure â†’ Retry with backoff (max 5 retries)
+â””â”€â”€ Conflict â†’ Apply resolution strategy
 
 SERVER SIDE:
-├── Accept change with client timestamp
-├── Compare with server version
-├── Apply conflict resolution
-├── Return merged state
-└── Client updates local with server response
+â”œâ”€â”€ Accept change with client timestamp
+â”œâ”€â”€ Compare with server version
+â”œâ”€â”€ Apply conflict resolution
+â”œâ”€â”€ Return merged state
+â””â”€â”€ Client updates local with server response
 ```
 
 ---
@@ -167,17 +167,17 @@ SERVER SIDE:
 
 ```
 OFFSET (Bad for mobile):
-├── Page 1: OFFSET 0 LIMIT 20
-├── Page 2: OFFSET 20 LIMIT 20
-├── Problem: New item added → duplicates!
-└── Problem: Large offset = slow query
+â”œâ”€â”€ Page 1: OFFSET 0 LIMIT 20
+â”œâ”€â”€ Page 2: OFFSET 20 LIMIT 20
+â”œâ”€â”€ Problem: New item added â†’ duplicates!
+â””â”€â”€ Problem: Large offset = slow query
 
 CURSOR (Good for mobile):
-├── First: ?limit=20
-├── Next: ?limit=20&after=cursor_abc123
-├── Cursor = encoded (id + sort values)
-├── No duplicates on data changes
-└── Consistent performance
+â”œâ”€â”€ First: ?limit=20
+â”œâ”€â”€ Next: ?limit=20&after=cursor_abc123
+â”œâ”€â”€ Cursor = encoded (id + sort values)
+â”œâ”€â”€ No duplicates on data changes
+â””â”€â”€ Consistent performance
 ```
 
 ### Batch Requests
@@ -231,15 +231,15 @@ Response:
 
 ```
 CLIENT VERSION vs MINIMUM VERSION:
-├── client >= minimum → Continue normally
-├── client < minimum → Show force update screen
-│   └── Block app usage until updated
-└── client < latest → Show optional update prompt
+â”œâ”€â”€ client >= minimum â†’ Continue normally
+â”œâ”€â”€ client < minimum â†’ Show force update screen
+â”‚   â””â”€â”€ Block app usage until updated
+â””â”€â”€ client < latest â†’ Show optional update prompt
 
 FEATURE FLAGS:
-├── Enable/disable features without app update
-├── A/B testing by version/device
-└── Gradual rollout (10% → 50% → 100%)
+â”œâ”€â”€ Enable/disable features without app update
+â”œâ”€â”€ A/B testing by version/device
+â””â”€â”€ Gradual rollout (10% â†’ 50% â†’ 100%)
 ```
 
 ---
@@ -250,38 +250,38 @@ FEATURE FLAGS:
 
 ```
 ACCESS TOKEN:
-├── Short-lived (15 min - 1 hour)
-├── Stored in memory (not persistent)
-├── Used for API requests
-└── Refresh when expired
+â”œâ”€â”€ Short-lived (15 min - 1 hour)
+â”œâ”€â”€ Stored in memory (not persistent)
+â”œâ”€â”€ Used for API requests
+â””â”€â”€ Refresh when expired
 
 REFRESH TOKEN:
-├── Long-lived (30-90 days)
-├── Stored in SecureStore/Keychain
-├── Used only to get new access token
-└── Rotate on each use (security)
+â”œâ”€â”€ Long-lived (30-90 days)
+â”œâ”€â”€ Stored in SecureStore/Keychain
+â”œâ”€â”€ Used only to get new access token
+â””â”€â”€ Rotate on each use (security)
 
 DEVICE TOKEN:
-├── Identifies this device
-├── Allows "log out all devices"
-├── Stored alongside refresh token
-└── Server tracks active devices
+â”œâ”€â”€ Identifies this device
+â”œâ”€â”€ Allows "log out all devices"
+â”œâ”€â”€ Stored alongside refresh token
+â””â”€â”€ Server tracks active devices
 ```
 
 ### Silent Re-authentication
 
 ```
 REQUEST FLOW:
-├── Make request with access token
-├── 401 Unauthorized?
-│   ├── Have refresh token?
-│   │   ├── Yes → Call /auth/refresh
-│   │   │   ├── Success → Retry original request
-│   │   │   └── Failure → Force logout
-│   │   └── No → Force logout
-│   └── Token just expired (not invalid)
-│       └── Auto-refresh, user doesn't notice
-└── Success → Continue
+â”œâ”€â”€ Make request with access token
+â”œâ”€â”€ 401 Unauthorized?
+â”‚   â”œâ”€â”€ Have refresh token?
+â”‚   â”‚   â”œâ”€â”€ Yes â†’ Call /auth/refresh
+â”‚   â”‚   â”‚   â”œâ”€â”€ Success â†’ Retry original request
+â”‚   â”‚   â”‚   â””â”€â”€ Failure â†’ Force logout
+â”‚   â”‚   â””â”€â”€ No â†’ Force logout
+â”‚   â””â”€â”€ Token just expired (not invalid)
+â”‚       â””â”€â”€ Auto-refresh, user doesn't notice
+â””â”€â”€ Success â†’ Continue
 ```
 
 ---
@@ -332,11 +332,11 @@ CLIENT REQUEST:
 GET /images/{id}?w=400&h=300&q=80&format=webp
 
 SERVER RESPONSE:
-├── Resize on-the-fly OR use CDN
-├── WebP for Android (smaller)
-├── HEIC for iOS 14+ (if supported)
-├── JPEG fallback
-└── Cache-Control: max-age=31536000
+â”œâ”€â”€ Resize on-the-fly OR use CDN
+â”œâ”€â”€ WebP for Android (smaller)
+â”œâ”€â”€ HEIC for iOS 14+ (if supported)
+â”œâ”€â”€ JPEG fallback
+â””â”€â”€ Cache-Control: max-age=31536000
 ```
 
 ### Chunked Upload (Large Files)
@@ -345,31 +345,31 @@ SERVER RESPONSE:
 UPLOAD FLOW:
 1. POST /uploads/init
    { filename, size, mime_type }
-   → { upload_id, chunk_size }
+   â†’ { upload_id, chunk_size }
 
 2. PUT /uploads/{upload_id}/chunks/{n}
-   → Upload each chunk (1-5 MB)
-   → Can resume if interrupted
+   â†’ Upload each chunk (1-5 MB)
+   â†’ Can resume if interrupted
 
 3. POST /uploads/{upload_id}/complete
-   → Server assembles chunks
-   → Return final file URL
+   â†’ Server assembles chunks
+   â†’ Return final file URL
 ```
 
 ### Streaming Audio/Video
 
 ```
 REQUIREMENTS:
-├── HLS (HTTP Live Streaming) for iOS
-├── DASH or HLS for Android
-├── Multiple quality levels (adaptive bitrate)
-├── Range request support (seeking)
-└── Offline download chunks
+â”œâ”€â”€ HLS (HTTP Live Streaming) for iOS
+â”œâ”€â”€ DASH or HLS for Android
+â”œâ”€â”€ Multiple quality levels (adaptive bitrate)
+â”œâ”€â”€ Range request support (seeking)
+â””â”€â”€ Offline download chunks
 
 ENDPOINTS:
-GET /media/{id}/manifest.m3u8  → HLS manifest
-GET /media/{id}/segment_{n}.ts → Video segment
-GET /media/{id}/download       → Full file for offline
+GET /media/{id}/manifest.m3u8  â†’ HLS manifest
+GET /media/{id}/segment_{n}.ts â†’ Video segment
+GET /media/{id}/download       â†’ Full file for offline
 ```
 
 ---
@@ -380,37 +380,37 @@ GET /media/{id}/download       → Full file for offline
 
 ```
 VERIFY REAL DEVICE (not emulator/bot):
-├── iOS: DeviceCheck API
-│   └── Server verifies with Apple
-├── Android: Play Integrity API (replaces SafetyNet)
-│   └── Server verifies with Google
-└── Fail closed: Reject if attestation fails
+â”œâ”€â”€ iOS: DeviceCheck API
+â”‚   â””â”€â”€ Server verifies with Apple
+â”œâ”€â”€ Android: Play Integrity API (replaces SafetyNet)
+â”‚   â””â”€â”€ Server verifies with Google
+â””â”€â”€ Fail closed: Reject if attestation fails
 ```
 
 ### Request Signing
 
 ```
 CLIENT:
-├── Create signature = HMAC(timestamp + path + body, secret)
-├── Send: X-Signature: {signature}
-├── Send: X-Timestamp: {timestamp}
-└── Send: X-Device-ID: {device_id}
+â”œâ”€â”€ Create signature = HMAC(timestamp + path + body, secret)
+â”œâ”€â”€ Send: X-Signature: {signature}
+â”œâ”€â”€ Send: X-Timestamp: {timestamp}
+â””â”€â”€ Send: X-Device-ID: {device_id}
 
 SERVER:
-├── Validate timestamp (within 5 minutes)
-├── Recreate signature with same inputs
-├── Compare signatures
-└── Reject if mismatch (tampering detected)
+â”œâ”€â”€ Validate timestamp (within 5 minutes)
+â”œâ”€â”€ Recreate signature with same inputs
+â”œâ”€â”€ Compare signatures
+â””â”€â”€ Reject if mismatch (tampering detected)
 ```
 
 ### Rate Limiting
 
 ```
 MOBILE-SPECIFIC LIMITS:
-├── Per device (X-Device-ID)
-├── Per user (after auth)
-├── Per endpoint (stricter for sensitive)
-└── Sliding window preferred
+â”œâ”€â”€ Per device (X-Device-ID)
+â”œâ”€â”€ Per user (after auth)
+â”œâ”€â”€ Per endpoint (stricter for sensitive)
+â””â”€â”€ Sliding window preferred
 
 HEADERS:
 X-RateLimit-Limit: 100
@@ -427,37 +427,37 @@ Retry-After: 60 (when 429)
 
 ```
 Every mobile request should include:
-├── X-App-Version: 2.1.0
-├── X-Platform: ios | android
-├── X-OS-Version: 17.0
-├── X-Device-Model: iPhone15,2
-├── X-Device-ID: uuid (persistent)
-├── X-Request-ID: uuid (per request, for tracing)
-├── Accept-Language: tr-TR
-└── X-Timezone: Europe/Istanbul
+â”œâ”€â”€ X-App-Version: 2.1.0
+â”œâ”€â”€ X-Platform: ios | android
+â”œâ”€â”€ X-OS-Version: 17.0
+â”œâ”€â”€ X-Device-Model: iPhone15,2
+â”œâ”€â”€ X-Device-ID: uuid (persistent)
+â”œâ”€â”€ X-Request-ID: uuid (per request, for tracing)
+â”œâ”€â”€ Accept-Language: tr-TR
+â””â”€â”€ X-Timezone: Europe/Istanbul
 ```
 
 ### What to Log
 
 ```
 FOR EACH REQUEST:
-├── All headers above
-├── Endpoint, method, status
-├── Response time
-├── Error details (if any)
-└── User ID (if authenticated)
+â”œâ”€â”€ All headers above
+â”œâ”€â”€ Endpoint, method, status
+â”œâ”€â”€ Response time
+â”œâ”€â”€ Error details (if any)
+â””â”€â”€ User ID (if authenticated)
 
 ALERTS:
-├── Error rate > 5% per version
-├── P95 latency > 2 seconds
-├── Specific version crash spike
-├── Auth failure spike (attack?)
-└── Push delivery failure spike
+â”œâ”€â”€ Error rate > 5% per version
+â”œâ”€â”€ P95 latency > 2 seconds
+â”œâ”€â”€ Specific version crash spike
+â”œâ”€â”€ Auth failure spike (attack?)
+â””â”€â”€ Push delivery failure spike
 ```
 
 ---
 
-## 📝 MOBILE BACKEND CHECKLIST
+## ðŸ“ MOBILE BACKEND CHECKLIST
 
 ### Before API Design
 - [ ] Identified mobile-specific requirements?
@@ -491,4 +491,5 @@ ALERTS:
 
 ---
 
-> **Remember:** Mobile backend must be resilient to bad networks, respect battery life, and handle interrupted sessions gracefully. The client cannot be trusted, but it also cannot be hung up—provide offline capabilities and clear error recovery paths.
+> **Remember:** Mobile backend must be resilient to bad networks, respect battery life, and handle interrupted sessions gracefully. The client cannot be trusted, but it also cannot be hung upâ€”provide offline capabilities and clear error recovery paths.
+

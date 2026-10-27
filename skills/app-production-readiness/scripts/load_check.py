@@ -28,7 +28,9 @@ Exit 0 = thresholds met, 1 = thresholds breached, 2 = nothing to measure.
 """
 from __future__ import annotations
 
+import argparse
 import json
+import statistics
 import sys
 import threading
 import time

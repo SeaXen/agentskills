@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'mutation-testing' (source: mutation-testing/SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'mutation-testing' (D:\Repo\.agents\skills\mutation-testing\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---
@@ -14,7 +14,7 @@ version: 1.0
 
 ---
 
-## 🏗️ Core Principles
+## ðŸ—ï¸ Core Principles
 
 | Principle | Rule |
 |-----------|------|
@@ -25,7 +25,7 @@ version: 1.0
 
 ---
 
-## 📋 Stryker Configuration Pattern (`stryker.config.json`)
+## ðŸ“‹ Stryker Configuration Pattern (`stryker.config.json`)
 
 ```json
 {
@@ -50,7 +50,7 @@ version: 1.0
 
 ---
 
-## 📋 How to Kill Common Mutants
+## ðŸ“‹ How to Kill Common Mutants
 
 1. **Equality Operator Mutator (`===` mutated to `!==`)**:
    - *Cause*: Missing test case checking boundary equality vs inequality.
@@ -64,8 +64,9 @@ version: 1.0
 
 ---
 
-## ❌ Anti-Patterns
+## âŒ Anti-Patterns
 
-- ❌ Relying purely on Istanbul/c8 line coverage metrics without testing assertion strength.
-- ❌ Excluding tricky logic from mutation config just to artificially inflate scores.
-- ❌ Running un-scoped full-suite mutation tests on every git commit.
+- âŒ Relying purely on Istanbul/c8 line coverage metrics without testing assertion strength.
+- âŒ Excluding tricky logic from mutation config just to artificially inflate scores.
+- âŒ Running un-scoped full-suite mutation tests on every git commit.
+

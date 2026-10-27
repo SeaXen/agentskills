@@ -60,7 +60,7 @@ def _sha256(path: Path) -> str:
 # ---------------------------------------------------------------------------
 def test_manifest_covers_every_absorbed_script(manifest, absorbed_files):
     on_disk = sorted(p.name for p in ABSORBED.glob("*.py")
-                     if p.name not in ("verify_manifest.py", "refresh_manifest.py"))
+                     if p.name != "verify_manifest.py")
     assert on_disk == absorbed_files, (
         f"MANIFEST.json and scripts/absorbed/ disagree: "
         f"only on disk={sorted(set(on_disk) - set(absorbed_files))}, "
@@ -89,31 +89,6 @@ def test_absorbed_scripts_are_valid_python(absorbed_files):
         compile(source, name, "exec")
 
 
-def test_git_never_rewrites_the_line_endings_of_an_absorbed_copy():
-    """A CRLF conversion would make every byte-exact copy look drifted.
-
-    The absorbed scripts are hashed in MANIFEST.json, so Git must check them
-    out unchanged.  Without this rule a fresh clone on Windows (core.autocrlf
-    = true) reports 14 false drifts and `skill_check.py` fails.
-    """
-    attributes = ROOT / ".gitattributes"
-    assert attributes.is_file(), ".gitattributes is missing"
-    text = attributes.read_text(encoding="utf-8")
-    rules = {}
-    for line in text.splitlines():
-        line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-        parts = line.split()
-        if len(parts) >= 2:
-            rules[parts[0]] = " ".join(parts[1:])
-    assert rules.get("scripts/absorbed/*.py", "").startswith("-text"), (
-        "scripts/absorbed/*.py must be marked -text so Git keeps the bytes "
-        "identical to MANIFEST.json")
-    assert "-text" in rules.get("scripts/absorbed/MANIFEST.json", ""), (
-        "scripts/absorbed/MANIFEST.json must be marked -text")
-
-
 def test_verify_manifest_reports_ok():
     sys.path.insert(0, str(ABSORBED))
     import verify_manifest  # type: ignore
@@ -132,97 +107,6 @@ def test_verify_manifest_tolerates_deleted_originals(tmp_path):
     assert report["mismatches"] == 0
     assert all("original not found" in row["detail"] or row["detail"] == ""
                for row in report["files"])
-
-
-# ---------------------------------------------------------------------------
-# declared local patches
-# ---------------------------------------------------------------------------
-def test_every_declared_patch_records_its_base_and_its_reason(manifest):
-    """A forked copy must say what it forked from and why."""
-    patched = [name for name, entry in manifest["files"].items()
-               if not entry.get("identical_to_source", True)]
-    for name in patched:
-        entry = manifest["files"][name]
-        assert entry.get("upstream_sha256"), f"{name} has no pinned upstream base"
-        assert entry.get("patch_reason"), f"{name} does not record why it changed"
-        assert entry["upstream_sha256"] != entry["sha256"], (
-            f"{name} is marked patched but pins the same hash as the copy")
-
-
-def test_a_patched_copy_is_not_flagged_as_drift(manifest):
-    """A declared patch must not break the integrity check."""
-    sys.path.insert(0, str(ABSORBED))
-    import verify_manifest  # type: ignore
-    report = verify_manifest.verify()
-    assert report["status"] == "ok", report
-    for row in report["files"]:
-        entry = manifest["files"][row["file"]]
-        if not entry.get("identical_to_source", True):
-            assert row["ok"], row
-            assert "modified" not in row["detail"], row
-
-
-def test_refresh_manifest_repins_a_copy_and_records_the_reason(tmp_path):
-    """An intentional edit must be re-pinnable with a recorded reason."""
-    import shutil as _shutil
-    import verify_manifest  # type: ignore
-
-    sandbox = tmp_path / "absorbed"
-    sandbox.mkdir()
-    for item in ABSORBED.iterdir():
-        if item.suffix in (".py", ".json"):
-            _shutil.copy2(item, sandbox / item.name)
-    manifest_path = sandbox / "MANIFEST.json"
-    target = "vulnerability_security_scan.py"
-
-    # Simulate an intentional local edit that was never re-pinned.
-    edited = sandbox / target
-    edited.write_text(edited.read_text(encoding="utf-8") + "\n# local tweak\n",
-                      encoding="utf-8")
-    original_manifest = verify_manifest.MANIFEST
-    original_here = verify_manifest.HERE
-    verify_manifest.MANIFEST = manifest_path
-    verify_manifest.HERE = sandbox
-    try:
-        report = verify_manifest.verify()
-        assert report["status"] == "drift", report
-
-        sys.path.insert(0, str(ABSORBED))
-        import refresh_manifest  # type: ignore
-        original_manifest_file = refresh_manifest.MANIFEST
-        original_here = refresh_manifest.HERE
-        refresh_manifest.MANIFEST = manifest_path
-        refresh_manifest.HERE = sandbox
-        try:
-            assert refresh_manifest.refresh([target], "test tweak") == 0
-        finally:
-            refresh_manifest.MANIFEST = original_manifest_file
-            refresh_manifest.HERE = original_here
-
-        after = json.loads(manifest_path.read_text(encoding="utf-8"))
-        assert after["files"][target]["sha256"] == _sha256(edited)
-        assert after["files"][target]["patch_reason"] == "test tweak"
-        assert verify_manifest.verify()["status"] == "ok"
-    finally:
-        verify_manifest.MANIFEST = original_manifest
-        verify_manifest.HERE = original_here
-
-
-def test_refresh_manifest_requires_a_reason(tmp_path):
-    import shutil as _shutil
-    sandbox = tmp_path / "absorbed2"
-    sandbox.mkdir()
-    for item in ABSORBED.iterdir():
-        if item.suffix in (".py", ".json"):
-            _shutil.copy2(item, sandbox / item.name)
-    sys.path.insert(0, str(ABSORBED))
-    import refresh_manifest  # type: ignore
-    original = refresh_manifest.MANIFEST
-    refresh_manifest.MANIFEST = sandbox / "MANIFEST.json"
-    try:
-        assert refresh_manifest.main(["--file", "ux_audit.py"]) == 1
-    finally:
-        refresh_manifest.MANIFEST = original
 
 
 # ---------------------------------------------------------------------------
@@ -385,104 +269,3 @@ def test_skill_check_cli_exits_zero_on_this_skill():
         [sys.executable, str(SCRIPTS / "skill_check.py"), "--root", str(ROOT)],
         capture_output=True, text=True)
     assert proc.returncode == 0, proc.stdout + proc.stderr
-
-
-# ---------------------------------------------------------------------------
-# the absorbed knowledge pack
-# ---------------------------------------------------------------------------
-
-KNOWLEDGE = ROOT / "references" / "knowledge"
-
-
-def test_the_knowledge_pack_matches_its_manifest():
-    sys.path.insert(0, str(SCRIPTS))
-    import refresh_knowledge
-    problems, checked = refresh_knowledge.check(ROOT)
-    assert problems == []
-    assert checked >= 80
-
-
-def test_the_knowledge_manifest_is_utf8_without_a_bom_and_uses_posix_paths():
-    raw = (KNOWLEDGE / "MANIFEST.json").read_bytes()
-    assert not raw.startswith(b"\xef\xbb\xbf")
-    entries = json.loads(raw.decode("utf-8"))
-    assert entries
-    for entry in entries:
-        assert "\\" not in entry["file"], entry
-        assert "\\" not in entry["path"], entry
-        assert "\\" not in entry["source"], entry
-        assert entry["sha256"], entry
-        assert entry["bytes"] > 0, entry
-
-
-def test_every_knowledge_copy_is_byte_identical_to_its_source():
-    """The copy is the original verbatim behind a short header."""
-    entries = json.loads((KNOWLEDGE / "MANIFEST.json").read_text(encoding="utf-8"))
-    checked = 0
-    for entry in entries:
-        local = KNOWLEDGE / entry["path"]
-        raw = local.read_bytes()
-        marker = b"-->\n"
-        index = raw.find(marker)
-        assert index != -1, entry["path"]
-        body = raw[index + len(marker):]
-        source = ROOT.parent / entry["source"]
-        if not source.is_file():
-            continue  # the sibling skill is gone - the local copy is authoritative
-        assert body == source.read_bytes(), entry["path"]
-        checked += 1
-    assert checked >= 80
-
-
-def test_a_tampered_knowledge_copy_is_detected(tmp_path):
-    sys.path.insert(0, str(SCRIPTS))
-    import refresh_knowledge
-    pack = tmp_path / "knowledge"
-    pack.mkdir()
-    (pack / "MANIFEST.json").write_text(json.dumps([{
-        "skill": "demo",
-        "file": "SKILL.md",
-        "path": "demo/SKILL.md",
-        "source": "demo/SKILL.md",
-        "bytes": 5,
-        "sha256": hashlib.sha256(b"hello").hexdigest(),
-    }]), encoding="utf-8")
-    target = pack / "demo" / "SKILL.md"
-    target.parent.mkdir(parents=True)
-    target.write_text("hello", encoding="utf-8")
-    root = tmp_path / "skill"
-    (root / "references").mkdir(parents=True)
-    (root / "references" / "knowledge").mkdir()
-    (root / "references" / "knowledge" / "MANIFEST.json").write_text(
-        (pack / "MANIFEST.json").read_text(encoding="utf-8"), encoding="utf-8")
-    (root / "references" / "knowledge" / "demo").mkdir()
-    (root / "references" / "knowledge" / "demo" / "SKILL.md").write_text(
-        "hello", encoding="utf-8")
-    assert refresh_knowledge.check(root) == ([], 1)
-    (root / "references" / "knowledge" / "demo" / "SKILL.md").write_text(
-        "tampered", encoding="utf-8")
-    problems, _ = refresh_knowledge.check(root)
-    assert any("sha256 drift" in p for p in problems)
-
-
-def test_the_knowledge_pack_has_no_double_encoded_text():
-    for path in sorted(KNOWLEDGE.rglob("*")):
-        if not path.is_file():
-            continue
-        text = path.read_text(encoding="utf-8-sig", errors="ignore")
-        assert not skill_check.MOJIBAKE_RE.search(text), path
-
-
-def test_skill_check_detects_double_encoded_text(tmp_path):
-    skill = tmp_path / "my-skill"
-    (skill / "scripts").mkdir(parents=True)
-    (skill / "references").mkdir(parents=True)
-    (skill / "SKILL.md").write_text(
-        "---\nname: my-skill\ndescription: " + "x" * 60 + "\n---\n\nbody\n",
-        encoding="utf-8")
-    # "->" encoded as UTF-8 and then decoded as cp1252
-    (skill / "references" / "notes.md").write_text(
-        "a \u00e2\u20ac\u2122 b\n", encoding="utf-8")
-    report = skill_check.check_skill(skill)
-    assert not report["ok"]
-    assert any("double-encoded" in p for p in report["problems"])

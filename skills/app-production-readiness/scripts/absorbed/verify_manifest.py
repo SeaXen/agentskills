@@ -66,15 +66,13 @@ def verify(source_root: Path = DEFAULT_SOURCE_ROOT):
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
     results = []
     mismatches = 0
-    warnings = 0
     files = data.get("files") or {}
     entries = files.items() if isinstance(files, dict) else (
         (entry.get("file"), entry) for entry in files)
     for name, entry in entries:
         local = HERE / name
-        patched = not entry.get("identical_to_source", True)
         row = {"file": name, "source_skill": entry.get("source_skill"),
-               "ok": True, "detail": "", "patched": patched}
+               "ok": True, "detail": ""}
         if not local.is_file():
             row["ok"] = False
             row["detail"] = "absorbed copy is missing"
@@ -91,32 +89,19 @@ def verify(source_root: Path = DEFAULT_SOURCE_ROOT):
                         original = candidate
                         break
                 if original is not None:
-                    original_hash = sha256(original)
-                    if patched:
-                        # The copy is intentionally forked: the pinned base
-                        # revision must still match, otherwise the patch has to
-                        # be rebased. This is a warning, not drift.
-                        pinned = entry.get("upstream_sha256")
-                        if pinned and original_hash != pinned:
-                            row["detail"] = ("upstream changed since the patch was "
-                                             "applied (rebase the patch)")
-                            row["warning"] = True
-                    elif original_hash != entry["sha256"]:
+                    if sha256(original) != entry["sha256"]:
                         row["ok"] = False
                         row["detail"] = f"the original {original} changed on disk"
                 else:
                     row["detail"] = "original not found (kept the absorbed copy)"
         if not row["ok"]:
             mismatches += 1
-        elif row.get("warning"):
-            warnings += 1
         results.append(row)
     return {
         "status": "ok" if mismatches == 0 else "drift",
         "files": results,
         "checked": len(results),
         "mismatches": mismatches,
-        "warnings": warnings,
     }
 
 
@@ -137,15 +122,11 @@ def main() -> int:
         print("=" * 62)
         for row in report["files"]:
             icon = "OK  " if row["ok"] else "DRIFT"
-            if row["ok"] and row.get("warning"):
-                icon = "WARN "
-            label = row["file"] + ("  (patched)" if row.get("patched") else "")
-            print(f"[{icon}] {label}  <- {row['source_skill']}"
+            print(f"[{icon}] {row['file']}  <- {row['source_skill']}"
                   + (f"  ({row['detail']})" if row["detail"] else ""))
         print("-" * 62)
         print(f"checked {report.get('checked', 0)} file(s), "
-              f"{report.get('mismatches', 0)} mismatch(es), "
-              f"{report.get('warnings', 0)} warning(s)")
+              f"{report.get('mismatches', 0)} mismatch(es)")
         print("=" * 62)
     if report["status"] == "error":
         return 2

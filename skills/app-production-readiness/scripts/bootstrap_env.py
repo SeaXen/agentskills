@@ -16,6 +16,10 @@ Exit codes:
 from __future__ import annotations
 
 import argparse
+import json
+import os
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -141,16 +145,13 @@ def check_lighthouse() -> dict:
     }
 
 
-def install_dependencies(browsers_to_install: list[str] | None = None):
-    """Install the missing tooling. Returns (log lines, succeeded)."""
+def install_dependencies(browsers_to_install: list[str] | None = None) -> list[str]:
     logs = []
-    ok = True
     # 1. install python packages
     logs.append("[INSTALL] Installing python dependencies (playwright, pytest)...")
     code, out, err = run_cmd([sys.executable, "-m", "pip", "install", "playwright", "pytest"], timeout=180)
     if code != 0:
         logs.append(f"[FAIL] pip install failed: {err}")
-        ok = False
     else:
         logs.append("[OK] Python packages installed successfully.")
 
@@ -160,11 +161,10 @@ def install_dependencies(browsers_to_install: list[str] | None = None):
     code, out, err = run_cmd([sys.executable, "-m", "playwright", "install"] + engines, timeout=300)
     if code != 0:
         logs.append(f"[FAIL] playwright install failed: {err}")
-        ok = False
     else:
         logs.append("[OK] Playwright browser binaries installed.")
 
-    return logs, ok
+    return logs
 
 
 def main(argv=None) -> int:
@@ -175,10 +175,9 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
 
     install_logs = []
-    install_ok = True
     if args.install:
         engines = [b.strip() for b in args.browsers.split(",") if b.strip()]
-        install_logs, install_ok = install_dependencies(engines)
+        install_logs = install_dependencies(engines)
 
     py_stat = check_python()
     node_stat = check_node()
@@ -187,10 +186,7 @@ def main(argv=None) -> int:
 
     checks = [py_stat, node_stat, pw_stat, lh_stat]
     all_ok = all(c["ok"] for c in checks)
-    # Every optional tool that is missing puts the environment in DEGRADED mode:
-    # the deep gates that need it will be SKIPPED, never silently passed.
-    degraded = not node_stat["ok"] or not pw_stat["ok"] or not lh_stat["ok"]
-    failed = not py_stat["ok"] or not install_ok
+    any_degraded = not pw_stat["ok"] or not lh_stat["ok"]
 
     human_lines = ["ENVIRONMENT BOOTSTRAP CHECK", "=" * 40]
     for c in checks:
@@ -202,30 +198,24 @@ def main(argv=None) -> int:
         human_lines.extend(install_logs)
 
     human_lines.append("=" * 40)
-    if failed:
-        human_lines.append("Environment is NOT ready - a required tool is missing or an install failed.")
-        if not install_ok:
-            human_lines.append("[FAIL] installation failed - see the log above.")
-    elif all_ok:
+    if all_ok:
         human_lines.append("Environment is 10/10 ready for all 21 quality gates.")
-    else:
+    elif any_degraded:
         human_lines.append("Environment is operational, but optional deep gates (Lighthouse / multi-browser) may be SKIPPED.")
         human_lines.append("Tip: Run `python scripts/bootstrap_env.py --install` to install missing tools.")
 
     payload = {
-        "status": "ready" if all_ok else ("failed" if failed else "degraded"),
+        "status": "ready" if all_ok else ("degraded" if any_degraded else "failed"),
         "all_ok": all_ok,
-        "degraded": degraded,
-        "install_ok": install_ok,
         "checks": checks,
         "install_logs": install_logs,
     }
 
     emit(human_lines, payload, args.json)
 
-    if failed:
+    if not py_stat["ok"]:
         return 1
-    if degraded:
+    if any_degraded:
         return 2
     return 0
 

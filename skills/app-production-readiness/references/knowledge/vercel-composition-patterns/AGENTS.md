@@ -1,4 +1,4 @@
-<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (source: vercel-composition-patterns/AGENTS.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\AGENTS.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # React Composition Patterns
@@ -23,17 +23,17 @@ Composition patterns for building flexible, maintainable React components. Avoid
 
 ## Table of Contents
 
-1. [Component Architecture](#1-component-architecture) — **HIGH**
+1. [Component Architecture](#1-component-architecture) â€” **HIGH**
    - 1.1 [Avoid Boolean Prop Proliferation](#11-avoid-boolean-prop-proliferation)
    - 1.2 [Use Compound Components](#12-use-compound-components)
-2. [State Management](#2-state-management) — **MEDIUM**
+2. [State Management](#2-state-management) â€” **MEDIUM**
    - 2.1 [Decouple State Management from UI](#21-decouple-state-management-from-ui)
    - 2.2 [Define Generic Context Interfaces for Dependency Injection](#22-define-generic-context-interfaces-for-dependency-injection)
    - 2.3 [Lift State into Provider Components](#23-lift-state-into-provider-components)
-3. [Implementation Patterns](#3-implementation-patterns) — **MEDIUM**
+3. [Implementation Patterns](#3-implementation-patterns) â€” **MEDIUM**
    - 3.1 [Create Explicit Component Variants](#31-create-explicit-component-variants)
    - 3.2 [Prefer Composing Children Over Render Props](#32-prefer-composing-children-over-render-props)
-4. [React 19 APIs](#4-react-19-apis) — **MEDIUM**
+4. [React 19 APIs](#4-react-19-apis) â€” **MEDIUM**
    - 4.1 [React 19 API Changes](#41-react-19-api-changes)
 
 ---
@@ -269,7 +269,7 @@ composed components.
 
 The provider component should be the only place that knows how state is managed.
 
-UI components consume the context interface—they don't know if state comes from
+UI components consume the context interfaceâ€”they don't know if state comes from
 
 useState, Zustand, or a server sync.
 
@@ -383,7 +383,7 @@ Define a **generic interface** for your component context with three parts:
 
 `state`, `actions`, and `meta`. This interface is a contract that any provider
 
-can implement—enabling the same UI components to work with completely different
+can implementâ€”enabling the same UI components to work with completely different
 
 state implementations.
 
@@ -555,7 +555,7 @@ function MessagePreview() {
 }
 ```
 
-The provider boundary is what matters—not the visual nesting. Components that
+The provider boundary is what mattersâ€”not the visual nesting. Components that
 
 need shared state don't have to be inside the `Composer.Frame`. They just need
 
@@ -627,7 +627,7 @@ function ForwardMessageDialog() {
 function ForwardMessageComposer({ onInputChange }) {
   const [state, setState] = useState(initialState)
   useEffect(() => {
-    onInputChange(state.input) // Sync on every change 😬
+    onInputChange(state.input) // Sync on every change ðŸ˜¬
   }, [state.input])
 }
 ```
@@ -696,7 +696,7 @@ UI itself.
 
 **Key insight:** Components that need shared state don't have to be visually
 
-nested inside each other—they just need to be within the same provider.
+nested inside each otherâ€”they just need to be within the same provider.
 
 ---
 
@@ -906,7 +906,7 @@ React 19+ only. Don't use `forwardRef`; use `use()` instead of `useContext()`.
 
 **Impact: MEDIUM (cleaner component definitions and context usage)**
 
-> **⚠️ React 19+ only.** Skip this if you're on React 18 or earlier.
+> **âš ï¸ React 19+ only.** Skip this if you're on React 18 or earlier.
 
 In React 19, `ref` is now a regular prop (no `forwardRef` wrapper needed), and `use()` replaces `useContext()`.
 
@@ -947,3 +947,4 @@ const value = use(MyContext)
 1. [https://react.dev](https://react.dev)
 2. [https://react.dev/learn/passing-data-deeply-with-context](https://react.dev/learn/passing-data-deeply-with-context)
 3. [https://react.dev/reference/react/use](https://react.dev/reference/react/use)
+

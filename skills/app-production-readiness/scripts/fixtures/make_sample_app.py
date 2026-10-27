@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """Materialise a sample app used to exercise the QA scripts.
 
-Three variants:
+Two variants:
   --variant good    a project that should pass the checks
   --variant broken  a project that must fail them (secrets, eval, weak
                     headers, oversized bundle, boilerplate README)
-  --variant empty   a project that ships no app surface at all, so every
-                    gate must report "skipped" rather than "pass"
 
 Usage:
   python make_sample_app.py --out /tmp/sample [--variant broken]
@@ -774,26 +772,8 @@ def write(path: Path, content) -> None:
         path.write_text(content, encoding="utf-8")
 
 
-VARIANTS = ("good", "broken", "empty")
-
-
 def build(out: Path, variant: str = "good") -> Path:
-    """Materialise a fixture project.
-
-    An unknown variant is a hard error: silently falling through to the "good"
-    fixture would make a broken-fixture test pass for the wrong reason.
-    """
-    if variant not in VARIANTS:
-        raise ValueError(
-            f"unknown fixture variant {variant!r} - expected one of {', '.join(VARIANTS)}"
-        )
     out.mkdir(parents=True, exist_ok=True)
-
-    if variant == "empty":
-        # A project that declares a package but ships no app surface at all.
-        # Every gate must report "skipped", never "pass".
-        write(out / "package.json", PACKAGE_JSON.replace('"name": "sample-app"', '"name": "empty-app"'))
-        return out
 
     if variant == "broken":
         write(out / "package.json",
@@ -881,7 +861,7 @@ def build(out: Path, variant: str = "good") -> Path:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
-    ap.add_argument("--variant", default="good", choices=list(VARIANTS))
+    ap.add_argument("--variant", default="good", choices=["good", "broken"])
     args = ap.parse_args()
     out = build(Path(args.out), args.variant)
     print(f"{args.variant} fixture written to {out}")
