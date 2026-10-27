@@ -2,12 +2,12 @@
 
 > **Workspace**: `D:\Repo\.agents`  
 > **Active Installed Skills**: 87 curated engineering skills in `.agents/skills`  
-> **Category Directories**: 38 granular functional domains in `.agents/category` (1,878+ standalone real skills)
-> **Offline Reserve Library**: 2,031 skills across 37 repositories in `.agents/library`  
+> **Category Directories**: 38 granular functional domains in `.agents/category`  
+> **Offline Reserve Library**: 3,426 skills across 165 repositories in `.agents/library`  
 > **Specialist Personas**: 20 domain agents  
 > **Autonomous Workflows**: 17 slash commands  
-> **Total Origin Repositories**: 37 upstream sources cataloged  
-> **Last Synced**: 2026-10-27  
+> **Total Origin Repositories**: 165 upstream sources cataloged  
+> **Last Synced**: 2026-10-28  
 > **Purpose**: Complete tracking of every skill's upstream origin, author, repository URL, and exact CLI commands to activate or update.
 
 ---
@@ -18,7 +18,7 @@
    ```bash
    python .agents/update.py --find <keyword>
    ```
-2. **Activate Any Skill from the 37 Offline Repositories**:
+2. **Activate Any Skill from the 165 Offline Repositories**:
    ```bash
    python .agents/library/activate_skill.py link <skill-name>
    ```
@@ -36,375 +36,174 @@
 
 ---
 
-## 📚 Complete Offline Reserve Library Repositories (37 Repositories, 2,031 Skills)
+## 📚 Complete Offline Reserve Library Repositories (165 Repositories, 3,426 Skills)
 
 Every repository below is fully preserved on disk in `.agents/library/`, ready for zero-latency instant activation into your active workspace without incurring active prompt token overhead:
 
 | Repository Folder | Category | Skills | Upstream Source | Activation / Link Command |
 | :--- | :--- | :---: | :--- | :--- |
-| **[`academic-research-skills`](./library/academic-research-skills)** | 📚 Deep Discovery, Citation Screening & Paper Synthesis | 5 | [imbad0202/academic-research-skills](https://github.com/imbad0202/academic-research-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`addyosmani-agent-skills`](./library/addyosmani-agent-skills)** | Specialized Developer & AI Capabilities | 25 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`anatomy-isometric-design`](./library/anatomy-isometric-design)** | Specialized Developer & AI Capabilities | 1 | [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`anthropics-knowledge-work`](./library/anthropics-knowledge-work)** | 💼 Enterprise Operations, Finance, Marketing & Sales | 216 | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`anthropics-official-skills`](./library/anthropics-official-skills)** | 🤖 Official Anthropic Skills & Document Automation | 20 | [anthropics/skills](https://github.com/anthropics/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`antigravity-awesome-skills`](./library/antigravity-awesome-skills)** | 🌟 Curated Open-Source Agent Skills Ecosystem | 876 | [benjaminasterA/antigravity-awesome-skills](https://github.com/benjaminasterA/antigravity-awesome-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)** | ⚔️ Colosseum Battle, Telemetry & Decoupled Learning | 4 | [antigravity-elite-protocols](https://github.com/antigravity-elite-protocols) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`browser-use-skills`](./library/browser-use-skills)** | Specialized Developer & AI Capabilities | 6 | [browser-use/browser-use](https://github.com/browser-use/browser-use) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`chezou-productivity-skills`](./library/chezou-productivity-skills)** | Specialized Developer & AI Capabilities | 3 | [chezou/skills](https://github.com/chezou/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`claude-vibe-skills`](./library/claude-vibe-skills)** | 🧹 Code Quality, Security Gates & Release Workflow | 1 | [darthrater78/claude-vibe-skills](https://github.com/darthrater78/claude-vibe-skills) | `python .agents/library/activate_skill.py link dev-skills` |
-| **[`cline-skills`](./library/cline-skills)** | 🛠️ Tooling, Automation & Terminal Integrations | 17 | [cline/skills](https://github.com/cline/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`cloudflare-security-audit`](./library/cloudflare-security-audit)** | Specialized Developer & AI Capabilities | 1 | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`cloudflare-skills`](./library/cloudflare-skills)** | ☁️ Cloudflare Workers, D1 & Next.js on Edge | 4 | [cloudflare/skills](https://github.com/cloudflare/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`#core-antigravity-library`](./library/%23core-antigravity-library)** | 🏛️ Core Standards, Architecture & Engineering Practices | 162 | [core-antigravity-library](https://github.com/core-antigravity-library) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`crypto-skills`](./library/crypto-skills)** | 🪙 Smart Contract Security & DeFi Architecture | 6 | [kukapay/crypto-skills](https://github.com/kukapay/crypto-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`diagram-design`](./library/diagram-design)** | Specialized Developer & AI Capabilities | 1 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`emilkowalski-skills`](./library/emilkowalski-skills)** | ✨ Micro-interactions, Motion Craft & Animation Design | 15 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`graphify-labs`](./library/graphify-labs)** | Specialized Developer & AI Capabilities | 1 | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`heygen-hyperframes`](./library/heygen-hyperframes)** | Specialized Developer & AI Capabilities | 20 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`humanize-skills`](./library/humanize-skills)** | Specialized Developer & AI Capabilities | 1 | [gencharitaci/humanize-skills](https://github.com/gencharitaci/humanize-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`jakubkrehel-design-skills`](./library/jakubkrehel-design-skills)** | Specialized Developer & AI Capabilities | 14 | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`kdense-scientific-skills`](./library/kdense-scientific-skills)** | Specialized Developer & AI Capabilities | 177 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`lemomo-opuscar`](./library/lemomo-opuscar)** | Specialized Developer & AI Capabilities | 1 | [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`lobehub-skills`](./library/lobehub-skills)** | Specialized Developer & AI Capabilities | 57 | [lobehub/lobehub](https://github.com/lobehub/lobehub) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`magentosh-superpowers`](./library/magentosh-superpowers)** | ⚡ Multi-Agent Workflows, Planning & Parallel Execution | 86 | [magentosh/superpowers](https://github.com/magentosh/superpowers) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`mattpocock-skills`](./library/mattpocock-skills)** | Specialized Developer & AI Capabilities | 38 | [mattpocock/skills](https://github.com/mattpocock/skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`nousresearch-hermes-optional-skills`](./library/nousresearch-hermes-optional-skills)** | Specialized Developer & AI Capabilities | 152 | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`nousresearch-hermes-skills`](./library/nousresearch-hermes-skills)** | Specialized Developer & AI Capabilities | 58 | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`obra-superpowers`](./library/obra-superpowers)** | 🔮 Developer Diagnostics & Workspace Execution | 15 | [obra/superpowers](https://github.com/obra/superpowers) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`pbakaus-impeccable`](./library/pbakaus-impeccable)** | Specialized Developer & AI Capabilities | 1 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`ponytail-code-quality`](./library/ponytail-code-quality)** | Specialized Developer & AI Capabilities | 6 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`#specialized-community-skills`](./library/%23specialized-community-skills)** | 🧩 Specialized Integrations (Playwright, Supabase, Neon, Shadcn, Caveman, Sentry, Apple) | 20 | [specialized-community-skills](https://github.com/specialized-community-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`taste-skill`](./library/taste-skill)** | Specialized Developer & AI Capabilities | 1 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`ui-ux-pro-max-skill`](./library/ui-ux-pro-max-skill)** | 🎨 Design Reasoning, Typography & Stack Palettes | 6 | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`vercel-agent-skills`](./library/vercel-agent-skills)** | ▲ Vercel React 19, Next.js & Server Action Patterns | 9 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`wshobson-agents`](./library/wshobson-agents)** | 🛡️ Parallel Debugging, Session Guards & Coordination | 5 | [wshobson/agents](https://github.com/wshobson/agents) | `python .agents/library/activate_skill.py link <skill>` |
-| **[`xdevplatform-xurl`](./library/xdevplatform-xurl)** | Specialized Developer & AI Capabilities | 1 | [xdevplatform/xurl](https://github.com/xdevplatform/xurl) | `python .agents/library/activate_skill.py link <skill>` |
-
----
-
-## 📦 Repository Deep-Dive & Upstream Links
-
-### Academic Research & Literature Screening Pipeline (`academic-research-skills`)
-- **Folder Path**: [`library/academic-research-skills`](./library/academic-research-skills)
-- **Upstream Repository**: [https://github.com/imbad0202/academic-research-skills](https://github.com/imbad0202/academic-research-skills)
-- **Total Skills**: 5 modular skills
-- **Category**: 📚 Deep Discovery, Citation Screening & Paper Synthesis
-- **Local Documentation**: [README.md](./library/academic-research-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/academic-research-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🔍 Addy Osmani Agent Skills Suite (`addyosmani-agent-skills`)
-- **Folder Path**: [`library/addyosmani-agent-skills`](./library/addyosmani-agent-skills)
-- **Upstream Repository**: [https://github.com/addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
-- **Total Skills**: 25 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/addyosmani-agent-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/addyosmani-agent-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 📐 Isometric SVG Technical Architecture & Design (`anatomy-isometric-design`)
-- **Folder Path**: [`library/anatomy-isometric-design`](./library/anatomy-isometric-design)
-- **Upstream Repository**: [https://github.com/wheresryan22/anatomy](https://github.com/wheresryan22/anatomy)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/anatomy-isometric-design/README.md)
-- **Machine Index**: [`skills_index.json`](./library/anatomy-isometric-design/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Anthropic Knowledge Work Plugins Suite (`anthropics-knowledge-work`)
-- **Folder Path**: [`library/anthropics-knowledge-work`](./library/anthropics-knowledge-work)
-- **Upstream Repository**: [https://github.com/anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)
-- **Total Skills**: 216 modular skills
-- **Category**: 💼 Enterprise Operations, Finance, Marketing & Sales
-- **Local Documentation**: [README.md](./library/anthropics-knowledge-work/README.md)
-- **Machine Index**: [`skills_index.json`](./library/anthropics-knowledge-work/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Official Anthropic Agent Skills (`anthropics-official-skills`)
-- **Folder Path**: [`library/anthropics-official-skills`](./library/anthropics-official-skills)
-- **Upstream Repository**: [https://github.com/anthropics/skills](https://github.com/anthropics/skills)
-- **Total Skills**: 20 modular skills
-- **Category**: 🤖 Official Anthropic Skills & Document Automation
-- **Local Documentation**: [README.md](./library/anthropics-official-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/anthropics-official-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Antigravity Awesome Skills (882 Skills) (`antigravity-awesome-skills`)
-- **Folder Path**: [`library/antigravity-awesome-skills`](./library/antigravity-awesome-skills)
-- **Upstream Repository**: [https://github.com/benjaminasterA/antigravity-awesome-skills](https://github.com/benjaminasterA/antigravity-awesome-skills)
-- **Total Skills**: 876 modular skills
-- **Category**: 🌟 Curated Open-Source Agent Skills Ecosystem
-- **Local Documentation**: [README.md](./library/antigravity-awesome-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/antigravity-awesome-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Antigravity Colosseum & Telemetry Protocols (`#antigravity-elite-protocols`)
-- **Folder Path**: [`library/#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)
-- **Upstream Repository**: [https://github.com/antigravity-elite-protocols](https://github.com/antigravity-elite-protocols)
-- **Total Skills**: 4 modular skills
-- **Category**: ⚔️ Colosseum Battle, Telemetry & Decoupled Learning
-- **Local Documentation**: [README.md](./library/%23antigravity-elite-protocols/README.md)
-- **Machine Index**: [`skills_index.json`](./library/%23antigravity-elite-protocols/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🌐 Browser-Use Autonomous Web Navigation & QA (`browser-use-skills`)
-- **Folder Path**: [`library/browser-use-skills`](./library/browser-use-skills)
-- **Upstream Repository**: [https://github.com/browser-use/browser-use](https://github.com/browser-use/browser-use)
-- **Total Skills**: 6 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/browser-use-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/browser-use-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 💼 Chezou Enterprise Research & Career Skills (`chezou-productivity-skills`)
-- **Folder Path**: [`library/chezou-productivity-skills`](./library/chezou-productivity-skills)
-- **Upstream Repository**: [https://github.com/chezou/skills](https://github.com/chezou/skills)
-- **Total Skills**: 3 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/chezou-productivity-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/chezou-productivity-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Cline System Tools & Browser Automation (`cline-skills`)
-- **Folder Path**: [`library/cline-skills`](./library/cline-skills)
-- **Upstream Repository**: [https://github.com/cline/skills](https://github.com/cline/skills)
-- **Total Skills**: 17 modular skills
-- **Category**: 🛠️ Tooling, Automation & Terminal Integrations
-- **Local Documentation**: [README.md](./library/cline-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/cline-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🛡️ Cloudflare Security & Attack Surface Audit (`cloudflare-security-audit`)
-- **Folder Path**: [`library/cloudflare-security-audit`](./library/cloudflare-security-audit)
-- **Upstream Repository**: [https://github.com/cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/cloudflare-security-audit/README.md)
-- **Machine Index**: [`skills_index.json`](./library/cloudflare-security-audit/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Cloudflare Edge, Workers & Wrangler (`cloudflare-skills`)
-- **Folder Path**: [`library/cloudflare-skills`](./library/cloudflare-skills)
-- **Upstream Repository**: [https://github.com/cloudflare/skills](https://github.com/cloudflare/skills)
-- **Total Skills**: 4 modular skills
-- **Category**: ☁️ Cloudflare Workers, D1 & Next.js on Edge
-- **Local Documentation**: [README.md](./library/cloudflare-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/cloudflare-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Antigravity Core Engineering & Design Systems (`#core-antigravity-library`)
-- **Folder Path**: [`library/#core-antigravity-library`](./library/%23core-antigravity-library)
-- **Upstream Repository**: [https://github.com/core-antigravity-library](https://github.com/core-antigravity-library)
-- **Total Skills**: 162 modular skills
-- **Category**: 🏛️ Core Standards, Architecture & Engineering Practices
-- **Local Documentation**: [README.md](./library/%23core-antigravity-library/README.md)
-- **Machine Index**: [`skills_index.json`](./library/%23core-antigravity-library/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Web3 & DeFi Protocol Engineering (`crypto-skills`)
-- **Folder Path**: [`library/crypto-skills`](./library/crypto-skills)
-- **Upstream Repository**: [https://github.com/kukapay/crypto-skills](https://github.com/kukapay/crypto-skills)
-- **Total Skills**: 6 modular skills
-- **Category**: 🪙 Smart Contract Security & DeFi Architecture
-- **Local Documentation**: [README.md](./library/crypto-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/crypto-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 📊 Branded Technical Architecture & Diagramming (`diagram-design`)
-- **Folder Path**: [`library/diagram-design`](./library/diagram-design)
-- **Upstream Repository**: [https://github.com/cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/diagram-design/README.md)
-- **Machine Index**: [`skills_index.json`](./library/diagram-design/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Emil Kowalski UI Polish & Motion Craft (`emilkowalski-skills`)
-- **Folder Path**: [`library/emilkowalski-skills`](./library/emilkowalski-skills)
-- **Upstream Repository**: [https://github.com/emilkowalski/skills](https://github.com/emilkowalski/skills)
-- **Total Skills**: 15 modular skills
-- **Category**: ✨ Micro-interactions, Motion Craft & Animation Design
-- **Local Documentation**: [README.md](./library/emilkowalski-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/emilkowalski-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🧠 Graphify Codebase Knowledge Graph (`graphify-labs`)
-- **Folder Path**: [`library/graphify-labs`](./library/graphify-labs)
-- **Upstream Repository**: [https://github.com/Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/graphify-labs/README.md)
-- **Machine Index**: [`skills_index.json`](./library/graphify-labs/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🎬 HeyGen Hyperframes Video & Motion Skills (`heygen-hyperframes`)
-- **Folder Path**: [`library/heygen-hyperframes`](./library/heygen-hyperframes)
-- **Upstream Repository**: [https://github.com/heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)
-- **Total Skills**: 20 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/heygen-hyperframes/README.md)
-- **Machine Index**: [`skills_index.json`](./library/heygen-hyperframes/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### ✍️ Humanize Writing & Natural Tone Skills (`humanize-skills`)
-- **Folder Path**: [`library/humanize-skills`](./library/humanize-skills)
-- **Upstream Repository**: [https://github.com/gencharitaci/humanize-skills](https://github.com/gencharitaci/humanize-skills)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/humanize-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/humanize-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🎨 Jakub Krehel Modern UI & Interface Polish Skills (`jakubkrehel-design-skills`)
-- **Folder Path**: [`library/jakubkrehel-design-skills`](./library/jakubkrehel-design-skills)
-- **Upstream Repository**: [https://github.com/jakubkrehel/skills](https://github.com/jakubkrehel/skills)
-- **Total Skills**: 14 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/jakubkrehel-design-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/jakubkrehel-design-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🔬 K-Dense Scientific & Bio-Research Agent Skills (`kdense-scientific-skills`)
-- **Folder Path**: [`library/kdense-scientific-skills`](./library/kdense-scientific-skills)
-- **Upstream Repository**: [https://github.com/K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)
-- **Total Skills**: 177 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/kdense-scientific-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/kdense-scientific-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🎥 Lemo-Opuscar Code Cinema & Film Engine (`lemomo-opuscar`)
-- **Folder Path**: [`library/lemomo-opuscar`](./library/lemomo-opuscar)
-- **Upstream Repository**: [https://github.com/lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/lemomo-opuscar/README.md)
-- **Machine Index**: [`skills_index.json`](./library/lemomo-opuscar/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🌐 LobeHub Agent Skills Suite (`canary`) (`lobehub-skills`)
-- **Folder Path**: [`library/lobehub-skills`](./library/lobehub-skills)
-- **Upstream Repository**: [https://github.com/lobehub/lobehub](https://github.com/lobehub/lobehub)
-- **Total Skills**: 57 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/lobehub-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/lobehub-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Magentosh Agent Superpowers Suite (`magentosh-superpowers`)
-- **Folder Path**: [`library/magentosh-superpowers`](./library/magentosh-superpowers)
-- **Upstream Repository**: [https://github.com/magentosh/superpowers](https://github.com/magentosh/superpowers)
-- **Total Skills**: 86 modular skills
-- **Category**: ⚡ Multi-Agent Workflows, Planning & Parallel Execution
-- **Local Documentation**: [README.md](./library/magentosh-superpowers/README.md)
-- **Machine Index**: [`skills_index.json`](./library/magentosh-superpowers/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🧙 Matt Pocock Software Engineering & TDD Suite (`mattpocock-skills`)
-- **Folder Path**: [`library/mattpocock-skills`](./library/mattpocock-skills)
-- **Upstream Repository**: [https://github.com/mattpocock/skills](https://github.com/mattpocock/skills)
-- **Total Skills**: 38 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/mattpocock-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/mattpocock-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🔮 NousResearch Hermes Optional Skills Suite (`nousresearch-hermes-optional-skills`)
-- **Folder Path**: [`library/nousresearch-hermes-optional-skills`](./library/nousresearch-hermes-optional-skills)
-- **Upstream Repository**: [https://github.com/NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
-- **Total Skills**: 152 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/nousresearch-hermes-optional-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/nousresearch-hermes-optional-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🧠 NousResearch Hermes Core Agent Skills (`nousresearch-hermes-skills`)
-- **Folder Path**: [`library/nousresearch-hermes-skills`](./library/nousresearch-hermes-skills)
-- **Upstream Repository**: [https://github.com/NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
-- **Total Skills**: 58 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/nousresearch-hermes-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/nousresearch-hermes-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Obra Developer Superpowers (`obra-superpowers`)
-- **Folder Path**: [`library/obra-superpowers`](./library/obra-superpowers)
-- **Upstream Repository**: [https://github.com/obra/superpowers](https://github.com/obra/superpowers)
-- **Total Skills**: 15 modular skills
-- **Category**: 🔮 Developer Diagnostics & Workspace Execution
-- **Local Documentation**: [README.md](./library/obra-superpowers/README.md)
-- **Machine Index**: [`skills_index.json`](./library/obra-superpowers/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### ✨ Impeccable Frontend Design, Motion & Polish (`pbakaus-impeccable`)
-- **Folder Path**: [`library/pbakaus-impeccable`](./library/pbakaus-impeccable)
-- **Upstream Repository**: [https://github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/pbakaus-impeccable/README.md)
-- **Machine Index**: [`skills_index.json`](./library/pbakaus-impeccable/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🧹 Ponytail Code Quality & Tech Debt Suite (`ponytail-code-quality`)
-- **Folder Path**: [`library/ponytail-code-quality`](./library/ponytail-code-quality)
-- **Upstream Repository**: [https://github.com/DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)
-- **Total Skills**: 6 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/ponytail-code-quality/README.md)
-- **Machine Index**: [`skills_index.json`](./library/ponytail-code-quality/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Specialized Community Skills & Integrations (`#specialized-community-skills`)
-- **Folder Path**: [`library/#specialized-community-skills`](./library/%23specialized-community-skills)
-- **Upstream Repository**: [https://github.com/specialized-community-skills](https://github.com/specialized-community-skills)
-- **Total Skills**: 20 modular skills
-- **Category**: 🧩 Specialized Integrations (Playwright, Supabase, Neon, Shadcn, Caveman, Sentry, Apple)
-- **Local Documentation**: [README.md](./library/%23specialized-community-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/%23specialized-community-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🎨 Anti-Slop Art Direction & Design Taste (`taste-skill`)
-- **Folder Path**: [`library/taste-skill`](./library/taste-skill)
-- **Upstream Repository**: [https://github.com/Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/taste-skill/README.md)
-- **Machine Index**: [`skills_index.json`](./library/taste-skill/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### UI/UX Pro Max Design System (`ui-ux-pro-max-skill`)
-- **Folder Path**: [`library/ui-ux-pro-max-skill`](./library/ui-ux-pro-max-skill)
-- **Upstream Repository**: [https://github.com/nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- **Total Skills**: 6 modular skills
-- **Category**: 🎨 Design Reasoning, Typography & Stack Palettes
-- **Local Documentation**: [README.md](./library/ui-ux-pro-max-skill/README.md)
-- **Machine Index**: [`skills_index.json`](./library/ui-ux-pro-max-skill/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Vercel Labs React & Next.js Patterns (`vercel-agent-skills`)
-- **Folder Path**: [`library/vercel-agent-skills`](./library/vercel-agent-skills)
-- **Upstream Repository**: [https://github.com/vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
-- **Total Skills**: 9 modular skills
-- **Category**: ▲ Vercel React 19, Next.js & Server Action Patterns
-- **Local Documentation**: [README.md](./library/vercel-agent-skills/README.md)
-- **Machine Index**: [`skills_index.json`](./library/vercel-agent-skills/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### Multi-Agent Collaboration & Production Safeguards (`wshobson-agents`)
-- **Folder Path**: [`library/wshobson-agents`](./library/wshobson-agents)
-- **Upstream Repository**: [https://github.com/wshobson/agents](https://github.com/wshobson/agents)
-- **Total Skills**: 5 modular skills
-- **Category**: 🛡️ Parallel Debugging, Session Guards & Coordination
-- **Local Documentation**: [README.md](./library/wshobson-agents/README.md)
-- **Machine Index**: [`skills_index.json`](./library/wshobson-agents/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
-### 🐦 X (Twitter) Developer Platform Skill (`xurl`) (`xdevplatform-xurl`)
-- **Folder Path**: [`library/xdevplatform-xurl`](./library/xdevplatform-xurl)
-- **Upstream Repository**: [https://github.com/xdevplatform/xurl](https://github.com/xdevplatform/xurl)
-- **Total Skills**: 1 modular skills
-- **Category**: Specialized Developer & AI Capabilities
-- **Local Documentation**: [README.md](./library/xdevplatform-xurl/README.md)
-- **Machine Index**: [`skills_index.json`](./library/xdevplatform-xurl/skills_index.json)
-- **How to Activate Any Skill**: `python .agents/library/activate_skill.py link <skill-name>`
-
+| **[`#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)** | 🏛️ Core Standards, Architecture & Engineering Practices | 4 | [antigravity-elite-protocols](https://github.com/antigravity-elite-protocols) | `python .agents/library/activate_skill.py link battle` |
+| **[`#core-antigravity-library`](./library/%23core-antigravity-library)** | 🏛️ Core Standards, Architecture & Engineering Practices | 162 | [core-antigravity-library](https://github.com/core-antigravity-library) | `python .agents/library/activate_skill.py link 3d-web-experience` |
+| **[`#specialized-community-skills`](./library/%23specialized-community-skills)** | 🏛️ Core Standards, Architecture & Engineering Practices | 20 | [specialized-community-skills](https://github.com/specialized-community-skills) | `python .agents/library/activate_skill.py link app-production-readiness` |
+| **[`0x0funky-agent-sprite-forge`](./library/0x0funky-agent-sprite-forge)** | Specialized Developer & AI Capabilities | 1 | [0x0funky/agent-sprite-forge](https://github.com/0x0funky/agent-sprite-forge) | `python .agents/library/activate_skill.py link codeart2d` |
+| **[`academic-research-skills`](./library/academic-research-skills)** | Specialized Developer & AI Capabilities | 5 | [academic-research-skills](https://github.com/academic-research-skills) | `python .agents/library/activate_skill.py link academic-paper` |
+| **[`addyosmani-agent-skills`](./library/addyosmani-agent-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 25 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | `python .agents/library/activate_skill.py link api-and-interface-design` |
+| **[`agents365-ai-drawio-skill`](./library/agents365-ai-drawio-skill)** | Specialized Developer & AI Capabilities | 1 | [Agents365-ai/drawio-skill](https://github.com/Agents365-ai/drawio-skill) | `python .agents/library/activate_skill.py link drawio` |
+| **[`agricidaniel-claude-ads`](./library/agricidaniel-claude-ads)** | 📈 Growth, SEO & Marketing Automation | 1 | [AgriciDaniel/claude-ads](https://github.com/AgriciDaniel/claude-ads) | `python .agents/library/activate_skill.py link ads` |
+| **[`agricidaniel-claude-obsidian`](./library/agricidaniel-claude-obsidian)** | 🧠 Knowledge Graphs, Search & Obsidian | 1 | [AgriciDaniel/claude-obsidian](https://github.com/AgriciDaniel/claude-obsidian) | `python .agents/library/activate_skill.py link claude-obsidian` |
+| **[`agricidaniel-claude-seo`](./library/agricidaniel-claude-seo)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) | `python .agents/library/activate_skill.py link claude-seo` |
+| **[`alirezarezvani-claude-skills`](./library/alirezarezvani-claude-skills)** | 🤖 Multi-Agent Workflows & Planning | 67 | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | `python .agents/library/activate_skill.py link changelog` |
+| **[`aminblg-simpleenglish`](./library/aminblg-simpleenglish)** | Specialized Developer & AI Capabilities | 1 | [AminBlg/SimpleEnglish](https://github.com/AminBlg/SimpleEnglish) | `python .agents/library/activate_skill.py link simple-english` |
+| **[`anatomy-isometric-design`](./library/anatomy-isometric-design)** | Specialized Developer & AI Capabilities | 1 | [anatomy-isometric-design](https://github.com/anatomy-isometric-design) | `python .agents/library/activate_skill.py link anatomy` |
+| **[`android-skills`](./library/android-skills)** | 📱 Mobile Native & Multiplatform | 1 | [android/skills](https://github.com/android/skills) | `python .agents/library/activate_skill.py link skills` |
+| **[`antfu-skills`](./library/antfu-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 12 | [antfu/skills](https://github.com/antfu/skills) | `python .agents/library/activate_skill.py link antfu` |
+| **[`anthropics-knowledge-work`](./library/anthropics-knowledge-work)** | Specialized Developer & AI Capabilities | 216 | [anthropics-knowledge-work](https://github.com/anthropics-knowledge-work) | `python .agents/library/activate_skill.py link accessibility-review` |
+| **[`anthropics-official-skills`](./library/anthropics-official-skills)** | Specialized Developer & AI Capabilities | 20 | [anthropics-official-skills](https://github.com/anthropics-official-skills) | `python .agents/library/activate_skill.py link academy-guide` |
+| **[`antigravity-awesome-skills`](./library/antigravity-awesome-skills)** | Specialized Developer & AI Capabilities | 876 | [antigravity-awesome-skills](https://github.com/antigravity-awesome-skills) | `python .agents/library/activate_skill.py link 3d-web-experience` |
+| **[`anysearch-ai-anysearch-skill`](./library/anysearch-ai-anysearch-skill)** | Specialized Developer & AI Capabilities | 1 | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `python .agents/library/activate_skill.py link anysearch` |
+| **[`ar9av-obsidian-wiki`](./library/ar9av-obsidian-wiki)** | 🤖 Multi-Agent Workflows & Planning | 1 | [Ar9av/obsidian-wiki](https://github.com/Ar9av/obsidian-wiki) | `python .agents/library/activate_skill.py link obsidian-wiki` |
+| **[`avdlee-swiftui-agent-skill`](./library/avdlee-swiftui-agent-skill)** | 🧹 Code Quality, Testing & Security | 1 | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | `python .agents/library/activate_skill.py link swiftui-expert-skill` |
+| **[`axtonliu-axton-obsidian-visual-skills`](./library/axtonliu-axton-obsidian-visual-skills)** | Specialized Developer & AI Capabilities | 1 | [axtonliu/axton-obsidian-visual-skills](https://github.com/axtonliu/axton-obsidian-visual-skills) | `python .agents/library/activate_skill.py link axton-obsidian-visual` |
+| **[`ayghri-i-have-adhd`](./library/ayghri-i-have-adhd)** | Specialized Developer & AI Capabilities | 1 | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | `python .agents/library/activate_skill.py link i-have-adhd` |
+| **[`browser-act-skills`](./library/browser-act-skills)** | 🌐 Headless Browser & Web Scraping | 1 | [browser-act/skills](https://github.com/browser-act/skills) | `python .agents/library/activate_skill.py link skills` |
+| **[`browser-use-skills`](./library/browser-use-skills)** | Specialized Developer & AI Capabilities | 6 | [browser-use-skills](https://github.com/browser-use-skills) | `python .agents/library/activate_skill.py link browser-use` |
+| **[`browserbase-skills`](./library/browserbase-skills)** | 🌐 Headless Browser & Web Scraping | 18 | [browserbase/skills](https://github.com/browserbase/skills) | `python .agents/library/activate_skill.py link add-webmcp` |
+| **[`brycewang-stanford-auto-empirical-research-skills`](./library/brycewang-stanford-auto-empirical-research-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | `python .agents/library/activate_skill.py link auto-empirical-research` |
+| **[`builderio-skills`](./library/builderio-skills)** | 🌐 Headless Browser & Web Scraping | 1 | [BuilderIO/skills](https://github.com/BuilderIO/skills) | `python .agents/library/activate_skill.py link adding-a-skill` |
+| **[`charlie947-social-media-skills`](./library/charlie947-social-media-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 17 | [charlie947/social-media-skills](https://github.com/charlie947/social-media-skills) | `python .agents/library/activate_skill.py link analytics-dashboard` |
+| **[`chezou-productivity-skills`](./library/chezou-productivity-skills)** | Specialized Developer & AI Capabilities | 3 | [chezou-productivity-skills](https://github.com/chezou-productivity-skills) | `python .agents/library/activate_skill.py link company-research` |
+| **[`claude-vibe-skills`](./library/claude-vibe-skills)** | Specialized Developer & AI Capabilities | 1 | [claude-vibe-skills](https://github.com/claude-vibe-skills) | `python .agents/library/activate_skill.py link dev-skills` |
+| **[`cline-skills`](./library/cline-skills)** | Specialized Developer & AI Capabilities | 17 | [cline-skills](https://github.com/cline-skills) | `python .agents/library/activate_skill.py link building-pydantic-ai-agents` |
+| **[`cloudai-x-threejs-skills`](./library/cloudai-x-threejs-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 13 | [CloudAI-X/threejs-skills](https://github.com/CloudAI-X/threejs-skills) | `python .agents/library/activate_skill.py link threejs-animation` |
+| **[`cloudflare-security-audit`](./library/cloudflare-security-audit)** | Specialized Developer & AI Capabilities | 1 | [cloudflare-security-audit](https://github.com/cloudflare-security-audit) | `python .agents/library/activate_skill.py link security-audit` |
+| **[`cloudflare-skills`](./library/cloudflare-skills)** | Specialized Developer & AI Capabilities | 4 | [cloudflare-skills](https://github.com/cloudflare-skills) | `python .agents/library/activate_skill.py link cloudflare` |
+| **[`cocoon-ai-architecture-diagram-generator`](./library/cocoon-ai-architecture-diagram-generator)** | Specialized Developer & AI Capabilities | 1 | [Cocoon-AI/architecture-diagram-generator](https://github.com/Cocoon-AI/architecture-diagram-generator) | `python .agents/library/activate_skill.py link architecture-diagram` |
+| **[`coleam00-excalidraw-diagram-skill`](./library/coleam00-excalidraw-diagram-skill)** | Specialized Developer & AI Capabilities | 1 | [coleam00/excalidraw-diagram-skill](https://github.com/coleam00/excalidraw-diagram-skill) | `python .agents/library/activate_skill.py link excalidraw-diagram` |
+| **[`composio-community-awesome-codex-skills`](./library/composio-community-awesome-codex-skills)** | 💼 Enterprise Operations, CRM & Sales | 3 | [composio-community/awesome-codex-skills](https://github.com/composio-community/awesome-codex-skills) | `python .agents/library/activate_skill.py link agent-deep-links` |
+| **[`composiohq-awesome-claude-skills`](./library/composiohq-awesome-claude-skills)** | 💼 Enterprise Operations, CRM & Sales | 833 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | `python .agents/library/activate_skill.py link -21risk-automation` |
+| **[`conorbronsdon-avoid-ai-writing`](./library/conorbronsdon-avoid-ai-writing)** | Specialized Developer & AI Capabilities | 1 | [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) | `python .agents/library/activate_skill.py link avoid-ai-writing` |
+| **[`coreyhaines31-marketingskills`](./library/coreyhaines31-marketingskills)** | 📊 Data Pipelines, BigQuery & Telemetry | 15 | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | `python .agents/library/activate_skill.py link ab-testing` |
+| **[`crypto-skills`](./library/crypto-skills)** | Specialized Developer & AI Capabilities | 6 | [crypto-skills](https://github.com/crypto-skills) | `python .agents/library/activate_skill.py link evm-swiss-knife` |
+| **[`danyuchn-asd-ste100-skill`](./library/danyuchn-asd-ste100-skill)** | Specialized Developer & AI Capabilities | 1 | [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) | `python .agents/library/activate_skill.py link asd-ste100` |
+| **[`davidondrej-skills`](./library/davidondrej-skills)** | 🤖 Multi-Agent Workflows & Planning | 5 | [davidondrej/skills](https://github.com/davidondrej/skills) | `python .agents/library/activate_skill.py link agent-orchestration` |
+| **[`deanpeters-product-manager-skills`](./library/deanpeters-product-manager-skills)** | 💼 Enterprise Operations, CRM & Sales | 1 | [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills) | `python .agents/library/activate_skill.py link product-manager` |
+| **[`diagram-design`](./library/diagram-design)** | Specialized Developer & AI Capabilities | 1 | [diagram-design](https://github.com/diagram-design) | `python .agents/library/activate_skill.py link diagram-design` |
+| **[`dimillian-skills`](./library/dimillian-skills)** | 🧹 Code Quality, Testing & Security | 16 | [Dimillian/Skills](https://github.com/Dimillian/Skills) | `python .agents/library/activate_skill.py link app-store-changelog` |
+| **[`dmmulroy-anti-slop`](./library/dmmulroy-anti-slop)** | 🧹 Code Quality, Testing & Security | 1 | [dmmulroy/anti-slop](https://github.com/dmmulroy/anti-slop) | `python .agents/library/activate_skill.py link install-anti-slop` |
+| **[`donchitos-claude-code-game-studios`](./library/donchitos-claude-code-game-studios)** | 🤖 Multi-Agent Workflows & Planning | 1 | [Donchitos/Claude-Code-Game-Studios](https://github.com/Donchitos/Claude-Code-Game-Studios) | `python .agents/library/activate_skill.py link claude-code-game-studios` |
+| **[`dotnet-skills`](./library/dotnet-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 5 | [dotnet/skills](https://github.com/dotnet/skills) | `python .agents/library/activate_skill.py link authoring-github-workflows` |
+| **[`earthtojake-text-to-cad`](./library/earthtojake-text-to-cad)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [earthtojake/text-to-cad](https://github.com/earthtojake/text-to-cad) | `python .agents/library/activate_skill.py link text-to-cad` |
+| **[`egonex-ai-understand-anything`](./library/egonex-ai-understand-anything)** | 🧹 Code Quality, Testing & Security | 1 | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | `python .agents/library/activate_skill.py link understand-anything` |
+| **[`elayadesign-ai-design-skills`](./library/elayadesign-ai-design-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [elayadesign/ai-design-skills](https://github.com/elayadesign/ai-design-skills) | `python .agents/library/activate_skill.py link landing-page-design` |
+| **[`elementalsouls-claude-bughunter`](./library/elementalsouls-claude-bughunter)** | Specialized Developer & AI Capabilities | 1 | [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter) | `python .agents/library/activate_skill.py link claude-bughunter` |
+| **[`emilkowalski-skills`](./library/emilkowalski-skills)** | 🧹 Code Quality, Testing & Security | 15 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | `python .agents/library/activate_skill.py link animate` |
+| **[`epoko77-ai-im-not-ai`](./library/epoko77-ai-im-not-ai)** | 🧹 Code Quality, Testing & Security | 4 | [epoko77-ai/im-not-ai](https://github.com/epoko77-ai/im-not-ai) | `python .agents/library/activate_skill.py link humanize` |
+| **[`ericosiu-ai-marketing-skills`](./library/ericosiu-ai-marketing-skills)** | 🪙 DeFi, Web3 & Quantitative Finance | 35 | [ericosiu/ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | `python .agents/library/activate_skill.py link agentic-video-understanding` |
+| **[`eugeniughelbur-obsidian-second-brain`](./library/eugeniughelbur-obsidian-second-brain)** | 🤖 Multi-Agent Workflows & Planning | 1 | [eugeniughelbur/obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain) | `python .agents/library/activate_skill.py link obsidian-second-brain` |
+| **[`feder-cr-invisible_dots`](./library/feder-cr-invisible_dots)** | 🌐 Headless Browser & Web Scraping | 1 | [feder-cr/invisible_dots](https://github.com/feder-cr/invisible_dots) | `python .agents/library/activate_skill.py link invisible_dots` |
+| **[`genspark-ai-genoffice`](./library/genspark-ai-genoffice)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) | `python .agents/library/activate_skill.py link genoffice` |
+| **[`github-awesome-copilot`](./library/github-awesome-copilot)** | 🤖 Multi-Agent Workflows & Planning | 3 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | `python .agents/library/activate_skill.py link agentic-workflows` |
+| **[`google-gemini-gemini-skills`](./library/google-gemini-gemini-skills)** | 🎬 Video Synthesis, Audio & 3D Web | 3 | [google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills) | `python .agents/library/activate_skill.py link gemini-api-dev` |
+| **[`google-labs-code-stitch-skills`](./library/google-labs-code-stitch-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 5 | [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) | `python .agents/library/activate_skill.py link react-components` |
+| **[`google-skills`](./library/google-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [google/skills](https://github.com/google/skills) | `python .agents/library/activate_skill.py link skills` |
+| **[`graphify-labs`](./library/graphify-labs)** | Specialized Developer & AI Capabilities | 1 | [graphify-labs](https://github.com/graphify-labs) | `python .agents/library/activate_skill.py link graphify` |
+| **[`greensock-gsap-skills`](./library/greensock-gsap-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 8 | [greensock/gsap-skills](https://github.com/greensock/gsap-skills) | `python .agents/library/activate_skill.py link gsap-core` |
+| **[`heygen-hyperframes`](./library/heygen-hyperframes)** | Specialized Developer & AI Capabilities | 20 | [heygen-hyperframes](https://github.com/heygen-hyperframes) | `python .agents/library/activate_skill.py link canopy-part-title` |
+| **[`himself65-finance-skills`](./library/himself65-finance-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 6 | [himself65/finance-skills](https://github.com/himself65/finance-skills) | `python .agents/library/activate_skill.py link finance-sentiment` |
+| **[`huggingface-skills`](./library/huggingface-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 24 | [huggingface/skills](https://github.com/huggingface/skills) | `python .agents/library/activate_skill.py link hf-cli` |
+| **[`humanize-skills`](./library/humanize-skills)** | Specialized Developer & AI Capabilities | 1 | [humanize-skills](https://github.com/humanize-skills) | `python .agents/library/activate_skill.py link humanize-skills` |
+| **[`humanlayer-skills`](./library/humanlayer-skills)** | 🧹 Code Quality, Testing & Security | 1 | [humanlayer/skills](https://github.com/humanlayer/skills) | `python .agents/library/activate_skill.py link build-iterated-agentic-loop` |
+| **[`ibelick-ui-skills`](./library/ibelick-ui-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | `python .agents/library/activate_skill.py link ui` |
+| **[`imbad0202-academic-research-skills-codex`](./library/imbad0202-academic-research-skills-codex)** | Specialized Developer & AI Capabilities | 1 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | `python .agents/library/activate_skill.py link academic-research-suite` |
+| **[`internet-court-internet-court-skill`](./library/internet-court-internet-court-skill)** | 🤖 Multi-Agent Workflows & Planning | 1 | [internet-court/internet-court-skill](https://github.com/internet-court/internet-court-skill) | `python .agents/library/activate_skill.py link internet-court` |
+| **[`irinabuht12-oss-marketing-skills`](./library/irinabuht12-oss-marketing-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [irinabuht12-oss/marketing-skills](https://github.com/irinabuht12-oss/marketing-skills) | `python .agents/library/activate_skill.py link marketing` |
+| **[`jakeschincariol-replica-skill`](./library/jakeschincariol-replica-skill)** | ☁️ Cloud Infrastructure, APIs & Databases | 11 | [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) | `python .agents/library/activate_skill.py link replica-architect` |
+| **[`jakubkrehel-design-skills`](./library/jakubkrehel-design-skills)** | Specialized Developer & AI Capabilities | 14 | [jakubkrehel-design-skills](https://github.com/jakubkrehel-design-skills) | `python .agents/library/activate_skill.py link better-accessibility` |
+| **[`jeffallan-claude-skills`](./library/jeffallan-claude-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 1 | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | `python .agents/library/activate_skill.py link claude` |
+| **[`jimliu-baoyu-design`](./library/jimliu-baoyu-design)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | `python .agents/library/activate_skill.py link release-skills` |
+| **[`jimliu-baoyu-skills`](./library/jimliu-baoyu-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | `python .agents/library/activate_skill.py link release-skills` |
+| **[`kaankiziltug-logo-design-skill`](./library/kaankiziltug-logo-design-skill)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill) | `python .agents/library/activate_skill.py link logo-design` |
+| **[`kdense-scientific-skills`](./library/kdense-scientific-skills)** | Specialized Developer & AI Capabilities | 177 | [kdense-scientific-skills](https://github.com/kdense-scientific-skills) | `python .agents/library/activate_skill.py link 13c-metabolic-flux` |
+| **[`kepano-obsidian-skills`](./library/kepano-obsidian-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 6 | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | `python .agents/library/activate_skill.py link defuddle` |
+| **[`latent-spaces-brag`](./library/latent-spaces-brag)** | 📈 Growth, SEO & Marketing Automation | 1 | [latent-spaces/brag](https://github.com/latent-spaces/brag) | `python .agents/library/activate_skill.py link brag` |
+| **[`lemomo-opuscar`](./library/lemomo-opuscar)** | Specialized Developer & AI Capabilities | 1 | [lemomo-opuscar](https://github.com/lemomo-opuscar) | `python .agents/library/activate_skill.py link lemo-opuscar` |
+| **[`lewislulu-html-ppt-skill`](./library/lewislulu-html-ppt-skill)** | Specialized Developer & AI Capabilities | 1 | [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill) | `python .agents/library/activate_skill.py link html-ppt` |
+| **[`liustack-modlens`](./library/liustack-modlens)** | 🤖 Multi-Agent Workflows & Planning | 1 | [liustack/modlens](https://github.com/liustack/modlens) | `python .agents/library/activate_skill.py link modlens` |
+| **[`ljagiello-ctf-skills`](./library/ljagiello-ctf-skills)** | 🛡️ Threat Modeling & Vulnerability Audit | 7 | [ljagiello/ctf-skills](https://github.com/ljagiello/ctf-skills) | `python .agents/library/activate_skill.py link ctf-ai-ml` |
+| **[`lobehub-skills`](./library/lobehub-skills)** | Specialized Developer & AI Capabilities | 57 | [lobehub-skills](https://github.com/lobehub-skills) | `python .agents/library/activate_skill.py link acceptance` |
+| **[`magentosh-superpowers`](./library/magentosh-superpowers)** | Specialized Developer & AI Capabilities | 86 | [magentosh-superpowers](https://github.com/magentosh-superpowers) | `python .agents/library/activate_skill.py link affirmations` |
+| **[`markdown-viewer-skills`](./library/markdown-viewer-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [markdown-viewer/skills](https://github.com/markdown-viewer/skills) | `python .agents/library/activate_skill.py link documd-visuals` |
+| **[`master-cai-research-paper-writing-skills`](./library/master-cai-research-paper-writing-skills)** | Specialized Developer & AI Capabilities | 1 | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | `python .agents/library/activate_skill.py link research-paper-writing` |
+| **[`mattpocock-skills`](./library/mattpocock-skills)** | 🧹 Code Quality, Testing & Security | 38 | [mattpocock/skills](https://github.com/mattpocock/skills) | `python .agents/library/activate_skill.py link ask-matt` |
+| **[`mcncarl-yichen-skills`](./library/mcncarl-yichen-skills)** | 🧠 Knowledge Graphs, Search & Obsidian | 1 | [mcncarl/yichen-skills](https://github.com/mcncarl/yichen-skills) | `python .agents/library/activate_skill.py link yichen-grok-consult` |
+| **[`melonjs-melonjs`](./library/melonjs-melonjs)** | Specialized Developer & AI Capabilities | 1 | [melonjs/melonJS](https://github.com/melonjs/melonJS) | `python .agents/library/activate_skill.py link melonjs` |
+| **[`mengto-skills`](./library/mengto-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [MengTo/Skills](https://github.com/MengTo/Skills) | `python .agents/library/activate_skill.py link skills` |
+| **[`metalbear-co-mirrord`](./library/metalbear-co-mirrord)** | ☁️ Cloud Infrastructure, APIs & Databases | 1 | [metalbear-co/mirrord](https://github.com/metalbear-co/mirrord) | `python .agents/library/activate_skill.py link mirrord` |
+| **[`michael-denyer-pstack-claude`](./library/michael-denyer-pstack-claude)** | 🤖 Multi-Agent Workflows & Planning | 1 | [michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude) | `python .agents/library/activate_skill.py link pstack-claude` |
+| **[`minimax-ai-skills`](./library/minimax-ai-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [MiniMax-AI/skills](https://github.com/MiniMax-AI/skills) | `python .agents/library/activate_skill.py link pr-review` |
+| **[`miqdadbadjuber-anti-slop`](./library/miqdadbadjuber-anti-slop)** | 🧹 Code Quality, Testing & Security | 1 | [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) | `python .agents/library/activate_skill.py link anti-slop` |
+| **[`mukul975-anthropic-cybersecurity-skills`](./library/mukul975-anthropic-cybersecurity-skills)** | Specialized Developer & AI Capabilities | 1 | [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | `python .agents/library/activate_skill.py link anthropic-cybersecurity` |
+| **[`multica-ai-andrej-karpathy-skills`](./library/multica-ai-andrej-karpathy-skills)** | 🧹 Code Quality, Testing & Security | 1 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | `python .agents/library/activate_skill.py link karpathy-guidelines` |
+| **[`muratcankoylan-agent-skills-for-context-engineering`](./library/muratcankoylan-agent-skills-for-context-engineering)** | 🤖 Multi-Agent Workflows & Planning | 1 | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | `python .agents/library/activate_skill.py link agent-skills-for-context-engineering` |
+| **[`muxuuu-serenity-skill`](./library/muxuuu-serenity-skill)** | 🪙 DeFi, Web3 & Quantitative Finance | 1 | [muxuuu/serenity-skill](https://github.com/muxuuu/serenity-skill) | `python .agents/library/activate_skill.py link serenity` |
+| **[`mvanhorn-last30days-skill`](./library/mvanhorn-last30days-skill)** | 📈 Growth, SEO & Marketing Automation | 1 | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | `python .agents/library/activate_skill.py link last30days` |
+| **[`mvschwarz-openrig`](./library/mvschwarz-openrig)** | 🤖 Multi-Agent Workflows & Planning | 1 | [mvschwarz/openrig](https://github.com/mvschwarz/openrig) | `python .agents/library/activate_skill.py link developing-openrig` |
+| **[`nanako0129-sepia`](./library/nanako0129-sepia)** | Specialized Developer & AI Capabilities | 6 | [Nanako0129/sepia](https://github.com/Nanako0129/sepia) | `python .agents/library/activate_skill.py link sepia` |
+| **[`nateherkai-scroll-craft`](./library/nateherkai-scroll-craft)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) | `python .agents/library/activate_skill.py link scroll-craft` |
+| **[`nicobailon-visual-explainer`](./library/nicobailon-visual-explainer)** | Specialized Developer & AI Capabilities | 1 | [nicobailon/visual-explainer](https://github.com/nicobailon/visual-explainer) | `python .agents/library/activate_skill.py link visual-explainer` |
+| **[`nidhinjs-prompt-master`](./library/nidhinjs-prompt-master)** | Specialized Developer & AI Capabilities | 1 | [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) | `python .agents/library/activate_skill.py link prompt-master` |
+| **[`ningzimu-codex-ppt-skill`](./library/ningzimu-codex-ppt-skill)** | 🎬 Video Synthesis, Audio & 3D Web | 1 | [ningzimu/codex-ppt-skill](https://github.com/ningzimu/codex-ppt-skill) | `python .agents/library/activate_skill.py link codex-ppt` |
+| **[`nomadamas-k-skill`](./library/nomadamas-k-skill)** | 💼 Enterprise Operations, CRM & Sales | 23 | [NomaDamas/k-skill](https://github.com/NomaDamas/k-skill) | `python .agents/library/activate_skill.py link animal-pharmacy-search` |
+| **[`nousresearch-hermes-optional-skills`](./library/nousresearch-hermes-optional-skills)** | Specialized Developer & AI Capabilities | 152 | [nousresearch-hermes-optional-skills](https://github.com/nousresearch-hermes-optional-skills) | `python .agents/library/activate_skill.py link 1password` |
+| **[`nousresearch-hermes-skills`](./library/nousresearch-hermes-skills)** | Specialized Developer & AI Capabilities | 58 | [nousresearch-hermes-skills](https://github.com/nousresearch-hermes-skills) | `python .agents/library/activate_skill.py link airtable` |
+| **[`nowork-studio-notfair-plugin`](./library/nowork-studio-notfair-plugin)** | 📊 Data Pipelines, BigQuery & Telemetry | 48 | [nowork-studio/notfair-plugin](https://github.com/nowork-studio/notfair-plugin) | `python .agents/library/activate_skill.py link backlink-audit` |
+| **[`nutlope-hallmark`](./library/nutlope-hallmark)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | `python .agents/library/activate_skill.py link hallmark` |
+| **[`nvidia-skills`](./library/nvidia-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 7 | [NVIDIA/skills](https://github.com/NVIDIA/skills) | `python .agents/library/activate_skill.py link accelerated-computing-cudf` |
+| **[`obra-superpowers`](./library/obra-superpowers)** | 🧹 Code Quality, Testing & Security | 15 | [obra/superpowers](https://github.com/obra/superpowers) | `python .agents/library/activate_skill.py link brainstorming` |
+| **[`op7418-guizang-social-card-skill`](./library/op7418-guizang-social-card-skill)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | `python .agents/library/activate_skill.py link guizang-social-card` |
+| **[`openai-skills`](./library/openai-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 1 | [openai/skills](https://github.com/openai/skills) | `python .agents/library/activate_skill.py link .curated` |
+| **[`opensensenova-sensenova-skills`](./library/opensensenova-sensenova-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [OpenSenseNova/SenseNova-Skills](https://github.com/OpenSenseNova/SenseNova-Skills) | `python .agents/library/activate_skill.py link sensenova` |
+| **[`orchestra-research-ai-research-skills`](./library/orchestra-research-ai-research-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | `python .agents/library/activate_skill.py link 0-autoresearch-skill` |
+| **[`othmanadi-planning-with-files`](./library/othmanadi-planning-with-files)** | 🤖 Multi-Agent Workflows & Planning | 1 | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | `python .agents/library/activate_skill.py link planning-with-files` |
+| **[`pbakaus-impeccable`](./library/pbakaus-impeccable)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | `python .agents/library/activate_skill.py link impeccable` |
+| **[`phuryn-pm-skills`](./library/phuryn-pm-skills)** | 🧹 Code Quality, Testing & Security | 1 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | `python .agents/library/activate_skill.py link pm` |
+| **[`plannotator-effective-html`](./library/plannotator-effective-html)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [plannotator/effective-html](https://github.com/plannotator/effective-html) | `python .agents/library/activate_skill.py link effective-html` |
+| **[`pleaseprompto-notebooklm-skill`](./library/pleaseprompto-notebooklm-skill)** | 🧠 Knowledge Graphs, Search & Obsidian | 1 | [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) | `python .agents/library/activate_skill.py link notebooklm` |
+| **[`ponytail-code-quality`](./library/ponytail-code-quality)** | Specialized Developer & AI Capabilities | 6 | [ponytail-code-quality](https://github.com/ponytail-code-quality) | `python .agents/library/activate_skill.py link ponytail` |
+| **[`qingyuna-answer-me-with-html`](./library/qingyuna-answer-me-with-html)** | Specialized Developer & AI Capabilities | 1 | [QingYunA/answer-me-with-html](https://github.com/QingYunA/answer-me-with-html) | `python .agents/library/activate_skill.py link answer-me-with-html` |
+| **[`rebelytics-one-skill-to-rule-them-all`](./library/rebelytics-one-skill-to-rule-them-all)** | Specialized Developer & AI Capabilities | 1 | [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) | `python .agents/library/activate_skill.py link one-skill-to-rule-them-all` |
+| **[`rehan-remade-universal-modder`](./library/rehan-remade-universal-modder)** | Specialized Developer & AI Capabilities | 12 | [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) | `python .agents/library/activate_skill.py link asset-pipeline` |
+| **[`remotion-dev-skills`](./library/remotion-dev-skills)** | 🎬 Video Synthesis, Audio & 3D Web | 12 | [remotion-dev/skills](https://github.com/remotion-dev/skills) | `python .agents/library/activate_skill.py link remotion-best-practices` |
+| **[`ryze-ai-adgent-open-seo-mcp-skills`](./library/ryze-ai-adgent-open-seo-mcp-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [Ryze-AI-Adgent/open-seo-mcp-skills](https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills) | `python .agents/library/activate_skill.py link open-seo-mcp` |
+| **[`s1dashu-ip-as-logo-skill`](./library/s1dashu-ip-as-logo-skill)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [s1dashu/ip-as-logo-skill](https://github.com/s1dashu/ip-as-logo-skill) | `python .agents/library/activate_skill.py link ip-as-logo` |
+| **[`samber-cc-skills-golang`](./library/samber-cc-skills-golang)** | 🧹 Code Quality, Testing & Security | 10 | [samber/cc-skills-golang](https://github.com/samber/cc-skills-golang) | `python .agents/library/activate_skill.py link golang-benchmark` |
+| **[`sanyuan0704-sanyuan-skills`](./library/sanyuan0704-sanyuan-skills)** | 🧹 Code Quality, Testing & Security | 6 | [sanyuan0704/sanyuan-skills](https://github.com/sanyuan0704/sanyuan-skills) | `python .agents/library/activate_skill.py link book-study` |
+| **[`sawyerhood-dev-browser`](./library/sawyerhood-dev-browser)** | 🌐 Headless Browser & Web Scraping | 1 | [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | `python .agents/library/activate_skill.py link dev-browser` |
+| **[`scrapecreators-social-media-research-skills`](./library/scrapecreators-social-media-research-skills)** | 📈 Growth, SEO & Marketing Automation | 13 | [ScrapeCreators/social-media-research-skills](https://github.com/ScrapeCreators/social-media-research-skills) | `python .agents/library/activate_skill.py link ad-library-teardown` |
+| **[`sergebulaev-linkedin-skills`](./library/sergebulaev-linkedin-skills)** | 📈 Growth, SEO & Marketing Automation | 1 | [sergebulaev/linkedin-skills](https://github.com/sergebulaev/linkedin-skills) | `python .agents/library/activate_skill.py link linkedin` |
+| **[`simoneavogadro-android-reverse-engineering-skill`](./library/simoneavogadro-android-reverse-engineering-skill)** | 📱 Mobile Native & Multiplatform | 1 | [SimoneAvogadro/android-reverse-engineering-skill](https://github.com/SimoneAvogadro/android-reverse-engineering-skill) | `python .agents/library/activate_skill.py link android-reverse-engineering` |
+| **[`slavingia-skills`](./library/slavingia-skills)** | 💼 Enterprise Operations, CRM & Sales | 10 | [slavingia/skills](https://github.com/slavingia/skills) | `python .agents/library/activate_skill.py link company-values` |
+| **[`snailsploit-claude-red`](./library/snailsploit-claude-red)** | 🛡️ Threat Modeling & Vulnerability Audit | 11 | [SnailSploit/Claude-Red](https://github.com/SnailSploit/Claude-Red) | `python .agents/library/activate_skill.py link active-directory` |
+| **[`taste-skill`](./library/taste-skill)** | Specialized Developer & AI Capabilities | 1 | [taste-skill](https://github.com/taste-skill) | `python .agents/library/activate_skill.py link taste-skill` |
+| **[`tigerless-labs-autoharness`](./library/tigerless-labs-autoharness)** | Specialized Developer & AI Capabilities | 1 | [tigerless-labs/autoharness](https://github.com/tigerless-labs/autoharness) | `python .agents/library/activate_skill.py link autoharness` |
+| **[`titanwings-distilly`](./library/titanwings-distilly)** | Specialized Developer & AI Capabilities | 1 | [titanwings/distilly](https://github.com/titanwings/distilly) | `python .agents/library/activate_skill.py link distilly` |
+| **[`trailofbits-skills`](./library/trailofbits-skills)** | 🧹 Code Quality, Testing & Security | 1 | [trailofbits/skills](https://github.com/trailofbits/skills) | `python .agents/library/activate_skill.py link agentic-actions-auditor` |
+| **[`tw93-kami`](./library/tw93-kami)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [tw93/Kami](https://github.com/tw93/Kami) | `python .agents/library/activate_skill.py link kami` |
+| **[`tw93-waza`](./library/tw93-waza)** | 🧹 Code Quality, Testing & Security | 1 | [tw93/Waza](https://github.com/tw93/Waza) | `python .agents/library/activate_skill.py link waza` |
+| **[`twostraws-swiftui-agent-skill`](./library/twostraws-swiftui-agent-skill)** | 🧹 Code Quality, Testing & Security | 1 | [twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill) | `python .agents/library/activate_skill.py link swiftui-pro` |
+| **[`uditakhourii-adhd`](./library/uditakhourii-adhd)** | 🤖 Multi-Agent Workflows & Planning | 1 | [UditAkhourii/adhd](https://github.com/UditAkhourii/adhd) | `python .agents/library/activate_skill.py link adhd` |
+| **[`uditgoenka-autoresearch`](./library/uditgoenka-autoresearch)** | 🤖 Multi-Agent Workflows & Planning | 1 | [uditgoenka/autoresearch](https://github.com/uditgoenka/autoresearch) | `python .agents/library/activate_skill.py link autoresearch` |
+| **[`ui-ux-pro-max-skill`](./library/ui-ux-pro-max-skill)** | Specialized Developer & AI Capabilities | 6 | [ui-ux-pro-max-skill](https://github.com/ui-ux-pro-max-skill) | `python .agents/library/activate_skill.py link banner-design` |
+| **[`vercel-agent-skills`](./library/vercel-agent-skills)** | Specialized Developer & AI Capabilities | 9 | [vercel-agent-skills](https://github.com/vercel-agent-skills) | `python .agents/library/activate_skill.py link deploy-to-vercel` |
+| **[`virgiliojr94-book-to-skill`](./library/virgiliojr94-book-to-skill)** | Specialized Developer & AI Capabilities | 1 | [virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `python .agents/library/activate_skill.py link book-to-skill` |
+| **[`wanshuiyin-auto-claude-code-research-in-sleep`](./library/wanshuiyin-auto-claude-code-research-in-sleep)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | `python .agents/library/activate_skill.py link auto-claude-code-research-in-sleep` |
+| **[`wiltodelta-remove-ai-watermarks`](./library/wiltodelta-remove-ai-watermarks)** | 🎬 Video Synthesis, Audio & 3D Web | 2 | [wiltodelta/remove-ai-watermarks](https://github.com/wiltodelta/remove-ai-watermarks) | `python .agents/library/activate_skill.py link provider-oracles` |
+| **[`worldflowai-everything-claude-code`](./library/worldflowai-everything-claude-code)** | ☁️ Cloud Infrastructure, APIs & Databases | 11 | [WorldFlowAI/everything-claude-code](https://github.com/WorldFlowAI/everything-claude-code) | `python .agents/library/activate_skill.py link backend-patterns` |
+| **[`wshobson-agents`](./library/wshobson-agents)** | Specialized Developer & AI Capabilities | 5 | [wshobson-agents](https://github.com/wshobson-agents) | `python .agents/library/activate_skill.py link ai-debt-detector` |
+| **[`wuyoscar-gpt-image2-skill`](./library/wuyoscar-gpt-image2-skill)** | 🎬 Video Synthesis, Audio & 3D Web | 1 | [wuyoscar/GPT-Image2-Skill](https://github.com/wuyoscar/GPT-Image2-Skill) | `python .agents/library/activate_skill.py link gpt-image2` |
+| **[`xdevplatform-xurl`](./library/xdevplatform-xurl)** | Specialized Developer & AI Capabilities | 1 | [xdevplatform-xurl](https://github.com/xdevplatform-xurl) | `python .agents/library/activate_skill.py link xurl` |
+| **[`yanliudesign-mono-color-skill`](./library/yanliudesign-mono-color-skill)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [yanliudesign/mono-color-skill](https://github.com/yanliudesign/mono-color-skill) | `python .agents/library/activate_skill.py link mono-color` |
+| **[`zarazhangrui-codebase-to-course`](./library/zarazhangrui-codebase-to-course)** | Specialized Developer & AI Capabilities | 1 | [zarazhangrui/codebase-to-course](https://github.com/zarazhangrui/codebase-to-course) | `python .agents/library/activate_skill.py link codebase-to-course` |
+| **[`zeejay0-gathered-scenes-zine-skill`](./library/zeejay0-gathered-scenes-zine-skill)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [Zeejay0/gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill) | `python .agents/library/activate_skill.py link gathered-scenes-zine` |
+| **[`zhaoxuya520-reverse-skill`](./library/zhaoxuya520-reverse-skill)** | Specialized Developer & AI Capabilities | 1 | [zhaoxuya520/reverse-skill](https://github.com/zhaoxuya520/reverse-skill) | `python .agents/library/activate_skill.py link reverse-skill-router` |
+| **[`zubair-trabzada-geo-seo-claude`](./library/zubair-trabzada-geo-seo-claude)** | 💼 Enterprise Operations, CRM & Sales | 15 | [zubair-trabzada/geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) | `python .agents/library/activate_skill.py link geo-audit` |

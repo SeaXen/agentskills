@@ -258,7 +258,8 @@ def run_skills_update():
             ['npx', '-y', 'skills', 'update', '-y'],
             cwd=repo_root,
             capture_output=True,
-            text=True
+            text=True,
+            timeout=15
         )
         print("✓ npx skills update finished.")
         lines = res.stdout.strip().split('\n')

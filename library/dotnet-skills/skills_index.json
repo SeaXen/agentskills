@@ -1,0 +1,52 @@
+[
+  {
+    "id": "authoring-github-workflows",
+    "name": "authoring-github-workflows",
+    "repository": "dotnet-skills",
+    "category": "frontend",
+    "description": "\"Author and review GitHub Actions workflow YAML safely so syntactically-valid YAML can't ship a workflow that GitHub Actions refuses to run. USE FOR: editing, adding, or reviewing any file under .github/workflows/, writing run-name/name/if/env/run values that contain ${{ }} expressions, diagnosing a run that fails with 'This run likely failed because of a workflow file issue' and no jobs starting, deciding when a workflow scalar must be quoted, validating workflows with actionlint. DO NOT USE FOR: authoring application YAML unrelated to GitHub Actions, Azure Pipelines, GitLab CI, or non-workflow YAML. SCOPE: this skill covers *syntactic/structural* correctness of workflow YAML (quoting, parsing, actionlint); for *semantic and functional* workflow design (what a workflow should do, agentic-workflow behavior), see .github/agents/agentic-workflows.agent.md \u2014 the two are complementary. INVOKES: actionlint (downloaded pinned binary) plus git/grep for inspection.\"",
+    "path": "library/dotnet-skills/skills/authoring-github-workflows",
+    "activation_cmd": "python .agents/library/activate_skill.py activate authoring-github-workflows",
+    "link_cmd": "python .agents/library/activate_skill.py link authoring-github-workflows"
+  },
+  {
+    "id": "create-custom-agent",
+    "name": "create-custom-agent",
+    "repository": "dotnet-skills",
+    "category": "agent-orchestration",
+    "description": "Creates VS Code custom agent files (.agent.md) for specialized AI personas with tools, instructions, and handoffs. Use when scaffolding new custom agents, configuring agent workflows, or setting up agent-to-agent handoffs.",
+    "path": "library/dotnet-skills/skills/create-custom-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-custom-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link create-custom-agent"
+  },
+  {
+    "id": "create-skill",
+    "name": "create-skill",
+    "repository": "dotnet-skills",
+    "category": "frontend",
+    "description": "Scaffolds new agent skills for the dotnet/skills repository. Use when creating a new skill, generating SKILL.md files, writing a skill description that the runtime will actually route to, or setting up skill directory structures. Handles frontmatter generation, section templates, and validation guidance. Do not use for fixing a skill that already fails its evaluation (use improve-skill-quality) or for writing eval.yaml (use create-skill-test).",
+    "path": "library/dotnet-skills/skills/create-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link create-skill"
+  },
+  {
+    "id": "create-skill-test",
+    "name": "create-skill-test",
+    "repository": "dotnet-skills",
+    "category": "database-sql",
+    "description": "Scaffolds eval.yaml evaluation specs for skills, custom agents, and redistributable gh-aw workflow packages in the dotnet/skills repository. Use when creating skill or workflow-package tests, writing evaluation stimuli, defining graders and rubrics, sizing an eval for statistical power, or setting up test fixture files. Handles the Vally eval.yaml schema, fixture organization, and overfitting avoidance. Do not use for running or debugging existing evals (use improve-skill-quality) nor for skills authoring (use create-skill).",
+    "path": "library/dotnet-skills/skills/create-skill-test",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-skill-test",
+    "link_cmd": "python .agents/library/activate_skill.py link create-skill-test"
+  },
+  {
+    "id": "improve-skill-quality",
+    "name": "improve-skill-quality",
+    "repository": "dotnet-skills",
+    "category": "testing-qa",
+    "description": "Diagnoses and fixes skills in the dotnet/skills repository that lose to their own baseline, fail to activate, time out, or return \"no credible improvement\". Use when an evaluation verdict is a regression or underpowered, when a skill regressed after a change, when /evaluate reports no results, or when deciding whether a weak skill should be strengthened or retired. Do not use for scaffolding a brand-new skill (use create-skill) or a brand-new eval (use create-skill-test).",
+    "path": "library/dotnet-skills/skills/improve-skill-quality",
+    "activation_cmd": "python .agents/library/activate_skill.py activate improve-skill-quality",
+    "link_cmd": "python .agents/library/activate_skill.py link improve-skill-quality"
+  }
+]

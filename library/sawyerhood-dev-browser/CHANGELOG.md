@@ -1,0 +1,81 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [1.0.0-rc.4] - 2026-10-18
+
+- Stopped raising and focusing the user's own Chrome window on every action in attached browsers (`--connect`). Pages dev-browser opens there get a window of their own, opened behind the user's; touched tabs get focus emulation so input, waits and `requestAnimationFrame` keep working in the background; and only a screenshot of a background tab that stalls for 2 s brings it forward. A script's own `page.bringToFront()` still does.
+- In launched browsers, a page that is already showing is no longer brought to front again before each action.
+
+## [1.0.0-rc.3] - 2026-09-05
+
+- Added cross-origin iframe contents to snapshots, with document-scoped frame refs that stay valid across same-document navigation and safely expire after reloads, full navigation, renderer swaps, or frame removal.
+
+## [1.0.0-rc.2] - 2026-09-04
+
+- Normalized the npm executable mapping for npm 12, avoiding a misleading publish-time manifest-correction warning. RC.1 remained installable.
+
+## [1.0.0-rc.1] - 2026-09-04
+
+- Replaced the Playwright/QuickJS runtime with the faster Puppeteer implementation developed as doobie.
+- Added persistent named pages, ARIA snapshot refs, tracked snapshot diffs, screenshots, deterministic request deadlines, concurrent scripts, Chrome attachment, and a stdio MCP server.
+- Added self-contained Bun binaries for macOS and glibc Linux with checksum-verified npm installation and first-run recovery.
+- Isolated the new daemon and profiles under `~/.dev-browser/v1` so upgrades cannot collide with the incompatible 0.2 runtime.
+- Added `dev-browser migrate-from-doobie`, which non-destructively copies durable doobie state into an empty v1 state directory.
+- Renamed the command, package, assets, environment variables, skill, documentation, and MCP tools from doobie to dev-browser.
+- Breaking: scripts now use Puppeteer rather than Playwright; `snapshotForAI()`/`getByRef()` become `snapshot()`/`ref/eN`; QuickJS security sandboxing, `cua`, `domCua`, Windows binaries, and musl binaries are not available.
+
+## [0.2.9] - 2026-07-14
+
+- Added configurable per-browser idle cleanup with `--idle-timeout`, `DEV_BROWSER_IDLE_TIMEOUT_MS`, and `~/.dev-browser/config.json` support. Idle cleanup preserves persistent profiles, excludes externally connected Chrome, and safely rechecks activity under the per-browser lock before closing.
+
+## [0.2.8] - 2026-06-05
+
+- Added the `page.cua.*` pixel/vision toolset: coordinate-based `click`, `doubleClick`, `drag`, `move`, `scroll`, `keypress`, and `type`, plus a JPEG `screenshot()` whose pixels map 1:1 onto click coordinates at any DPR.
+- Added the `page.domCua.*` DOM-id toolset: `getVisibleDom()` snapshots visible interactive elements as `node_id=N` lines, with `click`, `doubleClick`, `scroll`, `type`, and `keypress` acting against the latest snapshot's ids.
+- Fixed script error messages being dropped from CLI output; thrown errors now report their name and message alongside the stack.
+- Documented the vision and DOM-id workflows in the `--help` LLM usage guide.
+- Capped the daemon's per-connection request buffer so a local client can no longer exhaust daemon memory with an unterminated frame.
+- Serialized `browser-stop` with the per-browser lock so a browser can no longer be torn down while another client's script is running.
+- Hardened daemon cold start against duplicate daemons when concurrent CLI invocations race to spawn one.
+- Defaulted `PW_CHROMIUM_ATTACH_TO_OTHER=1` so attaching over CDP to Chrome 147's built-in remote debugging no longer hangs.
+
+## [0.2.7] - 2026-04-09
+
+- Updated documentation to recommend `domcontentloaded` for dev server navigation.
+
+## [0.2.6] - 2026-03-30
+
+- Pinned Playwright version.
+
+## [0.2.5] - 2026-03-30
+
+- Updated Windows documentation with PowerShell examples.
+- Use null viewport for headed mode.
+
+## [0.2.4] - 2026-03-26
+
+- Added `--ignore-https-errors` flag for self-signed certificates.
+
+## [0.2.3] - 2026-03-25
+
+- Added Windows x64 compatibility.
+
+## [0.2.1] - 2026-03-19
+
+- Added an interactive `install-skill` TUI command to install the skill into `~/.claude/skills/` and `~/.agents/skills/`.
+- Added a `--timeout` flag for script execution with a 30-second default.
+- Documented `page.snapshotForAI()` for LLM-friendly page inspection.
+- Expanded the `--help` LLM usage guide with approach guidance, screenshots, waiting patterns, and error recovery.
+- Simplified the README, added a Windows-not-supported note, and attributed Do Browser.
+- Aligned marketplace versioning with `package.json` and added auto-sync support.
+- Added `rustfmt` and Prettier plus CI format checks.
+
+## [0.2.0] - 2026-03-19
+
+Initial CLI release.

@@ -1,0 +1,64 @@
+name: Publish source classifier to Hugging Face
+
+# Manual only. The derivative model weights live in a GitHub model-freeze
+# release; the private training corpus and caches never enter this repository.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type publish"
+        required: true
+      weights_tag:
+        description: "GitHub Release tag holding multi-provider-source-v3.npz"
+        required: true
+        default: source-classify-freeze-2026-10-27
+
+jobs:
+  publish:
+    if: ${{ github.event.inputs.confirm == 'publish' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          python-version: "3.12"
+
+      - name: Download derivative model weights
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.inputs.weights_tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p weights
+          gh release download "$TAG" \
+            --repo "${{ github.repository }}" \
+            --pattern multi-provider-source-v3.npz \
+            --dir weights
+          test -s weights/multi-provider-source-v3.npz
+
+      - name: Verify the frozen artifact
+        run: |
+          set -euo pipefail
+          expected="$(jq -r .artifact_sha256 docs/source-classify-hf/metrics.json)"
+          test "${#expected}" -eq 64
+          echo "$expected  weights/multi-provider-source-v3.npz" | sha256sum --check
+
+      - name: Publish to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${HF_TOKEN:-}" ]; then
+            echo "HF_TOKEN secret is not set" >&2
+            exit 1
+          fi
+          uv run --no-project --with huggingface-hub \
+            python scripts/publish_source_classify_hf.py \
+            --src weights \
+            --message "Source-classify freeze (GitHub ${SHA:0:7})"

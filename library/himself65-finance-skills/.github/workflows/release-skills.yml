@@ -1,0 +1,36 @@
+name: Release Skills and Plugins
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Test release packaging
+        run: python3 -m unittest discover -s scripts/tests -v
+
+      - name: Build and validate release archives
+        run: python3 scripts/package_plugins.py build --version "$GITHUB_REF_NAME"
+
+      - name: Create release
+        run: |
+          release_flags=(--latest)
+          if [[ "${GITHUB_REF_NAME%%+*}" == *-* ]]; then
+            release_flags=(--prerelease --latest=false)
+          fi
+          gh release create "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS \
+            --title "$GITHUB_REF_NAME" --verify-tag --generate-notes \
+            "${release_flags[@]}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

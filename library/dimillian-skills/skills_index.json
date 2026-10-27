@@ -1,0 +1,162 @@
+[
+  {
+    "id": "app-store-changelog",
+    "name": "app-store-changelog",
+    "repository": "dimillian-skills",
+    "category": "general-development",
+    "description": "Create user-facing App Store release notes by collecting and summarizing all user-impacting changes since the last git tag (or a specified ref). Use when asked to generate a comprehensive release changelog, App Store \"What's New\" text, or release notes based on git history or tags.",
+    "path": "library/dimillian-skills/skills/app-store-changelog",
+    "activation_cmd": "python .agents/library/activate_skill.py activate app-store-changelog",
+    "link_cmd": "python .agents/library/activate_skill.py link app-store-changelog"
+  },
+  {
+    "id": "bug-hunt-swarm",
+    "name": "bug-hunt-swarm",
+    "repository": "dimillian-skills",
+    "category": "testing-qa",
+    "description": "\"Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures. Use when the user asks to investigate a bug, find the root cause, trace a regression, understand why something broke, or wants a ranked diagnosis with the fastest proof path without making code edits.\"",
+    "path": "library/dimillian-skills/skills/bug-hunt-swarm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bug-hunt-swarm",
+    "link_cmd": "python .agents/library/activate_skill.py link bug-hunt-swarm"
+  },
+  {
+    "id": "github",
+    "name": "github",
+    "repository": "dimillian-skills",
+    "category": "backend-api",
+    "description": "\"Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and advanced queries. Use when the user asks about GitHub issues, pull requests, workflows, or wants to interact with GitHub repositories from the command line \u2014 including tasks like check CI status, create PR, list issues, or query the GitHub API.\"",
+    "path": "library/dimillian-skills/skills/github",
+    "activation_cmd": "python .agents/library/activate_skill.py activate github",
+    "link_cmd": "python .agents/library/activate_skill.py link github"
+  },
+  {
+    "id": "ios-debugger-agent",
+    "name": "ios-debugger-agent",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Use XcodeBuildMCP to build, run, launch, and debug the current iOS project on a booted simulator. Trigger when asked to run an iOS app, interact with the simulator UI, inspect on-screen state, capture logs/console output, or diagnose runtime behavior using XcodeBuildMCP tools.",
+    "path": "library/dimillian-skills/skills/ios-debugger-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ios-debugger-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link ios-debugger-agent"
+  },
+  {
+    "id": "macos-menubar-tuist-app",
+    "name": "macos-menubar-tuist-app",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Build, refactor, or review macOS menubar apps that use Tuist and SwiftUI. Use when creating or maintaining LSUIElement menubar utilities, defining Tuist targets/manifests, implementing model-client-store-view architecture, adding script-based launch flows, or validating reliable local build/run behavior without Xcode-first workflows.",
+    "path": "library/dimillian-skills/skills/macos-menubar-tuist-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate macos-menubar-tuist-app",
+    "link_cmd": "python .agents/library/activate_skill.py link macos-menubar-tuist-app"
+  },
+  {
+    "id": "macos-spm-app-packaging",
+    "name": "macos-spm-app-packaging",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Scaffold, build, and package SwiftPM-based macOS apps without an Xcode project. Use when you need a from-scratch macOS app layout, SwiftPM targets/resources, a custom .app bundle assembly script, or signing/notarization/appcast steps outside Xcode.",
+    "path": "library/dimillian-skills/skills/macos-spm-app-packaging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate macos-spm-app-packaging",
+    "link_cmd": "python .agents/library/activate_skill.py link macos-spm-app-packaging"
+  },
+  {
+    "id": "orchestrate-batch-refactor",
+    "name": "orchestrate-batch-refactor",
+    "repository": "dimillian-skills",
+    "category": "agent-orchestration",
+    "description": "\"Plan and execute large refactor or rewrite efforts efficiently with parallel multi-agent analysis and implementation. Use when a user asks to refactor many files, split workstreams, analyze a target code area, and coordinate sub-agents with clear ownership and dependency-aware execution.\"",
+    "path": "library/dimillian-skills/skills/orchestrate-batch-refactor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate orchestrate-batch-refactor",
+    "link_cmd": "python .agents/library/activate_skill.py link orchestrate-batch-refactor"
+  },
+  {
+    "id": "project-skill-audit",
+    "name": "project-skill-audit",
+    "repository": "dimillian-skills",
+    "category": "testing-qa",
+    "description": "Analyze a project's past Codex sessions, memory files, and existing local skills to recommend the highest-value skills to create or update. Use when a user asks what skills a project needs, wants skill ideas grounded in real project history, wants an audit of current project-local skills, or wants recommendations for updating stale or incomplete skills instead of creating duplicates.",
+    "path": "library/dimillian-skills/skills/project-skill-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate project-skill-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link project-skill-audit"
+  },
+  {
+    "id": "react-component-performance",
+    "name": "react-component-performance",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Analyze and optimize React component performance issues (slow renders, re-render thrash, laggy lists, expensive computations). Use when asked to profile or improve a React component, reduce re-renders, or speed up UI updates in React apps.",
+    "path": "library/dimillian-skills/skills/react-component-performance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate react-component-performance",
+    "link_cmd": "python .agents/library/activate_skill.py link react-component-performance"
+  },
+  {
+    "id": "review-and-simplify-changes",
+    "name": "review-and-simplify-changes",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "\"Review a git diff or explicit file scope for reuse, code quality, efficiency, clarity, and standards issues, then optionally apply safe Codex-driven fixes. Use when the user asks to \\\"simplify code\\\", \\\"review changed code\\\", \\\"check for code reuse\\\", \\\"review code quality\\\", \\\"review efficiency\\\", \\\"simplify changes\\\", \\\"clean up code\\\", \\\"refactor changes\\\", or \\\"run simplify\\\".\"",
+    "path": "library/dimillian-skills/skills/review-and-simplify-changes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-and-simplify-changes",
+    "link_cmd": "python .agents/library/activate_skill.py link review-and-simplify-changes"
+  },
+  {
+    "id": "review-swarm",
+    "name": "review-swarm",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "\"Parallel read-only multi-agent review of a current git diff or explicit file scope to find behavioral regressions, security or privacy risks, performance or reliability issues, and contract or test coverage gaps. Use when the user asks for a review swarm, parallel review, diff review, regression review, security review, or wants high-signal issues plus a prioritized fix path without editing files.\"",
+    "path": "library/dimillian-skills/skills/review-swarm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-swarm",
+    "link_cmd": "python .agents/library/activate_skill.py link review-swarm"
+  },
+  {
+    "id": "swift-concurrency-expert",
+    "name": "swift-concurrency-expert",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Swift Concurrency review and remediation for Swift 6.2+. Use when asked to review Swift Concurrency usage, improve concurrency compliance, or fix Swift concurrency compiler errors in a feature or file. Concrete actions include adding Sendable conformance, applying @MainActor annotations, resolving actor isolation warnings, fixing data race diagnostics, and migrating completion handlers to async/await.",
+    "path": "library/dimillian-skills/skills/swift-concurrency-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate swift-concurrency-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link swift-concurrency-expert"
+  },
+  {
+    "id": "swiftui-liquid-glass",
+    "name": "swiftui-liquid-glass",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Implement, review, or improve SwiftUI features using the iOS 26+ Liquid Glass API. Use when asked to adopt Liquid Glass in new SwiftUI UI, refactor an existing feature to Liquid Glass, or review Liquid Glass usage for correctness, performance, and design alignment.",
+    "path": "library/dimillian-skills/skills/swiftui-liquid-glass",
+    "activation_cmd": "python .agents/library/activate_skill.py activate swiftui-liquid-glass",
+    "link_cmd": "python .agents/library/activate_skill.py link swiftui-liquid-glass"
+  },
+  {
+    "id": "swiftui-performance-audit",
+    "name": "swiftui-performance-audit",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Audit and improve SwiftUI runtime performance from code review and architecture. Use for requests to diagnose slow rendering, janky scrolling, high CPU/memory usage, excessive view updates, or layout thrash in SwiftUI apps, and to provide guidance for user-run Instruments profiling when code review alone is insufficient.",
+    "path": "library/dimillian-skills/skills/swiftui-performance-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate swiftui-performance-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link swiftui-performance-audit"
+  },
+  {
+    "id": "swiftui-ui-patterns",
+    "name": "swiftui-ui-patterns",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Best practices and example-driven guidance for building SwiftUI views and components, including navigation hierarchies, custom view modifiers, and responsive layouts with stacks and grids. Use when creating or refactoring SwiftUI UI, designing tab architecture with TabView, composing screens with VStack/HStack, managing @State or @Binding, building declarative iOS interfaces, or needing component-specific patterns and examples.",
+    "path": "library/dimillian-skills/skills/swiftui-ui-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate swiftui-ui-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link swiftui-ui-patterns"
+  },
+  {
+    "id": "swiftui-view-refactor",
+    "name": "swiftui-view-refactor",
+    "repository": "dimillian-skills",
+    "category": "frontend",
+    "description": "Refactor and review SwiftUI view files with strong defaults for small dedicated subviews, MV-over-MVVM data flow, stable view trees, explicit dependency injection, and correct Observation usage. Use when cleaning up a SwiftUI view, splitting long bodies, removing inline actions or side effects, reducing computed `some View` helpers, or standardizing `@Observable` and view model initialization patterns.",
+    "path": "library/dimillian-skills/skills/swiftui-view-refactor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate swiftui-view-refactor",
+    "link_cmd": "python .agents/library/activate_skill.py link swiftui-view-refactor"
+  }
+]

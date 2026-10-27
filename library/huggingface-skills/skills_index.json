@@ -1,0 +1,242 @@
+[
+  {
+    "id": "hf-cli",
+    "name": "hf-cli",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "\"Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, buckets, repos, papers, jobs, and more on the Hugging Face Hub. Use when: handling authentication; managing local cache; managing Hugging Face Buckets; running or scheduling jobs on Hugging Face infrastructure; managing Hugging Face repos; discussions and pull requests; browsing models, datasets and spaces; reading, searching, or browsing academic papers; managing collections; querying datasets; configuring spaces; setting up webhooks; or deploying and managing HF Inference Endpoints. Make sure to use this skill whenever the user mentions 'hf', 'huggingface', 'Hugging Face', 'huggingface-cli', or 'hugging face cli', or wants to do anything related to the Hugging Face ecosystem and to AI and ML in general. Also use for cloud storage needs like training checkpoints, data pipelines, or agent traces. Use even if the user doesn't explicitly ask for a CLI command. Replaces the deprecated `huggingface-cli`.\"",
+    "path": "library/huggingface-skills/skills/hf-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-cli"
+  },
+  {
+    "id": "hf-cloud-aws-context-discovery",
+    "name": "hf-cloud-aws-context-discovery",
+    "repository": "huggingface-skills",
+    "category": "backend-api",
+    "description": "Discover the user's local AWS context (active profile, region, account ID, caller identity) at the start of any AWS task. Use this skill before any other AWS work \u2014 deploying to SageMaker, creating resources, calling AWS APIs, or anything that touches an AWS account. Use it especially when the user has not specified a region or profile explicitly, when they say things like \"use my AWS account\", \"deploy to AWS\", \"use my profile\", or when about to make any AWS CLI or SDK call. Never guess the region or account ID \u2014 always use this skill to read it from the local configuration first.",
+    "path": "library/huggingface-skills/skills/hf-cloud-aws-context-discovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-cloud-aws-context-discovery",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-cloud-aws-context-discovery"
+  },
+  {
+    "id": "hf-cloud-python-env-setup",
+    "name": "hf-cloud-python-env-setup",
+    "repository": "huggingface-skills",
+    "category": "backend-api",
+    "description": "'Set up an isolated Python environment for SageMaker / AWS work, with the right Python version and current boto3. Use this skill whenever Python code will be executed for a SageMaker deployment, training job, or any AWS automation \u2014 including when about to run `pip install`, when about to invoke `boto3`, when creating or activating a virtualenv, or when the user asks to \"set up the environment\". Never use system Python and never `pip install` into it. Always isolate. This skill prevents the most common failure modes: wrong Python version, dependency conflicts, and stale SDKs.'",
+    "path": "library/huggingface-skills/skills/hf-cloud-python-env-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-cloud-python-env-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-cloud-python-env-setup"
+  },
+  {
+    "id": "hf-cloud-sagemaker-deployment-planner",
+    "name": "hf-cloud-sagemaker-deployment-planner",
+    "repository": "huggingface-skills",
+    "category": "devops-cloud",
+    "description": "'Plan and coordinate the deployment of a model to Amazon SageMaker AI. Use this skill whenever the user wants to deploy, host, serve, or expose a model on SageMaker or AWS \u2014 including phrases like \"deploy a model\", \"host this LLM on AWS\", \"serve this embedding model\", \"deploy a reranker\", \"deploy a text-to-image / diffusion model\", \"host this for async inference\", \"create an endpoint\", \"serve my fine-tuned model\", or any request that involves making a model available for inference on AWS. Use this even when the user is vague (e.g. \"I just want to get this running on AWS, you figure it out\"). Works for text-generation LLMs, embedding models, rerankers, classifiers, text-to-image / diffusion models \u2014 picks the right serving stack and chooses between real-time and async inference. This is the entry-point skill for SageMaker deployment work \u2014 it asks clarifying questions, picks a deployment pathway, and coordinates the other deployment skills.'",
+    "path": "library/huggingface-skills/skills/hf-cloud-sagemaker-deployment-planner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-cloud-sagemaker-deployment-planner",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-cloud-sagemaker-deployment-planner"
+  },
+  {
+    "id": "hf-cloud-sagemaker-iam-preflight",
+    "name": "hf-cloud-sagemaker-iam-preflight",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "'Ensure a usable SageMaker execution role exists before deploying or training. Use this skill whenever about to create a SageMaker endpoint, model, training job, or any resource that requires an execution role. Use it especially when the user has not provided a role ARN explicitly, when scripts are about to call `iam:CreateRole`, or when an AccessDenied error mentions an IAM action. Never blindly call `iam:CreateRole` \u2014 always check for existing roles first. This skill prevents the most common SageMaker deployment failure: trying to create IAM resources from an SSO principal that has no IAM write permissions.'",
+    "path": "library/huggingface-skills/skills/hf-cloud-sagemaker-iam-preflight",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-cloud-sagemaker-iam-preflight",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-cloud-sagemaker-iam-preflight"
+  },
+  {
+    "id": "hf-cloud-sagemaker-production-defaults",
+    "name": "hf-cloud-sagemaker-production-defaults",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "'Create a SageMaker endpoint (real-time, real-time scale-to-zero, or async) with autoscaling, CloudWatch alarms, and tagging enabled by default. Use this skill whenever about to create a SageMaker endpoint, write deployment code that calls `create_endpoint`, or finalize a deployment after the image URI and IAM role are known. Provides deploy.py for real-time endpoints, deploy_ic.py for real-time endpoints that scale to zero instances via inference components, and deploy_async.py for async endpoints (also scale-to-zero). This is the last step in the SageMaker deployment workflow. Never generate a bare `create_endpoint` call without these defaults \u2014 endpoints without autoscaling or alarms are demos, not deployments.'",
+    "path": "library/huggingface-skills/skills/hf-cloud-sagemaker-production-defaults",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-cloud-sagemaker-production-defaults",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-cloud-sagemaker-production-defaults"
+  },
+  {
+    "id": "hf-cloud-serving-image-selection",
+    "name": "hf-cloud-serving-image-selection",
+    "repository": "huggingface-skills",
+    "category": "devops-cloud",
+    "description": "'Pick the right serving container for a SageMaker model deployment and find its current image URI. Use this skill whenever about to deploy a model to a SageMaker endpoint and an image URI needs to be chosen \u2014 including when the user says \"deploy this LLM\", \"host this HuggingFace model\", \"serve this fine-tuned model\", \"deploy this embedding model\", \"host a reranker\", \"serve a sentence-transformers model\", or when about to hardcode any container URI in deployment code. HuggingFace-curated Deep Learning Containers are ALWAYS preferred: HuggingFace vLLM (LLMs and generative rerankers), HuggingFace vLLM-Omni (multimodal), TEI (embeddings/cross-encoder rerankers), HF Inference Toolkit (other transformers). Generic images (AWS vLLM, DJL-LMI, SGLang) are used only when no HuggingFace image is compatible \u2014 never merely because they carry a newer version. Never hardcode a container URI from memory and never default to TGI. Prevents stale-image failures and wrong-region URIs.'",
+    "path": "library/huggingface-skills/skills/hf-cloud-serving-image-selection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-cloud-serving-image-selection",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-cloud-serving-image-selection"
+  },
+  {
+    "id": "hf-mem",
+    "name": "hf-mem",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Hugging Face CLI to estimate the required memory to load Safetensors or GGUF model weights for inference from the Hugging Face Hub",
+    "path": "library/huggingface-skills/skills/hf-mem",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hf-mem",
+    "link_cmd": "python .agents/library/activate_skill.py link hf-mem"
+  },
+  {
+    "id": "huggingface-best",
+    "name": "huggingface-best",
+    "repository": "huggingface-skills",
+    "category": "general-development",
+    "description": "Use when the user asks about finding the best, top, or recommended model for a task, wants to know what AI model to use, or wants to compare models by benchmark scores. Triggers on: \"best model for X\", \"what model should I use for\", \"top models for [task]\", \"which model runs on my laptop/machine/device\", \"recommend a model for\", \"what LLM should I use for\", \"compare models for\", \"what's state of the art for\", or any question about choosing an AI model for a specific use case. Always use this skill when the user wants model recommendations or comparisons, even if they don't explicitly mention HuggingFace or benchmarks.",
+    "path": "library/huggingface-skills/skills/huggingface-best",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-best",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-best"
+  },
+  {
+    "id": "huggingface-community-evals",
+    "name": "huggingface-community-evals",
+    "repository": "huggingface-skills",
+    "category": "general-development",
+    "description": "Run evaluations for Hugging Face Hub models using inspect-ai and lighteval on local hardware. Use for backend selection, local GPU evals, and choosing between vLLM / Transformers / accelerate. Not for HF Jobs orchestration, model-card PRs, .eval_results publication, or community-evals automation.",
+    "path": "library/huggingface-skills/skills/huggingface-community-evals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-community-evals",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-community-evals"
+  },
+  {
+    "id": "huggingface-datasets",
+    "name": "huggingface-datasets",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Use this skill for Hugging Face Dataset Viewer API workflows that fetch subset/split metadata, paginate rows, search text, apply filters, download parquet URLs, and read size or statistics.",
+    "path": "library/huggingface-skills/skills/huggingface-datasets",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-datasets",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-datasets"
+  },
+  {
+    "id": "huggingface-gradio",
+    "name": "huggingface-gradio",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts, or chatbots.",
+    "path": "library/huggingface-skills/skills/huggingface-gradio",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-gradio",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-gradio"
+  },
+  {
+    "id": "huggingface-llm-trainer",
+    "name": "huggingface-llm-trainer",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Train or fine-tune language and vision models using TRL (Transformer Reinforcement Learning) or Unsloth with Hugging Face Jobs infrastructure. Covers SFT, DPO, GRPO and reward modeling training methods, plus GGUF conversion for local deployment. Includes guidance on the TRL Jobs package, UV scripts with PEP 723 format, dataset preparation and validation, hardware selection, cost estimation, Trackio monitoring, Hub authentication, model selection/leaderboards and model persistence. Use for tasks involving cloud GPU training, GGUF conversion, or when users mention training on Hugging Face Jobs without local GPU setup.",
+    "path": "library/huggingface-skills/skills/huggingface-llm-trainer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-llm-trainer",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-llm-trainer"
+  },
+  {
+    "id": "huggingface-local-models",
+    "name": "huggingface-local-models",
+    "repository": "huggingface-skills",
+    "category": "backend-api",
+    "description": "\"Use to select models to run locally with llama.cpp and GGUF on CPU, Mac Metal, CUDA, or ROCm. Covers finding GGUFs, quant selection, running servers, exact GGUF file lookup, conversion, and OpenAI-compatible local serving.\"",
+    "path": "library/huggingface-skills/skills/huggingface-local-models",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-local-models",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-local-models"
+  },
+  {
+    "id": "huggingface-lora-space-builder",
+    "name": "huggingface-lora-space-builder",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Build and publish a Gradio demo on Hugging Face Spaces for a user-provided LoRA. Use when someone asks to create, generate, ship, or publish a Space, demo, Gradio app, or playground for a LoRA \u2014 including LoRAs for Qwen-Image, Qwen-Image-Edit, LTX-Video, Wan, FLUX, SDXL, or other diffusion base models. Also triggers when someone describes a LoRA they trained or hosts on the Hub and wants to share it. Covers picking the right base pipeline and `diffusers` inference recipe, designing a UI tailored to the LoRA's task and inputs (Union/multi-task control, edit, video, image, etc.), respecting model-card recommendations (trigger words, steps, guidance, LoRA scale, example inputs), and shipping to ZeroGPU hardware as a private Space by default.",
+    "path": "library/huggingface-skills/skills/huggingface-lora-space-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-lora-space-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-lora-space-builder"
+  },
+  {
+    "id": "huggingface-paper-publisher",
+    "name": "huggingface-paper-publisher",
+    "repository": "huggingface-skills",
+    "category": "research-academic",
+    "description": "Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking papers to models/datasets, claiming authorship, and generating professional markdown-based research articles.",
+    "path": "library/huggingface-skills/skills/huggingface-paper-publisher",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-paper-publisher",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-paper-publisher"
+  },
+  {
+    "id": "huggingface-papers",
+    "name": "huggingface-papers",
+    "repository": "huggingface-skills",
+    "category": "backend-api",
+    "description": "Look up and read Hugging Face paper pages in markdown, and use the papers API for structured metadata such as authors, linked models/datasets/spaces, Github repo and project page. Use when the user shares a Hugging Face paper page URL, an arXiv URL or ID, or asks to summarize, explain, or analyze an AI research paper.",
+    "path": "library/huggingface-skills/skills/huggingface-papers",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-papers",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-papers"
+  },
+  {
+    "id": "huggingface-spaces",
+    "name": "huggingface-spaces",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Build, deploy, and maintain applications on Hugging Face Spaces \u2014 Gradio / Docker / Static SDKs, ZeroGPU and dedicated hardware, model loading, debugging, buckets, inference providers, community grants. Use whenever the user asks to create or host an app on Hugging Face, port code onto ZeroGPU, fix a Space that won't build or run, or otherwise work with `hf spaces \u2026`, `@spaces.GPU`, Space README frontmatter, or the `spaces` Python package.",
+    "path": "library/huggingface-skills/skills/huggingface-spaces",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-spaces",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-spaces"
+  },
+  {
+    "id": "huggingface-tool-builder",
+    "name": "huggingface-tool-builder",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Use this skill when the user wants to build tool/scripts or achieve a task where using data from the Hugging Face API would help. This is especially useful when chaining or combining API calls or the task will be repeated/automated. This Skill creates a reusable script to fetch, enrich or process data.",
+    "path": "library/huggingface-skills/skills/huggingface-tool-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-tool-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-tool-builder"
+  },
+  {
+    "id": "huggingface-trackio",
+    "name": "huggingface-trackio",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI). Supports real-time dashboard visualization, alerts with webhooks, HF Space syncing, and JSON output for automation.",
+    "path": "library/huggingface-skills/skills/huggingface-trackio",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-trackio",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-trackio"
+  },
+  {
+    "id": "huggingface-vision-trainer",
+    "name": "huggingface-vision-trainer",
+    "repository": "huggingface-skills",
+    "category": "mobile",
+    "description": "Trains and fine-tunes vision models for object detection (D-FINE, RT-DETR v2, DETR, YOLOS), image classification (timm models \u2014 MobileNetV3, MobileViT, ResNet, ViT/DINOv3 \u2014 plus any Transformers classifier), and SAM/SAM2 segmentation using Hugging Face Transformers on Hugging Face Jobs cloud GPUs. Covers COCO-format dataset preparation, Albumentations augmentation, mAP/mAR evaluation, accuracy metrics, SAM segmentation with bbox/point prompts, DiceCE loss, hardware selection, cost estimation, Trackio monitoring, and Hub persistence. Use when users mention training object detection, image classification, SAM, SAM2, segmentation, image matting, DETR, D-FINE, RT-DETR, ViT, timm, MobileNet, ResNet, bounding box models, or fine-tuning vision models on Hugging Face Jobs.",
+    "path": "library/huggingface-skills/skills/huggingface-vision-trainer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-vision-trainer",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-vision-trainer"
+  },
+  {
+    "id": "huggingface-zerogpu",
+    "name": "huggingface-zerogpu",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "AI demos and GPU compute with Gradio Spaces and Hugging Face Spaces ZeroGPU. Use when writing or reviewing code that uses `@spaces.GPU`, configuring `python_version` or `requirements.txt` for a ZeroGPU Space, or handling ZeroGPU-specific code constraints \u2014 pickle-based process isolation, `gr.State` semantics across the worker boundary, no `torch.compile` (use AoTI instead), CUDA wheel-only builds (no `nvcc` at build or runtime), large vs xlarge sizing, and dynamic duration callables. Make sure to use this skill whenever the user mentions ZeroGPU, `@spaces.GPU`, or the `spaces` Python package, or hits ZeroGPU-specific code errors like `PicklingError` across the worker boundary, `illegal duration`, or `flash-attn` wheel-build failures \u2014 even when the user does not explicitly ask for ZeroGPU coding guidance. Trigger on `import spaces` or `@spaces.GPU` in code.",
+    "path": "library/huggingface-skills/skills/huggingface-zerogpu",
+    "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-zerogpu",
+    "link_cmd": "python .agents/library/activate_skill.py link huggingface-zerogpu"
+  },
+  {
+    "id": "train-sentence-transformers",
+    "name": "train-sentence-transformers",
+    "repository": "huggingface-skills",
+    "category": "finance-crypto",
+    "description": "Train or fine-tune sentence-transformers models across `SentenceTransformer` (bi-encoder, dense or static embedding model for retrieval, similarity, clustering, classification, paraphrase mining, dedup, multimodal), `CrossEncoder` (reranker, pair scoring for two-stage retrieval / pair classification), `SparseEncoder` (SPLADE, sparse embedding model for learned-sparse retrieval), and `MultiVectorEncoder` (ColBERT / late-interaction, per-token embeddings scored with MaxSim). Covers loss selection, hard-negative mining, evaluators, distillation, LoRA, Matryoshka, and Hugging Face Hub publishing. Use for any sentence-transformers training task.",
+    "path": "library/huggingface-skills/skills/train-sentence-transformers",
+    "activation_cmd": "python .agents/library/activate_skill.py activate train-sentence-transformers",
+    "link_cmd": "python .agents/library/activate_skill.py link train-sentence-transformers"
+  },
+  {
+    "id": "transformers-js",
+    "name": "transformers-js",
+    "repository": "huggingface-skills",
+    "category": "frontend",
+    "description": "Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScript. Supports NLP (text classification, translation, summarization), computer vision (image classification, object detection), audio (speech recognition, audio classification), and multimodal tasks. Works in browsers and server-side runtimes (Node.js, Bun, Deno) with WebGPU/WASM using pre-trained models from Hugging Face Hub.",
+    "path": "library/huggingface-skills/skills/transformers-js",
+    "activation_cmd": "python .agents/library/activate_skill.py activate transformers-js",
+    "link_cmd": "python .agents/library/activate_skill.py link transformers-js"
+  }
+]

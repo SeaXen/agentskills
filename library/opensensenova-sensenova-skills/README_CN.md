@@ -1,0 +1,249 @@
+
+# SenseNova-Skills
+
+**简体中文 | [English](README.md)**
+
+<p align="center">
+  <img src="docs/images/teasers/teaser_v2.webp" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://platform.sensenova.cn"><img src="https://img.shields.io/badge/%E5%AE%98%E7%BD%91-Platform-1f6feb?style=flat-square&logo=googlechrome&logoColor=white" alt="官网"></a>
+  <a href="https://office.xiaohuanxiong.com/home"><img src="https://img.shields.io/badge/%F0%9F%A6%9D_%E5%B0%8F%E6%B5%A3%E7%86%8A-%E5%85%8D%E8%B4%B9%E4%BD%93%E9%AA%8C-f29415?style=flat-square" alt="小浣熊"></a>
+  <a href="https://platform.sensenova.cn/token-plan"><img src="https://img.shields.io/badge/Token_%E5%A5%97%E9%A4%90-%E5%85%8D%E8%B4%B9-2ea44f?style=flat-square&logo=opensea&logoColor=white" alt="Token 套餐"></a>
+  <a href="https://github.com/OpenSenseNova/SenseNova-U1"><img src="https://img.shields.io/badge/SenseNova-U1-8957e5?style=flat-square&logo=github&logoColor=white" alt="SenseNova U1"></a>
+  <a href="https://github.com/OpenSenseNova/SenseNova6.8"><img src="https://img.shields.io/badge/SenseNova-6.8-cf222e?style=flat-square&logo=github&logoColor=white" alt="SenseNova 6.8"></a>
+</p>
+
+SenseNova 系列模型可直接接入 [OpenClaw](https://openclaw.ai/)、[hermes-agent](https://github.com/NousResearch/hermes-agent) 等智能体；本仓库的 skills 则把这些模型扩展为可直接落地的端到端办公能力。
+
+本项目每个技能位于独立目录中，通过 `SKILL.md` 声明触发条件、能力边界和执行方式，遵循 [Agent Skills](https://agentskills.io/) 规范。
+
+技能覆盖 **图像生成与可视化**、**演示文稿生成**、**Excel 数据分析**、**深度研究**、**HTML 网页体验**、**团队协作**与**项目进展主动跟踪**等场景，可独立使用，也可组合成端到端工作流。
+
+> 🎨 **想看它到底能干啥？** [**点击逛 sn-infographic 案例画廊**](docs/sn-infographic-examples_CN.md)，探索近 100 个有趣生成案例，顺便 “ 偷师 ”一下  **Prompt**  应该怎么写！
+
+## 🦝 在小浣熊中开箱即用
+
+本仓库的最新模型与全系 Cowork-Skill，已整体集成进 [**小浣熊**](https://office.xiaohuanxiong.com/home)，提供企业级安全防护与开箱即用的丝滑体验——如果你不想自己搭环境、配 API key，可以直接通过小浣熊使用这些能力。支持免费试用，无需付费即可上手体验。
+
+小浣熊本次迎来产品能力与客户端体验的全面升级：
+
+- **三大核心办公能力全面增强**：依托 SenseNova 6.7 Flash 与 Cowork-Skill，数据分析、PPT 生成、任务规划进一步强化，覆盖多文件清洗分析、正式汇报 PPT、行业研究 / 竞品分析 / 投研报告等复杂知识工作的完整闭环。
+- **新增信息图生成功能**：基于 SenseNova U1 模型，将复杂数据、长篇报告与业务洞察压缩为高密度、结构化、视觉化的信息图，让复杂内容更易理解、更适合传播。
+- **全新客户端 + 本地 Agent OS**：云端模型负责复杂推理与多模态理解，本地 Agent OS 围绕本地文件、工作上下文与个人使用习惯，带来更个性化、本地化、安全化的 AI 原生办公体验。
+- **规模化验证**：1500 万个人用户、数千家企业用户的共同选择。
+
+> 👉 立即体验：[xiaohuanxiong.com](https://office.xiaohuanxiong.com/home)
+
+## 如何使用
+
+本仓库的 skill 需要配合支持 [Agent Skills](https://agentskills.io/) 规范的智能体使用。
+
+- **推荐运行时**：**[OpenClaw](https://openclaw.ai/)** 或 **[hermes-agent](https://github.com/NousResearch/hermes-agent)**。
+- **推荐 LLM**：配合使用 **SenseNova 平台 API**。
+  中国内地：[`platform.sensenova.cn/token-plan`](https://platform.sensenova.cn/token-plan)，Base URL `https://token.sensenova.cn/v1`（为中国用户提供免费 token 套餐）
+  海外：请参考英文版 [`README.md`](README.md) 或 [`platform.sensenova.ai/docs`](https://platform.sensenova.ai/docs)，Base URL `https://token.sensenova.ai/v1`
+- **安装与配置**：完整流程请参考 **[`INSTALL_CN.md`](INSTALL_CN.md)**。
+
+**推荐做法：直接让 agent 帮你装好这些 skill。** 把仓库地址交给它，让它自己克隆并把内容拷贝到目标目录，例如：
+
+> *"请帮我把 https://github.com/OpenSenseNova/SenseNova-Skills 安装到你的 skills 目录。"*
+
+安装完成后，**可能需要手动重启 agent 服务**，新 skill 才会被加载。
+
+| 智能体 | 目标目录 |
+|--------|---------|
+| [OpenClaw](https://openclaw.ai/) | `~/.openclaw/skills/` |
+| [hermes-agent](https://github.com/NousResearch/hermes-agent) | `~/.hermes/skills/` |
+
+<details>
+<summary>想手动安装？</summary>
+
+克隆本仓库，然后把 `skills/` 下的子目录自行复制（或软链接）到目标目录：
+
+```bash
+git clone https://github.com/OpenSenseNova/SenseNova-Skills.git --depth=1
+mkdir -p ~/.openclaw/skills
+cp -r SenseNova-Skills/skills/* ~/.openclaw/skills/
+```
+
+Hermes 把目录换成 `~/.hermes/skills/` 即可。
+
+</details>
+
+各分类技能的 Python 依赖、API key 与调用示例同样请参考对应分类的 📖 详细使用指南。
+
+## 技能列表
+
+### 🎨 图像与可视化
+
+📖 详细使用指南：[`docs/sn-image-generate.md`](docs/sn-image-generate.md)（环境要求、Quick Start、API 配置与调用样例）。
+
+
+| 名称                                                 | 标签            | 描述                                                                                              |
+| -------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------- |
+| [`sn-image-doctor`](skills/sn-image-doctor/SKILL.md)           | 环境诊断          | 检查 SenseNova-Skills 环境，验证 `sn-image-base` 安装、Python 依赖与必填环境变量；交互式补齐缺失项并写入 `.env`。               |
+| [`sn-image-base`](skills/sn-image-base/SKILL.md)   | 图像基础层（Tier 0） | 提供文生图（`sn-image-generate`）、图像编辑（`sn-image-edit`）、图像识别（`sn-image-recognize`）与文本优化（`sn-text-optimize`）四个底层工具，统一通过 `sn_agent_runner.py` 调用，供上层技能复用。 |
+| [`sn-infographic`](skills/sn-infographic/SKILL.md) | 信息图生成（Tier 1） | 自动评估提示词、从 87 种布局 / 66 种风格中选型，多轮生成 + VLM 评审 + 质量排序，输出专业级信息图。支持 SenseNova U1.5 Lite，包括原生 4K 输出。 |
+| [`sn-image-imitate`](skills/sn-image-imitate/SKILL.md) | 图像风格模仿（Tier 1） | 给定一张参考图像和目标内容描述，模仿其风格生成新图像。 |
+| [`sn-image-resume`](skills/sn-image-resume/SKILL.md) | 简历图片生成（Tier 1） | 给定一份简历信息，生成简历图片。 |
+
+
+### 📊 演示文稿（PPT）
+
+📖 详细使用指南：[`docs/sn-ppt-generate_cn.md`](docs/sn-ppt-generate_cn.md)（环境要求、Quick Start、API 配置与调用样例）。
+
+
+| 名称                                             | 标签         | 描述                                                                                                                         |
+| ---------------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------- |
+| [`sn-ppt-entry`](skills/sn-ppt-entry/SKILL.md)       | PPT 入口 | PPT 生成统一入口：收集角色 / 受众 / 场景 / 页数 / 模式（标准 / 动态 / 创意），解析 pdf / docx / md / txt 输入，产出 `task_pack.json` + `info_pack.json` 并分派到下游模式。 |
+| [`sn-ppt-story`](skills/sn-ppt-story/SKILL.md)       | PPT 编排 | 入口到出口之间的强制中间环节：将 query、用户材料与已完成 Research 编排为唯一可编辑的 `outline.md`；不得跳过或代写。 |
+| [`sn-ppt-standard`](skills/sn-ppt-standard/SKILL.md) | PPT 标准模式 | 风格规范 → 大纲 → 资产规划 + 分槽位图像 + VLM 质检 → 分页 HTML → 分页评审 → build `present.html`；由自带 HTML→PPTX 导出器导出 PPTX。 |
+| [`sn-ppt-dazzle`](skills/sn-ppt-dazzle/SKILL.md)     | PPT 动态模式 | 将已备好的 `outline.md` 制作为 1280×720 单文件动态 HTML 演示文稿（动效、跨页过渡、键盘翻页），用于动态 / 交互演示场景。 |
+| [`sn-ppt-creative`](skills/sn-ppt-creative/SKILL.md) | PPT 创意模式 | 每页一张 16:9 全图（PNG），按页面构图 prompt 出图后导出 PPTX。 |
+| [`sn-ppt-doctor`](skills/sn-ppt-doctor/SKILL.md)     | PPT 环境诊断 | 检查本地渲染 / 导出依赖（Python/Node Playwright、Chromium、PPTX exporter）与 Bundled 媒体配置；只报告，不写 `.env`、不修改任务目录。 |
+| [`sn-ppt-tools`](skills/sn-ppt-tools/SKILL.md)       | Bundled 工具回退 | 宿主原生搜索 / 生图工具缺失或失败时提供回退：普通搜索、图片搜索、图片生成与下载；读取 `.env` 中的 `SN_PPT_*` 配置。 |
+| [`sn-ppt-workbench`](skills/sn-ppt-workbench/SKILL.md) | PPT 编辑工作台 | 对已生成的 HTML deck 打开或复用 AI PPT 编辑 WebUI：预览、检查与在线可视化微调；不重新生成、不直接修改文件。 |
+
+
+### 📈 数据分析（DA）
+
+📖 详细使用指南：[`docs/sn-data-analysis_cn.md`](docs/sn-data-analysis_cn.md)（环境要求、Quick Start、API 配置与调用样例）。
+
+
+| 名称                                                                 | 标签         | 描述                                                                               |
+| ------------------------------------------------------------------ | ---------- | -------------------------------------------------------------------------------- |
+| [`sn-da-excel-workflow`](skills/sn-da-excel-workflow/SKILL.md)           | Excel 分析编排 | Excel 多表读取、大文件检测（≥10k 行触发 Parquet 优化）、清洗、条件过滤、跨表聚合、Excel/CSV 导出的全流程编排。           |
+| [`sn-da-image-caption`](skills/sn-da-image-caption/SKILL.md)             | 图像理解与数据提取  | 图像类输入做表格 OCR / 图表解读 / 截图描述 / UI 描述；可解析为 DataFrame、复绘可视化、导出 Excel/CSV。            |
+| [`sn-da-large-file-analysis`](skills/sn-da-large-file-analysis/SKILL.md) | 大文件高性能分析   | ≥10k 行 Excel 的流式读取（openpyxl read_only + iter_rows）、Parquet 转换、内存优化、分块处理与大文件写入模式。 |
+
+
+### 🔬 深度研究
+
+📖 详细使用指南：[`docs/sn-deep-research_cn.md`](docs/sn-deep-research_cn.md) 与 [`docs/sn-deepresearch-cli_cn.md`](docs/sn-deepresearch-cli_cn.md)（环境要求、Quick Start、CLI 配置与各阶段调用）。
+
+
+| 名称                                                                   | 标签        | 描述                                                                                      |
+| -------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------- |
+| [`sn-deep-research`](skills/sn-deep-research/SKILL.md)                     | **深度研究入口** | **按档位编排的深度研究统一入口**，支持并行研究工作包、quick / normal 一次综合，以及可审计的 heavy 完整流程，最终产出 `report.md`。 |
+| [`sn-deepresearch-cli`](skills/sn-deepresearch-cli/SKILL.md)               | 深度研究 CLI | 安装并运行独立的 `sensenova-skills-deepresearch` CLI，通过用户选择的 Harness 或 Agent 编排搜索、研究、监控、恢复与报告导出。 |
+| [`sn-research-report`](skills/sn-research-report/SKILL.md)                 | 终稿写作 / 改写 | 把判断层落成最终 `report.md`；也可对已有报告做重写、润色、重组结构、补充表格等定向编辑。                                      |
+| [`sn-report-format-discovery`](skills/sn-report-format-discovery/SKILL.md) | 报告最终呈现形式发现 | 比较研究报告、学术论文、表格优先报表、决策备忘录或自定义 Markdown 形式。 |
+| [`sn-prepare-citations`](skills/sn-prepare-citations/SKILL.md)                 | 引用渲染      | 将 `[^source_id]` 脚注后处理为编号引用，并基于 evidence sources 追加参考文献。 |
+
+
+### 🔍 搜索
+
+📖 搜索技能与深度研究合并在同一份文档：[`docs/sn-deep-research_cn.md`](docs/sn-deep-research_cn.md)（含各平台 API key、调用方式与统一 JSON 输出）。
+
+
+| 名称                                                     | 标签     | 描述                                                                                          |
+| ------------------------------------------------------ | ------ | ------------------------------------------------------------------------------------------- |
+| [`sn-search-academic`](skills/sn-search-academic/SKILL.md)   | 学术搜索   | ArXiv（含 HTML 全文按章节读）/ Semantic Scholar（含引用数）/ PubMed（含 PMC 开放获取全文）/ Wikipedia 四平台聚合。        |
+| [`sn-search-code`](skills/sn-search-code/SKILL.md)           | 开发者搜索  | GitHub（仓库 / 代码 / Issue）/ Stack Overflow / Hacker News / HuggingFace（模型 / 数据集 / Space）四平台聚合。 |
+| [`sn-search-social-cn`](skills/sn-search-social-cn/SKILL.md) | 中文社交搜索 | B 站 / 知乎 / 抖音 三个中文社交平台搜索；部分平台需 cookie 认证。                                                   |
+| [`sn-search-social-en`](skills/sn-search-social-en/SKILL.md) | 英文社交搜索 | Reddit / Twitter (X) / YouTube 三个英文社交平台搜索。                                                  |
+
+
+### 🌐 HTML 与网页体验
+
+📖 详细使用指南：[`docs/sn-motion-html_cn.md`](docs/sn-motion-html_cn.md)（连续镜头故事、媒体生成、项目初始化与浏览器验收）。
+
+| 名称 | 标签 | 描述 |
+| --- | --- | --- |
+| [`sn-motion-html`](skills/sn-motion-html/SKILL.md) | Motion HTML 故事 | 制作沉浸式滚动网页故事，包含连续镜头、风格一致的静帧、Seedance 视频片段、结构化内容与响应式浏览器交付。 |
+| [`sn-md-to-html-report`](skills/sn-md-to-html-report/SKILL.md) | Markdown → HTML 报告 | 将 Markdown 报告重组为自包含 HTML 专题页，处理编辑结构、证据顺序、响应式布局与离线资源。 |
+
+
+### 🤝 团队协作
+
+📖 详细使用指南：[`docs/sn-team-harness_cn.md`](docs/sn-team-harness_cn.md)（自托管安装、核心概念、本地执行与安全边界）。
+
+| 名称 | 标签 | 描述 |
+| --- | --- | --- |
+| [`sn-team-harness`](skills/sn-team-harness/SKILL.md) | Team Harness | 介绍一个让人和本地 Agent 共享上下文、项目、工作项、资源与版本化成果的自托管协作工作区。 |
+
+
+### 🔔 项目进展主动跟踪
+
+📖 详细使用指南：[`docs/sn-proactive-agent_cn.md`](docs/sn-proactive-agent_cn.md)（安装、Hermes 接入、Web 工作台、数据目录与验收检查）。
+
+| 名称 | 标签 | 描述 |
+| --- | --- | --- |
+| [`sn-proactive-agent`](skills/sn-proactive-agent/SKILL.md) | Proactive Agent | 记录长期项目进展，维护可审计的 Project / Item / Event 状态，并在 Web 工作台展示下一步建议；用户接受后由原 Hermes Session 继续执行。 |
+
+
+## 输出样例
+
+### 🎨 信息图（sn-infographic）
+
+`sn-infographic` 的部分生成效果（更多样例见 [`docs/sn-infographic-examples_CN.md`](docs/sn-infographic-examples_CN.md)）。
+
+<img src="docs/images/teasers/cases_merge.webp" alt="sn-infographic sample outputs">
+
+### 🧩 内存价格分析 — 洞察-分析-汇报-全链路
+
+[`examples/memory-price-end2end-analysis`](examples/memory-price-end2end-analysis/)。智能体先对原始报价 CSV 做字段刻画、品类与时间戳标准化，然后从「整体走势」「分品类涨幅 Top」「服务器级 vs 消费级背离」三个角度刻画本轮上涨，沿途定位 2 月下旬的拐点。把数据结论作为新的研究问题，转入深度调研：按维度规划检索（供给收缩、AI 服务器需求、原厂控产），并在不同来源之间交叉验证证据后再写入报告。数据 + 研究结论一并交给 PPT 生成：先排 16 页大纲、规划每页素材，再生成分页 HTML、做 VLM 评审、最后把分页截图合成 PPTX。最终是一条清晰的三段叙事：价格在涨 → 为什么涨 → 怎么应对。这是仓库里唯一一个完整跑过 数据分析 → 深度调研 → PPT 的端到端样例。
+
+- 依赖技能：[`sn-da-excel-workflow`](skills/sn-da-excel-workflow/SKILL.md)、[`sn-deep-research`](skills/sn-deep-research/SKILL.md)、[`sn-ppt-entry`](skills/sn-ppt-entry/SKILL.md)、[`sn-ppt-standard`](skills/sn-ppt-standard/SKILL.md)、[`sn-md-to-html-report`](skills/sn-md-to-html-report/SKILL.md)
+
+### 📊 员工绩效分析 — 数据分析
+
+[`examples/employee-performance-analysis`](examples/employee-performance-analysis/)。智能体先把 10 份分散的月度考核 xlsx 读入，对齐各月列结构，纵向拼成一张长表。在这张表上分别做总体视角（月度均值趋势、得分分布箱线图、等级占比变化、38 个岗位排名）和个体视角（优秀 / 待提升 / 持续进步三类员工，配合个人年度走势）的分析。结论部分把改进建议落到具体岗位和具体员工，并用 8 张图表佐证。同样的内容产出 Word 版（适合下发）和可视化 HTML 版（适合浏览）两种形态。这个样例展示了 `sn-da-excel-workflow` 如何把「一堆零散的小表」当成一次完整分析来处理。
+
+- 依赖技能：[`sn-da-excel-workflow`](skills/sn-da-excel-workflow/SKILL.md)
+
+### 🔬 具身智能行业调研 — 深度调研
+
+[`examples/embodied-ai-deep-research`](examples/embodied-ai-deep-research/)。给定一个行业关键词后，智能体先列出研究维度（市场规模、玩家份额、融资、成本结构、发展路线），而不是直接撒网搜索。每个维度按计划做定向检索、抓取并阅读原始页面，提取数值与定性证据；不同来源之间出现冲突的数字会先做 reconcile 再落到报告里。综合阶段按读者任务把各维度证据组织成可追溯的信息结构，而不是一堆互不连接的要点。最终产出是一份图文并茂的报告（Markdown + 可视化 HTML），含 5 张分维度的配图。这个样例展示了 `sn-deep-research` 如何把一句「调研 X」变成「先规划再执行、证据可追溯」的结构化闭环。
+
+- 依赖技能：[`sn-deep-research`](skills/sn-deep-research/SKILL.md)
+
+### 🎯 物业费定价体系 — PPT 生成
+
+[`examples/property-fee-pricing-ppt`](examples/property-fee-pricing-ppt/)。智能体读到一份开放式输入（主题：物业费定价；受众：物业管理人员 + 物业委员会；26 页；黑白温馨风），先确定大纲，再产出符合风格规范的逐页素材计划。每一页以语义化的 HTML 方式构造，而不是直接出整页大图：文案、版式、配图、图标、需要的数据图表都是分槽位规划的。素材按槽位生成或选型，并由 VLM 对照页面意图做质检；每页 HTML 渲染出来后再走一轮评审与按需改写，保证用语和视觉一致性。最后把分页截图合成 PPTX，分页 HTML 也保留下来，便于直接在浏览器里预览或继续修改。这个样例展示了 `sn-ppt-standard` 在一份偏文本、长篇幅的方案稿上如何在每一页都遵守同一套受众和配色约束。
+
+- 依赖技能：[`sn-ppt-entry`](skills/sn-ppt-entry/SKILL.md)、[`sn-ppt-standard`](skills/sn-ppt-standard/SKILL.md)
+
+## 社区与第三方体验入口
+
+如果你想先快速体验单个 skill、再决定是否搭建完整本地环境，也可以先试试下面这些社区 / 第三方入口。
+
+> 这些链接并非由本仓库官方维护，不属于 SenseNova-Skills 的官方支持范围。具体可用性、账号要求与平台条款请以对应提供方为准。
+
+- [`sn-infographic`（ClawMama / Telegram / WhatsApp）](https://app.clawmama.run/skills/3k6s9d/hermes?utm_source=github&utm_medium=issue&utm_campaign=skill_outreach_opensensenova_sensenova_skills_sn_infographic) — 适合先低门槛体验一次信息图生成工作流。
+
+## 常见问题
+
+接入与运行中的常见问题（400/401 报错、限流、PPT 超时、信息图质量、模型名等）解答见 [`docs/faq_CN.md`](docs/faq_CN.md)。
+
+## 贡献
+
+欢迎以本仓库的技能为模板创建你自己的 OpenClaw 技能。一个好技能的核心要素：
+
+- **清晰的触发条件**：在 `description` 中写明"什么时候用 / 什么时候不用"，让智能体准确识别
+- **聚焦的能力边界**：每个技能只把一件事做好，复杂工作流通过多个技能编排实现
+- **完善的文档**：包含示例、产物约定、边界情况与失败处理
+- **必要的支撑资源**：通过 `references/`、`scripts/`、`prompts/` 提供补充上下文
+
+## 加入社区
+
+欢迎加入我们的交流群，分享反馈、获取支持，并第一时间了解最新进展。扫描下方二维码即可加入——期待你的声音！
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><b><a href="https://discord.gg/cxkwXWjp">Discord</a></b></td>
+    <td align="center"><b>飞书群组</b></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://discord.gg/cxkwXWjp"><img src="assets/discord_qr.webp" width="160"/></a></td>
+    <td align="center"><img src="assets/sensenova-skills-chatgroup.png" width="160"/></td>
+  </tr>
+</table>
+</div>
+
+## 许可证
+
+MIT — 详见 [LICENSE](LICENSE)。

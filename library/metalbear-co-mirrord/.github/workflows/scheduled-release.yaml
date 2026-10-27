@@ -1,0 +1,16 @@
+name: Scheduled Release
+
+on:
+  schedule:
+    # 10:00 UTC on Sunday, Monday, Tuesday, and Wednesday.
+    - cron: "0 10 * * 0,1,2,3"
+  workflow_dispatch:
+
+jobs:
+  # Whether the unreleased fragments are worth a release is decided inside
+  # `auto-release-pr`, which also knows whether a human or the schedule asked for it.
+  auto_release_pr:
+    uses: ./.github/workflows/auto-release-pr.yaml
+    permissions:
+      contents: read
+    secrets: inherit

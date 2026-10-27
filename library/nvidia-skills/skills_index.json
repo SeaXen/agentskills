@@ -1,0 +1,81 @@
+[
+  {
+    "id": "accelerated-computing-cudf",
+    "name": "accelerated-computing-cudf",
+    "repository": "nvidia-skills",
+    "category": "frontend",
+    "description": "Official NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ETL, joins, groupby, CSV/Parquet I/O, nullable semantics, and multi-GPU DataFrame workloads.",
+    "path": "library/nvidia-skills/skills/accelerated-computing-cudf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate accelerated-computing-cudf",
+    "link_cmd": "python .agents/library/activate_skill.py link accelerated-computing-cudf"
+  },
+  {
+    "id": "ambient-healthcare-agent-with-nemotron-voice-agent",
+    "name": "ambient-healthcare-agent-with-nemotron-voice-agent",
+    "repository": "nvidia-skills",
+    "category": "agent-orchestration",
+    "description": "Customize NVIDIA Nemotron Voice Agent's Generic Pipecat example for healthcare appointment, five-field patient intake, or custom tool-calling workflows without a separate backend.",
+    "path": "library/nvidia-skills/skills/ambient-healthcare-agent-with-nemotron-voice-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ambient-healthcare-agent-with-nemotron-voice-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link ambient-healthcare-agent-with-nemotron-voice-agent",
+    "allowed_tools": [
+      "Read Grep Glob Edit Write Bash Env WebFetch"
+    ]
+  },
+  {
+    "id": "amc-run-rtsp-calibration",
+    "name": "amc-run-rtsp-calibration",
+    "repository": "nvidia-skills",
+    "category": "mobile",
+    "description": "\"Calibrate a new dataset from live RTSP camera streams via the AutoMagicCalib REST API. Use when the user provides RTSP URLs or asks to calibrate live cameras; VIOS records clips, AMC ingests them, then runs calibration.\"",
+    "path": "library/nvidia-skills/skills/amc-run-rtsp-calibration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amc-run-rtsp-calibration",
+    "link_cmd": "python .agents/library/activate_skill.py link amc-run-rtsp-calibration"
+  },
+  {
+    "id": "amc-run-sample-calibration",
+    "name": "amc-run-sample-calibration",
+    "repository": "nvidia-skills",
+    "category": "animation-craft",
+    "description": "\"Run end-to-end calibration on the shipped sample dataset (sdg_08_2_sample_data_010926.zip) against a running AMC microservice. Use when user says 'test sample dataset', 'run sample calibration', 'verify AMC install', or 'launch and test'.\"",
+    "path": "library/nvidia-skills/skills/amc-run-sample-calibration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amc-run-sample-calibration",
+    "link_cmd": "python .agents/library/activate_skill.py link amc-run-sample-calibration"
+  },
+  {
+    "id": "amc-run-video-calibration",
+    "name": "amc-run-video-calibration",
+    "repository": "nvidia-skills",
+    "category": "backend-api",
+    "description": "\"Calibrates pre-recorded `cam_*.mp4` datasets through the AutoMagicCalib REST API. Use for user-supplied local MP4s; route live RTSP streams to `amc-run-rtsp-calibration`.\"",
+    "path": "library/nvidia-skills/skills/amc-run-video-calibration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amc-run-video-calibration",
+    "link_cmd": "python .agents/library/activate_skill.py link amc-run-video-calibration"
+  },
+  {
+    "id": "amc-setup-calibration-stack",
+    "name": "amc-setup-calibration-stack",
+    "repository": "nvidia-skills",
+    "category": "frontend",
+    "description": "\"Launch AutoMagicCalib microservice and web UI from NGC release images via Docker Compose. Use when user says 'deploy auto calibration', 'launch auto calibration', 'launch AMC', 'start MS+UI', or 'set up auto-magic-calib'. Requires NGC API key.\"",
+    "path": "library/nvidia-skills/skills/amc-setup-calibration-stack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amc-setup-calibration-stack",
+    "link_cmd": "python .agents/library/activate_skill.py link amc-setup-calibration-stack"
+  },
+  {
+    "id": "bionemo-boltz2-nim",
+    "name": "bionemo-boltz2-nim",
+    "repository": "nvidia-skills",
+    "category": "backend-api",
+    "description": "> Use Boltz2 NIM for biomolecular structure prediction and binding affinity. Invoke for Boltz2, protein structures, protein-ligand/DNA/RNA complexes, SMILES or CCD ligands, pIC50/IC50 affinity scoring, mmCIF output, hosted NVIDIA API calls, or local Docker deployment.",
+    "path": "library/nvidia-skills/skills/bionemo-boltz2-nim",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bionemo-boltz2-nim",
+    "link_cmd": "python .agents/library/activate_skill.py link bionemo-boltz2-nim",
+    "allowed_tools": [
+      "Bash",
+      "Read",
+      "Write",
+      "AskUserQuestion"
+    ]
+  }
+]

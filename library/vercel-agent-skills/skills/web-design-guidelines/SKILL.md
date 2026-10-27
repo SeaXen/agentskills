@@ -5,7 +5,6 @@ metadata:
   author: vercel
   version: "1.0.0"
   argument-hint: <file-or-pattern>
-category: security-compliance-auth
 ---
 
 # Web Interface Guidelines
