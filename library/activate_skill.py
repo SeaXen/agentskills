@@ -283,5 +283,10 @@ if __name__ == '__main__':
         list_category_skills(args[1])
     elif cmd == 'info' and len(args) >= 2:
         info_skill(args[1])
+    elif cmd not in ['help', '--help', '-h']:
+        # Direct 1-click activation: user typed skill name directly!
+        target_skill = cmd.strip().rstrip('/').split('/')[-1]
+        print(f"âš¡ 1-Click Activation requested for '{target_skill}'...")
+        link_skill(target_skill)
     else:
         print(__doc__)
