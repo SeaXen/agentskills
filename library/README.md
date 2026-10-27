@@ -1,8 +1,8 @@
 # 📚 AgentSkills Offline Reserve Library
 
-> **Total Offline Skills**: 1763 total skills across 32 upstream repositories  
-> **Offline Repositories**: 32 standardized repository bundles  
-> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1763 skills cataloged)  
+> **Total Offline Skills**: 1764 total skills across 33 upstream repositories  
+> **Offline Repositories**: 33 standardized repository bundles  
+> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1764 skills cataloged)  
 > **Individual Repo Indexes**: Every single repository includes its own local `skills_index.json`  
 > **Context Cost**: **0 Active Tokens** (Never loaded into system prompt until activated)  
 > **Purpose**: Serves as your on-disk warehouse for all agent skills across all upstream repositories.
@@ -10,7 +10,7 @@
 ---
 
 > 💡 **What is this folder? (Beginner Explanation)**  
-> Think of `.agents/skills` as your **Kitchen** (where your AI cooks using active skills), and this `.agents/library` folder as your **Warehouse** (where 1763 skills are kept on storage shelves).  
+> Think of `.agents/skills` as your **Kitchen** (where your AI cooks using active skills), and this `.agents/library` folder as your **Warehouse** (where 1764 skills are kept on storage shelves).  
 > Keeping skills in this warehouse costs **0 AI prompt tokens** and keeps your AI fast. Whenever you need a skill, you just bring it to the kitchen with 1 command:  
 > `python .agents/library/activate_skill.py link <skill-name>`
 
@@ -54,6 +54,7 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | **[`ui-ux-pro-max-skill`](./ui-ux-pro-max-skill)** | 🎨 UI/UX Design System Reasoning | 6 | [`JSON`](./ui-ux-pro-max-skill/skills_index.json) | [Guide](./ui-ux-pro-max-skill/README.md) |
 | **[`vercel-agent-skills`](./vercel-agent-skills)** | ▲ Vercel React 19, Next.js & Server Actions | 9 | [`JSON`](./vercel-agent-skills/skills_index.json) | [Guide](./vercel-agent-skills/README.md) |
 | **[`wshobson-agents`](./wshobson-agents)** | 🛡️ Multi-Agent Teams & Session Guards | 5 | [`JSON`](./wshobson-agents/skills_index.json) | [Guide](./wshobson-agents/README.md) |
+| **[`xdevplatform-xurl`](./xdevplatform-xurl)** | 🐦 X (Twitter) API v2 CLI & Media Automation | 1 | [`JSON`](./xdevplatform-xurl/skills_index.json) | [Guide](./xdevplatform-xurl/README.md) |
 
 ---
 
@@ -62,20 +63,20 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 Each repository as well as the library root contains a structured `skills_index.json` designed for programmatic exploration, agent tools, and fast scriptable indexing.
 
 ### Master Index vs. Repository Indexes
-1. **Master Index ([`library/skills_index.json`](./skills_index.json))**: Single JSON array indexing all **1763 skills** across all 32 library repos.
-2. **Individual Repo Indexes (`<repo>/skills_index.json`)**: Scoped to each repository bundle (e.g. `kdense-scientific-skills/skills_index.json`).
+1. **Master Index ([`library/skills_index.json`](./skills_index.json))**: Single JSON array indexing all **1764 skills** across all 33 library repos.
+2. **Individual Repo Indexes (`<repo>/skills_index.json`)**: Scoped to each repository bundle (e.g. `xdevplatform-xurl/skills_index.json`).
 
 ### Standard JSON Schema
 ```json
 {
-  "id": "13c-metabolic-flux",
-  "name": "13c-metabolic-flux",
-  "repository": "kdense-scientific-skills",
-  "category": "research-academic",
-  "description": "Calculates metabolic flux distribution from 13C isotope labeling experiments...",
-  "path": "library/kdense-scientific-skills/skills/13c-metabolic-flux",
-  "activation_cmd": "python .agents/library/activate_skill.py activate 13c-metabolic-flux",
-  "link_cmd": "python .agents/library/activate_skill.py link 13c-metabolic-flux"
+  "id": "xurl",
+  "name": "xurl",
+  "repository": "xdevplatform-xurl",
+  "category": "sales-marketing",
+  "description": "A curl-like CLI tool for making authenticated requests to the X (Twitter) API...",
+  "path": "library/xdevplatform-xurl/skills/xurl",
+  "activation_cmd": "python .agents/library/activate_skill.py activate xurl",
+  "link_cmd": "python .agents/library/activate_skill.py link xurl"
 }
 ```
 
@@ -120,7 +121,7 @@ python .agents/library/activate_skill.py move <skill-name> --to hot
 python .agents/library/activate_skill.py move <skill-name> --to reserve
 ```
 
-### 6. 🔎 Search All 1763 Skills
+### 6. 🔎 Search All 1764 Skills
 ```powershell
 python .agents/library/activate_skill.py search <keyword>
 # or using update.py
