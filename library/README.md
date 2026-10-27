@@ -1,8 +1,8 @@
 # 📚 AgentSkills Offline Reserve Library
 
-> **Total Offline Skills**: 1764 total skills across 33 upstream repositories  
-> **Offline Repositories**: 33 standardized repository bundles  
-> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1764 skills cataloged)  
+> **Total Offline Skills**: 1974 total skills across 35 upstream repositories  
+> **Offline Repositories**: 35 standardized repository bundles  
+> **Master Index**: [`library/skills_index.json`](./skills_index.json) (1974 skills cataloged)  
 > **Individual Repo Indexes**: Every single repository includes its own local `skills_index.json`  
 > **Context Cost**: **0 Active Tokens** (Never loaded into system prompt until activated)  
 > **Purpose**: Serves as your on-disk warehouse for all agent skills across all upstream repositories.
@@ -10,7 +10,7 @@
 ---
 
 > 💡 **What is this folder? (Beginner Explanation)**  
-> Think of `.agents/skills` as your **Kitchen** (where your AI cooks using active skills), and this `.agents/library` folder as your **Warehouse** (where 1764 skills are kept on storage shelves).  
+> Think of `.agents/skills` as your **Kitchen** (where your AI cooks using active skills), and this `.agents/library` folder as your **Warehouse** (where 1974 skills are kept on storage shelves).  
 > Keeping skills in this warehouse costs **0 AI prompt tokens** and keeps your AI fast. Whenever you need a skill, you just bring it to the kitchen with 1 command:  
 > `python .agents/library/activate_skill.py link <skill-name>`
 
@@ -46,6 +46,8 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 | **[`lemomo-opuscar`](./lemomo-opuscar)** | 🎥 Generative Code Cinema & Short Films | 1 | [`JSON`](./lemomo-opuscar/skills_index.json) | [Guide](./lemomo-opuscar/README.md) |
 | **[`magentosh-superpowers`](./magentosh-superpowers)** | ⚡ Multi-Agent Workflows & Orchestration | 86 | [`JSON`](./magentosh-superpowers/skills_index.json) | [Guide](./magentosh-superpowers/README.md) |
 | **[`mattpocock-skills`](./mattpocock-skills)** | 🧙 Software Engineering, TDD & Architecture (Matt Pocock) | 38 | [`JSON`](./mattpocock-skills/skills_index.json) | [Guide](./mattpocock-skills/README.md) |
+| **[`nousresearch-hermes-optional-skills`](./nousresearch-hermes-optional-skills)** | 🔮 Hermes MLOps, Quant, Finance & Blockchain Suite | 152 | [`JSON`](./nousresearch-hermes-optional-skills/skills_index.json) | [Guide](./nousresearch-hermes-optional-skills/README.md) |
+| **[`nousresearch-hermes-skills`](./nousresearch-hermes-skills)** | 🧠 Hermes Core Autonomous Skills & System Automation | 58 | [`JSON`](./nousresearch-hermes-skills/skills_index.json) | [Guide](./nousresearch-hermes-skills/README.md) |
 | **[`obra-superpowers`](./obra-superpowers)** | 🔮 Developer Diagnostics & Tooling (Obra) | 15 | [`JSON`](./obra-superpowers/skills_index.json) | [Guide](./obra-superpowers/README.md) |
 | **[`pbakaus-impeccable`](./pbakaus-impeccable)** | ✨ Impeccable Design, Polish & Frontend Craft | 1 | [`JSON`](./pbakaus-impeccable/skills_index.json) | [Guide](./pbakaus-impeccable/README.md) |
 | **[`ponytail-code-quality`](./ponytail-code-quality)** | 🧹 Ponytail Code Quality & Tech Debt Suite | 6 | [`JSON`](./ponytail-code-quality/skills_index.json) | [Guide](./ponytail-code-quality/README.md) |
@@ -63,20 +65,20 @@ Every repository is self-contained with its own `skills/` folder, local `skills_
 Each repository as well as the library root contains a structured `skills_index.json` designed for programmatic exploration, agent tools, and fast scriptable indexing.
 
 ### Master Index vs. Repository Indexes
-1. **Master Index ([`library/skills_index.json`](./skills_index.json))**: Single JSON array indexing all **1764 skills** across all 33 library repos.
-2. **Individual Repo Indexes (`<repo>/skills_index.json`)**: Scoped to each repository bundle (e.g. `xdevplatform-xurl/skills_index.json`).
+1. **Master Index ([`library/skills_index.json`](./skills_index.json))**: Single JSON array indexing all **1974 skills** across all 35 library repos.
+2. **Individual Repo Indexes (`<repo>/skills_index.json`)**: Scoped to each repository bundle (e.g. `nousresearch-hermes-skills/skills_index.json`).
 
 ### Standard JSON Schema
 ```json
 {
-  "id": "xurl",
-  "name": "xurl",
-  "repository": "xdevplatform-xurl",
-  "category": "sales-marketing",
-  "description": "A curl-like CLI tool for making authenticated requests to the X (Twitter) API...",
-  "path": "library/xdevplatform-xurl/skills/xurl",
-  "activation_cmd": "python .agents/library/activate_skill.py activate xurl",
-  "link_cmd": "python .agents/library/activate_skill.py link xurl"
+  "id": "hermes-agent",
+  "name": "hermes-agent",
+  "repository": "nousresearch-hermes-skills",
+  "category": "agent-orchestration",
+  "description": "Nous Research Hermes autonomous agent framework...",
+  "path": "library/nousresearch-hermes-skills/skills/hermes-agent",
+  "activation_cmd": "python .agents/library/activate_skill.py activate hermes-agent",
+  "link_cmd": "python .agents/library/activate_skill.py link hermes-agent"
 }
 ```
 
@@ -121,7 +123,7 @@ python .agents/library/activate_skill.py move <skill-name> --to hot
 python .agents/library/activate_skill.py move <skill-name> --to reserve
 ```
 
-### 6. 🔎 Search All 1764 Skills
+### 6. 🔎 Search All 1974 Skills
 ```powershell
 python .agents/library/activate_skill.py search <keyword>
 # or using update.py
