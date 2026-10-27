@@ -1,15 +1,15 @@
 ---
-description: Search, inspect, and activate any of the 889+ skills from the offline library into your active workspace.
+description: Search, inspect, and activate any of the 2,031 skills from the 36 offline reserve repositories into your active workspace.
 ---
 
 # /library Workflow - Skill Library Manager
 
-Manage and activate skills from the local 889+ skills repository (`.agent/library/antigravity-awesome-skills/`).
+Manage and activate skills from the local 2,031 skills repository catalog across 36 offline repositories (`.agents/library/`).
 
 ## How to Use
 
 ### 1. Search Skills
-Search the 889 skills by topic, tool, or framework:
+Search the 2,031 skills across all 36 repositories by topic, tool, or framework:
 ```bash
 python .agent/library/activate_skill.py search <keyword>
 ```

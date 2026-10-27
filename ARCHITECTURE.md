@@ -10,7 +10,7 @@ Antigravity Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas
 - **104 Active Skills** - Domain-specific knowledge modules
-- **889 Library Skills** - Offline capability archive (`.agent/library/`)
+- **2,031 Library Reserve Skills** - Offline capability archive across 36 repositories (`.agent/library/`)
 - **17 Workflows** - Slash command procedures
 
 ---
@@ -22,7 +22,7 @@ Antigravity Kit is a modular system consisting of:
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
 ├── skills/                  # 104 Active Skills
-├── library/                 # 889 Offline Skills Catalog & Activator
+├── library/                 # 2,031 Offline Reserve Skills (36 repositories) & Activator
 ├── workflows/               # 17 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
@@ -292,7 +292,7 @@ Slash command procedures. Invoke with `/command`.
 | `/deploy`        | Safe production deployment procedures & pre-flight checks                   |
 | `/enhance`       | Iterative feature updates on existing codebases                             |
 | `/impeccable`    | Anti-cliché UI polish, typography, and frontend design review                |
-| `/library`       | Search, inspect, and activate from the 889+ offline skills library          |
+| `/library`       | Search, inspect, and activate from the 2,031 offline reserve skills across 36 repositories          |
 | `/orchestrate`   | Multi-agent perspective coordination & workload balancing                   |
 | `/owl`           | Decoupled deep investigator & verified coder pipeline                       |
 | `/plan`          | Structured roadmap & task dependency planning (no code)                     |

@@ -5,11 +5,11 @@
 [![Skills](https://img.shields.io/badge/Skills-594_Total-2563EB?style=for-the-badge&logo=anthropic)](./skills)
 [![Specialist Agents](https://img.shields.io/badge/Specialist_Agents-20-7C3AED?style=for-the-badge)](./agents)
 [![Workflows](https://img.shields.io/badge/Autonomous_Workflows-17-059669?style=for-the-badge)](./workflows)
-[![Repositories](https://img.shields.io/badge/Upstream_Origins-32_Sources-D97706?style=for-the-badge)](./SKILLS_PROVENANCE.md)
-[![Awesome Library](https://img.shields.io/badge/Awesome_Library-882_Skills-DC2626?style=for-the-badge)](./library)
+[![Repositories](https://img.shields.io/badge/Upstream_Origins-36_Sources-D97706?style=for-the-badge)](./SKILLS_PROVENANCE.md)
+[![Offline Reserve Library](https://img.shields.io/badge/Offline_Reserve_Library-2,031_Skills-DC2626?style=for-the-badge)](./library)
 
 **The complete, production-grade intelligence suite for AI agents (Antigravity IDE, Claude Code, Cursor, Windsurf, Cline).**  
-594 curated modular skills, 20 domain-specialist personas, 17 automated slash workflows, and 882 library extensions.
+594 active modular skills, 20 domain-specialist personas, 17 automated slash workflows, and 2,031 offline reserve library skills across 36 repositories.
 
 [Quick Start](#-quick-start--installation) • [Upstream Repositories](#-upstream-repositories-breakdown) • [How to Update](#-how-to-update) • [Architecture](#-directory-architecture) • [Provenance Registry](./SKILLS_PROVENANCE.md)
 
@@ -42,7 +42,7 @@ Modern AI coding agents become dramatically more capable when augmented with tar
 
 This vault consolidates the highest-quality open-source and proprietary agent skills into a single, standardized, and version-controlled repository:
 - **594 Verified Skills**: Covering React 19, Cloudflare, Next.js, Postgres, smart contract security, UI animation, literature research, and enterprise operations.
-- **Zero Prompt Bloat**: Configured to work seamlessly with Antigravity context budgeting (~89 active hot skills, 594 stored on disk, 882 in offline reserve).
+- **Zero Prompt Bloat**: Configured to work seamlessly with Antigravity context budgeting (~89 active hot skills, 594 installed in `.agents/skills`, 2,031 in offline reserve library across 36 repositories).
 - **100% Traceable Provenance**: Every skill is locked to its upstream author, source URL, and git hash in `skills-lock.json`.
 
 ---
@@ -1305,7 +1305,7 @@ Located in [`.agents/workflows/`](./workflows):
 | **`/deploy`** | [`deploy.md`](./workflows/deploy.md) | Pre-flight security scans, environment variable validation, and deployment execution to Vercel/Cloudflare. |
 | **`/enhance`** | [`enhance.md`](./workflows/enhance.md) | Iterative feature addition workflow preserving existing architecture and automated regression tests. |
 | **`/impeccable`** | [`impeccable.md`](./workflows/impeccable.md) | Paul Bakaus Impeccable design workflow: critique typography, micro-spacing, contrast, and visual rhythm. |
-| **`/library`** | [`library.md`](./workflows/library.md) | Search, inspect, and activate any of the 882 offline skills into your active workspace hot set. |
+| **`/library`** | [`library.md`](./workflows/library.md) | Search, inspect, and activate any of the 2,031 offline reserve skills into your active workspace hot set. |
 | **`/orchestrate`**| [`orchestrate.md`](./workflows/orchestrate.md) | Multi-agent coordination pipeline assigning domain tasks to specialized subagents in parallel. |
 | **`/plan`** | [`plan.md`](./workflows/plan.md) | 4-phase project planning generating actionable plan markdown documents before writing code. |
 | **`/preview`** | [`preview.md`](./workflows/preview.md) | Local development preview server management, port discovery, and visual readiness validation. |
@@ -1368,7 +1368,7 @@ python .agents/update.py --tag database-sql
 ├── workflows/                  # 17 Autonomous slash command workflows (/battle, /owl, /debug, etc.)
 ├── rules/                      # Core behavioral rules (GEMINI.md, brainsyncory.md)
 ├── scripts/                    # Validation scripts (checklist.py, verify_all.py)
-├── library/                    # Offline store (882 skills in antigravity-awesome-skills)
+├── library/                    # Offline reserve store (2,031 skills across 36 repositories)
 │   └── activate_skill.py       # Instant 1-command hot-set activation utility
 ├── .shared/                    # Shared dataset matrices (ui-ux-pro-max palettes, typography, icons)
 ├── SKILLS_PROVENANCE.md        # Complete upstream repository origin registry

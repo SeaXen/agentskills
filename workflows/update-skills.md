@@ -15,8 +15,8 @@ Run this workflow whenever you want to check for upstream updates across all ski
    .\.agents\update.ps1
    ```
 2. The script automatically:
-   - Syncs the latest 882+ skills from `benjaminasterA/antigravity-awesome-skills`.
-   - Runs `npx skills update` from workspace root to update all 32 upstream skill sources.
+   - Syncs and updates skills across all 36 offline reserve repositories (2,031 total skills).
+   - Runs skill updates across all active and upstream skill sources.
    - Verifies all skills for valid `SKILL.md` structure.
    - Re-indexes `skills-lock.json` and updates `SKILLS_PROVENANCE.md` and `README.md`.
    - Auto-commits and pushes all changes to `https://github.com/SeaXen/agentskills.git`.
