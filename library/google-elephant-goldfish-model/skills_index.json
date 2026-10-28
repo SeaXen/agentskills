@@ -1,0 +1,72 @@
+[
+  {
+    "id": "egm-bootstrap",
+    "name": "egm-bootstrap",
+    "repository": "google-elephant-goldfish-model",
+    "category": "general-development",
+    "description": "Bootstrap directory README.md files across a repository subtree.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-bootstrap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-bootstrap",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-bootstrap"
+  },
+  {
+    "id": "egm-brainstorm",
+    "name": "egm-brainstorm",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (EGM). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with /egm-draft.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-brainstorm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-brainstorm",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-brainstorm"
+  },
+  {
+    "id": "egm-draft",
+    "name": "egm-draft",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Drafts a design document section-by-section using the concepts brief from egm-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (EGM) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-draft",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-draft",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-draft"
+  },
+  {
+    "id": "egm-drift-report",
+    "name": "egm-drift-report",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Runs drift detection on all design documents to check for document and code consistency. Produces an actionable report with differences. Use when the user asks to detect drift or check for consistency across all design documents or READMEs in a directory.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-drift-report",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-drift-report",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-drift-report"
+  },
+  {
+    "id": "egm-resolve",
+    "name": "egm-resolve",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-resolve",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-resolve",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-resolve"
+  },
+  {
+    "id": "egm-review",
+    "name": "egm-review",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Orchestrates the EGM Goldfish Review Protocol. Used as part of the EGM process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-review",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-review"
+  },
+  {
+    "id": "egm-review-loop",
+    "name": "egm-review-loop",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (EGM) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-review-loop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-review-loop",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-review-loop"
+  }
+]

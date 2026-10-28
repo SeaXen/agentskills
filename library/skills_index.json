@@ -2512,6 +2512,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link using-agent-skills"
   },
   {
+    "id": "clarity",
+    "name": "clarity",
+    "repository": "addyosmani-clarity",
+    "category": "frontend",
+    "description": "\"Draft, rewrite, or review reader-facing prose so it is specific, useful, and recognizably the author's without inventing facts or performing humanness. Use for essays, articles, newsletters, documentation, talks, launch copy, and other important prose that feels generic, hollow, or AI-shaped. Supports co-write, rewrite, review, and lint modes.\"",
+    "path": "library/addyosmani-clarity/skills/clarity",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clarity",
+    "link_cmd": "python .agents/library/activate_skill.py link clarity"
+  },
+  {
     "id": "drawio",
     "name": "drawio",
     "repository": "agents365-ai-drawio-skill",
@@ -2550,6 +2560,44 @@
     "path": "library/agricidaniel-claude-seo/skills/claude-seo",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-seo",
     "link_cmd": "python .agents/library/activate_skill.py link claude-seo"
+  },
+  {
+    "id": "machine",
+    "name": "machine",
+    "repository": "airsuphq-machine-skill",
+    "category": "frontend",
+    "description": "Turn one line (\"a turbofan jet engine\", \"a mechanical watch\", \"an LVAD heart pump\") into a photoreal, physics based, interactive 3D simulation of that machine in a single HTML file, plus a 20 to 30 second film to post it. Real proportions in metres, real materials (PBR metals, paints, polymers, glass), studio lighting with soft shadows, moving parts driven by a small solver that computes real numbers (thrust, torque, rpm, flow, pressure, efficiency), and modes to explode it, cut it open with clean section caps, x-ray it, slow it down, label it and break it. Use this whenever someone asks to build, simulate, visualise, explain or \"show how X works\" for any machine, engine, mechanism, device, instrument or piece of hardware, wants an interactive 3D model or a cutaway, or wants a video of a machine for a post, even if they never say \"simulation\" or \"three.js\".",
+    "path": "library/airsuphq-machine-skill/skills/machine",
+    "activation_cmd": "python .agents/library/activate_skill.py activate machine",
+    "link_cmd": "python .agents/library/activate_skill.py link machine"
+  },
+  {
+    "id": "academic-humanizer",
+    "name": "academic-humanizer",
+    "repository": "aiscientists-dev-academic-humanizer",
+    "category": "research-academic",
+    "description": "Improve the clarity and voice of AI-assisted academic writing (papers, theses, rebuttals) and funding proposals (NSF Project Summary/Description, NIH Specific Aims): preserve scholarly conventions, match claims to evidence (and, for proposals, claims to feasibility), and match the author's own voice. It never changes a number, result, or citation, and it is not for evading AI-use disclosure. Use when editing AI-assisted academic prose or grant proposals.",
+    "path": "library/aiscientists-dev-academic-humanizer/skills/academic-humanizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate academic-humanizer",
+    "link_cmd": "python .agents/library/activate_skill.py link academic-humanizer",
+    "allowed_tools": [
+      "[Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "AskUserQuestion]"
+    ]
+  },
+  {
+    "id": "find-reverse-engineered",
+    "name": "find-reverse-engineered",
+    "repository": "alexgaoth-awesome-reverse-engineered",
+    "category": "frontend",
+    "description": "Find an open-source, reverse-engineered tool for a closed app, API, device, protocol, file format or game, then read or fetch it. Use when a task needs to talk to something that has no official API, SDK, driver or spec, or only a limited one. Examples include \"control my Tuya plug locally\", \"read a .psd or .dwg file\", \"unofficial WhatsApp, Instagram or Bilibili client\", \"Bambu printer protocol\", \"talk to my car's API\", \"Garmin or CGM data\", \"decompilation of a game\" and \"OpenAI-compatible proxy for a web chatbot\". The skill searches a curated index of 17,000+ verified projects ranked by stars, language, license and activity.",
+    "path": "library/alexgaoth-awesome-reverse-engineered/skills/find-reverse-engineered",
+    "activation_cmd": "python .agents/library/activate_skill.py activate find-reverse-engineered",
+    "link_cmd": "python .agents/library/activate_skill.py link find-reverse-engineered"
   },
   {
     "id": "changelog",
@@ -14934,6 +14982,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link obsidian-wiki"
   },
   {
+    "id": "claudemy",
+    "name": "claudemy",
+    "repository": "assafkip-claudemy",
+    "category": "frontend",
+    "description": "Turn any topic into a short audio course. Researches the topic on the web, works out what most good sources agree on and where they split, then writes and renders a broken-down set of 2-minute two-host audio lessons, each with a one-screen card and one small thing to try. Can also build the class from one specific person's work when asked. Use this whenever someone wants to learn a skill or subject (\"teach me X\", \"make me a course on X\", \"I want to learn how to X\", \"break X down into lessons\", \"audio lessons on X\", \"a class on X from someone's writing\", \"podcast-style lessons\"), even if they don't say \"audio\" or \"class\".",
+    "path": "library/assafkip-claudemy/skills/claudemy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claudemy",
+    "link_cmd": "python .agents/library/activate_skill.py link claudemy"
+  },
+  {
     "id": "swiftui-expert-skill",
     "name": "swiftui-expert-skill",
     "repository": "avdlee-swiftui-agent-skill",
@@ -14962,6 +15020,676 @@
     "path": "library/ayghri-i-have-adhd/skills/i-have-adhd",
     "activation_cmd": "python .agents/library/activate_skill.py activate i-have-adhd",
     "link_cmd": "python .agents/library/activate_skill.py link i-have-adhd"
+  },
+  {
+    "id": "architect",
+    "name": "architect",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape.\"",
+    "path": "library/backnotprop-pstack/skills/architect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate architect",
+    "link_cmd": "python .agents/library/activate_skill.py link architect"
+  },
+  {
+    "id": "arena",
+    "name": "arena",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape.\"",
+    "path": "library/backnotprop-pstack/skills/arena",
+    "activation_cmd": "python .agents/library/activate_skill.py activate arena",
+    "link_cmd": "python .agents/library/activate_skill.py link arena"
+  },
+  {
+    "id": "automate-me",
+    "name": "automate-me",
+    "repository": "backnotprop-pstack",
+    "category": "agent-orchestration",
+    "description": "\"Use for \\\"automate me\\\", \\\"create/update/refresh my -mode skill\\\", \\\"turn/capture my preferences or working style into a skill\\\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts.\"",
+    "path": "library/backnotprop-pstack/skills/automate-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate automate-me",
+    "link_cmd": "python .agents/library/activate_skill.py link automate-me"
+  },
+  {
+    "id": "benchmark-checklist",
+    "name": "benchmark-checklist",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured.\"",
+    "path": "library/backnotprop-pstack/skills/benchmark-checklist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate benchmark-checklist",
+    "link_cmd": "python .agents/library/activate_skill.py link benchmark-checklist"
+  },
+  {
+    "id": "blast-radius",
+    "name": "blast-radius",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a small diff you don't trust.\"",
+    "path": "library/backnotprop-pstack/skills/blast-radius",
+    "activation_cmd": "python .agents/library/activate_skill.py activate blast-radius",
+    "link_cmd": "python .agents/library/activate_skill.py link blast-radius"
+  },
+  {
+    "id": "bro",
+    "name": "bro",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "Restate the last message in plain human language, with no jargon.",
+    "path": "library/backnotprop-pstack/skills/bro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bro",
+    "link_cmd": "python .agents/library/activate_skill.py link bro"
+  },
+  {
+    "id": "correct",
+    "name": "correct",
+    "repository": "backnotprop-pstack",
+    "category": "testing-qa",
+    "description": "\"Find the mistakes agents keep repeating in this repo and make each one impossible. Try architecture first, then types, then a lint whose error names the fix, then a test, and write docs last. Prove each check fails on a real past mistake. Repeat this each time the operator corrects you. Use for /correct.\"",
+    "path": "library/backnotprop-pstack/skills/correct",
+    "activation_cmd": "python .agents/library/activate_skill.py activate correct",
+    "link_cmd": "python .agents/library/activate_skill.py link correct"
+  },
+  {
+    "id": "create-formal-verification-skill",
+    "name": "create-formal-verification-skill",
+    "repository": "backnotprop-pstack",
+    "category": "testing-qa",
+    "description": "\"Generate a project-local skill that formally verifies the code where a bug costs the most and tests reach the least, in any language, with whichever verification tool fits. Use for /create-formal-verification-skill, \\\"model-check this race\\\", \\\"prove this invariant\\\", or when concurrency, retries, state machines, parsers, or unsafe code need more than tests.\"",
+    "path": "library/backnotprop-pstack/skills/create-formal-verification-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-formal-verification-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link create-formal-verification-skill"
+  },
+  {
+    "id": "create-verification-skill",
+    "name": "create-verification-skill",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Generate a project-local verification skill that drives your app the way a user does \u2014 any language, framework, or platform. Use for /create-verification-skill, \\\"make a control skill for this repo\\\", or when a project has no scripted way to prove UI/CLI/service behavior.\"",
+    "path": "library/backnotprop-pstack/skills/create-verification-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-verification-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link create-verification-skill"
+  },
+  {
+    "id": "figure-it-out",
+    "name": "figure-it-out",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use for /figure-it-out or 'figure it out'.\"",
+    "path": "library/backnotprop-pstack/skills/figure-it-out",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figure-it-out",
+    "link_cmd": "python .agents/library/activate_skill.py link figure-it-out"
+  },
+  {
+    "id": "how",
+    "name": "how",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Use for \\\"how does X work\\\", code walkthroughs before changing something, and placement / ownership / layering questions (\\\"where should this live\\\", \\\"which package owns this\\\", \\\"is this the right layer\\\"). Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation.\"",
+    "path": "library/backnotprop-pstack/skills/how",
+    "activation_cmd": "python .agents/library/activate_skill.py activate how",
+    "link_cmd": "python .agents/library/activate_skill.py link how"
+  },
+  {
+    "id": "in-your-own-words",
+    "name": "in-your-own-words",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Restate in your own words what you think the user's goals are and what problem they're trying to solve. Use for /in-your-own-words.\"",
+    "path": "library/backnotprop-pstack/skills/in-your-own-words",
+    "activation_cmd": "python .agents/library/activate_skill.py activate in-your-own-words",
+    "link_cmd": "python .agents/library/activate_skill.py link in-your-own-words"
+  },
+  {
+    "id": "interrogate",
+    "name": "interrogate",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Use for \\\"interrogate\\\", \\\"adversarial review\\\", \\\"multi-model review\\\", \\\"challenge this\\\", \\\"stress test this code\\\", \\\"find blind spots\\\", or \\\"tear this apart\\\". Multiple LLM reviewers challenge changes from independent angles.\"",
+    "path": "library/backnotprop-pstack/skills/interrogate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate interrogate",
+    "link_cmd": "python .agents/library/activate_skill.py link interrogate"
+  },
+  {
+    "id": "ketchup",
+    "name": "ketchup",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Catch the user up on what changed in this chat since their last message, in plain words and small visuals. List every item waiting on them with what they need to decide it from the reply alone. Use for /ketchup.\"",
+    "path": "library/backnotprop-pstack/skills/ketchup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ketchup",
+    "link_cmd": "python .agents/library/activate_skill.py link ketchup"
+  },
+  {
+    "id": "ketchup-video",
+    "name": "ketchup-video",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Catch the user up like /ketchup, with a short silent video of slides for what happened and the waiting calls as text under it. Use for /ketchup-video.\"",
+    "path": "library/backnotprop-pstack/skills/ketchup-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ketchup-video",
+    "link_cmd": "python .agents/library/activate_skill.py link ketchup-video"
+  },
+  {
+    "id": "maintain-formal-verification-skill",
+    "name": "maintain-formal-verification-skill",
+    "repository": "backnotprop-pstack",
+    "category": "testing-qa",
+    "description": "\"Bring a project's formal verification back in line with the code after the code changes: find the commits that touched verified code, update the model, harness, or properties to describe the code as it is now, rerun, and say whether each failure is drift in the verification or a bug in the code. Use for /maintain-formal-verification-skill, \\\"is the model still true to the code\\\", or after merges and refactors that touched verified code without rechecking it.\"",
+    "path": "library/backnotprop-pstack/skills/maintain-formal-verification-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maintain-formal-verification-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link maintain-formal-verification-skill"
+  },
+  {
+    "id": "maintain-verification-skill",
+    "name": "maintain-verification-skill",
+    "repository": "backnotprop-pstack",
+    "category": "backend-api",
+    "description": "\"Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \\\"audit the verify skill\\\".\"",
+    "path": "library/backnotprop-pstack/skills/maintain-verification-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maintain-verification-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link maintain-verification-skill"
+  },
+  {
+    "id": "make-bot-ui",
+    "name": "make-bot-ui",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "Use when building a custom UI (page, dashboard, buttons) that should wake a Grok Bot over a webhook, when the user must provide a webhook sender key, or when exposing that UI on Tailscale.",
+    "path": "library/backnotprop-pstack/skills/make-bot-ui",
+    "activation_cmd": "python .agents/library/activate_skill.py activate make-bot-ui",
+    "link_cmd": "python .agents/library/activate_skill.py link make-bot-ui"
+  },
+  {
+    "id": "no-comments",
+    "name": "no-comments",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints.\"",
+    "path": "library/backnotprop-pstack/skills/no-comments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate no-comments",
+    "link_cmd": "python .agents/library/activate_skill.py link no-comments"
+  },
+  {
+    "id": "poteto-help",
+    "name": "poteto-help",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task. Type /poteto-help with a question.",
+    "path": "library/backnotprop-pstack/skills/poteto-help",
+    "activation_cmd": "python .agents/library/activate_skill.py activate poteto-help",
+    "link_cmd": "python .agents/library/activate_skill.py link poteto-help"
+  },
+  {
+    "id": "poteto-mode",
+    "name": "poteto-mode",
+    "repository": "backnotprop-pstack",
+    "category": "agent-orchestration",
+    "description": "poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, /poteto-mode, or requests to work in this style.",
+    "path": "library/backnotprop-pstack/skills/poteto-mode",
+    "activation_cmd": "python .agents/library/activate_skill.py activate poteto-mode",
+    "link_cmd": "python .agents/library/activate_skill.py link poteto-mode"
+  },
+  {
+    "id": "principle-attack-the-premise",
+    "name": "principle-attack-the-premise",
+    "repository": "backnotprop-pstack",
+    "category": "testing-qa",
+    "description": "\"Apply when two or more fixes that share one premise have failed the same gate. Write the premise down and test it directly before you write another fix that assumes it.\"",
+    "path": "library/backnotprop-pstack/skills/principle-attack-the-premise",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-attack-the-premise",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-attack-the-premise"
+  },
+  {
+    "id": "principle-boundary-discipline",
+    "name": "principle-boundary-discipline",
+    "repository": "backnotprop-pstack",
+    "category": "backend-api",
+    "description": "\"Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions.\"",
+    "path": "library/backnotprop-pstack/skills/principle-boundary-discipline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-boundary-discipline",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-boundary-discipline"
+  },
+  {
+    "id": "principle-build-the-lever",
+    "name": "principle-build-the-lever",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun.\"",
+    "path": "library/backnotprop-pstack/skills/principle-build-the-lever",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-build-the-lever",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-build-the-lever"
+  },
+  {
+    "id": "principle-encode-lessons-in-structure",
+    "name": "principle-encode-lessons-in-structure",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction. Encode the rule as a lint, metadata flag, runtime check, or script instead of more text.\"",
+    "path": "library/backnotprop-pstack/skills/principle-encode-lessons-in-structure",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-encode-lessons-in-structure",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-encode-lessons-in-structure"
+  },
+  {
+    "id": "principle-exhaust-the-design-space",
+    "name": "principle-exhaust-the-design-space",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing.\"",
+    "path": "library/backnotprop-pstack/skills/principle-exhaust-the-design-space",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-exhaust-the-design-space",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-exhaust-the-design-space"
+  },
+  {
+    "id": "principle-experience-first",
+    "name": "principle-experience-first",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones.\"",
+    "path": "library/backnotprop-pstack/skills/principle-experience-first",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-experience-first",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-experience-first"
+  },
+  {
+    "id": "principle-explain-the-number",
+    "name": "principle-explain-the-number",
+    "repository": "backnotprop-pstack",
+    "category": "backend-api",
+    "description": "\"Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think.\"",
+    "path": "library/backnotprop-pstack/skills/principle-explain-the-number",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-explain-the-number",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-explain-the-number"
+  },
+  {
+    "id": "principle-fix-root-causes",
+    "name": "principle-fix-root-causes",
+    "repository": "backnotprop-pstack",
+    "category": "agent-orchestration",
+    "description": "\"Apply when debugging. Trace each symptom back to the first place the system went wrong and fix it there. A guard is a fix only when the state it handles is legitimate.\"",
+    "path": "library/backnotprop-pstack/skills/principle-fix-root-causes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-fix-root-causes",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-fix-root-causes"
+  },
+  {
+    "id": "principle-foundational-thinking",
+    "name": "principle-foundational-thinking",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious.\"",
+    "path": "library/backnotprop-pstack/skills/principle-foundational-thinking",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-foundational-thinking",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-foundational-thinking"
+  },
+  {
+    "id": "principle-guard-the-context-window",
+    "name": "principle-guard-the-context-window",
+    "repository": "backnotprop-pstack",
+    "category": "agent-orchestration",
+    "description": "\"Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads.\"",
+    "path": "library/backnotprop-pstack/skills/principle-guard-the-context-window",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-guard-the-context-window",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-guard-the-context-window"
+  },
+  {
+    "id": "principle-laziness-protocol",
+    "name": "principle-laziness-protocol",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading. Bias toward deletion and the smallest change that solves the problem.\"",
+    "path": "library/backnotprop-pstack/skills/principle-laziness-protocol",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-laziness-protocol",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-laziness-protocol"
+  },
+  {
+    "id": "principle-make-operations-idempotent",
+    "name": "principle-make-operations-idempotent",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.\"",
+    "path": "library/backnotprop-pstack/skills/principle-make-operations-idempotent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-make-operations-idempotent",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-make-operations-idempotent"
+  },
+  {
+    "id": "principle-migrate-callers-then-delete-legacy-apis",
+    "name": "principle-migrate-callers-then-delete-legacy-apis",
+    "repository": "backnotprop-pstack",
+    "category": "backend-api",
+    "description": "\"Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers.\"",
+    "path": "library/backnotprop-pstack/skills/principle-migrate-callers-then-delete-legacy-apis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-migrate-callers-then-delete-legacy-apis",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-migrate-callers-then-delete-legacy-apis"
+  },
+  {
+    "id": "principle-minimize-reader-load",
+    "name": "principle-minimize-reader-load",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.\"",
+    "path": "library/backnotprop-pstack/skills/principle-minimize-reader-load",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-minimize-reader-load",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-minimize-reader-load"
+  },
+  {
+    "id": "principle-model-the-domain",
+    "name": "principle-model-the-domain",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files.\"",
+    "path": "library/backnotprop-pstack/skills/principle-model-the-domain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-model-the-domain",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-model-the-domain"
+  },
+  {
+    "id": "principle-never-block-on-the-human",
+    "name": "principle-never-block-on-the-human",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply when tempted to ask 'should I do X?' on reversible work.\"",
+    "path": "library/backnotprop-pstack/skills/principle-never-block-on-the-human",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-never-block-on-the-human",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-never-block-on-the-human"
+  },
+  {
+    "id": "principle-outcome-oriented-execution",
+    "name": "principle-outcome-oriented-execution",
+    "repository": "backnotprop-pstack",
+    "category": "agent-orchestration",
+    "description": "\"Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code.\"",
+    "path": "library/backnotprop-pstack/skills/principle-outcome-oriented-execution",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-outcome-oriented-execution",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-outcome-oriented-execution"
+  },
+  {
+    "id": "principle-prove-it-works",
+    "name": "principle-prove-it-works",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'\"",
+    "path": "library/backnotprop-pstack/skills/principle-prove-it-works",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-prove-it-works",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-prove-it-works"
+  },
+  {
+    "id": "principle-redesign-from-first-principles",
+    "name": "principle-redesign-from-first-principles",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply when integrating a new requirement into an existing design.\"",
+    "path": "library/backnotprop-pstack/skills/principle-redesign-from-first-principles",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-redesign-from-first-principles",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-redesign-from-first-principles"
+  },
+  {
+    "id": "principle-separate-before-serializing-shared-state",
+    "name": "principle-separate-before-serializing-shared-state",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.\"",
+    "path": "library/backnotprop-pstack/skills/principle-separate-before-serializing-shared-state",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-separate-before-serializing-shared-state",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-separate-before-serializing-shared-state"
+  },
+  {
+    "id": "principle-sequence-verifiable-units",
+    "name": "principle-sequence-verifiable-units",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence proves itself to a reviewer.\"",
+    "path": "library/backnotprop-pstack/skills/principle-sequence-verifiable-units",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-sequence-verifiable-units",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-sequence-verifiable-units"
+  },
+  {
+    "id": "principle-subtract-before-you-add",
+    "name": "principle-subtract-before-you-add",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply when sequencing an addition, refactor, or rewrite. Remove dead code, redundant validators, and stub references first, then build on the simpler base.\"",
+    "path": "library/backnotprop-pstack/skills/principle-subtract-before-you-add",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-subtract-before-you-add",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-subtract-before-you-add"
+  },
+  {
+    "id": "principle-test-behavior-not-implementation",
+    "name": "principle-test-behavior-not-implementation",
+    "repository": "backnotprop-pstack",
+    "category": "testing-qa",
+    "description": "\"Apply when you write, change, or keep a test. Assert what the code's users can observe, so that the test fails when that behavior breaks and keeps passing when only the internals change.\"",
+    "path": "library/backnotprop-pstack/skills/principle-test-behavior-not-implementation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-test-behavior-not-implementation",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-test-behavior-not-implementation"
+  },
+  {
+    "id": "principle-type-system-discipline",
+    "name": "principle-type-system-discipline",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, exhaust variants, derive from authoritative schemas.\"",
+    "path": "library/backnotprop-pstack/skills/principle-type-system-discipline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate principle-type-system-discipline",
+    "link_cmd": "python .agents/library/activate_skill.py link principle-type-system-discipline"
+  },
+  {
+    "id": "recall",
+    "name": "recall",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what have I been working on', 'where did I leave off', before starting or resuming work.\"",
+    "path": "library/backnotprop-pstack/skills/recall",
+    "activation_cmd": "python .agents/library/activate_skill.py activate recall",
+    "link_cmd": "python .agents/library/activate_skill.py link recall"
+  },
+  {
+    "id": "reflect",
+    "name": "reflect",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect.",
+    "path": "library/backnotprop-pstack/skills/reflect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reflect",
+    "link_cmd": "python .agents/library/activate_skill.py link reflect"
+  },
+  {
+    "id": "reproduce-and-fix-issues",
+    "name": "reproduce-and-fix-issues",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "Reproduce triaged Slack bugs through a configured app-control adapter, verify existing fixes, and open a bounded draft pull request only after before-and-after proof. Use only from the configured Benny repro automation.",
+    "path": "library/backnotprop-pstack/skills/reproduce-and-fix-issues",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reproduce-and-fix-issues",
+    "link_cmd": "python .agents/library/activate_skill.py link reproduce-and-fix-issues"
+  },
+  {
+    "id": "setup-benny",
+    "name": "setup-benny",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "Configure Benny and prepare its triage and repro automations. Use when installing Benny or changing its Slack, tracker, repository, routing, control, model, or budget settings.",
+    "path": "library/backnotprop-pstack/skills/setup-benny",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-benny",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-benny"
+  },
+  {
+    "id": "setup-pstack",
+    "name": "setup-pstack",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "Configure which models pstack uses per role and at what reasoning budget. Detects your available models and writes an always-applied rule that overrides the skill defaults. Use for /setup-pstack, \"configure pstack models\", \"pstack budget\", or changing pstack's model choices.",
+    "path": "library/backnotprop-pstack/skills/setup-pstack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-pstack",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-pstack"
+  },
+  {
+    "id": "sharpen",
+    "name": "sharpen",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "\"Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen.\"",
+    "path": "library/backnotprop-pstack/skills/sharpen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sharpen",
+    "link_cmd": "python .agents/library/activate_skill.py link sharpen"
+  },
+  {
+    "id": "show-me-your-work",
+    "name": "show-me-your-work",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away.\"",
+    "path": "library/backnotprop-pstack/skills/show-me-your-work",
+    "activation_cmd": "python .agents/library/activate_skill.py activate show-me-your-work",
+    "link_cmd": "python .agents/library/activate_skill.py link show-me-your-work"
+  },
+  {
+    "id": "statechart",
+    "name": "statechart",
+    "repository": "backnotprop-pstack",
+    "category": "testing-qa",
+    "description": "\"Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it as a Mermaid statechart. The report gives the shortest path to each state that breaks a rule. Use for /statechart, or to show a bug as a path through states.\"",
+    "path": "library/backnotprop-pstack/skills/statechart",
+    "activation_cmd": "python .agents/library/activate_skill.py activate statechart",
+    "link_cmd": "python .agents/library/activate_skill.py link statechart"
+  },
+  {
+    "id": "swarm",
+    "name": "swarm",
+    "repository": "backnotprop-pstack",
+    "category": "devops-cloud",
+    "description": "\"Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration.\"",
+    "path": "library/backnotprop-pstack/skills/swarm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate swarm",
+    "link_cmd": "python .agents/library/activate_skill.py link swarm"
+  },
+  {
+    "id": "tdd",
+    "name": "tdd",
+    "repository": "backnotprop-pstack",
+    "category": "testing-qa",
+    "description": "\"Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear, expensive, integration-heavy, or not requested.\"",
+    "path": "library/backnotprop-pstack/skills/tdd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tdd",
+    "link_cmd": "python .agents/library/activate_skill.py link tdd"
+  },
+  {
+    "id": "teach",
+    "name": "teach",
+    "repository": "backnotprop-pstack",
+    "category": "agent-orchestration",
+    "description": "\"Explain a body of work plainly so a person actually understands it. Runs the `how` and `why` skills and weaves what they find into one clear explanation. Use for 'teach me this', 'help me really understand X', 'explain this change or subsystem to me'.\"",
+    "path": "library/backnotprop-pstack/skills/teach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate teach",
+    "link_cmd": "python .agents/library/activate_skill.py link teach"
+  },
+  {
+    "id": "technical-writing",
+    "name": "technical-writing",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Layered technical-writing standard: Di\u00e1taxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages.\"",
+    "path": "library/backnotprop-pstack/skills/technical-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate technical-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link technical-writing"
+  },
+  {
+    "id": "triage-issue-reports",
+    "name": "triage-issue-reports",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "Triage Slack issue reports with one thread-only verdict, evidence review, cause-aware routing, tracker dedupe, and fail-closed ticket creation. Use only from the configured Benny triage automation.",
+    "path": "library/backnotprop-pstack/skills/triage-issue-reports",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage-issue-reports",
+    "link_cmd": "python .agents/library/activate_skill.py link triage-issue-reports"
+  },
+  {
+    "id": "typescript-best-practices",
+    "name": "typescript-best-practices",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "TypeScript best practices. Use when reading or editing any .ts or .tsx file.",
+    "path": "library/backnotprop-pstack/skills/typescript-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate typescript-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link typescript-best-practices"
+  },
+  {
+    "id": "unslop",
+    "name": "unslop",
+    "repository": "backnotprop-pstack",
+    "category": "general-development",
+    "description": "Cut AI tells from any writing.",
+    "path": "library/backnotprop-pstack/skills/unslop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate unslop",
+    "link_cmd": "python .agents/library/activate_skill.py link unslop"
+  },
+  {
+    "id": "why",
+    "name": "why",
+    "repository": "backnotprop-pstack",
+    "category": "frontend",
+    "description": "\"Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Discovers available MCPs and queries each evidence category (source control, issue tracker, long-form docs, real-time chat, infrastructure observability, error tracking, product analytics warehouse) in parallel, then returns a cited read on decisions and tradeoffs. Use how for runtime behavior.\"",
+    "path": "library/backnotprop-pstack/skills/why",
+    "activation_cmd": "python .agents/library/activate_skill.py activate why",
+    "link_cmd": "python .agents/library/activate_skill.py link why"
+  },
+  {
+    "id": "explainer-default",
+    "name": "explainer-default",
+    "repository": "barty-bart-motion-graphics",
+    "category": "frontend",
+    "description": "Make a clean 45\u201390 second product demo video for any software product, rendered from code to MP4 with music. Airy light canvas, short centred lines the camera pushes into, the product's own UI rebuilt and shown up close as it is used (typing, results, tables, clicks), integrations, and a logo close. Use when someone wants a product demo, launch video, feature walkthrough or \"how it works\" video for an app, SaaS or tool.",
+    "path": "library/barty-bart-motion-graphics/skills/explainer-default",
+    "activation_cmd": "python .agents/library/activate_skill.py activate explainer-default",
+    "link_cmd": "python .agents/library/activate_skill.py link explainer-default"
+  },
+  {
+    "id": "explainer-engaging",
+    "name": "explainer-engaging",
+    "repository": "barty-bart-motion-graphics",
+    "category": "frontend",
+    "description": "Make a 10\u201330 second continuous-shot explainer for any product, rendered from code to MP4 with sound. One hero element (a ball, a cursor, a file, a message) travels through the product's workflow laid out as stations on one big canvas; the camera follows it, each station reacts as it passes, then the camera pulls out to reveal the whole journey. Use when someone wants an engaging, story-driven, one-take explainer or a loopable product animation.",
+    "path": "library/barty-bart-motion-graphics/skills/explainer-engaging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate explainer-engaging",
+    "link_cmd": "python .agents/library/activate_skill.py link explainer-engaging"
+  },
+  {
+    "id": "explainer-high-energy",
+    "name": "explainer-high-energy",
+    "repository": "barty-bart-motion-graphics",
+    "category": "animation-craft",
+    "description": "Make a 12\u201320 second high-energy motion-graphics promo for any product, rendered from code to MP4 with synthesised music. Fast beat-locked scene changes, kinetic typography, a shape that carries across every transition, a HUD frame. Use when someone wants a hype reel, teaser, launch sting or showreel-style promo for a product, app or brand.",
+    "path": "library/barty-bart-motion-graphics/skills/explainer-high-energy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate explainer-high-energy",
+    "link_cmd": "python .agents/library/activate_skill.py link explainer-high-energy"
+  },
+  {
+    "id": "motion-broll",
+    "name": "motion-broll",
+    "repository": "barty-bart-motion-graphics",
+    "category": "animation-craft",
+    "description": "Turn a talking-head video and its transcript into motion-graphic B-roll timed to the speaker's words, in a continuous one-shape style (one element that morphs and never cuts, driven by a cursor, spring motion). Use when someone gives a video (and ideally a transcript) and asks for motion graphics, B-roll, animated cutaways or overlays.",
+    "path": "library/barty-bart-motion-graphics/skills/motion-broll",
+    "activation_cmd": "python .agents/library/activate_skill.py activate motion-broll",
+    "link_cmd": "python .agents/library/activate_skill.py link motion-broll"
+  },
+  {
+    "id": "object-separation",
+    "name": "object-separation",
+    "repository": "barty-bart-motion-graphics",
+    "category": "general-development",
+    "description": "Separate a person, product or hand from the background in a video, on the user's own computer with SAM 2. Scans the machine first to pick the right model size, then outputs the same video with the separated subject highlighted in green, plus frame-by-frame masks. Use when someone wants to separate, isolate, cut out or rotoscope something in a video.",
+    "path": "library/barty-bart-motion-graphics/skills/object-separation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate object-separation",
+    "link_cmd": "python .agents/library/activate_skill.py link object-separation"
+  },
+  {
+    "id": "sound-effects",
+    "name": "sound-effects",
+    "repository": "barty-bart-motion-graphics",
+    "category": "frontend",
+    "description": "Add a measured sound pass to a motion-graphics video made with Claude Code (HyperFrames, Remotion, GSAP, Claude Motion or the motion-broll skill). Builds a cue list, checks the music's beat grid against the kick drums, lands cuts on the beat, places one real sound effect per cue from a bundled CC0 library, mixes to -16 LUFS with true peaks below -4 dBFS measured on the exported MP4, and proves it with frames, waveforms and 5 timestamps for a human to check. Use when someone wants sound effects, sound design or music added to a motion-graphics video, or says their AI video sounds like cheap beeps.",
+    "path": "library/barty-bart-motion-graphics/skills/sound-effects",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sound-effects",
+    "link_cmd": "python .agents/library/activate_skill.py link sound-effects"
   },
   {
     "id": "binance",
@@ -15727,6 +16455,16 @@
     "path": "library/cline-skills/skills/vibe-prospecting",
     "activation_cmd": "python .agents/library/activate_skill.py activate vibe-prospecting",
     "link_cmd": "python .agents/library/activate_skill.py link vibe-prospecting"
+  },
+  {
+    "id": "clipcat",
+    "name": "clipcat",
+    "repository": "clipcat-ai-clipcat-skill",
+    "category": "agent-orchestration",
+    "description": "All-in-one TikTok Shop selling-video skill for any AI agent (Claude Code, Codex, WorkBuddy, OpenClaw). Find viral TikTok videos, research TikTok Shop products, shops, creators and live rooms, break down why a video sells (script, scenes, hooks, music), search the largest library of real high-GMV AI selling videos and their reverse-engineered prompts and adapt the closest match to your own product, replicate a winning video, turn product photos \u2014 or your own raw prompt and images \u2014 into AI selling / UGC / talking-head / product-demo videos, generate e-commerce images from a text prompt, upscale to 1080p or 2K, and download TikTok or Douyin videos. Keywords \u2014 AI selling video, TikTok viral replication, TikTok Shop product research, competitor shop analysis, creator and influencer ranking, AI selling video prompt library, product-to-video, UGC video generator, AI product image, TikTok video downloader. Use whenever the user needs TikTok e-commerce data, viral video research, or AI video/image generation.",
+    "path": "library/clipcat-ai-clipcat-skill/skills/clipcat",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clipcat",
+    "link_cmd": "python .agents/library/activate_skill.py link clipcat"
   },
   {
     "id": "threejs-animation",
@@ -24809,6 +25547,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link yield-opportunities"
   },
   {
+    "id": "d2r-mobile",
+    "name": "d2r-mobile",
+    "repository": "d2r-mobile-d2r-mobile",
+    "category": "frontend",
+    "description": "Build and install D2R Mobile (Diablo II Resurrected with Reign of the Warlock, running natively on iPhone and iPad) from the user's own Switch game files, end to end. Use when the user asks to build, reproduce, set up, install or sideload D2R Mobile, to \"\u590d\u523b / \u7f16\u8bd1 / \u5b89\u88c5 D2R Mobile\", to get Diablo II Resurrected on iPhone or iPad from this repository, or points an agent at https://github.com/d2r-mobile/d2r-mobile. Works in Claude Code and Codex.",
+    "path": "library/d2r-mobile-d2r-mobile/skills/d2r-mobile",
+    "activation_cmd": "python .agents/library/activate_skill.py activate d2r-mobile",
+    "link_cmd": "python .agents/library/activate_skill.py link d2r-mobile"
+  },
+  {
     "id": "asd-ste100",
     "name": "asd-ste100",
     "repository": "danyuchn-asd-ste100-skill",
@@ -24897,6 +25645,16 @@
     "path": "library/diagram-design/skills/diagram-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate diagram-design",
     "link_cmd": "python .agents/library/activate_skill.py link diagram-design"
+  },
+  {
+    "id": "apple-design",
+    "name": "apple-design",
+    "repository": "dickwu-apple-design-skill",
+    "category": "frontend",
+    "description": "> Cross-platform UI/UX design reviewer grounded in Apple's Human Interface Guidelines (123 pages pulled from developer.apple.com, including 57 component pages) plus a design-craft lens for distinctive, non-templated work. Use it to audit, review, critique, or improve any mobile app (iOS, Flutter, React Native) or desktop app (macOS, Tauri, Electron) design: design review, UI audit, HIG compliance, accessibility audit, dark mode, Liquid Glass or glassmorphism, navigation structure, iPhone Duo or foldable layouts, Apple Pay buttons and marks, widgets and Live Activities, onboarding, forms, app icons, generative AI UX, App Review rejections over design or branding, or requests like \"make this look less generic\". Also use whenever the user shares screenshots, mockups, wireframes, Figma exports, or UI code and wants feedback, even if they only say \"review my design\" or \"is this good UI\", or asks to audit a codebase or pull request. Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri, and Electron.",
+    "path": "library/dickwu-apple-design-skill/skills/apple-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate apple-design",
+    "link_cmd": "python .agents/library/activate_skill.py link apple-design"
   },
   {
     "id": "app-store-changelog",
@@ -25319,6 +26077,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link write-swift"
   },
   {
+    "id": "create-toolset",
+    "name": "create-toolset",
+    "repository": "epicgames-unreal-engine-skills-for-claude-code-plugin",
+    "category": "frontend",
+    "description": "\"Use this skill when authoring or extending an Unreal Engine toolset, a class of static, AI-callable functions registered with `ToolsetRegistry` and exposed through the unreal-mcp server. Trigger when the user wants to add, expose, or register a new tool method, create a new toolset, or extend an existing one such as `BlueprintTools`, `StaticMeshTools`, `ObjectTools`, `LevelTools`, or `MaterialTools`. Concrete triggers: 'add a tool to X', 'expose this via MCP', 'register a function so Claude/the agent can call it', 'wire this into the toolset registry', 'create a new toolset for Y', 'add a Python toolset', 'make this AI-callable'; adding a `static` method to a `*Tools.cpp/.h/.py` file; editing files under a `Toolsets/` folder; designing tool parameters, return types, or struct schemas for a toolset. SKIP for: invoking existing tools at runtime (use unreal-mcp instead), authoring an Agent Skill (use unreal-skill), generic refactors that happen to touch a toolset file but don't add or redesign a tool, or unrelated uses of the word 'toolset'.\"",
+    "path": "library/epicgames-unreal-engine-skills-for-claude-code-plugin/skills/create-toolset",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-toolset",
+    "link_cmd": "python .agents/library/activate_skill.py link create-toolset"
+  },
+  {
+    "id": "unreal-mcp",
+    "name": "unreal-mcp",
+    "repository": "epicgames-unreal-engine-skills-for-claude-code-plugin",
+    "category": "frontend",
+    "description": "\"Use this skill to perform actions inside an Unreal Engine project via a live-editor MCP connection. Trigger when the user wants to change, query, or run something in their Unreal Engine project, not for conceptual or docs questions. Concrete triggers: spawn/move/duplicate/transform actors in a level, open a `.uproject`, add things around a PlayerStart, create or edit a Blueprint/Widget/Material/Niagara/Control Rig/Sequencer/Behavior Tree/GAS ability, read or write properties on actors (e.g. `bIsLocked` on `BP_DoorActor`), Live Coding recompile after editing C++ (`AActor`, `UMyComponent::Method`, `UPROPERTY`), or modify Static/Skeletal Mesh assets. Treat as Unreal context even without the word \\\"Unreal\\\": asset prefixes `BP_`, `WBP_`, `M_`, `MI_`, `NS_`, `CR_`, `SK_`, `SM_`, `ABP_`; UE C++ types/macros; `.uproject`; Content Browser; Outliner; PlayerStart; \\\"in my game\\\" plus UE signals. Skip for: pure conceptual/docs questions, Unity, Godot, or unrelated uses of \\\"blueprint\\\"/\\\"sequencer\\\"/\\\"widget\\\".\"",
+    "path": "library/epicgames-unreal-engine-skills-for-claude-code-plugin/skills/unreal-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate unreal-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link unreal-mcp"
+  },
+  {
+    "id": "unreal-skill",
+    "name": "unreal-skill",
+    "repository": "epicgames-unreal-engine-skills-for-claude-code-plugin",
+    "category": "frontend",
+    "description": "\"Use this skill when creating, editing, or reviewing an Unreal Engine Agent Skill, a named bundle of instructions registered with the unreal-mcp server (distinct from Claude Code's harness skills under `.claude/skills/`). Trigger when the user wants to add or change a skill that the in-editor agent will load. Concrete triggers: 'create a new Agent Skill', 'add a skill for X workflow', 'edit/update this skill', 'review my skill', 'make a Python skill class', 'create a skill UAsset', 'register a skill so Claude picks it up'; writing or editing a `SKILL.md` inside a UE plugin's `Skills/` or `Python/skills/` folder; defining a Python skill class registered with the skill registry; calling `CreateSkill`, `ListSkills`, or `GetSkills` MCP tools; designing a skill's name, description, or instruction body. SKIP for: authoring a toolset (use create-toolset), invoking an existing skill at runtime (use unreal-mcp), editing harness-level Claude Code skills under `.claude/skills/` or `~/.claude/skills/`, or generic uses of the word 'skill'.\"",
+    "path": "library/epicgames-unreal-engine-skills-for-claude-code-plugin/skills/unreal-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate unreal-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link unreal-skill"
+  },
+  {
     "id": "humanize",
     "name": "humanize",
     "repository": "epoko77-ai-im-not-ai",
@@ -25357,6 +26145,16 @@
     "path": "library/epoko77-ai-im-not-ai/skills/humanize-scan",
     "activation_cmd": "python .agents/library/activate_skill.py activate humanize-scan",
     "link_cmd": "python .agents/library/activate_skill.py link humanize-scan"
+  },
+  {
+    "id": "rederive",
+    "name": "rederive",
+    "repository": "ericjujianzou-rederive",
+    "category": "frontend",
+    "description": "Teaches a codebase by making the user re-derive its design decisions from first principles through Socratic questions, instead of explaining the code. Works on the user's own repo or any open source repo (local path or git URL). Use when the user runs /rederive, wants to explain a project they built with AI, is preparing to talk about a project in an interview, or wants to learn how a well-known project works.",
+    "path": "library/ericjujianzou-rederive/skills/rederive",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rederive",
+    "link_cmd": "python .agents/library/activate_skill.py link rederive"
   },
   {
     "id": "agentic-video-understanding",
@@ -25739,6 +26537,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link invisible_dots"
   },
   {
+    "id": "onetake",
+    "name": "onetake",
+    "repository": "feitangyuan-onetake",
+    "category": "frontend",
+    "description": "\"Make short product / skill motion videos (10\u201330 s, narrated feature demos up to ~60 s) the way high-end launch clips are made \u2014 kinetic type, real UI as the material, a hand that causes every reaction, beats that carry into each other instead of replacing each other, hard cuts only where they mean something \u2014 without HyperFrames or Remotion. A single HTML composition where every value is a pure function of time, built from a library of measured moves (springs, entrances, carries, contact, camera), rendered frame by frame with real shutter motion blur (1080p30 drafts, 4K60 final), with synthesised sound effects that share one room and an oracle that fails a slideshow before a human has to watch it. Use for \u505a\u4e2a\u52a8\u6548\u77ed\u7247 / \u4ea7\u54c1\u5ba3\u4f20\u7247 / \u4ecb\u7ecd\u89c6\u9891 / \u53d1\u5e03\u89c6\u9891 / 15 \u79d2 launch video / \u7ed9 skill \u6216 app \u505a\u4e2a\u89c6\u9891 / promo / teaser, for turning real pages or screen recordings into a cut, for product feature demos (\u4ea7\u54c1\u529f\u80fd\u6f14\u793a / \u529f\u80fd\u5c55\u793a\u52a8\u6548) where the UI is rebuilt in HTML from screenshots instead of screen-recorded (\u4e0d\u5f55\u5c4f / \u590d\u523b\u754c\u9762 / \u622a\u56fe\u8fd8\u539f UI), for narrated cuts with voice-over and subtitles (\u914d\u97f3 / \u5b57\u5e55 / \u6362\u914d\u97f3) and for the same film in other languages (\u65e5\u8bed\u7248 / \u591a\u8bed\u8a00 / \u672c\u5730\u5316), for adding motion vocabulary (\u52a8\u6548\u5e93 / \u8f6c\u573a / \u8854\u63a5), and for auditing why a motion video reads as a slideshow (\u50cf PPT / \u6ca1\u8282\u594f / \u4e00\u4e2a\u4e00\u4e2a\u5c55\u793a / \u8f6c\u573a\u751f\u786c).\"",
+    "path": "library/feitangyuan-onetake/skills/onetake",
+    "activation_cmd": "python .agents/library/activate_skill.py activate onetake",
+    "link_cmd": "python .agents/library/activate_skill.py link onetake"
+  },
+  {
+    "id": "carrel-search",
+    "name": "carrel-search",
+    "repository": "fengzhenfei-carrel",
+    "category": "backend-api",
+    "description": "\"Query the user's local knowledge bases through the Carrel search API, use original text and source images as needed in the answer, list the reference files and offer follow-up directions drawn from the knowledge graph. Use when the user asks to search the knowledge base, find evidence in the stored material, compare records, or answer from several documents together.\"",
+    "path": "library/fengzhenfei-carrel/skills/carrel-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate carrel-search",
+    "link_cmd": "python .agents/library/activate_skill.py link carrel-search"
+  },
+  {
     "id": "genoffice",
     "name": "genoffice",
     "repository": "genspark-ai-genoffice",
@@ -25777,6 +26595,76 @@
     "path": "library/github-awesome-copilot/skills/create-canvas-extension",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-canvas-extension",
     "link_cmd": "python .agents/library/activate_skill.py link create-canvas-extension"
+  },
+  {
+    "id": "egm-bootstrap",
+    "name": "egm-bootstrap",
+    "repository": "google-elephant-goldfish-model",
+    "category": "general-development",
+    "description": "Bootstrap directory README.md files across a repository subtree.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-bootstrap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-bootstrap",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-bootstrap"
+  },
+  {
+    "id": "egm-brainstorm",
+    "name": "egm-brainstorm",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Interactive ideation and brainstorming skill for the Elephant & Goldfish Model (EGM). Helps turn half-baked concepts into structured hypotheses via clarifying questions, review, and iterative refinement. Produces an RFC summary for human review or more detailed design with /egm-draft.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-brainstorm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-brainstorm",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-brainstorm"
+  },
+  {
+    "id": "egm-draft",
+    "name": "egm-draft",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Drafts a design document section-by-section using the concepts brief from egm-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (EGM) feature flow. Use when you are ready to write a design doc after aligning on requirements + solution.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-draft",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-draft",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-draft"
+  },
+  {
+    "id": "egm-drift-report",
+    "name": "egm-drift-report",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Runs drift detection on all design documents to check for document and code consistency. Produces an actionable report with differences. Use when the user asks to detect drift or check for consistency across all design documents or READMEs in a directory.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-drift-report",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-drift-report",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-drift-report"
+  },
+  {
+    "id": "egm-resolve",
+    "name": "egm-resolve",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-resolve",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-resolve",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-resolve"
+  },
+  {
+    "id": "egm-review",
+    "name": "egm-review",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Orchestrates the EGM Goldfish Review Protocol. Used as part of the EGM process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-review",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-review"
+  },
+  {
+    "id": "egm-review-loop",
+    "name": "egm-review-loop",
+    "repository": "google-elephant-goldfish-model",
+    "category": "frontend",
+    "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (EGM) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
+    "path": "library/google-elephant-goldfish-model/skills/egm-review-loop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate egm-review-loop",
+    "link_cmd": "python .agents/library/activate_skill.py link egm-review-loop"
   },
   {
     "id": "gemini-api-dev",
@@ -25972,6 +26860,26 @@
     "path": "library/greensock-gsap-skills/skills/gsap-utils",
     "activation_cmd": "python .agents/library/activate_skill.py activate gsap-utils",
     "link_cmd": "python .agents/library/activate_skill.py link gsap-utils"
+  },
+  {
+    "id": "remotion-motion-graphics",
+    "name": "remotion-motion-graphics",
+    "repository": "haidrrrry-claude-remotion-skill",
+    "category": "frontend",
+    "description": "Create and edit professional motion graphics videos with Remotion (React-based video). Use this skill EVERY time the user wants to create a video, edit a video, animate something, build an intro/outro/logo animation, make a Reel/Short/promo/launch video, add text animations or captions to footage, composite images and B-roll into a video, or mentions Remotion, motion graphics, video rendering, or \"make this video look better/less generic\". Also trigger when editing an existing Remotion project or when the user complains their video looks basic, generic, or amateur \u2014 this skill contains the exact fixes. Always read this skill BEFORE writing any Remotion code.",
+    "path": "library/haidrrrry-claude-remotion-skill/skills/remotion-motion-graphics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate remotion-motion-graphics",
+    "link_cmd": "python .agents/library/activate_skill.py link remotion-motion-graphics"
+  },
+  {
+    "id": "grandet-api-price-finder",
+    "name": "grandet-api-price-finder",
+    "repository": "hanzohanzhe-grandet",
+    "category": "frontend",
+    "description": "Model API prices, \u4e2d\u8f6c\u7ad9, \u514d\u8d39\u989d\u5ea6 \u2014 use this, not web search. Reads relay jargon (\u500d\u7387, \u5206\u7ec4, \u7eaf\u8840/\u9006\u5411, \u516c\u76ca\u7ad9, \u7b7e\u5230). Use for the cheapest API or relay for a model, price per million tokens, input or output price, which provider is cheaper, free API credits or relays to try and whether they need a card, connecting the chosen API to an app, or API quality, speed, stability or degraded models. \u7528\u6237\u95ee\u67d0\u6a21\u578b API \u591a\u5c11\u94b1\u3001\u54ea\u5bb6\u4fbf\u5b9c\u3001\u6700\u4fbf\u5b9c\u7684 API \u6216\u4e2d\u8f6c\u7ad9\u3001\u8f93\u51fa\u4ef7\u3001\u6bcf\u767e\u4e07 token \u4ef7\u683c\u3001\u514d\u8d39\u989d\u5ea6\u3001\u8981\u4e0d\u8981\u7ed1\u5361\u3001\u60f3\u628a\u9009\u597d\u7684 API \u63a5\u5230\u5e94\u7528\u91cc\uff0c\u6216\u95ee API \u8d28\u91cf\u3001\u901f\u5ea6\u3001\u7a33\u5b9a\u6027\u3001\u964d\u667a\u3001\u771f\u5047\u6a21\u578b\u65f6\u4f7f\u7528\uff0c\u65e0\u9700\u63d0 Grandet\uff1b\u61c2\u4e2d\u8f6c\u7ad9\u9ed1\u8bdd\u3002\u4e00\u822c\u6a21\u578b\u4ecb\u7ecd\u3001\u7ffb\u8bd1\u6587\u6863\u3001\u4f18\u5316\u4ee3\u7801\u672c\u8eab\u4e0d\u89e6\u53d1\u3002",
+    "path": "library/hanzohanzhe-grandet/skills/grandet-api-price-finder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grandet-api-price-finder",
+    "link_cmd": "python .agents/library/activate_skill.py link grandet-api-price-finder"
   },
   {
     "id": "canopy-part-title",
@@ -26174,6 +27082,123 @@
     "link_cmd": "python .agents/library/activate_skill.py link wireframe-portal-title"
   },
   {
+    "id": "higgsfield-brandkit",
+    "name": "higgsfield-brandkit",
+    "repository": "higgsfield-ai-skills",
+    "category": "frontend",
+    "description": "Create and extend complete visual brand systems through the Higgsfield CLI and bundled deterministic local tooling: palettes, SVG logo marks, typography, mockups, social graphics, packaging, signage, merchandise, posters, presentation decks, and editable PPTX/PDF brandbooks. Preserves official supplied assets, persists approvals locally, and regenerates only dependent outputs. Use when: \"create a brand kit\", \"make a visual identity\", \"design a logo and brandbook\", \"apply this logo to branded assets\", \"make packaging or signage\", or \"extend our existing branding\". Chain with higgsfield-generate for general image production and Marketing Studio brand-kits when importing website metadata for ads. NOT for unbranded image generation (use higgsfield-generate), product catalog photography (use higgsfield-product-photoshoot), website implementation (use higgsfield-websites), or native Figma/Canva/PSD/AI delivery.",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-brandkit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-brandkit",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-brandkit",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-faceless-video",
+    "name": "higgsfield-faceless-video",
+    "repository": "higgsfield-ai-skills",
+    "category": "general-development",
+    "description": "Create a finished faceless explainer, documentary, illustrated story or children's music video, or edit a previously created faceless video. Use when: \"make a faceless video\", \"create a narrated explainer\", \"make a children's song video\", \"edit this faceless video\". NOT for: a single silent clip, ads or UGC, unrelated footage edits, or script-only requests.",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-faceless-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-faceless-video",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-faceless-video",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-generate",
+    "name": "higgsfield-generate",
+    "repository": "higgsfield-ai-skills",
+    "category": "frontend",
+    "description": "Generate images/videos/3D assets/audio via Higgsfield AI. Defaults: GPT Image 2.5 for image/design/text, Seedance 2.5 for video, Nano Banana 2 for cartoon characters, Marketing Studio for ads, Seed Audio 1.0 for audio. Use when: \"generate an image\", \"make a video\", \"animate this photo\", \"image-to-video\", \"edit/stylize/remix this image\", \"reframe this video\", \"edit this video from a sketch\", \"create a 3D model/GLB\", \"create a sound effect\", \"make music\", \"text-to-audio\", \"create an ad\", \"make a UGC video\", \"unboxing\", \"presenter video\", \"import product from URL\", or \"analyze video virality\". Supports generic generation, workflows, Marketing Studio, and Virality Predictor. Chain with higgsfield-soul-id for face/identity consistency. NOT for: Soul training, brand systems/brandbooks (use higgsfield-brandkit), photoshoots, cards, YouTube thumbnails (use higgsfield-youtube-thumbnail), explainers (use higgsfield-video-explainer), playable games/assets (use higgsfield-websites), or TTS.",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-generate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-generate",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-generate",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-marketplace-cards",
+    "name": "higgsfield-marketplace-cards",
+    "repository": "higgsfield-ai-skills",
+    "category": "sales-marketing",
+    "description": "Generate marketplace product image cards through Higgsfield: compliant main image, secondary product images, and A+ style content modules. Use when the user asks for marketplace listing images, product detail cards, secondary product images, product infographics, lifestyle listing shots, A+ style content, marketplace image sets, or sales-ready product visuals. Backend owns marketplace compliance references and prompt templates; this skill only routes user intent to the CLI. NOT for generic brand product photography without marketplace/listing context (use higgsfield-product-photoshoot), video generation or UGC ads (use higgsfield-generate), or Soul Character training (use higgsfield-soul-id).",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-marketplace-cards",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-marketplace-cards",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-marketplace-cards",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-product-photoshoot",
+    "name": "higgsfield-product-photoshoot",
+    "repository": "higgsfield-ai-skills",
+    "category": "sales-marketing",
+    "description": "Generate brand-quality product images through Higgsfield product-photoshoot prompt enhancement on GPT Image 2 / gpt_image_2. Entry point for professional brand/product visuals. Use when: \"product photo\", \"studio shot\", \"lifestyle image\", \"Pinterest pin\", \"hero/banner\", \"carousel\", \"ad creative\", \"Meta ads\", \"virtual try-on\", \"model wearing\", \"person holding product\", \"closeup with hands\", \"levitating/floating/splash product\", \"CGI/surreal product\", \"restyle\", \"seasonal/aesthetic variation\", or any product, brand, or paid-social creative. Modes: product_shot, lifestyle_scene, closeup_product_with_person, moodboard_pin, hero_banner, social_carousel, ad_creative_pack, virtual_model_tryout, conceptual_product, restyle. Backend assembles the final prompt; never freehand it. NOT for: no-product text-to-image (use higgsfield-generate), branded avatar video (use higgsfield-generate Marketing Studio), marketplace listing cards (use higgsfield-marketplace-cards), Soul Character training (use higgsfield-soul-id).",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-product-photoshoot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-product-photoshoot",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-product-photoshoot",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-soul-id",
+    "name": "higgsfield-soul-id",
+    "repository": "higgsfield-ai-skills",
+    "category": "frontend",
+    "description": "Train a Soul Character \u2014 a personalized model on a person's face that Higgsfield uses for identity-faithful image and video generation. Use when: \"create my Soul\", \"train my face\", \"make my digital twin\", \"build me an avatar\", \"learn my appearance\", \"create a character of me\", \"set up identity for video\", \"I want my face in generated images\". Chain: train Soul (one-time, returns reference_id) \u2192 use in higgsfield-generate via `--soul-id <id>` with models like `text2image_soul_v2` or `soul_cinematic`. NOT for: one-shot face swaps (use higgsfield-generate with --image), named-character / non-photo avatars (use higgsfield-generate with prompt).",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-soul-id",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-soul-id",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-soul-id",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-video-explainer",
+    "name": "higgsfield-video-explainer",
+    "repository": "higgsfield-ai-skills",
+    "category": "agent-orchestration",
+    "description": "Compatibility entry for the former video explainer skill. Use when: the user explicitly invokes higgsfield-video-explainer or continues its existing workflow. NOT for: new generic explainer requests, ads, single clips, or unrelated video edits.",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-video-explainer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-video-explainer",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-video-explainer",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-websites",
+    "name": "higgsfield-websites",
+    "repository": "higgsfield-ai-skills",
+    "category": "frontend",
+    "description": "Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield website \u2026`). Each is a React 19 + TanStack Start SSR app in one Cloudflare Worker (D1/R2/KV/DO/Containers). THREE product types, picked via `--type` on create: `website` (standalone, no Higgsfield integration \u2014 references/website-flow.md), `app` (Sign in with Higgsfield + fnf SDK, Quanta \u2014 references/app-flow.md), `game` (realtime multiplayer rooms \u2014 references/game-flow.md). Routes to the right flow; each carries its own rules and deploy/publish gates. Use when: \"build me a website\", \"make a landing page\", \"create a web app\", \"build a SaaS dashboard / portfolio\", \"make me a game\", \"deploy this site\", \"publish\". Also owns GAME ART: \"make a spritesheet\", \"tileable texture\", \"animate a 3D character\", game music/SFX \u2014 see the game-* references. NOT for: single image/video/audio generation (higgsfield-generate), product photos (higgsfield-product-photoshoot), marketplace cards (higgsfield-marketplace-cards).",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-websites",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-websites",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-websites",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "higgsfield-youtube-thumbnail",
+    "name": "higgsfield-youtube-thumbnail",
+    "repository": "higgsfield-ai-skills",
+    "category": "frontend",
+    "description": "Create high-click-through YouTube thumbnails and vertical video covers through the Higgsfield CLI. Builds a truthful information-gap concept, preserves up to three referenced identities, supports logos and controlled variants, renders the main image with Nano Banana Pro, and applies focused Seedream edits. Use when: \"make a YouTube thumbnail\", \"thumbnail for this video\", \"MrBeast-style cover\", \"Shorts cover\", or \"Instagram video cover\". Chain after any video workflow once its truthful topic and visual direction are known. NOT for producing the video itself (use higgsfield-generate), product catalog photos (use higgsfield-product-photoshoot), or marketplace cards (use higgsfield-marketplace-cards).",
+    "path": "library/higgsfield-ai-skills/skills/higgsfield-youtube-thumbnail",
+    "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-youtube-thumbnail",
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-youtube-thumbnail",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
     "id": "finance-sentiment",
     "name": "finance-sentiment",
     "repository": "himself65-finance-skills",
@@ -26232,6 +27257,16 @@
     "path": "library/himself65-finance-skills/skills/tradingview-reader",
     "activation_cmd": "python .agents/library/activate_skill.py activate tradingview-reader",
     "link_cmd": "python .agents/library/activate_skill.py link tradingview-reader"
+  },
+  {
+    "id": "claude-motion-design",
+    "name": "claude-motion-design",
+    "repository": "howseen-ai-claude-motion-design",
+    "category": "frontend",
+    "description": "Specialized trending agent skill.",
+    "path": "library/howseen-ai-claude-motion-design/skills/claude-motion-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude-motion-design",
+    "link_cmd": "python .agents/library/activate_skill.py link claude-motion-design"
   },
   {
     "id": "hf-cli",
@@ -26553,6 +27588,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link marketing"
   },
   {
+    "id": "arena",
+    "name": "arena",
+    "repository": "jakeschincariol-arena-skill",
+    "category": "frontend",
+    "description": "Make 100 versions of Claude fight to the death over one task. Spins up N sub-agents (default 100, --quick for 16), gives every one the exact same task plus a different strategy card (reasoning mode, workflow, strategy), then runs a single-elimination bracket: they attack each other's solutions, defend and revise, and a judge scores every match on a written rubric until one solution survives. Use when the user is not satisfied with an answer, calls it a bad answer, says try again or do better, says \"arena\", or asks to make them compete.",
+    "path": "library/jakeschincariol-arena-skill/skills/arena",
+    "activation_cmd": "python .agents/library/activate_skill.py activate arena",
+    "link_cmd": "python .agents/library/activate_skill.py link arena"
+  },
+  {
     "id": "trader-alerts",
     "name": "trader-alerts",
     "repository": "jakeschincariol-day-trader-skill",
@@ -26661,6 +27706,246 @@
     "path": "library/jakeschincariol-day-trader-skill/skills/trader-timemachine",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-timemachine",
     "link_cmd": "python .agents/library/activate_skill.py link trader-timemachine"
+  },
+  {
+    "id": "founder-board",
+    "name": "founder-board",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "testing-qa",
+    "description": "Your board of directors. Puts a business idea in front of a three-member board, each a sub-agent reading the idea through one published framework: the Offers lens (from Alex Hormozi's $100M Offers), the Monopoly lens (from Peter Thiel's Zero to One) and the Product lens (from Walter Isaacson's biography of Steve Jobs). Each member scores the idea, names the risks that would kill it and votes fund, fund with conditions, or pass. Use when the user says \"test my business idea\", \"would this work\", \"pressure-test this\", \"what would a board say\", \"is this a good business\", or starts the founder pack on a new idea.",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-board",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-board",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-board"
+  },
+  {
+    "id": "founder-brand",
+    "name": "founder-brand",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "frontend",
+    "description": "Your brand designer. Names the business (with the trademark, domain and handle checks to run before falling in love with a name), writes the voice, a one-line promise and a tagline, and briefs the look: colours, type, logo and the first things a customer sees, so they match the positioning the marketing director chose. Use when the user says \"name my business\", \"brand this\", \"logo\", \"brand identity\", \"what should it look like\", \"tagline\", or \"brand voice\".",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-brand",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-brand",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-brand"
+  },
+  {
+    "id": "founder-cfo",
+    "name": "founder-cfo",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "frontend",
+    "description": "Your CFO. Builds the unit economics of a business before money is spent: what one unit earns after its direct costs, the real profit margin at the planned volume, the break-even point in units a day, year 1 month by month, the cash needed before it pays for itself, how long the startup spend takes to earn back, and what happens if the price drops, sales come in low or costs rise. Every number traces to an input the user can check. Use when the user says \"find the profit margins\", \"do the numbers\", \"is this profitable\", \"break-even\", \"unit economics\", \"how much do I need to start\", or \"run the CFO\".",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-cfo",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-cfo",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-cfo"
+  },
+  {
+    "id": "founder-competitors",
+    "name": "founder-competitors",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "frontend",
+    "description": "Maps every competitor and the gap they leave. Finds the direct competitors, indirect ones and the substitutes a buyer would use instead, from public sources only, and records what each sells, at what price, how they position themselves and what their customers complain about in public reviews, every fact with a link. Ends with a positioning map and the gap the new business can own. Use when the user says \"who are my competitors\", \"is this market crowded\", \"what else is out there\", \"competitor analysis\", \"find the gap\", or \"who am I up against\".",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-competitors",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-competitors",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-competitors"
+  },
+  {
+    "id": "founder-consumer",
+    "name": "founder-consumer",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "frontend",
+    "description": "The consumer panel. Spins up a swarm of buyer sub-agents (default 100, --quick for 20) trained on the user's target customer, each with a different income, age, buying behaviour and objection, shows every one the same pitch, and runs the business through 100 buyer scenarios to see who buys, who doesn't, and why. Tallies the answers into buy rates by segment, the reasons people pass in their own words, what would flip a no, and price answers for founder-pricing. Use when the user says \"would people buy this\", \"test it on customers\", \"run the consumer panel\", \"simulate buyers\", \"who is my customer\", or \"validate demand\".",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-consumer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-consumer",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-consumer"
+  },
+  {
+    "id": "founder-launch",
+    "name": "founder-launch",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "frontend",
+    "description": "Your launch lead. Builds a dated, step-by-step launch plan: a cheap real-world test first (a waitlist, a pre-sale or a pop-up with a real price, so real buyers confirm what the simulated panel said), then the countdown to opening day with owners and deadlines, the launch-day run sheet, and the first 30 days of what to measure and what to change. Use when the user says \"how do I launch\", \"launch plan\", \"when can I open\", \"launch checklist\", \"go live\", or \"soft open\".",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-launch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-launch",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-launch"
+  },
+  {
+    "id": "founder-marketing",
+    "name": "founder-marketing",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "agent-orchestration",
+    "description": "Your marketing director. Turns the buyer panel and the competitor map into positioning, the channels the target customer actually uses, a 30-day launch campaign with dated posts and ads, the first ten hooks, a budget split and the numbers to watch. Every message answers an objection real or simulated buyers raised. Use when the user says \"how do I market this\", \"marketing plan\", \"launch campaign\", \"how do I get customers\", \"where do I advertise\", \"write my ads\", or \"positioning\".",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-marketing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-marketing",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-marketing"
+  },
+  {
+    "id": "founder-offer",
+    "name": "founder-offer",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "frontend",
+    "description": "Builds an offer too good to refuse. Lists every problem the buyer hits on the way to the result they want, turns each into a solution, trims to what is cheap to deliver and valuable to the buyer, and stacks it with honest bonuses, a guarantee the CFO can afford, real urgency and a clear name. Scores it on the value equation (outcome, likelihood, time, effort) and re-tests it on a quick buyer panel. Use when the user says \"make my offer better\", \"why won't people buy\", \"what should I include\", \"guarantee\", \"bonuses\", \"grand slam offer\", or after the panel shows people passing.",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-offer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-offer",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-offer"
+  },
+  {
+    "id": "founder-ops",
+    "name": "founder-ops",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "general-development",
+    "description": "Your operations manager. Works out how the business actually runs on day one: suppliers and what they cost, who works when, the step-by-step routines for opening, serving or shipping and closing, the tools to run it, the licences and permits to check, and a risk register with what to do when each thing goes wrong. Feeds real costs back to the CFO. Use when the user says \"how do I run this\", \"operations\", \"suppliers\", \"staffing\", \"SOPs\", \"what do I need to open\", \"permits\", or \"day one\".",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-ops",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-ops",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-ops"
+  },
+  {
+    "id": "founder-plan",
+    "name": "founder-plan",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "agent-orchestration",
+    "description": "Your business planner. Compiles everything the other founder skills wrote (the board's verdict, the competitors, the buyer panel, pricing, the offer, the CFO's numbers, marketing, brand, operations and the launch plan) into one business plan with a verdict at the top that is computed from the numbers, never written by hand: Profitable, Not yet (with the failing numbers) or Incomplete. Adds an executive summary and a one-page version for a partner, lender or investor. Use when the user says \"write my business plan\", \"put it all together\", \"is it profitable\", \"give me the plan\", or at the end of the founder pack.",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-plan"
+  },
+  {
+    "id": "founder-pricing",
+    "name": "founder-pricing",
+    "repository": "jakeschincariol-founder-skill",
+    "category": "testing-qa",
+    "description": "Finds the price buyers will actually pay. Reads the consumer panel's four price answers per buyer into a Van Westendorp price-sensitivity range (too cheap, a bargain, getting expensive, too expensive), sets it against what competitors really charge and against the CFO's margin, and recommends a price, a price ladder (good / better / best) and an opening offer to test. Use when the user says \"how much should I charge\", \"price this\", \"is $X too expensive\", \"pricing strategy\", \"what price\", or after the consumer panel.",
+    "path": "library/jakeschincariol-founder-skill/skills/founder-pricing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate founder-pricing",
+    "link_cmd": "python .agents/library/activate_skill.py link founder-pricing"
+  },
+  {
+    "id": "ig-audit",
+    "name": "ig-audit",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "testing-qa",
+    "description": "Post-mortem on what the user has already posted - which reels actually worked, why, and what to stop making. Use when the user pastes their Instagram insights or past posts and asks \"what's working\", \"why did this flop\", \"read my analytics\", \"audit my content\", or wants to know what to do more of.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-audit"
+  },
+  {
+    "id": "ig-caption",
+    "name": "ig-caption",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "general-development",
+    "description": "Write the Instagram caption - the line that survives the \"... more\" cut, the body, the single ask, the search terms and the three hashtags - and lint it before it goes out. Use when the user says \"write the caption\", \"caption this\", \"what do I put in the description\", has a reel or a carousel ready and needs the text, or asks about hashtags.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-caption",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-caption",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-caption"
+  },
+  {
+    "id": "ig-carousel",
+    "name": "ig-carousel",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "frontend",
+    "description": "Build an Instagram carousel - the cover that earns the swipe, slide-by-slide copy, and the 1080x1350 files to upload. Use when the user says \"carousel\", \"slides\", \"swipe post\", \"turn this into a carousel\", or has a list-shaped or step-shaped idea that would die as a single image.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-carousel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-carousel",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-carousel"
+  },
+  {
+    "id": "ig-comment",
+    "name": "ig-comment",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "general-development",
+    "description": "Write comments on other people's Instagram posts and reels that read as a person with an opinion, not a bot. Use when the user pastes a post or a reel and wants a comment, says \"comment on this\", \"engage with this\", \"what do I say here\", or wants a batch for their daily engagement round.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-comment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-comment",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-comment"
+  },
+  {
+    "id": "ig-dm",
+    "name": "ig-dm",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "sales-marketing",
+    "description": "Write Instagram DMs that get replies - the keyword delivery, the first message to someone who engaged, the collab pitch, and the two follow-ups. Use when the user says \"DM this person\", \"what do I send them\", \"outreach message\", \"how do I follow up\", \"pitch this brand\", or is reaching out to someone specific.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-dm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-dm",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-dm"
+  },
+  {
+    "id": "ig-human",
+    "name": "ig-human",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "general-development",
+    "description": "Strip the machine fingerprint out of any draft - em dashes, AI slop words, invisible watermark characters - and score it against a five-check detection panel before it goes out. Use whenever text needs to sound human, when the user says humanize, \"does this sound like AI\", \"remove the em dashes\", \"de-slop this\", \"this sounds like ChatGPT\", or before any caption, script, comment, reply or DM is shown to the user.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-human",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-human",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-human"
+  },
+  {
+    "id": "ig-plan",
+    "name": "ig-plan",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "frontend",
+    "description": "Build the week on Instagram - what to post, which format, when, and who to engage with. Use when the user says \"plan my week\", \"what should I post\", \"content calendar\", \"I have nothing to post about\", or wants a posting schedule and an engagement list.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-plan"
+  },
+  {
+    "id": "ig-profile",
+    "name": "ig-profile",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "general-development",
+    "description": "Score an Instagram profile out of 100 against a 12-part rubric and rewrite the parts that lose points - name field, bio, link, highlights, pinned three, grid. Use when the user says \"optimize my profile\", \"fix my bio\", \"score my Instagram\", \"why don't people follow me\", or pastes their profile and asks how it reads.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-profile",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-profile",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-profile"
+  },
+  {
+    "id": "ig-reel",
+    "name": "ig-reel",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "general-development",
+    "description": "Write an Instagram Reel from a raw idea - hook options off 26 formulas, the spoken script, the on-screen text, and a timed beat sheet - in the user's own voice and scored before they shoot it. Use whenever the user wants a Reel, a short-form video script, a hook, a voiceover, \"make a reel about X\", \"what should I say in this video\", or is about to record and does not have the first line yet.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-reel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-reel",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-reel"
+  },
+  {
+    "id": "ig-reply",
+    "name": "ig-reply",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "sales-marketing",
+    "description": "Handle the comments under the user's own reels and posts - draft replies to the ones worth answering, sorted by which ones are. Use when the user pastes their comments, says \"reply to these\", \"handle my comments\", \"someone said X on my reel\", or is dealing with a critic, a hater or a lead in the comments.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-reply",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-reply",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-reply"
+  },
+  {
+    "id": "ig-repurpose",
+    "name": "ig-repurpose",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "general-development",
+    "description": "Turn one long asset - a YouTube video, podcast, livestream, newsletter, blog post or client call - into a week of reels and carousels. Use when the user says \"repurpose this\", \"turn this into reels\", \"I have a video/podcast/ transcript\", \"cut this up\", or pastes something long and wants it on Instagram.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-repurpose",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-repurpose",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-repurpose"
+  },
+  {
+    "id": "ig-story",
+    "name": "ig-story",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "general-development",
+    "description": "Write the day's Instagram Stories - the frame-by-frame sequence, which stickers to use where, and the one that moves people into the DMs. Use when the user says \"stories\", \"what do I post on my story\", \"story sequence\", \"poll idea\", \"I have nothing to story about\", or wants to sell something without making a post about it.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-story",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-story",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-story"
+  },
+  {
+    "id": "ig-viral",
+    "name": "ig-viral",
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "category": "frontend",
+    "description": "Go and find the reels that are actually working right now in the user's niche, rank them by how far each beat its own account, name the hook formula each one used, and turn that into a swipe file they can shoot from. Use when the user says \"find viral videos\", \"what's working right now\", \"what are people posting in my niche\", \"reverse engineer this account\", \"build me a swipe file\", \"why is this reel doing numbers\", or asks what to make next and has no evidence to answer with.",
+    "path": "library/jakeschincariol-instagram-agent-skill/skills/ig-viral",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ig-viral",
+    "link_cmd": "python .agents/library/activate_skill.py link ig-viral"
   },
   {
     "id": "replica-architect",
@@ -26883,6 +28168,116 @@
     "link_cmd": "python .agents/library/activate_skill.py link trader-tax"
   },
   {
+    "id": "yt-audit",
+    "name": "yt-audit",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "frontend",
+    "description": "Audit a YouTube channel end to end - packaging, consistency, the first fifteen seconds, and what to fix first. Use for \"audit my channel\", \"why isn't my channel growing\", \"review my videos\", or a pasted channel URL.",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-audit"
+  },
+  {
+    "id": "yt-chapters",
+    "name": "yt-chapters",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "general-development",
+    "description": "Write YouTube chapters from a transcript, validated against YouTube's own rules so they actually render. Use for \"add chapters\", \"timestamps\", \"break this video into sections\".",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-chapters",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-chapters",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-chapters"
+  },
+  {
+    "id": "yt-comment",
+    "name": "yt-comment",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "general-development",
+    "description": "Draft replies to YouTube comments in the creator's voice, triaged by which ones are worth answering. Use for \"reply to my comments\", \"handle the comment section\", \"someone asked X\", or a pasted comment thread.",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-comment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-comment",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-comment"
+  },
+  {
+    "id": "yt-edit",
+    "name": "yt-edit",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "general-development",
+    "description": "Turn a raw recording's transcript into an edit decision list - dead air, filler cues and retakes, with timecodes. Use for \"edit this\", \"cut the dead space\", \"tighten this video\", \"I rambled\", or any request to shorten footage from a transcript.",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-edit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-edit",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-edit"
+  },
+  {
+    "id": "yt-package",
+    "name": "yt-package",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "general-development",
+    "description": "Write and lint the title and thumbnail for a YouTube video as one pairing, checking truncation, duplication and vagueness before publish. Use for \"title ideas\", \"what should I call this\", \"thumbnail text\", \"my CTR is bad\", packaging, or any request to rename or repackage an existing video.",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-package",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-package",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-package"
+  },
+  {
+    "id": "yt-plan",
+    "name": "yt-plan",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "agent-orchestration",
+    "description": "Plan a week or a month of YouTube uploads - what to post, when, and in what order, sized to the creator's actual capacity. Use for \"plan my week\", \"content calendar\", \"what should I post\", \"I have no idea what to make next\".",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-plan"
+  },
+  {
+    "id": "yt-retention",
+    "name": "yt-retention",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "frontend",
+    "description": "Read a YouTube Studio audience-retention export and find where viewers actually leave, then say what to change. Use for \"why do people stop watching\", \"my retention is bad\", a pasted retention chart or CSV, or \"fix my pacing\".",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-retention",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-retention",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-retention"
+  },
+  {
+    "id": "yt-script",
+    "name": "yt-script",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "general-development",
+    "description": "Write a YouTube video script from a raw idea - hook options off 21 formulas, scored, then the full spoken script with the retention beats marked. Use whenever the user wants a video script, a hook, an opening line, \"what should I say\", \"write my next video\", or is about to record and does not have the first fifteen seconds yet.",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-script",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-script",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-script"
+  },
+  {
+    "id": "yt-seo",
+    "name": "yt-seo",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "database-sql",
+    "description": "Write the description, tags and search-facing text for a YouTube video, aimed at the query a real person types. Use for \"write my description\", \"tags\", \"SEO\", \"help this video get found\", \"nobody is finding this\".",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-seo",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-seo",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-seo"
+  },
+  {
+    "id": "yt-shorts",
+    "name": "yt-shorts",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "general-development",
+    "description": "Find the Shorts hiding inside a long video and write them, using the transcript to pick self-contained moments. Use for \"cut this into shorts\", \"clip this\", \"repurpose this video\", \"what should I clip\".",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-shorts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-shorts",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-shorts"
+  },
+  {
+    "id": "yt-viral",
+    "name": "yt-viral",
+    "repository": "jakeschincariol-youtube-agent-skill",
+    "category": "research-academic",
+    "description": "Find what is actually working in the user's niche on YouTube and rank it by how far each video beat its own channel, then name the formula. Use for \"what's working right now\", \"find viral videos in my niche\", \"why did this blow up\", competitor research, or a swipe file.",
+    "path": "library/jakeschincariol-youtube-agent-skill/skills/yt-viral",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yt-viral",
+    "link_cmd": "python .agents/library/activate_skill.py link yt-viral"
+  },
+  {
     "id": "better-accessibility",
     "name": "better-accessibility",
     "repository": "jakubkrehel-design-skills",
@@ -27033,6 +28428,126 @@
     "link_cmd": "python .agents/library/activate_skill.py link claude"
   },
   {
+    "id": "asking-user-questions",
+    "name": "asking-user-questions",
+    "repository": "jetbrains-thinkrail",
+    "category": "agent-orchestration",
+    "description": "\"Use when composing an ask_user_question round inside a workflow, or when a workflow skill names it at a question step. Shared norms for the tool \u2014 not a workflow, nothing to execute.\"",
+    "path": "library/jetbrains-thinkrail/skills/asking-user-questions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate asking-user-questions",
+    "link_cmd": "python .agents/library/activate_skill.py link asking-user-questions"
+  },
+  {
+    "id": "brainstorming",
+    "name": "brainstorming",
+    "repository": "jetbrains-thinkrail",
+    "category": "agent-orchestration",
+    "description": "\"Use before implementing a feature, a change in behavior, or a bug fix \u2014 however small. Not for questions, checks, or edits that change no behavior (typos, documentation or configuration only, mechanical refactors).\"",
+    "path": "library/jetbrains-thinkrail/skills/brainstorming",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brainstorming",
+    "link_cmd": "python .agents/library/activate_skill.py link brainstorming"
+  },
+  {
+    "id": "choosing-a-workflow",
+    "name": "choosing-a-workflow",
+    "repository": "jetbrains-thinkrail",
+    "category": "frontend",
+    "description": "\"Use at the start of new project onboarding, PR lifecycle work including PR checks, or any change to what the product does \u2014 a feature, a behavior change, or a bug fix. Not for continuing work already routed to a workflow, non-PR questions, checks, explanations, or edits that change no behavior.\"",
+    "path": "library/jetbrains-thinkrail/skills/choosing-a-workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate choosing-a-workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link choosing-a-workflow"
+  },
+  {
+    "id": "importing-a-codebase",
+    "name": "importing-a-codebase",
+    "repository": "jetbrains-thinkrail",
+    "category": "general-development",
+    "description": "\"Use when asked to create the initial spec graph for an existing codebase that has source code but no specs. Normally reached via setting-up-a-project.\"",
+    "path": "library/jetbrains-thinkrail/skills/importing-a-codebase",
+    "activation_cmd": "python .agents/library/activate_skill.py activate importing-a-codebase",
+    "link_cmd": "python .agents/library/activate_skill.py link importing-a-codebase"
+  },
+  {
+    "id": "managing-mcp-servers",
+    "name": "managing-mcp-servers",
+    "repository": "jetbrains-thinkrail",
+    "category": "backend-api",
+    "description": "Use when the user asks to add, change, remove, enable or disable an MCP server, or when an MCP tool is missing, needs sign-in, fails, or was blocked. ThinkRail runs pi in-process, so there is no `pi` command to call.",
+    "path": "library/jetbrains-thinkrail/skills/managing-mcp-servers",
+    "activation_cmd": "python .agents/library/activate_skill.py activate managing-mcp-servers",
+    "link_cmd": "python .agents/library/activate_skill.py link managing-mcp-servers"
+  },
+  {
+    "id": "setting-up-a-project",
+    "name": "setting-up-a-project",
+    "repository": "jetbrains-thinkrail",
+    "category": "general-development",
+    "description": "\"Use when asked to set up, onboard, initialize, or spec a project with no spec graph, or when invoked by the app's Set-up-project card. Not for ordinary work in an already-specced project.\"",
+    "path": "library/jetbrains-thinkrail/skills/setting-up-a-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-a-project",
+    "link_cmd": "python .agents/library/activate_skill.py link setting-up-a-project"
+  },
+  {
+    "id": "shipping-a-pr",
+    "name": "shipping-a-pr",
+    "repository": "jetbrains-thinkrail",
+    "category": "frontend",
+    "description": "\"Use when finished work needs to ship as a pull request, or when creating, syncing, updating metadata, checking status, monitoring CI, or addressing review comments on a PR. Not for reviewing a PR you are not shipping.\"",
+    "path": "library/jetbrains-thinkrail/skills/shipping-a-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shipping-a-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link shipping-a-pr"
+  },
+  {
+    "id": "spec-graph",
+    "name": "spec-graph",
+    "repository": "jetbrains-thinkrail",
+    "category": "general-development",
+    "description": "\"Use when locating, reading, creating, updating, or validating project specs, or when work is governed by or may alter a documented boundary, contract, invariant, behavior, or architecture decision.\"",
+    "path": "library/jetbrains-thinkrail/skills/spec-graph",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spec-graph",
+    "link_cmd": "python .agents/library/activate_skill.py link spec-graph"
+  },
+  {
+    "id": "starting-a-new-project",
+    "name": "starting-a-new-project",
+    "repository": "jetbrains-thinkrail",
+    "category": "general-development",
+    "description": "\"Use when the workspace is empty, has no code, and the user brings a raw project idea. Normally reached via setting-up-a-project; not for an existing project.\"",
+    "path": "library/jetbrains-thinkrail/skills/starting-a-new-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate starting-a-new-project",
+    "link_cmd": "python .agents/library/activate_skill.py link starting-a-new-project"
+  },
+  {
+    "id": "todos",
+    "name": "todos",
+    "repository": "jetbrains-thinkrail",
+    "category": "agent-orchestration",
+    "description": "\"Use when the user asks for a shared plan, a task needs at least three substantive execution steps, or a loose TODO is pending. Without an explicit plan request, not for one-shot answers or checks, or one- to two-step work that is not already in the list.\"",
+    "path": "library/jetbrains-thinkrail/skills/todos",
+    "activation_cmd": "python .agents/library/activate_skill.py activate todos",
+    "link_cmd": "python .agents/library/activate_skill.py link todos"
+  },
+  {
+    "id": "writing-specs",
+    "name": "writing-specs",
+    "repository": "jetbrains-thinkrail",
+    "category": "frontend",
+    "description": "\"Use when a workflow step drafts or revises a spec artifact \u2014 a goal-and-requirements, an architecture, or a module SPEC \u2014 or when a workflow skill names it at such a step. The shared quality bar for specs \u2014 not a workflow, nothing to execute.\"",
+    "path": "library/jetbrains-thinkrail/skills/writing-specs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-specs",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-specs"
+  },
+  {
+    "id": "writing-workflow-skills",
+    "name": "writing-workflow-skills",
+    "repository": "jetbrains-thinkrail",
+    "category": "agent-orchestration",
+    "description": "\"Use when adding a new workflow skill to pi-thinkrail-workflow, changing an existing workflow skill's role, trigger, handoff, or structure, or checking a workflow skill against the workflow system's rules. Not for authoring general-purpose skills outside this package.\"",
+    "path": "library/jetbrains-thinkrail/skills/writing-workflow-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-workflow-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-workflow-skills"
+  },
+  {
     "id": "release-skills",
     "name": "release-skills",
     "repository": "jimliu-baoyu-design",
@@ -27051,6 +28566,26 @@
     "path": "library/jimliu-baoyu-skills/skills/release-skills",
     "activation_cmd": "python .agents/library/activate_skill.py activate release-skills",
     "link_cmd": "python .agents/library/activate_skill.py link release-skills"
+  },
+  {
+    "id": "awwwards",
+    "name": "awwwards",
+    "repository": "juliobsz-skills",
+    "category": "frontend",
+    "description": "Build award-caliber websites from a one-line prompt such as \"make me a portfolio, my name is Ana\". Uses the bar of sites that win Awwwards Site of the Day as a quality standard. Covers concept, art direction, typography, motion choreography, WebGL, page transitions, real content, SEO, accessibility and performance, then visual QA in a browser. Next.js by default, Astro for animation-heavy static showcases, or the stack the project already uses. Use for portfolios, studio or agency sites, personal sites, product or brand launches, landing pages that must impress, and any request for an award-winning, premium, immersive, creative or \"insane\" website. To only score or review a site without changing it, use /jury.",
+    "path": "library/juliobsz-skills/skills/awwwards",
+    "activation_cmd": "python .agents/library/activate_skill.py activate awwwards",
+    "link_cmd": "python .agents/library/activate_skill.py link awwwards"
+  },
+  {
+    "id": "jury",
+    "name": "jury",
+    "repository": "juliobsz-skills",
+    "category": "frontend",
+    "description": "Score any website the way an Awwwards jury would, from evidence alone. Screenshots every page type on desktop, a throttled phone and reduced motion, measures LCP, CLS, FPS, axe, keyboard focus and hover feedback, audits SEO and metadata, then a fresh critic that never sees the code scores Design, Usability, Creativity, Content and the six developer areas, with a ranked fix list. Use when someone asks to review, critique, score, rate or roast a website, portfolio or landing page, asks whether a site is good enough for Awwwards or Site of the Day, or wants design QA of a live URL or a local build. Not for building or redesigning a site; use /awwwards for that.",
+    "path": "library/juliobsz-skills/skills/jury",
+    "activation_cmd": "python .agents/library/activate_skill.py activate jury",
+    "link_cmd": "python .agents/library/activate_skill.py link jury"
   },
   {
     "id": "logo-design",
@@ -29210,6 +30745,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link lemo-opuscar"
   },
   {
+    "id": "cinetic",
+    "name": "cinetic",
+    "repository": "leonxlnx-cinetic",
+    "category": "frontend",
+    "description": "Direct, build and render premium cinematic motion design from code \u2014 launch films, product and feature videos, looping feature animations for landing pages and social, logo stings and reveals, UI walkthroughs, app demos, kinetic type, teasers, trailers, intros and promo clips. Use this whenever the user wants any video, animation, motion graphic or animated demo made with Remotion, HyperFrames, HTML/GSAP or React, or asks to storyboard, time, score, render, polish or critique one \u2014 even if they only say \"make a video about X\", \"animate this feature\" or \"we need a launch clip\". It supplies concept and copy discipline, type and colour taste that defers to a supplied brand, a beat-locked timeline that drives both picture and a code-made soundtrack, choreography and transition craft, real product UI in motion, film-grade finishing (true motion blur, no banding, BT.709, sync-checked mux) and a measured self-critique loop on contact sheets and renders.",
+    "path": "library/leonxlnx-cinetic/skills/cinetic",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cinetic",
+    "link_cmd": "python .agents/library/activate_skill.py link cinetic"
+  },
+  {
     "id": "html-ppt",
     "name": "html-ppt",
     "repository": "lewislulu-html-ppt-skill",
@@ -29899,6 +31444,16 @@
     "path": "library/lobehub-skills/skills/zustand",
     "activation_cmd": "python .agents/library/activate_skill.py activate zustand",
     "link_cmd": "python .agents/library/activate_skill.py link zustand"
+  },
+  {
+    "id": "motion2code",
+    "name": "motion2code",
+    "repository": "lovisdotio-motion2code",
+    "category": "frontend",
+    "description": "Rebuilds an AI-generated (or any) flat motion design video as clean, editable code: inline SVG shapes animated by one GSAP timeline, seekable frame by frame, looping seamlessly, checked side by side against the source; and optionally turns an interface recording into a real interactive website (GSAP ScrollTrigger, real clicks). Ships scripts to study the video (frames, cuts, contact sheet, exact palette), render the code to mp4/GIF through anim.seek, compare it with the source frame by frame and check the loop seam and page contract. Use when the user wants a video, GIF, Lottie-like clip, motion design shot, animated logo, UI screen recording or AI video \"recreated in code\", \"converted to SVG/GSAP\", \"made into an HTML animation\" or \"made into a real site\". Not for photographic footage, 3D rendering or video editing.",
+    "path": "library/lovisdotio-motion2code/skills/motion2code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate motion2code",
+    "link_cmd": "python .agents/library/activate_skill.py link motion2code"
   },
   {
     "id": "affirmations",
@@ -31011,6 +32566,16 @@
     ]
   },
   {
+    "id": "google-maps-scraper",
+    "name": "google-maps-scraper",
+    "repository": "mahanaicoach-google-maps-scraper-kit",
+    "category": "frontend",
+    "description": "Google Maps scraper for lead generation. Turns a business type and a place into a clean CSV of local businesses by driving the gosom/google-maps-scraper engine, running locally in Docker as a REST API on localhost:8080. Returns 8 lead fields by default (name, phone, email, website, category, address, rating and review count), plus optional Instagram, Facebook and LinkedIn profiles or all ~34 raw fields. Use when the user wants a lead list, \"a list of [businesses] in [place]\", local business data, contact enrichment for places (emails, phones, socials), or a whole-city run past Google's ~120 results per search. Do not use for scraping Instagram, TikTok, YouTube, X or any other social media platform directly.",
+    "path": "library/mahanaicoach-google-maps-scraper-kit/skills/google-maps-scraper",
+    "activation_cmd": "python .agents/library/activate_skill.py activate google-maps-scraper",
+    "link_cmd": "python .agents/library/activate_skill.py link google-maps-scraper"
+  },
+  {
     "id": "documd-visuals",
     "name": "documd-visuals",
     "repository": "markdown-viewer-skills",
@@ -31591,6 +33156,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link anti-slop"
   },
   {
+    "id": "iso-figure",
+    "name": "iso-figure",
+    "repository": "mrbongoc-ai-iso-skill",
+    "category": "frontend",
+    "description": "Build an interactive isometric line-art \"figure\" (Fig N style) of an object in a single HTML/SVG file: monochrome technical-illustration look, parts you can press that produce real output, live state readout. Use for hero illustrations, interactive diagrams, product figures, and playable desk objects (computer, synth, calculator).",
+    "path": "library/mrbongoc-ai-iso-skill/skills/iso-figure",
+    "activation_cmd": "python .agents/library/activate_skill.py activate iso-figure",
+    "link_cmd": "python .agents/library/activate_skill.py link iso-figure"
+  },
+  {
     "id": "anthropic-cybersecurity",
     "name": "anthropic-cybersecurity",
     "repository": "mukul975-anthropic-cybersecurity-skills",
@@ -31729,6 +33304,166 @@
     "path": "library/nanako0129-sepia/skills/sepia-write",
     "activation_cmd": "python .agents/library/activate_skill.py activate sepia-write",
     "link_cmd": "python .agents/library/activate_skill.py link sepia-write"
+  },
+  {
+    "id": "nanomuse",
+    "name": "nanomuse",
+    "repository": "nano-muse-nanomuse",
+    "category": "agent-orchestration",
+    "description": "Specialized trending agent skill.",
+    "path": "library/nano-muse-nanomuse/skills/nanomuse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nanomuse",
+    "link_cmd": "python .agents/library/activate_skill.py link nanomuse"
+  },
+  {
+    "id": "cut-mistakes",
+    "name": "cut-mistakes",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "\"Agent 2 of the video editing pipeline. Finds and removes spoken mistakes \u2014 stutters, repeated words, false starts, and retakes (re-recorded lines) \u2014 from a talking-head recording. Use after cut-silences, when asked to cut mistakes, remove stutters / repeats / filler restarts, clean up flubs, or keep the best take. Works review-gated: it proposes every cut with context and a reason for approval, then renders only the approved cuts via ffmpeg. Requires a word-level transcript.\"",
+    "path": "library/nateherkai-herk-edit-kit/skills/cut-mistakes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cut-mistakes",
+    "link_cmd": "python .agents/library/activate_skill.py link cut-mistakes"
+  },
+  {
+    "id": "cut-silences",
+    "name": "cut-silences",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "agent-orchestration",
+    "description": "Agent 1 of the video editing pipeline. Removes silences and dead air from a talking-head recording. Use when asked to cut silences, trim pauses, remove dead air / gaps, or tighten the pacing of a raw video, given a word-level transcript. Produces an edit list (EDL), a re-timed transcript for downstream agents, and optionally the cut video via ffmpeg. Does NOT cut mistakes, repeats, or false starts \u2014 that is the cut-mistakes agent.",
+    "path": "library/nateherkai-herk-edit-kit/skills/cut-silences",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cut-silences",
+    "link_cmd": "python .agents/library/activate_skill.py link cut-silences"
+  },
+  {
+    "id": "edit-video",
+    "name": "edit-video",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Edit a raw talking-head video through transcription, silence trimming, mistake review, visual storytelling, motion graphics, and verified HyperFrames rendering. Use for a complete edit; route a single requested operation directly to its specialist skill.",
+    "path": "library/nateherkai-herk-edit-kit/skills/edit-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edit-video",
+    "link_cmd": "python .agents/library/activate_skill.py link edit-video"
+  },
+  {
+    "id": "gsap",
+    "name": "gsap",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "GSAP animation reference for HyperFrames. Covers gsap.to(), from(), fromTo(), easing, stagger, defaults, timelines (gsap.timeline(), position parameter, labels, nesting, playback), and performance (transforms, will-change, quickTo). Use when writing GSAP animations in HyperFrames compositions.",
+    "path": "library/nateherkai-herk-edit-kit/skills/gsap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gsap",
+    "link_cmd": "python .agents/library/activate_skill.py link gsap"
+  },
+  {
+    "id": "hyperframes",
+    "name": "hyperframes",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Create video compositions, animations, title cards, overlays, captions, voiceovers, audio-reactive visuals, and scene transitions in HyperFrames HTML. Use when asked to build any HTML-based video content, add captions or subtitles synced to audio, generate text-to-speech narration, create audio-reactive animation (beat sync, glow, pulse driven by music), add animated text highlighting (marker sweeps, hand-drawn circles, burst lines, scribble, sketchout), or add transitions between scenes (crossfades, wipes, reveals, shader transitions). Covers composition authoring, timing, media, and the full video production workflow. For CLI commands (init, lint, preview, render, transcribe, tts) see the hyperframes-cli skill.",
+    "path": "library/nateherkai-herk-edit-kit/skills/hyperframes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hyperframes",
+    "link_cmd": "python .agents/library/activate_skill.py link hyperframes"
+  },
+  {
+    "id": "hyperframes-cli",
+    "name": "hyperframes-cli",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "HyperFrames CLI tool \u2014 hyperframes init, lint, preview, render, transcribe, tts, doctor, browser, info, upgrade, compositions, docs, benchmark. Use when scaffolding a project, linting or validating compositions, previewing in the studio, rendering to video, transcribing audio, generating TTS, or troubleshooting the HyperFrames environment.",
+    "path": "library/nateherkai-herk-edit-kit/skills/hyperframes-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hyperframes-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link hyperframes-cli"
+  },
+  {
+    "id": "hyperframes-registry",
+    "name": "hyperframes-registry",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Install and wire registry blocks and components into HyperFrames compositions. Use when running hyperframes add, installing a block or component, wiring an installed item into index.html, or working with hyperframes.json. Covers the add command, install locations, block sub-composition wiring, component snippet merging, and registry discovery.",
+    "path": "library/nateherkai-herk-edit-kit/skills/hyperframes-registry",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hyperframes-registry",
+    "link_cmd": "python .agents/library/activate_skill.py link hyperframes-registry"
+  },
+  {
+    "id": "hyperframes-video-beats",
+    "name": "hyperframes-video-beats",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "animation-craft",
+    "description": "Plan, write, time, style, and validate motion-graphic beats for long-form talking-head HyperFrames videos. Use when Codex is asked to add or improve visual beats, glassmorphism lower thirds, crumpled-paper full-screen takeovers, transcript-synced callouts, pacing coverage, YouTube retention graphics, or render-ready overlays in an existing HyperFrames video project.",
+    "path": "library/nateherkai-herk-edit-kit/skills/hyperframes-video-beats",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hyperframes-video-beats",
+    "link_cmd": "python .agents/library/activate_skill.py link hyperframes-video-beats"
+  },
+  {
+    "id": "make-a-video",
+    "name": "make-a-video",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Beginner-friendly end-to-end video creator for HyperFrames. Use when the user says \"make a video\", \"create a video\", \"new video\", \"build a video\", \"video from scratch\", \"I want to make a video\", \"help me create a video\", or when someone who's never used HyperFrames before arrives with a concept, script, or rough idea and wants a finished MP4. Interviews the user in one pass, then builds the full video with mandatory preview and visual-verification gates.",
+    "path": "library/nateherkai-herk-edit-kit/skills/make-a-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate make-a-video",
+    "link_cmd": "python .agents/library/activate_skill.py link make-a-video"
+  },
+  {
+    "id": "motion-showreel",
+    "name": "motion-showreel",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Design and build a 10-30 second motion-design showreel or brand reel in the style of Nate's Opus 5.5 \"CLAUDE / MOTION REEL\": one brand motif transformed through labeled craft chapters, a persistent HUD, cuts locked to a 120-130 BPM grid, a sub-second flurry, and a held logo lockup that answers the opening. Use when asked for a showreel, sizzle reel, brand reel, motion reel, \"a reel like the Opus one\", \"show off motion design for <brand>\", a 15-second brand film cut to music, or to study why a reference reel works and rebuild that energy for another brand.",
+    "path": "library/nateherkai-herk-edit-kit/skills/motion-showreel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate motion-showreel",
+    "link_cmd": "python .agents/library/activate_skill.py link motion-showreel"
+  },
+  {
+    "id": "short-form-edit",
+    "name": "short-form-edit",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "animation-craft",
+    "description": "Turn talking-head footage into a finished reel, YouTube Short, or short advertisement with curiosity-led openings, earned payoffs, story-driven cuts, transcript-synced motion graphics, moving B-roll, captions, subtle music, and synchronized sound effects. Use for short-form editing; use edit-video for long-form videos and cut-silences for pause removal alone.",
+    "path": "library/nateherkai-herk-edit-kit/skills/short-form-edit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate short-form-edit",
+    "link_cmd": "python .agents/library/activate_skill.py link short-form-edit"
+  },
+  {
+    "id": "short-form-video",
+    "name": "short-form-video",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "general-development",
+    "description": "Maintain the existing May Shorts teaching compositions using their legacy face-mode, scene-overlay, and karaoke-caption patterns. Use only when working on those examples or explicitly requesting this legacy scaffold. For new reels, Shorts, or short advertisements, use short-form-edit.",
+    "path": "library/nateherkai-herk-edit-kit/skills/short-form-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate short-form-video",
+    "link_cmd": "python .agents/library/activate_skill.py link short-form-video"
+  },
+  {
+    "id": "style-library",
+    "name": "style-library",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Select, customize, or extend the project's reusable motion-graphics card library and style templates. Use for choosing a visual style, adding a card, building a new style pack, or reusing a template in a HyperFrames video.",
+    "path": "library/nateherkai-herk-edit-kit/skills/style-library",
+    "activation_cmd": "python .agents/library/activate_skill.py activate style-library",
+    "link_cmd": "python .agents/library/activate_skill.py link style-library"
+  },
+  {
+    "id": "video-storytelling",
+    "name": "video-storytelling",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Design and build the visual layer of a long-form talking-head video as one persistent world the camera moves through, instead of a sequence of separate graphics. Use when asked to edit a video, add motion graphics, design the visuals for a script, plan an edit, or fix an edit judged confusing, text-heavy, hard to follow, or \"clearly made by an AI\". Covers the persistent world, camera grammar, the spotlight rule, spatial open loops, ornament and token discipline, transcript timing, and the verification gates.",
+    "path": "library/nateherkai-herk-edit-kit/skills/video-storytelling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-storytelling",
+    "link_cmd": "python .agents/library/activate_skill.py link video-storytelling"
+  },
+  {
+    "id": "website-to-hyperframes",
+    "name": "website-to-hyperframes",
+    "repository": "nateherkai-herk-edit-kit",
+    "category": "frontend",
+    "description": "Capture a website and create a HyperFrames video from it. Use when: (1) a user provides a URL and wants a video, (2) someone says \"capture this site\", \"turn this into a video\", \"make a promo from my site\", (3) the user wants a social ad, product tour, or any video based on an existing website, (4) the user shares a link and asks for any kind of video content. Even if the user just pastes a URL \u2014 this is the skill to use.",
+    "path": "library/nateherkai-herk-edit-kit/skills/website-to-hyperframes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate website-to-hyperframes",
+    "link_cmd": "python .agents/library/activate_skill.py link website-to-hyperframes"
   },
   {
     "id": "scroll-craft",
@@ -34680,6 +36415,46 @@
     ]
   },
   {
+    "id": "cap-tool-usage",
+    "name": "cap-tool-usage",
+    "repository": "nvlabs-aspire",
+    "category": "animation-craft",
+    "description": "Localize objects and compose low-level CAP MCP actions using observations, Cartesian or synchronized motion, joint targets, and single-arm gripper control.",
+    "path": "library/nvlabs-aspire/skills/cap-tool-usage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cap-tool-usage",
+    "link_cmd": "python .agents/library/activate_skill.py link cap-tool-usage"
+  },
+  {
+    "id": "evosearch",
+    "name": "evosearch",
+    "repository": "nvlabs-aspire",
+    "category": "general-development",
+    "description": "\"Run the CaP Fix Loop + Evolutionary Search experiment on a user-supplied list of low-performing benchmark tasks: iterative K=8 candidate search on development seeds 51\u201365, validation selection, and final held-out evaluation on seeds 1\u201350.\"",
+    "path": "library/nvlabs-aspire/skills/evosearch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate evosearch",
+    "link_cmd": "python .agents/library/activate_skill.py link evosearch"
+  },
+  {
+    "id": "iterative-debugging",
+    "name": "iterative-debugging",
+    "repository": "nvlabs-aspire",
+    "category": "agent-orchestration",
+    "description": "\"Run the baseline-free CaP iterative debugging (fix loop) pipeline on a user-supplied list of benchmark tasks: inspect one initial observed scene per task, generate task-level code, debug failures on development seeds using recorded run artifacts, validate on the held-out partition, grade the skill library against what actually worked, and promote only those patterns a verifier could reproduce the fix from.\"",
+    "path": "library/nvlabs-aspire/skills/iterative-debugging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate iterative-debugging",
+    "link_cmd": "python .agents/library/activate_skill.py link iterative-debugging"
+  },
+  {
+    "id": "manipulation-tasks",
+    "name": "manipulation-tasks",
+    "repository": "nvlabs-aspire",
+    "category": "mobile",
+    "description": "Perform task-specific real YAM manipulation with native CAP tools. Use for solving or turning a physical Rubik's Cube, bottle-cap removal and pouring, pill insertion and bottle closure, or inverted cup nesting.",
+    "path": "library/nvlabs-aspire/skills/manipulation-tasks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate manipulation-tasks",
+    "link_cmd": "python .agents/library/activate_skill.py link manipulation-tasks"
+  },
+  {
     "id": "brainstorming",
     "name": "brainstorming",
     "repository": "obra-superpowers",
@@ -34941,6 +36716,276 @@
     "path": "library/pleaseprompto-notebooklm-skill/skills/pleaseprompto-notebooklm",
     "activation_cmd": "python .agents/library/activate_skill.py activate pleaseprompto-notebooklm",
     "link_cmd": "python .agents/library/activate_skill.py link pleaseprompto-notebooklm"
+  },
+  {
+    "id": "a11y-audit",
+    "name": "a11y-audit",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Audit a UI or design against WCAG 2.2 AA/AAA and ARIA patterns, returning criterion-referenced findings with severity and specific fixes. Use when the user wants an accessibility check, contrast verification, keyboard/screen-reader review, or wants to confirm a component meets POUR.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/a11y-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate a11y-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link a11y-audit"
+  },
+  {
+    "id": "apply-aesthetic",
+    "name": "apply-aesthetic",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Apply a visual direction, an archetype (high-end agency, editorial minimal, brutalist, soft-SaaS, dark-tech) or one of 2,144 named design systems (apple, linear-app, stripe, vercel, notion, material, shadcn, spotify, tesla\u2026), by resolving it into the token system. Use when the user wants a specific look/vibe/brand feel, or asks to make a design feel premium/expensive/non-generic.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/apply-aesthetic",
+    "activation_cmd": "python .agents/library/activate_skill.py activate apply-aesthetic",
+    "link_cmd": "python .agents/library/activate_skill.py link apply-aesthetic"
+  },
+  {
+    "id": "brandkit",
+    "name": "brandkit",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Generate a complete, accessible brand design system from a brief, as primitive \u2192 semantic \u2192 component DTCG tokens (color, type, spacing, radius, shadow, motion), light + dark, plus a single theme.css, verified for WCAG. Use when the user wants a from-scratch brand/design foundation, a new palette + type system, or a themeable token kit for a product. # `invocation:` was not a field Claude Code reads - unknown frontmatter keys are # ignored without an error, so these six were auto-invocable the whole time they # were marked user-only. This is the field that actually does it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/brandkit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brandkit",
+    "link_cmd": "python .agents/library/activate_skill.py link brandkit"
+  },
+  {
+    "id": "critique",
+    "name": "critique",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Adversarial design critique of the current work. Render it, look at it, and argue for rejection. Run after the gates are green, never instead of them. # Converted from .claude/commands/ so it has a CLAUDE_SKILL_DIR of its own and # its paths resolve on every install route.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/critique",
+    "activation_cmd": "python .agents/library/activate_skill.py activate critique",
+    "link_cmd": "python .agents/library/activate_skill.py link critique"
+  },
+  {
+    "id": "data-dashboard",
+    "name": "data-dashboard",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "'Build a dense, data-heavy screen - an analytics console or a trading terminal - with real charts drawn from tokens: candlestick, volume, depth, stacked area, waterfall, scatter, correlation matrix, donut, gauge, sparklines, heatmaps and order books. Use when the request is a dashboard, terminal, monitoring view, data console, or any screen whose job is to show many numbers at once. Covers the layout sequence, the SVG geometry, the accessibility contract per chart type, and the contrast traps that only appear in dark mode.'",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/data-dashboard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate data-dashboard",
+    "link_cmd": "python .agents/library/activate_skill.py link data-dashboard"
+  },
+  {
+    "id": "design-code",
+    "name": "design-code",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Generate production-ready, accessible, token-driven component code for ANY framework (React+Tailwind, Next.js, SwiftUI, Vue, Svelte, Angular, Solid, Web Components/Lit, React Native, Flutter, Jetpack Compose, vanilla CSS, or CSS-in-JS). Use when the user wants working UI code for a component or screen in a specific stack.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/design-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-code",
+    "link_cmd": "python .agents/library/activate_skill.py link design-code"
+  },
+  {
+    "id": "design-component",
+    "name": "design-component",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Design a UI component spec to the house quality bar (anatomy, variants, sizes, the 8 states, token mapping, and accessibility). Use when the user wants to design or document a component (button, input, tabs, toast, combobox, date picker, modal, etc.) at the spec level before or alongside code. For generating framework code, use design-code.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/design-component",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-component",
+    "link_cmd": "python .agents/library/activate_skill.py link design-component"
+  },
+  {
+    "id": "design-doctrine",
+    "name": "design-doctrine",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "The house rules for ANY design or UI work - the verification protocol (run the gate, never claim a number), the absolute no-emoji rule, token by intent, one shared theme, the eight states, one thing leads, and output completeness. Load this FIRST whenever building, reviewing, or theming a screen, component, or token set. Installed as a plugin, this skill carries what CLAUDE.md carries in the repo.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/design-doctrine",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-doctrine",
+    "link_cmd": "python .agents/library/activate_skill.py link design-doctrine"
+  },
+  {
+    "id": "design-qa",
+    "name": "design-qa",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Set up or run design QA gates for token + hardcoded-value lint, automated a11y (axe), contrast, visual regression across variants/states/themes/RTL, and the manual a11y checklist. Use when the user wants CI quality gates, to prevent design regressions, or to QA a component/screen before shipping.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/design-qa",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-qa",
+    "link_cmd": "python .agents/library/activate_skill.py link design-qa"
+  },
+  {
+    "id": "design-review",
+    "name": "design-review",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Review or audit a design/UI across 6 weighted dimensions with Nielsen's 10 heuristics and a prioritized findings table. Use when the user wants a design critique, quality score, heuristic evaluation, or audit of an existing screen, page, or product before/after build.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/design-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-review",
+    "link_cmd": "python .agents/library/activate_skill.py link design-review"
+  },
+  {
+    "id": "design-screen",
+    "name": "design-screen",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "'Design or build a page, screen, landing page, website, app or UI from a request - the whole job, end to end. Use this for \"design a landing page\", \"build a settings screen\", \"make me a website\", \"design the onboarding\", \"\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a\u0e2b\u0e19\u0e49\u0e32\u0e40\u0e27\u0e47\u0e1a\", \"\u0e17\u0e33\u0e2b\u0e19\u0e49\u0e32 landing\", \"\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a UI\", \"\u0e17\u0e33\u0e41\u0e2d\u0e1b\". It runs the pipeline no single skill covers: the house doctrine, a written Brief Inference so the result is not the statistical mean, a committed visual direction, tokens, build, the objective gates, then an adversarial critic. Hands off to data-dashboard for dense data screens, redesign for existing UI, and image-to-code when a reference image is given.'",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/design-screen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-screen",
+    "link_cmd": "python .agents/library/activate_skill.py link design-screen"
+  },
+  {
+    "id": "design-tokens",
+    "name": "design-tokens",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Generate, extend, or audit design tokens in DTCG format with the 3-tier architecture (primitive \u2192 semantic \u2192 component). Use when the user wants a color palette, type scale, spacing/shadow/radius/motion tokens, multi-brand theming, or wants to validate token files. Covers colors, typography, spacing, shadows, borders, breakpoints, motion, gradients, opacity, blur, sizing, states, theming.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/design-tokens",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-tokens",
+    "link_cmd": "python .agents/library/activate_skill.py link design-tokens"
+  },
+  {
+    "id": "figma-integration",
+    "name": "figma-integration",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Keep Figma and code in sync. Map the 3-tier DTCG tokens to Figma Variables (collections + modes), sync in either direction, use the Figma MCP when connected, and verify component parity (variants/states). Use when the user wants to push tokens/components to Figma, pull a design into code, set up token\u2194Variable sync, or check design-code drift.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/figma-integration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-integration",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-integration"
+  },
+  {
+    "id": "gate",
+    "name": "gate",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Run the one-command quality gate and report the real N/N result. Use before claiming any build/review is done. # A command the user runs. Converted from .claude/commands/ so it has a # CLAUDE_SKILL_DIR of its own and its paths resolve on every install route. # disable-model-invocation keeps the behaviour a command had: the user # starts it, the model never does, and its description stays out of the # listing budget the model's skill choice is drawn from.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/gate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gate",
+    "link_cmd": "python .agents/library/activate_skill.py link gate"
+  },
+  {
+    "id": "governance",
+    "name": "governance",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Govern how the design system evolves (SemVer for tokens/components, the contribution workflow, deprecation policy, and change communication). Use when the user wants to add/promote/deprecate a component or token, decide a version bump, set up a contribution process, or keep the system from fragmenting. # `invocation:` was not a field Claude Code reads - unknown frontmatter keys are # ignored without an error, so these six were auto-invocable the whole time they # were marked user-only. This is the field that actually does it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/governance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate governance",
+    "link_cmd": "python .agents/library/activate_skill.py link governance"
+  },
+  {
+    "id": "grill-me",
+    "name": "grill-me",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Interrogate the brief before a line is built. Ask only the questions whose answers change the work, and put every unasked decision on the record as a stated assumption. # A command the user runs. Converted from .claude/commands/ so it has a # CLAUDE_SKILL_DIR of its own and its paths resolve on every install route. # disable-model-invocation keeps the behaviour a command had: the user # starts it, the model never does, and its description stays out of the # listing budget the model's skill choice is drawn from.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/grill-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grill-me",
+    "link_cmd": "python .agents/library/activate_skill.py link grill-me"
+  },
+  {
+    "id": "image-to-code",
+    "name": "image-to-code",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Turn a reference image, screenshot, or mockup into token-driven, accessible code. Infer the design system from the reference (palette, type scale, spacing, radius, layout archetype), map it to the 3-tier tokens, rebuild it, then verify with the kit's gates. Use when the user provides a design/screenshot and wants matching UI code. # `invocation:` was not a field Claude Code reads - unknown frontmatter keys are # ignored without an error, so these six were auto-invocable the whole time they # were marked user-only. This is the field that actually does it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/image-to-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-to-code",
+    "link_cmd": "python .agents/library/activate_skill.py link image-to-code"
+  },
+  {
+    "id": "leaky",
+    "name": "leaky",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "general-development",
+    "description": "A skill written the way the whole surface was written before 2026-10-05. The gate must reject it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/leaky",
+    "activation_cmd": "python .agents/library/activate_skill.py activate leaky",
+    "link_cmd": "python .agents/library/activate_skill.py link leaky"
+  },
+  {
+    "id": "migrate-design-system",
+    "name": "migrate-design-system",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Map this token system to or from any external design system (Material Design 3, Apple HIG, Fluent, Carbon, Ant, shadcn/ui, Radix, Chakra, Mantine, Bootstrap\u2026). Adopt their look, build on their stack, or migrate between systems. Use when the user mentions interop, migration, or a specific design-system/component-library bridge. # `invocation:` was not a field Claude Code reads - unknown frontmatter keys are # ignored without an error, so these six were auto-invocable the whole time they # were marked user-only. This is the field that actually does it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/migrate-design-system",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-design-system",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-design-system"
+  },
+  {
+    "id": "observe",
+    "name": "observe",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "agent-orchestration",
+    "description": "'Show whether the agent followed the kit''s rules in recent sessions: pages edited and measured, Stop hook blocks, findings left open. Reads local hook events only.' # A command the user runs, like /gate. The model never starts it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/observe",
+    "activation_cmd": "python .agents/library/activate_skill.py activate observe",
+    "link_cmd": "python .agents/library/activate_skill.py link observe"
+  },
+  {
+    "id": "performance",
+    "name": "performance",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Optimize UI performance against Core Web Vitals (LCP, INP, CLS) with loading/code-split strategy, layout-shift prevention, and animation performance rules. Use when the user wants to improve speed, fix jank or layout shift, hit Web Vitals budgets, or make a UI feel fast on low-end devices.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/performance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate performance",
+    "link_cmd": "python .agents/library/activate_skill.py link performance"
+  },
+  {
+    "id": "prototype",
+    "name": "prototype",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "testing-qa",
+    "description": "Move an idea up the fidelity ladder (content-first \u2192 wireframe \u2192 low-fi \u2192 high-fi \u2192 code) with a validation plan at each level, plus user-journey mapping and usability-testing scripts. Use when the user wants to prototype, wireframe, map a user flow, or plan/run usability testing. # `invocation:` was not a field Claude Code reads - unknown frontmatter keys are # ignored without an error, so these six were auto-invocable the whole time they # were marked user-only. This is the field that actually does it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/prototype",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prototype",
+    "link_cmd": "python .agents/library/activate_skill.py link prototype"
+  },
+  {
+    "id": "redesign",
+    "name": "redesign",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Upgrade an existing website or app to premium quality without breaking functionality. Audit the current design, identify generic/AI tells, then apply taste and system rules surgically. Use when the user wants to improve, modernize, polish, or \"make better\" an existing UI/codebase. # `invocation:` was not a field Claude Code reads - unknown frontmatter keys are # ignored without an error, so these six were auto-invocable the whole time they # were marked user-only. This is the field that actually does it.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/redesign",
+    "activation_cmd": "python .agents/library/activate_skill.py activate redesign",
+    "link_cmd": "python .agents/library/activate_skill.py link redesign"
+  },
+  {
+    "id": "scaffold-project",
+    "name": "scaffold-project",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Scaffold a new design-product project that matches the recommended Claude Code layout (the reference structure). Use when starting a fresh product/app that will be built with this design system. # A command the user runs. Converted from .claude/commands/ so it has a # CLAUDE_SKILL_DIR of its own and its paths resolve on every install route. # disable-model-invocation keeps the behaviour a command had: the user # starts it, the model never does, and its description stays out of the # listing budget the model's skill choice is drawn from.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/scaffold-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scaffold-project",
+    "link_cmd": "python .agents/library/activate_skill.py link scaffold-project"
+  },
+  {
+    "id": "ship",
+    "name": "ship",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "general-development",
+    "description": "Pre-release gate. Run the full gate, responsive + render checks, then produce the release checklist (README badge/current/changelog). Use before tagging a release. # A command the user runs. Converted from .claude/commands/ so it has a # CLAUDE_SKILL_DIR of its own and its paths resolve on every install route. # disable-model-invocation keeps the behaviour a command had: the user # starts it, the model never does, and its description stays out of the # listing budget the model's skill choice is drawn from.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/ship",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ship",
+    "link_cmd": "python .agents/library/activate_skill.py link ship"
+  },
+  {
+    "id": "token-build",
+    "name": "token-build",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Set up or run the token build pipeline. Transform the DTCG tokens/*.json (source of truth) into platform artifacts (CSS variables, Tailwind @theme, JS/TS, iOS Asset Catalog, Android, Compose) with Style Dictionary / Tokens Studio / W3C DTCG export. Use when the user wants to generate platform theme files from tokens, wire token CI, or multi-platform token output.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/token-build",
+    "activation_cmd": "python .agents/library/activate_skill.py activate token-build",
+    "link_cmd": "python .agents/library/activate_skill.py link token-build"
+  },
+  {
+    "id": "ux-writing",
+    "name": "ux-writing",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "category": "frontend",
+    "description": "Write or review UI copy (buttons, errors, empty states, microcopy, notifications, labels) using the voice & tone system (clear, concise, useful, human, honest) with the what\u2192why\u2192how error formula and inclusive-language rules. Use when the user needs interface copy, error messages, empty-state text, or a copy review.",
+    "path": "library/plugin87-ux-ui-agent-skills/skills/ux-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ux-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link ux-writing"
   },
   {
     "id": "ponytail",
@@ -35271,6 +37316,16 @@
     "path": "library/remotion-dev-skills/skills/remotion-upgrade",
     "activation_cmd": "python .agents/library/activate_skill.py activate remotion-upgrade",
     "link_cmd": "python .agents/library/activate_skill.py link remotion-upgrade"
+  },
+  {
+    "id": "grill-me",
+    "name": "grill-me",
+    "repository": "robmitt-grill-me-skill",
+    "category": "frontend",
+    "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions \"grill me\".",
+    "path": "library/robmitt-grill-me-skill/skills/grill-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grill-me",
+    "link_cmd": "python .agents/library/activate_skill.py link grill-me"
   },
   {
     "id": "open-seo-mcp",
@@ -35841,6 +37896,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link taste-skill"
   },
   {
+    "id": "motionmaxxing",
+    "name": "motionmaxxing",
+    "repository": "tejashmakwana-motionmaxxing",
+    "category": "frontend",
+    "description": "Direct and build professional motion-graphics films (launch videos, product promos, feature reveals, brand stings, kinetic-type pieces, social ads, CTAs) that read as made by a senior motion designer, not AI slop. Finds an idea only this brand could own (from its logo, control, material, verb, voice), builds a world for it (ground, light, depth, texture, 3D or generated image surfaces for the hero moment), then builds with a seek-safe GSAP runtime driven by curves measured frame by frame from 53 professional recreations, and reviews its own render honestly with scripted gates (look.py, lint.mjs) instead of self-certifying. Given a website URL it captures the brand (colours, fonts, official logo, copy, screenshots); with an ElevenLabs key it writes and voices the script, scores it, and cuts picture and sound together. Use for any request to make, plan, storyboard, fix or critique a motion graphic or promo video, in HyperFrames or plain HTML.",
+    "path": "library/tejashmakwana-motionmaxxing/skills/motionmaxxing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate motionmaxxing",
+    "link_cmd": "python .agents/library/activate_skill.py link motionmaxxing"
+  },
+  {
     "id": "autoharness",
     "name": "autoharness",
     "repository": "tigerless-labs-autoharness",
@@ -35849,6 +37914,16 @@
     "path": "library/tigerless-labs-autoharness/skills/autoharness",
     "activation_cmd": "python .agents/library/activate_skill.py activate autoharness",
     "link_cmd": "python .agents/library/activate_skill.py link autoharness"
+  },
+  {
+    "id": "seo-ops",
+    "name": "seo-ops",
+    "repository": "tigerless-labs-seo-ops",
+    "category": "frontend",
+    "description": "Structural checklist and checker script for SEO foundation engineering. Use when reviewing or accepting a site/page for SEO/GEO structural compliance (robots, sitemap, canonical, 301 canonicalization, JSON-LD, OG, hreflang, CWV, AI crawler access, rendering strategy), when running the machine checks to produce a report, or when judging whether a frontend change will affect indexing and citation. Also for answering \"what exactly does this check require\" and \"why does it exist\".",
+    "path": "library/tigerless-labs-seo-ops/skills/seo-ops",
+    "activation_cmd": "python .agents/library/activate_skill.py activate seo-ops",
+    "link_cmd": "python .agents/library/activate_skill.py link seo-ops"
   },
   {
     "id": "distilly",
@@ -36746,6 +38821,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link ui-ux-pro-max"
   },
   {
+    "id": "short-drama-skill-finder",
+    "name": "short-drama-skill-finder",
+    "repository": "underleveledbuilder-awesome-short-drama-skills",
+    "category": "frontend",
+    "description": "Recommend AI short drama, micro drama and manju (\u6f2b\u5267) skills from a hand-checked list of 90+ projects, matched to the user's stage (novel adaptation, episode outlines and hooks, script writing, review, storyboards, character consistency, video prompts, production), video model (Seedance/\u5373\u68a6, Kling/\u53ef\u7075, MiniMax, Wan, Veo, Sora, ComfyUI) and agent (Claude Code, Codex, OpenClaw/\u9f99\u867e, Qwen, Doubao, WorkBuddy). Use when someone asks which skill or tool to use for an AI short drama or \u77ed\u5267/\u6f2b\u5267, or how to install one. \u5e2e\u4f60\u4ece\u4eba\u5de5\u6838\u5bf9\u8fc7\u7684\u77ed\u5267\u3001\u6f2b\u5267 skill \u6e05\u5355\u91cc\u6311\u5408\u9002\u7684\uff1a\u5c0f\u8bf4\u6539\u7f16\u3001\u96c6\u7eb2\u94a9\u5b50\u3001\u5267\u672c\u3001\u5ba1\u7a3f\u3001\u5206\u955c\u3001\u89d2\u8272\u4e00\u81f4\u6027\u3001\u89c6\u9891\u63d0\u793a\u8bcd\u3001\u51fa\u7247\u3002",
+    "path": "library/underleveledbuilder-awesome-short-drama-skills/skills/short-drama-skill-finder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate short-drama-skill-finder",
+    "link_cmd": "python .agents/library/activate_skill.py link short-drama-skill-finder"
+  },
+  {
     "id": "deploy-to-vercel",
     "name": "deploy-to-vercel",
     "repository": "vercel-agent-skills",
@@ -37132,6 +39217,36 @@
     "path": "library/zhaoxuya520-reverse-skill/skills/reverse-skill-router",
     "activation_cmd": "python .agents/library/activate_skill.py activate reverse-skill-router",
     "link_cmd": "python .agents/library/activate_skill.py link reverse-skill-router"
+  },
+  {
+    "id": "ai-listening",
+    "name": "ai-listening",
+    "repository": "zhuyansen-new-term-radar",
+    "category": "backend-api",
+    "description": "Collect what is new in AI in the last 24 hours across X, Hugging Face, GitHub and sitemaps, deduplicated, as one report of names that are starting to surge. Use when the user asks what is new or trending in AI today, wants a daily AI listening report, or needs fresh names of models, products and repositories to feed keyword research. Runs the new-term-radar command line; needs an AISA_API_KEY.",
+    "path": "library/zhuyansen-new-term-radar/skills/ai-listening",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-listening",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-listening"
+  },
+  {
+    "id": "new-term-radar",
+    "name": "new-term-radar",
+    "repository": "zhuyansen-new-term-radar",
+    "category": "frontend",
+    "description": "One run from signal to decision. Finds the names of new AI models, products and repositories seen in the last 24 hours (X, Hugging Face, GitHub, sitemaps), then builds a keyword priority table for them, each new name and the generic search terms behind it, sized against Google Ads volume and DataForSEO Trends (an estimate of Google search interest), with prioritize, watch or skip. Use when the user wants today's new AI keywords, an AI trend radar, or asks what new AI terms are worth building a page or tool for. Also takes names the user already has. Runs the new-term-radar command line; needs an AISA_API_KEY.",
+    "path": "library/zhuyansen-new-term-radar/skills/new-term-radar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate new-term-radar",
+    "link_cmd": "python .agents/library/activate_skill.py link new-term-radar"
+  },
+  {
+    "id": "seo-new-keywords-research",
+    "name": "seo-new-keywords-research",
+    "repository": "zhuyansen-new-term-radar",
+    "category": "frontend",
+    "description": "Turn new AI names or unstructured AI market signals into a keyword priority table. For each name it finds the generic search terms downstream of it, screens them for relevance, and checks novelty, demand size and momentum against Google Ads volume and DataForSEO Trends (an estimate of Google search interest), ending in prioritize, watch or skip. Use when the user has new model, product or repository names (or an AI listening report, a batch of posts, a changelog) and asks which keywords to build pages or tools for. Runs the new-term-radar command line; needs an AISA_API_KEY, and a GOANYAPI_API_KEY improves it.",
+    "path": "library/zhuyansen-new-term-radar/skills/seo-new-keywords-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate seo-new-keywords-research",
+    "link_cmd": "python .agents/library/activate_skill.py link seo-new-keywords-research"
   },
   {
     "id": "geo",
