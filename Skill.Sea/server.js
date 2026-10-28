@@ -20,6 +20,7 @@ const MIME_TYPES = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -126,8 +127,11 @@ const server = http.createServer((req, res) => {
     const acceptEncoding = req.headers['accept-encoding'] || '';
 
     // 3. Adaptive Caching Strategy
-    if (ext === '.html') {
+    if (ext === '.html' || filePath.endsWith('sw.js')) {
       res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+      if (filePath.endsWith('sw.js')) {
+        res.setHeader('Service-Worker-Allowed', '/');
+      }
     } else if (IS_PROD) {
       // Production: cache versioned data and static assets
       res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');

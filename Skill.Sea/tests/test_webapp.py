@@ -257,17 +257,36 @@ def run_tests():
         record("Theme Toggled back via 'T' Key", restored_theme == initial_theme, f"Restored to: {restored_theme}")
 
         # -----------------------------------------------------------------
-        # TEST 12: Screenshots (Desktop & Mobile)
+        # TEST 12: Mobile-Native Capabilities & Responsive Breakpoints
         # -----------------------------------------------------------------
-        print("\n[Suite 12] Responsive Breakpoints & Screenshot Capture")
+        print("\n[Suite 12] Mobile-Native Capabilities & Responsive Breakpoints")
         desktop_path = os.path.join(ARTIFACT_DIR, 'desktop_e2e_verified.png')
         page.screenshot(path=desktop_path, full_page=False)
         record("Captured Desktop Viewport Screenshot", os.path.exists(desktop_path), f"Saved to {desktop_path}")
+
+        # Check Mobile-Native Emil Kowalski CSS Properties
+        tap_highlight = page.evaluate("() => window.getComputedStyle(document.documentElement).webkitTapHighlightColor")
+        record("Tap Highlight Disabled (-webkit-tap-highlight-color: transparent)", "rgba(0, 0, 0, 0)" in tap_highlight or tap_highlight == "transparent", f"Got: {tap_highlight}")
+
+        overscroll_y = page.evaluate("() => window.getComputedStyle(document.body).overscrollBehaviorY")
+        record("Overscroll Behavior Y Set to None", overscroll_y == "none", f"Got: {overscroll_y}")
+
+        manifest_count = page.locator('link[rel="manifest"]').count()
+        record("Web App Manifest Linked", manifest_count == 1, "link[rel=manifest] present")
 
         # Switch to Mobile Viewport (iPhone / Android spec: 375x667)
         page.set_viewport_size({'width': 375, 'height': 667})
         page.wait_for_timeout(300)
         record("Mobile Tab Bar Visible on Mobile", page.locator('.mobile-tab-bar').is_visible())
+
+        # Test Native Mobile Bottom Sheet
+        page.locator('#table-body tr:first-child .btn-action').click()
+        page.wait_for_timeout(300)
+        drawer_panel = page.locator('.drawer-panel')
+        drawer_radius = drawer_panel.evaluate("el => window.getComputedStyle(el).borderTopLeftRadius")
+        record("Mobile Drawer Styled as Native Bottom Sheet (Rounded Top Corners)", drawer_radius in ["18px", "20px"], f"Border radius: {drawer_radius}")
+        page.keyboard.press('Escape')
+        page.wait_for_timeout(300)
         
         mobile_path = os.path.join(ARTIFACT_DIR, 'mobile_e2e_verified.png')
         page.screenshot(path=mobile_path, full_page=False)

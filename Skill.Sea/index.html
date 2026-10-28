@@ -2,10 +2,19 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Skill.Sea — Agent Skills Vault & Leaderboard</title>
   <meta name="description" content="An independent directory, leaderboard, and one-click activation suite for 6,063+ AI Agent Skills across 38 functional categories from open GitHub repositories.">
   <meta name="keywords" content="AI Agent Skills, Antigravity, Claude Code, Agent Leaderboard, Tool Calling, MCP, Skills Vault, GitHub">
+
+  <!-- Mobile Native & PWA Capabilities -->
+  <meta name="theme-color" content="#f9f9f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Skill.Sea">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Skill.Sea — Agent Skills Vault & Leaderboard">
@@ -18,10 +27,11 @@
   <!-- Tabler Icons Font -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.42.0/dist/tabler-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230f6e56'><rect width='24' height='24' rx='6'/><path d='M8 12l3 3 5-5' stroke='%23ffffff' stroke-width='2' fill='none'/></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192' fill='%230b0b0b'><rect width='192' height='192' rx='36'/><path d='M40 96c14-20 28-20 42 0s28 20 42 0 28-20 42 0' stroke='%231d9e75' stroke-width='14' stroke-linecap='round' fill='none'/></svg>">
 
   <!-- ExamForge Design Tokens & Main Styles -->
-  <link rel="stylesheet" href="styles/design-tokens.css?v=2.2">
-  <link rel="stylesheet" href="styles/main.css?v=2.2">
+  <link rel="stylesheet" href="styles/design-tokens.css?v=2.3">
+  <link rel="stylesheet" href="styles/main.css?v=2.3">
 </head>
 <body>
 
@@ -662,5 +672,12 @@
 
   <!-- App Script -->
   <script src="src/app.js?v=2.3"></script>
+  <script>
+    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>

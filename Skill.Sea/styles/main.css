@@ -11,8 +11,13 @@
   padding: 0;
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html, body {
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   background-color: var(--surface-0);
   color: var(--text-primary);
@@ -22,6 +27,34 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+/* Mobile-Native Touch Ergonomics & Immediate Feedback */
+button,
+.btn-icon,
+.nv,
+.mob-tab-btn,
+.pill,
+.cat-pill,
+.cmd-box,
+.btn-action,
+.copy-pill,
+.filter-chip-remove {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+button:active,
+.btn-icon:active,
+.mob-tab-btn:active,
+.pill:active,
+.cat-pill:active,
+.btn-action:active,
+.copy-pill:active {
+  transform: scale(0.97);
+  opacity: 0.88;
 }
 
 /* ==========================================================================
@@ -1482,18 +1515,20 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 54px;
+  height: calc(54px + env(safe-area-inset-bottom, 0px));
   background: var(--surface-1);
   border-top: 0.5px solid var(--border);
   z-index: 80;
   justify-content: space-around;
   align-items: center;
-  padding: 0 4px;
-  backdrop-filter: blur(8px);
+  padding: 0 4px max(4px, env(safe-area-inset-bottom, 0px)) 4px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .mob-tab-btn {
   flex: 1;
+  min-height: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1504,7 +1539,7 @@ html, body {
   color: var(--text-secondary);
   font-size: 10px;
   cursor: pointer;
-  padding: 6px 0;
+  padding: 4px 0;
   transition: color 0.15s ease;
 }
 
@@ -1538,12 +1573,51 @@ html, body {
 
 @media (max-width: 680px) {
   body {
-    padding-bottom: 56px; /* Space for mobile bottom tab bar */
+    padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
   }
 
   .hd {
-    padding: 0 12px;
-    height: 44px;
+    padding: max(0px, env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) 0 max(12px, env(safe-area-inset-left, 0px));
+    height: calc(46px + env(safe-area-inset-top, 0px));
+  }
+
+  /* Prevent iOS Safari auto-zoom on input focus (minimum 16px font-size) */
+  input[type="text"],
+  input[type="search"],
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Mobile Native Bottom Sheet Drawer */
+  .drawer-panel {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: 85dvh;
+    border-radius: 18px 18px 0 0;
+    border-left: none;
+    border-top: 0.5px solid var(--border-strong);
+    transform: translateY(100%);
+    box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.45);
+    padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  }
+
+  .drawer-panel::before {
+    content: '';
+    display: block;
+    width: 38px;
+    height: 4px;
+    background: var(--text-muted);
+    opacity: 0.35;
+    border-radius: 9999px;
+    margin: 8px auto 2px auto;
+  }
+
+  .drawer-backdrop.open .drawer-panel {
+    transform: translateY(0);
   }
 
   .hd .nv-group {
