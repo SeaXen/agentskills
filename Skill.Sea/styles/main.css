@@ -1528,4 +1528,238 @@ html, body {
   .page-view {
     padding: 12px;
   }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Installation Guide & Cheatsheet (Professional Design)
+   ========================================================================== */
+.guide-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 4px 0 32px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.guide-hero {
+  background: var(--surface-1);
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-hero h2 {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.guide-hero p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 860px;
+}
+
+.guide-quick-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.guide-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 11.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.guide-nav-pill:hover {
+  background: var(--surface-hover);
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.guide-card {
+  background: var(--surface-1);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.guide-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.guide-card.highlight {
+  border-color: var(--teal);
+  background: linear-gradient(180deg, var(--surface-1) 0%, rgba(29, 158, 117, 0.03) 100%);
+}
+
+.guide-card-hd {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.guide-card-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.guide-card-badge {
+  font-size: 10.5px;
+  font-family: var(--font-mono);
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.guide-card-badge.badge-teal {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.guide-card-desc {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.guide-code-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.guide-code-lbl {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.guide-code-box {
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+}
+
+.guide-code-box:hover {
+  border-color: var(--teal);
+  background: var(--surface-hover);
+}
+
+.guide-code-box code {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  font-family: inherit;
+}
+
+.guide-copy-btn {
+  background: var(--surface-1);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.12s ease;
+  flex-shrink: 0;
+}
+
+.guide-copy-btn:hover {
+  background: var(--teal);
+  color: #ffffff;
+  border-color: var(--teal);
+}
+
+.guide-notes {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  border-left: 2px solid var(--teal);
+  padding-left: 10px;
+  margin-top: 2px;
+}
+
+.btn-copy-cat {
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.12s ease;
+}
+
+.btn-copy-cat:hover {
+  color: var(--teal);
+  border-color: var(--teal);
 }

@@ -294,68 +294,305 @@
       <!-- ==================================================================
            PAGE 5: INSTALLATION GUIDE & CHEATSHEET
            ================================================================== -->
+      <!-- ==================================================================
+           PAGE 5: INSTALLATION GUIDE & CHEATSHEET
+           ================================================================== -->
       <div id="view-guide" class="page-view">
-        <div class="page-hero">
-          <h2><i class="ti ti-terminal-2" style="color:var(--teal)"></i> How to Install & Use Skills Anywhere</h2>
-          <p>Complete guide for integrating these 6,063+ skills with Google Antigravity, Claude Code, Cursor, Windsurf, or custom agent setups.</p>
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:16px">
+        <div class="guide-container">
           
-          <div class="mc" style="cursor:default">
-            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
-              <i class="ti ti-terminal" style="color:var(--teal)"></i> Method 1: Local AgentSkills CLI
-            </h3>
-            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
-              Activate any skill into your active workspace using the universal Python activator:
-            </p>
-            <div class="code-snippet-box">
-              <span class="copy-pill" onclick="copyCommand('python .agents/library/activate_skill.py activate <name>')">Copy</span>
-              <code>python .agents/library/activate_skill.py activate &lt;name&gt;</code>
+          <div class="guide-hero">
+            <h2><i class="ti ti-terminal-2" style="color:var(--teal)"></i> Universal Installation & Integration Hub</h2>
+            <p>Seamlessly integrate any of the 6,063+ agent skills into Google Antigravity, Claude Code, Cursor, Windsurf, or custom agent setups. Install individual skills, full category packs, entire upstream repositories, or clone the full vault.</p>
+            <div class="guide-quick-nav">
+              <a href="#guide-full-vault" class="guide-nav-pill"><i class="ti ti-folder-star"></i> 1. Full Vault Repo</a>
+              <a href="#guide-single-skill" class="guide-nav-pill"><i class="ti ti-bolt"></i> 2. Single Skill</a>
+              <a href="#guide-category-pack" class="guide-nav-pill"><i class="ti ti-category"></i> 3. Category Pack</a>
+              <a href="#guide-upstream-repo" class="guide-nav-pill"><i class="ti ti-books"></i> 4. Upstream Repo</a>
+              <a href="#guide-lifecycle" class="guide-nav-pill"><i class="ti ti-refresh"></i> 5. Activate & Update</a>
+              <a href="#guide-cloud" class="guide-nav-pill"><i class="ti ti-cloud-upload"></i> 6. Cloud & R2</a>
             </div>
-            <p style="font-size:11px;color:var(--text-muted)">Copies the skill definition and instructions directly into <code>.agent/skills/&lt;name&gt;</code>.</p>
           </div>
 
-          <div class="mc" style="cursor:default">
-            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
-              <i class="ti ti-link" style="color:var(--teal)"></i> Method 2: Zero-Disk Symlink / Junction
-            </h3>
-            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
-              Link skills without duplicating disk space using native Windows NTFS Junction or Linux symlink:
-            </p>
-            <div class="code-snippet-box">
-              <span class="copy-pill" onclick="copyCommand('python .agents/library/activate_skill.py link <name>')">Copy</span>
-              <code>python .agents/library/activate_skill.py link &lt;name&gt;</code>
-            </div>
-            <p style="font-size:11px;color:var(--text-muted)">Uses 0 duplicate disk space. Edits to upstream automatically reflect.</p>
-          </div>
+          <div class="guide-grid">
+            
+            <!-- CARD 1: FULL VAULT REPO -->
+            <div class="guide-card highlight" id="guide-full-vault">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-folder-star" style="color:var(--teal)"></i>
+                  <span>1. Install Entire AgentSkills Vault (My Repo)</span>
+                </div>
+                <span class="guide-card-badge badge-teal">Recommended · All 6,063 Skills</span>
+              </div>
+              <div class="guide-card-desc">
+                Clone the complete vault directly into your project's <code>.agents</code> directory. Includes all 38 categories, 210 curated repositories, automation tools, and catalog data.
+              </div>
 
-          <div class="mc" style="cursor:default">
-            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
-              <i class="ti ti-cloud-download" style="color:var(--teal)"></i> Method 3: Remote cURL Quick-Launch
-            </h3>
-            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
-              Install and activate directly in GitHub Codespaces, Linux VMs, or CI pipelines:
-            </p>
-            <div class="code-snippet-box">
-              <span class="copy-pill" onclick="copyCommand('curl -sSL https://raw.githubusercontent.com/SeaXen/agentskills/main/install.sh | bash -s -- activate <name>')">Copy</span>
-              <code>curl -sSL https://raw.githubusercontent.com/SeaXen/agentskills/main/install.sh | bash -s -- activate &lt;name&gt;</code>
-            </div>
-            <p style="font-size:11px;color:var(--text-muted)">Automatically clones or pulls the vault and configures your environment.</p>
-          </div>
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Standard Git Clone (Windows / macOS / Linux):</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('git clone https://github.com/SeaXen/agentskills.git .agents', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('git clone https://github.com/SeaXen/agentskills.git .agents', event)">
+                  <code>git clone https://github.com/SeaXen/agentskills.git .agents</code>
+                </div>
+              </div>
 
-          <div class="mc" style="cursor:default">
-            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
-              <i class="ti ti-device-floppy" style="color:var(--teal)"></i> Cloudflare R2 Sync Integration
-            </h3>
-            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
-              Back up and sync your entire catalog to Cloudflare R2 object storage:
-            </p>
-            <div class="code-snippet-box">
-              <span class="copy-pill" onclick="copyCommand('npm run sync:r2')">Copy</span>
-              <code>npm run sync:r2</code>
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Git Submodule (into an existing repository):</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('git submodule add https://github.com/SeaXen/agentskills.git .agents', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('git submodule add https://github.com/SeaXen/agentskills.git .agents', event)">
+                  <code>git submodule add https://github.com/SeaXen/agentskills.git .agents</code>
+                </div>
+              </div>
+
+              <div class="guide-notes">
+                Tip: After cloning, all skills in <code>.agents/skills/</code> are automatically recognized by Google Antigravity, Claude Code, and Windsurf.
+              </div>
             </div>
-            <p style="font-size:11px;color:var(--text-muted)">Uploads <code>catalog.json</code>, <code>categories.json</code>, and <code>repositories.json</code> using S3 API.</p>
+
+            <!-- CARD 2: SINGLE SKILL INSTALL -->
+            <div class="guide-card" id="guide-single-skill">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-bolt" style="color:var(--teal)"></i>
+                  <span>2. Install One Individual Skill (Targeted)</span>
+                </div>
+                <span class="guide-card-badge">Zero Clutter · Single Stroke</span>
+              </div>
+              <div class="guide-card-desc">
+                Activate or install an individual skill without downloading the whole vault. Works universally via NPX or the local Python CLI.
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Universal NPX Stroke (Origin or My Repo):</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('npx skills add https://github.com/SeaXen/agentskills --skill <name>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('npx skills add https://github.com/SeaXen/agentskills --skill <name>', event)">
+                  <code>npx skills add https://github.com/SeaXen/agentskills --skill &lt;name&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Local Python Activation (Copies into active workspace):</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py activate <name>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py activate <name>', event)">
+                  <code>python .agents/library/activate_skill.py activate &lt;name&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Zero-Disk Junction / Symlink (0 duplicate disk space):</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py link <name>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py link <name>', event)">
+                  <code>python .agents/library/activate_skill.py link &lt;name&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-notes">
+                Tip: You can click the 1-click install box on any row in the Skill Hub table for instant copying!
+              </div>
+            </div>
+
+            <!-- CARD 3: ENTIRE CATEGORY PACK -->
+            <div class="guide-card" id="guide-category-pack">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-category" style="color:var(--teal)"></i>
+                  <span>3. Install / Activate Entire Category Pack</span>
+                </div>
+                <span class="guide-card-badge">38 Domain Packs</span>
+              </div>
+              <div class="guide-card-desc">
+                Need all Frontend Component skills, all Security audit tools, or all Cloudflare Edge recipes? Activate a full domain pack with one command.
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Activate All Skills in a Category:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py activate-category <category-slug>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py activate-category <category-slug>', event)">
+                  <code>python .agents/library/activate_skill.py activate-category &lt;slug&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Zero-Disk Link Category (Junction / Symlink):</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py link-category <category-slug>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py link-category <category-slug>', event)">
+                  <code>python .agents/library/activate_skill.py link-category &lt;slug&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Example: Activate all 49 Frontend UI Component Skills:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py link-category frontend-ui-components', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py link-category frontend-ui-components', event)">
+                  <code>python .agents/library/activate_skill.py link-category frontend-ui-components</code>
+                </div>
+              </div>
+
+              <div class="guide-notes">
+                Tip: On the Categories tab, each card has a 1-click button to copy its specific activation stroke.
+              </div>
+            </div>
+
+            <!-- CARD 4: UPSTREAM REPOSITORY -->
+            <div class="guide-card" id="guide-upstream-repo">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-books" style="color:var(--teal)"></i>
+                  <span>4. Install Full Upstream Repository</span>
+                </div>
+                <span class="guide-card-badge">210 Verified Libraries</span>
+              </div>
+              <div class="guide-card-desc">
+                Install or activate an entire upstream collection (e.g. Cline skills, Antigravity Awesome Skills, or Anthropic Knowledge Work).
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Universal NPX Repo Install:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('npx skills add https://github.com/cline/skills', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('npx skills add https://github.com/cline/skills', event)">
+                  <code>npx skills add &lt;upstream_github_url&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Activate All Skills from a Local Library Repository:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py activate-repo <repo-name>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py activate-repo <repo-name>', event)">
+                  <code>python .agents/library/activate_skill.py activate-repo &lt;repo&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Clone Upstream to Local Library:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('git clone <upstream_url>.git .agents/library/<repo-name>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('git clone <upstream_url>.git .agents/library/<repo-name>', event)">
+                  <code>git clone &lt;upstream_url&gt;.git .agents/library/&lt;repo&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-notes">
+                Tip: Browse the Library tab to view all 210 repositories with skill counts and direct links.
+              </div>
+            </div>
+
+            <!-- CARD 5: LIFECYCLE MANAGEMENT -->
+            <div class="guide-card" id="guide-lifecycle">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-refresh" style="color:var(--teal)"></i>
+                  <span>5. Lifecycle: Manage, Deactivate & Update</span>
+                </div>
+                <span class="guide-card-badge">Workspace Maintenance</span>
+              </div>
+              <div class="guide-card-desc">
+                Easily audit which skills are currently active in your agent context, remove unused ones, or pull the latest improvements from GitHub.
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>List All Currently Active Skills:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py list', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py list', event)">
+                  <code>python .agents/library/activate_skill.py list</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Deactivate / Remove a Skill from Active Workspace:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py deactivate <name>', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py deactivate <name>', event)">
+                  <code>python .agents/library/activate_skill.py deactivate &lt;name&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Update All Skills & Vault Catalog from Upstream:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('python .agents/library/activate_skill.py update', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python .agents/library/activate_skill.py update', event)">
+                  <code>python .agents/library/activate_skill.py update</code>
+                </div>
+              </div>
+
+              <div class="guide-notes">
+                Tip: Deactivating a skill safely removes it from active prompt context while preserving it in your offline reserve library.
+              </div>
+            </div>
+
+            <!-- CARD 6: CLOUD & OBJECT STORAGE -->
+            <div class="guide-card" id="guide-cloud">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-cloud-upload" style="color:var(--teal)"></i>
+                  <span>6. Cloudflare R2 Sync & Cloud Deployment</span>
+                </div>
+                <span class="guide-card-badge">8 Targets Supported</span>
+              </div>
+              <div class="guide-card-desc">
+                Host your private or community Skill.Sea catalog across Cloudflare Pages, Vercel, Docker, Render, Fly.io, or Railway with S3-compatible R2 storage.
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Sync Catalogs to Cloudflare R2 Storage:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('npm run sync:r2', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('npm run sync:r2', event)">
+                  <code>npm run sync:r2</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Run Skill.Sea Local Development Server:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('npm run dev', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('npm run dev', event)">
+                  <code>npm run dev</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Deploy via Docker Compose:</span>
+                  <span class="guide-copy-btn" onclick="copyCommand('docker compose up -d', event)"><i class="ti ti-copy"></i> Copy</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('docker compose up -d', event)">
+                  <code>docker compose up -d</code>
+                </div>
+              </div>
+
+              <div class="guide-notes">
+                Tip: Skill.Sea requires zero external databases — runs lightning-fast on 100% static JSON datasets.
+              </div>
+            </div>
+
           </div>
 
         </div>

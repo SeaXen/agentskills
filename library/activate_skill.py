@@ -4,15 +4,28 @@ AgentSkills Universal Activator, Linker & Tier Migration Tool
 Author: SeaXen (https://github.com/SeaXen/agentskills)
 
 Usage:
-  python activate_skill.py search <keyword>           - Search across all 1,476 skills in library
-  python activate_skill.py activate <name>            - Copy skill from library into active workspace
-  python activate_skill.py link <name>                - Link skill (Junction/Symlink, 0 duplicate disk space)
-  python activate_skill.py remove <name>              - Deactivate / remove skill from workspace
-  python activate_skill.py move <name> --to <hot|store|reserve> - Move skill between storage tiers
-  python activate_skill.py repos                      - List all offline repositories in library
-  python activate_skill.py categories                 - List all 16 functional categories & counts
-  python activate_skill.py category <name>            - List all skills in a specific category
+  # Individual Skills
+  python activate_skill.py activate <name>            - Copy skill from library into active workspace (.agents/skills/<name>)
+  python activate_skill.py link <name>                - Link skill (NTFS Junction / Symlink, 0 duplicate disk space)
+  python activate_skill.py deactivate <name>          - Deactivate / remove skill from workspace
+  python activate_skill.py search <keyword>           - Search across all skills in library
   python activate_skill.py info <name>                - Inspect skill documentation & frontmatter
+
+  # Category Packs & Batches
+  python activate_skill.py link-category <cat-slug>   - Batch link all skills in category (0 duplicate disk space)
+  python activate_skill.py activate-category <slug>   - Batch copy all skills in category
+  python activate_skill.py categories                 - List all 38 functional categories & counts
+  python activate_skill.py category <cat-slug>        - List skills belonging to a category
+
+  # Repository Packs
+  python activate_skill.py link-repo <repo-name>      - Batch link all skills from an offline repository
+  python activate_skill.py activate-repo <repo-name>  - Batch copy all skills from an offline repository
+  python activate_skill.py repos                      - List all 210 offline repositories in library
+
+  # Lifecycle & Management
+  python activate_skill.py list                       - List all currently active workspace skills & link types
+  python activate_skill.py update                     - Git pull latest vault updates & rebuild Skill.Sea catalog
+  python activate_skill.py move <name> --to <tier>    - Move skill between storage tiers (hot|store|reserve)
 """
 
 import sys
@@ -256,6 +269,83 @@ def info_skill(skill_name):
         with open(skill_md, 'r', encoding='utf-8', errors='ignore') as f:
             print(f.read()[:1500])
 
+def activate_category(cat_name, link_mode=False):
+    cat_file = os.path.join(AGENTS_DIR, "category", "categories_index.json")
+    if not os.path.exists(cat_file):
+        print("❌ Error: categories_index.json not found.")
+        return
+    import json
+    with open(cat_file, "r", encoding="utf-8") as f:
+        cdata = json.load(f)
+    if cat_name not in cdata["categories"]:
+        print(f"❌ Unknown category '{cat_name}'. Run 'activate_skill.py categories' to view valid categories.")
+        return
+    info = cdata["categories"][cat_name]
+    skills = info.get("skills", [])
+    action_lbl = "Linking" if link_mode else "Activating"
+    print(f"\n🚀 {action_lbl} entire category '{info.get('title', cat_name)}' ({len(skills)} skills)...")
+    success_count = 0
+    for s in skills:
+        s_name = s.get("name")
+        if not s_name:
+            continue
+        fn = link_skill if link_mode else activate_skill
+        if fn(s_name):
+            success_count += 1
+    done_lbl = "linked" if link_mode else "activated"
+    print(f"\n✨ Successfully {done_lbl} {success_count}/{len(skills)} skills in category '{cat_name}'!\n")
+
+def activate_repo(repo_name, link_mode=False):
+    repos = get_all_library_repos()
+    if repo_name not in repos:
+        matches = [r for r in repos if r.lower() == repo_name.lower()]
+        if matches:
+            repo_name = matches[0]
+        else:
+            print(f"❌ Repository '{repo_name}' not found in library.")
+            return
+    rdata = repos[repo_name]
+    skills = list(rdata['skills'])
+    action_lbl = "Linking" if link_mode else "Activating"
+    print(f"\n🚀 {action_lbl} entire repository '{repo_name}' ({len(skills)} skills)...")
+    success_count = 0
+    for s_name in skills:
+        fn = link_skill if link_mode else activate_skill
+        if fn(s_name):
+            success_count += 1
+    done_lbl = "linked" if link_mode else "activated"
+    print(f"\n✨ Successfully {done_lbl} {success_count}/{len(skills)} skills from repo '{repo_name}'!\n")
+
+def list_active():
+    active = []
+    if os.path.exists(STORE_SKILLS_DIR):
+        for item in os.listdir(STORE_SKILLS_DIR):
+            fp = os.path.join(STORE_SKILLS_DIR, item)
+            if os.path.isdir(fp) or os.path.islink(fp):
+                is_link = os.path.islink(fp) or (sys.platform == 'win32' and os.path.isdir(fp) and os.path.exists(os.path.join(fp, 'SKILL.md')))
+                active.append((item, "Junction/Symlink" if is_link else "Installed Copy"))
+    print("\n⚡ CURRENTLY ACTIVATED WORKSPACE SKILLS (.agents/skills):")
+    print("=" * 65)
+    print(f"{'Skill Name':35} | {'Type':20}")
+    print("-" * 65)
+    for name, mode in sorted(active):
+        print(f" • {name:33} | {mode}")
+    print("=" * 65)
+    print(f"Total Active Skills: {len(active)}\n")
+
+def update_skills():
+    print("\n🔄 Updating AgentSkills repository and submodules...")
+    try:
+        subprocess.run(['git', 'pull', 'origin', 'main'], cwd=AGENTS_DIR, check=True)
+        print("✅ Git pull completed successfully.")
+    except Exception as e:
+        print(f"⚠️ Git pull notice: {e}")
+    build_script = os.path.join(AGENTS_DIR, 'Skill.Sea', 'scripts', 'build-catalog.js')
+    if os.path.exists(build_script):
+        print("🔄 Rebuilding Skill.Sea catalog...")
+        subprocess.run(['node', build_script], check=True)
+    print("✨ All skills & catalog are synchronized and up to date!\n")
+
 if __name__ == '__main__':
     args = sys.argv[1:]
     if not args:
@@ -263,16 +353,29 @@ if __name__ == '__main__':
         sys.exit(0)
 
     cmd = args[0].lower()
-    if len(args) >= 2 and cmd != 'search':
+    if len(args) >= 2 and cmd not in ['search', 'activate-category', 'link-category', 'activate-repo', 'link-repo']:
         args[1] = args[1].strip().rstrip('/').split('/')[-1]
+
     if cmd == 'search' and len(args) >= 2:
         search_skills(args[1])
     elif cmd == 'activate' and len(args) >= 2:
         activate_skill(args[1])
     elif cmd == 'link' and len(args) >= 2:
         link_skill(args[1])
-    elif cmd == 'remove' and len(args) >= 2:
+    elif cmd in ['remove', 'deactivate'] and len(args) >= 2:
         remove_skill(args[1])
+    elif cmd in ['activate-category', 'category-activate'] and len(args) >= 2:
+        activate_category(args[1], link_mode=False)
+    elif cmd in ['link-category', 'category-link'] and len(args) >= 2:
+        activate_category(args[1], link_mode=True)
+    elif cmd in ['activate-repo', 'repo-activate'] and len(args) >= 2:
+        activate_repo(args[1], link_mode=False)
+    elif cmd in ['link-repo', 'repo-link'] and len(args) >= 2:
+        activate_repo(args[1], link_mode=True)
+    elif cmd in ['list', 'ls', 'active']:
+        list_active()
+    elif cmd in ['update', 'sync', 'pull']:
+        update_skills()
     elif cmd == 'move' and len(args) >= 4 and args[2] == '--to':
         move_skill(args[1], args[3])
     elif cmd in ['repos', 'repositories']:
@@ -284,9 +387,8 @@ if __name__ == '__main__':
     elif cmd == 'info' and len(args) >= 2:
         info_skill(args[1])
     elif cmd not in ['help', '--help', '-h']:
-        # Direct 1-click activation: user typed skill name directly!
         target_skill = cmd.strip().rstrip('/').split('/')[-1]
-        print(f"âš¡ 1-Click Activation requested for '{target_skill}'...")
+        print(f"⚡ 1-Click Activation requested for '{target_skill}'...")
         link_skill(target_skill)
     else:
         print(__doc__)

@@ -690,9 +690,11 @@
               <div class="cat-dir-count">${cat.count} total skills available</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:0.5px solid var(--border);padding-top:8px">
-            <span style="font-size:11.5px;color:var(--cat-text, var(--teal))">Browse Skills →</span>
-            <span class="tg tg-cat cat-color-${cat.colorTheme || 'blue'}" style="padding:2px 8px;font-size:10.5px">Select</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:0.5px solid var(--border);padding-top:8px;gap:6px">
+            <span style="font-size:11.5px;color:var(--cat-text, var(--teal));font-weight:500">Browse Skills →</span>
+            <button class="btn-copy-cat" onclick="event.stopPropagation(); copyCommand('python .agents/library/activate_skill.py link-category ${cat.slug}', event)" title="Copy 1-click command to link all skills in ${cat.slug}">
+              <i class="ti ti-terminal"></i> Copy Activate Cmd
+            </button>
           </div>
         </div>
       `;
@@ -730,6 +732,7 @@
     for (const r of repos) {
       const gitUrl = r.url || (r.upstream ? `https://github.com/${r.upstream}` : `https://github.com/SeaXen/agentskills`);
       const cloneCmd = r.cloneCmd || `git clone ${gitUrl}.git`;
+      const npxCmd = r.url ? `npx skills add ${r.url}` : `npx skills add https://github.com/SeaXen/agentskills`;
 
       cards += `
         <div class="repo-card">
@@ -748,9 +751,12 @@
             </div>
 
             <div style="margin-top:10px">
-              <span style="font-size:11px;color:var(--text-muted)">Git Clone Command:</span>
-              <div class="cmd-box" onclick="copyCommand('${escapeHtml(cloneCmd)}', event)" style="max-width:100%;margin-top:4px">
-                <code>${escapeHtml(cloneCmd)}</code>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
+                <span style="font-size:11px;color:var(--text-muted)">1-Click NPX / Clone:</span>
+                <span style="font-size:10px;color:var(--teal);cursor:pointer" onclick="event.stopPropagation(); copyCommand('python .agents/library/activate_skill.py activate-repo ${r.name}', event)">Activate All Skills</span>
+              </div>
+              <div class="cmd-box" onclick="copyCommand('${escapeHtml(npxCmd)}', event)" style="max-width:100%" title="Click to copy NPX install command">
+                <code>${escapeHtml(npxCmd)}</code>
                 <i class="ti ti-copy cmd-copy-icon"></i>
               </div>
             </div>
