@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Skills in Category**: 41 real modular skills  
+> **Total Skills in Category**: 42 real modular skills  
 > **Directory**: [`.agents/category/cloudflare-edge`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (41 Skills)
+## 📑 Complete Skill Catalog (42 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -28,6 +28,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`cloudflare-deploy`](./cloudflare-deploy/SKILL.md)** | 🟢 Active | `active-skills` | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the u |
 | **[`code-review`](./code-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, "review this before I mer |
 | **[`coordinator-mode`](./coordinator-mode/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Advanced multi-agent orchestration with parallel workers, synthesis protocols, and coordinator lifecycle. Use when compl |
+| **[`custom-blocks`](./custom-blocks/SKILL.md)** | 📦 Library | `makenotion-notion-cookbook` | Create, modify, and troubleshoot custom blocks in Notion Workers. Use when the user wants to build interactive UI inside |
 | **[`danyuchn-asd-ste100`](./danyuchn-asd-ste100/SKILL.md)** | 📦 Library | `danyuchn-asd-ste100-skill` | Use when English text must be parsed without a human to resolve ambiguity — tool descriptions, error messages, inter-age |
 | **[`data-context-extractor`](./data-context-extractor/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate or improve a company-specific data analysis skill by extracting tribal knowledge from analysts. |
 | **[`edge-candidate-agent`](./edge-candidate-agent/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Generate and prioritize US equity long-side edge research tickets from EOD observations, then export pipeline-ready cand |

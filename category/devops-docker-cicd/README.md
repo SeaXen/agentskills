@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Skills in Category**: 70 real modular skills  
+> **Total Skills in Category**: 71 real modular skills  
 > **Directory**: [`.agents/category/devops-docker-cicd`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,13 +16,14 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (70 Skills)
+## 📑 Complete Skill Catalog (71 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
 | **[`agents-v2-py`](./agents-v2-py/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinition). Use when creating hos |
 | **[`ai-product-photography`](./ai-product-photography/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Generate professional AI product photography and commercial images. Models: FLUX, Imagen 3, Grok, Seedream for product s |
 | **[`amc-setup-calibration-stack`](./amc-setup-calibration-stack/SKILL.md)** | 📦 Library | `nvidia-skills` | Launch AutoMagicCalib microservice and web UI from NGC release images via Docker Compose. Use when user says 'deploy aut |
+| **[`amplify-workflow`](./amplify-workflow/SKILL.md)** | 📦 Library | `cline-skills` | Build and deploy full-stack web and mobile apps with AWS Amplify Gen2 |
 | **[`app-production-readiness`](./app-production-readiness/SKILL.md)** | 🟢 Active | `active-skills` | Build portable apps (any stack - TypeScript, Python, Go, Rust) for localhost, Docker, Vercel, Netlify, Railway, Render,  |
 | **[`automate-whatsapp`](./automate-whatsapp/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build WhatsApp automations with Kapso workflows: configure WhatsApp triggers, edit workflow graphs, manage executions, d |
 | **[`azd-deployment`](./azd-deployment/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Deploy containerized applications to Azure Container Apps using Azure Developer CLI (azd). Use when setting up azd proje |
@@ -75,12 +76,12 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`secrets-management`](./secrets-management/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement secure secrets management for CI/CD pipelines using Vault, AWS Secrets Manager, or native platform solutions.  |
 | **[`ship`](./ship/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Pre-release gate. Run the full gate, responsive + render checks, then produce the release checklist (README badge/curren |
 | **[`shipping-and-launch`](./shipping-and-launch/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Prepares production launches. Use when preparing to deploy to production, or when asking what needs to be in place befor |
-| **[`teamcity-cli`](./teamcity-cli/SKILL.md)** | 📦 Library | `#searex-skill` | Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL — drives the `teamcity` CLI for builds |
+| **[`teamcity-cli`](./teamcity-cli/SKILL.md)** | 📦 Library | `cline-skills` | Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL — drives the `teamcity` CLI for builds |
 | **[`terraform-module-library`](./terraform-module-library/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build reusable Terraform modules for AWS, Azure, and GCP infrastructure following infrastructure-as-code best practices. |
 | **[`terraform-skill`](./terraform-skill/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Terraform infrastructure as code best practices |
 | **[`terraform-specialist`](./terraform-specialist/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert Terraform/OpenTofu specialist mastering advanced IaC |
 | **[`unity-developer`](./unity-developer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build Unity games with optimized C# scripts, efficient rendering, |
-| **[`use-railway`](./use-railway/SKILL.md)** | 📦 Library | `#searex-skill` | Operate Railway infrastructure: sign up for or sign in to a Railway account, |
+| **[`use-railway`](./use-railway/SKILL.md)** | 📦 Library | `cline-skills` | Operate Railway infrastructure: sign up for or sign in to a Railway account, |
 | **[`vercel-automation`](./vercel-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects, and teams. Always s |
 | **[`vercel-cli-with-tokens`](./vercel-cli-with-tokens/SKILL.md)** | 📦 Library | `vercel-agent-skills` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tok |
 | **[`vercel-composition-patterns`](./vercel-composition-patterns/SKILL.md)** | 📦 Library | `vercel-agent-skills` | React composition patterns that scale. Use when refactoring components with |

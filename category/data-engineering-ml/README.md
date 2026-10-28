@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Skills in Category**: 32 real modular skills  
+> **Total Skills in Category**: 33 real modular skills  
 > **Directory**: [`.agents/category/data-engineering-ml`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,11 +16,12 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (32 Skills)
+## 📑 Complete Skill Catalog (33 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
 | **[`accelerated-computing-cudf`](./accelerated-computing-cudf/SKILL.md)** | 📦 Library | `nvidia-skills` | Official NVIDIA-authored guidance for NVIDIA cuDF GPU DataFrames, pandas acceleration, dask-cuDF, ETL, joins, groupby, C |
+| **[`analyzer`](./analyzer/SKILL.md)** | 📦 Library | `cline-skills` | Analyze queried data for trends, week-over-week comparisons, distributions, funnels, cohorts, top-N lists, anomalies, sa |
 | **[`azure-ai-ml-py`](./azure-ai-ml-py/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`azure-data-tables-py`](./azure-data-tables-py/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`blockrun`](./blockrun/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explicitly requests extern |

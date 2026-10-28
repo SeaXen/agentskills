@@ -114,7 +114,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`typescript-best-practices`](./typescript-best-practices/SKILL.md)** | 📦 Library | `backnotprop-pstack` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |
 | **[`typescript-expert`](./typescript-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | >- |
 | **[`typescript-pro`](./typescript-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript with advanced types, generics, and strict type |
-| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `sap-open-ux-tools` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
+| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `cline-skills` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
 | **[`unreal-engine-cpp-pro`](./unreal-engine-cpp-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices. |
 | **[`virustotal-automation`](./virustotal-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Virustotal tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`windows-privilege-escalation`](./windows-privilege-escalation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"escalate privileges on Windows,\" \"find Windows privesc vectors,\" \" |

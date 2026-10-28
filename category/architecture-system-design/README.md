@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Skills in Category**: 126 real modular skills  
+> **Total Skills in Category**: 127 real modular skills  
 > **Directory**: [`.agents/category/architecture-system-design`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (126 Skills)
+## 📑 Complete Skill Catalog (127 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -130,6 +130,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`software-architecture`](./software-architecture/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Guide for quality focused software architecture. This skill should be used when users want to write code, design archite |
 | **[`stanley-druckenmiller-investment`](./stanley-druckenmiller-investment/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Druckenmiller Strategy Synthesizer - Integrates 8 upstream skill outputs (Market Breadth, Uptrend Analysis, Market Top,  |
 | **[`swiftui-ui-patterns`](./swiftui-ui-patterns/SKILL.md)** | 📦 Library | `dimillian-skills` | Best practices and example-driven guidance for building SwiftUI views and components, including navigation hierarchies,  |
+| **[`sync-guide`](./sync-guide/SKILL.md)** | 📦 Library | `makenotion-notion-cookbook` | Comprehensive guide to building Notion Workers syncs — covers the two-sync architecture (backfill+delta), replace mode,  |
 | **[`system-design`](./system-design/SKILL.md)** | 🟢 Active | `active-skills` | Design systems, services, and architectures. Trigger with "design a system for", "how should we architect", "system desi |
 | **[`systems-programming-rust-project`](./systems-programming-rust-project/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a Rust project architecture expert specializing in scaffolding production-ready Rust applications. Generate comp |
 | **[`telegram-bot-builder`](./telegram-bot-builder/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in building Telegram bots that solve real problems - from simple automation to complex AI-powered bots. Covers bo |

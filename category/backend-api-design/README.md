@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Skills in Category**: 184 real modular skills  
+> **Total Skills in Category**: 185 real modular skills  
 > **Directory**: [`.agents/category/backend-api-design`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,13 +16,14 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (184 Skills)
+## 📑 Complete Skill Catalog (185 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
 | **[`ads`](./ads/SKILL.md)** | 📦 Library | `agricidaniel-claude-ads` | Operate professional paid advertising across Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, Amazon, Reddit,  |
 | **[`ai-ml-api-automation`](./ai-ml-api-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate AI ML API tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`algolia-search`](./algolia-search/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and relevance tuning Use wh |
+| **[`amazon-location-service`](./amazon-location-service/SKILL.md)** | 📦 Library | `cline-skills` | Integrates Amazon Location Service APIs for AWS applications. Use this skill when users want to add maps (interactive Ma |
 | **[`ambient-healthcare-agent-with-nemotron-voice-agent`](./ambient-healthcare-agent-with-nemotron-voice-agent/SKILL.md)** | 📦 Library | `nvidia-skills` | Customize NVIDIA Nemotron Voice Agent's Generic Pipecat example for healthcare appointment, five-field patient intake, o |
 | **[`amc-run-rtsp-calibration`](./amc-run-rtsp-calibration/SKILL.md)** | 📦 Library | `nvidia-skills` | Calibrate a new dataset from live RTSP camera streams via the AutoMagicCalib REST API. Use when the user provides RTSP U |
 | **[`amc-run-sample-calibration`](./amc-run-sample-calibration/SKILL.md)** | 📦 Library | `nvidia-skills` | Run end-to-end calibration on the shipped sample dataset (sdg_08_2_sample_data_010926.zip) against a running AMC microse |
@@ -142,7 +143,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`manifest`](./manifest/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Install and configure the Manifest observability plugin for your agents. Use when setting up telemetry, configuring API  |
 | **[`market-breadth-analyzer`](./market-breadth-analyzer/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Quantifies market breadth health using TraderMonty's public CSV data. Generates a 0-100 composite score across 6 compone |
 | **[`microservices-resilience`](./microservices-resilience/SKILL.md)** | 🟢 Active | `active-skills` | Distributed systems resilience patterns, circuit breakers, bulkheads, rate limiting, and exponential backoff with jitter |
-| **[`mintlify`](./mintlify/SKILL.md)** | 📦 Library | `#searex-skill` | Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, addin |
+| **[`mintlify`](./mintlify/SKILL.md)** | 📦 Library | `cline-skills` | Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, addin |
 | **[`moodle-external-api-development`](./moodle-external-api-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create custom external web service APIs for Moodle LMS. Use when implementing web services for course management, user t |
 | **[`nestjs-expert`](./nestjs-expert/SKILL.md)** | 🟢 Active | `active-skills` | Enterprise NestJS backend architecture, dependency injection, modular systems, guards, interceptors, pipes, microservice |
 | **[`news-api-automation`](./news-api-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate News API tasks via Rube MCP (Composio). Always search tools first for current schemas. |

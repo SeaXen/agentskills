@@ -1,10 +1,90 @@
 [
   {
+    "id": "auth-guide",
+    "name": "auth-guide",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Guide to setting up third-party authentication for a Notion Worker. Covers brokered credentials for external-service API keys / personal access tokens, OAuth, and plaintext environment secrets only when worker code needs the value. Use when the worker needs credentials for a non-Notion API, not for Notion API tokens or `ntn login`.",
+    "path": "library/makenotion-notion-cookbook/skills/auth-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate auth-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link auth-guide"
+  },
+  {
+    "id": "connections",
+    "name": "connections",
+    "repository": "makenotion-notion-cookbook",
+    "category": "agent-orchestration",
+    "description": "Configure and use typed provider connections and connection-bound triggers in Notion App workflows.",
+    "path": "library/makenotion-notion-cookbook/skills/connections",
+    "activation_cmd": "python .agents/library/activate_skill.py activate connections",
+    "link_cmd": "python .agents/library/activate_skill.py link connections"
+  },
+  {
+    "id": "custom-blocks",
+    "name": "custom-blocks",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Create, modify, and troubleshoot custom blocks in Notion Workers. Use when the user wants to build interactive UI inside Notion connected to Notion data. Covers the author workflow from project setup to local preview and deployment.",
+    "path": "library/makenotion-notion-cookbook/skills/custom-blocks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate custom-blocks",
+    "link_cmd": "python .agents/library/activate_skill.py link custom-blocks"
+  },
+  {
+    "id": "database-designer",
+    "name": "database-designer",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Turns scattered notes and recurring work into useful Notion trackers for requests, content plans, or team work. Use to set up or improve a tracker, choosing its fields and views from the user's needs; ordinary record updates belong to the task's workflow.",
+    "path": "library/makenotion-notion-cookbook/skills/database-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link database-designer"
+  },
+  {
+    "id": "knowledge-capture",
+    "name": "knowledge-capture",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Captures conversations and supplied notes as Notion wiki pages, how-to guides, FAQs, decision records, or retrospectives. Use when saving or updating durable knowledge from existing context; use research-documentation when new source discovery and synthesis is the main task.",
+    "path": "library/makenotion-notion-cookbook/skills/knowledge-capture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate knowledge-capture",
+    "link_cmd": "python .agents/library/activate_skill.py link knowledge-capture"
+  },
+  {
+    "id": "meeting-intelligence",
+    "name": "meeting-intelligence",
+    "repository": "makenotion-notion-cookbook",
+    "category": "agent-orchestration",
+    "description": "Prepares meeting agendas, internal pre-reads, and decision briefs using Notion context and relevant research. Use for meeting preparation, recurring meeting context, or updating meeting outcomes; use knowledge-capture for a standalone record of an existing discussion.",
+    "path": "library/makenotion-notion-cookbook/skills/meeting-intelligence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate meeting-intelligence",
+    "link_cmd": "python .agents/library/activate_skill.py link meeting-intelligence"
+  },
+  {
+    "id": "notion-as-code",
+    "name": "notion-as-code",
+    "repository": "makenotion-notion-cookbook",
+    "category": "database-sql",
+    "description": "Declare Notion pages, databases, teamspaces, and custom agents in an App, including data sources used by syncs.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-as-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-as-code",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-as-code"
+  },
+  {
+    "id": "notion-database-designer",
+    "name": "notion-database-designer",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Turns scattered notes and recurring work into useful Notion trackers for requests, content plans, or team work. Use to set up or improve a tracker, choosing its fields and views from the user's needs; ordinary record updates belong to the task's workflow.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-database-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-database-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-database-designer"
+  },
+  {
     "id": "notion-knowledge-capture",
     "name": "notion-knowledge-capture",
     "repository": "makenotion-notion-cookbook",
-    "category": "agent-orchestration",
-    "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
+    "category": "frontend",
+    "description": "Captures conversations and supplied notes as Notion wiki pages, how-to guides, FAQs, decision records, or retrospectives. Use when saving or updating durable knowledge from existing context; use research-documentation when new source discovery and synthesis is the main task.",
     "path": "library/makenotion-notion-cookbook/skills/notion-knowledge-capture",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-knowledge-capture",
     "link_cmd": "python .agents/library/activate_skill.py link notion-knowledge-capture"
@@ -13,8 +93,8 @@
     "id": "notion-meeting-intelligence",
     "name": "notion-meeting-intelligence",
     "repository": "makenotion-notion-cookbook",
-    "category": "research-academic",
-    "description": "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.",
+    "category": "agent-orchestration",
+    "description": "Prepares meeting agendas, internal pre-reads, and decision briefs using Notion context and relevant research. Use for meeting preparation, recurring meeting context, or updating meeting outcomes; use knowledge-capture for a standalone record of an existing discussion.",
     "path": "library/makenotion-notion-cookbook/skills/notion-meeting-intelligence",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-meeting-intelligence",
     "link_cmd": "python .agents/library/activate_skill.py link notion-meeting-intelligence"
@@ -23,20 +103,183 @@
     "id": "notion-research-documentation",
     "name": "notion-research-documentation",
     "repository": "makenotion-notion-cookbook",
-    "category": "research-academic",
-    "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
+    "category": "frontend",
+    "description": "Researches questions across Notion sources and synthesizes cited briefs, comparisons, or reports. Use when answering requires discovering and reconciling workspace information, optionally with external research, and returning or saving the findings.",
     "path": "library/makenotion-notion-cookbook/skills/notion-research-documentation",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-research-documentation",
     "link_cmd": "python .agents/library/activate_skill.py link notion-research-documentation"
   },
   {
+    "id": "notion-setup",
+    "name": "notion-setup",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "A guided setup flow to get the most out of Notion that is recommended for all users who install the Notion MCP.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-setup"
+  },
+  {
     "id": "notion-spec-to-implementation",
     "name": "notion-spec-to-implementation",
     "repository": "makenotion-notion-cookbook",
-    "category": "agent-orchestration",
-    "description": "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.",
+    "category": "frontend",
+    "description": "Converts Notion product or technical specs into implementation plans, linked tasks, and evidence-based progress updates. Use for planning or implementing a spec, creating tasks from requirements, or reconciling implementation with spec changes.",
     "path": "library/makenotion-notion-cookbook/skills/notion-spec-to-implementation",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-spec-to-implementation",
     "link_cmd": "python .agents/library/activate_skill.py link notion-spec-to-implementation"
+  },
+  {
+    "id": "notion-weekly-project-digest",
+    "name": "notion-weekly-project-digest",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Produces evidence-based weekly project or team updates by comparing reporting periods, tasks, decisions, and blockers in Notion. Use for recurring status digests; use spec-to-implementation for requirement-level implementation tracking.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-weekly-project-digest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-weekly-project-digest",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-weekly-project-digest"
+  },
+  {
+    "id": "research-documentation",
+    "name": "research-documentation",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Researches questions across Notion sources and synthesizes cited briefs, comparisons, or reports. Use when answering requires discovering and reconciling workspace information, optionally with external research, and returning or saving the findings.",
+    "path": "library/makenotion-notion-cookbook/skills/research-documentation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate research-documentation",
+    "link_cmd": "python .agents/library/activate_skill.py link research-documentation"
+  },
+  {
+    "id": "setup",
+    "name": "setup",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "A guided setup flow to get the most out of Notion that is recommended for all users who install the Notion MCP.",
+    "path": "library/makenotion-notion-cookbook/skills/setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup",
+    "link_cmd": "python .agents/library/activate_skill.py link setup"
+  },
+  {
+    "id": "sketch",
+    "name": "sketch",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Sketch an App workflow as a reviewable flow diagram when planning or iterating on its design with the user.",
+    "path": "library/makenotion-notion-cookbook/skills/sketch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sketch",
+    "link_cmd": "python .agents/library/activate_skill.py link sketch"
+  },
+  {
+    "id": "spec-to-implementation",
+    "name": "spec-to-implementation",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Converts Notion product or technical specs into implementation plans, linked tasks, and evidence-based progress updates. Use for planning or implementing a spec, creating tasks from requirements, or reconciling implementation with spec changes.",
+    "path": "library/makenotion-notion-cookbook/skills/spec-to-implementation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spec-to-implementation",
+    "link_cmd": "python .agents/library/activate_skill.py link spec-to-implementation"
+  },
+  {
+    "id": "sync",
+    "name": "sync",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Scaffold a new sync capability with guided setup \u2014 asks about data source, mode, pagination, and cursor design, then generates working code",
+    "path": "library/makenotion-notion-cookbook/skills/sync",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync",
+    "link_cmd": "python .agents/library/activate_skill.py link sync",
+    "allowed_tools": [
+      "[\"Read\"",
+      "\"Edit\"",
+      "\"Write\"",
+      "\"Bash\"",
+      "\"Glob\"",
+      "\"Grep\"",
+      "\"Agent\"]"
+    ]
+  },
+  {
+    "id": "sync-debug",
+    "name": "sync-debug",
+    "repository": "makenotion-notion-cookbook",
+    "category": "general-development",
+    "description": "Diagnose a failing or misbehaving sync \u2014 fetch run logs, identify errors, cross-reference with code, and suggest fixes",
+    "path": "library/makenotion-notion-cookbook/skills/sync-debug",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync-debug",
+    "link_cmd": "python .agents/library/activate_skill.py link sync-debug",
+    "allowed_tools": [
+      "[\"Read\"",
+      "\"Bash\"",
+      "\"Glob\"",
+      "\"Grep\"",
+      "\"Edit\"",
+      "\"Write\"]"
+    ]
+  },
+  {
+    "id": "sync-guide",
+    "name": "sync-guide",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Comprehensive guide to building Notion Workers syncs \u2014 covers the two-sync architecture (backfill+delta), replace mode, pagination, consistency buffers, pacers, deletion strategies, and common pitfalls. Auto-loads when sync-related work is detected.",
+    "path": "library/makenotion-notion-cookbook/skills/sync-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link sync-guide"
+  },
+  {
+    "id": "sync-validate",
+    "name": "sync-validate",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Review a sync capability for common bugs \u2014 cursor advancement, pagination termination, state persistence, bi-modal correctness, consistency buffers, and deletion handling",
+    "path": "library/makenotion-notion-cookbook/skills/sync-validate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync-validate",
+    "link_cmd": "python .agents/library/activate_skill.py link sync-validate",
+    "allowed_tools": [
+      "[\"Read\"",
+      "\"Glob\"",
+      "\"Grep\"",
+      "\"Bash\"]"
+    ]
+  },
+  {
+    "id": "weekly-project-digest",
+    "name": "weekly-project-digest",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Produces evidence-based weekly project or team updates by comparing reporting periods, tasks, decisions, and blockers in Notion. Use for recurring status digests; use spec-to-implementation for requirement-level implementation tracking.",
+    "path": "library/makenotion-notion-cookbook/skills/weekly-project-digest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate weekly-project-digest",
+    "link_cmd": "python .agents/library/activate_skill.py link weekly-project-digest"
+  },
+  {
+    "id": "workflow",
+    "name": "workflow",
+    "repository": "makenotion-notion-cookbook",
+    "category": "agent-orchestration",
+    "description": "Scaffold a Notion Worker Workflow with typed triggers and replay-safe durable steps.",
+    "path": "library/makenotion-notion-cookbook/skills/workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow"
+  },
+  {
+    "id": "workflow-guide",
+    "name": "workflow-guide",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Reference for typed triggers, durable steps, replay-safe data flow, and idempotent Workflow effects.",
+    "path": "library/makenotion-notion-cookbook/skills/workflow-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow-guide"
+  },
+  {
+    "id": "workflow-validate",
+    "name": "workflow-validate",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend",
+    "description": "Review Notion Worker Workflows for trigger typing and retry safety.",
+    "path": "library/makenotion-notion-cookbook/skills/workflow-validate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow-validate",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow-validate"
   }
 ]

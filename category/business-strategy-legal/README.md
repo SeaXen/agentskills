@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Skills in Category**: 65 real modular skills  
+> **Total Skills in Category**: 67 real modular skills  
 > **Directory**: [`.agents/category/business-strategy-legal`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,13 +16,14 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (65 Skills)
+## 📑 Complete Skill Catalog (67 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
 | **[`ab-test-setup`](./ab-test-setup/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and execution readiness. |
 | **[`ashby-automation`](./ashby-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate recruiting and hiring workflows in Ashby -- manage candidates, jobs, applications, interviews, and notes throug |
 | **[`async-interview-automation`](./async-interview-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Async Interview tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`attorney-assist`](./attorney-assist/SKILL.md)** | 📦 Library | `cline-skills` | Connects the user with a LegalZoom attorney for legal consultation. Use when a user asks about attorneys, lawyers, or le |
 | **[`avalonia-zafiro-development`](./avalonia-zafiro-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro toolkit. |
 | **[`beautiful-prose`](./beautiful-prose/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Hard-edged writing style contract for timeless, forceful English prose without AI tics |
 | **[`brief`](./brief/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate contextual briefings for legal work — daily summary, topic research, or incident response. Use when starting yo |
@@ -30,6 +31,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`choosing-a-workflow`](./choosing-a-workflow/SKILL.md)** | 📦 Library | `jetbrains-thinkrail` | Use at the start of new project onboarding, PR lifecycle work including PR checks, or any change to what the product doe |
 | **[`constraint-driven-development`](./constraint-driven-development/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on w |
 | **[`contract-review`](./contract-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Lightweight NDA, MSA, and vendor contract review for SMBs without legal on |
+| **[`design-control-loop`](./design-control-loop/SKILL.md)** | 📦 Library | `humanlayer-skills` | interview the user to design an agentic control loop (sensor, controller, actuator under disturbances) tailored to their |
 | **[`dividend-growth-pullback-screener`](./dividend-growth-pullback-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Use this skill to find high-quality dividend growth stocks (12%+ annual dividend growth, 1.5%+ yield) that are experienc |
 | **[`draft-offer`](./draft-offer/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Draft an offer letter with comp details and terms. Use when a candidate is ready for an offer, assembling a total comp p |
 | **[`employment-contract-templates`](./employment-contract-templates/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create employment contracts, offer letters, and HR policy documents following legal best practices. Use when drafting em |

@@ -40,6 +40,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link cli-creator"
   },
   {
+    "id": "cloudflare-deploy",
+    "name": "cloudflare-deploy",
+    "repository": "openai-skills",
+    "category": "devops-cloud",
+    "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
+    "path": "library/openai-skills/skills/cloudflare-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link cloudflare-deploy"
+  },
+  {
     "id": "define-goal",
     "name": "define-goal",
     "repository": "openai-skills",
@@ -48,6 +58,86 @@
     "path": "library/openai-skills/skills/define-goal",
     "activation_cmd": "python .agents/library/activate_skill.py activate define-goal",
     "link_cmd": "python .agents/library/activate_skill.py link define-goal"
+  },
+  {
+    "id": "figma",
+    "name": "figma",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
+    "path": "library/openai-skills/skills/figma",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma",
+    "link_cmd": "python .agents/library/activate_skill.py link figma"
+  },
+  {
+    "id": "figma-code-connect-components",
+    "name": "figma-code-connect-components",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.",
+    "path": "library/openai-skills/skills/figma-code-connect-components",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-code-connect-components",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-code-connect-components"
+  },
+  {
+    "id": "figma-create-design-system-rules",
+    "name": "figma-create-design-system-rules",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
+    "path": "library/openai-skills/skills/figma-create-design-system-rules",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-create-design-system-rules",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-create-design-system-rules"
+  },
+  {
+    "id": "figma-create-new-file",
+    "name": "figma-create-new-file",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed. Usage \u2014 /figma-create-new-file [editorType] [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)",
+    "path": "library/openai-skills/skills/figma-create-new-file",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-create-new-file",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-create-new-file"
+  },
+  {
+    "id": "figma-generate-design",
+    "name": "figma-generate-design",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to build or update a full page, screen, or view in Figma from code or a description. Discovers design system components, variables, and styles via search_design_system, imports them, and assembles screens incrementally section-by-section using design system tokens instead of hardcoded values.\"",
+    "path": "library/openai-skills/skills/figma-generate-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-generate-design",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-generate-design"
+  },
+  {
+    "id": "figma-generate-library",
+    "name": "figma-generate-library",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER \u2014 it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together.\"",
+    "path": "library/openai-skills/skills/figma-generate-library",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-generate-library",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-generate-library"
+  },
+  {
+    "id": "figma-implement-design",
+    "name": "figma-implement-design",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`.",
+    "path": "library/openai-skills/skills/figma-implement-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-implement-design",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-implement-design"
+  },
+  {
+    "id": "figma-use",
+    "name": "figma-use",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context \u2014 e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.\"",
+    "path": "library/openai-skills/skills/figma-use",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-use",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-use"
   },
   {
     "id": "gh-address-comments",
@@ -100,6 +190,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link jupyter-notebook"
   },
   {
+    "id": "linear",
+    "name": "linear",
+    "repository": "openai-skills",
+    "category": "agent-orchestration",
+    "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
+    "path": "library/openai-skills/skills/linear",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linear",
+    "link_cmd": "python .agents/library/activate_skill.py link linear"
+  },
+  {
     "id": "migrate-to-codex",
     "name": "migrate-to-codex",
     "repository": "openai-skills",
@@ -120,6 +220,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link netlify-deploy"
   },
   {
+    "id": "notion-knowledge-capture",
+    "name": "notion-knowledge-capture",
+    "repository": "openai-skills",
+    "category": "agent-orchestration",
+    "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
+    "path": "library/openai-skills/skills/notion-knowledge-capture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-knowledge-capture",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-knowledge-capture"
+  },
+  {
+    "id": "notion-meeting-intelligence",
+    "name": "notion-meeting-intelligence",
+    "repository": "openai-skills",
+    "category": "research-academic",
+    "description": "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.",
+    "path": "library/openai-skills/skills/notion-meeting-intelligence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-meeting-intelligence",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-meeting-intelligence"
+  },
+  {
+    "id": "notion-research-documentation",
+    "name": "notion-research-documentation",
+    "repository": "openai-skills",
+    "category": "research-academic",
+    "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
+    "path": "library/openai-skills/skills/notion-research-documentation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-research-documentation",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-research-documentation"
+  },
+  {
+    "id": "notion-spec-to-implementation",
+    "name": "notion-spec-to-implementation",
+    "repository": "openai-skills",
+    "category": "agent-orchestration",
+    "description": "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.",
+    "path": "library/openai-skills/skills/notion-spec-to-implementation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-spec-to-implementation",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-spec-to-implementation"
+  },
+  {
     "id": "openai-docs",
     "name": "openai-docs",
     "repository": "openai-skills",
@@ -130,6 +270,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link openai-docs"
   },
   {
+    "id": "pdf",
+    "name": "pdf",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\"",
+    "path": "library/openai-skills/skills/pdf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pdf",
+    "link_cmd": "python .agents/library/activate_skill.py link pdf"
+  },
+  {
+    "id": "playwright",
+    "name": "playwright",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.\"",
+    "path": "library/openai-skills/skills/playwright",
+    "activation_cmd": "python .agents/library/activate_skill.py activate playwright",
+    "link_cmd": "python .agents/library/activate_skill.py link playwright"
+  },
+  {
+    "id": "playwright-interactive",
+    "name": "playwright-interactive",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.\"",
+    "path": "library/openai-skills/skills/playwright-interactive",
+    "activation_cmd": "python .agents/library/activate_skill.py activate playwright-interactive",
+    "link_cmd": "python .agents/library/activate_skill.py link playwright-interactive"
+  },
+  {
+    "id": "plugin-creator",
+    "name": "plugin-creator",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, and baseline placeholders you can edit before publishing or testing. Use when Codex needs to create a new local plugin, add optional plugin structure, or generate or update repo-root `.agents/plugins/marketplace.json` entries for plugin ordering and availability metadata.",
+    "path": "library/openai-skills/skills/plugin-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plugin-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link plugin-creator"
+  },
+  {
     "id": "render-deploy",
     "name": "render-deploy",
     "repository": "openai-skills",
@@ -138,6 +318,16 @@
     "path": "library/openai-skills/skills/render-deploy",
     "activation_cmd": "python .agents/library/activate_skill.py activate render-deploy",
     "link_cmd": "python .agents/library/activate_skill.py link render-deploy"
+  },
+  {
+    "id": "screenshot",
+    "name": "screenshot",
+    "repository": "openai-skills",
+    "category": "general-development",
+    "description": "\"Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\"",
+    "path": "library/openai-skills/skills/screenshot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate screenshot",
+    "link_cmd": "python .agents/library/activate_skill.py link screenshot"
   },
   {
     "id": "security-best-practices",
@@ -170,6 +360,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link security-threat-model"
   },
   {
+    "id": "sentry",
+    "name": "sentry",
+    "repository": "openai-skills",
+    "category": "general-development",
+    "description": "\"Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.\"",
+    "path": "library/openai-skills/skills/sentry",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sentry",
+    "link_cmd": "python .agents/library/activate_skill.py link sentry"
+  },
+  {
+    "id": "skill-creator",
+    "name": "skill-creator",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.",
+    "path": "library/openai-skills/skills/skill-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-creator"
+  },
+  {
+    "id": "skill-installer",
+    "name": "skill-installer",
+    "repository": "openai-skills",
+    "category": "general-development",
+    "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
+    "path": "library/openai-skills/skills/skill-installer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-installer",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-installer"
+  },
+  {
     "id": "speech",
     "name": "speech",
     "repository": "openai-skills",
@@ -188,6 +408,16 @@
     "path": "library/openai-skills/skills/transcribe",
     "activation_cmd": "python .agents/library/activate_skill.py activate transcribe",
     "link_cmd": "python .agents/library/activate_skill.py link transcribe"
+  },
+  {
+    "id": "vercel-deploy",
+    "name": "vercel-deploy",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+    "path": "library/openai-skills/skills/vercel-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vercel-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link vercel-deploy"
   },
   {
     "id": "winui-app",

@@ -67,7 +67,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`podcast-ops`](./podcast-ops/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | - |
 | **[`post-writer`](./post-writer/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Write LinkedIn posts that match the user's voice system (about-me.md and voice.md). Use this skill whenever the user say |
 | **[`quickbooks-automation`](./quickbooks-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | QuickBooks Automation: manage invoices, customers, accounts, and payments in QuickBooks Online for streamlined bookkeepi |
-| **[`save-to-spotify`](./save-to-spotify/SKILL.md)** | 📦 Library | `#searex-skill` | Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich timeline (chapters plus  |
+| **[`save-to-spotify`](./save-to-spotify/SKILL.md)** | 📦 Library | `cline-skills` | Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich timeline (chapters plus  |
 | **[`screen-reader-testing`](./screen-reader-testing/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Test web applications with screen readers including VoiceOver, NVDA, and JAWS. Use when validating screen reader compati |
 | **[`seedance`](./seedance/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Generate videos with ByteDance Seedance 2.0 via inference.sh CLI. Unified model for text-to-video, image-to-video, and r |
 | **[`sepia-hemingway`](./sepia-hemingway/SKILL.md)** | 📦 Library | `nanako0129-sepia` | Use when a user asks to write or revise fiction in the Hemingway manner, or asks for strong de-AI on a story; applies Se |

@@ -1,7 +1,7 @@
 # 🗄️ SQL Databases, ORMs & Indexing
 
 > **Category**: `database-sql-relational`  
-> **Total Skills in Category**: 792 real modular skills  
+> **Total Skills in Category**: 795 real modular skills  
 > **Directory**: [`.agents/category/database-sql-relational`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (792 Skills)
+## 📑 Complete Skill Catalog (795 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -68,6 +68,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`appointo-automation`](./appointo-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Appointo tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`appsflyer-automation`](./appsflyer-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Appsflyer tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`appveyor-automation`](./appveyor-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Appveyor tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`artifact-management`](./artifact-management/SKILL.md)** | 📦 Library | `cline-skills` | Save, organize, and describe reusable analysis artifacts such as SQL, result snapshots, CSV exports, summaries, caveats, |
 | **[`aryn-automation`](./aryn-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Aryn tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`asana-automation`](./asana-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections, teams, workspaces. Always search tools first fo |
 | **[`ascora-automation`](./ascora-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Ascora tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -172,6 +173,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`claid-ai-automation`](./claid-ai-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Claid AI tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`classmarker-automation`](./classmarker-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Classmarker tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`clearout-automation`](./clearout-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Clearout tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`clickhouse`](./clickhouse/SKILL.md)** | 📦 Library | `cline-skills` | Connect to and query ClickHouse (a local server or a ClickHouse Cloud service) from the terminal using the official clic |
 | **[`clickmeeting-automation`](./clickmeeting-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Clickmeeting tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`clickup-automation`](./clickup-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate ClickUp project management including tasks, spaces, folders, lists, comments, and team operations via Rube MCP  |
 | **[`cloudcart-automation`](./cloudcart-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Cloudcart tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -261,7 +263,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`dropbox-automation`](./dropbox-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Dropbox file management, sharing, search, uploads, downloads, and folder operations via Rube MCP (Composio). Al |
 | **[`dropbox-sign-automation`](./dropbox-sign-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Dropbox Sign tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`dropcontact-automation`](./dropcontact-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Dropcontact tasks via Rube MCP (Composio). Always search tools first for current schemas. |
-| **[`dsql`](./dsql/SKILL.md)** | 📦 Library | `#searex-skill` | Build with Aurora DSQL — manage schemas, execute queries, handle migrations, diagnose query plans, load data, and develo |
+| **[`dsql`](./dsql/SKILL.md)** | 📦 Library | `cline-skills` | Build with Aurora DSQL — manage schemas, execute queries, handle migrations, diagnose query plans, load data, and develo |
 | **[`dungeon-fighter-online-automation`](./dungeon-fighter-online-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Dungeon Fighter Online tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`echtpost-automation`](./echtpost-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Echtpost tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`elorus-automation`](./elorus-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Elorus tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -540,7 +542,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`openperplex-automation`](./openperplex-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Openperplex tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`openrouter-automation`](./openrouter-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Openrouter tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`optimoroute-automation`](./optimoroute-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Optimoroute tasks via Rube MCP (Composio). Always search tools first for current schemas. |
-| **[`oracledb`](./oracledb/SKILL.md)** | 📦 Library | `#searex-skill` | Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring schema metadata, analyzin |
+| **[`oracledb`](./oracledb/SKILL.md)** | 📦 Library | `cline-skills` | Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring schema metadata, analyzin |
 | **[`page-x-automation`](./page-x-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Page X tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`paradym-automation`](./paradym-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Paradym tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`parallel-automation`](./parallel-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Parallel tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -601,6 +603,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`raisely-automation`](./raisely-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Raisely tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`ravenseotools-automation`](./ravenseotools-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Ravenseotools tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`re-amaze-automation`](./re-amaze-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Re Amaze tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`reading-data-dict`](./reading-data-dict/SKILL.md)** | 📦 Library | `cline-skills` | Read project data documentation (data dictionaries, dbt manifests, model docs, column descriptions, lineage, metric defi |
 | **[`realphonevalidation-automation`](./realphonevalidation-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Realphonevalidation tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`recallai-automation`](./recallai-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Recallai tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`recruitee-automation`](./recruitee-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Recruitee tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -686,7 +689,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`smugmug-automation`](./smugmug-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Smugmug tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`snowflake-automation`](./snowflake-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Snowflake data warehouse operations -- list databases, schemas, and tables, execute SQL statements, and manage  |
 | **[`sourcegraph-automation`](./sourcegraph-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Sourcegraph tasks via Rube MCP (Composio). Always search tools first for current schemas. |
-| **[`spanner-data`](./spanner-data/SKILL.md)** | 📦 Library | `#searex-skill` | Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and ex |
+| **[`spanner-data`](./spanner-data/SKILL.md)** | 📦 Library | `cline-skills` | Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and ex |
 | **[`splitwise-automation`](./splitwise-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Splitwise tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`spoki-automation`](./spoki-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Spoki tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`spondyr-automation`](./spondyr-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Spondyr tasks via Rube MCP (Composio). Always search tools first for current schemas. |

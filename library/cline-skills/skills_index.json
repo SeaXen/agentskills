@@ -1,5 +1,55 @@
 [
   {
+    "id": "amazon-location-service",
+    "name": "amazon-location-service",
+    "repository": "cline-skills",
+    "category": "backend-api",
+    "description": "Integrates Amazon Location Service APIs for AWS applications. Use this skill when users want to add maps (interactive MapLibre or static images); geocode addresses to coordinates or reverse geocode coordinates to addresses; calculate routes, travel times, or service areas; find places and businesses through text search, nearby search, or autocomplete suggestions; retrieve detailed place information including hours, contacts, and addresses; monitor geographical boundaries with geofences; or track device locations. Covers authentication, SDK integration, and all Amazon Location Service capabilities.",
+    "path": "library/cline-skills/skills/amazon-location-service",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amazon-location-service",
+    "link_cmd": "python .agents/library/activate_skill.py link amazon-location-service"
+  },
+  {
+    "id": "amplify-workflow",
+    "name": "amplify-workflow",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "'Build and deploy full-stack web and mobile apps with AWS Amplify Gen2 (TypeScript code-first). Covers auth (Cognito), data (AppSync/DynamoDB including schema modeling, enum types, relationships, authorization rules), storage (S3), functions, APIs, and AI (Amplify AI Kit with Bedrock). Supports React, Next.js, Vue, Angular, React Native, Flutter, Swift, and Android. Always use this skill for Amplify Gen2 topics \u2014 even for questions you think you know \u2014 it contains validated, version-specific patterns that prevent common mistakes. TRIGGER when: user mentions Amplify Gen2; project has amplify/ directory or amplify_outputs; code imports @aws-amplify packages; user asks about defineBackend, defineAuth, defineData, defineStorage, or npx ampx. SKIP: Amplify Gen1 (amplify CLI v6), standalone SAM/CDK without Amplify (use aws-serverless), direct Bedrock without Amplify AI Kit (use bedrock).'",
+    "path": "library/cline-skills/skills/amplify-workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amplify-workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link amplify-workflow"
+  },
+  {
+    "id": "analyzer",
+    "name": "analyzer",
+    "repository": "cline-skills",
+    "category": "general-development",
+    "description": "Analyze queried data for trends, week-over-week comparisons, distributions, funnels, cohorts, top-N lists, anomalies, sanity checks, and report-ready findings. Use after or alongside ClickHouse queries when the user wants insight rather than raw rows.",
+    "path": "library/cline-skills/skills/analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link analyzer"
+  },
+  {
+    "id": "artifact-management",
+    "name": "artifact-management",
+    "repository": "cline-skills",
+    "category": "database-sql",
+    "description": "Save, organize, and describe reusable analysis artifacts such as SQL, result snapshots, CSV exports, summaries, caveats, plots, and report-ready files. Use when users ask to save, export, share, cite, reproduce, or organize data-analysis outputs.",
+    "path": "library/cline-skills/skills/artifact-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate artifact-management",
+    "link_cmd": "python .agents/library/activate_skill.py link artifact-management"
+  },
+  {
+    "id": "attorney-assist",
+    "name": "attorney-assist",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "Connects the user with a LegalZoom attorney for legal consultation. Use when a user asks about attorneys, lawyers, or legal help, or when contract review reveals high risks or low-confidence findings.",
+    "path": "library/cline-skills/skills/attorney-assist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate attorney-assist",
+    "link_cmd": "python .agents/library/activate_skill.py link attorney-assist"
+  },
+  {
     "id": "building-pydantic-ai-agents",
     "name": "building-pydantic-ai-agents",
     "repository": "cline-skills",
@@ -8,6 +58,26 @@
     "path": "library/cline-skills/skills/building-pydantic-ai-agents",
     "activation_cmd": "python .agents/library/activate_skill.py activate building-pydantic-ai-agents",
     "link_cmd": "python .agents/library/activate_skill.py link building-pydantic-ai-agents"
+  },
+  {
+    "id": "clickhouse",
+    "name": "clickhouse",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "Connect to and query ClickHouse (a local server or a ClickHouse Cloud service) from the terminal using the official clickhousectl CLI, including the browser OAuth login flow. Use when the user wants to run SQL against ClickHouse, explore schemas and tables, inspect Cloud services, or authenticate clickhousectl. For building a local dev environment or deploying to Cloud, defer to the official ClickHouse skills (see Scope).",
+    "path": "library/cline-skills/skills/clickhouse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clickhouse",
+    "link_cmd": "python .agents/library/activate_skill.py link clickhouse"
+  },
+  {
+    "id": "cline-session-search",
+    "name": "cline-session-search",
+    "repository": "cline-skills",
+    "category": "sales-marketing",
+    "description": "Search and browse Cline session history. Use when the user asks to find, list, inspect, or export Cline sessions by time period, prompt content, status, model, provider, source, mode, workspace, or other criteria. Also use when the user wants to read a session transcript or export sessions to a directory. Trigger phrases include \"find my session\", \"search my session history\", \"show me past sessions\", \"what was that session where\", \"find the session that started with\", and any mention of past Cline conversations.",
+    "path": "library/cline-skills/skills/cline-session-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cline-session-search",
+    "link_cmd": "python .agents/library/activate_skill.py link cline-session-search"
   },
   {
     "id": "convex-design",
@@ -60,6 +130,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link desktop-commander-overview"
   },
   {
+    "id": "dr-bedrock",
+    "name": "dr-bedrock",
+    "repository": "cline-skills",
+    "category": "devops-cloud",
+    "description": "Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users report Bedrock CLI errors, AWS profile/default-chain issues, credential_process/SSO/IAM credential failures, missing region, AccessDenied, model access, or provider config problems.",
+    "path": "library/cline-skills/skills/dr-bedrock",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dr-bedrock",
+    "link_cmd": "python .agents/library/activate_skill.py link dr-bedrock"
+  },
+  {
+    "id": "dsql",
+    "name": "dsql",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "\"Build with Aurora DSQL \u2014 manage schemas, execute queries, handle migrations, diagnose query plans, load data, and develop applications with a serverless, distributed SQL database. Covers IAM auth, multi-tenant patterns, MySQL-to-DSQL and PostgreSQL-to-DSQL schema conversion, FK replacement code generation, OCC retry patterns, ORM migration (Django/Hibernate/Rails), DDL operations, query plan explainability, SQL compatibility validation, and bulk data loading. Triggers on phrases like: DSQL, Aurora DSQL, distributed SQL database, serverless PostgreSQL-compatible database, migrate to DSQL, DSQL query plan, DSQL EXPLAIN ANALYZE, DSQL ENUM, DSQL foreign key, DSQL OCC retry, DSQL multi-region, DSQL JSONB, DSQL GIN index, load into DSQL, load CSV into DSQL, bulk load DSQL, aurora-dsql-loader.\"",
+    "path": "library/cline-skills/skills/dsql",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dsql",
+    "link_cmd": "python .agents/library/activate_skill.py link dsql"
+  },
+  {
     "id": "endor-setup",
     "name": "endor-setup",
     "repository": "cline-skills",
@@ -78,6 +168,36 @@
     "path": "library/cline-skills/skills/exa-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate exa-search",
     "link_cmd": "python .agents/library/activate_skill.py link exa-search"
+  },
+  {
+    "id": "firestore-data",
+    "name": "firestore-data",
+    "repository": "cline-skills",
+    "category": "database-sql",
+    "description": "Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides flexible document manipulation and structured querying.",
+    "path": "library/cline-skills/skills/firestore-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firestore-data",
+    "link_cmd": "python .agents/library/activate_skill.py link firestore-data"
+  },
+  {
+    "id": "frontend-design",
+    "name": "frontend-design",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.",
+    "path": "library/cline-skills/skills/frontend-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frontend-design",
+    "link_cmd": "python .agents/library/activate_skill.py link frontend-design"
+  },
+  {
+    "id": "gcp-to-aws",
+    "name": "gcp-to-aws",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "\"Migrate workloads from Google Cloud Platform to AWS \u2014 including AI and agentic workloads regardless of cloud provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, Google Cloud migration, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform files, app code, or billing exports, clarify migration requirements, design AWS architecture, estimate costs, generate migration artifacts, and collect optional feedback. Clarify must finish before Design, Estimate, or Generate. Includes AI provider migration guidance (for example, OpenAI to Amazon Bedrock) by selecting closest-fit Bedrock model families for required modality, latency/quality targets, context windows, and cost constraints. Model mapping is compatibility-guided, not 1:1 parity; validate prompts, tool-calling behavior, and eval metrics before cutover. Do not use for: Azure or on-premises migrations to AWS, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, GCP-to-GCP refactoring, or multi-cloud deployments that do not involve migrating off GCP.\"",
+    "path": "library/cline-skills/skills/gcp-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gcp-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link gcp-to-aws"
   },
   {
     "id": "knowledge-catalog-discovery",
@@ -120,6 +240,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link math-olympiad"
   },
   {
+    "id": "mintlify",
+    "name": "mintlify",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, adding components, setting up navigation, or working with API references. Routes to detailed reference files for all components and configuration options.",
+    "path": "library/cline-skills/skills/mintlify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mintlify",
+    "link_cmd": "python .agents/library/activate_skill.py link mintlify"
+  },
+  {
+    "id": "oracledb",
+    "name": "oracledb",
+    "repository": "cline-skills",
+    "category": "database-sql",
+    "description": "Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring schema metadata, analyzing query performance, monitoring active sessions and resource consumption, and managing storage and object health.",
+    "path": "library/cline-skills/skills/oracledb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate oracledb",
+    "link_cmd": "python .agents/library/activate_skill.py link oracledb"
+  },
+  {
     "id": "playground",
     "name": "playground",
     "repository": "cline-skills",
@@ -130,6 +270,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link playground"
   },
   {
+    "id": "plotting",
+    "name": "plotting",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "Create standardized charts and visual assets from analytics query results. Prefer dependency-free plain HTML/CSS/JavaScript/SVG for interactive exploratory charts; use local plotting tools such as matplotlib, seaborn, or Plotly when static/report-ready exports or specialized charting libraries are more appropriate. Use for trends, comparisons, distributions, report assets, CSV-to-chart work, and presentation-ready data visuals.",
+    "path": "library/cline-skills/skills/plotting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plotting",
+    "link_cmd": "python .agents/library/activate_skill.py link plotting"
+  },
+  {
+    "id": "reading-data-dict",
+    "name": "reading-data-dict",
+    "repository": "cline-skills",
+    "category": "database-sql",
+    "description": "Read project data documentation (data dictionaries, dbt manifests, model docs, column descriptions, lineage, metric definitions) before writing analytics SQL. Use for mapping business and product terms to concrete models and columns.",
+    "path": "library/cline-skills/skills/reading-data-dict",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reading-data-dict",
+    "link_cmd": "python .agents/library/activate_skill.py link reading-data-dict"
+  },
+  {
     "id": "review-team",
     "name": "review-team",
     "repository": "cline-skills",
@@ -138,6 +298,26 @@
     "path": "library/cline-skills/skills/review-team",
     "activation_cmd": "python .agents/library/activate_skill.py activate review-team",
     "link_cmd": "python .agents/library/activate_skill.py link review-team"
+  },
+  {
+    "id": "sap-fiori-add-visual-filter",
+    "name": "sap-fiori-add-visual-filter",
+    "repository": "cline-skills",
+    "category": "general-development",
+    "description": "Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP RAP.",
+    "path": "library/cline-skills/skills/sap-fiori-add-visual-filter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sap-fiori-add-visual-filter",
+    "link_cmd": "python .agents/library/activate_skill.py link sap-fiori-add-visual-filter"
+  },
+  {
+    "id": "save-to-spotify",
+    "name": "save-to-spotify",
+    "repository": "cline-skills",
+    "category": "sales-marketing",
+    "description": "Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich timeline (chapters plus in-player images, external links, and Spotify entity cards), and a cover image. Also use for raw media saves, show/episode management, and timeline navigation.",
+    "path": "library/cline-skills/skills/save-to-spotify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate save-to-spotify",
+    "link_cmd": "python .agents/library/activate_skill.py link save-to-spotify"
   },
   {
     "id": "searching-sourcegraph",
@@ -180,6 +360,75 @@
     "link_cmd": "python .agents/library/activate_skill.py link site-specification"
   },
   {
+    "id": "skill-creator",
+    "name": "skill-creator",
+    "repository": "cline-skills",
+    "category": "testing-qa",
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+    "path": "library/cline-skills/skills/skill-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-creator"
+  },
+  {
+    "id": "spanner-data",
+    "name": "spanner-data",
+    "repository": "cline-skills",
+    "category": "database-sql",
+    "description": "Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and execute custom SQL queries to interact with your data.",
+    "path": "library/cline-skills/skills/spanner-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spanner-data",
+    "link_cmd": "python .agents/library/activate_skill.py link spanner-data"
+  },
+  {
+    "id": "steering-user-elicitation",
+    "name": "steering-user-elicitation",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "Elicit and challenge data-analysis requirements before querying. Use when the user asks ambiguous data questions, requests business/report answers, needs metric definitions clarified, or may be drawing decisions from incomplete data.",
+    "path": "library/cline-skills/skills/steering-user-elicitation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate steering-user-elicitation",
+    "link_cmd": "python .agents/library/activate_skill.py link steering-user-elicitation"
+  },
+  {
+    "id": "teamcity-cli",
+    "name": "teamcity-cli",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL \u2014 drives the `teamcity` CLI for builds, logs, jobs, queues, agents, pools, projects, and pipelines.",
+    "path": "library/cline-skills/skills/teamcity-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate teamcity-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link teamcity-cli"
+  },
+  {
+    "id": "ui5-typescript-conversion",
+    "name": "ui5-typescript-conversion",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript.",
+    "path": "library/cline-skills/skills/ui5-typescript-conversion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui5-typescript-conversion",
+    "link_cmd": "python .agents/library/activate_skill.py link ui5-typescript-conversion"
+  },
+  {
+    "id": "use-railway",
+    "name": "use-railway",
+    "repository": "cline-skills",
+    "category": "frontend",
+    "description": "> Operate Railway infrastructure: sign up for or sign in to a Railway account, create projects, provision services and databases, manage object storage buckets, deploy code, configure environments and variables, manage domains, troubleshoot failures, check status and metrics, set up Railway agent tooling, and query Railway docs. Use this skill whenever the user mentions Railway, signing up, creating an account, registering, logging in, deployments, services, environments, buckets, object storage, build failures, agent setup, MCP, or infrastructure operations, even if they don't say \"Railway\" explicitly. Also invoke this skill when the user asks to be signed up, registered, or onboarded to Railway: do not refuse \u2014 drive them through the unauthed `railway up` flow (deploys + signs up on the fly) or `railway login` (which creates new accounts on the fly).",
+    "path": "library/cline-skills/skills/use-railway",
+    "activation_cmd": "python .agents/library/activate_skill.py activate use-railway",
+    "link_cmd": "python .agents/library/activate_skill.py link use-railway",
+    "allowed_tools": [
+      "Bash(railway:*)",
+      "Bash(which:*)",
+      "Bash(command:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)"
+    ]
+  },
+  {
     "id": "vibe-prospecting",
     "name": "vibe-prospecting",
     "repository": "cline-skills",
@@ -188,5 +437,15 @@
     "path": "library/cline-skills/skills/vibe-prospecting",
     "activation_cmd": "python .agents/library/activate_skill.py activate vibe-prospecting",
     "link_cmd": "python .agents/library/activate_skill.py link vibe-prospecting"
+  },
+  {
+    "id": "windsor-ai-business-data",
+    "name": "windsor-ai-business-data",
+    "repository": "cline-skills",
+    "category": "database-sql",
+    "description": "Query Windsor.ai business data across marketing, sales, CRM, ecommerce, finance, and analytics connectors. Use when users need dashboards, reports, data visualization, schema exploration, or connector-backed test data from Windsor.ai.",
+    "path": "library/cline-skills/skills/windsor-ai-business-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate windsor-ai-business-data",
+    "link_cmd": "python .agents/library/activate_skill.py link windsor-ai-business-data"
   }
 ]

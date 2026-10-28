@@ -1,7 +1,7 @@
 # 💬 Prompt Engineering, LLMs & RAG
 
 > **Category**: `prompt-llm-engineering`  
-> **Total Skills in Category**: 121 real modular skills  
+> **Total Skills in Category**: 122 real modular skills  
 > **Directory**: [`.agents/category/prompt-llm-engineering`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (121 Skills)
+## 📑 Complete Skill Catalog (122 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -47,6 +47,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`clarity-gate`](./clarity-gate/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Pre-ingestion verification for epistemic quality in RAG systems with 9-point verification and Two-Round HITL workflow |
 | **[`claude-code-guide`](./claude-code-guide/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master guide for using Claude Code effectively. Includes configuration templates, prompting strategies \\\"Thinking\\\"  |
 | **[`clawrouter`](./clawrouter/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Smart LLM routing for cost optimization. Routes tasks to the cheapest capable model: free models (OpenRouter Llama 70B,  |
+| **[`cline-session-search`](./cline-session-search/SKILL.md)** | 📦 Library | `cline-skills` | Search and browse Cline session history. Use when the user asks to find, list, inspect, or export Cline sessions by time |
 | **[`clipcat`](./clipcat/SKILL.md)** | 📦 Library | `clipcat-ai-clipcat-skill` | All-in-one TikTok Shop selling-video skill for any AI agent (Claude Code, Codex, WorkBuddy, OpenClaw). Find viral TikTok |
 | **[`computer-use-agents`](./computer-use-agents/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build AI agents that interact with computers like humans do - viewing screens, moving cursors, clicking buttons, and typ |
 | **[`content-eval`](./content-eval/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | - |
@@ -65,7 +66,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`evaluation`](./evaluation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build evaluation frameworks for agent systems |
 | **[`find-community`](./find-community/SKILL.md)** | 📦 Library | `slavingia-skills` | Help identify and evaluate communities to build a minimalist business around. Use when someone is looking for a business |
 | **[`flux-image`](./flux-image/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with |
-| **[`gcp-to-aws`](./gcp-to-aws/SKILL.md)** | 📦 Library | `#searex-skill` | Migrate workloads from Google Cloud Platform to AWS — including AI and agentic workloads regardless of cloud provider. T |
+| **[`gcp-to-aws`](./gcp-to-aws/SKILL.md)** | 📦 Library | `cline-skills` | Migrate workloads from Google Cloud Platform to AWS — including AI and agentic workloads regardless of cloud provider. T |
 | **[`gemini`](./gemini/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Cross-model second opinion from Google Gemini — a different AI reviewing the |
 | **[`gemini-automation`](./gemini-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Gemini tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`gemini-carousel`](./gemini-carousel/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Generate a branded slide-by-slide LinkedIn carousel using Gemini. Takes source content, builds a design brief, waits for |

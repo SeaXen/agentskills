@@ -1,7 +1,7 @@
 # 🪙 Web3, Solidity & DeFi Architecture
 
 > **Category**: `web3-smart-contracts`  
-> **Total Skills in Category**: 33 real modular skills  
+> **Total Skills in Category**: 34 real modular skills  
 > **Directory**: [`.agents/category/web3-smart-contracts`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (33 Skills)
+## 📑 Complete Skill Catalog (34 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -46,6 +46,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`react-vite-dashboard`](./react-vite-dashboard/SKILL.md)** | 📦 Library | `google-labs-code-stitch-skills` | Convert Stitch designs into production React + Vite dashboards with TanStack Query, accessible tokens from DESIGN.md, an |
 | **[`slo-implementation`](./slo-implementation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Define and implement Service Level Indicators (SLIs) and Service Level Objectives (SLOs) with error budgets and alerting |
 | **[`solidity-security`](./solidity-security/SKILL.md)** | 🟢 Active | `active-skills` | Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity patterns.  |
+| **[`steering-user-elicitation`](./steering-user-elicitation/SKILL.md)** | 📦 Library | `cline-skills` | Elicit and challenge data-analysis requirements before querying. Use when the user asks ambiguous data questions, reques |
 | **[`token-minter`](./token-minter/SKILL.md)** | 📦 Library | `crypto-skills` | Generate, build, and deploy custom ERC20 tokens on EVM networks. Use when users want to create and deploy their own ERC2 |
 | **[`token-scorer`](./token-scorer/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Score any crypto token using Buzz's 11-rule scoring engine. |
 | **[`trading-strategist`](./trading-strategist/SKILL.md)** | 📦 Library | `crypto-skills` | Provides trading strategies for cryptocurrencies based on Binance market data, calculated technical analysis indicators, |

@@ -1,6 +1,7 @@
 # Comparison Format
 
 **When to use**:
+
 - Evaluating multiple options
 - Tool/vendor selection
 - Approach comparison
@@ -8,9 +9,10 @@
 
 ## Characteristics
 
-**Length**: 800-1200 words typically
+**Length**: Match the requested depth; no minimum word count.
 
 **Structure**:
+
 - Overview of what's being compared
 - Comparison matrix table
 - Detailed analysis per option (pros/cons)
@@ -34,4 +36,3 @@ See [comparison-template.md](comparison-template.md) for the full template.
 - "What are the pros and cons of each deployment approach?"
 - "Compare the vendor proposals"
 - "Evaluate the different authentication methods we've documented"
-

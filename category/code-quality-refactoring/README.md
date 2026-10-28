@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Skills in Category**: 598 real modular skills  
+> **Total Skills in Category**: 603 real modular skills  
 > **Directory**: [`.agents/category/code-quality-refactoring`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (598 Skills)
+## 📑 Complete Skill Catalog (603 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -117,7 +117,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`chaos-experiment`](./chaos-experiment/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`chatgpt-apps`](./chatgpt-apps/SKILL.md)** | 📦 Library | `openai-skills` | Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use  |
 | **[`clarity`](./clarity/SKILL.md)** | 📦 Library | `addyosmani-clarity` | Draft, rewrite, or review reader-facing prose so it is specific, useful, and recognizably the author's without inventing |
-| **[`claude-handoff`](./claude-handoff/SKILL.md)** | 📦 Library | `#searex-skill` | Hand the current conversation off to a fresh background agent that picks up the work immediately. |
+| **[`claude-handoff`](./claude-handoff/SKILL.md)** | 📦 Library | `mattpocock-skills` | Hand the current conversation off to a fresh background agent that picks up the work immediately. |
 | **[`claude-seo`](./claude-seo/SKILL.md)** | 📦 Library | `agricidaniel-claude-seo` | A technical SEO toolkit for analyzing backlinks, organic keywords, and referring domains using Ahrefs and Bing Webmaster |
 | **[`claude-speed-reader`](./claude-speed-reader/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | -Speed read Claude's responses at 600+ WPM using RSVP with Spritz-style ORP highlighting |
 | **[`claude-win11-speckit-update-skill`](./claude-win11-speckit-update-skill/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Windows 11 system management |
@@ -319,6 +319,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`implement`](./implement/SKILL.md)** | 📦 Library | `mattpocock-skills` | Implement a piece of work based on a spec or set of tickets. |
 | **[`implement-spec`](./implement-spec/SKILL.md)** | 📦 Library | `mattpocock-skills` | Implement the result of /to-spec and /to-tickets in code. |
 | **[`importing-a-codebase`](./importing-a-codebase/SKILL.md)** | 📦 Library | `jetbrains-thinkrail` | Use when asked to create the initial spec graph for an existing codebase that has source code but no specs. Normally rea |
+| **[`improve-claude-md`](./improve-claude-md/SKILL.md)** | 📦 Library | `humanlayer-skills` | improve a CLAUDE.md file using <important if> blocks to improve instruction adherence |
 | **[`inbox-manager`](./inbox-manager/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Turns a full inbox into a short, ranked list of what actually needs the owner. |
 | **[`incident-response`](./incident-response/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Run an incident response workflow — triage, communicate, and write postmortem. Trigger with "we have an incident", "prod |
 | **[`incident-response-incident-response`](./incident-response-incident-response/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when working with incident response incident response |
@@ -461,6 +462,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`rice`](./rice/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`ring-central-automation`](./ring-central-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | RingCentral automation via Rube MCP -- toolkit not currently available in Composio; no RING_CENTRAL_ tools found |
 | **[`risk-manager`](./risk-manager/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Monitor portfolio risk, R-multiples, and position limits. Creates |
+| **[`rpi`](./rpi/SKILL.md)** | 📦 Library | `humanlayer-skills` | Only use when the user explicitly invokes this skill by name. |
 | **[`saas-health`](./saas-health/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`safe-refactor`](./safe-refactor/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Restructure code while preserving behavior. Use for extraction, consolidation, ownership moves, or cleanup where verific |
 | **[`scaffold-exercises`](./scaffold-exercises/SKILL.md)** | 📦 Library | `mattpocock-skills` | Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user |
@@ -536,6 +538,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`swiftui-performance-audit`](./swiftui-performance-audit/SKILL.md)** | 📦 Library | `dimillian-skills` | Audit and improve SwiftUI runtime performance from code review and architecture. Use for requests to diagnose slow rende |
 | **[`swiftui-view-refactor`](./swiftui-view-refactor/SKILL.md)** | 📦 Library | `dimillian-skills` | Refactor and review SwiftUI view files with strong defaults for small dedicated subviews, MV-over-MVVM data flow, stable |
 | **[`sxo`](./sxo/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Search Experience Optimization (SXO), the bridge between SEO and UX/CRO. Audits |
+| **[`sync-debug`](./sync-debug/SKILL.md)** | 📦 Library | `makenotion-notion-cookbook` | Diagnose a failing or misbehaving sync — fetch run logs, identify errors, cross-reference with code, and suggest fixes |
+| **[`sync-validate`](./sync-validate/SKILL.md)** | 📦 Library | `makenotion-notion-cookbook` | Review a sync capability for common bugs — cursor advancement, pagination termination, state persistence, bi-modal corre |
 | **[`task-coordination-strategies`](./task-coordination-strategies/SKILL.md)** | 📦 Library | `wshobson-agents` | Decompose complex tasks, design dependency graphs, and coordinate multi-agent work with proper task descriptions and wor |
 | **[`tc`](./tc/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`tdd-orchestrator`](./tdd-orchestrator/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TDD orchestrator specializing in red-green-refactor |
@@ -584,6 +588,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`ux-copy`](./ux-copy/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with "write copy for", "what should thi |
 | **[`verification-loop`](./verification-loop/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Comprehensive verification running all quality gates |
 | **[`view-pdf`](./view-pdf/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate,  |
+| **[`visual-pr`](./visual-pr/SKILL.md)** | 📦 Library | `humanlayer-skills` | Only use when the user explicitly invokes this skill by name. |
 | **[`wait-what`](./wait-what/SKILL.md)** | 📦 Library | `mattpocock-skills` | Stop. That last message did not land: re-pitch it. |
 | **[`wayfinder`](./wayfinder/SKILL.md)** | 📦 Library | `mattpocock-skills` | Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue track |
 | **[`web-performance-optimization`](./web-performance-optimization/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Optimize website and web application performance including loading speed, Core Web Vitals, bundle size, caching strategi |

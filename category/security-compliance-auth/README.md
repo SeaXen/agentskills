@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Skills in Category**: 52 real modular skills  
+> **Total Skills in Category**: 53 real modular skills  
 > **Directory**: [`.agents/category/security-compliance-auth`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,13 +16,14 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (52 Skills)
+## 📑 Complete Skill Catalog (53 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
 | **[`accessibility-compliance-accessibility-audit`](./accessibility-compliance-accessibility-audit/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are an accessibility expert specializing in WCAG compliance, inclusive design, and assistive technology compatibilit |
 | **[`anti-reversing-techniques`](./anti-reversing-techniques/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Understand anti-reversing, obfuscation, and protection techniques encountered during software analysis. Use when analyzi |
 | **[`audit-support`](./audit-support/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when gen |
+| **[`auth-guide`](./auth-guide/SKILL.md)** | 📦 Library | `makenotion-notion-cookbook` | Guide to setting up third-party authentication for a Notion Worker. Covers brokered credentials for external-service API |
 | **[`auth-implementation-patterns`](./auth-implementation-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master authentication and authorization patterns including JWT, OAuth2, session management, and RBAC to build secure, sc |
 | **[`autonomous-agent-patterns`](./autonomous-agent-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Design patterns for building autonomous coding agents. Covers tool integration, permission systems, browser automation,  |
 | **[`broken-authentication`](./broken-authentication/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"test for broken authentication vulnerabilities\", \"assess session man |
@@ -35,7 +36,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`cookie-sync`](./cookie-sync/SKILL.md)** | 📦 Library | `browserbase-skills` | Sync cookies from local Chrome to a Browserbase persistent context so the browse CLI can access authenticated sites. Use |
 | **[`debug-zoom-integration`](./debug-zoom-integration/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflo |
 | **[`django-access-review`](./django-access-review/SKILL.md)** | 📦 Library | `getsentry-skills` | Django access control and IDOR security review. Use when reviewing Django views, DRF viewsets, ORM queries, or any Pytho |
-| **[`dr-bedrock`](./dr-bedrock/SKILL.md)** | 📦 Library | `#searex-skill` | Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users  |
+| **[`dr-bedrock`](./dr-bedrock/SKILL.md)** | 📦 Library | `cline-skills` | Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users  |
 | **[`ftd-detector`](./ftd-detector/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Detects Follow-Through Day (FTD) signals for market bottom confirmation using William O'Neil's methodology. Dual-index t |
 | **[`gdpr-data-handling`](./gdpr-data-handling/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement GDPR-compliant data handling with consent management, data subject rights, and privacy by design. Use when bui |
 | **[`google-drive-automation`](./google-drive-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Google Drive file operations (upload, download, search, share, organize) via Rube MCP (Composio). Upload/downlo |

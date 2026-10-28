@@ -1,4 +1,9 @@
-# Task Creation from Specs
+# Task creation from specs
+
+Use this guide when task creation is requested. Examples are illustrative: use
+the exposed tool schema and actual database properties. Fetch a supplied database
+directly, reuse its schema for the task, and check for existing work before creating
+new pages. Do not create a separate plan unless requested or needed for the work.
 
 ## Finding the Task Database
 
@@ -8,15 +13,15 @@ Before creating tasks, locate the task database:
 1. Search for task database:
    Notion:notion-search
    query: "Tasks" or "Task Management" or "[Project] Tasks"
-   
+
 2. Fetch database schema:
    Notion:notion-fetch
    id: "database-id-from-search"
-   
+
 3. Identify data source:
    - Look for <data-source url="collection://..."> tags
    - Extract collection ID for parent parameter
-   
+
 4. Note schema:
    - Required properties
    - Property types and options
@@ -35,36 +40,28 @@ Result: `collection://abc-123-def` for use as parent
 
 ## Task Breakdown Strategy
 
-### Size Guidelines
+### Size guidelines
 
-**Good task size**:
-- Completable in 1-2 days
-- Single clear deliverable
-- Independently testable
-- Minimal dependencies
-
-**Too large**:
-- Takes > 3 days
-- Multiple deliverables
-- Many dependencies
-- Break down further
-
-**Too small**:
-- Takes < 2 hours
-- Too granular
-- Group with related work
+Prefer a clear deliverable with testable acceptance criteria and explicit
+prerequisites. Split work when it has independent outcomes or cannot be verified
+as one task; combine trivial steps that serve the same outcome. Respect team
+conventions and the scope of the spec. Do not impose a minimum task count or a
+fixed duration. Small changes can be one task; complex features need more detail.
 
 ### Granularity by Phase
 
 **Early phases**: Larger tasks acceptable
+
 - "Design database schema"
 - "Set up API structure"
 
 **Middle phases**: Medium-sized tasks
+
 - "Implement user authentication"
 - "Build dashboard UI"
 
 **Late phases**: Smaller, precise tasks
+
 - "Fix validation bug in form"
 - "Add loading state to button"
 
@@ -110,51 +107,64 @@ content: "[Task description using template]"
 # [Task Name]
 
 ## Context
+
 Implementation task for <mention-page url="...">Feature Spec</mention-page>
 
 Part of <mention-page url="...">Implementation Plan</mention-page> - Phase [N]
 
 ## Objective
+
 [What this task accomplishes]
 
 ## Requirements
+
 Based on spec requirements:
+
 - [Relevant requirement 1]
 - [Relevant requirement 2]
 
 ## Acceptance Criteria
+
 - [ ] [Specific, testable criterion]
 - [ ] [Specific, testable criterion]
 - [ ] [Specific, testable criterion]
 
 ## Technical Approach
+
 [Suggested implementation approach]
 
 ### Components Affected
+
 - [Component 1]
 - [Component 2]
 
 ### Key Decisions
+
 - [Decision point 1]
 - [Decision point 2]
 
 ## Dependencies
 
 ### Blocked By
+
 - <mention-page url="...">Prerequisite Task</mention-page> or None
 
 ### Blocks
+
 - <mention-page url="...">Dependent Task</mention-page> or None
 
 ## Resources
+
 - [Link to design mockup]
 - [Link to API spec]
 - [Link to relevant code]
 
 ## Estimated Effort
+
 [Time estimate]
 
 ## Progress
+
 [To be updated during implementation]
 ```
 
@@ -302,48 +312,43 @@ Phase 3 (Polish):
 ## Priority Assignment
 
 ### P0/Critical
+
 - Blocks everything else
 - Core functionality
 - Security requirements
 - Data integrity
 
 ### P1/High
+
 - Important features
 - User-facing functionality
 - Performance requirements
 
 ### P2/Medium
+
 - Nice-to-have features
 - Optimizations
 - Minor improvements
 
 ### P3/Low
+
 - Future enhancements
 - Edge case handling
 - Cosmetic improvements
 
 ## Estimation
 
-### Story Points
+### Estimates when useful
 
-If using story points:
-- 1 point: Few hours
-- 2 points: Half day
-- 3 points: Full day
-- 5 points: 2 days
-- 8 points: 3-4 days (consider breaking down)
-
-### Time Estimates
-
-Direct time estimates:
-- 2-4 hours: Small task
-- 1 day: Medium task
-- 2 days: Large task
-- 3+ days: Break down further
+Use the team's existing scale and label assumptions. Story points are relative;
+do not convert them to days without an established team convention. Include time
+estimates when requested or useful for planning, with uncertainty for unknowns.
+Do not invent due dates or commitments to fill a template.
 
 ### Estimation Factors
 
 Consider:
+
 - Complexity
 - Unknowns
 - Dependencies
@@ -405,7 +410,7 @@ For each work item in breakdown:
 Then:
   1. Update plan with task links
   2. Review sequencing
-  3. Assign tasks (if known)
+  3. Assign tasks when requested and assignees are known
 ```
 
 ## Task Naming Conventions
@@ -419,6 +424,7 @@ Then:
 ✗ "Add chart"
 
 **Use action verbs**:
+
 - Implement, Build, Create
 - Integrate, Connect, Link
 - Fix, Resolve, Debug
@@ -433,9 +439,8 @@ Before finalizing tasks:
 ☐ Each task has clear objective
 ☐ Acceptance criteria are testable
 ☐ Dependencies identified
-☐ Appropriate size (1-2 days)
+☐ Independently verifiable scope
 ☐ Priority assigned
 ☐ Linked to spec/plan
 ☐ Proper sequencing
 ☐ Resources noted
-

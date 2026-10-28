@@ -1,6 +1,7 @@
 # Quick Brief Format
 
 **When to use**:
+
 - Time-sensitive requests
 - Simple topics
 - Status updates
@@ -8,9 +9,10 @@
 
 ## Characteristics
 
-**Length**: 200-400 words
+**Length**: Match the requested depth; no minimum word count.
 
 **Structure**:
+
 - 3-4 sentence summary
 - 3-5 bullet key points
 - Short action items list
@@ -34,4 +36,3 @@ See [quick-brief-template.md](quick-brief-template.md) for the full template.
 - "Fast brief on the meeting notes from yesterday"
 - "What are the key points from that spec?"
 - "Give me a quick overview of the project status"
-

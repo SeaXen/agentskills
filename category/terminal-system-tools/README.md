@@ -74,7 +74,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`toggl-automation`](./toggl-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate time tracking workflows in Toggl Track -- create time entries, manage projects, clients, tags, and workspaces t |
 | **[`uploadcare-automation`](./uploadcare-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Uploadcare file management including listing, storing, inspecting, downloading, and organizing file groups thro |
 | **[`webex-automation`](./webex-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Cisco Webex messaging, rooms, teams, webhooks, and people management through natural language commands |
-| **[`wizard`](./wizard/SKILL.md)** | 📦 Library | `#searex-skill` | Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infras |
+| **[`wizard`](./wizard/SKILL.md)** | 📦 Library | `mattpocock-skills` | Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infras |
 
 ---
 

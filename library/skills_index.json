@@ -52,26 +52,6 @@
     ]
   },
   {
-    "id": "claude-handoff",
-    "name": "claude-handoff",
-    "repository": "#searex-skill",
-    "category": "code-quality-refactoring",
-    "description": "Hand the current conversation off to a fresh background agent that picks up the work immediately.",
-    "path": "library/#searex-skill/skills/claude-handoff",
-    "activation_cmd": "python .agents/library/activate_skill.py activate claude-handoff",
-    "link_cmd": "python .agents/library/activate_skill.py link claude-handoff"
-  },
-  {
-    "id": "codebase-design",
-    "name": "codebase-design",
-    "repository": "#searex-skill",
-    "category": "testing-unit-tdd",
-    "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
-    "path": "library/#searex-skill/skills/codebase-design",
-    "activation_cmd": "python .agents/library/activate_skill.py activate codebase-design",
-    "link_cmd": "python .agents/library/activate_skill.py link codebase-design"
-  },
-  {
     "id": "database-query-optimizer",
     "name": "database-query-optimizer",
     "repository": "#searex-skill",
@@ -89,36 +69,6 @@
     ]
   },
   {
-    "id": "dr-bedrock",
-    "name": "dr-bedrock",
-    "repository": "#searex-skill",
-    "category": "security-compliance-auth",
-    "description": "Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users report Bedrock CLI errors, AWS profile/default-chain issues, credential_process/SSO/IAM credential failures, missing region, AccessDenied, model access, or provider config problems.",
-    "path": "library/#searex-skill/skills/dr-bedrock",
-    "activation_cmd": "python .agents/library/activate_skill.py activate dr-bedrock",
-    "link_cmd": "python .agents/library/activate_skill.py link dr-bedrock"
-  },
-  {
-    "id": "dsql",
-    "name": "dsql",
-    "repository": "#searex-skill",
-    "category": "database-sql-relational",
-    "description": "\"Build with Aurora DSQL — manage schemas, execute queries, handle migrations, diagnose query plans, load data, and develop applications with a serverless, distributed SQL database. Covers IAM auth, multi-tenant patterns, MySQL-to-DSQL and PostgreSQL-to-DSQL schema conversion, FK replacement code generation, OCC retry patterns, ORM migration (Django/Hibernate/Rails), DDL operations, query plan explainability, SQL compatibility validation, and bulk data loading. Triggers on phrases like: DSQL, Aurora DSQL, distributed SQL database, serverless PostgreSQL-compatible database, migrate to DSQL, DSQL query plan, DSQL EXPLAIN ANALYZE, DSQL ENUM, DSQL foreign key, DSQL OCC retry, DSQL multi-region, DSQL JSONB, DSQL GIN index, load into DSQL, load CSV into DSQL, bulk load DSQL, aurora-dsql-loader.\"",
-    "path": "library/#searex-skill/skills/dsql",
-    "activation_cmd": "python .agents/library/activate_skill.py activate dsql",
-    "link_cmd": "python .agents/library/activate_skill.py link dsql"
-  },
-  {
-    "id": "firestore-data",
-    "name": "firestore-data",
-    "repository": "#searex-skill",
-    "category": "database-nosql-serverless",
-    "description": "Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides flexible document manipulation and structured querying.",
-    "path": "library/#searex-skill/skills/firestore-data",
-    "activation_cmd": "python .agents/library/activate_skill.py activate firestore-data",
-    "link_cmd": "python .agents/library/activate_skill.py link firestore-data"
-  },
-  {
     "id": "game-audio",
     "name": "game-audio",
     "repository": "#searex-skill",
@@ -132,16 +82,6 @@
       "Glob",
       "Grep"
     ]
-  },
-  {
-    "id": "gcp-to-aws",
-    "name": "gcp-to-aws",
-    "repository": "#searex-skill",
-    "category": "prompt-llm-engineering",
-    "description": "\"Migrate workloads from Google Cloud Platform to AWS — including AI and agentic workloads regardless of cloud provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, Google Cloud migration, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform files, app code, or billing exports, clarify migration requirements, design AWS architecture, estimate costs, generate migration artifacts, and collect optional feedback. Clarify must finish before Design, Estimate, or Generate. Includes AI provider migration guidance (for example, OpenAI to Amazon Bedrock) by selecting closest-fit Bedrock model families for required modality, latency/quality targets, context windows, and cost constraints. Model mapping is compatibility-guided, not 1:1 parity; validate prompts, tool-calling behavior, and eval metrics before cutover. Do not use for: Azure or on-premises migrations to AWS, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, GCP-to-GCP refactoring, or multi-cloud deployments that do not involve migrating off GCP.\"",
-    "path": "library/#searex-skill/skills/gcp-to-aws",
-    "activation_cmd": "python .agents/library/activate_skill.py activate gcp-to-aws",
-    "link_cmd": "python .agents/library/activate_skill.py link gcp-to-aws"
   },
   {
     "id": "git-workflow-pro",
@@ -212,16 +152,6 @@
     ]
   },
   {
-    "id": "mintlify",
-    "name": "mintlify",
-    "repository": "#searex-skill",
-    "category": "backend-api-design",
-    "description": "Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, adding components, setting up navigation, or working with API references. Routes to detailed reference files for all components and configuration options.",
-    "path": "library/#searex-skill/skills/mintlify",
-    "activation_cmd": "python .agents/library/activate_skill.py activate mintlify",
-    "link_cmd": "python .agents/library/activate_skill.py link mintlify"
-  },
-  {
     "id": "mutation-testing",
     "name": "mutation-testing",
     "repository": "#searex-skill",
@@ -237,34 +167,6 @@
       "Glob",
       "Grep"
     ]
-  },
-  {
-    "id": "nextjs-react-expert",
-    "name": "nextjs-react-expert",
-    "repository": "#searex-skill",
-    "category": "fullstack-web-frameworks",
-    "description": "React and Next.js performance optimization from Vercel Engineering. Use when building React components, optimizing performance, eliminating waterfalls, reducing bundle size, reviewing code for performance issues, or implementing server/client-side optimizations.",
-    "path": "library/#searex-skill/skills/nextjs-react-expert",
-    "activation_cmd": "python .agents/library/activate_skill.py activate nextjs-react-expert",
-    "link_cmd": "python .agents/library/activate_skill.py link nextjs-react-expert",
-    "allowed_tools": [
-      "Read",
-      "Write",
-      "Edit",
-      "Glob",
-      "Grep",
-      "Bash"
-    ]
-  },
-  {
-    "id": "oracledb",
-    "name": "oracledb",
-    "repository": "#searex-skill",
-    "category": "database-sql-relational",
-    "description": "Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring schema metadata, analyzing query performance, monitoring active sessions and resource consumption, and managing storage and object health.",
-    "path": "library/#searex-skill/skills/oracledb",
-    "activation_cmd": "python .agents/library/activate_skill.py activate oracledb",
-    "link_cmd": "python .agents/library/activate_skill.py link oracledb"
   },
   {
     "id": "portable-deploy-qa",
@@ -319,26 +221,6 @@
     ]
   },
   {
-    "id": "save-to-spotify",
-    "name": "save-to-spotify",
-    "repository": "#searex-skill",
-    "category": "audio-voice-sound",
-    "description": "Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich timeline (chapters plus in-player images, external links, and Spotify entity cards), and a cover image. Also use for raw media saves, show/episode management, and timeline navigation.",
-    "path": "library/#searex-skill/skills/save-to-spotify",
-    "activation_cmd": "python .agents/library/activate_skill.py activate save-to-spotify",
-    "link_cmd": "python .agents/library/activate_skill.py link save-to-spotify"
-  },
-  {
-    "id": "security-audit",
-    "name": "security-audit",
-    "repository": "#searex-skill",
-    "category": "security-vulnerability-audit",
-    "description": "Security guidance and vulnerability review for codebases, APIs, services, CLI tools, libraries, and daemons. Use for security questions, focused reviews, vulnerability research, security audits, or pen tests. Run the complete workflow only for explicit codebase audit or pen-test requests, full/comprehensive/end-to-end reviews, or requested report artifacts.",
-    "path": "library/#searex-skill/skills/security-audit",
-    "activation_cmd": "python .agents/library/activate_skill.py activate security-audit",
-    "link_cmd": "python .agents/library/activate_skill.py link security-audit"
-  },
-  {
     "id": "security-hardened-api",
     "name": "security-hardened-api",
     "repository": "#searex-skill",
@@ -356,26 +238,6 @@
     ]
   },
   {
-    "id": "spanner-data",
-    "name": "spanner-data",
-    "repository": "#searex-skill",
-    "category": "database-sql-relational",
-    "description": "Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and execute custom SQL queries to interact with your data.",
-    "path": "library/#searex-skill/skills/spanner-data",
-    "activation_cmd": "python .agents/library/activate_skill.py activate spanner-data",
-    "link_cmd": "python .agents/library/activate_skill.py link spanner-data"
-  },
-  {
-    "id": "teamcity-cli",
-    "name": "teamcity-cli",
-    "repository": "#searex-skill",
-    "category": "devops-docker-cicd",
-    "description": "Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL — drives the `teamcity` CLI for builds, logs, jobs, queues, agents, pools, projects, and pipelines.",
-    "path": "library/#searex-skill/skills/teamcity-cli",
-    "activation_cmd": "python .agents/library/activate_skill.py activate teamcity-cli",
-    "link_cmd": "python .agents/library/activate_skill.py link teamcity-cli"
-  },
-  {
     "id": "terraform-architect",
     "name": "terraform-architect",
     "repository": "#searex-skill",
@@ -391,45 +253,6 @@
       "Glob",
       "Grep"
     ]
-  },
-  {
-    "id": "use-railway",
-    "name": "use-railway",
-    "repository": "#searex-skill",
-    "category": "devops-docker-cicd",
-    "description": "> Operate Railway infrastructure: sign up for or sign in to a Railway account, create projects, provision services and databases, manage object storage buckets, deploy code, configure environments and variables, manage domains, troubleshoot failures, check status and metrics, set up Railway agent tooling, and query Railway docs. Use this skill whenever the user mentions Railway, signing up, creating an account, registering, logging in, deployments, services, environments, buckets, object storage, build failures, agent setup, MCP, or infrastructure operations, even if they don't say \"Railway\" explicitly. Also invoke this skill when the user asks to be signed up, registered, or onboarded to Railway: do not refuse — drive them through the unauthed `railway up` flow (deploys + signs up on the fly) or `railway login` (which creates new accounts on the fly).",
-    "path": "library/#searex-skill/skills/use-railway",
-    "activation_cmd": "python .agents/library/activate_skill.py activate use-railway",
-    "link_cmd": "python .agents/library/activate_skill.py link use-railway",
-    "allowed_tools": [
-      "Bash(railway:*)",
-      "Bash(which:*)",
-      "Bash(command:*)",
-      "Bash(npm:*)",
-      "Bash(npx:*)",
-      "Bash(curl:*)",
-      "Bash(python3:*)"
-    ]
-  },
-  {
-    "id": "windsor-ai-business-data",
-    "name": "windsor-ai-business-data",
-    "repository": "#searex-skill",
-    "category": "business-sales-crm",
-    "description": "Query Windsor.ai business data across marketing, sales, CRM, ecommerce, finance, and analytics connectors. Use when users need dashboards, reports, data visualization, schema exploration, or connector-backed test data from Windsor.ai.",
-    "path": "library/#searex-skill/skills/windsor-ai-business-data",
-    "activation_cmd": "python .agents/library/activate_skill.py activate windsor-ai-business-data",
-    "link_cmd": "python .agents/library/activate_skill.py link windsor-ai-business-data"
-  },
-  {
-    "id": "wizard",
-    "name": "wizard",
-    "repository": "#searex-skill",
-    "category": "terminal-system-tools",
-    "description": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.",
-    "path": "library/#searex-skill/skills/wizard",
-    "activation_cmd": "python .agents/library/activate_skill.py activate wizard",
-    "link_cmd": "python .agents/library/activate_skill.py link wizard"
   },
   {
     "id": "codeart2d",
@@ -15309,6 +15132,56 @@
     "link_cmd": "python .agents/library/activate_skill.py link dev-skills"
   },
   {
+    "id": "amazon-location-service",
+    "name": "amazon-location-service",
+    "repository": "cline-skills",
+    "category": "backend-api-design",
+    "description": "Integrates Amazon Location Service APIs for AWS applications. Use this skill when users want to add maps (interactive MapLibre or static images); geocode addresses to coordinates or reverse geocode coordinates to addresses; calculate routes, travel times, or service areas; find places and businesses through text search, nearby search, or autocomplete suggestions; retrieve detailed place information including hours, contacts, and addresses; monitor geographical boundaries with geofences; or track device locations. Covers authentication, SDK integration, and all Amazon Location Service capabilities.",
+    "path": "library/cline-skills/skills/amazon-location-service",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amazon-location-service",
+    "link_cmd": "python .agents/library/activate_skill.py link amazon-location-service"
+  },
+  {
+    "id": "amplify-workflow",
+    "name": "amplify-workflow",
+    "repository": "cline-skills",
+    "category": "devops-docker-cicd",
+    "description": "'Build and deploy full-stack web and mobile apps with AWS Amplify Gen2 (TypeScript code-first). Covers auth (Cognito), data (AppSync/DynamoDB including schema modeling, enum types, relationships, authorization rules), storage (S3), functions, APIs, and AI (Amplify AI Kit with Bedrock). Supports React, Next.js, Vue, Angular, React Native, Flutter, Swift, and Android. Always use this skill for Amplify Gen2 topics — even for questions you think you know — it contains validated, version-specific patterns that prevent common mistakes. TRIGGER when: user mentions Amplify Gen2; project has amplify/ directory or amplify_outputs; code imports @aws-amplify packages; user asks about defineBackend, defineAuth, defineData, defineStorage, or npx ampx. SKIP: Amplify Gen1 (amplify CLI v6), standalone SAM/CDK without Amplify (use aws-serverless), direct Bedrock without Amplify AI Kit (use bedrock).'",
+    "path": "library/cline-skills/skills/amplify-workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate amplify-workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link amplify-workflow"
+  },
+  {
+    "id": "analyzer",
+    "name": "analyzer",
+    "repository": "cline-skills",
+    "category": "data-engineering-ml",
+    "description": "Analyze queried data for trends, week-over-week comparisons, distributions, funnels, cohorts, top-N lists, anomalies, sanity checks, and report-ready findings. Use after or alongside ClickHouse queries when the user wants insight rather than raw rows.",
+    "path": "library/cline-skills/skills/analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link analyzer"
+  },
+  {
+    "id": "artifact-management",
+    "name": "artifact-management",
+    "repository": "cline-skills",
+    "category": "database-sql-relational",
+    "description": "Save, organize, and describe reusable analysis artifacts such as SQL, result snapshots, CSV exports, summaries, caveats, plots, and report-ready files. Use when users ask to save, export, share, cite, reproduce, or organize data-analysis outputs.",
+    "path": "library/cline-skills/skills/artifact-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate artifact-management",
+    "link_cmd": "python .agents/library/activate_skill.py link artifact-management"
+  },
+  {
+    "id": "attorney-assist",
+    "name": "attorney-assist",
+    "repository": "cline-skills",
+    "category": "business-strategy-legal",
+    "description": "Connects the user with a LegalZoom attorney for legal consultation. Use when a user asks about attorneys, lawyers, or legal help, or when contract review reveals high risks or low-confidence findings.",
+    "path": "library/cline-skills/skills/attorney-assist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate attorney-assist",
+    "link_cmd": "python .agents/library/activate_skill.py link attorney-assist"
+  },
+  {
     "id": "building-pydantic-ai-agents",
     "name": "building-pydantic-ai-agents",
     "repository": "cline-skills",
@@ -15317,6 +15190,26 @@
     "path": "library/cline-skills/skills/building-pydantic-ai-agents",
     "activation_cmd": "python .agents/library/activate_skill.py activate building-pydantic-ai-agents",
     "link_cmd": "python .agents/library/activate_skill.py link building-pydantic-ai-agents"
+  },
+  {
+    "id": "clickhouse",
+    "name": "clickhouse",
+    "repository": "cline-skills",
+    "category": "database-sql-relational",
+    "description": "Connect to and query ClickHouse (a local server or a ClickHouse Cloud service) from the terminal using the official clickhousectl CLI, including the browser OAuth login flow. Use when the user wants to run SQL against ClickHouse, explore schemas and tables, inspect Cloud services, or authenticate clickhousectl. For building a local dev environment or deploying to Cloud, defer to the official ClickHouse skills (see Scope).",
+    "path": "library/cline-skills/skills/clickhouse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clickhouse",
+    "link_cmd": "python .agents/library/activate_skill.py link clickhouse"
+  },
+  {
+    "id": "cline-session-search",
+    "name": "cline-session-search",
+    "repository": "cline-skills",
+    "category": "prompt-llm-engineering",
+    "description": "Search and browse Cline session history. Use when the user asks to find, list, inspect, or export Cline sessions by time period, prompt content, status, model, provider, source, mode, workspace, or other criteria. Also use when the user wants to read a session transcript or export sessions to a directory. Trigger phrases include \"find my session\", \"search my session history\", \"show me past sessions\", \"what was that session where\", \"find the session that started with\", and any mention of past Cline conversations.",
+    "path": "library/cline-skills/skills/cline-session-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cline-session-search",
+    "link_cmd": "python .agents/library/activate_skill.py link cline-session-search"
   },
   {
     "id": "convex-design",
@@ -15369,6 +15262,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link desktop-commander-overview"
   },
   {
+    "id": "dr-bedrock",
+    "name": "dr-bedrock",
+    "repository": "cline-skills",
+    "category": "security-compliance-auth",
+    "description": "Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users report Bedrock CLI errors, AWS profile/default-chain issues, credential_process/SSO/IAM credential failures, missing region, AccessDenied, model access, or provider config problems.",
+    "path": "library/cline-skills/skills/dr-bedrock",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dr-bedrock",
+    "link_cmd": "python .agents/library/activate_skill.py link dr-bedrock"
+  },
+  {
+    "id": "dsql",
+    "name": "dsql",
+    "repository": "cline-skills",
+    "category": "database-sql-relational",
+    "description": "\"Build with Aurora DSQL — manage schemas, execute queries, handle migrations, diagnose query plans, load data, and develop applications with a serverless, distributed SQL database. Covers IAM auth, multi-tenant patterns, MySQL-to-DSQL and PostgreSQL-to-DSQL schema conversion, FK replacement code generation, OCC retry patterns, ORM migration (Django/Hibernate/Rails), DDL operations, query plan explainability, SQL compatibility validation, and bulk data loading. Triggers on phrases like: DSQL, Aurora DSQL, distributed SQL database, serverless PostgreSQL-compatible database, migrate to DSQL, DSQL query plan, DSQL EXPLAIN ANALYZE, DSQL ENUM, DSQL foreign key, DSQL OCC retry, DSQL multi-region, DSQL JSONB, DSQL GIN index, load into DSQL, load CSV into DSQL, bulk load DSQL, aurora-dsql-loader.\"",
+    "path": "library/cline-skills/skills/dsql",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dsql",
+    "link_cmd": "python .agents/library/activate_skill.py link dsql"
+  },
+  {
     "id": "endor-setup",
     "name": "endor-setup",
     "repository": "cline-skills",
@@ -15387,6 +15300,36 @@
     "path": "library/cline-skills/skills/exa-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate exa-search",
     "link_cmd": "python .agents/library/activate_skill.py link exa-search"
+  },
+  {
+    "id": "firestore-data",
+    "name": "firestore-data",
+    "repository": "cline-skills",
+    "category": "database-nosql-serverless",
+    "description": "Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides flexible document manipulation and structured querying.",
+    "path": "library/cline-skills/skills/firestore-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firestore-data",
+    "link_cmd": "python .agents/library/activate_skill.py link firestore-data"
+  },
+  {
+    "id": "frontend-design",
+    "name": "frontend-design",
+    "repository": "cline-skills",
+    "category": "frontend-visual-taste",
+    "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.",
+    "path": "library/cline-skills/skills/frontend-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frontend-design",
+    "link_cmd": "python .agents/library/activate_skill.py link frontend-design"
+  },
+  {
+    "id": "gcp-to-aws",
+    "name": "gcp-to-aws",
+    "repository": "cline-skills",
+    "category": "prompt-llm-engineering",
+    "description": "\"Migrate workloads from Google Cloud Platform to AWS — including AI and agentic workloads regardless of cloud provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, Google Cloud migration, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform files, app code, or billing exports, clarify migration requirements, design AWS architecture, estimate costs, generate migration artifacts, and collect optional feedback. Clarify must finish before Design, Estimate, or Generate. Includes AI provider migration guidance (for example, OpenAI to Amazon Bedrock) by selecting closest-fit Bedrock model families for required modality, latency/quality targets, context windows, and cost constraints. Model mapping is compatibility-guided, not 1:1 parity; validate prompts, tool-calling behavior, and eval metrics before cutover. Do not use for: Azure or on-premises migrations to AWS, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, GCP-to-GCP refactoring, or multi-cloud deployments that do not involve migrating off GCP.\"",
+    "path": "library/cline-skills/skills/gcp-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gcp-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link gcp-to-aws"
   },
   {
     "id": "knowledge-catalog-discovery",
@@ -15429,6 +15372,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link math-olympiad"
   },
   {
+    "id": "mintlify",
+    "name": "mintlify",
+    "repository": "cline-skills",
+    "category": "backend-api-design",
+    "description": "Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, adding components, setting up navigation, or working with API references. Routes to detailed reference files for all components and configuration options.",
+    "path": "library/cline-skills/skills/mintlify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mintlify",
+    "link_cmd": "python .agents/library/activate_skill.py link mintlify"
+  },
+  {
+    "id": "oracledb",
+    "name": "oracledb",
+    "repository": "cline-skills",
+    "category": "database-sql-relational",
+    "description": "Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring schema metadata, analyzing query performance, monitoring active sessions and resource consumption, and managing storage and object health.",
+    "path": "library/cline-skills/skills/oracledb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate oracledb",
+    "link_cmd": "python .agents/library/activate_skill.py link oracledb"
+  },
+  {
     "id": "playground",
     "name": "playground",
     "repository": "cline-skills",
@@ -15439,6 +15402,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link playground"
   },
   {
+    "id": "plotting",
+    "name": "plotting",
+    "repository": "cline-skills",
+    "category": "frontend-ui-components",
+    "description": "Create standardized charts and visual assets from analytics query results. Prefer dependency-free plain HTML/CSS/JavaScript/SVG for interactive exploratory charts; use local plotting tools such as matplotlib, seaborn, or Plotly when static/report-ready exports or specialized charting libraries are more appropriate. Use for trends, comparisons, distributions, report assets, CSV-to-chart work, and presentation-ready data visuals.",
+    "path": "library/cline-skills/skills/plotting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plotting",
+    "link_cmd": "python .agents/library/activate_skill.py link plotting"
+  },
+  {
+    "id": "reading-data-dict",
+    "name": "reading-data-dict",
+    "repository": "cline-skills",
+    "category": "database-sql-relational",
+    "description": "Read project data documentation (data dictionaries, dbt manifests, model docs, column descriptions, lineage, metric definitions) before writing analytics SQL. Use for mapping business and product terms to concrete models and columns.",
+    "path": "library/cline-skills/skills/reading-data-dict",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reading-data-dict",
+    "link_cmd": "python .agents/library/activate_skill.py link reading-data-dict"
+  },
+  {
     "id": "review-team",
     "name": "review-team",
     "repository": "cline-skills",
@@ -15447,6 +15430,26 @@
     "path": "library/cline-skills/skills/review-team",
     "activation_cmd": "python .agents/library/activate_skill.py activate review-team",
     "link_cmd": "python .agents/library/activate_skill.py link review-team"
+  },
+  {
+    "id": "sap-fiori-add-visual-filter",
+    "name": "sap-fiori-add-visual-filter",
+    "repository": "cline-skills",
+    "category": "diagrams-technical-visuals",
+    "description": "Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP RAP.",
+    "path": "library/cline-skills/skills/sap-fiori-add-visual-filter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sap-fiori-add-visual-filter",
+    "link_cmd": "python .agents/library/activate_skill.py link sap-fiori-add-visual-filter"
+  },
+  {
+    "id": "save-to-spotify",
+    "name": "save-to-spotify",
+    "repository": "cline-skills",
+    "category": "audio-voice-sound",
+    "description": "Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich timeline (chapters plus in-player images, external links, and Spotify entity cards), and a cover image. Also use for raw media saves, show/episode management, and timeline navigation.",
+    "path": "library/cline-skills/skills/save-to-spotify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate save-to-spotify",
+    "link_cmd": "python .agents/library/activate_skill.py link save-to-spotify"
   },
   {
     "id": "searching-sourcegraph",
@@ -15489,6 +15492,75 @@
     "link_cmd": "python .agents/library/activate_skill.py link site-specification"
   },
   {
+    "id": "skill-creator",
+    "name": "skill-creator",
+    "repository": "cline-skills",
+    "category": "testing-unit-tdd",
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+    "path": "library/cline-skills/skills/skill-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-creator"
+  },
+  {
+    "id": "spanner-data",
+    "name": "spanner-data",
+    "repository": "cline-skills",
+    "category": "database-sql-relational",
+    "description": "Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and execute custom SQL queries to interact with your data.",
+    "path": "library/cline-skills/skills/spanner-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spanner-data",
+    "link_cmd": "python .agents/library/activate_skill.py link spanner-data"
+  },
+  {
+    "id": "steering-user-elicitation",
+    "name": "steering-user-elicitation",
+    "repository": "cline-skills",
+    "category": "web3-smart-contracts",
+    "description": "Elicit and challenge data-analysis requirements before querying. Use when the user asks ambiguous data questions, requests business/report answers, needs metric definitions clarified, or may be drawing decisions from incomplete data.",
+    "path": "library/cline-skills/skills/steering-user-elicitation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate steering-user-elicitation",
+    "link_cmd": "python .agents/library/activate_skill.py link steering-user-elicitation"
+  },
+  {
+    "id": "teamcity-cli",
+    "name": "teamcity-cli",
+    "repository": "cline-skills",
+    "category": "devops-docker-cicd",
+    "description": "Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL — drives the `teamcity` CLI for builds, logs, jobs, queues, agents, pools, projects, and pipelines.",
+    "path": "library/cline-skills/skills/teamcity-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate teamcity-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link teamcity-cli"
+  },
+  {
+    "id": "ui5-typescript-conversion",
+    "name": "ui5-typescript-conversion",
+    "repository": "cline-skills",
+    "category": "programming-languages-core",
+    "description": "A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript.",
+    "path": "library/cline-skills/skills/ui5-typescript-conversion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui5-typescript-conversion",
+    "link_cmd": "python .agents/library/activate_skill.py link ui5-typescript-conversion"
+  },
+  {
+    "id": "use-railway",
+    "name": "use-railway",
+    "repository": "cline-skills",
+    "category": "devops-docker-cicd",
+    "description": "> Operate Railway infrastructure: sign up for or sign in to a Railway account, create projects, provision services and databases, manage object storage buckets, deploy code, configure environments and variables, manage domains, troubleshoot failures, check status and metrics, set up Railway agent tooling, and query Railway docs. Use this skill whenever the user mentions Railway, signing up, creating an account, registering, logging in, deployments, services, environments, buckets, object storage, build failures, agent setup, MCP, or infrastructure operations, even if they don't say \"Railway\" explicitly. Also invoke this skill when the user asks to be signed up, registered, or onboarded to Railway: do not refuse — drive them through the unauthed `railway up` flow (deploys + signs up on the fly) or `railway login` (which creates new accounts on the fly).",
+    "path": "library/cline-skills/skills/use-railway",
+    "activation_cmd": "python .agents/library/activate_skill.py activate use-railway",
+    "link_cmd": "python .agents/library/activate_skill.py link use-railway",
+    "allowed_tools": [
+      "Bash(railway:*)",
+      "Bash(which:*)",
+      "Bash(command:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)"
+    ]
+  },
+  {
     "id": "vibe-prospecting",
     "name": "vibe-prospecting",
     "repository": "cline-skills",
@@ -15497,6 +15569,16 @@
     "path": "library/cline-skills/skills/vibe-prospecting",
     "activation_cmd": "python .agents/library/activate_skill.py activate vibe-prospecting",
     "link_cmd": "python .agents/library/activate_skill.py link vibe-prospecting"
+  },
+  {
+    "id": "windsor-ai-business-data",
+    "name": "windsor-ai-business-data",
+    "repository": "cline-skills",
+    "category": "business-sales-crm",
+    "description": "Query Windsor.ai business data across marketing, sales, CRM, ecommerce, finance, and analytics connectors. Use when users need dashboards, reports, data visualization, schema exploration, or connector-backed test data from Windsor.ai.",
+    "path": "library/cline-skills/skills/windsor-ai-business-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate windsor-ai-business-data",
+    "link_cmd": "python .agents/library/activate_skill.py link windsor-ai-business-data"
   },
   {
     "id": "clipcat",
@@ -26998,6 +27080,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link build-iterated-agentic-loop"
   },
   {
+    "id": "design-control-loop",
+    "name": "design-control-loop",
+    "repository": "humanlayer-skills",
+    "category": "business-strategy-legal",
+    "description": "interview the user to design an agentic control loop (sensor, controller, actuator under disturbances) tailored to their codebase, then build it as locally-runnable components plus a scheduled coding-agent workflow",
+    "path": "library/humanlayer-skills/skills/design-control-loop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-control-loop",
+    "link_cmd": "python .agents/library/activate_skill.py link design-control-loop"
+  },
+  {
+    "id": "improve-claude-md",
+    "name": "improve-claude-md",
+    "repository": "humanlayer-skills",
+    "category": "code-quality-refactoring",
+    "description": "improve a CLAUDE.md file using <important if> blocks to improve instruction adherence",
+    "path": "library/humanlayer-skills/skills/improve-claude-md",
+    "activation_cmd": "python .agents/library/activate_skill.py activate improve-claude-md",
+    "link_cmd": "python .agents/library/activate_skill.py link improve-claude-md"
+  },
+  {
+    "id": "narrow-react-prop-types",
+    "name": "narrow-react-prop-types",
+    "repository": "humanlayer-skills",
+    "category": "frontend-ui-components",
+    "description": "narrow React component prop types to match live code paths",
+    "path": "library/humanlayer-skills/skills/narrow-react-prop-types",
+    "activation_cmd": "python .agents/library/activate_skill.py activate narrow-react-prop-types",
+    "link_cmd": "python .agents/library/activate_skill.py link narrow-react-prop-types"
+  },
+  {
     "id": "pr",
     "name": "pr",
     "repository": "humanlayer-skills",
@@ -27006,6 +27118,36 @@
     "path": "library/humanlayer-skills/skills/pr",
     "activation_cmd": "python .agents/library/activate_skill.py activate pr",
     "link_cmd": "python .agents/library/activate_skill.py link pr"
+  },
+  {
+    "id": "rpi",
+    "name": "rpi",
+    "repository": "humanlayer-skills",
+    "category": "code-quality-refactoring",
+    "description": "Only use when the user explicitly invokes this skill by name.",
+    "path": "library/humanlayer-skills/skills/rpi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rpi",
+    "link_cmd": "python .agents/library/activate_skill.py link rpi"
+  },
+  {
+    "id": "show-me",
+    "name": "show-me",
+    "repository": "humanlayer-skills",
+    "category": "frontend-ui-components",
+    "description": "Help the user understand the current topic visually with concise diagrams, code-shape sketches, and focused HTML artifacts.",
+    "path": "library/humanlayer-skills/skills/show-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate show-me",
+    "link_cmd": "python .agents/library/activate_skill.py link show-me"
+  },
+  {
+    "id": "visual-pr",
+    "name": "visual-pr",
+    "repository": "humanlayer-skills",
+    "category": "code-quality-refactoring",
+    "description": "Only use when the user explicitly invokes this skill by name.",
+    "path": "library/humanlayer-skills/skills/visual-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate visual-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link visual-pr"
   },
   {
     "id": "ui",
@@ -32395,11 +32537,91 @@
     "link_cmd": "python .agents/library/activate_skill.py link google-maps-scraper"
   },
   {
+    "id": "auth-guide",
+    "name": "auth-guide",
+    "repository": "makenotion-notion-cookbook",
+    "category": "security-compliance-auth",
+    "description": "Guide to setting up third-party authentication for a Notion Worker. Covers brokered credentials for external-service API keys / personal access tokens, OAuth, and plaintext environment secrets only when worker code needs the value. Use when the worker needs credentials for a non-Notion API, not for Notion API tokens or `ntn login`.",
+    "path": "library/makenotion-notion-cookbook/skills/auth-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate auth-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link auth-guide"
+  },
+  {
+    "id": "connections",
+    "name": "connections",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Configure and use typed provider connections and connection-bound triggers in Notion App workflows.",
+    "path": "library/makenotion-notion-cookbook/skills/connections",
+    "activation_cmd": "python .agents/library/activate_skill.py activate connections",
+    "link_cmd": "python .agents/library/activate_skill.py link connections"
+  },
+  {
+    "id": "custom-blocks",
+    "name": "custom-blocks",
+    "repository": "makenotion-notion-cookbook",
+    "category": "cloudflare-edge",
+    "description": "Create, modify, and troubleshoot custom blocks in Notion Workers. Use when the user wants to build interactive UI inside Notion connected to Notion data. Covers the author workflow from project setup to local preview and deployment.",
+    "path": "library/makenotion-notion-cookbook/skills/custom-blocks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate custom-blocks",
+    "link_cmd": "python .agents/library/activate_skill.py link custom-blocks"
+  },
+  {
+    "id": "database-designer",
+    "name": "database-designer",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Turns scattered notes and recurring work into useful Notion trackers for requests, content plans, or team work. Use to set up or improve a tracker, choosing its fields and views from the user's needs; ordinary record updates belong to the task's workflow.",
+    "path": "library/makenotion-notion-cookbook/skills/database-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link database-designer"
+  },
+  {
+    "id": "knowledge-capture",
+    "name": "knowledge-capture",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Captures conversations and supplied notes as Notion wiki pages, how-to guides, FAQs, decision records, or retrospectives. Use when saving or updating durable knowledge from existing context; use research-documentation when new source discovery and synthesis is the main task.",
+    "path": "library/makenotion-notion-cookbook/skills/knowledge-capture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate knowledge-capture",
+    "link_cmd": "python .agents/library/activate_skill.py link knowledge-capture"
+  },
+  {
+    "id": "meeting-intelligence",
+    "name": "meeting-intelligence",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Prepares meeting agendas, internal pre-reads, and decision briefs using Notion context and relevant research. Use for meeting preparation, recurring meeting context, or updating meeting outcomes; use knowledge-capture for a standalone record of an existing discussion.",
+    "path": "library/makenotion-notion-cookbook/skills/meeting-intelligence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate meeting-intelligence",
+    "link_cmd": "python .agents/library/activate_skill.py link meeting-intelligence"
+  },
+  {
+    "id": "notion-as-code",
+    "name": "notion-as-code",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Declare Notion pages, databases, teamspaces, and custom agents in an App, including data sources used by syncs.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-as-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-as-code",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-as-code"
+  },
+  {
+    "id": "notion-database-designer",
+    "name": "notion-database-designer",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Turns scattered notes and recurring work into useful Notion trackers for requests, content plans, or team work. Use to set up or improve a tracker, choosing its fields and views from the user's needs; ordinary record updates belong to the task's workflow.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-database-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-database-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-database-designer"
+  },
+  {
     "id": "notion-knowledge-capture",
     "name": "notion-knowledge-capture",
     "repository": "makenotion-notion-cookbook",
     "category": "productivity-workspace-tools",
-    "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
+    "description": "Captures conversations and supplied notes as Notion wiki pages, how-to guides, FAQs, decision records, or retrospectives. Use when saving or updating durable knowledge from existing context; use research-documentation when new source discovery and synthesis is the main task.",
     "path": "library/makenotion-notion-cookbook/skills/notion-knowledge-capture",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-knowledge-capture",
     "link_cmd": "python .agents/library/activate_skill.py link notion-knowledge-capture"
@@ -32409,7 +32631,7 @@
     "name": "notion-meeting-intelligence",
     "repository": "makenotion-notion-cookbook",
     "category": "productivity-workspace-tools",
-    "description": "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.",
+    "description": "Prepares meeting agendas, internal pre-reads, and decision briefs using Notion context and relevant research. Use for meeting preparation, recurring meeting context, or updating meeting outcomes; use knowledge-capture for a standalone record of an existing discussion.",
     "path": "library/makenotion-notion-cookbook/skills/notion-meeting-intelligence",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-meeting-intelligence",
     "link_cmd": "python .agents/library/activate_skill.py link notion-meeting-intelligence"
@@ -32419,20 +32641,183 @@
     "name": "notion-research-documentation",
     "repository": "makenotion-notion-cookbook",
     "category": "productivity-workspace-tools",
-    "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
+    "description": "Researches questions across Notion sources and synthesizes cited briefs, comparisons, or reports. Use when answering requires discovering and reconciling workspace information, optionally with external research, and returning or saving the findings.",
     "path": "library/makenotion-notion-cookbook/skills/notion-research-documentation",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-research-documentation",
     "link_cmd": "python .agents/library/activate_skill.py link notion-research-documentation"
+  },
+  {
+    "id": "notion-setup",
+    "name": "notion-setup",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "A guided setup flow to get the most out of Notion that is recommended for all users who install the Notion MCP.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-setup"
   },
   {
     "id": "notion-spec-to-implementation",
     "name": "notion-spec-to-implementation",
     "repository": "makenotion-notion-cookbook",
     "category": "productivity-workspace-tools",
-    "description": "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.",
+    "description": "Converts Notion product or technical specs into implementation plans, linked tasks, and evidence-based progress updates. Use for planning or implementing a spec, creating tasks from requirements, or reconciling implementation with spec changes.",
     "path": "library/makenotion-notion-cookbook/skills/notion-spec-to-implementation",
     "activation_cmd": "python .agents/library/activate_skill.py activate notion-spec-to-implementation",
     "link_cmd": "python .agents/library/activate_skill.py link notion-spec-to-implementation"
+  },
+  {
+    "id": "notion-weekly-project-digest",
+    "name": "notion-weekly-project-digest",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Produces evidence-based weekly project or team updates by comparing reporting periods, tasks, decisions, and blockers in Notion. Use for recurring status digests; use spec-to-implementation for requirement-level implementation tracking.",
+    "path": "library/makenotion-notion-cookbook/skills/notion-weekly-project-digest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-weekly-project-digest",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-weekly-project-digest"
+  },
+  {
+    "id": "research-documentation",
+    "name": "research-documentation",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Researches questions across Notion sources and synthesizes cited briefs, comparisons, or reports. Use when answering requires discovering and reconciling workspace information, optionally with external research, and returning or saving the findings.",
+    "path": "library/makenotion-notion-cookbook/skills/research-documentation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate research-documentation",
+    "link_cmd": "python .agents/library/activate_skill.py link research-documentation"
+  },
+  {
+    "id": "setup",
+    "name": "setup",
+    "repository": "makenotion-notion-cookbook",
+    "category": "business-strategy-legal",
+    "description": "A guided setup flow to get the most out of Notion that is recommended for all users who install the Notion MCP.",
+    "path": "library/makenotion-notion-cookbook/skills/setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup",
+    "link_cmd": "python .agents/library/activate_skill.py link setup"
+  },
+  {
+    "id": "sketch",
+    "name": "sketch",
+    "repository": "makenotion-notion-cookbook",
+    "category": "diagrams-technical-visuals",
+    "description": "Sketch an App workflow as a reviewable flow diagram when planning or iterating on its design with the user.",
+    "path": "library/makenotion-notion-cookbook/skills/sketch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sketch",
+    "link_cmd": "python .agents/library/activate_skill.py link sketch"
+  },
+  {
+    "id": "spec-to-implementation",
+    "name": "spec-to-implementation",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Converts Notion product or technical specs into implementation plans, linked tasks, and evidence-based progress updates. Use for planning or implementing a spec, creating tasks from requirements, or reconciling implementation with spec changes.",
+    "path": "library/makenotion-notion-cookbook/skills/spec-to-implementation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spec-to-implementation",
+    "link_cmd": "python .agents/library/activate_skill.py link spec-to-implementation"
+  },
+  {
+    "id": "sync",
+    "name": "sync",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend-ui-components",
+    "description": "Scaffold a new sync capability with guided setup — asks about data source, mode, pagination, and cursor design, then generates working code",
+    "path": "library/makenotion-notion-cookbook/skills/sync",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync",
+    "link_cmd": "python .agents/library/activate_skill.py link sync",
+    "allowed_tools": [
+      "[\"Read\"",
+      "\"Edit\"",
+      "\"Write\"",
+      "\"Bash\"",
+      "\"Glob\"",
+      "\"Grep\"",
+      "\"Agent\"]"
+    ]
+  },
+  {
+    "id": "sync-debug",
+    "name": "sync-debug",
+    "repository": "makenotion-notion-cookbook",
+    "category": "code-quality-refactoring",
+    "description": "Diagnose a failing or misbehaving sync — fetch run logs, identify errors, cross-reference with code, and suggest fixes",
+    "path": "library/makenotion-notion-cookbook/skills/sync-debug",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync-debug",
+    "link_cmd": "python .agents/library/activate_skill.py link sync-debug",
+    "allowed_tools": [
+      "[\"Read\"",
+      "\"Bash\"",
+      "\"Glob\"",
+      "\"Grep\"",
+      "\"Edit\"",
+      "\"Write\"]"
+    ]
+  },
+  {
+    "id": "sync-guide",
+    "name": "sync-guide",
+    "repository": "makenotion-notion-cookbook",
+    "category": "architecture-system-design",
+    "description": "Comprehensive guide to building Notion Workers syncs — covers the two-sync architecture (backfill+delta), replace mode, pagination, consistency buffers, pacers, deletion strategies, and common pitfalls. Auto-loads when sync-related work is detected.",
+    "path": "library/makenotion-notion-cookbook/skills/sync-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link sync-guide"
+  },
+  {
+    "id": "sync-validate",
+    "name": "sync-validate",
+    "repository": "makenotion-notion-cookbook",
+    "category": "code-quality-refactoring",
+    "description": "Review a sync capability for common bugs — cursor advancement, pagination termination, state persistence, bi-modal correctness, consistency buffers, and deletion handling",
+    "path": "library/makenotion-notion-cookbook/skills/sync-validate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sync-validate",
+    "link_cmd": "python .agents/library/activate_skill.py link sync-validate",
+    "allowed_tools": [
+      "[\"Read\"",
+      "\"Glob\"",
+      "\"Grep\"",
+      "\"Bash\"]"
+    ]
+  },
+  {
+    "id": "weekly-project-digest",
+    "name": "weekly-project-digest",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Produces evidence-based weekly project or team updates by comparing reporting periods, tasks, decisions, and blockers in Notion. Use for recurring status digests; use spec-to-implementation for requirement-level implementation tracking.",
+    "path": "library/makenotion-notion-cookbook/skills/weekly-project-digest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate weekly-project-digest",
+    "link_cmd": "python .agents/library/activate_skill.py link weekly-project-digest"
+  },
+  {
+    "id": "workflow",
+    "name": "workflow",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Scaffold a Notion Worker Workflow with typed triggers and replay-safe durable steps.",
+    "path": "library/makenotion-notion-cookbook/skills/workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow"
+  },
+  {
+    "id": "workflow-guide",
+    "name": "workflow-guide",
+    "repository": "makenotion-notion-cookbook",
+    "category": "frontend-ui-components",
+    "description": "Reference for typed triggers, durable steps, replay-safe data flow, and idempotent Workflow effects.",
+    "path": "library/makenotion-notion-cookbook/skills/workflow-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow-guide"
+  },
+  {
+    "id": "workflow-validate",
+    "name": "workflow-validate",
+    "repository": "makenotion-notion-cookbook",
+    "category": "productivity-workspace-tools",
+    "description": "Review Notion Worker Workflows for trigger typing and retry safety.",
+    "path": "library/makenotion-notion-cookbook/skills/workflow-validate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow-validate",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow-validate"
   },
   {
     "id": "documd-visuals",
@@ -36687,6 +37072,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link cli-creator"
   },
   {
+    "id": "cloudflare-deploy",
+    "name": "cloudflare-deploy",
+    "repository": "openai-skills",
+    "category": "cloudflare-edge",
+    "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
+    "path": "library/openai-skills/skills/cloudflare-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link cloudflare-deploy"
+  },
+  {
     "id": "define-goal",
     "name": "define-goal",
     "repository": "openai-skills",
@@ -36695,6 +37090,86 @@
     "path": "library/openai-skills/skills/define-goal",
     "activation_cmd": "python .agents/library/activate_skill.py activate define-goal",
     "link_cmd": "python .agents/library/activate_skill.py link define-goal"
+  },
+  {
+    "id": "figma",
+    "name": "figma",
+    "repository": "openai-skills",
+    "category": "graphics-branding-design",
+    "description": "Use the Figma MCP server to fetch design context, screenshots, variables, and assets from Figma, and to translate Figma nodes into production code. Trigger when a task involves Figma URLs, node IDs, design-to-code implementation, or Figma MCP setup and troubleshooting.",
+    "path": "library/openai-skills/skills/figma",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma",
+    "link_cmd": "python .agents/library/activate_skill.py link figma"
+  },
+  {
+    "id": "figma-code-connect-components",
+    "name": "figma-code-connect-components",
+    "repository": "openai-skills",
+    "category": "graphics-branding-design",
+    "description": "Connects Figma design components to code components using Code Connect mapping tools. Use when user says \"code connect\", \"connect this component to code\", \"map this component\", \"link component to code\", \"create code connect mapping\", or wants to establish mappings between Figma designs and code implementations. For canvas writes via `use_figma`, use `figma-use`.",
+    "path": "library/openai-skills/skills/figma-code-connect-components",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-code-connect-components",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-code-connect-components"
+  },
+  {
+    "id": "figma-create-design-system-rules",
+    "name": "figma-create-design-system-rules",
+    "repository": "openai-skills",
+    "category": "graphics-branding-design",
+    "description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
+    "path": "library/openai-skills/skills/figma-create-design-system-rules",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-create-design-system-rules",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-create-design-system-rules"
+  },
+  {
+    "id": "figma-create-new-file",
+    "name": "figma-create-new-file",
+    "repository": "openai-skills",
+    "category": "graphics-branding-design",
+    "description": "Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed. Usage — /figma-create-new-file [editorType] [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)",
+    "path": "library/openai-skills/skills/figma-create-new-file",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-create-new-file",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-create-new-file"
+  },
+  {
+    "id": "figma-generate-design",
+    "name": "figma-generate-design",
+    "repository": "openai-skills",
+    "category": "graphics-branding-design",
+    "description": "\"Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to build or update a full page, screen, or view in Figma from code or a description. Discovers design system components, variables, and styles via search_design_system, imports them, and assembles screens incrementally section-by-section using design system tokens instead of hardcoded values.\"",
+    "path": "library/openai-skills/skills/figma-generate-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-generate-design",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-generate-design"
+  },
+  {
+    "id": "figma-generate-library",
+    "name": "figma-generate-library",
+    "repository": "openai-skills",
+    "category": "frontend-ui-components",
+    "description": "\"Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. This skill teaches WHAT to build and in WHAT ORDER — it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together.\"",
+    "path": "library/openai-skills/skills/figma-generate-library",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-generate-library",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-generate-library"
+  },
+  {
+    "id": "figma-implement-design",
+    "name": "figma-implement-design",
+    "repository": "openai-skills",
+    "category": "graphics-branding-design",
+    "description": "Translates Figma designs into production-ready application code with 1:1 visual fidelity. Use when implementing UI code from Figma files, when user mentions \"implement design\", \"generate code\", \"implement component\", provides Figma URLs, or asks to build components matching Figma specs. For Figma canvas writes via `use_figma`, use `figma-use`.",
+    "path": "library/openai-skills/skills/figma-implement-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-implement-design",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-implement-design"
+  },
+  {
+    "id": "figma-use",
+    "name": "figma-use",
+    "repository": "openai-skills",
+    "category": "graphics-branding-design",
+    "description": "\"**MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context — e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.\"",
+    "path": "library/openai-skills/skills/figma-use",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-use",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-use"
   },
   {
     "id": "gh-address-comments",
@@ -36747,6 +37222,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link jupyter-notebook"
   },
   {
+    "id": "linear",
+    "name": "linear",
+    "repository": "openai-skills",
+    "category": "productivity-workspace-tools",
+    "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
+    "path": "library/openai-skills/skills/linear",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linear",
+    "link_cmd": "python .agents/library/activate_skill.py link linear"
+  },
+  {
     "id": "migrate-to-codex",
     "name": "migrate-to-codex",
     "repository": "openai-skills",
@@ -36767,6 +37252,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link netlify-deploy"
   },
   {
+    "id": "notion-knowledge-capture",
+    "name": "notion-knowledge-capture",
+    "repository": "openai-skills",
+    "category": "productivity-workspace-tools",
+    "description": "Capture conversations and decisions into structured Notion pages; use when turning chats/notes into wiki entries, how-tos, decisions, or FAQs with proper linking.",
+    "path": "library/openai-skills/skills/notion-knowledge-capture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-knowledge-capture",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-knowledge-capture"
+  },
+  {
+    "id": "notion-meeting-intelligence",
+    "name": "notion-meeting-intelligence",
+    "repository": "openai-skills",
+    "category": "productivity-workspace-tools",
+    "description": "Prepare meeting materials with Notion context and Codex research; use when gathering context, drafting agendas/pre-reads, and tailoring materials to attendees.",
+    "path": "library/openai-skills/skills/notion-meeting-intelligence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-meeting-intelligence",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-meeting-intelligence"
+  },
+  {
+    "id": "notion-research-documentation",
+    "name": "notion-research-documentation",
+    "repository": "openai-skills",
+    "category": "productivity-workspace-tools",
+    "description": "Research across Notion and synthesize into structured documentation; use when gathering info from multiple Notion sources to produce briefs, comparisons, or reports with citations.",
+    "path": "library/openai-skills/skills/notion-research-documentation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-research-documentation",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-research-documentation"
+  },
+  {
+    "id": "notion-spec-to-implementation",
+    "name": "notion-spec-to-implementation",
+    "repository": "openai-skills",
+    "category": "productivity-workspace-tools",
+    "description": "Turn Notion specs into implementation plans, tasks, and progress tracking; use when implementing PRDs/feature specs and creating Notion plans + tasks from them.",
+    "path": "library/openai-skills/skills/notion-spec-to-implementation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notion-spec-to-implementation",
+    "link_cmd": "python .agents/library/activate_skill.py link notion-spec-to-implementation"
+  },
+  {
     "id": "openai-docs",
     "name": "openai-docs",
     "repository": "openai-skills",
@@ -36777,6 +37302,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link openai-docs"
   },
   {
+    "id": "pdf",
+    "name": "pdf",
+    "repository": "openai-skills",
+    "category": "code-quality-refactoring",
+    "description": "\"Use when tasks involve reading, creating, or reviewing PDF files where rendering and layout matter; prefer visual checks by rendering pages (Poppler) and use Python tools such as `reportlab`, `pdfplumber`, and `pypdf` for generation and extraction.\"",
+    "path": "library/openai-skills/skills/pdf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pdf",
+    "link_cmd": "python .agents/library/activate_skill.py link pdf"
+  },
+  {
+    "id": "playwright",
+    "name": "playwright",
+    "repository": "openai-skills",
+    "category": "terminal-system-tools",
+    "description": "\"Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.\"",
+    "path": "library/openai-skills/skills/playwright",
+    "activation_cmd": "python .agents/library/activate_skill.py activate playwright",
+    "link_cmd": "python .agents/library/activate_skill.py link playwright"
+  },
+  {
+    "id": "playwright-interactive",
+    "name": "playwright-interactive",
+    "repository": "openai-skills",
+    "category": "testing-playwright-e2e",
+    "description": "\"Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.\"",
+    "path": "library/openai-skills/skills/playwright-interactive",
+    "activation_cmd": "python .agents/library/activate_skill.py activate playwright-interactive",
+    "link_cmd": "python .agents/library/activate_skill.py link playwright-interactive"
+  },
+  {
+    "id": "plugin-creator",
+    "name": "plugin-creator",
+    "repository": "openai-skills",
+    "category": "testing-unit-tdd",
+    "description": "Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, and baseline placeholders you can edit before publishing or testing. Use when Codex needs to create a new local plugin, add optional plugin structure, or generate or update repo-root `.agents/plugins/marketplace.json` entries for plugin ordering and availability metadata.",
+    "path": "library/openai-skills/skills/plugin-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plugin-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link plugin-creator"
+  },
+  {
     "id": "render-deploy",
     "name": "render-deploy",
     "repository": "openai-skills",
@@ -36785,6 +37350,16 @@
     "path": "library/openai-skills/skills/render-deploy",
     "activation_cmd": "python .agents/library/activate_skill.py activate render-deploy",
     "link_cmd": "python .agents/library/activate_skill.py link render-deploy"
+  },
+  {
+    "id": "screenshot",
+    "name": "screenshot",
+    "repository": "openai-skills",
+    "category": "code-quality-refactoring",
+    "description": "\"Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\"",
+    "path": "library/openai-skills/skills/screenshot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate screenshot",
+    "link_cmd": "python .agents/library/activate_skill.py link screenshot"
   },
   {
     "id": "security-best-practices",
@@ -36817,6 +37392,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link security-threat-model"
   },
   {
+    "id": "sentry",
+    "name": "sentry",
+    "repository": "openai-skills",
+    "category": "terminal-system-tools",
+    "description": "\"Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.\"",
+    "path": "library/openai-skills/skills/sentry",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sentry",
+    "link_cmd": "python .agents/library/activate_skill.py link sentry"
+  },
+  {
+    "id": "skill-creator",
+    "name": "skill-creator",
+    "repository": "openai-skills",
+    "category": "testing-unit-tdd",
+    "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.",
+    "path": "library/openai-skills/skills/skill-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-creator"
+  },
+  {
+    "id": "skill-installer",
+    "name": "skill-installer",
+    "repository": "openai-skills",
+    "category": "git-version-control",
+    "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
+    "path": "library/openai-skills/skills/skill-installer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-installer",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-installer"
+  },
+  {
     "id": "speech",
     "name": "speech",
     "repository": "openai-skills",
@@ -36835,6 +37440,16 @@
     "path": "library/openai-skills/skills/transcribe",
     "activation_cmd": "python .agents/library/activate_skill.py activate transcribe",
     "link_cmd": "python .agents/library/activate_skill.py link transcribe"
+  },
+  {
+    "id": "vercel-deploy",
+    "name": "vercel-deploy",
+    "repository": "openai-skills",
+    "category": "devops-docker-cicd",
+    "description": "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\".",
+    "path": "library/openai-skills/skills/vercel-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vercel-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link vercel-deploy"
   },
   {
     "id": "winui-app",

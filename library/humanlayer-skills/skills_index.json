@@ -10,6 +10,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link build-iterated-agentic-loop"
   },
   {
+    "id": "design-control-loop",
+    "name": "design-control-loop",
+    "repository": "humanlayer-skills",
+    "category": "frontend",
+    "description": "interview the user to design an agentic control loop (sensor, controller, actuator under disturbances) tailored to their codebase, then build it as locally-runnable components plus a scheduled coding-agent workflow",
+    "path": "library/humanlayer-skills/skills/design-control-loop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-control-loop",
+    "link_cmd": "python .agents/library/activate_skill.py link design-control-loop"
+  },
+  {
+    "id": "improve-claude-md",
+    "name": "improve-claude-md",
+    "repository": "humanlayer-skills",
+    "category": "general-development",
+    "description": "improve a CLAUDE.md file using <important if> blocks to improve instruction adherence",
+    "path": "library/humanlayer-skills/skills/improve-claude-md",
+    "activation_cmd": "python .agents/library/activate_skill.py activate improve-claude-md",
+    "link_cmd": "python .agents/library/activate_skill.py link improve-claude-md"
+  },
+  {
+    "id": "narrow-react-prop-types",
+    "name": "narrow-react-prop-types",
+    "repository": "humanlayer-skills",
+    "category": "frontend",
+    "description": "narrow React component prop types to match live code paths",
+    "path": "library/humanlayer-skills/skills/narrow-react-prop-types",
+    "activation_cmd": "python .agents/library/activate_skill.py activate narrow-react-prop-types",
+    "link_cmd": "python .agents/library/activate_skill.py link narrow-react-prop-types"
+  },
+  {
     "id": "pr",
     "name": "pr",
     "repository": "humanlayer-skills",
@@ -18,5 +48,35 @@
     "path": "library/humanlayer-skills/skills/pr",
     "activation_cmd": "python .agents/library/activate_skill.py activate pr",
     "link_cmd": "python .agents/library/activate_skill.py link pr"
+  },
+  {
+    "id": "rpi",
+    "name": "rpi",
+    "repository": "humanlayer-skills",
+    "category": "general-development",
+    "description": "Only use when the user explicitly invokes this skill by name.",
+    "path": "library/humanlayer-skills/skills/rpi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rpi",
+    "link_cmd": "python .agents/library/activate_skill.py link rpi"
+  },
+  {
+    "id": "show-me",
+    "name": "show-me",
+    "repository": "humanlayer-skills",
+    "category": "general-development",
+    "description": "Help the user understand the current topic visually with concise diagrams, code-shape sketches, and focused HTML artifacts.",
+    "path": "library/humanlayer-skills/skills/show-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate show-me",
+    "link_cmd": "python .agents/library/activate_skill.py link show-me"
+  },
+  {
+    "id": "visual-pr",
+    "name": "visual-pr",
+    "repository": "humanlayer-skills",
+    "category": "general-development",
+    "description": "Only use when the user explicitly invokes this skill by name.",
+    "path": "library/humanlayer-skills/skills/visual-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate visual-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link visual-pr"
   }
 ]

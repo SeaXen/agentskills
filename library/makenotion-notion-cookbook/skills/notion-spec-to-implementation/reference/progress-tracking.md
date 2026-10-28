@@ -1,17 +1,30 @@
-# Progress Tracking
+# Progress tracking
+
+Use these patterns for requested tracking or actual implementation. Record only
+observed progress and meaningful changes; planning alone does not start work.
+Use the existing status schema and completion criteria. Reuse notes instead of
+adding repetitive updates, and link supporting tests or deliverables. Examples
+of metrics and timelines below are illustrative, not facts to copy.
+
+Daily or weekly reporting applies when the user or team workflow calls for it;
+this guide does not schedule future updates. Notify or tag other people only when
+requested. Compute metrics from complete data for the stated scope, or label them
+as partial. Fetch current task state before changing it.
 
 ## Update Frequency
 
 ### Daily Updates
 
-For active implementation work:
+When daily reporting is part of the requested workflow:
 
 **What to update**:
+
 - Task status if changed
 - Add progress note to task
 - Update blockers
 
 **When**:
+
 - End of work day
 - After completing significant work
 - When encountering blockers
@@ -21,12 +34,14 @@ For active implementation work:
 For phase/milestone completion:
 
 **What to update**:
+
 - Mark phase complete in plan
 - Add milestone summary
 - Update timeline if needed
 - Report to stakeholders
 
 **When**:
+
 - Phase completion
 - Major deliverable ready
 - Sprint end
@@ -37,11 +52,13 @@ For phase/milestone completion:
 For task state transitions:
 
 **What to update**:
+
 - Task status property
 - Add transition note
 - Notify relevant people
 
 **When**:
+
 - Start work (To Do → In Progress)
 - Ready for review (In Progress → In Review)
 - Complete (In Review → Done)
@@ -55,25 +72,31 @@ For task state transitions:
 ## Progress: [Date]
 
 ### Completed
+
 - [Specific accomplishment with details]
 - [Specific accomplishment with details]
 
 ### In Progress
+
 - [Current work item]
 - Current status: [Percentage or description]
 
 ### Next Steps
+
 1. [Next planned action]
 2. [Next planned action]
 
 ### Blockers
+
 - [Blocker description and who/what needed to unblock]
 - Or: None
 
 ### Decisions Made
+
 - [Any technical/product decisions]
 
 ### Notes
+
 [Additional context, learnings, issues encountered]
 ```
 
@@ -83,27 +106,33 @@ Example:
 ## Progress: Oct 14, 2025
 
 ### Completed
+
 - Implemented user authentication API endpoints (login, logout, refresh)
 - Added JWT token generation and validation
 - Wrote unit tests for auth service (95% coverage)
 
 ### In Progress
+
 - Frontend login form integration
 - Currently: Form submits but need to handle error states
 
 ### Next Steps
+
 1. Complete error handling in login form
 2. Add loading states
 3. Implement "remember me" functionality
 
 ### Blockers
+
 None
 
 ### Decisions Made
+
 - Using HttpOnly cookies for refresh tokens (more secure than localStorage)
 - Session timeout set to 24 hours based on security review
 
 ### Notes
+
 - Found edge case with concurrent login attempts, added to backlog
 - Performance of auth check is good (<10ms)
 ```
@@ -114,40 +143,51 @@ None
 ## Phase [N] Complete: [Date]
 
 ### Overview
+
 [Brief description of what was accomplished in this phase]
 
 ### Completed Tasks
+
 - <mention-page url="...">Task 1</mention-page> ✅
 - <mention-page url="...">Task 2</mention-page> ✅
 - <mention-page url="...">Task 3</mention-page> ✅
 
 ### Deliverables
+
 - [Deliverable 1]: [Link/description]
 - [Deliverable 2]: [Link/description]
 
 ### Key Accomplishments
+
 - [Major achievement]
 - [Major achievement]
 
 ### Metrics
+
 - [Relevant metric]: [Value]
 - [Relevant metric]: [Value]
 
 ### Challenges Overcome
+
 - [Challenge and how it was solved]
 
 ### Learnings
+
 **What went well**:
+
 - [Success factor]
 
 **What to improve**:
+
 - [Area for improvement]
 
 ### Impact on Timeline
+
 - On schedule / [X days ahead/behind]
 - Reason: [If deviation, explain why]
 
 ### Next Phase
+
 - **Starting**: [Next phase name]
 - **Target start date**: [Date]
 - **Focus**: [Main objectives]
@@ -165,11 +205,13 @@ Update plan page regularly:
 **Overall Progress**: 45% complete
 
 ### Phase Status
+
 - ✅ Phase 1: Foundation - Complete
 - 🔄 Phase 2: Core Features - In Progress (60%)
 - ⏳ Phase 3: Integration - Not Started
 
 ### Task Summary
+
 - ✅ Completed: 12 tasks
 - 🔄 In Progress: 5 tasks
 - 🚧 Blocked: 1 task
@@ -186,11 +228,13 @@ Mark completed tasks:
 ## Implementation Phases
 
 ### Phase 1: Foundation
+
 - [x] <mention-page url="...">Database schema</mention-page>
 - [x] <mention-page url="...">API scaffolding</mention-page>
 - [x] <mention-page url="...">Auth setup</mention-page>
 
 ### Phase 2: Core Features
+
 - [x] <mention-page url="...">User management</mention-page>
 - [ ] <mention-page url="...">Dashboard</mention-page>
 - [ ] <mention-page url="...">Reporting</mention-page>
@@ -203,12 +247,12 @@ Update milestone dates:
 ```markdown
 ## Timeline
 
-| Milestone | Original | Current | Status |
-|-----------|----------|---------|--------|
-| Phase 1 | Oct 15 | Oct 14 | ✅ Complete (1 day early) |
-| Phase 2 | Oct 30 | Nov 2 | 🔄 In Progress (3 days delay) |
-| Phase 3 | Nov 15 | Nov 18 | ⏳ Planned (adjusted) |
-| Launch | Nov 20 | Nov 22 | ⏳ Planned (adjusted) |
+| Milestone | Original | Current | Status                        |
+| --------- | -------- | ------- | ----------------------------- |
+| Phase 1   | Oct 15   | Oct 14  | ✅ Complete (1 day early)     |
+| Phase 2   | Oct 30   | Nov 2   | 🔄 In Progress (3 days delay) |
+| Phase 3   | Nov 15   | Nov 18  | ⏳ Planned (adjusted)         |
+| Launch    | Nov 20   | Nov 22  | ⏳ Planned (adjusted)         |
 
 **Timeline Status**: Slightly behind due to [reason]
 ```
@@ -218,26 +262,31 @@ Update milestone dates:
 ### Status Definitions
 
 **To Do**: Not started
+
 - Task is ready to begin
 - Dependencies met
 - Assigned (or available)
 
 **In Progress**: Actively being worked
+
 - Work has started
 - Assigned to someone
 - Regular updates expected
 
 **Blocked**: Cannot proceed
+
 - Dependency not met
 - External blocker
 - Waiting on decision/resource
 
 **In Review**: Awaiting review
+
 - Work complete from implementer perspective
 - Needs code review, QA, or approval
 - Reviewers identified
 
 **Done**: Complete
+
 - All acceptance criteria met
 - Reviewed and approved
 - Deployed/delivered
@@ -250,7 +299,7 @@ When updating:
 1. Update Status property
 2. Add progress note explaining change
 3. Update related tasks if needed
-4. Notify relevant people via comment
+4. Notify relevant people via comment only when requested
 
 Example:
 properties: { "Status": "In Progress" }
@@ -270,6 +319,7 @@ When encountering a blocker:
 ## Blockers
 
 ### [Date]: [Blocker Description]
+
 **Status**: 🚧 Active
 **Impact**: [What's blocked]
 **Needed to unblock**: [Action/person/decision needed]
@@ -285,6 +335,7 @@ When unblocked:
 ## Blockers
 
 ### [Date]: [Blocker Description]
+
 **Status**: ✅ Resolved on [Date]
 **Resolution**: [How it was resolved]
 **Impact**: [Any timeline/scope impact]
@@ -296,7 +347,7 @@ If blocker needs escalation:
 
 ```
 1. Update blocker status in task
-2. Add comment tagging stakeholder
+2. Add comment tagging stakeholder only when requested
 3. Update plan with blocker impact
 4. Propose mitigation if possible
 ```
@@ -311,16 +362,19 @@ Track completion rate:
 ## Velocity
 
 ### Week 1
+
 - Tasks completed: 8
 - Story points: 21
 - Velocity: Strong
 
 ### Week 2
+
 - Tasks completed: 6
 - Story points: 18
 - Velocity: Moderate (1 blocker)
 
 ### Week 3
+
 - Tasks completed: 9
 - Story points: 24
 - Velocity: Strong (blocker resolved)
@@ -362,26 +416,32 @@ Quantitative progress:
 ## Weekly Status: [Week of Date]
 
 ### Summary
+
 [One paragraph overview of progress and status]
 
 ### This Week's Accomplishments
+
 - [Key accomplishment]
 - [Key accomplishment]
 - [Key accomplishment]
 
 ### Next Week's Plan
+
 - [Planned work]
 - [Planned work]
 
 ### Status
+
 - On track / At risk / Behind schedule
 - [If at risk or behind, explain and provide mitigation plan]
 
 ### Blockers & Needs
+
 - [Active blocker or need for help]
 - Or: None
 
 ### Risks
+
 - [New or evolving risk]
 - Or: None currently identified
 ```
@@ -398,6 +458,7 @@ For leadership updates:
 **Progress**: [X]% complete
 
 **Key Updates**:
+
 - [Most important update]
 - [Most important update]
 
@@ -416,7 +477,7 @@ Generate status from task database:
 
 ```
 Query task database:
-SELECT 
+SELECT
   "Status",
   COUNT(*) as count
 FROM "collection://tasks-uuid"
@@ -455,4 +516,3 @@ Compares to target: [On schedule/Behind/Ahead]
 6. **Track decisions**: Document why, not just what
 7. **Be honest**: Report actual status, not optimistic status
 8. **Update in one place**: Keep implementation plan as source of truth
-

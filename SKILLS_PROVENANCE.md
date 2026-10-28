@@ -3,7 +3,7 @@
 > **Workspace**: `D:\Repo\.agents`  
 > **Active Installed Skills**: 87 curated engineering skills in `.agents/skills`  
 > **Category Directories**: 38 granular functional domains in `.agents/category`  
-> **Offline Reserve Library**: 3,892 skills across 224 repositories in `.agents/library`  
+> **Offline Reserve Library**: 3,952 skills across 224 repositories in `.agents/library`  
 > **Specialist Personas**: 20 domain agents  
 > **Autonomous Workflows**: 17 slash commands  
 > **Total Origin Repositories**: 224 upstream sources cataloged  
@@ -36,13 +36,13 @@
 
 ---
 
-## 📚 Complete Offline Reserve Library Repositories (224 Repositories, 3,892 Skills)
+## 📚 Complete Offline Reserve Library Repositories (224 Repositories, 3,952 Skills)
 
 Every repository below is fully preserved on disk in `.agents/library/`, ready for zero-latency instant activation into your active workspace without incurring active prompt token overhead:
 
 | Repository Folder | Category | Skills | Upstream Source | Activation / Link Command |
 | :--- | :--- | :---: | :--- | :--- |
-| **[`#searex-skill`](./library/%23searex-skill)** | 🏛️ Core Standards, Architecture & Engineering Practices | 31 | [searex-skill](https://github.com/searex-skill) | `python .agents/library/activate_skill.py link api-contract-testing` |
+| **[`#searex-skill`](./library/%23searex-skill)** | 🏛️ Core Standards, Architecture & Engineering Practices | 15 | [searex-skill](https://github.com/searex-skill) | `python .agents/library/activate_skill.py link api-contract-testing` |
 | **[`0x0funky-agent-sprite-forge`](./library/0x0funky-agent-sprite-forge)** | Specialized Developer & AI Capabilities | 1 | [0x0funky/agent-sprite-forge](https://github.com/0x0funky/agent-sprite-forge) | `python .agents/library/activate_skill.py link codeart2d` |
 | **[`academic-research-skills`](./library/academic-research-skills)** | Specialized Developer & AI Capabilities | 5 | [academic-research-skills](https://github.com/academic-research-skills) | `python .agents/library/activate_skill.py link academic-paper` |
 | **[`addyosmani-agent-skills`](./library/addyosmani-agent-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 25 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | `python .agents/library/activate_skill.py link api-and-interface-design` |
@@ -81,7 +81,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`charlie947-social-media-skills`](./library/charlie947-social-media-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 17 | [charlie947/social-media-skills](https://github.com/charlie947/social-media-skills) | `python .agents/library/activate_skill.py link analytics-dashboard` |
 | **[`chezou-productivity-skills`](./library/chezou-productivity-skills)** | Specialized Developer & AI Capabilities | 3 | [chezou-productivity-skills](https://github.com/chezou-productivity-skills) | `python .agents/library/activate_skill.py link company-research` |
 | **[`claude-vibe-skills`](./library/claude-vibe-skills)** | Specialized Developer & AI Capabilities | 1 | [claude-vibe-skills](https://github.com/claude-vibe-skills) | `python .agents/library/activate_skill.py link dev-skills` |
-| **[`cline-skills`](./library/cline-skills)** | Specialized Developer & AI Capabilities | 19 | [cline-skills](https://github.com/cline-skills) | `python .agents/library/activate_skill.py link building-pydantic-ai-agents` |
+| **[`cline-skills`](./library/cline-skills)** | Specialized Developer & AI Capabilities | 44 | [cline-skills](https://github.com/cline-skills) | `python .agents/library/activate_skill.py link amazon-location-service` |
 | **[`clipcat-ai-clipcat-skill`](./library/clipcat-ai-clipcat-skill)** | Specialized Developer & AI Capabilities | 1 | [clipcat-ai-clipcat-skill](https://github.com/clipcat-ai-clipcat-skill) | `python .agents/library/activate_skill.py link clipcat` |
 | **[`cloudai-x-threejs-skills`](./library/cloudai-x-threejs-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 13 | [CloudAI-X/threejs-skills](https://github.com/CloudAI-X/threejs-skills) | `python .agents/library/activate_skill.py link threejs-animation` |
 | **[`cloudflare-security-audit`](./library/cloudflare-security-audit)** | Specialized Developer & AI Capabilities | 1 | [cloudflare-security-audit](https://github.com/cloudflare-security-audit) | `python .agents/library/activate_skill.py link security-audit` |
@@ -134,7 +134,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`howseen-ai-claude-motion-design`](./library/howseen-ai-claude-motion-design)** | Specialized Developer & AI Capabilities | 1 | [howseen-ai-claude-motion-design](https://github.com/howseen-ai-claude-motion-design) | `python .agents/library/activate_skill.py link claude-motion-design` |
 | **[`huggingface-skills`](./library/huggingface-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 24 | [huggingface/skills](https://github.com/huggingface/skills) | `python .agents/library/activate_skill.py link hf-cli` |
 | **[`humanize-skills`](./library/humanize-skills)** | Specialized Developer & AI Capabilities | 1 | [humanize-skills](https://github.com/humanize-skills) | `python .agents/library/activate_skill.py link humanize-skills` |
-| **[`humanlayer-skills`](./library/humanlayer-skills)** | 🧹 Code Quality, Testing & Security | 2 | [humanlayer/skills](https://github.com/humanlayer/skills) | `python .agents/library/activate_skill.py link build-iterated-agentic-loop` |
+| **[`humanlayer-skills`](./library/humanlayer-skills)** | 🧹 Code Quality, Testing & Security | 8 | [humanlayer/skills](https://github.com/humanlayer/skills) | `python .agents/library/activate_skill.py link build-iterated-agentic-loop` |
 | **[`ibelick-ui-skills`](./library/ibelick-ui-skills)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | `python .agents/library/activate_skill.py link ui` |
 | **[`imbad0202-academic-research-skills-codex`](./library/imbad0202-academic-research-skills-codex)** | Specialized Developer & AI Capabilities | 1 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | `python .agents/library/activate_skill.py link academic-research-suite` |
 | **[`internet-court-internet-court-skill`](./library/internet-court-internet-court-skill)** | 🤖 Multi-Agent Workflows & Planning | 2 | [internet-court/internet-court-skill](https://github.com/internet-court/internet-court-skill) | `python .agents/library/activate_skill.py link internet-court` |
@@ -167,7 +167,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`madxcrazy-antigravity-skills`](./library/madxcrazy-antigravity-skills)** | Specialized Developer & AI Capabilities | 4 | [madxcrazy-antigravity-skills](https://github.com/madxcrazy-antigravity-skills) | `python .agents/library/activate_skill.py link battle` |
 | **[`magentosh-superpowers`](./library/magentosh-superpowers)** | Specialized Developer & AI Capabilities | 86 | [magentosh-superpowers](https://github.com/magentosh-superpowers) | `python .agents/library/activate_skill.py link affirmations` |
 | **[`mahanaicoach-google-maps-scraper-kit`](./library/mahanaicoach-google-maps-scraper-kit)** | Specialized Developer & AI Capabilities | 1 | [mahanaicoach-google-maps-scraper-kit](https://github.com/mahanaicoach-google-maps-scraper-kit) | `python .agents/library/activate_skill.py link google-maps-scraper` |
-| **[`makenotion-notion-cookbook`](./library/makenotion-notion-cookbook)** | Specialized Developer & AI Capabilities | 4 | [makenotion-notion-cookbook](https://github.com/makenotion-notion-cookbook) | `python .agents/library/activate_skill.py link notion-knowledge-capture` |
+| **[`makenotion-notion-cookbook`](./library/makenotion-notion-cookbook)** | Specialized Developer & AI Capabilities | 26 | [makenotion-notion-cookbook](https://github.com/makenotion-notion-cookbook) | `python .agents/library/activate_skill.py link auth-guide` |
 | **[`markdown-viewer-skills`](./library/markdown-viewer-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [markdown-viewer/skills](https://github.com/markdown-viewer/skills) | `python .agents/library/activate_skill.py link documd-visuals` |
 | **[`master-cai-research-paper-writing-skills`](./library/master-cai-research-paper-writing-skills)** | Specialized Developer & AI Capabilities | 1 | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | `python .agents/library/activate_skill.py link research-paper-writing` |
 | **[`mattpocock-skills`](./library/mattpocock-skills)** | 🧹 Code Quality, Testing & Security | 38 | [mattpocock/skills](https://github.com/mattpocock/skills) | `python .agents/library/activate_skill.py link ask-matt` |
@@ -203,7 +203,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`nvlabs-aspire`](./library/nvlabs-aspire)** | Specialized Developer & AI Capabilities | 4 | [nvlabs-aspire](https://github.com/nvlabs-aspire) | `python .agents/library/activate_skill.py link cap-tool-usage` |
 | **[`obra-superpowers`](./library/obra-superpowers)** | 🧹 Code Quality, Testing & Security | 15 | [obra/superpowers](https://github.com/obra/superpowers) | `python .agents/library/activate_skill.py link brainstorming` |
 | **[`op7418-guizang-social-card-skill`](./library/op7418-guizang-social-card-skill)** | 🎨 UI/UX, Motion Craft & Visual Design | 2 | [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) | `python .agents/library/activate_skill.py link guizang-social-card` |
-| **[`openai-skills`](./library/openai-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 21 | [openai/skills](https://github.com/openai/skills) | `python .agents/library/activate_skill.py link .curated` |
+| **[`openai-skills`](./library/openai-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 44 | [openai/skills](https://github.com/openai/skills) | `python .agents/library/activate_skill.py link .curated` |
 | **[`opensensenova-sensenova-skills`](./library/opensensenova-sensenova-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [OpenSenseNova/SenseNova-Skills](https://github.com/OpenSenseNova/SenseNova-Skills) | `python .agents/library/activate_skill.py link sensenova` |
 | **[`orchestra-research-ai-research-skills`](./library/orchestra-research-ai-research-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | `python .agents/library/activate_skill.py link 0-autoresearch-skill` |
 | **[`othmanadi-planning-with-files`](./library/othmanadi-planning-with-files)** | 🤖 Multi-Agent Workflows & Planning | 1 | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | `python .agents/library/activate_skill.py link planning-with-files` |

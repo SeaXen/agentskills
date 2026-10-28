@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Skills in Category**: 151 real modular skills  
+> **Total Skills in Category**: 156 real modular skills  
 > **Directory**: [`.agents/category/frontend-ui-components`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (151 Skills)
+## 📑 Complete Skill Catalog (156 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -111,6 +111,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`mvp`](./mvp/SKILL.md)** | 📦 Library | `slavingia-skills` | Guide building a minimum viable product the minimalist entrepreneur way — manual first, then processized, then productiz |
 | **[`n8n-mcp-tools-expert`](./n8n-mcp-tools-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for using n8n-mcp MCP tools effectively. Use when searching for nodes, validating configurations, accessing |
 | **[`n8n-node-configuration`](./n8n-node-configuration/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Operation-aware node configuration guidance. Use when configuring nodes, understanding property dependencies, determinin |
+| **[`narrow-react-prop-types`](./narrow-react-prop-types/SKILL.md)** | 📦 Library | `humanlayer-skills` | narrow React component prop types to match live code paths |
 | **[`niche-research`](./niche-research/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Surface the 20 most relevant stories in a niche from the last 7 days using available live research tools. Verified dates |
 | **[`nuxt`](./nuxt/SKILL.md)** | 📦 Library | `antfu-skills` | Nuxt full-stack Vue framework with SSR, auto-imports, and file-based routing. Use when working with Nuxt apps, server ro |
 | **[`observability-engineer`](./observability-engineer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build production-ready monitoring, logging, and tracing systems. |
@@ -120,6 +121,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`planning-and-task-breakdown`](./planning-and-task-breakdown/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable |
 | **[`planning-with-files`](./planning-with-files/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and progress.md. Use wh |
 | **[`playground`](./playground/SKILL.md)** | 📦 Library | `cline-skills` | Creates interactive HTML playgrounds — self-contained single-file explorers that let users configure something visually  |
+| **[`plotting`](./plotting/SKILL.md)** | 📦 Library | `cline-skills` | Create standardized charts and visual assets from analytics query results. Prefer dependency-free plain HTML/CSS/JavaScr |
 | **[`poteto-help`](./poteto-help/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task. Type /poteto- |
 | **[`presentation-creator`](./presentation-creator/SKILL.md)** | 📦 Library | `getsentry-skills` | Create data-driven presentation slides using React, Vite, and Recharts with Sentry branding. Use when asked to "create a |
 | **[`principle-redesign-from-first-principles`](./principle-redesign-from-first-principles/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Apply when integrating a new requirement into an existing design. |
@@ -138,6 +140,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`setup-cms`](./setup-cms/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Connect a CMS to notfair SEO tools. Guides users through configuring |
 | **[`shadcn`](./shadcn/SKILL.md)** | 🟢 Active | `active-skills` | Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI, including chat |
 | **[`shadcn-ui`](./shadcn-ui/SKILL.md)** | 📦 Library | `google-labs-code-stitch-skills` | Expert guidance for integrating and building applications with shadcn/ui components, including component discovery, inst |
+| **[`show-me`](./show-me/SKILL.md)** | 📦 Library | `humanlayer-skills` | Help the user understand the current topic visually with concise diagrams, code-shape sketches, and focused HTML artifac |
 | **[`sigma`](./sigma/SKILL.md)** | 📦 Library | `sanyuan0704-sanyuan-skills` | Personalized 1-on-1 AI tutor using Bloom's 2-Sigma mastery learning. Guides users through any topic with Socratic questi |
 | **[`sitemap-audit`](./sitemap-audit/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | XML sitemap audit — find and fix the sitemap problems that quietly waste crawl |
 | **[`skill-creator-ms`](./skill-creator-ms/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Guide for creating effective skills for AI coding agents working with Azure SDKs and Microsoft Foundry services. Use whe |
@@ -147,6 +150,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`stockbee-exhaustion-hammer-screener`](./stockbee-exhaustion-hammer-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Screen US stocks for Stockbee-style selling-exhaustion hammer setups using prior momentum, pullback depth, undercut/recl |
 | **[`stockbee-setup-fluency-trainer`](./stockbee-setup-fluency-trainer/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Build a Stockbee-style setup model book from momentum-burst screener candidates, then update 3-day and 5-day forward out |
 | **[`stripe-integration`](./stripe-integration/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement Stripe payment processing for robust, PCI-compliant payment flows including checkout, subscriptions, and webho |
+| **[`sync`](./sync/SKILL.md)** | 📦 Library | `makenotion-notion-cookbook` | Scaffold a new sync capability with guided setup — asks about data source, mode, pagination, and cursor design, then gen |
 | **[`tailwind-design-system`](./tailwind-design-system/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build scalable design systems with Tailwind CSS, design tokens, component libraries, and responsive patterns. Use when c |
 | **[`tailwind-patterns`](./tailwind-patterns/SKILL.md)** | 🟢 Active | `active-skills` | Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design token architecture. |
 | **[`theme-factory`](./theme-factory/SKILL.md)** | 📦 Library | `anthropics-official-skills` | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. Th |
@@ -168,6 +172,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`widgets-ui`](./widgets-ui/SKILL.md)** | 🟢 Active | `active-skills` | Declarative UI widgets from JSON for React/Next.js from ui.inference.sh. Render rich interactive UIs from structured age |
 | **[`wiki-qa`](./wiki-qa/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Answers questions about a code repository using source file analysis. Use when the user asks a question about how someth |
 | **[`wordpress`](./wordpress/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Operate connected WordPress sites through the NotFair MCP. Use for WordPress content, posts, pages, media, comments, ter |
+| **[`workflow-guide`](./workflow-guide/SKILL.md)** | 📦 Library | `makenotion-notion-cookbook` | Reference for typed triggers, durable steps, replay-safe data flow, and idempotent Workflow effects. |
 | **[`writing-plans`](./writing-plans/SKILL.md)** | 🟢 Active | `active-skills` | Use when you have a spec or requirements for a multi-step task, before touching code |
 | **[`xss-html-injection`](./xss-html-injection/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"test for XSS vulnerabilities\", \"perform cross-site scripting attacks |
 | **[`zarazhangrui-codebase-to-course`](./zarazhangrui-codebase-to-course/SKILL.md)** | 📦 Library | `zarazhangrui-codebase-to-course` | Turn any codebase into a beautiful, interactive single-page HTML course that teaches how the code works to non-technical |
