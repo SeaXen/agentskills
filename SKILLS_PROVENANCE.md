@@ -3,10 +3,10 @@
 > **Workspace**: `D:\Repo\.agents`  
 > **Active Installed Skills**: 87 curated engineering skills in `.agents/skills`  
 > **Category Directories**: 38 granular functional domains in `.agents/category`  
-> **Offline Reserve Library**: 3,474 skills across 165 repositories in `.agents/library`  
+> **Offline Reserve Library**: 3,572 skills across 169 repositories in `.agents/library`  
 > **Specialist Personas**: 20 domain agents  
 > **Autonomous Workflows**: 17 slash commands  
-> **Total Origin Repositories**: 165 upstream sources cataloged  
+> **Total Origin Repositories**: 169 upstream sources cataloged  
 > **Last Synced**: 2026-10-28  
 > **Purpose**: Complete tracking of every skill's upstream origin, author, repository URL, and exact CLI commands to activate or update.
 
@@ -18,7 +18,7 @@
    ```bash
    python .agents/update.py --find <keyword>
    ```
-2. **Activate Any Skill from the 165 Offline Repositories**:
+2. **Activate Any Skill from the 169 Offline Repositories**:
    ```bash
    python .agents/library/activate_skill.py link <skill-name>
    ```
@@ -36,7 +36,7 @@
 
 ---
 
-## 📚 Complete Offline Reserve Library Repositories (165 Repositories, 3,474 Skills)
+## 📚 Complete Offline Reserve Library Repositories (169 Repositories, 3,572 Skills)
 
 Every repository below is fully preserved on disk in `.agents/library/`, ready for zero-latency instant activation into your active workspace without incurring active prompt token overhead:
 
@@ -65,6 +65,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`avdlee-swiftui-agent-skill`](./library/avdlee-swiftui-agent-skill)** | 🧹 Code Quality, Testing & Security | 1 | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | `python .agents/library/activate_skill.py link swiftui-expert-skill` |
 | **[`axtonliu-axton-obsidian-visual-skills`](./library/axtonliu-axton-obsidian-visual-skills)** | Specialized Developer & AI Capabilities | 1 | [axtonliu/axton-obsidian-visual-skills](https://github.com/axtonliu/axton-obsidian-visual-skills) | `python .agents/library/activate_skill.py link axton-obsidian-visual` |
 | **[`ayghri-i-have-adhd`](./library/ayghri-i-have-adhd)** | Specialized Developer & AI Capabilities | 1 | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | `python .agents/library/activate_skill.py link i-have-adhd` |
+| **[`binance-binance-skills-hub`](./library/binance-binance-skills-hub)** | Specialized Developer & AI Capabilities | 2 | [binance-binance-skills-hub](https://github.com/binance-binance-skills-hub) | `python .agents/library/activate_skill.py link binance` |
 | **[`browser-act-skills`](./library/browser-act-skills)** | 🌐 Headless Browser & Web Scraping | 1 | [browser-act/skills](https://github.com/browser-act/skills) | `python .agents/library/activate_skill.py link skills` |
 | **[`browser-use-skills`](./library/browser-use-skills)** | Specialized Developer & AI Capabilities | 6 | [browser-use-skills](https://github.com/browser-use-skills) | `python .agents/library/activate_skill.py link browser-use` |
 | **[`browserbase-skills`](./library/browserbase-skills)** | 🌐 Headless Browser & Web Scraping | 18 | [browserbase/skills](https://github.com/browserbase/skills) | `python .agents/library/activate_skill.py link add-webmcp` |
@@ -117,7 +118,9 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`imbad0202-academic-research-skills-codex`](./library/imbad0202-academic-research-skills-codex)** | Specialized Developer & AI Capabilities | 1 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | `python .agents/library/activate_skill.py link academic-research-suite` |
 | **[`internet-court-internet-court-skill`](./library/internet-court-internet-court-skill)** | 🤖 Multi-Agent Workflows & Planning | 2 | [internet-court/internet-court-skill](https://github.com/internet-court/internet-court-skill) | `python .agents/library/activate_skill.py link internet-court` |
 | **[`irinabuht12-oss-marketing-skills`](./library/irinabuht12-oss-marketing-skills)** | 📊 Data Pipelines, BigQuery & Telemetry | 1 | [irinabuht12-oss/marketing-skills](https://github.com/irinabuht12-oss/marketing-skills) | `python .agents/library/activate_skill.py link marketing` |
+| **[`jakeschincariol-day-trader-skill`](./library/jakeschincariol-day-trader-skill)** | Specialized Developer & AI Capabilities | 11 | [jakeschincariol-day-trader-skill](https://github.com/jakeschincariol-day-trader-skill) | `python .agents/library/activate_skill.py link trader-alerts` |
 | **[`jakeschincariol-replica-skill`](./library/jakeschincariol-replica-skill)** | ☁️ Cloud Infrastructure, APIs & Databases | 11 | [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) | `python .agents/library/activate_skill.py link replica-architect` |
+| **[`jakeschincariol-trader-skill`](./library/jakeschincariol-trader-skill)** | Specialized Developer & AI Capabilities | 11 | [jakeschincariol-trader-skill](https://github.com/jakeschincariol-trader-skill) | `python .agents/library/activate_skill.py link trader-alerts` |
 | **[`jakubkrehel-design-skills`](./library/jakubkrehel-design-skills)** | Specialized Developer & AI Capabilities | 14 | [jakubkrehel-design-skills](https://github.com/jakubkrehel-design-skills) | `python .agents/library/activate_skill.py link better-accessibility` |
 | **[`jeffallan-claude-skills`](./library/jeffallan-claude-skills)** | ☁️ Cloud Infrastructure, APIs & Databases | 1 | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | `python .agents/library/activate_skill.py link claude` |
 | **[`jimliu-baoyu-design`](./library/jimliu-baoyu-design)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | `python .agents/library/activate_skill.py link release-skills` |
@@ -187,6 +190,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`taste-skill`](./library/taste-skill)** | Specialized Developer & AI Capabilities | 1 | [taste-skill](https://github.com/taste-skill) | `python .agents/library/activate_skill.py link taste-skill` |
 | **[`tigerless-labs-autoharness`](./library/tigerless-labs-autoharness)** | Specialized Developer & AI Capabilities | 1 | [tigerless-labs/autoharness](https://github.com/tigerless-labs/autoharness) | `python .agents/library/activate_skill.py link autoharness` |
 | **[`titanwings-distilly`](./library/titanwings-distilly)** | Specialized Developer & AI Capabilities | 2 | [titanwings/distilly](https://github.com/titanwings/distilly) | `python .agents/library/activate_skill.py link distilly` |
+| **[`tradermonty-claude-trading-skills`](./library/tradermonty-claude-trading-skills)** | Specialized Developer & AI Capabilities | 74 | [tradermonty-claude-trading-skills](https://github.com/tradermonty-claude-trading-skills) | `python .agents/library/activate_skill.py link backtest-expert` |
 | **[`trailofbits-skills`](./library/trailofbits-skills)** | 🧹 Code Quality, Testing & Security | 1 | [trailofbits/skills](https://github.com/trailofbits/skills) | `python .agents/library/activate_skill.py link agentic-actions-auditor` |
 | **[`tw93-kami`](./library/tw93-kami)** | 🎨 UI/UX, Motion Craft & Visual Design | 1 | [tw93/Kami](https://github.com/tw93/Kami) | `python .agents/library/activate_skill.py link kami` |
 | **[`tw93-waza`](./library/tw93-waza)** | 🧹 Code Quality, Testing & Security | 1 | [tw93/Waza](https://github.com/tw93/Waza) | `python .agents/library/activate_skill.py link waza` |

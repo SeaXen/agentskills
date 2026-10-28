@@ -14964,6 +14964,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link i-have-adhd"
   },
   {
+    "id": "binance",
+    "name": "binance",
+    "repository": "binance-binance-skills-hub",
+    "category": "agent-orchestration",
+    "description": "Binance Skills Hub for crypto market data, order management, account balances, and automated trading workflows.",
+    "path": "library/binance-binance-skills-hub/skills/binance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate binance",
+    "link_cmd": "python .agents/library/activate_skill.py link binance"
+  },
+  {
+    "id": "binance-web3",
+    "name": "binance-web3",
+    "repository": "binance-binance-skills-hub",
+    "category": "frontend",
+    "description": "Binance Skills Hub for crypto market data, order management, account balances, and automated trading workflows.",
+    "path": "library/binance-binance-skills-hub/skills/binance-web3",
+    "activation_cmd": "python .agents/library/activate_skill.py activate binance-web3",
+    "link_cmd": "python .agents/library/activate_skill.py link binance-web3"
+  },
+  {
     "id": "skills",
     "name": "skills",
     "repository": "browser-act-skills",
@@ -26533,6 +26553,116 @@
     "link_cmd": "python .agents/library/activate_skill.py link marketing"
   },
   {
+    "id": "trader-alerts",
+    "name": "trader-alerts",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "agent-orchestration",
+    "description": "Price Alerts. Rings when a price, a stop or the opening bell hits. Turns the trade plan into three alerts in one go (the stop, the target and \"flat by close\" at your flat-by time), plus above / below / stop / target levels, percent moves from the previous close, any time of day, and the NYSE opening bell, each ringing once so you are not spammed. Knows NYSE hours with the 2026 and 2027 holidays and 1:00 p.m. early closes, works out New York time itself, fetches free delayed quotes (Yahoo chart JSON, Stooq CSV) one ticker at a time, and writes trader/prices.json for sizing and the risk check. Use when the user says \"alert me when\", \"tell me if TSLA hits\", \"watch my stop\", \"watch my trade\", \"remind me to close by 3:55\", \"is the market open\", \"when does the market open\", \"get me a price\", or right after /trader-exit writes a plan.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-alerts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-alerts",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-alerts"
+  },
+  {
+    "id": "trader-analyst",
+    "name": "trader-analyst",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "testing-qa",
+    "description": "The Earnings Analyst. Reads a company's reported numbers straight from SEC EDGAR (XBRL company facts from its 10-Qs and 10-Ks, plus the latest earnings 8-K and its press release) and sums up what changed: revenue, gross, operating and net margins, net income and diluted EPS, quarter by quarter, each against the same quarter a year earlier, with the trailing twelve months. Reads an earnings call transcript when you paste one. Use when the user says \"how did Tesla's earnings look\", \"analyze the earnings\", \"what changed this quarter\", \"is revenue growing\", \"check the 10-Q\", \"compare margins\", \"sum up the call\", \"does it report this week\", or before trading a stock around its earnings.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-analyst"
+  },
+  {
+    "id": "trader-broker",
+    "name": "trader-broker",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "frontend",
+    "description": "Order Executor. Sends approved orders to your broker, paper trading by default, never without your yes. Shows each order as a plain ticket (a bracket shows its stop-loss, take-profit and the max loss at the stop) plus the exact JSON for Alpaca's place_stock_order, records your yes word for word, then Claude's own Allow once / Deny card asks again. Builds the sell ticket that closes a day trade by your flat-by time, records fills, and logs each trade's max loss so trader-risk can hold the daily limit. Covers setting up Alpaca's official MCP server in Claude Desktop (paper by default, keys in env vars, never in chat), the Interactive Brokers connector, and setting order tools to \"Needs approval\". Use when the user says \"place the order\", \"buy it\", \"execute\", \"send it to my broker\", \"close my position\", \"flatten\", \"get me out\", \"connect Alpaca\", \"set up paper trading\", or after /trader-risk passes.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-broker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-broker",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-broker"
+  },
+  {
+    "id": "trader-budget",
+    "name": "trader-budget",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "agent-orchestration",
+    "description": "Budget Manager. Sizes every position to your budget and your max loss per trade. Reads the trade plan from trader-exit (entry, stop, target), finds the whole shares that fit inside four limits (max loss per trade, position cap, max order, cash after your buffer), says which limit decided it, and writes ONE bracket order (entry, stop-loss, take-profit) to trader/orders.json in the exact shape of Alpaca's place_stock_order. A stop too far away for your max loss is a plain refusal, not a smaller order. Nothing is placed. Use when the user says \"how many shares\", \"size this trade\", \"how much should I buy\", \"I have $5,000\", \"I only want to risk $50 a trade\", \"set my rules\", \"keep 10% in cash\", or after /trader-exit writes a plan.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-budget",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-budget",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-budget"
+  },
+  {
+    "id": "trader-entry",
+    "name": "trader-entry",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "frontend",
+    "description": "Entry Timer. Watches a setup bar by bar and tells you the moment to get in. Reads free Yahoo 1-minute or 5-minute bars, builds the opening range (the first 15 minutes by default) and calls the entry on the first completed bar that CLOSES above the range high, or above a level you give it (like a 20-day high from the scanner), with an optional volume check. Says waiting and how far, triggered with the time and the price, expired, or not open yet, and writes trader/entry.json for /trader-exit. Long side only. It never places an order. Use when the user says \"tell me when to get in\", \"watch TSLA\", \"has it broken out\", \"did it break the opening range\", \"entry signal\", \"time my entry\", \"check my watchlist\", or after /trader-scanner and /trader-news, before /trader-exit.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-entry",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-entry",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-entry"
+  },
+  {
+    "id": "trader-exit",
+    "name": "trader-exit",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "agent-orchestration",
+    "description": "Exit Planner. Sets your stop and your target before you enter, so you know when to get out. Reads the entry from trader-entry (or a price you give), puts the stop at the opening-range midpoint by default (or the range low, your price, a percent, or a multiple of the ATR), rounds it down to the cent, and sets the target at 2R (or 1R, or your price). Refuses a stop at or above the entry, a target at or below it, or a stop too tight to survive the spread, and says why. Writes trader/plan.json for the Time Machine, the Budget Manager and Price Alerts. Long side only. Use when the user says \"where's my stop\", \"set my stop and target\", \"plan the exit\", \"when do I get out\", \"stop loss\", \"what's my R\", \"risk reward\", or right after /trader-entry triggers, before /trader-timemachine.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-exit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-exit",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-exit"
+  },
+  {
+    "id": "trader-news",
+    "name": "trader-news",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "finance-crypto",
+    "description": "News Monitor. Tracks breaking news on every stock you watch and flags what moves it: Yahoo Finance headlines per ticker, each company's 8-K filings on SEC EDGAR (earnings, CEO changes, deals, restatements, bankruptcy) and how far each stock is from yesterday's close. Shows only what is new since the last check, newest first, in New York time, tags each item (earnings, analyst, deal, halt, regulatory, macro...) and never repeats one. Use when the user says \"any news on TSLA\", \"why is this moving\", \"what's the news on my watchlist\", \"morning briefing\", \"pre-market news\", \"monitor the news\", \"did anything break\", \"check the 8-Ks\", or after /trader-scanner finds setups.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-news",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-news",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-news"
+  },
+  {
+    "id": "trader-pelosi",
+    "name": "trader-pelosi",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "general-development",
+    "description": "The Pelosi Tracker. Watches the stock trades members of Congress must disclose under the STOCK Act: reads the House Clerk's public Periodic Transaction Reports (PTRs) as soon as they are posted, alerts once per new filing, and turns each PDF into clean rows (who, owner, stock, ticker, buy or sell, options strike and expiry, trade date, amount range, how many days it took to disclose). Flags trades in stocks you hold. Senate reports are covered by a documented manual route. Use when the user says \"what is Pelosi buying\", \"track Nancy Pelosi\", \"Congress trades\", \"politician stock trades\", \"did any congressman buy X\", \"alert me when Pelosi files\", or \"run the Pelosi skill\".",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-pelosi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-pelosi",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-pelosi"
+  },
+  {
+    "id": "trader-risk",
+    "name": "trader-risk",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "frontend",
+    "description": "Risk Manager. Checks every trade against your limits and stops anything over them, before it can reach the broker. For a day trade: a stop is required, the loss at the stop must fit your max loss per trade (measured from the higher of the plan's entry and a fresh price), reward:risk must meet your minimum, the day's total risk must fit your daily loss limit, no more than your trades per day, and no new entries outside your entry window or when the market is closed. It also keeps the basics: blocked tickers, order size, position cap, cash buffer, margin, short sales, options and crypto, malformed or bad bracket orders, duplicates and a daily order limit. Getting out is never blocked by a day limit. Prints PASS or BLOCK with the reason and records the verdicts so trader-broker only shows an order that passed. Use when the user says \"check my order\", \"is this safe\", \"risk check\", \"does this break my rules\", \"can I take this trade\", \"how much have I risked today\", or before /trader-broker, always.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-risk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-risk",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-risk"
+  },
+  {
+    "id": "trader-scanner",
+    "name": "trader-scanner",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "frontend",
+    "description": "Chart Scanner. Scans thousands of charts for setups: opening-range breakouts, flags, oversold bounces. Builds the list of US-listed common stocks, ordinary shares and ADRs from Nasdaq Trader's symbol directories, runs a pre-market scan of daily closes (20-day closing-high breakout, bull flag, reclaimed the 20-day average, oversold, oversold bounce) and an intraday opening-range breakout scan on 5-minute bars, then writes trader/watchlist.json for trader-news and trader-entry. Free Yahoo data, bar by bar. Use when the user says \"scan the market\", \"find me setups\", \"what is breaking out\", \"opening range breakouts\", \"scan for bull flags\", \"oversold stocks\", \"pre-market scan\", \"build my watchlist\", \"what should I look at today\", or at the start of a trading day before /trader-news.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-scanner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-scanner",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-scanner"
+  },
+  {
+    "id": "trader-timemachine",
+    "name": "trader-timemachine",
+    "repository": "jakeschincariol-day-trader-skill",
+    "category": "frontend",
+    "description": "Time Machine. Replays every possible outcome of a trade before you risk a dollar: 10,000 simulated sessions plus every past time the setup fired. Takes the plan from trader-exit (entry, stop, target), rebuilds the rest of the day 10,000 times from the stock's own 5-minute bars over the last 60 days, and re-runs the same rule on every past session. Prints the odds of target first, stop first, or neither by the close, where the price sits at the close, the average R, the history, and one honest verdict, then hands off to /trader-budget. Use when the user says \"run the time machine\", \"replay this trade\", \"what are the odds\", \"simulate this trade\", \"monte carlo\", \"backtest this setup\", \"how often does this hit the target\", \"is this a coin flip\", or after /trader-exit writes a plan, before /trader-budget.",
+    "path": "library/jakeschincariol-day-trader-skill/skills/trader-timemachine",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-timemachine",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-timemachine"
+  },
+  {
     "id": "replica-architect",
     "name": "replica-architect",
     "repository": "jakeschincariol-replica-skill",
@@ -26641,6 +26771,116 @@
     "path": "library/jakeschincariol-replica-skill/skills/replica-test",
     "activation_cmd": "python .agents/library/activate_skill.py activate replica-test",
     "link_cmd": "python .agents/library/activate_skill.py link replica-test"
+  },
+  {
+    "id": "trader-alerts",
+    "name": "trader-alerts",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "finance-crypto",
+    "description": "Price Alerts. Rings when a price target, a stop or the opening bell hits: above / below / stop rules, percent moves from the previous close, and the NYSE opening bell, each ringing once so you are not spammed. Knows NYSE hours with the 2026 and 2027 holidays and 1:00 p.m. early closes, fetches free delayed quotes (Yahoo chart JSON, Stooq CSV) one ticker at a time, and writes trader/prices.json for the other skills. Use when the user says \"alert me when\", \"tell me if AAPL hits\", \"set a stop\", \"price target\", \"watch my stocks\", \"is the market open\", \"when does the market open\", \"get me prices\", or to refresh prices before sizing, risk or tax.",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-alerts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-alerts",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-alerts"
+  },
+  {
+    "id": "trader-analyst",
+    "name": "trader-analyst",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "animation-craft",
+    "description": "The Earnings Analyst. Reads a company's reported numbers straight from SEC EDGAR (XBRL company facts from its 10-Qs and 10-Ks, plus the latest earnings 8-K and its press release) and sums up what changed: revenue, gross, operating and net margins, net income and diluted EPS, quarter by quarter, each against the same quarter a year earlier, with the trailing twelve months. Writes a metrics file the screener reads. Use when the user says \"how did Apple's earnings look\", \"analyze the earnings\", \"what changed this quarter\", \"is revenue growing\", \"check the 10-Q\", \"compare margins\", or \"run the analyst on my holdings\".",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-analyst"
+  },
+  {
+    "id": "trader-broker",
+    "name": "trader-broker",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "backend-api",
+    "description": "Order Executor. Places APPROVED orders through your brokerage connector, one at a time, and never without your explicit yes. Shows each order as a plain ticket plus the exact JSON for Alpaca's place_stock_order, records your yes word for word, then Claude's own Allow once / Deny card asks again. Covers setting up Alpaca's official MCP server in Claude Desktop (paper trading by default, keys in env vars, never in chat), the Interactive Brokers connector (orders go to your IBKR account for your approval), and setting order tools to \"Needs approval\". Use when the user says \"place the orders\", \"buy it\", \"execute\", \"send it to my broker\", \"connect Alpaca\", \"connect Interactive Brokers\", \"set up paper trading\", or after /trader-risk passes.",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-broker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-broker",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-broker"
+  },
+  {
+    "id": "trader-budget",
+    "name": "trader-budget",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "general-development",
+    "description": "Budget Manager. Sizes every position to your budget before anything is bought: keeps a cash buffer, caps any one stock (the excess is shared out to the others), drops slices under your minimum order, rounds so every dollar is used, supports fractional or whole shares, and writes the proposed buy orders to trader/orders.json in the exact shape of Alpaca's place_stock_order (notional as a string). Nothing is placed. Use when the user says \"I have $5,000\", \"size my trades\", \"how much of each should I buy\", \"manage my budget\", \"split my money\", \"keep 10% in cash\", \"no stock over 25%\", \"set my rules\", or after /trader-copycat writes targets.",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-budget",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-budget",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-budget"
+  },
+  {
+    "id": "trader-copycat",
+    "name": "trader-copycat",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "frontend",
+    "description": "The Reverse Engineer. Reads a famous investor's public SEC filings (the quarterly 13F-HR, plus Form 4 if you want the insider trades) and rebuilds their portfolio as weights you can copy: every position, its share of the fund, what they bought, added, trimmed and sold since the last quarter, with tickers matched to every CUSIP. Then it writes trader/targets.json so the budget skill can size it to your money. Use when the user says \"copy Buffett\", \"copy Berkshire\", \"what does Ackman own\", \"reverse engineer this investor\", \"show me their 13F\", \"what did they buy last quarter\", \"copy the top 5\", or names any fund or famous investor.",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-copycat",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-copycat",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-copycat"
+  },
+  {
+    "id": "trader-news",
+    "name": "trader-news",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "animation-craft",
+    "description": "The News Monitor. Watches breaking market news and SEC filings for the stocks you hold (or are about to copy): Yahoo Finance headlines per ticker and each company's 8-K filings on SEC EDGAR (earnings, CEO changes, deals, restatements, bankruptcy). Shows only what is new since the last check, newest first, flags what touches your positions and why it matters, and never repeats an item. Use when the user says \"any news on my stocks\", \"what's happening with Apple\", \"monitor the news\", \"watch my portfolio\", \"did anything break\", \"check the 8-Ks\", or \"morning briefing\".",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-news",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-news",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-news"
+  },
+  {
+    "id": "trader-pelosi",
+    "name": "trader-pelosi",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "general-development",
+    "description": "The Pelosi Tracker. Watches the stock trades members of Congress must disclose under the STOCK Act: reads the House Clerk's public Periodic Transaction Reports (PTRs) as soon as they are posted, alerts once per new filing, and turns each PDF into clean rows (who, owner, stock, ticker, buy or sell, options strike and expiry, trade date, amount range, how many days it took to disclose). Flags trades in stocks you hold. Senate reports are covered by a documented manual route. Use when the user says \"what is Pelosi buying\", \"track Nancy Pelosi\", \"Congress trades\", \"politician stock trades\", \"did any congressman buy X\", \"alert me when Pelosi files\", or \"run the Pelosi skill\".",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-pelosi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-pelosi",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-pelosi"
+  },
+  {
+    "id": "trader-rebalance",
+    "name": "trader-rebalance",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "general-development",
+    "description": "Rebalancer. Brings the portfolio back to its target weights when it drifts: values every holding at current prices, works out each stock's drift from its target in percentage points, trades only the stocks outside a band (default 5 points), keeps the cash buffer and the per-stock cap, skips tiny trades, lists sells before buys, and writes the trades to trader/orders.json as proposals. Use when the user says \"rebalance\", \"my portfolio drifted\", \"bring it back to the targets\", \"I added money\", \"the new 13F changed the weights\", \"am I overweight\", or on a schedule (monthly or quarterly) after /trader-copycat updates the targets.",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-rebalance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-rebalance",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-rebalance"
+  },
+  {
+    "id": "trader-risk",
+    "name": "trader-risk",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "finance-crypto",
+    "description": "Risk Manager. Checks every proposed order against your limits before it can reach the broker and blocks anything over them: blocked tickers, max order size, minimum order, max position percent after the fill, the cash buffer, margin, short sales, options and crypto (off unless allowed), malformed orders, duplicates and a daily order limit. Prints PASS or BLOCK with the reason for each order and records the verdicts so trader-broker only shows an order that passed. Use when the user says \"check my orders\", \"is this safe\", \"risk check\", \"does this break my rules\", \"can I place this\", or before /trader-broker, always.",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-risk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-risk",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-risk"
+  },
+  {
+    "id": "trader-screener",
+    "name": "trader-screener",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "sales-marketing",
+    "description": "The Stock Screener. Checks a list of companies against the user's own rules (revenue growth, margins, EPS, P/E, earnings yield, sector, anything in the metrics file), says exactly which rule each company passes or fails and by how much, and ranks the ones that pass into a shortlist. Reads the metrics /trader-analyst writes from SEC filings, or any CSV. Use when the user says \"screen for stocks\", \"find me companies that\", \"filter my watchlist\", \"which of these pass my rules\", \"shortlist candidates\", \"rank these stocks\", or \"growing companies under 30 times earnings\".",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-screener"
+  },
+  {
+    "id": "trader-tax",
+    "name": "trader-tax",
+    "repository": "jakeschincariol-trader-skill",
+    "category": "finance-crypto",
+    "description": "Tax Optimizer. Tracks cost-basis lots for every position (FIFO, highest cost first, or specific lots), shows unrealized gains and losses by lot with short or long term, works out what a sale would realize before you sell, finds tax-loss harvesting candidates over a loss threshold, checks the wash sale rule (30 days before and after, GOOG and GOOGL as one family), and writes harvest sells only as proposals. Not tax advice. Use when the user says \"what are my gains\", \"cost basis\", \"tax lots\", \"tax-loss harvest\", \"what would selling cost me in tax\", \"short or long term\", \"wash sale\", or before selling anything.",
+    "path": "library/jakeschincariol-trader-skill/skills/trader-tax",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-tax",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-tax"
   },
   {
     "id": "better-accessibility",
@@ -35641,6 +35881,746 @@
       "Edit",
       "Bash"
     ]
+  },
+  {
+    "id": "backtest-expert",
+    "name": "backtest-expert",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Expert guidance for systematic backtesting of trading strategies. Use when developing, testing, stress-testing, or validating quantitative trading strategies. Covers \"beating ideas to death\" methodology, parameter robustness testing, slippage modeling, bias prevention, and interpreting backtest results. Applicable when user asks about backtesting, strategy validation, robustness testing, avoiding overfitting, or systematic trading development.",
+    "path": "library/tradermonty-claude-trading-skills/skills/backtest-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate backtest-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link backtest-expert"
+  },
+  {
+    "id": "breadth-chart-analyst",
+    "name": "breadth-chart-analyst",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "general-development",
+    "description": "This skill should be used when analyzing market breadth charts, specifically the S&P 500 Breadth Index (200-Day MA based) and the US Stock Market Uptrend Stock Ratio charts. Use this skill when the user provides breadth chart images for analysis, requests market breadth assessment, positioning strategy recommendations, or wants to understand medium-term strategic and short-term tactical market outlook based on breadth indicators. Also works WITHOUT chart images by fetching CSV data directly from public sources. All analysis and output are conducted in English.",
+    "path": "library/tradermonty-claude-trading-skills/skills/breadth-chart-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate breadth-chart-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link breadth-chart-analyst"
+  },
+  {
+    "id": "breakout-trade-planner",
+    "name": "breakout-trade-planner",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "agent-orchestration",
+    "description": "Generate Minervini-style breakout trade plans from VCP screener output with worst-case risk calculation, portfolio heat management, and Alpaca-compatible order templates (stop-limit bracket for pre-placement, limit bracket for post-confirmation). Use when user has VCP screener results and wants actionable trade plans with entry/stop/target levels and position sizing.",
+    "path": "library/tradermonty-claude-trading-skills/skills/breakout-trade-planner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate breakout-trade-planner",
+    "link_cmd": "python .agents/library/activate_skill.py link breakout-trade-planner"
+  },
+  {
+    "id": "canslim-screener",
+    "name": "canslim-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "sales-marketing",
+    "description": "Screen US stocks using William O'Neil's CANSLIM growth stock methodology. Use when user requests CANSLIM stock screening, growth stock analysis, momentum stock identification, or wants to find stocks with strong earnings and price momentum following O'Neil's investment system.",
+    "path": "library/tradermonty-claude-trading-skills/skills/canslim-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate canslim-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link canslim-screener"
+  },
+  {
+    "id": "contrarian-setup-gate",
+    "name": "contrarian-setup-gate",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Synthesize the three Jason Shapiro contrarian-pipeline verdicts (COT crowding, news-reaction failure, weekly price-action confirmation) into one actionable setup_status via a fail-closed precedence state machine. Pure, offline synthesis -- no network, no API keys, no computation beyond validation and precedence.",
+    "path": "library/tradermonty-claude-trading-skills/skills/contrarian-setup-gate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate contrarian-setup-gate",
+    "link_cmd": "python .agents/library/activate_skill.py link contrarian-setup-gate"
+  },
+  {
+    "id": "cot-contrarian-detector",
+    "name": "cot-contrarian-detector",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "backend-api",
+    "description": "Detect crowded speculative positioning in CFTC futures markets (COT report analysis) to find contrarian setups using Jason Shapiro's methodology. Screens large-speculator (\"non-commercial\") net positioning across 65 futures markets (indices, rates, FX, metals, energy, crypto) via the FMP Commitment of Traders API, computes a 3-year and 26-week COT Index per market, and classifies extremes as CROWDED_LONG / CROWDED_SHORT. Use when the user asks about COT report analysis, crowded positioning, \"who is trapped\", speculative positioning extremes, contrarian futures setups, or wants to run Jason Shapiro-style analysis. This skill automates crowding DETECTION only (step 1 of 5) \u2014 it does not generate trade signals by itself.",
+    "path": "library/tradermonty-claude-trading-skills/skills/cot-contrarian-detector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cot-contrarian-detector",
+    "link_cmd": "python .agents/library/activate_skill.py link cot-contrarian-detector"
+  },
+  {
+    "id": "crypto-regime-analyzer",
+    "name": "crypto-regime-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Quantifies crypto market regime health using free, keyless public data (CoinGecko + Binance funding). Generates a 0-100 composite score across 6 components (100 = risk-on) with a posture recommendation. No API key required. Use when user asks about crypto market conditions, whether it's alt season, BTC dominance, crypto risk-on vs risk-off, funding rates, or whether crypto exposure should be increased or reduced.",
+    "path": "library/tradermonty-claude-trading-skills/skills/crypto-regime-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate crypto-regime-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link crypto-regime-analyzer"
+  },
+  {
+    "id": "data-quality-checker",
+    "name": "data-quality-checker",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Validate data quality in market analysis documents and blog articles before publication. Use when checking for price scale inconsistencies (ETF vs futures), instrument notation errors, date/day-of-week mismatches, allocation total errors, and unit mismatches. Supports English and Japanese content. Advisory mode -- flags issues as warnings for human review, not as blockers.",
+    "path": "library/tradermonty-claude-trading-skills/skills/data-quality-checker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate data-quality-checker",
+    "link_cmd": "python .agents/library/activate_skill.py link data-quality-checker"
+  },
+  {
+    "id": "dividend-growth-pullback-screener",
+    "name": "dividend-growth-pullback-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "sales-marketing",
+    "description": "Use this skill to find high-quality dividend growth stocks (12%+ annual dividend growth, 1.5%+ yield) that are experiencing temporary pullbacks, identified by RSI oversold conditions (RSI \u226440). This skill combines fundamental dividend analysis with technical timing indicators to identify buying opportunities in strong dividend growers during short-term weakness.",
+    "path": "library/tradermonty-claude-trading-skills/skills/dividend-growth-pullback-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dividend-growth-pullback-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link dividend-growth-pullback-screener"
+  },
+  {
+    "id": "downtrend-duration-analyzer",
+    "name": "downtrend-duration-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "general-development",
+    "description": "Analyze historical downtrend durations and generate interactive HTML histograms showing typical correction lengths by sector and market cap.",
+    "path": "library/tradermonty-claude-trading-skills/skills/downtrend-duration-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate downtrend-duration-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link downtrend-duration-analyzer"
+  },
+  {
+    "id": "drawdown-circuit-breaker",
+    "name": "drawdown-circuit-breaker",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Evaluate account-level drawdown circuit breaker rules from trader-memory-core state and decide whether new trade risk is allowed today. Uses realized P&L, losing-streak cooldowns, and weekly/monthly drawdown limits without any external API.",
+    "path": "library/tradermonty-claude-trading-skills/skills/drawdown-circuit-breaker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate drawdown-circuit-breaker",
+    "link_cmd": "python .agents/library/activate_skill.py link drawdown-circuit-breaker"
+  },
+  {
+    "id": "dual-axis-skill-reviewer",
+    "name": "dual-axis-skill-reviewer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "\"Review skills in any project using a dual-axis method: (1) deterministic code-based checks (structure, scripts, tests, execution safety) and (2) LLM deep review findings. Use when you need reproducible quality scoring for `skills/*/SKILL.md`, want to gate merges with a score threshold (for example 90+), or need concrete improvement items for low-scoring skills. Works across projects via --project-root.\"",
+    "path": "library/tradermonty-claude-trading-skills/skills/dual-axis-skill-reviewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dual-axis-skill-reviewer",
+    "link_cmd": "python .agents/library/activate_skill.py link dual-axis-skill-reviewer"
+  },
+  {
+    "id": "earnings-calendar",
+    "name": "earnings-calendar",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "This skill retrieves upcoming earnings announcements for US stocks using the Financial Modeling Prep (FMP) API. Use this when the user requests earnings calendar data, wants to know which companies are reporting earnings in the upcoming week, or needs a weekly earnings review. The skill focuses on mid-cap and above companies (over $2B market cap) that have significant market impact, organizing the data by date and timing in a clean markdown table format. Supports multiple environments (CLI, Desktop, Web) with flexible API key management.",
+    "path": "library/tradermonty-claude-trading-skills/skills/earnings-calendar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate earnings-calendar",
+    "link_cmd": "python .agents/library/activate_skill.py link earnings-calendar"
+  },
+  {
+    "id": "earnings-trade-analyzer",
+    "name": "earnings-trade-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Analyze recent post-earnings stocks using a 5-factor scoring system (Gap Size, Pre-Earnings Trend, Volume Trend, MA200 Position, MA50 Position). Scores each stock 0-100 and assigns A/B/C/D grades. Use when user asks about earnings trade analysis, post-earnings momentum screening, earnings gap scoring, or finding best recent earnings reactions.",
+    "path": "library/tradermonty-claude-trading-skills/skills/earnings-trade-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate earnings-trade-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link earnings-trade-analyzer"
+  },
+  {
+    "id": "economic-calendar-fetcher",
+    "name": "economic-calendar-fetcher",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "backend-api",
+    "description": "\"Fetch upcoming economic events and data releases using FMP API. Retrieve scheduled central bank decisions, employment reports, inflation data, GDP releases, and other market-moving economic indicators for specified date ranges (default: next 7 days). The script outputs raw JSON or text; the assistant filters, assesses impact, and generates the Markdown report.\"",
+    "path": "library/tradermonty-claude-trading-skills/skills/economic-calendar-fetcher",
+    "activation_cmd": "python .agents/library/activate_skill.py activate economic-calendar-fetcher",
+    "link_cmd": "python .agents/library/activate_skill.py link economic-calendar-fetcher"
+  },
+  {
+    "id": "edge-candidate-agent",
+    "name": "edge-candidate-agent",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Generate and prioritize US equity long-side edge research tickets from EOD observations, then export pipeline-ready candidate specs for trade-strategy-pipeline Phase I. Use when users ask to turn hypotheses/anomalies into reproducible research tickets, convert validated ideas into `strategy.yaml` + `metadata.json`, or preflight-check interface compatibility (`edge-finder-candidate/v1`) before running pipeline backtests.",
+    "path": "library/tradermonty-claude-trading-skills/skills/edge-candidate-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edge-candidate-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link edge-candidate-agent"
+  },
+  {
+    "id": "edge-concept-synthesizer",
+    "name": "edge-concept-synthesizer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Abstract detector tickets and hints into reusable edge concepts with thesis, invalidation signals, and strategy playbooks before strategy design/export.",
+    "path": "library/tradermonty-claude-trading-skills/skills/edge-concept-synthesizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edge-concept-synthesizer",
+    "link_cmd": "python .agents/library/activate_skill.py link edge-concept-synthesizer"
+  },
+  {
+    "id": "edge-hint-extractor",
+    "name": "edge-hint-extractor",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Extract edge hints from daily market observations and news reactions, with optional LLM ideation, and output canonical hints.yaml for downstream concept synthesis and auto detection.",
+    "path": "library/tradermonty-claude-trading-skills/skills/edge-hint-extractor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edge-hint-extractor",
+    "link_cmd": "python .agents/library/activate_skill.py link edge-hint-extractor"
+  },
+  {
+    "id": "edge-pipeline-orchestrator",
+    "name": "edge-pipeline-orchestrator",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Orchestrate the full edge research pipeline from candidate detection through strategy design, review, revision, and export. Use when coordinating multi-stage edge research workflows end-to-end.",
+    "path": "library/tradermonty-claude-trading-skills/skills/edge-pipeline-orchestrator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edge-pipeline-orchestrator",
+    "link_cmd": "python .agents/library/activate_skill.py link edge-pipeline-orchestrator"
+  },
+  {
+    "id": "edge-signal-aggregator",
+    "name": "edge-signal-aggregator",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "agent-orchestration",
+    "description": "Aggregate and rank signals from multiple edge-finding skills (edge-candidate-agent, theme-detector, sector-analyst, institutional-flow-tracker) into a prioritized conviction dashboard with weighted scoring, deduplication, and contradiction detection.",
+    "path": "library/tradermonty-claude-trading-skills/skills/edge-signal-aggregator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edge-signal-aggregator",
+    "link_cmd": "python .agents/library/activate_skill.py link edge-signal-aggregator"
+  },
+  {
+    "id": "edge-strategy-designer",
+    "name": "edge-strategy-designer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Convert abstract edge concepts into strategy draft variants and optional exportable ticket YAMLs for edge-candidate-agent export/validation.",
+    "path": "library/tradermonty-claude-trading-skills/skills/edge-strategy-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edge-strategy-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link edge-strategy-designer"
+  },
+  {
+    "id": "edge-strategy-reviewer",
+    "name": "edge-strategy-reviewer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "> Critically review strategy drafts from edge-strategy-designer for edge plausibility, overfitting risk, sample size adequacy, and execution realism. Use when strategy_drafts/*.yaml exists and needs quality gate before pipeline export. Outputs PASS/REVISE/REJECT verdicts with confidence scores.",
+    "path": "library/tradermonty-claude-trading-skills/skills/edge-strategy-reviewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edge-strategy-reviewer",
+    "link_cmd": "python .agents/library/activate_skill.py link edge-strategy-reviewer"
+  },
+  {
+    "id": "exposure-coach",
+    "name": "exposure-coach",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "sales-marketing",
+    "description": "Generate a one-page Market Posture summary with net exposure ceiling, growth-vs-value bias, participation breadth, and new-entry-allowed vs cash-priority recommendation by integrating signals from breadth, regime, and flow analysis skills.",
+    "path": "library/tradermonty-claude-trading-skills/skills/exposure-coach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate exposure-coach",
+    "link_cmd": "python .agents/library/activate_skill.py link exposure-coach"
+  },
+  {
+    "id": "finviz-screener",
+    "name": "finviz-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Build and open FinViz screener URLs from natural language requests. Use when user wants to screen stocks, find stocks matching criteria, filter by fundamentals or technicals, or asks to open FinViz with specific conditions. Supports both Japanese and English input (e.g., \"\u9ad8\u914d\u5f53\u3067\u6210\u9577\u3057\u3066\u3044\u308b\u5c0f\u578b\u682a\u3092\u63a2\u3057\u305f\u3044\", \"Find oversold large caps with high ROE\").",
+    "path": "library/tradermonty-claude-trading-skills/skills/finviz-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate finviz-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link finviz-screener"
+  },
+  {
+    "id": "ftd-detector",
+    "name": "ftd-detector",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Detects Follow-Through Day (FTD) signals for market bottom confirmation using William O'Neil's methodology. Dual-index tracking (S&P 500 + NASDAQ) with state machine for rally attempt, FTD qualification, and post-FTD health monitoring. Use when user asks about market bottom signals, follow-through days, rally attempts, re-entry timing after corrections, or whether it's safe to increase equity exposure. Complementary to market-top-detector (defensive) - this skill is offensive (bottom confirmation).",
+    "path": "library/tradermonty-claude-trading-skills/skills/ftd-detector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ftd-detector",
+    "link_cmd": "python .agents/library/activate_skill.py link ftd-detector"
+  },
+  {
+    "id": "futures-position-sizer",
+    "name": "futures-position-sizer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "backend-api",
+    "description": "Calculate contract-based futures position sizes from a direction, entry, and stop-loss, using verified per-symbol contract specs (multiplier, tick size, tick value). Use when the user asks how many futures contracts to trade, wants to size a futures position (ES, NQ, ZB, GC, CL, 6E/E6, VX, BT, ...), or is handing off a contrarian-setup-gate READY_FOR_PLAN direction/invalidation_level for sizing. Pure, offline calculation -- no API keys, no network.",
+    "path": "library/tradermonty-claude-trading-skills/skills/futures-position-sizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate futures-position-sizer",
+    "link_cmd": "python .agents/library/activate_skill.py link futures-position-sizer"
+  },
+  {
+    "id": "fxmacrodata-calendar",
+    "name": "fxmacrodata-calendar",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "agent-orchestration",
+    "description": "Fetch official FXMacroData macro release-calendar events for trade planning, macro regime checks, and event-risk filters. Use before CPI, NFP, GDP, PCE, retail sales, PMI, and central-bank decision windows.",
+    "path": "library/tradermonty-claude-trading-skills/skills/fxmacrodata-calendar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fxmacrodata-calendar",
+    "link_cmd": "python .agents/library/activate_skill.py link fxmacrodata-calendar"
+  },
+  {
+    "id": "ibd-distribution-day-monitor",
+    "name": "ibd-distribution-day-monitor",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "database-sql",
+    "description": "Detect IBD-style Distribution Days for QQQ/SPY (close down at least 0.2% on higher volume), track 25-session expiration and 5% invalidation, count d5/d15/d25 clusters, classify market risk (NORMAL/CAUTION/HIGH/SEVERE), and emit TQQQ/QQQ exposure recommendations. Use after market close, before TQQQ exposure changes, or as input to FTD/market-state frameworks. Does not execute trades.",
+    "path": "library/tradermonty-claude-trading-skills/skills/ibd-distribution-day-monitor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ibd-distribution-day-monitor",
+    "link_cmd": "python .agents/library/activate_skill.py link ibd-distribution-day-monitor"
+  },
+  {
+    "id": "institutional-flow-tracker",
+    "name": "institutional-flow-tracker",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "backend-api",
+    "description": "Use this skill to track institutional investor ownership changes and portfolio flows using 13F filings data. Analyzes hedge funds, mutual funds, and other institutional holders to identify stocks with significant smart money accumulation or distribution. Helps discover stocks before major moves by following where sophisticated investors are deploying capital.",
+    "path": "library/tradermonty-claude-trading-skills/skills/institutional-flow-tracker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate institutional-flow-tracker",
+    "link_cmd": "python .agents/library/activate_skill.py link institutional-flow-tracker"
+  },
+  {
+    "id": "kanchi-dividend-review-monitor",
+    "name": "kanchi-dividend-review-monitor",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Monitor dividend portfolios with Kanchi-style forced-review triggers (T1-T5) and convert anomalies into OK/WARN/REVIEW states without auto-selling. Use when users ask for \u6e1b\u914d\u691c\u77e5, 8-K\u30ac\u30d0\u30ca\u30f3\u30b9\u76e3\u8996, \u914d\u5f53\u5b89\u5168\u6027\u30e2\u30cb\u30bf\u30ea\u30f3\u30b0, REVIEW\u30ad\u30e5\u30fc\u81ea\u52d5\u5316, or periodic dividend risk checks.",
+    "path": "library/tradermonty-claude-trading-skills/skills/kanchi-dividend-review-monitor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kanchi-dividend-review-monitor",
+    "link_cmd": "python .agents/library/activate_skill.py link kanchi-dividend-review-monitor"
+  },
+  {
+    "id": "kanchi-dividend-sop",
+    "name": "kanchi-dividend-sop",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "agent-orchestration",
+    "description": "Convert Kanchi-style dividend investing into a repeatable US-stock operating procedure. Use when users ask for \u304b\u3093\u3061\u5f0f\u914d\u5f53\u6295\u8cc7, dividend screening, dividend growth quality checks, PERxPBR adaptation for US sectors, pullback limit-order planning, or one-page stock memo creation. Covers screening, deep dive, entry planning, and post-purchase monitoring cadence.",
+    "path": "library/tradermonty-claude-trading-skills/skills/kanchi-dividend-sop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kanchi-dividend-sop",
+    "link_cmd": "python .agents/library/activate_skill.py link kanchi-dividend-sop"
+  },
+  {
+    "id": "kanchi-dividend-us-tax-accounting",
+    "name": "kanchi-dividend-us-tax-accounting",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "mobile",
+    "description": "Provide US dividend tax and account-location workflow for Kanchi-style income portfolios. Use when users ask about qualified vs ordinary dividends, 1099-DIV interpretation, REIT/BDC distribution treatment, holding-period checks, or taxable-vs-IRA account placement decisions for dividend assets.",
+    "path": "library/tradermonty-claude-trading-skills/skills/kanchi-dividend-us-tax-accounting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kanchi-dividend-us-tax-accounting",
+    "link_cmd": "python .agents/library/activate_skill.py link kanchi-dividend-us-tax-accounting"
+  },
+  {
+    "id": "macro-regime-detector",
+    "name": "macro-regime-detector",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Detect structural macro regime transitions (1-2 year horizon) using cross-asset ratio analysis. Analyze RSP/SPY concentration, yield curve, credit conditions, size factor, equity-bond relationship, and sector rotation to identify regime shifts between Concentration, Broadening, Contraction, Inflationary, and Transitional states. Run when user asks about macro regime, market regime change, structural rotation, or long-term market positioning.",
+    "path": "library/tradermonty-claude-trading-skills/skills/macro-regime-detector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate macro-regime-detector",
+    "link_cmd": "python .agents/library/activate_skill.py link macro-regime-detector"
+  },
+  {
+    "id": "manifoldbt-backtester",
+    "name": "manifoldbt-backtester",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "backend-api",
+    "description": "Runs a declarative strategy spec over OHLCV bars with the manifoldbt Rust engine, pairs the fill log into round trips, and emits the eight inputs the backtest-expert skill scores. Use when the user wants to execute a backtest, measure a rule they have described, obtain win rate / average win / average loss / max drawdown from real bars, or feed backtest-expert with measured numbers instead of estimates.",
+    "path": "library/tradermonty-claude-trading-skills/skills/manifoldbt-backtester",
+    "activation_cmd": "python .agents/library/activate_skill.py activate manifoldbt-backtester",
+    "link_cmd": "python .agents/library/activate_skill.py link manifoldbt-backtester"
+  },
+  {
+    "id": "market-breadth-analyzer",
+    "name": "market-breadth-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Quantifies market breadth health using TraderMonty's public CSV data. Generates a 0-100 composite score across 6 components (100 = healthy). No API key required. Use when user asks about market breadth, participation rate, advance-decline health, whether the rally is broad-based, or general market health assessment.",
+    "path": "library/tradermonty-claude-trading-skills/skills/market-breadth-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate market-breadth-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link market-breadth-analyzer"
+  },
+  {
+    "id": "market-environment-analysis",
+    "name": "market-environment-analysis",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "general-development",
+    "description": "Comprehensive market environment analysis and reporting tool. Analyzes global markets including US, European, Asian markets, forex, commodities, and economic indicators. Provides risk-on/risk-off assessment, sector analysis, and technical indicator interpretation. Triggers on keywords like market analysis, market environment, global markets, trading environment, market conditions, investment climate, market sentiment, forex analysis, stock market analysis, \u76f8\u5834\u74b0\u5883, \u5e02\u5834\u5206\u6790, \u30de\u30fc\u30b1\u30c3\u30c8\u72b6\u6cc1, \u6295\u8cc7\u74b0\u5883.",
+    "path": "library/tradermonty-claude-trading-skills/skills/market-environment-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate market-environment-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link market-environment-analysis"
+  },
+  {
+    "id": "market-news-analyst",
+    "name": "market-news-analyst",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "This skill should be used when analyzing recent market-moving news events and their impact on equity markets and commodities. Use this skill when the user requests analysis of major financial news from the past 10 days, wants to understand market reactions to monetary policy decisions (FOMC, ECB, BOJ), needs assessment of geopolitical events' impact on commodities, or requires comprehensive review of earnings announcements from mega-cap stocks. The skill automatically collects news using WebSearch/WebFetch tools and produces impact-ranked analysis reports. All analysis thinking and output are conducted in English.",
+    "path": "library/tradermonty-claude-trading-skills/skills/market-news-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate market-news-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link market-news-analyst"
+  },
+  {
+    "id": "market-top-detector",
+    "name": "market-top-detector",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Assesses heuristic market top risk using O'Neil Distribution Days, Minervini Leading Stock Deterioration, and Monty Defensive Sector Rotation. Generates a 0-100 composite score with risk zone classification. Use when user asks about market top risk, distribution days, defensive rotation, leadership breakdown, or whether to reduce equity exposure. Focuses on 2-8 week tactical timing signals for 10-20% corrections.",
+    "path": "library/tradermonty-claude-trading-skills/skills/market-top-detector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate market-top-detector",
+    "link_cmd": "python .agents/library/activate_skill.py link market-top-detector"
+  },
+  {
+    "id": "mt5-robot-tester",
+    "name": "mt5-robot-tester",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Select the best MetaTrader 5 trading robots (Expert Advisors) that have not been backtested yet, by running the MT5 Strategy Tester from the command line through a 3-round pipeline. Use when the user wants to batch-test MT5 bots/EAs, screen robots across all symbols, optimize EA parameters, or move candidate bots to finalists based on profit, drawdown, positive months/years and equity-curve criteria. Runs terminal64.exe headless; Windows + MetaTrader 5 required at run time.",
+    "path": "library/tradermonty-claude-trading-skills/skills/mt5-robot-tester",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mt5-robot-tester",
+    "link_cmd": "python .agents/library/activate_skill.py link mt5-robot-tester"
+  },
+  {
+    "id": "news-reaction-failure-analyzer",
+    "name": "news-reaction-failure-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Judge whether a market FAILED to react to news favorable to a crowded speculative position \u2014 step 2 of Jason Shapiro's COT contrarian process. Consumes a cot-contrarian-detector report (or an explicit direction) plus a Claude-curated events JSON, fetches the underlying price series with a documented fallback chain, and produces a fail-closed CONFIRMED / NOT_CONFIRMED / INSUFFICIENT_EVIDENCE verdict using a statistically validated drift-significance test (not a naive failure-ratio, which false-confirms on pure noise). Generic beyond COT \u2014 reusable for PEAD and macro-crowding news-failure checks. Use when the user asks to check news-failure confirmation, whether a crowded market \"shrugged off\" good/bad news, or wants to run Shapiro step 2 on a CROWDED_LONG/CROWDED_SHORT market.",
+    "path": "library/tradermonty-claude-trading-skills/skills/news-reaction-failure-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate news-reaction-failure-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link news-reaction-failure-analyzer"
+  },
+  {
+    "id": "options-strategy-advisor",
+    "name": "options-strategy-advisor",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Options trading strategy analysis and simulation tool. Provides theoretical pricing using Black-Scholes model, Greeks calculation, strategy P/L simulation, and risk management guidance. Use when user requests options strategy analysis, covered calls, protective puts, spreads, iron condors, earnings plays, or options risk management. Includes volatility analysis, position sizing, and earnings-based strategy recommendations. Educational focus with practical trade simulation.",
+    "path": "library/tradermonty-claude-trading-skills/skills/options-strategy-advisor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate options-strategy-advisor",
+    "link_cmd": "python .agents/library/activate_skill.py link options-strategy-advisor"
+  },
+  {
+    "id": "pair-trade-screener",
+    "name": "pair-trade-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "testing-qa",
+    "description": "Statistical arbitrage tool for identifying and analyzing pair trading opportunities. Detects cointegrated stock pairs within sectors, analyzes spread behavior, calculates z-scores, and provides entry/exit recommendations for market-neutral strategies. Use when user requests pair trading opportunities, statistical arbitrage screening, mean-reversion strategies, or market-neutral portfolio construction. Supports correlation analysis, cointegration testing, and spread backtesting.",
+    "path": "library/tradermonty-claude-trading-skills/skills/pair-trade-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pair-trade-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link pair-trade-screener"
+  },
+  {
+    "id": "parabolic-short-trade-planner",
+    "name": "parabolic-short-trade-planner",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Screen US equities for parabolic exhaustion patterns and generate conditional pre-market short plans, then evaluate intraday trigger fires from live 5-min bars. Phase 1 daily 5-factor scorer (MA extension / acceleration / volume climax / range expansion / liquidity), Phase 2 per-candidate plans for ORL break / first-red 5-min / VWAP fail with explicit borrow / SSR / manual-confirmation gating, Phase 3 one-shot intraday FSM that detects trigger fires and resolves concrete share counts. Covers Phase 1 + Phase 2 + Phase 3.",
+    "path": "library/tradermonty-claude-trading-skills/skills/parabolic-short-trade-planner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate parabolic-short-trade-planner",
+    "link_cmd": "python .agents/library/activate_skill.py link parabolic-short-trade-planner"
+  },
+  {
+    "id": "pead-screener",
+    "name": "pead-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "research-academic",
+    "description": "Screen post-earnings gap-up stocks for PEAD (Post-Earnings Announcement Drift) patterns. Analyzes weekly candle formation to detect red candle pullbacks and breakout signals. Supports two input modes - FMP earnings calendar (Mode A) or earnings-trade-analyzer JSON output (Mode B). Use when user asks about PEAD screening, post-earnings drift, earnings gap follow-through, red candle breakout patterns, or weekly earnings momentum setups.",
+    "path": "library/tradermonty-claude-trading-skills/skills/pead-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pead-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link pead-screener"
+  },
+  {
+    "id": "portfolio-manager",
+    "name": "portfolio-manager",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Comprehensive portfolio analysis using Alpaca MCP Server integration to fetch holdings and positions, then analyze asset allocation, risk metrics, individual stock positions, diversification, and generate rebalancing recommendations. Use when user requests portfolio review, position analysis, risk assessment, performance evaluation, or rebalancing suggestions for their brokerage account.",
+    "path": "library/tradermonty-claude-trading-skills/skills/portfolio-manager",
+    "activation_cmd": "python .agents/library/activate_skill.py activate portfolio-manager",
+    "link_cmd": "python .agents/library/activate_skill.py link portfolio-manager"
+  },
+  {
+    "id": "position-sizer",
+    "name": "position-sizer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "general-development",
+    "description": "Calculate risk-based position sizes for long stock trades. Use when user asks about position sizing, how many shares to buy, risk per trade, Kelly criterion, ATR-based sizing, fractional-share sizing, or portfolio risk allocation. Supports stop-loss distance calculation, volatility scaling, and sector concentration checks.",
+    "path": "library/tradermonty-claude-trading-skills/skills/position-sizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate position-sizer",
+    "link_cmd": "python .agents/library/activate_skill.py link position-sizer"
+  },
+  {
+    "id": "pre-trade-discipline-gate",
+    "name": "pre-trade-discipline-gate",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Evaluate a local pre-trade checklist before manual order entry, blocking planless, oversized, revenge-risk, market-regime-blocked, or circuit-breaker-blocked entries while journaling the decision for trader-memory-core review.",
+    "path": "library/tradermonty-claude-trading-skills/skills/pre-trade-discipline-gate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pre-trade-discipline-gate",
+    "link_cmd": "python .agents/library/activate_skill.py link pre-trade-discipline-gate"
+  },
+  {
+    "id": "residual-edge-analyzer",
+    "name": "residual-edge-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "testing-qa",
+    "description": "Separate a strategy return series into declared baseline exposure and residual edge with returns-based OLS attribution, HAC inference, rolling stability, alternate-baseline sensitivity, and regime breakdowns. Use when evaluating whether backtest, out-of-sample, or live returns contain independent alpha beyond market, equal-weight, momentum, sector, or user-supplied factor returns; when explaining whether a drawdown came from baseline exposure or strategy-specific behavior; or when a strategy needs an attribution quality gate after backtesting. Do not use for holdings-based Brinson attribution, feature-level Shapley explanations, or analysis from summary metrics without a dated return series.",
+    "path": "library/tradermonty-claude-trading-skills/skills/residual-edge-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate residual-edge-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link residual-edge-analyzer"
+  },
+  {
+    "id": "scenario-analyzer",
+    "name": "scenario-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Skill that analyzes 18-month scenarios from a news headline. Runs the primary analysis with the scenario-analyst agent and obtains a second opinion with the strategy-reviewer agent. Generates a comprehensive English report covering 1st/2nd/3rd-order impacts, recommended stocks, and a critical review. Example: /scenario-analyzer \"Fed raises rates by 50bp\" Triggers: news analysis, scenario analysis, 18-month outlook, medium-to-long-term investment strategy",
+    "path": "library/tradermonty-claude-trading-skills/skills/scenario-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scenario-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link scenario-analyzer"
+  },
+  {
+    "id": "sector-analyst",
+    "name": "sector-analyst",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "This skill should be used when analyzing sector rotation patterns and market cycle positioning. It fetches sector uptrend data from CSV (no API key required) and optionally accepts chart images for supplementary analysis. Use this skill when the user requests sector rotation analysis, cyclical vs defensive assessment, overbought/oversold identification, or market cycle phase estimation. All analysis and output are conducted in English.",
+    "path": "library/tradermonty-claude-trading-skills/skills/sector-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sector-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link sector-analyst"
+  },
+  {
+    "id": "signal-postmortem",
+    "name": "signal-postmortem",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "testing-qa",
+    "description": "Record and analyze post-trade outcomes for signals generated by edge pipeline and other skills. Track false positives, missed opportunities, and regime mismatches. Feed results back to edge-signal-aggregator weights and skill improvement backlog.",
+    "path": "library/tradermonty-claude-trading-skills/skills/signal-postmortem",
+    "activation_cmd": "python .agents/library/activate_skill.py activate signal-postmortem",
+    "link_cmd": "python .agents/library/activate_skill.py link signal-postmortem"
+  },
+  {
+    "id": "skill-designer",
+    "name": "skill-designer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Design new Claude skills from structured idea specifications. Use when the skill auto-generation pipeline needs to produce a Claude CLI prompt that creates a complete skill directory (SKILL.md, references, scripts, tests) following repository conventions.",
+    "path": "library/tradermonty-claude-trading-skills/skills/skill-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-designer"
+  },
+  {
+    "id": "skill-idea-miner",
+    "name": "skill-idea-miner",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "research-academic",
+    "description": "Mine Claude Code session logs for skill idea candidates. Use when running the weekly skill generation pipeline to extract, score, and backlog new skill ideas from recent coding sessions.",
+    "path": "library/tradermonty-claude-trading-skills/skills/skill-idea-miner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-idea-miner",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-idea-miner"
+  },
+  {
+    "id": "skill-integration-tester",
+    "name": "skill-integration-tester",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "database-sql",
+    "description": "Validate multi-skill workflows defined in CLAUDE.md by checking skill existence, inter-skill data contracts (JSON schema compatibility), file naming conventions, and handoff integrity. Use when adding new workflows, modifying skill outputs, or verifying pipeline health before release.",
+    "path": "library/tradermonty-claude-trading-skills/skills/skill-integration-tester",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-integration-tester",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-integration-tester"
+  },
+  {
+    "id": "stanley-druckenmiller-investment",
+    "name": "stanley-druckenmiller-investment",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "research-academic",
+    "description": "Druckenmiller Strategy Synthesizer - Integrates 8 upstream skill outputs (Market Breadth, Uptrend Analysis, Market Top, Macro Regime, FTD Detector, VCP Screener, Theme Detector, CANSLIM Screener) into a unified conviction score (0-100), pattern classification, and allocation recommendation. Use when user asks about overall market conviction, portfolio positioning, asset allocation, strategy synthesis, or Druckenmiller-style analysis. Triggers on queries like \"What is my conviction level?\", \"How should I position?\", \"Run the strategy synthesizer\", \"Druckenmiller analysis\", \"\u7dcf\u5408\u7684\u306a\u5e02\u5834\u5224\u65ad\", \"\u78ba\u4fe1\u5ea6\u30b9\u30b3\u30a2\", \"\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa\u914d\u5206\", \"\u30c9\u30e9\u30c3\u30b1\u30f3\u30df\u30e9\u30fc\u5206\u6790\".",
+    "path": "library/tradermonty-claude-trading-skills/skills/stanley-druckenmiller-investment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stanley-druckenmiller-investment",
+    "link_cmd": "python .agents/library/activate_skill.py link stanley-druckenmiller-investment"
+  },
+  {
+    "id": "stockbee-20pct-study",
+    "name": "stockbee-20pct-study",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Build and maintain a Stockbee-style daily 20% mover study for US equities by scanning +20%/-20% movers, classifying catalysts and setup context, updating forward outcomes, and summarizing cohort patterns. Use when the user asks to run a daily 20% study, backfill historical 20% movers, find recurring edge patterns, or build a model book of explosive market moves.",
+    "path": "library/tradermonty-claude-trading-skills/skills/stockbee-20pct-study",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stockbee-20pct-study",
+    "link_cmd": "python .agents/library/activate_skill.py link stockbee-20pct-study"
+  },
+  {
+    "id": "stockbee-episodic-pivot-analyzer",
+    "name": "stockbee-episodic-pivot-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Analyze Stockbee-style Day 1 Episodic Pivot candidates from earnings, guidance raises, M&A, FDA/regulatory approvals, analyst actions, major contracts, product launches, short-squeeze catalysts, or theme/story events. Scores catalyst quality together with gap/range expansion, volume shock, neglect/revaluation context, liquidity, and risk to the EP-day low. Use when the user asks for EP candidates, episodic pivots, Day 1 catalyst trades, game-changing news reactions, delayed EP watchlists, or handoffs into PEAD monitoring.",
+    "path": "library/tradermonty-claude-trading-skills/skills/stockbee-episodic-pivot-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stockbee-episodic-pivot-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link stockbee-episodic-pivot-analyzer"
+  },
+  {
+    "id": "stockbee-exhaustion-hammer-screener",
+    "name": "stockbee-exhaustion-hammer-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Screen US stocks for Stockbee-style selling-exhaustion hammer setups using prior momentum, pullback depth, undercut/reclaim, long lower-wick geometry, close-location, volume confirmation, quality/liquidity gates, and risk-distance scoring. Use when the user asks for Stockbee, Pradeep Bonde, exhaustion setup, selling exhaustion, hammer reversal, undercut reclaim, near-close reversal candidates, or pullback entries in high-quality funds-owned stocks.",
+    "path": "library/tradermonty-claude-trading-skills/skills/stockbee-exhaustion-hammer-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stockbee-exhaustion-hammer-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link stockbee-exhaustion-hammer-screener"
+  },
+  {
+    "id": "stockbee-momentum-burst-screener",
+    "name": "stockbee-momentum-burst-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Screen US stocks for Stockbee-style short-term Momentum Burst setups using 4% breakout, dollar breakout, range expansion, volume expansion, prior range contraction, close-location, failure filters, and risk-distance scoring. Use when the user asks for Stockbee, Pradeep Bonde, momentum burst, 4% breakout, range expansion, dollar breakout, short-term swing momentum candidates, or 3-5 day burst setup review.",
+    "path": "library/tradermonty-claude-trading-skills/skills/stockbee-momentum-burst-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stockbee-momentum-burst-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link stockbee-momentum-burst-screener"
+  },
+  {
+    "id": "stockbee-setup-fluency-trainer",
+    "name": "stockbee-setup-fluency-trainer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Build a Stockbee-style setup model book from momentum-burst screener candidates, then update 3-day and 5-day forward outcomes with MFE/MAE, stop-hit status, outcome tags, and cohort statistics. Use when the user wants to study Stockbee Momentum Burst examples, track failed candidates, build setup fluency, review A/B setup quality, or convert screener outputs into a learning loop rather than immediate trade signals.",
+    "path": "library/tradermonty-claude-trading-skills/skills/stockbee-setup-fluency-trainer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stockbee-setup-fluency-trainer",
+    "link_cmd": "python .agents/library/activate_skill.py link stockbee-setup-fluency-trainer"
+  },
+  {
+    "id": "strategy-pivot-designer",
+    "name": "strategy-pivot-designer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Detect backtest iteration stagnation and generate structurally different strategy pivot proposals when parameter tuning reaches a local optimum.",
+    "path": "library/tradermonty-claude-trading-skills/skills/strategy-pivot-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate strategy-pivot-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link strategy-pivot-designer"
+  },
+  {
+    "id": "technical-analyst",
+    "name": "technical-analyst",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "agent-orchestration",
+    "description": "This skill should be used when analyzing weekly price charts for stocks, stock indices, cryptocurrencies, or forex pairs. Use this skill when the user provides chart images and requests technical analysis, trend identification, support/resistance levels, scenario planning, or probability assessments based purely on chart data without consideration of news or fundamental factors.",
+    "path": "library/tradermonty-claude-trading-skills/skills/technical-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate technical-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link technical-analyst"
+  },
+  {
+    "id": "theme-detector",
+    "name": "theme-detector",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "general-development",
+    "description": "Detect and analyze trending market themes across sectors. Use when user asks about current market themes, trending sectors, sector rotation, thematic investing, what themes are hot or cold, or wants to identify bullish and bearish market narratives with lifecycle analysis.",
+    "path": "library/tradermonty-claude-trading-skills/skills/theme-detector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate theme-detector",
+    "link_cmd": "python .agents/library/activate_skill.py link theme-detector"
+  },
+  {
+    "id": "trade-hypothesis-ideator",
+    "name": "trade-hypothesis-ideator",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "> Generate falsifiable trade strategy hypotheses from market data, trade logs, and journal snippets. Use when you have a structured input bundle and want ranked hypothesis cards with experiment designs, kill criteria, and optional strategy.yaml export compatible with edge-finder-candidate/v1.",
+    "path": "library/tradermonty-claude-trading-skills/skills/trade-hypothesis-ideator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trade-hypothesis-ideator",
+    "link_cmd": "python .agents/library/activate_skill.py link trade-hypothesis-ideator"
+  },
+  {
+    "id": "trade-performance-coach",
+    "name": "trade-performance-coach",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Review closed trades, partial exits, and monthly trade aggregates for process adherence, risk discipline, execution quality, and evidence-based trading behavior patterns. Use after trader-memory-core and signal-postmortem have produced records, or when the user asks for a post-trade coach, risk-manager style review, rule-adherence review, next-session operating rules, or psychology-aware trading behavior feedback. This skill does not provide buy/sell advice, therapy, or broker execution.",
+    "path": "library/tradermonty-claude-trading-skills/skills/trade-performance-coach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trade-performance-coach",
+    "link_cmd": "python .agents/library/activate_skill.py link trade-performance-coach"
+  },
+  {
+    "id": "trader-memory-core",
+    "name": "trader-memory-core",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Track investment theses across their lifecycle \u2014 from screening idea to closed position with postmortem. Register theses from screener outputs, manage state transitions, attach position sizing, review due dates, and generate postmortem reports with P&L and MAE/MFE analysis. Trigger when user says \"register thesis\", \"track this idea\", \"thesis status\", \"review due\", \"close position\", \"postmortem\", or \"trading journal\".",
+    "path": "library/tradermonty-claude-trading-skills/skills/trader-memory-core",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trader-memory-core",
+    "link_cmd": "python .agents/library/activate_skill.py link trader-memory-core"
+  },
+  {
+    "id": "trading-skills-navigator",
+    "name": "trading-skills-navigator",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "backend-api",
+    "description": "Recommend the right trading workflow, skillset, API profile, and setup path from a natural-language goal. Use this as the on-ramp when a user expresses a trading or investing goal and needs to know which skill/workflow to use, where to start, or whether something works without paid API keys \u2014 e.g. \"where do I start\", \"which skill should I use\", \"I want to swing trade only when the market is favorable\", \"what works without API keys\", \"\u3069\u308c\u3092\u4f7f\u3048\u3070\u3044\u3044\", \"API \u30ad\u30fc\u7121\u3057\u3067 \u4f7f\u3048\u308b\u3082\u306e\u306f\". Routes and explains only; it never executes trades or auto-runs other skills, and it is honest when no workflow has shipped yet.",
+    "path": "library/tradermonty-claude-trading-skills/skills/trading-skills-navigator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trading-skills-navigator",
+    "link_cmd": "python .agents/library/activate_skill.py link trading-skills-navigator"
+  },
+  {
+    "id": "uptrend-analyzer",
+    "name": "uptrend-analyzer",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Analyzes market breadth using Monty's Uptrend Ratio Dashboard data to diagnose the current market environment. Generates a 0-100 composite score from 5 components (breadth, sector participation, rotation, momentum, historical context). Use when asking about market breadth, uptrend ratios, or whether the market environment supports equity exposure. No API key required.",
+    "path": "library/tradermonty-claude-trading-skills/skills/uptrend-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate uptrend-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link uptrend-analyzer"
+  },
+  {
+    "id": "us-market-bubble-detector",
+    "name": "us-market-bubble-detector",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "general-development",
+    "description": "Evaluates market bubble risk through quantitative data-driven analysis using the revised Minsky/Kindleberger framework v2.1. Prioritizes objective metrics (Put/Call, VIX, margin debt, breadth, IPO data) over subjective impressions. Features strict qualitative adjustment criteria with confirmation bias prevention. Supports practical investment decisions with mandatory data collection and mechanical scoring. Use when user asks about bubble risk, valuation concerns, or profit-taking timing.",
+    "path": "library/tradermonty-claude-trading-skills/skills/us-market-bubble-detector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate us-market-bubble-detector",
+    "link_cmd": "python .agents/library/activate_skill.py link us-market-bubble-detector"
+  },
+  {
+    "id": "us-stock-analysis",
+    "name": "us-stock-analysis",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "animation-craft",
+    "description": "Comprehensive US stock analysis including fundamental analysis (financial metrics, business quality, valuation), technical analysis (indicators, chart patterns, support/resistance), stock comparisons, and investment report generation. Use when user requests analysis of US stock tickers (e.g., \"analyze AAPL\", \"compare TSLA vs NVDA\", \"give me a report on Microsoft\"), evaluation of financial metrics, technical chart analysis, or investment recommendations for American stocks.",
+    "path": "library/tradermonty-claude-trading-skills/skills/us-stock-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate us-stock-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link us-stock-analysis"
+  },
+  {
+    "id": "us-undervalued-growth-screener",
+    "name": "us-undervalued-growth-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "testing-qa",
+    "description": "Autonomously screen NYSE, Nasdaq, and NYSE American operating-company stocks for undervalued-growth/GARP opportunities using forward same-basis valuation, driver-derived EPS/FCF forecasts, primary-source financial verification, SBC and dilution controls, sector and cycle normalization, auditable candidate-pool coverage, and fail-closed final reporting. Use when asked to find, screen, rank, or refresh US undervalued-growth stocks, including minimal requests with no ticker list or parameters.",
+    "path": "library/tradermonty-claude-trading-skills/skills/us-undervalued-growth-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate us-undervalued-growth-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link us-undervalued-growth-screener"
+  },
+  {
+    "id": "value-dividend-screener",
+    "name": "value-dividend-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "backend-api",
+    "description": "Screen US stocks for high-quality dividend opportunities combining value characteristics (P/E ratio under 20, P/B ratio under 2), attractive yields (3% or higher), and consistent growth (dividend/revenue/EPS trending up over 3 years). Supports two-stage screening using FINVIZ Elite API for efficient pre-filtering followed by FMP API for detailed analysis. Use when user requests dividend stock screening, income portfolio ideas, or quality value stocks with strong fundamentals.",
+    "path": "library/tradermonty-claude-trading-skills/skills/value-dividend-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate value-dividend-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link value-dividend-screener"
+  },
+  {
+    "id": "vcp-screener",
+    "name": "vcp-screener",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "research-academic",
+    "description": "Screen S&P 500 stocks for Mark Minervini's Volatility Contraction Pattern (VCP) and detect historical VCPs in a single ticker's price path. Identifies Stage 2 uptrend stocks forming tight bases with contracting volatility near breakout pivot points; in historical single-ticker mode walks a multi-year history and emits every VCP that formed with forward-outcome stats (breakout / stop-hit / timeout). Use when user requests VCP screening, Minervini-style setups, tight base patterns, volatility contraction breakout candidates, Stage 2 momentum stock scanning, or historical VCP pattern study on a specific ticker (e.g. FIX, TSLA).",
+    "path": "library/tradermonty-claude-trading-skills/skills/vcp-screener",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vcp-screener",
+    "link_cmd": "python .agents/library/activate_skill.py link vcp-screener"
+  },
+  {
+    "id": "weekly-performance-digest",
+    "name": "weekly-performance-digest",
+    "repository": "tradermonty-claude-trading-skills",
+    "category": "frontend",
+    "description": "Generate a weekly performance summary from closed trader-memory-core theses \u2014 win rate, expectancy, profit factor, R-multiple, MAE/MFE, and win/loss pattern analysis by source skill, exit reason, thesis type, sector, and mechanism. No API required; pure local calculation.",
+    "path": "library/tradermonty-claude-trading-skills/skills/weekly-performance-digest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate weekly-performance-digest",
+    "link_cmd": "python .agents/library/activate_skill.py link weekly-performance-digest"
   },
   {
     "id": "agentic-actions-auditor",
