@@ -158,9 +158,10 @@
   // Initialize Data
   async function init() {
     applyTheme(state.theme);
+    const dataVersion = '2.2';
 
     try {
-      const statsRes = await fetch('./data/stats.json');
+      const statsRes = await fetch(`./data/stats.json?v=${dataVersion}`);
       if (statsRes.ok) {
         state.stats = await statsRes.json();
         renderStats();
@@ -170,7 +171,7 @@
     }
 
     try {
-      const catRes = await fetch('./data/categories.json');
+      const catRes = await fetch(`./data/categories.json?v=${dataVersion}`);
       if (catRes.ok) {
         state.categories = await catRes.json();
         renderCategories();
@@ -180,7 +181,7 @@
     }
 
     try {
-      const repoRes = await fetch('./data/repositories.json');
+      const repoRes = await fetch(`./data/repositories.json?v=${dataVersion}`);
       if (repoRes.ok) {
         state.repositories = await repoRes.json();
       }
@@ -189,7 +190,7 @@
     }
 
     try {
-      const catalogRes = await fetch('./data/catalog.json');
+      const catalogRes = await fetch(`./data/catalog.json?v=${dataVersion}`);
       if (catalogRes.ok) {
         state.catalog = await catalogRes.json();
         renderStats();
