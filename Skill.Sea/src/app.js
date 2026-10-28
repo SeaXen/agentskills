@@ -337,7 +337,7 @@
       chipsHtml += `
         <span class="filter-chip">
           Search: "<b>${escapeHtml(state.searchQuery)}</b>"
-          <span class="filter-chip-remove" onclick="clearSearchFilter()">×</span>
+          <button type="button" class="filter-chip-remove" aria-label="Remove search filter" onclick="clearSearchFilter()">×</button>
         </span>
       `;
     }
@@ -348,7 +348,7 @@
       chipsHtml += `
         <span class="filter-chip">
           Category: <b>${escapeHtml(catName)}</b>
-          <span class="filter-chip-remove" onclick="setCategory('all')">×</span>
+          <button type="button" class="filter-chip-remove" aria-label="Remove category filter" onclick="setCategory('all')">×</button>
         </span>
       `;
     }
@@ -357,7 +357,7 @@
       chipsHtml += `
         <span class="filter-chip">
           Library: <b>${escapeHtml(state.selectedLibrary)}</b>
-          <span class="filter-chip-remove" onclick="setLibrary('all')">×</span>
+          <button type="button" class="filter-chip-remove" aria-label="Remove library filter" onclick="setLibrary('all')">×</button>
         </span>
       `;
     }
@@ -366,12 +366,12 @@
       chipsHtml += `
         <span class="filter-chip">
           Tier: <b>${state.filterTier === 'hot' ? 'Hot-Set Only' : 'Vault Only'}</b>
-          <span class="filter-chip-remove" onclick="setTier('all')">×</span>
+          <button type="button" class="filter-chip-remove" aria-label="Remove tier filter" onclick="setTier('all')">×</button>
         </span>
       `;
     }
 
-    chipsHtml += `<button class="filter-reset-btn" onclick="clearAllFilters()">Reset All</button>`;
+    chipsHtml += `<button type="button" class="filter-reset-btn" onclick="clearAllFilters()">Reset All</button>`;
     el.activeFiltersBar.innerHTML = chipsHtml;
   }
 
@@ -495,17 +495,17 @@
           <td>
             <div class="skill-meta">
               <div class="skill-icon-tile">
-                <i class="ti ti-${item.categoryIcon || 'cpu'}"></i>
+                <i class="ti ti-${item.categoryIcon || 'cpu'}" aria-hidden="true"></i>
               </div>
               <div class="skill-info">
                 <div class="skill-title-row">
                   <span class="skill-title">${escapeHtml(item.name)}</span>
                   ${activeTag}
-                  <span class="skill-repo" onclick="event.stopPropagation(); setLibrary('${item.repository}')" title="Filter by library: ${escapeHtml(item.repository)}">
-                    <i class="ti ti-books"></i>${escapeHtml(item.repository)}
+                  <span class="skill-repo" role="button" tabindex="0" onclick="event.stopPropagation(); setLibrary('${item.repository}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setLibrary('${item.repository}');}" title="Filter by library: ${escapeHtml(item.repository)}" aria-label="Filter by library ${escapeHtml(item.repository)}">
+                    <i class="ti ti-books" aria-hidden="true"></i>${escapeHtml(item.repository)}
                   </span>
-                  <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="skill-repo" onclick="event.stopPropagation()" title="Open upstream GitHub repository (${escapeHtml(item.repository)})">
-                    <i class="ti ti-brand-github"></i>
+                  <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="skill-repo" onclick="event.stopPropagation()" title="Open upstream GitHub repository (${escapeHtml(item.repository)})" aria-label="Open upstream GitHub repository for ${escapeHtml(item.name)}">
+                    <i class="ti ti-brand-github" aria-hidden="true"></i>
                   </a>
                 </div>
                 <div class="skill-desc">${escapeHtml(item.description || 'Specialized skill ready for instant agent activation.')}</div>
@@ -513,8 +513,8 @@
             </div>
           </td>
           <td>
-            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" onclick="event.stopPropagation(); setCategory('${item.category}')" title="Filter by category: ${escapeHtml(item.cleanCategory || item.category)}">
-              <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px"></i>
+            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" role="button" tabindex="0" onclick="event.stopPropagation(); setCategory('${item.category}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setCategory('${item.category}');}" title="Filter by category: ${escapeHtml(item.cleanCategory || item.category)}" aria-label="Filter by category ${escapeHtml(item.cleanCategory || item.category)}">
+              <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px" aria-hidden="true"></i>
               ${escapeHtml(item.cleanCategory || item.category)}
             </span>
           </td>
@@ -522,15 +522,15 @@
             ${tierBadge}
           </td>
           <td class="col-cmd">
-            <div class="cmd-box" onclick="copyCommand('${escapeHtml(cmd)}', event)" title="Click to copy 1-click install command (${state.installCmdMode.toUpperCase()})">
+            <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" title="Click to copy 1-click install command (${state.installCmdMode.toUpperCase()})" aria-label="Copy 1-click install command for ${escapeHtml(item.name)}">
               <code>${escapeHtml(cmd)}</code>
-              <i class="ti ti-copy cmd-copy-icon"></i>
+              <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
             </div>
           </td>
           <td style="text-align:right">
-            <button class="btn-action" onclick="event.stopPropagation(); openSkillDrawer('${item.id}')">
+            <button type="button" class="btn-action" onclick="event.stopPropagation(); openSkillDrawer('${item.id}')" aria-label="Inspect ${escapeHtml(item.name)}">
               <span>Inspect</span>
-              <i class="ti ti-chevron-right" style="font-size:12px"></i>
+              <i class="ti ti-chevron-right" style="font-size:12px" aria-hidden="true"></i>
             </button>
           </td>
         </tr>
@@ -580,21 +580,21 @@
                 <span class="card-title">${escapeHtml(item.name)}</span>
                 ${activeTag}
               </div>
-              <span class="card-repo" onclick="event.stopPropagation(); setLibrary('${item.repository}')" style="cursor:pointer">
-                <i class="ti ti-books"></i> ${escapeHtml(item.repository)}
+              <span class="card-repo" role="button" tabindex="0" onclick="event.stopPropagation(); setLibrary('${item.repository}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setLibrary('${item.repository}');}" style="cursor:pointer" aria-label="Filter by library ${escapeHtml(item.repository)}">
+                <i class="ti ti-books" aria-hidden="true"></i> ${escapeHtml(item.repository)}
               </span>
             </div>
             ${tierBadge}
           </div>
           <div class="card-desc">${escapeHtml(item.description || 'Specialized skill ready for instant agent activation.')}</div>
           <div class="card-bottom">
-            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" onclick="event.stopPropagation(); setCategory('${item.category}')">
-              <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px"></i>
+            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" role="button" tabindex="0" onclick="event.stopPropagation(); setCategory('${item.category}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setCategory('${item.category}');}" aria-label="Filter by category ${escapeHtml(item.cleanCategory || item.category)}">
+              <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px" aria-hidden="true"></i>
               ${escapeHtml(item.cleanCategory || item.category)}
             </span>
-            <div class="cmd-box" onclick="copyCommand('${escapeHtml(cmd)}', event)" style="max-width:140px" title="Copy ${state.installCmdMode.toUpperCase()} command">
+            <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" style="max-width:140px" title="Copy ${state.installCmdMode.toUpperCase()} command" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
               <code>${state.installCmdMode.toUpperCase()}</code>
-              <i class="ti ti-copy cmd-copy-icon"></i>
+              <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -639,23 +639,23 @@
               <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap">
                 <span class="rank-pill rank-top-1" style="font-size:10px;width:20px;height:20px">⚡</span>
                 <span class="card-title">${escapeHtml(item.name)}</span>
-                <span class="tag-active-pill" style="font-size:9px;padding:1px 5px"><i class="ti ti-flame" style="font-size:8.5px"></i> Active</span>
+                <span class="tag-active-pill" style="font-size:9px;padding:1px 5px"><i class="ti ti-flame" style="font-size:8.5px" aria-hidden="true"></i> Active</span>
               </div>
-              <span class="card-repo" onclick="event.stopPropagation(); setLibrary('${item.repository}')" style="cursor:pointer">
-                <i class="ti ti-books"></i> ${escapeHtml(item.repository)}
+              <span class="card-repo" role="button" tabindex="0" onclick="event.stopPropagation(); setLibrary('${item.repository}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setLibrary('${item.repository}');}" style="cursor:pointer" aria-label="Filter by library ${escapeHtml(item.repository)}">
+                <i class="ti ti-books" aria-hidden="true"></i> ${escapeHtml(item.repository)}
               </span>
             </div>
-            <span class="tg tg-hot"><i class="ti ti-flame" style="font-size:10px"></i> Hot-Set</span>
+            <span class="tg tg-hot"><i class="ti ti-flame" style="font-size:10px" aria-hidden="true"></i> Hot-Set</span>
           </div>
           <div class="card-desc">${escapeHtml(item.description || 'Pre-linked active skill ready for instantaneous invocation.')}</div>
           <div class="card-bottom">
-            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" onclick="event.stopPropagation(); setCategory('${item.category}')">
-              <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px"></i>
+            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" role="button" tabindex="0" onclick="event.stopPropagation(); setCategory('${item.category}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setCategory('${item.category}');}" aria-label="Filter by category ${escapeHtml(item.cleanCategory)}">
+              <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px" aria-hidden="true"></i>
               ${escapeHtml(item.cleanCategory)}
             </span>
-            <div class="cmd-box" onclick="copyCommand('${escapeHtml(cmd)}', event)" style="max-width:180px" title="Copy ${state.installCmdMode.toUpperCase()} command">
+            <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" style="max-width:180px" title="Copy ${state.installCmdMode.toUpperCase()} command" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
               <code>${escapeHtml(cmd)}</code>
-              <i class="ti ti-copy cmd-copy-icon"></i>
+              <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -680,10 +680,10 @@
     let cards = '';
     for (const cat of filteredCats) {
       cards += `
-        <div class="cat-dir-card cat-color-${cat.colorTheme || 'blue'}" onclick="setCategory('${cat.slug}')">
+        <div class="cat-dir-card cat-color-${cat.colorTheme || 'blue'}" role="button" tabindex="0" onclick="setCategory('${cat.slug}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setCategory('${cat.slug}');}" aria-label="Browse ${escapeHtml(cat.cleanTitle || cat.title)} category">
           <div class="cat-dir-header">
             <div class="cat-dir-icon" style="background:var(--cat-bg);border:0.5px solid var(--cat-border);color:var(--cat-text)">
-              <i class="ti ti-${cat.icon || 'folder'}"></i>
+              <i class="ti ti-${cat.icon || 'folder'}" aria-hidden="true"></i>
             </div>
             <div>
               <div class="cat-dir-title">${escapeHtml(cat.cleanTitle || cat.title)}</div>
@@ -692,8 +692,8 @@
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:0.5px solid var(--border);padding-top:8px;gap:6px">
             <span style="font-size:11.5px;color:var(--cat-text, var(--teal));font-weight:500">Browse Skills →</span>
-            <button class="btn-copy-cat" onclick="event.stopPropagation(); copyCommand('python .agents/library/activate_skill.py link-category ${cat.slug}', event)" title="Copy 1-click command to link all skills in ${cat.slug}">
-              <i class="ti ti-terminal"></i> Copy Activate Cmd
+            <button type="button" class="btn-copy-cat" onclick="event.stopPropagation(); copyCommand('python .agents/library/activate_skill.py link-category ${cat.slug}', event)" title="Copy 1-click command to link all skills in ${cat.slug}" aria-label="Copy 1-click command to link all skills in ${cat.slug}">
+              <i class="ti ti-terminal" aria-hidden="true"></i> Copy Activate Cmd
             </button>
           </div>
         </div>
@@ -753,11 +753,11 @@
             <div style="margin-top:10px">
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3px">
                 <span style="font-size:11px;color:var(--text-muted)">1-Click NPX / Clone:</span>
-                <span style="font-size:10px;color:var(--teal);cursor:pointer" onclick="event.stopPropagation(); copyCommand('python .agents/library/activate_skill.py activate-repo ${r.name}', event)">Activate All Skills</span>
+                <button type="button" style="font-size:10px;color:var(--teal);cursor:pointer;background:none;border:none;padding:0" onclick="event.stopPropagation(); copyCommand('python .agents/library/activate_skill.py activate-repo ${r.name}', event)" aria-label="Activate all skills in ${escapeHtml(r.name)}">Activate All Skills</button>
               </div>
-              <div class="cmd-box" onclick="copyCommand('${escapeHtml(npxCmd)}', event)" style="max-width:100%" title="Click to copy NPX install command">
+              <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(npxCmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(npxCmd)}', event);}" style="max-width:100%" title="Click to copy NPX install command" aria-label="Copy NPX install command for ${escapeHtml(r.name)}">
                 <code>${escapeHtml(npxCmd)}</code>
-                <i class="ti ti-copy cmd-copy-icon"></i>
+                <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
               </div>
             </div>
           </div>
@@ -766,9 +766,9 @@
             <span style="font-size:11.5px;color:var(--text-secondary)">
               ${r.hotCount > 0 ? `<b style="color:var(--teal)">${r.hotCount} Hot-Set</b> · ` : ''}Vault Collection
             </span>
-            <button class="btn-action" onclick="setLibrary('${r.name}')">
+            <button type="button" class="btn-action" onclick="setLibrary('${r.name}')" aria-label="View ${r.skillsCount} skills in ${escapeHtml(r.name)}">
               <span>View ${r.skillsCount} Skills</span>
-              <i class="ti ti-chevron-right" style="font-size:11px"></i>
+              <i class="ti ti-chevron-right" style="font-size:11px" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -782,6 +782,7 @@
     const item = state.catalog.find(s => s.id === skillId);
     if (!item) return;
     state.activeSkill = item;
+    state.lastActiveElement = document.activeElement;
 
     if (el.drawerTitle) el.drawerTitle.textContent = item.name;
     if (el.drawerSubtitle) el.drawerSubtitle.textContent = `${item.repository} · Category: ${item.cleanCategory}`;
@@ -810,68 +811,68 @@
       </div>
 
       <div class="doc-section">
-        <h3><i class="ti ti-file-text" style="color:var(--teal)"></i> Overview & Description</h3>
+        <h3><i class="ti ti-file-text" style="color:var(--teal)" aria-hidden="true"></i> Overview & Description</h3>
         <p style="color:var(--text-secondary);font-size:13px;line-height:1.6;margin-bottom:12px">
           ${escapeHtml(item.description || 'This skill provides structured protocols, tool integrations, and automation rules for AI coding agents.')}
         </p>
       </div>
 
       <div class="doc-section">
-        <h3><i class="ti ti-terminal-2" style="color:var(--teal)"></i> One-Click Activation & Install Commands</h3>
+        <h3><i class="ti ti-terminal-2" style="color:var(--teal)" aria-hidden="true"></i> One-Click Activation & Install Commands</h3>
         
         <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">1. Universal NPX Install (Upstream Origin Repo):</p>
         <div class="code-snippet-box">
-          <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.npxCmd || ('npx skills add ' + item.githubUrl))}')">Copy</span>
+          <button type="button" class="copy-pill" aria-label="Copy Universal NPX command" onclick="copyCommand('${escapeHtml(item.npxCmd || ('npx skills add ' + item.githubUrl))}')">Copy</button>
           <code>${escapeHtml(item.npxCmd || ('npx skills add ' + item.githubUrl))}</code>
         </div>
 
         <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">2. Universal NPX Install (My Repo Vault):</p>
         <div class="code-snippet-box">
-          <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills')}')">Copy</span>
+          <button type="button" class="copy-pill" aria-label="Copy My Repo NPX command" onclick="copyCommand('${escapeHtml(item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills')}')">Copy</button>
           <code>${escapeHtml(item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills')}</code>
         </div>
 
         <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">3. AgentSkills Python CLI (Local Workspace Activation):</p>
         <div class="code-snippet-box">
-          <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.activationCmd)}')">Copy</span>
+          <button type="button" class="copy-pill" aria-label="Copy Python CLI command" onclick="copyCommand('${escapeHtml(item.activationCmd)}')">Copy</button>
           <code>${escapeHtml(item.activationCmd)}</code>
         </div>
 
         <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">4. Zero-Disk Symlink / Junction (Instant Link):</p>
         <div class="code-snippet-box">
-          <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.linkCmd)}')">Copy</span>
+          <button type="button" class="copy-pill" aria-label="Copy Zero-Disk symlink command" onclick="copyCommand('${escapeHtml(item.linkCmd)}')">Copy</button>
           <code>${escapeHtml(item.linkCmd)}</code>
         </div>
 
         <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">5. Remote cURL Quick-Launch (Linux/macOS/Codespaces):</p>
         <div class="code-snippet-box">
-          <span class="copy-pill" onclick="copyCommand('${escapeHtml(curlCommand)}')">Copy</span>
+          <button type="button" class="copy-pill" aria-label="Copy remote cURL command" onclick="copyCommand('${escapeHtml(curlCommand)}')">Copy</button>
           <code>${escapeHtml(curlCommand)}</code>
         </div>
       </div>
 
       <div class="doc-section">
-        <h3><i class="ti ti-brand-github" style="color:var(--teal)"></i> Original Repository & Documentation</h3>
+        <h3><i class="ti ti-brand-github" style="color:var(--teal)" aria-hidden="true"></i> Original Repository & Documentation</h3>
         <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
           <a href="${escapeHtml(githubRepoUrl)}" target="_blank" rel="noopener noreferrer" class="pill" style="padding:6px 14px;background:var(--surface-1);color:var(--text-primary)">
-            <i class="ti ti-brand-github"></i>
+            <i class="ti ti-brand-github" aria-hidden="true"></i>
             <span>View Upstream on GitHub</span>
-            <i class="ti ti-external-link" style="font-size:11px"></i>
+            <i class="ti ti-external-link" style="font-size:11px" aria-hidden="true"></i>
           </a>
-          <button class="pill" onclick="copyCommand('${escapeHtml(githubRepoUrl)}')" style="padding:6px 14px">
-            <i class="ti ti-link"></i>
+          <button type="button" class="pill" onclick="copyCommand('${escapeHtml(githubRepoUrl)}')" style="padding:6px 14px" aria-label="Copy repository link">
+            <i class="ti ti-link" aria-hidden="true"></i>
             <span>Copy Repository Link</span>
           </button>
         </div>
       </div>
 
       <div class="doc-section" style="margin-top:24px;border-top:0.5px solid var(--border);padding-top:16px">
-        <h3><i class="ti ti-device-floppy" style="color:var(--teal)"></i> Cloudflare R2 Sync</h3>
+        <h3><i class="ti ti-device-floppy" style="color:var(--teal)" aria-hidden="true"></i> Cloudflare R2 Sync</h3>
         <p style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">
           This skill definition is cached in your local vault catalog. To sync or download the skill archive directly to Cloudflare R2 object storage:
         </p>
         <div class="code-snippet-box">
-          <span class="copy-pill" onclick="copyCommand('npm run sync:r2')">Copy</span>
+          <button type="button" class="copy-pill" aria-label="Copy Cloudflare R2 sync command" onclick="copyCommand('npm run sync:r2')">Copy</button>
           <code>npm run sync:r2</code>
         </div>
       </div>
@@ -893,6 +894,10 @@
       el.drawerBackdrop.setAttribute('aria-hidden', 'true');
     }
     state.activeSkill = null;
+    if (state.lastActiveElement && typeof state.lastActiveElement.focus === 'function') {
+      state.lastActiveElement.focus();
+    }
+    state.lastActiveElement = null;
   };
 
   // Event Listeners

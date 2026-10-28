@@ -89,8 +89,28 @@ try {
   assert(false, `Tokens file valid: ${e.message}`);
 }
 
-// 4. Test Server Spawn, Routing, Caching & Security Confinement
-console.log('\n4. Testing Local HTTP Server & Security Confinement');
+// 4. Validate Web Interface Guidelines (WIG) & Accessibility
+console.log('\n4. Validating Web Interface Guidelines (WIG) & WCAG Compliance');
+try {
+  const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const mainCss = fs.readFileSync(path.join(ROOT, 'styles/main.css'), 'utf8');
+  const appJs = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
+
+  assert(indexHtml.includes('class="skip-link"'), 'Skip-link present for keyboard users');
+  assert(indexHtml.includes('id="main-content"'), 'Main landmark has #main-content target');
+  assert(indexHtml.includes('rel="preconnect" href="https://cdn.jsdelivr.net"'), 'CDN preconnect link present for fast font/icon loading');
+  assert(indexHtml.includes('role="dialog"') && indexHtml.includes('aria-modal="true"'), 'Modal drawer has role="dialog" and aria-modal="true"');
+  assert(mainCss.includes(':focus-visible'), 'Global :focus-visible styling defined');
+  assert(mainCss.includes('(prefers-reduced-motion: reduce)'), '@media (prefers-reduced-motion: reduce) overrides present');
+  assert(mainCss.includes('font-variant-numeric: tabular-nums'), 'Tabular numerals configured for numeric columns and metrics');
+  assert(!mainCss.includes('transition: all'), 'Zero unoptimized "transition: all" instances (explicit transitions enforced)');
+  assert(appJs.includes('filter-chip-remove') && appJs.includes('button type="button" class="filter-chip-remove"'), 'Dynamic filter chips use accessible button elements');
+} catch (e) {
+  assert(false, `WIG compliance check failed: ${e.message}`);
+}
+
+// 5. Test Server Spawn, Routing, Caching & Security Confinement
+console.log('\n5. Testing Local HTTP Server & Security Confinement');
 const TEST_PORT = 8998;
 const serverProc = require('child_process').spawn('node', ['server.js'], {
   cwd: ROOT,

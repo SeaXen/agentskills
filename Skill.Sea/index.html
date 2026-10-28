@@ -12,24 +12,32 @@
   <meta property="og:description" content="Discover, inspect, and install 6,063+ agent skills across 38 categories from 225 open repositories.">
   <meta property="og:type" content="website">
 
+  <!-- CDN Warmup -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
   <!-- Tabler Icons Font -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.42.0/dist/tabler-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230f6e56'><rect width='24' height='24' rx='6'/><path d='M8 12l3 3 5-5' stroke='%23ffffff' stroke-width='2' fill='none'/></svg>">
 
   <!-- ExamForge Design Tokens & Main Styles -->
-  <link rel="stylesheet" href="styles/design-tokens.css?v=2.1">
-  <link rel="stylesheet" href="styles/main.css?v=2.1">
+  <link rel="stylesheet" href="styles/design-tokens.css?v=2.2">
+  <link rel="stylesheet" href="styles/main.css?v=2.2">
 </head>
 <body>
 
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <div class="app-container">
-    <main class="ef-frame">
+    <main class="ef-frame" id="main-content">
+      <!-- Screen Reader H1 for Accessible Heading Hierarchy -->
+      <h1 class="sr-only">Skill.Sea — Autonomous Agent Skills Vault & Leaderboard</h1>
 
       <!-- 1. Header Navigation Bar (Full Edge-to-Edge) -->
       <header class="hd">
-        <a href="#" class="hd-brand" onclick="switchView('skill-hub')">
-          <div class="brand-icon">
-            <i class="ti ti-waves"></i>
+        <a href="#" class="hd-brand" onclick="switchView('skill-hub')" aria-label="Skill.Sea Home">
+          <div class="brand-icon" aria-hidden="true">
+            <i class="ti ti-waves" aria-hidden="true"></i>
           </div>
           <span class="brand-title">Skill.Sea</span>
           <span class="brand-tag">v2.0</span>
@@ -38,23 +46,23 @@
         <!-- Desktop Navigation Items -->
         <nav class="nv-group" aria-label="Main Navigation">
           <button class="nv on" id="tab-skill-hub" onclick="switchView('skill-hub')">
-            <i class="ti ti-apps"></i>
+            <i class="ti ti-apps" aria-hidden="true"></i>
             <span>Skill Hub</span>
           </button>
           <button class="nv" id="tab-hotset" onclick="switchView('hotset')">
-            <i class="ti ti-flame"></i>
+            <i class="ti ti-flame" aria-hidden="true"></i>
             <span>Hot-Set (130)</span>
           </button>
           <button class="nv" id="tab-categories" onclick="switchView('categories')">
-            <i class="ti ti-layout-grid"></i>
+            <i class="ti ti-layout-grid" aria-hidden="true"></i>
             <span>38 Categories</span>
           </button>
           <button class="nv" id="tab-library" onclick="switchView('library')">
-            <i class="ti ti-books"></i>
+            <i class="ti ti-books" aria-hidden="true"></i>
             <span>Library & Git Repos (225)</span>
           </button>
           <button class="nv" id="tab-guide" onclick="switchView('guide')">
-            <i class="ti ti-terminal-2"></i>
+            <i class="ti ti-terminal-2" aria-hidden="true"></i>
             <span>Install Guide</span>
           </button>
         </nav>
@@ -62,52 +70,52 @@
         <div class="spacer"></div>
 
         <!-- Sync Indicator -->
-        <div class="pill" id="sync-btn" title="Vault Status: All 6,063 skills & 225 repositories updated">
-          <span class="status-dot"></span>
+        <button type="button" class="pill" id="sync-btn" title="Vault Status: All 6,063 skills & 225 repositories updated" aria-label="Check vault synchronization status">
+          <span class="status-dot" aria-hidden="true"></span>
           <span>All Updated</span>
-        </div>
+        </button>
 
         <!-- Dark/Light Mode Switcher -->
         <button class="btn-icon" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme (Press T)">
-          <i class="ti ti-moon" id="theme-icon"></i>
+          <i class="ti ti-moon" id="theme-icon" aria-hidden="true"></i>
         </button>
 
         <!-- Upstream GitHub Link -->
-        <a href="https://github.com/SeaXen/agentskills" target="_blank" rel="noopener noreferrer" class="avatar-badge" title="SeaXen AgentSkills GitHub Vault">
-          <i class="ti ti-brand-github" style="font-size:14px"></i>
+        <a href="https://github.com/SeaXen/agentskills" target="_blank" rel="noopener noreferrer" class="avatar-badge" title="SeaXen AgentSkills GitHub Vault" aria-label="SeaXen AgentSkills GitHub Repository">
+          <i class="ti ti-brand-github" style="font-size:14px" aria-hidden="true"></i>
         </a>
       </header>
 
       <!-- 2. Global Telemetry Metrics Row (Edge-to-Edge) -->
       <section class="metrics-row" aria-label="Vault Statistics">
-        <div class="mc" onclick="switchView('skill-hub')">
+        <button type="button" class="mc" onclick="switchView('skill-hub')" aria-label="View all 6,063 skills in Skill Hub">
           <div class="mc-text">
             <span>Total Skills Tracked</span>
             <div class="mc-sub">✓ All 6,063 Ingested & Updated</div>
           </div>
           <b id="stat-total-skills">6,063</b>
-        </div>
-        <div class="mc" onclick="switchView('categories')">
+        </button>
+        <button type="button" class="mc" onclick="switchView('categories')" aria-label="View 38 functional categories">
           <div class="mc-text">
             <span>Functional Categories</span>
             <div class="mc-sub">✓ All 38 Domains Synchronized</div>
           </div>
           <b id="stat-total-cats">38</b>
-        </div>
-        <div class="mc" onclick="switchView('library')">
+        </button>
+        <button type="button" class="mc" onclick="switchView('library')" aria-label="View 225 git origin repositories">
           <div class="mc-text">
             <span>Git Origin Repositories</span>
             <div class="mc-sub">✓ All 225 Repositories Active</div>
           </div>
           <b id="stat-total-repos">225</b>
-        </div>
-        <div class="mc" onclick="switchView('hotset')">
+        </button>
+        <button type="button" class="mc" onclick="switchView('hotset')" aria-label="View 130 active hot-set skills">
           <div class="mc-text">
             <span>Active Hot-Set Skills</span>
             <div class="mc-sub">⚡ 130 Live in Hot-Set</div>
           </div>
           <b id="stat-active-hot">130</b>
-        </div>
+        </button>
       </section>
 
       <!-- ==================================================================
@@ -125,31 +133,31 @@
         <!-- Search & Filter Toolbar -->
         <section class="toolbar" aria-label="Skill Hub Controls">
           <div class="search-box">
-            <i class="ti ti-search"></i>
-            <input type="text" id="search-input" placeholder="Search 6,063 skills, commands, repos (Press /)" autocomplete="off">
-            <span class="kbd-shortcut">/</span>
+            <i class="ti ti-search" aria-hidden="true"></i>
+            <input type="text" id="search-input" name="search" placeholder="Search 6,063 skills, commands, repos (Press /)" aria-label="Search 6,063 skills by name, description, category, or command" autocomplete="off">
+            <span class="kbd-shortcut" aria-hidden="true">/</span>
           </div>
 
           <div class="toolbar-actions">
             <!-- Filter by Category -->
-            <select id="category-filter-select" class="filter-select" aria-label="Filter by Category">
+            <select id="category-filter-select" name="category" class="filter-select" aria-label="Filter by Category">
               <option value="all">Category: All (38)</option>
             </select>
 
             <!-- Filter by Library / Repository -->
-            <select id="library-filter-select" class="filter-select" aria-label="Filter by Library / Repo">
+            <select id="library-filter-select" name="library" class="filter-select" aria-label="Filter by Library / Repository">
               <option value="all">Library: All (225)</option>
             </select>
 
             <!-- Filter by Tier -->
-            <select id="tier-select" class="filter-select" aria-label="Filter by Tier">
+            <select id="tier-select" name="tier" class="filter-select" aria-label="Filter by Tier">
               <option value="all">Tier: All Skills</option>
               <option value="hot">Tier: Hot-Set Only</option>
               <option value="vault">Tier: Vault Reserve Only</option>
             </select>
 
             <!-- Sort By Options -->
-            <select id="sort-select" class="filter-select" aria-label="Sort skills">
+            <select id="sort-select" name="sort" class="filter-select" aria-label="Sort skills">
               <option value="rank">Sort: Most Starred / Rank</option>
               <option value="name-asc">Sort: Name (A–Z)</option>
               <option value="name-desc">Sort: Name (Z–A)</option>
@@ -160,10 +168,10 @@
 
             <div class="view-toggle" role="group" aria-label="View Toggle">
               <button class="view-btn active" id="view-table-btn" title="Table View" aria-label="Table View">
-                <i class="ti ti-table"></i>
+                <i class="ti ti-table" aria-hidden="true"></i>
               </button>
               <button class="view-btn" id="view-grid-btn" title="Grid View" aria-label="Grid View">
-                <i class="ti ti-layout-grid"></i>
+                <i class="ti ti-layout-grid" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -186,7 +194,7 @@
                 <th class="col-cmd">
                   <div class="col-cmd-header">
                     <span>1-Click Install</span>
-                    <div class="cmd-type-toggle" id="cmd-type-toggle">
+                    <div class="cmd-type-toggle" id="cmd-type-toggle" role="group" aria-label="Installation command type">
                       <button type="button" class="cmd-type-btn active" data-mode="npx" title="npx skills add <origin_repo>">NPX</button>
                       <button type="button" class="cmd-type-btn" data-mode="python" title="python .agents/library/activate_skill.py activate <skill>">Python</button>
                       <button type="button" class="cmd-type-btn" data-mode="myrepo" title="npx skills add https://github.com/SeaXen/agentskills">My Repo</button>
@@ -211,14 +219,14 @@
 
         <!-- Pagination Bar -->
         <footer class="pagination-bar">
-          <div id="item-count">Loading skills...</div>
+          <div id="item-count">Loading skills…</div>
           <div class="pagination-controls">
-            <button class="page-btn" id="prev-page-btn" disabled>
-              <i class="ti ti-chevron-left"></i> Previous
+            <button class="page-btn" id="prev-page-btn" aria-label="Previous page" disabled>
+              <i class="ti ti-chevron-left" aria-hidden="true"></i> Previous
             </button>
             <span id="page-indicator" style="font-family:var(--font-mono);font-size:11.5px">Page 1</span>
-            <button class="page-btn" id="next-page-btn">
-              Next <i class="ti ti-chevron-right"></i>
+            <button class="page-btn" id="next-page-btn" aria-label="Next page">
+              Next <i class="ti ti-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
         </footer>
@@ -229,14 +237,14 @@
            ================================================================== -->
       <div id="view-hotset" class="page-view">
         <div class="page-hero">
-          <h2><i class="ti ti-flame" style="color:var(--text-danger)"></i> Active Hot-Set Skills (130 Curated)</h2>
+          <h2><i class="ti ti-flame" style="color:var(--text-danger)" aria-hidden="true"></i> Active Hot-Set Skills (130 Curated)</h2>
           <p>These 130 essential skills are pre-linked and cached in your active workspace for zero-latency AI agent execution without token bloat.</p>
         </div>
 
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
           <div class="search-box" style="width:300px">
-            <i class="ti ti-search"></i>
-            <input type="text" id="hotset-search-input" placeholder="Search hot-set skills..." autocomplete="off">
+            <i class="ti ti-search" aria-hidden="true"></i>
+            <input type="text" id="hotset-search-input" name="hotset-search" placeholder="Search hot-set skills…" aria-label="Search hot-set skills" autocomplete="off">
           </div>
           <div style="font-size:12px;color:var(--text-secondary)">
             Located in: <code style="font-family:var(--font-mono);background:var(--surface-1);padding:2px 6px;border-radius:4px">.agent/skills/</code> and <code style="font-family:var(--font-mono);background:var(--surface-1);padding:2px 6px;border-radius:4px">.agents/skills/</code>
@@ -253,13 +261,13 @@
            ================================================================== -->
       <div id="view-categories" class="page-view">
         <div class="page-hero">
-          <h2><i class="ti ti-layout-grid" style="color:var(--teal)"></i> 38 Functional Skill Categories</h2>
+          <h2><i class="ti ti-layout-grid" style="color:var(--teal)" aria-hidden="true"></i> 38 Functional Skill Categories</h2>
           <p>Explore the complete ecosystem of 6,063+ specialized skills organized into 38 distinct engineering and operational disciplines.</p>
         </div>
 
         <div class="search-box" style="width:340px;margin-bottom:8px">
-          <i class="ti ti-search"></i>
-          <input type="text" id="category-search-input" placeholder="Search 38 categories..." autocomplete="off">
+          <i class="ti ti-search" aria-hidden="true"></i>
+          <input type="text" id="category-search-input" name="category-search" placeholder="Search 38 categories…" aria-label="Search categories" autocomplete="off">
         </div>
 
         <div class="category-directory-grid" id="category-directory-grid">
@@ -272,14 +280,14 @@
            ================================================================== -->
       <div id="view-library" class="page-view">
         <div class="page-hero">
-          <h2><i class="ti ti-books" style="color:var(--teal)"></i> Library & Git Origin Repositories (225 Vaults)</h2>
+          <h2><i class="ti ti-books" style="color:var(--teal)" aria-hidden="true"></i> Library & Git Origin Repositories (225 Vaults)</h2>
           <p>Every skill is mapped to its original upstream GitHub repository. Inspect origins, copy clone commands, and browse repository contents.</p>
         </div>
 
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
           <div class="search-box" style="width:360px">
-            <i class="ti ti-search"></i>
-            <input type="text" id="repo-search-input" placeholder="Search 225 repositories by name or author..." autocomplete="off">
+            <i class="ti ti-search" aria-hidden="true"></i>
+            <input type="text" id="repo-search-input" name="repo-search" placeholder="Search 225 repositories by name or author…" aria-label="Search repositories" autocomplete="off">
           </div>
           <div id="repo-count-badge" class="pill">
             <span>225 Repositories</span>
@@ -605,24 +613,24 @@
        Mobile Bottom Navigation Tab Bar (ExamForge Reference Spec)
        ================================================================== -->
   <nav class="mobile-tab-bar" aria-label="Mobile Navigation">
-    <button class="mob-tab-btn on" id="mob-tab-skill-hub" onclick="switchView('skill-hub')">
-      <i class="ti ti-apps"></i>
+    <button type="button" class="mob-tab-btn on" id="mob-tab-skill-hub" onclick="switchView('skill-hub')">
+      <i class="ti ti-apps" aria-hidden="true"></i>
       <span>Skill Hub</span>
     </button>
-    <button class="mob-tab-btn" id="mob-tab-hotset" onclick="switchView('hotset')">
-      <i class="ti ti-flame"></i>
+    <button type="button" class="mob-tab-btn" id="mob-tab-hotset" onclick="switchView('hotset')">
+      <i class="ti ti-flame" aria-hidden="true"></i>
       <span>Hot-Set</span>
     </button>
-    <button class="mob-tab-btn" id="mob-tab-categories" onclick="switchView('categories')">
-      <i class="ti ti-layout-grid"></i>
+    <button type="button" class="mob-tab-btn" id="mob-tab-categories" onclick="switchView('categories')">
+      <i class="ti ti-layout-grid" aria-hidden="true"></i>
       <span>Categories</span>
     </button>
-    <button class="mob-tab-btn" id="mob-tab-library" onclick="switchView('library')">
-      <i class="ti ti-books"></i>
+    <button type="button" class="mob-tab-btn" id="mob-tab-library" onclick="switchView('library')">
+      <i class="ti ti-books" aria-hidden="true"></i>
       <span>Library</span>
     </button>
-    <button class="mob-tab-btn" id="mob-tab-guide" onclick="switchView('guide')">
-      <i class="ti ti-terminal-2"></i>
+    <button type="button" class="mob-tab-btn" id="mob-tab-guide" onclick="switchView('guide')">
+      <i class="ti ti-terminal-2" aria-hidden="true"></i>
       <span>Guide</span>
     </button>
   </nav>
@@ -635,8 +643,8 @@
           <h2 id="drawer-title">Skill Title</h2>
           <div class="sub" id="drawer-subtitle">Repository upstream</div>
         </div>
-        <button class="btn-icon" id="drawer-close-btn" aria-label="Close drawer (Escape)">
-          <i class="ti ti-x" style="font-size:18px"></i>
+        <button type="button" class="btn-icon" id="drawer-close-btn" aria-label="Close drawer (Escape)">
+          <i class="ti ti-x" style="font-size:18px" aria-hidden="true"></i>
         </button>
       </div>
 
@@ -648,7 +656,7 @@
 
   <!-- Floating Toast Notification -->
   <div class="toast" id="toast" role="alert" aria-live="polite">
-    <i class="ti ti-check" style="font-size:16px"></i>
+    <i class="ti ti-check" style="font-size:16px" aria-hidden="true"></i>
     <span id="toast-message">Command copied to clipboard</span>
   </div>
 

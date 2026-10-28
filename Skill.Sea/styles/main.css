@@ -25,6 +25,58 @@ html, body {
 }
 
 /* ==========================================================================
+   Accessibility & Assistive Technology Utilities (WCAG 2.1 & WIG Compliant)
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 16px;
+  background: var(--teal-strong);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  z-index: 9999;
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
    Full Edge-to-Edge Layout Architecture
    ========================================================================== */
 .app-container {
@@ -119,7 +171,7 @@ html, body {
   cursor: pointer;
   background: transparent;
   border: none;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -190,7 +242,7 @@ html, body {
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .btn-icon:hover {
@@ -315,7 +367,7 @@ html, body {
   color: var(--text-secondary);
   font-size: 12px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   user-select: none;
   flex-shrink: 0;
 }
@@ -360,6 +412,7 @@ html, body {
   font-size: 10.5px;
   opacity: 0.8;
   font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ==========================================================================
@@ -437,9 +490,15 @@ html, body {
   font-size: 12px;
   border-radius: var(--radius);
   padding: 6px 10px;
-  outline: none;
   cursor: pointer;
   max-width: 220px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.filter-select:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+  border-color: var(--teal);
 }
 
 /* Active Filters Bar */
@@ -475,16 +534,26 @@ html, body {
 }
 
 .filter-chip-remove {
+  background: transparent;
+  border: none;
+  padding: 0 2px;
   cursor: pointer;
   color: var(--text-muted);
   font-size: 13px;
   display: inline-flex;
   align-items: center;
+  line-height: 1;
   transition: color 0.12s ease;
 }
 
 .filter-chip-remove:hover {
   color: var(--text-danger);
+}
+
+.filter-chip-remove:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+  border-radius: 2px;
 }
 
 .filter-reset-btn {
@@ -521,7 +590,7 @@ html, body {
   display: flex;
   align-items: center;
   font-size: 14px;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .view-btn.active {
@@ -580,6 +649,7 @@ html, body {
   font-family: var(--font-mono);
   font-size: 11.5px;
   color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .rank-pill {
@@ -591,6 +661,7 @@ html, body {
   justify-content: center;
   font-size: 11px;
   font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 
 .rank-top-1 { background: #fae17d; color: #523700; }
@@ -822,7 +893,7 @@ html, body {
   border-radius: var(--radius-chip);
   white-space: nowrap;
   font-weight: 500;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .tg-hot {
@@ -900,7 +971,7 @@ html, body {
   font-weight: 500;
   padding: 2px 7px;
   cursor: pointer;
-  transition: all 0.12s ease;
+  transition: background-color 0.12s ease, color 0.12s ease;
   line-height: 1.2;
 }
 
@@ -929,13 +1000,19 @@ html, body {
   max-width: 270px;
   position: relative;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
 .cmd-box:hover {
   border-color: var(--teal);
   color: var(--text-primary);
   background: var(--surface-2);
+}
+
+.cmd-box:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+  border-color: var(--teal);
 }
 
 .cmd-box code {
@@ -967,7 +1044,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .btn-action:hover {
@@ -1097,7 +1174,7 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   gap: 12px;
-  transition: all 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .repo-card:hover {
@@ -1156,7 +1233,7 @@ html, body {
   flex-direction: column;
   gap: 8px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 .cat-dir-card:hover {
@@ -1283,14 +1360,21 @@ html, body {
   border-radius: 6px;
   padding: 3px 8px;
   font-size: 11px;
+  font-family: inherit;
   color: var(--text-secondary);
   cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .code-snippet-box .copy-pill:hover {
   background: var(--teal);
   color: #ffffff;
   border-color: var(--teal);
+}
+
+.code-snippet-box .copy-pill:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
 }
 
 .metadata-grid {
@@ -1339,7 +1423,7 @@ html, body {
   gap: 8px;
   transform: translateY(100px);
   opacity: 0;
-  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.25s ease;
   pointer-events: none;
 }
 
@@ -1364,6 +1448,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-variant-numeric: tabular-nums;
 }
 
 .page-btn {
@@ -1374,6 +1459,7 @@ html, body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 11.5px;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .page-btn:disabled {
@@ -1592,7 +1678,7 @@ html, body {
   font-size: 11.5px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   text-decoration: none;
 }
 
@@ -1697,7 +1783,7 @@ html, body {
   font-family: var(--font-mono);
   font-size: 11.5px;
   color: var(--text-primary);
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
   cursor: pointer;
 }
 
@@ -1726,7 +1812,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  transition: all 0.12s ease;
+  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
   flex-shrink: 0;
 }
 
@@ -1756,7 +1842,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  transition: all 0.12s ease;
+  transition: color 0.12s ease, border-color 0.12s ease;
 }
 
 .btn-copy-cat:hover {
