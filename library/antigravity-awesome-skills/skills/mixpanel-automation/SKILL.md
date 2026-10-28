@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: database-sql-relational
 ---
 
 # Mixpanel Automation via Rube MCP

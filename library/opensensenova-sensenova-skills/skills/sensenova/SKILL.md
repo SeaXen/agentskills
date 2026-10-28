@@ -1,6 +1,7 @@
 ---
 name: sensenova
 description: A library of modular AI skills for office automation, featuring advanced Excel data cleaning, Parquet-based analysis, and productivity workflow components.
+category: business-finance-accounting
 ---
 
 # SenseNova-Skills

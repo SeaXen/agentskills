@@ -10,6 +10,7 @@ permissions: [env, file_read, network]
 metadata:
   author: "Shubham Agrawal <shuagrawal@nvidia.com>"
   tags: [amc, calibration, rtsp, vios, rest-api, camera, python]
+category: backend-api-design
 ---
 
 # Skill: Calibrate from RTSP Streams

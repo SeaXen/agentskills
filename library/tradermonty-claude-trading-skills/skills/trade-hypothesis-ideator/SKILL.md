@@ -5,6 +5,7 @@ description: >
   and journal snippets. Use when you have a structured input bundle and want
   ranked hypothesis cards with experiment designs, kill criteria, and optional
   strategy.yaml export compatible with edge-finder-candidate/v1.
+category: data-engineering-ml
 ---
 
 # Trade Hypothesis Ideator

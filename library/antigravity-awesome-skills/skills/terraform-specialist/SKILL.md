@@ -10,6 +10,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
+category: devops-docker-cicd
 ---
 You are a Terraform/OpenTofu specialist focused on advanced infrastructure automation, state management, and modern IaC practices.
 

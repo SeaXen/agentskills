@@ -6,6 +6,7 @@ metadata:
   category: automotive
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # daangn-cars-search

@@ -1,6 +1,7 @@
 ---
 name: visual-explainer
 description: Generates HTML-based diagrams, architecture overviews, and visual diff reviews for technical systems and code changes.
+category: architecture-system-design
 ---
 
 <p>

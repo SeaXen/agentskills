@@ -2,6 +2,7 @@
 name: content-matrix
 description: >
   Generate 24 to 40 LinkedIn post ideas in a single table by pairing the user's content pillars with 8 proven content formats. Based on the Justin Welsh content matrix. Use this skill whenever the user says "give me post ideas", "content matrix", "what should I post about", "generate post ideas", "content ideation", or "map out my content for the month". Pulls from about-me.md and voice.md if they exist, otherwise asks for pillars and context.
+category: audio-voice-sound
 ---
 
 # Content Matrix

@@ -1,6 +1,7 @@
 ---
 name: edge-concept-synthesizer
 description: Abstract detector tickets and hints into reusable edge concepts with thesis, invalidation signals, and strategy playbooks before strategy design/export.
+category: cloudflare-edge
 ---
 
 # Edge Concept Synthesizer

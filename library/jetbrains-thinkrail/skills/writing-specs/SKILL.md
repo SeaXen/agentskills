@@ -1,6 +1,7 @@
 ---
 name: writing-specs
 description: "Use when a workflow step drafts or revises a spec artifact — a goal-and-requirements, an architecture, or a module SPEC — or when a workflow skill names it at such a step. The shared quality bar for specs — not a workflow, nothing to execute."
+category: architecture-system-design
 ---
 
 # Writing Specs

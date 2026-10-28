@@ -3,6 +3,7 @@ name: chatwork-automation
 description: "Automate Chatwork tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Chatwork Automation via Rube MCP

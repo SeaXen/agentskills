@@ -3,6 +3,7 @@ name: drip-jobs-automation
 description: "Automate Drip Jobs tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Drip Jobs Automation via Rube MCP

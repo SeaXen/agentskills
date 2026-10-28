@@ -3,6 +3,7 @@ name: openrouter-automation
 description: "Automate Openrouter tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Openrouter Automation via Rube MCP

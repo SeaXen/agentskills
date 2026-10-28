@@ -3,6 +3,7 @@ name: moxie-automation
 description: "Automate Moxie tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Moxie Automation via Rube MCP

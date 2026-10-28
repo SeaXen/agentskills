@@ -3,6 +3,7 @@ name: campaign-cleaner-automation
 description: "Automate Campaign Cleaner tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Campaign Cleaner Automation via Rube MCP

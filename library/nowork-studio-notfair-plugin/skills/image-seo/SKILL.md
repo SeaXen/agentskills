@@ -14,6 +14,7 @@ description: >
   sitemap", "ImageObject schema", or any image-discoverability / image-performance
   question. For overall page speed use /seo-analysis; for generating new images use
   the brand image skills.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

@@ -1,6 +1,7 @@
 ---
 name: auto-claude-code-research-in-sleep
 description: A research automation toolkit for searching arXiv, summarizing academic papers, and analyzing ML experiment results to plan ablation studies.
+category: academic-writing-publishing
 ---
 
 # Auto-claude-code-research-in-sleep (ARIS ⚔️🌙)

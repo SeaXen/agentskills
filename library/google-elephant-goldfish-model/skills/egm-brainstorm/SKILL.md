@@ -8,6 +8,7 @@ description: >-
   hypotheses via clarifying questions, review, and iterative refinement.
   Produces an RFC summary for human review or more detailed design with
   /egm-draft.
+category: code-quality-refactoring
 ---
 
 # EGM Brainstorm: Interactive Multi-Lens Ideation & Refinement

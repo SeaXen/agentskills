@@ -1,6 +1,7 @@
 ---
 name: stockbee-20pct-study
 description: Build and maintain a Stockbee-style daily 20% mover study for US equities by scanning +20%/-20% movers, classifying catalysts and setup context, updating forward outcomes, and summarizing cohort patterns. Use when the user asks to run a daily 20% study, backfill historical 20% movers, find recurring edge patterns, or build a model book of explosive market moves.
+category: cloudflare-edge
 ---
 
 # Stockbee 20% Study

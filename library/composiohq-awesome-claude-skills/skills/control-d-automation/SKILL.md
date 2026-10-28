@@ -3,6 +3,7 @@ name: control-d-automation
 description: "Automate Control D tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Control D Automation via Rube MCP

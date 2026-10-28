@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: database-sql-relational
 ---
 
 # Calendly Automation via Rube MCP

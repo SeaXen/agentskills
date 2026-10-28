@@ -2,6 +2,7 @@
 name: quote-post
 description: >
   Two-step workflow for creating quote posts on LinkedIn. The assistant drafts original short quotes to accompany a caption, then produces a Gemini prompt that recreates a reference image with the chosen quote baked in. Use this skill whenever the user says "quote post", "quote graphic", "motivational post", "build me a quote", or wants a low-effort high-engagement LinkedIn graphic. Optimised for LinkedIn's employee and early-career audience, which skews toward motivational content.
+category: prompt-llm-engineering
 ---
 
 # Quote Post

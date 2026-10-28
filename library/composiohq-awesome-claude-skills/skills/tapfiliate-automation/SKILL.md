@@ -3,6 +3,7 @@ name: tapfiliate-automation
 description: "Automate Tapfiliate tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Tapfiliate Automation via Rube MCP

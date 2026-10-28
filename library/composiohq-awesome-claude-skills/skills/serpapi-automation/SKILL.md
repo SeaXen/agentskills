@@ -3,6 +3,7 @@ name: serpapi-automation
 description: "Automate Serpapi tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: backend-api-design
 ---
 
 # Serpapi Automation via Rube MCP

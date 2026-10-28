@@ -3,6 +3,7 @@ name: claid-ai-automation
 description: "Automate Claid AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Claid AI Automation via Rube MCP

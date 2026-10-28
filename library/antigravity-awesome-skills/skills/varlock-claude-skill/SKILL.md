@@ -3,6 +3,7 @@ name: varlock-claude-skill
 description: "Secure environment variable management ensuring secrets are never exposed in Claude sessions, terminals, logs, or git commits"
 source: "https://github.com/wrsmith108/varlock-claude-skill"
 risk: safe
+category: git-version-control
 ---
 
 # Varlock Claude Skill

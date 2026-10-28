@@ -3,6 +3,7 @@ name: zenrows-automation
 description: "Automate Zenrows tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Zenrows Automation via Rube MCP

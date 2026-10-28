@@ -5,6 +5,7 @@ version: 1.0.0
 author: geo-seo-claude
 tags: [geo, ai-search, platform-optimization, chatgpt, perplexity, gemini, aio]
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
+category: prompt-llm-engineering
 ---
 
 # GEO Platform Optimizer

@@ -7,6 +7,7 @@ description: ">"
   alignment, honesty, and conversion best practices.
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Copywriting

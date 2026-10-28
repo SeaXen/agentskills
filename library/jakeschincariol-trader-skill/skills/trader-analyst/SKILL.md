@@ -11,6 +11,7 @@ description: >-
   quarter", "is revenue growing", "check the 10-Q", "compare margins", or
   "run the analyst on my holdings".
 argument-hint: "[tickers]"
+category: code-quality-refactoring
 ---
 
 # trader-analyst

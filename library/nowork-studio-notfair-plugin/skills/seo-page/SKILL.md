@@ -14,6 +14,7 @@ description: >
   "content audit for [URL]", or any request naming a specific URL/page for SEO
   evaluation. If the user provides a specific URL (not just a domain), this is
   likely the right skill; use /seo-analysis for full-site audits instead.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

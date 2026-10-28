@@ -10,6 +10,7 @@ permissions: [env, file_read, network]
 metadata:
   author: "Shubham Agrawal <shuagrawal@nvidia.com>"
   tags: [amc, calibration, sample, rest-api, validation, python]
+category: backend-api-design
 ---
 
 # Skill: Calibrate Sample Dataset

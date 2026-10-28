@@ -25,6 +25,7 @@ triggers:
   - prospecting
   - pause campaign
   - update budget
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

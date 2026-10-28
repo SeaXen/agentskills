@@ -3,6 +3,7 @@ name: interzoid-automation
 description: "Automate Interzoid tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Interzoid Automation via Rube MCP

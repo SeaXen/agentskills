@@ -3,6 +3,7 @@ name: fireberry-automation
 description: "Automate Fireberry tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Fireberry Automation via Rube MCP

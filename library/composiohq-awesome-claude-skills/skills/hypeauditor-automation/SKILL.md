@@ -3,6 +3,7 @@ name: hypeauditor-automation
 description: "Automate Hypeauditor tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Hypeauditor Automation via Rube MCP

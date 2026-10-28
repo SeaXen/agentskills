@@ -1,6 +1,7 @@
 ---
 name: last30days
 description: Extracts and analyzes posts and engagement from multiple social media platforms, developer forums, and prediction markets for the last 30 days.
+category: code-quality-refactoring
 ---
 
 # last30days Skill

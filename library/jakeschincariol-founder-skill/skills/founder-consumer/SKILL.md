@@ -10,6 +10,7 @@ description: >-
   the user says "would people buy this", "test it on customers", "run the
   consumer panel", "simulate buyers", "who is my customer", or "validate demand".
 argument-hint: "[--n 100 | --quick] [--seed S]"
+category: code-quality-refactoring
 ---
 
 # founder-consumer

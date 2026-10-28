@@ -1,6 +1,7 @@
 ---
 name: stockbee-momentum-burst-screener
 description: Screen US stocks for Stockbee-style short-term Momentum Burst setups using 4% breakout, dollar breakout, range expansion, volume expansion, prior range contraction, close-location, failure filters, and risk-distance scoring. Use when the user asks for Stockbee, Pradeep Bonde, momentum burst, 4% breakout, range expansion, dollar breakout, short-term swing momentum candidates, or 3-5 day burst setup review.
+category: business-strategy-legal
 ---
 
 # Stockbee Momentum Burst Screener

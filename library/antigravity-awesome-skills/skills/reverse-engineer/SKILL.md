@@ -10,6 +10,7 @@ metadata:
   model: opus
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Common RE scripting environments

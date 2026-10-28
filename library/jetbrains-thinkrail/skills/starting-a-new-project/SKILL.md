@@ -1,6 +1,7 @@
 ---
 name: starting-a-new-project
 description: "Use when the workspace is empty, has no code, and the user brings a raw project idea. Normally reached via setting-up-a-project; not for an existing project."
+category: code-quality-refactoring
 ---
 
 # Starting a new project

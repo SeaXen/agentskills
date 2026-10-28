@@ -5,6 +5,7 @@ description: Generate a complete, accessible brand design system from a brief, a
 # ignored without an error, so these six were auto-invocable the whole time they
 # were marked user-only. This is the field that actually does it.
 disable-model-invocation: true
+category: frontend-ui-components
 ---
 
 # Skill: Brand Kit

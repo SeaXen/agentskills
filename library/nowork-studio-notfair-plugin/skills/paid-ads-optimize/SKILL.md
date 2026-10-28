@@ -2,6 +2,7 @@
 name: paid-ads-optimize
 description: Diagnose wasted paid-ad spend, pacing, and allocation, then propose safe evidence-backed optimizations. Use for waste, negatives, budgets, bid changes, poor CPA or ROAS, underpacing, overspend, or scaling decisions.
 argument-hint: "<campaign, target CPA/ROAS, or 'find waste'>"
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

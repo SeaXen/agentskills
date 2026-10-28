@@ -1,6 +1,7 @@
 ---
 name: asking-user-questions
 description: "Use when composing an ask_user_question round inside a workflow, or when a workflow skill names it at a question step. Shared norms for the tool — not a workflow, nothing to execute."
+category: code-quality-refactoring
 ---
 
 # Asking User Questions

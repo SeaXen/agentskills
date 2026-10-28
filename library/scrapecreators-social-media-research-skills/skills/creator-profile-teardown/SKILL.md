@@ -19,6 +19,7 @@ metadata:
       - social-media
       - research
       - scrapecreators
+category: testing-unit-tdd
 ---
 
 # Creator Profile Teardown

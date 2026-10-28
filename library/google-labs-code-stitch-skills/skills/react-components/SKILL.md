@@ -10,6 +10,7 @@ allowed-tools:
   - "Read"
   - "Write"
   - "web_fetch"
+category: frontend-ui-components
 ---
 
 # Stitch to React Components

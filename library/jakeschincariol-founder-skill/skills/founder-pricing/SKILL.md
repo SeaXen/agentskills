@@ -9,6 +9,7 @@ description: >-
   says "how much should I charge", "price this", "is $X too expensive", "pricing
   strategy", "what price", or after the consumer panel.
 argument-hint: "[current price]"
+category: business-strategy-legal
 ---
 
 # founder-pricing

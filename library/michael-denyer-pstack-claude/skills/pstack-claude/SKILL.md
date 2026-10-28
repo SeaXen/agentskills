@@ -1,6 +1,7 @@
 ---
 name: pstack-claude
 description: A toolkit for sketching software architecture, removing AI writing artifacts, and simplifying technical language.
+category: architecture-system-design
 ---
 
 # pstack

@@ -6,6 +6,7 @@ description: >-
   podcasts, YouTube episodes, Loom trials, discovery recordings. Goal-directed
   watch via Gemini agentic video understanding (frames, audio, or transcript).
   Not for cutting, overlays, rendering, scheduling, or publishing.
+category: video-motion-production
 ---
 
 # Agentic video understanding

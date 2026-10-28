@@ -15,6 +15,7 @@ description: >
   time", "did my site change break SEO", "after migration SEO", "SEO regression",
   "baseline my SEO", "compare SEO to last month", "my titles changed", "pages fell
   out of the index". For a one-time full audit use /seo-analysis.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

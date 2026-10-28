@@ -1,7 +1,7 @@
 # ⚔️ Core Antigravity Kit Protocols
 
 > **Category**: `core-antigravity-protocols`  
-> **Total Skills in Category**: 6 real modular skills  
+> **Total Skills in Category**: 8 real modular skills  
 > **Directory**: [`.agents/category/core-antigravity-protocols`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (6 Skills)
+## 📑 Complete Skill Catalog (8 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -26,6 +26,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`context-optimization`](./context-optimization/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Apply compaction, masking, and caching strategies |
 | **[`infinite-gratitude`](./infinite-gratitude/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case studies). |
 | **[`owl`](./owl/SKILL.md)** | 🟢 Active | `active-skills` | - |
+| **[`owl-protocol-automation`](./owl-protocol-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Owl Protocol tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`strategic-compact`](./strategic-compact/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Suggests manual context compaction at logical intervals to preserve context through task phases rather than arbitrary au |
 
 ---
 

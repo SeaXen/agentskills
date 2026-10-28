@@ -1,6 +1,7 @@
 ---
 name: gathered-scenes-zine
 description: A tool for turning personal photos into Morandi-style cinematic posters using professional typography, selective subject occlusion, and atmospheric layout.
+category: frontend-visual-taste
 ---
 
 <div align="center">

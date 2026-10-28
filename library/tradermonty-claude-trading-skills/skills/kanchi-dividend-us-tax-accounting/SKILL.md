@@ -1,6 +1,7 @@
 ---
 name: kanchi-dividend-us-tax-accounting
 description: Provide US dividend tax and account-location workflow for Kanchi-style income portfolios. Use when users ask about qualified vs ordinary dividends, 1099-DIV interpretation, REIT/BDC distribution treatment, holding-period checks, or taxable-vs-IRA account placement decisions for dividend assets.
+category: business-finance-accounting
 ---
 
 # Kanchi Dividend Us Tax Accounting

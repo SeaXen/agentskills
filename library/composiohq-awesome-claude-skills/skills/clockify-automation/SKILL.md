@@ -4,6 +4,7 @@ description: "Automate time tracking workflows in Clockify -- create and manage 
 requires:
   mcp:
     - rube
+category: terminal-system-tools
 ---
 
 # Clockify Automation

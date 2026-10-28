@@ -3,6 +3,7 @@ name: digital-ocean-automation
 description: "Automate DigitalOcean tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # DigitalOcean Automation via Rube MCP

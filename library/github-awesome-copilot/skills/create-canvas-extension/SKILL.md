@@ -2,6 +2,7 @@
 name: create-canvas-extension
 description: 'Create or register a canvas extension in the awesome-copilot repository. Use when asked to scaffold a new canvas extension, create its plugin.json, add a reusable extension to one or more plugins, or migrate extension metadata. Extensions are reusable source under extensions/; shippable plugin manifests belong under plugins/.'
 argument-hint: '[optional extension name or description]'
+category: graphics-branding-design
 ---
 
 # Create a canvas extension

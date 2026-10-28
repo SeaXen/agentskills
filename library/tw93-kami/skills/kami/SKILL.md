@@ -1,6 +1,7 @@
 ---
 name: kami
 description: Typesets professional documents such as white papers, resumes, and slide decks into PDF, PNG, and editable PowerPoint formats.
+category: academic-writing-publishing
 ---
 
 # Kami Agent Guide

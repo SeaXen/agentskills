@@ -3,6 +3,7 @@ name: browser-tool-automation
 description: "Automate Browser Tool tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Browser Tool Automation via Rube MCP

@@ -3,6 +3,7 @@ name: sendbird-automation
 description: "Automate Sendbird tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Sendbird Automation via Rube MCP

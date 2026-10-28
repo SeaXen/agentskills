@@ -3,6 +3,7 @@ name: news-api-automation
 description: "Automate News API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: backend-api-design
 ---
 
 # News API Automation via Rube MCP

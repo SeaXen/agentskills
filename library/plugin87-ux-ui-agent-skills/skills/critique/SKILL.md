@@ -25,6 +25,7 @@ background: false
 #
 # So the fork is generic and the body below loads the critic's instructions from
 # a ${CLAUDE_SKILL_DIR}-relative path, which does resolve on both routes.
+category: devops-docker-cicd
 ---
 You are now running in a forked context. You cannot see the conversation that
 produced this work, you cannot ask the user a question, and nothing you learned

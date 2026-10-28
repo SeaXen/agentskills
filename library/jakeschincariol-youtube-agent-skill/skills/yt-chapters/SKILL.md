@@ -4,6 +4,7 @@ description: >-
   Write YouTube chapters from a transcript, validated against YouTube's own
   rules so they actually render. Use for "add chapters", "timestamps",
   "break this video into sections".
+category: code-quality-refactoring
 ---
 
 # yt-chapters

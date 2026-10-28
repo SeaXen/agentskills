@@ -4,6 +4,7 @@ description: "RingCentral automation via Rube MCP -- toolkit not currently avail
 requires:
   mcp:
     - rube
+category: code-quality-refactoring
 ---
 
 # RingCentral Automation

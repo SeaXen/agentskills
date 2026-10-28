@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: database-sql-relational
 ---
 
 # Google Analytics Automation via Rube MCP

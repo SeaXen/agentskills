@@ -6,6 +6,7 @@ metadata:
   category: finance
   locale: ko-KR
   phase: v1
+category: git-version-control
 ---
 
 # daishin-report-search

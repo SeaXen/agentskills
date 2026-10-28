@@ -15,6 +15,7 @@ description: ">"
   Cross-references: hig-inputs for input methods, hig-components-system for widgets.
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Apple HIG: Technologies

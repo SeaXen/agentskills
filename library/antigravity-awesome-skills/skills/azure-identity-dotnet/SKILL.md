@@ -5,6 +5,7 @@ description: "|"
 package: Azure.Identity
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Azure.Identity (.NET)

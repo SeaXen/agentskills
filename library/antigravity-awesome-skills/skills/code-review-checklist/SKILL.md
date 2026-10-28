@@ -3,6 +3,7 @@ name: code-review-checklist
 description: "Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability"
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Code Review Checklist

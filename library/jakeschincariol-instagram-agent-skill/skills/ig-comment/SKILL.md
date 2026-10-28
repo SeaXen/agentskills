@@ -5,6 +5,7 @@ description: >-
   person with an opinion, not a bot. Use when the user pastes a post or a reel
   and wants a comment, says "comment on this", "engage with this", "what do I
   say here", or wants a batch for their daily engagement round.
+category: code-quality-refactoring
 ---
 
 # ig-comment

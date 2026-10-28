@@ -3,6 +3,7 @@ name: skill-developer
 description: "Create and manage Claude Code skills following Anthropic best practices. Use when creating new skills, modifying skill-rules.json, understanding trigger patterns, working with hooks, debugging skil..."
 risk: unknown
 source: community
+category: architecture-system-design
 ---
 
 # Skill Developer Guide

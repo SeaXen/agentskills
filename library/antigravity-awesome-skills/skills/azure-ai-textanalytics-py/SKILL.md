@@ -6,6 +6,7 @@ description: "|"
 package: azure-ai-textanalytics
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Azure AI Text Analytics SDK for Python

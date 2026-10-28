@@ -1,3 +1,7 @@
+---
+category: code-quality-refactoring
+---
+
 # Verification Loop Skill
 
 A comprehensive verification system for Claude Code sessions.

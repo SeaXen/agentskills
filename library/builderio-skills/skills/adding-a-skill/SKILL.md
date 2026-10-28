@@ -6,6 +6,7 @@ description: >-
   files, root catalog docs, plugin metadata, @agent-native/skills dynamic
   install path, optional managed AGENTS/CLAUDE instruction blocks in
   ../agent-native/framework, and generated/synced Plan skill gotchas.
+category: code-quality-refactoring
 ---
 
 # Adding A Skill

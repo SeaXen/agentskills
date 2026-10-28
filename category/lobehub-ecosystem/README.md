@@ -1,7 +1,7 @@
 # 🌐 LobeHub Agent Skills Suite
 
 > **Category**: `lobehub-ecosystem`  
-> **Total Skills in Category**: 55 real modular skills  
+> **Total Skills in Category**: 54 real modular skills  
 > **Directory**: [`.agents/category/lobehub-ecosystem`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (55 Skills)
+## 📑 Complete Skill Catalog (54 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -53,7 +53,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`lobe-task`](./lobe-task/SKILL.md)** | 📦 Library | `lobehub-skills` | Modular agent skill module |
 | **[`lobehub-platform`](./lobehub-platform/SKILL.md)** | 📦 Library | `lobehub-skills` | Comprehensive LobeHub AI Platform architecture reference: agent groups, bot connectors (Discord, Slack, Telegram, WeChat |
 | **[`model-bank-metadata`](./model-bank-metadata/SKILL.md)** | 📦 Library | `lobehub-skills` | Use for model knowledgeCutoff, family and generation metadata: onboarding, corrections, research and bulk backfills. |
-| **[`pr`](./pr/SKILL.md)** | 📦 Library | `lobehub-skills` | Create a PR for the current branch (targets `canary` by default), including splitting one cross-layer branch into ordere |
 | **[`product-design`](./product-design/SKILL.md)** | 📦 Library | `lobehub-skills` | Use for new surfaces, redesigns and vague product asks: establish user tasks and business meaning. Built-screen audits a |
 | **[`project-overview`](./project-overview/SKILL.md)** | 📦 Library | `lobehub-skills` | Use for the OSS repository map, code-layer lookup, apps/packages/src ownership and business stubs. |
 | **[`react`](./react/SKILL.md)** | 📦 Library | `lobehub-skills` | Use for TSX components, UI libraries, styling, state locality, layout, render performance and memoization. |

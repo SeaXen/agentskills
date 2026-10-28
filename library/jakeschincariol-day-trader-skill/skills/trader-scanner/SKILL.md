@@ -13,6 +13,7 @@ description: >-
   "oversold stocks", "pre-market scan", "build my watchlist", "what should I
   look at today", or at the start of a trading day before /trader-news.
 argument-hint: "[universe | daily | orb] [--at HH:MM]"
+category: code-quality-refactoring
 ---
 
 # trader-scanner

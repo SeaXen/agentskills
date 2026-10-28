@@ -8,6 +8,7 @@ allowed-tools:
   - Bash
   - WebFetch
   - Write
+category: academic-writing-publishing
 ---
 
 # Brand Mention Scanner Skill

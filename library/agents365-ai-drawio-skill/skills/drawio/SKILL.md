@@ -1,6 +1,7 @@
 ---
 name: drawio
 description: Converts IaC, SQL, and API schemas into editable draw.io architecture diagrams, supporting UML, ERD, and BPMN views.
+category: database-sql-relational
 ---
 
 # drawio-skill — From Text to Professional Diagrams

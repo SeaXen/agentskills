@@ -1,3 +1,7 @@
+---
+category: business-sales-crm
+---
+
 # AI Sales Playbook — Value-Based Pricing & Deal Upselling
 
 ## Preamble (runs on skill start)

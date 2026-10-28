@@ -5,6 +5,7 @@ version: 2.0.0
 author: geo-seo-claude
 tags: [geo, pdf, report, client-deliverable, professional]
 allowed-tools: Read, Grep, Glob, Bash, Write
+category: frontend-visual-taste
 ---
 
 # GEO PDF Report Generator (pandoc pipeline)

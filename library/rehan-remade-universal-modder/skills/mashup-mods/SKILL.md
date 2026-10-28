@@ -1,6 +1,7 @@
 ---
 name: mashup-mods
 description: Build cross-game mashups and total conversions, the "Minecraft inside Elden Ring" or "skateboarding in MW2" kind. Covers passthrough mods (two games running at once and exchanging state, rendering and collision), porting one game's content or mechanics into another, embedding a decompiled game as a library, and clean reimplementations that read the user's own game files. Use when the user wants to combine two games, bring an enemy, mechanic or world from one game into another, or rebuild a game's runtime, or reimplement the guest's rules headless inside a real host.
+category: testing-playwright-e2e
 ---
 
 # Mashups: putting one game inside another

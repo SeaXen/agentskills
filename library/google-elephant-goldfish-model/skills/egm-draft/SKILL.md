@@ -7,6 +7,7 @@ description: >-
   egm-brainstorm (or user notes). This is the second step in the Elephant-Goldfish (EGM)
   feature flow. Use when you are ready to write a design doc after aligning on
   requirements + solution.
+category: code-quality-refactoring
 ---
 
 # Design Drafting (Document Construction)

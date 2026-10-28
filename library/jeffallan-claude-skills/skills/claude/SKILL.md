@@ -1,6 +1,7 @@
 ---
 name: claude
 description: Generates Angular 17+ standalone components and configures NgRx state management, RxJS patterns, and advanced routing for enterprise applications.
+category: frontend-ui-components
 ---
 
 # Claude Skills Project Configuration

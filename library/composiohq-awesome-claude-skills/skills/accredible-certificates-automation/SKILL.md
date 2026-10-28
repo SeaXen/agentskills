@@ -3,6 +3,7 @@ name: accredible-certificates-automation
 description: "Automate Accredible Certificates tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Accredible Certificates Automation via Rube MCP

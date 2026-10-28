@@ -14,6 +14,7 @@ description: >
   "content strategy", "keyword cannibalization", "search intent", "schema markup",
   "structured data", "URL inspection", "page speed", "performance score", "core web
   vitals", "lighthouse", or any organic search question. If in doubt, trigger.
+category: backend-api-design
 ---
 
 # Canonical NotFair workflow

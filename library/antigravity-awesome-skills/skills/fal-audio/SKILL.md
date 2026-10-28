@@ -3,6 +3,7 @@ name: fal-audio
 description: "Text-to-speech and speech-to-text using fal.ai audio models"
 source: "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-audio/SKILL.md"
 risk: safe
+category: audio-voice-sound
 ---
 
 # Fal Audio

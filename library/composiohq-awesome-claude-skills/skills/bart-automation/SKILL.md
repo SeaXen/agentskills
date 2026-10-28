@@ -3,6 +3,7 @@ name: bart-automation
 description: "Automate Bart tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Bart Automation via Rube MCP

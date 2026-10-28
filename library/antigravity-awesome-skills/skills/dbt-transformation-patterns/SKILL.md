@@ -3,6 +3,7 @@ name: dbt-transformation-patterns
 description: "Master dbt (data build tool) for analytics engineering with model organization, testing, documentation, and incremental strategies. Use when building data transformations, creating data models, or ..."
 risk: unknown
 source: community
+category: data-engineering-ml
 ---
 
 # dbt Transformation Patterns

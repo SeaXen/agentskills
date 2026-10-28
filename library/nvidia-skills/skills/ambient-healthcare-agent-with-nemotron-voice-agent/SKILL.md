@@ -8,6 +8,7 @@ metadata:
   team: healthcare-tme
   tags: ambient-healthcare,nemotron-voice-agent,pipecat,tool-calling,healthcare
   version: "1.0.0"
+category: backend-api-design
 ---
 
 # Ambient Healthcare Agent with Nemotron Voice Agent

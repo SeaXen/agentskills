@@ -1,6 +1,7 @@
 ---
 name: product-manager
 description: A set of product management skills focused on acquisition channel evaluation, unit economics, and the design of multi-agent AI workflows.
+category: prompt-llm-engineering
 ---
 
 # Repository Guidelines

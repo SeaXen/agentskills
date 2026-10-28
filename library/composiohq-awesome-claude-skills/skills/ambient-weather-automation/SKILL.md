@@ -3,6 +3,7 @@ name: ambient-weather-automation
 description: "Automate Ambient Weather tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Ambient Weather Automation via Rube MCP

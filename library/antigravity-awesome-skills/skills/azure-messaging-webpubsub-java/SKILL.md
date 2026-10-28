@@ -4,6 +4,7 @@ description: "Build real-time web applications with Azure Web PubSub SDK for Jav
 package: com.azure:azure-messaging-webpubsub
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure Web PubSub SDK for Java

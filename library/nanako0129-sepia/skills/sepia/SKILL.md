@@ -4,6 +4,7 @@ description: Make AI-generated writing read as human-written, in fiction and in 
 license: MIT
 metadata:
   version: "0.12.4"
+category: code-quality-refactoring
 ---
 
 # Sepia — de-AI writing

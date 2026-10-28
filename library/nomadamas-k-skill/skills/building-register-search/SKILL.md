@@ -6,6 +6,7 @@ metadata:
   category: real-estate
   locale: ko-KR
   phase: v1
+category: business-strategy-legal
 ---
 
 # building-register-search

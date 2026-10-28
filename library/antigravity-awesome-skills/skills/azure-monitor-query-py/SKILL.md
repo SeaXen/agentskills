@@ -6,6 +6,7 @@ description: "|"
 package: azure-monitor-query
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Azure Monitor Query SDK for Python

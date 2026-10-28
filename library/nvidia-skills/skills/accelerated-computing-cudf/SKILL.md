@@ -10,6 +10,7 @@ metadata:
     - pandas
     - dask-cudf
     - etl
+category: data-engineering-ml
 ---
 
 # cuDF & dask-cuDF Implementer's Guide

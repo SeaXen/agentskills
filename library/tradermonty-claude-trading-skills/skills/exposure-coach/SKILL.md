@@ -1,6 +1,7 @@
 ---
 name: exposure-coach
 description: Generate a one-page Market Posture summary with net exposure ceiling, growth-vs-value bias, participation breadth, and new-entry-allowed vs cash-priority recommendation by integrating signals from breadth, regime, and flow analysis skills.
+category: mobile-ios-android
 ---
 
 # Exposure Coach

@@ -1,6 +1,7 @@
 ---
 name: downtrend-duration-analyzer
 description: Analyze historical downtrend durations and generate interactive HTML histograms showing typical correction lengths by sector and market cap.
+category: frontend-ui-components
 ---
 
 # Downtrend Duration Analyzer

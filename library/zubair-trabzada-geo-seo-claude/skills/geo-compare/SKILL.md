@@ -9,6 +9,7 @@ description: >
 version: 1.0.0
 tags: [geo, business, delta, monthly, reporting, client, progress]
 allowed-tools: Read, Write, Bash, Glob
+category: code-quality-refactoring
 ---
 
 # GEO Monthly Delta Report Generator

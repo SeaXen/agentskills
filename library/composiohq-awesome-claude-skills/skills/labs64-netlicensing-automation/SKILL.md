@@ -3,6 +3,7 @@ name: labs64-netlicensing-automation
 description: "Automate Labs64 Netlicensing tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Labs64 Netlicensing Automation via Rube MCP

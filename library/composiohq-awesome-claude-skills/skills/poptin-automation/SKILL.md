@@ -3,6 +3,7 @@ name: poptin-automation
 description: "Automate Poptin tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Poptin Automation via Rube MCP

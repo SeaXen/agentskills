@@ -3,6 +3,7 @@ name: placid-automation
 description: "Automate Placid tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Placid Automation via Rube MCP

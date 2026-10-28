@@ -8,6 +8,7 @@ allowed-tools:
   - Bash
   - WebFetch
   - Write
+category: prompt-llm-engineering
 ---
 
 # llms.txt Standard Analysis and Generation Skill

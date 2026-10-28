@@ -3,6 +3,7 @@ name: borneo-automation
 description: "Automate Borneo tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Borneo Automation via Rube MCP

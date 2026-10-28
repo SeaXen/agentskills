@@ -3,6 +3,7 @@ name: environment-setup-guide
 description: "Guide developers through setting up development environments with proper tools, dependencies, and configurations"
 risk: unknown
 source: community
+category: frontend-ui-components
 ---
 
 # Environment Setup Guide

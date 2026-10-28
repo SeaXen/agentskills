@@ -1,6 +1,7 @@
 ---
 name: android-reverse-engineering
 description: Decompiles Android APK, XAPK, JAR, and AAR files to trace call flows and extract HTTP API endpoints.
+category: backend-api-design
 ---
 
 # Android Reverse Engineering & API Extraction — Claude Code skill

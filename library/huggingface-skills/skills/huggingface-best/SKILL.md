@@ -9,6 +9,7 @@ description: >-
   choosing an AI model for a specific use case. Always use this skill when the user wants
   model recommendations or comparisons, even if they don't explicitly mention HuggingFace
   or benchmarks.
+category: code-quality-refactoring
 ---
 
 # HuggingFace Best Model Finder

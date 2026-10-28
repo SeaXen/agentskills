@@ -4,6 +4,7 @@ description: "Draft, rewrite, or review reader-facing prose so it is specific, u
 license: MIT
 metadata:
   version: "0.2.1"
+category: code-quality-refactoring
 ---
 
 # Clarity

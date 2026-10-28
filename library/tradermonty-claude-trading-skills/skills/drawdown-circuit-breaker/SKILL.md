@@ -1,6 +1,7 @@
 ---
 name: drawdown-circuit-breaker
 description: Evaluate account-level drawdown circuit breaker rules from trader-memory-core state and decide whether new trade risk is allowed today. Uses realized P&L, losing-streak cooldowns, and weekly/monthly drawdown limits without any external API.
+category: backend-api-design
 ---
 
 # Drawdown Circuit Breaker

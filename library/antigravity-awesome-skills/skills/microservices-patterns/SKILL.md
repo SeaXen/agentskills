@@ -3,6 +3,7 @@ name: microservices-patterns
 description: "Design microservices architectures with service boundaries, event-driven communication, and resilience patterns. Use when building distributed systems, decomposing monoliths, or implementing micros..."
 risk: unknown
 source: community
+category: architecture-system-design
 ---
 
 # Microservices Patterns

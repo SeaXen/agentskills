@@ -3,6 +3,7 @@ name: observe
 description: 'Show whether the agent followed the kit''s rules in recent sessions: pages edited and measured, Stop hook blocks, findings left open. Reads local hook events only.'
 # A command the user runs, like /gate. The model never starts it.
 disable-model-invocation: true
+category: code-quality-refactoring
 ---
 > **Step 0 - is the kit here?** Check once:
 > `ls ${CLAUDE_SKILL_DIR}/../../../scripts/observe.mjs >/dev/null 2>&1 && echo KIT_OK || echo KIT_MISSING`

@@ -1,6 +1,7 @@
 ---
 name: show-and-tell-video-slate
 description: Turn authorized current builds, workflows, dashboards, analytics, and completed work into proof-led founder videos, then rank and combine the strongest filmable artifacts into exact 15-minute long-form slates with strict title and thumbnail evaluation. Use when deciding what to film, creating show-and-tell business videos, combining thin topics into complete episodes, or requiring packaging concepts to clear explicit quality gates.
+category: video-motion-production
 ---
 
 # Show-and-Tell Video Slate

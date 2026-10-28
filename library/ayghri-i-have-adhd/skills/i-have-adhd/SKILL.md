@@ -6,6 +6,7 @@ license: MIT
 metadata:
   tags: "ADHD, Output Style, Productivity, Formatting"
   category: "productivity"
+category: business-sales-crm
 ---
 
 # i-have-adhd

@@ -6,6 +6,7 @@ metadata:
   category: transport
   locale: ko-KR
   phase: v1
+category: backend-api-design
 ---
 
 # cheap-gas-nearby

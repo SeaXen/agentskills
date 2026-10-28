@@ -1,6 +1,7 @@
 ---
 name: short-form-edit
 description: Turn talking-head footage into a finished reel, YouTube Short, or short advertisement with curiosity-led openings, earned payoffs, story-driven cuts, transcript-synced motion graphics, moving B-roll, captions, subtle music, and synchronized sound effects. Use for short-form editing; use edit-video for long-form videos and cut-silences for pause removal alone.
+category: audio-voice-sound
 ---
 
 # Short form edit

@@ -7,6 +7,7 @@ description: >-
   user says humanize, "does this sound like AI", "remove the em dashes",
   "de-slop this", "this sounds like ChatGPT", or before any caption, script,
   comment, reply or DM is shown to the user.
+category: code-quality-refactoring
 ---
 
 # ig-human

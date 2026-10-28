@@ -4,6 +4,7 @@ description: "Azure Key Vault Keys Java SDK for cryptographic key management. Us
 package: com.azure:azure-security-keyvault-keys
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure Key Vault Keys (Java)

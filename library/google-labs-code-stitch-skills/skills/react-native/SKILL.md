@@ -9,6 +9,7 @@ allowed-tools:
   - "Read"
   - "Write"
   - "web_fetch"
+category: code-quality-refactoring
 ---
 
 # Stitch to React Native Components

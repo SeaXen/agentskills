@@ -3,6 +3,7 @@ name: sage-automation
 description: "Automate Sage tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Sage Automation via Rube MCP

@@ -3,6 +3,7 @@ name: scrapegraph-ai-automation
 description: "Automate Scrapegraph AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Scrapegraph AI Automation via Rube MCP

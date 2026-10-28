@@ -3,6 +3,7 @@ name: gender-api-automation
 description: "Automate Gender API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: backend-api-design
 ---
 
 # Gender API Automation via Rube MCP

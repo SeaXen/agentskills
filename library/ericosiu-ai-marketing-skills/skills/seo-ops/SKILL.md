@@ -1,3 +1,7 @@
+---
+category: code-quality-refactoring
+---
+
 # AI SEO Ops
 
 ## Preamble (runs on skill start)

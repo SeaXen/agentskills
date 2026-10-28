@@ -3,6 +3,7 @@ name: magnetic-automation
 description: "Automate Magnetic tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Magnetic Automation via Rube MCP

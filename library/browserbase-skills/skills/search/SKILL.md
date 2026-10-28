@@ -4,6 +4,7 @@ description: "Use this skill when the user wants to search the web without a ful
 compatibility: "Requires BROWSERBASE_API_KEY. Examples use `curl`; no browser session or CLI install needed."
 license: MIT
 allowed-tools: Bash
+category: security-compliance-auth
 ---
 
 # Browserbase Search API

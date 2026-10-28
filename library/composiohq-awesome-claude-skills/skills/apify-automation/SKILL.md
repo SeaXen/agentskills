@@ -4,6 +4,7 @@ description: "Automate web scraping and data extraction with Apify -- run Actors
 requires:
   mcp:
     - rube
+category: backend-api-design
 ---
 
 # Apify Automation

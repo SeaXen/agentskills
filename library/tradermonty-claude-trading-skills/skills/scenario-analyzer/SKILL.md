@@ -9,6 +9,7 @@ description: |
   Example: /scenario-analyzer "Fed raises rates by 50bp"
   Triggers: news analysis, scenario analysis, 18-month outlook,
   medium-to-long-term investment strategy
+category: mobile-ios-android
 ---
 
 # Scenario Analyzer

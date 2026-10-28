@@ -3,6 +3,7 @@ name: wiz-automation
 description: "Automate Wiz tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Wiz Automation via Rube MCP

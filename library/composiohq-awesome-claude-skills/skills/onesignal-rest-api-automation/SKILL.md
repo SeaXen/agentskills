@@ -3,6 +3,7 @@ name: onesignal-rest-api-automation
 description: "Automate OneSignal tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: backend-api-design
 ---
 
 # OneSignal Automation via Rube MCP

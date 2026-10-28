@@ -2,6 +2,7 @@
 name: remotion-docs
 description: Search Remotion documentation
 version: 4.0.539
+category: video-motion-production
 ---
 
 This skill teaches you how to discover and read current Remotion documentation.

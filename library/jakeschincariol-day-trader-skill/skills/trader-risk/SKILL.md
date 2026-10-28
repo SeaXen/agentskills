@@ -16,6 +16,7 @@ description: >-
   safe", "risk check", "does this break my rules", "can I take this trade",
   "how much have I risked today", or before /trader-broker, always.
 argument-hint: "[path to orders.json]"
+category: code-quality-refactoring
 ---
 
 # trader-risk

@@ -3,6 +3,7 @@ name: fraudlabs-pro-automation
 description: "Automate Fraudlabs Pro tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Fraudlabs Pro Automation via Rube MCP

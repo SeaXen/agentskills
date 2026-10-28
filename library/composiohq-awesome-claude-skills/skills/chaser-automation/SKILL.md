@@ -3,6 +3,7 @@ name: chaser-automation
 description: "Automate Chaser tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Chaser Automation via Rube MCP

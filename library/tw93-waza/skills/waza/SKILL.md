@@ -1,6 +1,7 @@
 ---
 name: waza
 description: Performs code reviews, PR triage, and project-wide quality audits to verify release readiness.
+category: testing-unit-tdd
 ---
 
 # Waza Agent Guide

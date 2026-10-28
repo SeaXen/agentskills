@@ -10,6 +10,7 @@ description: >
   keyword discovery, not calendar scheduling. Use when asked to "find
   keywords", "keyword research", "keyword analysis", "search volume", "keyword
   difficulty", "content ideas from a seed", or any keyword discovery task.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

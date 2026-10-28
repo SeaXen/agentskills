@@ -1,6 +1,7 @@
 ---
 name: setting-up-a-project
 description: "Use when asked to set up, onboard, initialize, or spec a project with no spec graph, or when invoked by the app's Set-up-project card. Not for ordinary work in an already-specced project."
+category: code-quality-refactoring
 ---
 
 # Setting up a project — dispatcher

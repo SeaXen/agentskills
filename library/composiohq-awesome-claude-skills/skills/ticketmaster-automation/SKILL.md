@@ -3,6 +3,7 @@ name: ticketmaster-automation
 description: "Automate Ticketmaster tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Ticketmaster Automation via Rube MCP

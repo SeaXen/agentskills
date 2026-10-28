@@ -1,6 +1,7 @@
 ---
 name: edge-strategy-designer
 description: Convert abstract edge concepts into strategy draft variants and optional exportable ticket YAMLs for edge-candidate-agent export/validation.
+category: cloudflare-edge
 ---
 
 # Edge Strategy Designer

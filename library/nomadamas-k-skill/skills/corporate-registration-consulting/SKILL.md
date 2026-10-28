@@ -5,6 +5,7 @@ license: MIT
 metadata:
   category: legal-documents
   locale: ko-KR
+category: code-quality-refactoring
 ---
 
 # corporate-registration-consulting

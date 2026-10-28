@@ -4,6 +4,7 @@ description: "Automate Snowflake data warehouse operations -- list databases, sc
 requires:
   mcp:
     - rube
+category: database-sql-relational
 ---
 
 # Snowflake Automation

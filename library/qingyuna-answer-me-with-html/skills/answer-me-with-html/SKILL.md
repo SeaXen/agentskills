@@ -1,6 +1,7 @@
 ---
 name: answer-me-with-html
 description: Converts AI responses into single-page HTML explainers for visualizing system architectures, request flows, and technical comparisons.
+category: frontend-ui-components
 ---
 
 <p align="center">

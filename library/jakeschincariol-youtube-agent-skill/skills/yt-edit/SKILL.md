@@ -5,6 +5,7 @@ description: >-
   filler cues and retakes, with timecodes. Use for "edit this", "cut the
   dead space", "tighten this video", "I rambled", or any request to shorten
   footage from a transcript.
+category: code-quality-refactoring
 ---
 
 # yt-edit

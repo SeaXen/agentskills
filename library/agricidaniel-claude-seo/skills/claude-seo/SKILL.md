@@ -1,6 +1,7 @@
 ---
 name: claude-seo
 description: A technical SEO toolkit for analyzing backlinks, organic keywords, and referring domains using Ahrefs and Bing Webmaster Tools.
+category: code-quality-refactoring
 ---
 
 # Claude SEO: Multi-Platform Agent Instructions

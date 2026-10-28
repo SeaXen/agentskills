@@ -3,6 +3,7 @@ name: paradym-automation
 description: "Automate Paradym tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Paradym Automation via Rube MCP

@@ -1,6 +1,7 @@
 ---
 name: claude-obsidian
 description: An AI-driven system for Obsidian that automates source-grounded research, citation drafting, and the organization of a Markdown knowledge graph.
+category: academic-writing-publishing
 ---
 
 # claude-obsidian: Agent Instructions

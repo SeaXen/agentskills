@@ -6,6 +6,7 @@ metadata:
   category: consumer
   locale: ko-KR
   phase: draft
+category: backend-api-design
 ---
 
 # consumer-price-safety-search

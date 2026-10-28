@@ -3,6 +3,7 @@ name: open-sea-automation
 description: "Automate Open Sea tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Open Sea Automation via Rube MCP

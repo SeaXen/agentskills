@@ -4,6 +4,7 @@ description: "Automate document workflows with PandaDoc -- create documents from
 requires:
   mcp:
     - rube
+category: business-strategy-legal
 ---
 
 # PandaDoc Automation

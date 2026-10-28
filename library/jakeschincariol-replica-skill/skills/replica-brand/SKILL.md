@@ -8,6 +8,7 @@ description: >-
   "name my app", "rebrand the clone", "make it mine", "pick a name and
   colours", "logo brief", "brand voice", "check for leftovers", or after
   /replica-entrepreneur. Always runs before /replica-launch.
+category: code-quality-refactoring
 ---
 
 # replica-brand

@@ -11,6 +11,7 @@ description: >-
   buy", "manage my budget", "split my money", "keep 10% in cash", "no stock
   over 25%", "set my rules", or after /trader-copycat writes targets.
 argument-hint: "[budget in dollars]"
+category: code-quality-refactoring
 ---
 
 # trader-budget

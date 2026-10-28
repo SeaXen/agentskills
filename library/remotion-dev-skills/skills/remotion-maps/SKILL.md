@@ -2,6 +2,7 @@
 name: remotion-maps
 description: Remotion Map animation knowledge
 version: 4.0.539
+category: frontend-motion-animation
 ---
 
 # Remotion Maps

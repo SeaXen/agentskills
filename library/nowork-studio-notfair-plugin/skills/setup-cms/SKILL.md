@@ -9,6 +9,7 @@ description: >
   user says "connect my CMS", "set up WordPress", "configure Strapi", "add
   Contentful", "connect Ghost", or "CMS setup". Also trigger if the user asks
   why no CMS data appears in a seo-analysis report.
+category: frontend-ui-components
 ---
 
 # Canonical NotFair workflow

@@ -7,6 +7,7 @@ metadata:
   displayName: Grandet API 比价
   summary: 懂中转站黑话，找模型 API 和中转站的最低标价与免费额度，并把选好的 API 接到你的应用里
   homepage: https://grandet.ai
+category: backend-api-design
 ---
 
 # Grandet API price finder

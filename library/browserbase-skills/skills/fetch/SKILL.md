@@ -4,6 +4,7 @@ description: "Use this skill when the user wants to retrieve a URL without a ful
 compatibility: "Requires BROWSERBASE_API_KEY. Examples use `curl` (or the Node SDK via `npm install @browserbasehq/sdk`); no browser session or CLI install needed."
 license: MIT
 allowed-tools: Bash
+category: frontend-ui-components
 ---
 
 # Browserbase Fetch API

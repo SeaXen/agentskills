@@ -3,6 +3,7 @@ name: turbot-pipes-automation
 description: "Automate Turbot Pipes tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Turbot Pipes Automation via Rube MCP

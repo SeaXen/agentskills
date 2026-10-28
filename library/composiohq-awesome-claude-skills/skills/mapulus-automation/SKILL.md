@@ -3,6 +3,7 @@ name: mapulus-automation
 description: "Automate Mapulus tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Mapulus Automation via Rube MCP

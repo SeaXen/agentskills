@@ -6,6 +6,7 @@ metadata:
   category: business
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # biz-health-check

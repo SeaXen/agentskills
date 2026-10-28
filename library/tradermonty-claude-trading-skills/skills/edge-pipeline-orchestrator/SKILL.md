@@ -1,6 +1,7 @@
 ---
 name: edge-pipeline-orchestrator
 description: Orchestrate the full edge research pipeline from candidate detection through strategy design, review, revision, and export. Use when coordinating multi-stage edge research workflows end-to-end.
+category: cloudflare-edge
 ---
 
 # Edge Pipeline Orchestrator

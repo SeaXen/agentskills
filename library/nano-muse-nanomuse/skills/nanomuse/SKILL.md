@@ -1,6 +1,7 @@
 ---
 name: nanomuse
 description: Specialized trending agent skill.
+category: code-quality-refactoring
 ---
 
 # AGENTS.md

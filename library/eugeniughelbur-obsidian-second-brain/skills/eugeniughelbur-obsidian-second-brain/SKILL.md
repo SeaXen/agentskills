@@ -19,6 +19,7 @@ description: >
   to the vault automatically following the AI-first vault rule. Use proactively whenever
   the conversation produces information worth preserving (decisions, people met, projects
   started, tasks completed, lessons learned, research findings).
+category: code-quality-refactoring
 ---
 
 # Obsidian Second Brain

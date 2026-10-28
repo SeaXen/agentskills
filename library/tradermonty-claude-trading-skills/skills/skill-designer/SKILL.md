@@ -1,6 +1,7 @@
 ---
 name: skill-designer
 description: Design new Claude skills from structured idea specifications. Use when the skill auto-generation pipeline needs to produce a Claude CLI prompt that creates a complete skill directory (SKILL.md, references, scripts, tests) following repository conventions.
+category: prompt-llm-engineering
 ---
 
 # Skill Designer

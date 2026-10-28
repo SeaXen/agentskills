@@ -10,6 +10,7 @@ description: >
   "content plan", "content roadmap", "editorial calendar", "what topics will
   rank", "find quick-win SEO topics", "click-potential analysis", or "schedule
   my SEO content".
+category: productivity-workspace-tools
 ---
 
 # Canonical NotFair workflow

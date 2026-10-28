@@ -3,6 +3,7 @@ name: fireflies-automation
 description: "Automate Fireflies tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Fireflies Automation via Rube MCP

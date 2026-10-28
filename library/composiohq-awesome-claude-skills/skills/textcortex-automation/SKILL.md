@@ -3,6 +3,7 @@ name: textcortex-automation
 description: "Automate Textcortex tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Textcortex Automation via Rube MCP

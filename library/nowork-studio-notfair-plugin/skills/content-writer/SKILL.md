@@ -10,6 +10,7 @@ description: >
   about", "landing page for", "service page", "product page copy", "rewrite
   this page", "make this page rank better", "content brief", "how-to guide",
   "listicle", or any content creation or improvement task for a website.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

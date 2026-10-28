@@ -3,6 +3,7 @@ name: remote-retrieval-automation
 description: "Automate Remote Retrieval tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Remote Retrieval Automation via Rube MCP

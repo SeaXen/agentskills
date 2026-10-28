@@ -3,6 +3,7 @@ name: wolfram-alpha-api-automation
 description: "Automate Wolfram Alpha API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: backend-api-design
 ---
 
 # Wolfram Alpha API Automation via Rube MCP

@@ -1,6 +1,7 @@
 ---
 name: skills
 description: Provides decision support and setup guidance for selecting Google Cloud services, including databases, storage, and AI model serving.
+category: prompt-llm-engineering
 ---
 
 # Agent Skills

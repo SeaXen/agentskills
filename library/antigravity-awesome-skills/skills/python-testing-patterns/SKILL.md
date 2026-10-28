@@ -3,6 +3,7 @@ name: python-testing-patterns
 description: "Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven development. Use when writing Python tests, setting up test suites, or implementing testing best practices."
 risk: unknown
 source: community
+category: testing-unit-tdd
 ---
 
 # Python Testing Patterns

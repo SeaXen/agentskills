@@ -6,6 +6,7 @@ metadata:
   category: retail
   locale: ko-KR
   phase: v2
+category: backend-api-design
 ---
 
 # coupang-product-search

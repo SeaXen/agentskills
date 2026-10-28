@@ -3,6 +3,7 @@ name: signpath-automation
 description: "Automate Signpath tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Signpath Automation via Rube MCP

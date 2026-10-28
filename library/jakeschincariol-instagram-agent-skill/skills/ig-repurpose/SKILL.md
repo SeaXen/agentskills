@@ -6,6 +6,7 @@ description: >-
   says "repurpose this", "turn this into reels", "I have a video/podcast/
   transcript", "cut this up", or pastes something long and wants it on
   Instagram.
+category: code-quality-refactoring
 ---
 
 # ig-repurpose

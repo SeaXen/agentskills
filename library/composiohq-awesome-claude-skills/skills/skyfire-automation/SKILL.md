@@ -3,6 +3,7 @@ name: skyfire-automation
 description: "Automate Skyfire tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Skyfire Automation via Rube MCP

@@ -1,6 +1,7 @@
 ---
 name: skills
 description: Migrates Android projects to Android Gradle Plugin 9 and updates the AGP DSL.
+category: mobile-ios-android
 ---
 
 ## Android skills

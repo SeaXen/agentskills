@@ -3,6 +3,7 @@ name: securitytrails-automation
 description: "Automate Securitytrails tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Securitytrails Automation via Rube MCP

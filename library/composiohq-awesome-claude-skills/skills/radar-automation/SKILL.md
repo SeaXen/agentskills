@@ -3,6 +3,7 @@ name: radar-automation
 description: "Automate Radar tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Radar Automation via Rube MCP

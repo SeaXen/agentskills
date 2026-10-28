@@ -7,6 +7,7 @@ metadata:
   author: muxu
   version: "1.1.0"
   short-description: Supply-chain bottleneck research for ordinary investors
+category: code-quality-refactoring
 ---
 
 # Serenity.skill

@@ -3,6 +3,7 @@ name: uptimerobot-automation
 description: "Automate Uptimerobot tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Uptimerobot Automation via Rube MCP

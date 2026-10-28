@@ -4,6 +4,7 @@ description: "Automate Cloudinary media management including folder organization
 requires:
   mcp:
     - rube
+category: terminal-system-tools
 ---
 
 # Cloudinary Automation

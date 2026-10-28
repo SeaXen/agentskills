@@ -3,6 +3,7 @@ name: postgresql
 description: "Design a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, performance patterns, and advanced features"
 risk: unknown
 source: community
+category: database-sql-relational
 ---
 
 # PostgreSQL Table Design 

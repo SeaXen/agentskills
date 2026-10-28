@@ -8,6 +8,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
+category: frontend-ui-components
 ---
 You are a frontend development expert specializing in modern React applications, Next.js, and cutting-edge frontend architecture.
 

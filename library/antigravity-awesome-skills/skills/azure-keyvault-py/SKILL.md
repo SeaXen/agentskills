@@ -6,6 +6,7 @@ description: "|"
 package: azure-keyvault-secrets, azure-keyvault-keys, azure-keyvault-certificates
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Azure Key Vault SDK for Python

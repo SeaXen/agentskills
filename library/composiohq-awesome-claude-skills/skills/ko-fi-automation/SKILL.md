@@ -3,6 +3,7 @@ name: ko-fi-automation
 description: "Automate Ko Fi tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Ko Fi Automation via Rube MCP

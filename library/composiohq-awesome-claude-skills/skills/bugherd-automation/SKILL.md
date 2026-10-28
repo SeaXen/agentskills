@@ -3,6 +3,7 @@ name: bugherd-automation
 description: "Automate Bugherd tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Bugherd Automation via Rube MCP

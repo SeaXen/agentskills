@@ -4,6 +4,7 @@ description: "Automate Mistral AI operations -- manage files and libraries, uplo
 requires:
   mcp:
     - rube
+category: prompt-llm-engineering
 ---
 
 # Mistral AI Automation

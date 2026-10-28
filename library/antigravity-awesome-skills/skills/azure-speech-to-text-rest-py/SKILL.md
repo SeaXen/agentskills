@@ -6,6 +6,7 @@ description: "|"
   DO NOT USE FOR: Long audio (>60 seconds), real-time streaming, batch transcription, custom speech models, speech translation. Use Speech SDK or Batch Transcription API instead.
 risk: unknown
 source: community
+category: backend-api-design
 ---
 
 # Azure Speech to Text REST API for Short Audio

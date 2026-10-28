@@ -3,6 +3,7 @@ name: insighto-ai-automation
 description: "Automate Insighto AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Insighto AI Automation via Rube MCP

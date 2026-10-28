@@ -1,6 +1,7 @@
 ---
 name: adhd
 description: Parallel divergent ideation for coding agents. Spawns isolated branches under cognitive frames, scores, clusters, prunes traps, and deepens top survivors for open-ended design and architecture problems.
+category: architecture-system-design
 ---
 
 

@@ -4,6 +4,7 @@ description: "Manage secrets using Azure Key Vault Secrets SDK for JavaScript (@
 package: "@azure/keyvault-secrets"
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure Key Vault Secrets SDK for TypeScript

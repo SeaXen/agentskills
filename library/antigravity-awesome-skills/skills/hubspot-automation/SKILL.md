@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: business-sales-crm
 ---
 
 # HubSpot CRM Automation via Rube MCP

@@ -6,6 +6,7 @@ description: "|"
 package: azure_identity
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure Identity SDK for Rust

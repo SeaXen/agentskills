@@ -1,6 +1,7 @@
 ---
 name: pre-trade-discipline-gate
 description: Evaluate a local pre-trade checklist before manual order entry, blocking planless, oversized, revenge-risk, market-regime-blocked, or circuit-breaker-blocked entries while journaling the decision for trader-memory-core review.
+category: prompt-llm-engineering
 ---
 
 # Pre-Trade Discipline Gate

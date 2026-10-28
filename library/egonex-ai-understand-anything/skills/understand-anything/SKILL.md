@@ -1,6 +1,7 @@
 ---
 name: understand-anything
 description: Understand Anything - code exploration and explanation skill
+category: code-quality-refactoring
 ---
 
 # Understand Anything

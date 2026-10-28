@@ -1,6 +1,7 @@
 ---
 name: claude-motion-design
 description: Specialized trending agent skill.
+category: frontend-motion-animation
 ---
 
 # claude-motion-design

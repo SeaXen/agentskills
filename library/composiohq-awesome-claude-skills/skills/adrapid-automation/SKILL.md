@@ -3,6 +3,7 @@ name: adrapid-automation
 description: "Automate Adrapid tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: architecture-system-design
 ---
 
 # Adrapid Automation via Rube MCP

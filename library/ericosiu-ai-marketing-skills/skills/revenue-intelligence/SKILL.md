@@ -1,3 +1,7 @@
+---
+category: business-finance-accounting
+---
+
 # AI Revenue Intelligence
 
 ## Preamble (runs on skill start)

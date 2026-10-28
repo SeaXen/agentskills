@@ -3,6 +3,7 @@ name: owl-protocol-automation
 description: "Automate Owl Protocol tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: core-antigravity-protocols
 ---
 
 # Owl Protocol Automation via Rube MCP

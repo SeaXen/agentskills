@@ -4,6 +4,7 @@ description: Deploy applications and websites to Vercel. Use when the user reque
 metadata:
   author: vercel
   version: "3.0.0"
+category: devops-docker-cicd
 ---
 
 # Deploy to Vercel

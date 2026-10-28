@@ -17,6 +17,7 @@ allowed-tools: Bash Agent
 metadata:
   author: browserbase
   version: "1.1.0"
+category: code-quality-refactoring
 ---
 
 # Company Research

@@ -15,6 +15,7 @@ description: >
   converting", "engagement signals", "make this page convert search traffic". For
   pure landing-page conversion in ads use /google-ads-landing; for content quality
   use /seo-page.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

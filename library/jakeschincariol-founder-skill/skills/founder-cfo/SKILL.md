@@ -10,6 +10,7 @@ description: >-
   profit margins", "do the numbers", "is this profitable", "break-even", "unit
   economics", "how much do I need to start", or "run the CFO".
 argument-hint: "[path to numbers.json]"
+category: code-quality-refactoring
 ---
 
 # founder-cfo

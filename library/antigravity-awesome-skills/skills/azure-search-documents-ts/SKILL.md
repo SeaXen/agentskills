@@ -4,6 +4,7 @@ description: "Build search applications using Azure AI Search SDK for JavaScript
 package: "@azure/search-documents"
 risk: unknown
 source: community
+category: database-nosql-serverless
 ---
 
 # Azure AI Search SDK for TypeScript

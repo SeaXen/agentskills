@@ -8,6 +8,7 @@ description: >-
   people posting in my niche", "reverse engineer this account", "build me a
   swipe file", "why is this reel doing numbers", or asks what to make next and
   has no evidence to answer with.
+category: code-quality-refactoring
 ---
 
 # ig-viral

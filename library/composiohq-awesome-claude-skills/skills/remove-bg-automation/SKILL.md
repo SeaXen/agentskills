@@ -3,6 +3,7 @@ name: remove-bg-automation
 description: "Automate Remove Bg tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Remove Bg Automation via Rube MCP

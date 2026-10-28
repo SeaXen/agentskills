@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: business-sales-crm
 ---
 
 # Close CRM Automation via Rube MCP

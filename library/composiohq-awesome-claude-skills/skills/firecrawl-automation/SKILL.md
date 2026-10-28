@@ -4,6 +4,7 @@ description: "Automate web crawling and data extraction with Firecrawl -- scrape
 requires:
   mcp:
     - rube
+category: data-engineering-ml
 ---
 
 # Firecrawl Automation

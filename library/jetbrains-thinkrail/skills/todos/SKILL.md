@@ -1,6 +1,7 @@
 ---
 name: todos
 description: "Use when the user asks for a shared plan, a task needs at least three substantive execution steps, or a loose TODO is pending. Without an explicit plan request, not for one-shot answers or checks, or one- to two-step work that is not already in the list."
+category: code-quality-refactoring
 ---
 
 # Chat TODO plan

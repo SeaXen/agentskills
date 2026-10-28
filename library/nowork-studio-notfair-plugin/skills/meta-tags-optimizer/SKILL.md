@@ -8,6 +8,7 @@ description: >
   "write meta description", "improve CTR", "Open Graph tags", "fix my meta
   tags", "social media preview", "my click rate is low", "title optimization",
   or any meta tag task.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

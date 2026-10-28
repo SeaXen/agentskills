@@ -3,6 +3,7 @@ name: parallel-automation
 description: "Automate Parallel tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Parallel Automation via Rube MCP

@@ -5,6 +5,7 @@ description: >
   plausibility, overfitting risk, sample size adequacy, and execution realism.
   Use when strategy_drafts/*.yaml exists and needs quality gate before pipeline
   export. Outputs PASS/REVISE/REJECT verdicts with confidence scores.
+category: cloudflare-edge
 ---
 
 # Edge Strategy Reviewer

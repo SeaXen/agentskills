@@ -11,6 +11,7 @@ description: >-
   investor", "show me their 13F", "what did they buy last quarter", "copy the
   top 5", or names any fund or famous investor.
 argument-hint: "[investor, fund or CIK] [--top N]"
+category: code-quality-refactoring
 ---
 
 # trader-copycat

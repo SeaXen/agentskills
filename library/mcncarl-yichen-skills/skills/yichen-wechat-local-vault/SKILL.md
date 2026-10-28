@@ -2,6 +2,7 @@
 name: yichen-wechat-local-vault
 description: |
   微信本地数字资产库：Mac 4.x 全量/增量解析，实验性 Windows 本机聊天采集与解密，以及 Windows 离线明文快照查询。Mac 默认微信1；微信2须明确指定。Windows 本机采集使用 windows 子命令，离线查询使用 snapshot，不触发 Mac 流程。用于聊天记录、联系人、群聊的本地读取、搜索、导出和关系复盘；Mac 另支持朋友圈、收藏和漏看/待回复检查。依赖最新聊天时必须先刷新相应来源，不能拿旧记录代替目标。
+category: code-quality-refactoring
 ---
 
 # 微信本地解析 Vault

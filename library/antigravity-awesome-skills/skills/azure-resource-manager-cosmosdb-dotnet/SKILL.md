@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.CosmosDB
 risk: unknown
 source: community
+category: database-nosql-serverless
 ---
 
 # Azure.ResourceManager.CosmosDB (.NET)

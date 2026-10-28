@@ -1,6 +1,7 @@
 ---
 name: hyperframes-video-beats
 description: Plan, write, time, style, and validate motion-graphic beats for long-form talking-head HyperFrames videos. Use when Codex is asked to add or improve visual beats, glassmorphism lower thirds, crumpled-paper full-screen takeovers, transcript-synced callouts, pacing coverage, YouTube retention graphics, or render-ready overlays in an existing HyperFrames video project.
+category: video-motion-production
 ---
 
 # HyperFrames Video Beats

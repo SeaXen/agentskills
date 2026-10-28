@@ -3,6 +3,7 @@ name: fixer-automation
 description: "Automate Fixer tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Fixer Automation via Rube MCP

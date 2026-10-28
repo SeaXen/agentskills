@@ -19,6 +19,7 @@ metadata:
       - social-media
       - research
       - scrapecreators
+category: data-engineering-ml
 ---
 
 # Competitor Social Research

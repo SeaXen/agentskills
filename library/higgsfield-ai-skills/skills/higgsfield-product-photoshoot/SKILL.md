@@ -20,6 +20,7 @@ description: |
   higgsfield-soul-id).
 argument-hint: "[--mode <mode>] [--count N] [prompt]"
 allowed-tools: Bash
+category: code-quality-refactoring
 ---
 
 # Product Photoshoot

@@ -1,6 +1,7 @@
 ---
 name: edit-video
 description: Edit a raw talking-head video through transcription, silence trimming, mistake review, visual storytelling, motion graphics, and verified HyperFrames rendering. Use for a complete edit; route a single requested operation directly to its specialist skill.
+category: video-motion-production
 ---
 
 # Edit a video

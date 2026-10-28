@@ -3,6 +3,7 @@ name: centralstationcrm-automation
 description: "Automate Centralstationcrm tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Centralstationcrm Automation via Rube MCP

@@ -4,6 +4,7 @@ description: "Automate SEO research with Ahrefs -- analyze backlink profiles, re
 requires:
   mcp:
     - rube
+category: code-quality-refactoring
 ---
 
 # Ahrefs Automation

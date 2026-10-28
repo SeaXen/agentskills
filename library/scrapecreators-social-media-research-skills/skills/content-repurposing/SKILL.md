@@ -19,6 +19,7 @@ metadata:
       - social-media
       - research
       - scrapecreators
+category: video-motion-production
 ---
 
 # Content Repurposing

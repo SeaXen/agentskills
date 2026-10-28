@@ -8,6 +8,7 @@ description: >-
   "landing page", "pricing", "how much should I charge", "App Store
   listing", "store screenshots", "launch plan", "Product Hunt", or after
   /replica-brand.
+category: code-quality-refactoring
 ---
 
 # replica-launch

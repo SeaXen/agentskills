@@ -11,7 +11,7 @@ python3 telemetry/telemetry_init.py 2>/dev/null || true
 ```
 
 > **Privacy:** This skill logs usage locally to `~/.ai-marketing-skills/analytics/`. Remote telemetry is opt-in only. No code, file paths, or repo content is ever collected. See `telemetry/README.md`.
-
+category: prompt-llm-engineering
 ---
 name: content-eval
 description: >-

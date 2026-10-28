@@ -33,6 +33,7 @@ triggers:
   - sitelink
   - callout
   - structured snippet
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

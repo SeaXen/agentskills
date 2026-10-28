@@ -3,6 +3,7 @@ name: servicem8-automation
 description: "Automate Servicem8 tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Servicem8 Automation via Rube MCP

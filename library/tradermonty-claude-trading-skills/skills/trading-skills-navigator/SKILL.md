@@ -9,6 +9,7 @@ description: >-
   is favorable", "what works without API keys", "どれを使えばいい", "API キー無しで
   使えるものは". Routes and explains only; it never executes trades or auto-runs
   other skills, and it is honest when no workflow has shipped yet.
+category: code-quality-refactoring
 ---
 
 # Trading Skills Navigator

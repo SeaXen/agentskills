@@ -3,6 +3,7 @@ name: twilio-communications
 description: "Build communication features with Twilio: SMS messaging, voice calls, WhatsApp Business API, and user verification (2FA). Covers the full spectrum from simple notifications to complex IVR systems a..."
 source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
+category: backend-api-design
 ---
 
 # Twilio Communications

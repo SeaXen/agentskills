@@ -1,6 +1,7 @@
 ---
 name: claude-bughunter
 description: An Android red-team pipeline that automates APK acquisition, jadx decompilation, secret grepping, and Frida instrumentation.
+category: security-vulnerability-audit
 ---
 
 ![claude-bughunter banner](assets/banner-v2.svg)

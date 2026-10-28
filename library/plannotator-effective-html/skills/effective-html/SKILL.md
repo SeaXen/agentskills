@@ -1,6 +1,7 @@
 ---
 name: effective-html
 description: A set of design-focused skills for creating structured HTML plans, interactive prototypes, and visual reports with a focus on hierarchy and creative direction.
+category: frontend-ui-components
 ---
 
 <p align="center">

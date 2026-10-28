@@ -4,6 +4,7 @@ description: "Automate OpenAI API operations -- generate responses with multimod
 requires:
   mcp:
     - rube
+category: backend-api-design
 ---
 
 # OpenAI Automation

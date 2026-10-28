@@ -3,6 +3,7 @@ name: college-football-data-automation
 description: "Automate College Football Data tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # College Football Data Automation via Rube MCP

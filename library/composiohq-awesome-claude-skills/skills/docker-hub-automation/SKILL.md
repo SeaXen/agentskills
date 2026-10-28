@@ -4,6 +4,7 @@ description: "Automate Docker Hub operations -- manage organizations, repositori
 requires:
   mcp:
     - rube
+category: devops-docker-cicd
 ---
 
 # Docker Hub Automation

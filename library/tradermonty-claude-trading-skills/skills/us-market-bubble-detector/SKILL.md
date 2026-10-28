@@ -1,6 +1,7 @@
 ---
 name: us-market-bubble-detector
 description: Evaluates market bubble risk through quantitative data-driven analysis using the revised Minsky/Kindleberger framework v2.1. Prioritizes objective metrics (Put/Call, VIX, margin debt, breadth, IPO data) over subjective impressions. Features strict qualitative adjustment criteria with confirmation bias prevention. Supports practical investment decisions with mandatory data collection and mechanical scoring. Use when user asks about bubble risk, valuation concerns, or profit-taking timing.
+category: prompt-llm-engineering
 ---
 
 # US Market Bubble Detection Skill (Revised v2.1)

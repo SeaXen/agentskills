@@ -3,6 +3,7 @@ name: moosend-automation
 description: "Automate Moosend tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Moosend Automation via Rube MCP

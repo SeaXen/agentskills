@@ -1,6 +1,7 @@
 ---
 name: open-seo-mcp
 description: A collection of data-led SEO workflows for audits, keyword research, competitor and backlink analysis, content briefs, position tracking, paid-organic overlap, and AI referral visibility.
+category: data-engineering-ml
 ---
 
 # Open SEO MCP Skills: a free SEO MCP server + GEO skills for Claude

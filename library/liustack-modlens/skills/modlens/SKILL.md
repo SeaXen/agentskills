@@ -1,6 +1,7 @@
 ---
 name: modlens
 description: Converts images into structured JSON evidence containing OCR, layout, and semantics for text-only AI models.
+category: code-quality-refactoring
 ---
 
 # Project Overview (for AI Agent)

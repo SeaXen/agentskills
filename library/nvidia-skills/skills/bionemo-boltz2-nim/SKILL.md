@@ -5,6 +5,7 @@ description: >
 license: Apache-2.0 AND CC-BY-4.0
 compatibility: "requests>=2.28"
 allowed-tools: Bash, Read, Write, AskUserQuestion
+category: devops-docker-cicd
 ---
 
 # Boltz2 NIM

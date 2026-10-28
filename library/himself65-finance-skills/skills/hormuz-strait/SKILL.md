@@ -9,6 +9,7 @@ description: >
   of oil, shipping, or geopolitical risk — whether Hormuz is open, chokepoint or
   transit disruption, Gulf tanker traffic, war-risk premiums, Middle East shipping
   routes, or energy supply-chain risk.
+category: code-quality-refactoring
 ---
 
 # Hormuz Strait Monitor Skill

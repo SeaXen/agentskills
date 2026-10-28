@@ -3,6 +3,7 @@ name: zerobounce-automation
 description: "Automate Zerobounce tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Zerobounce Automation via Rube MCP

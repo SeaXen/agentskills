@@ -3,6 +3,7 @@ name: pingdom-automation
 description: "Automate Pingdom tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Pingdom Automation via Rube MCP

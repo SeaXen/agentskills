@@ -1,6 +1,7 @@
 ---
 name: contrarian-setup-gate
 description: Synthesize the three Jason Shapiro contrarian-pipeline verdicts (COT crowding, news-reaction failure, weekly price-action confirmation) into one actionable setup_status via a fail-closed precedence state machine. Pure, offline synthesis -- no network, no API keys, no computation beyond validation and precedence.
+category: backend-api-design
 ---
 
 # Contrarian Setup Gate

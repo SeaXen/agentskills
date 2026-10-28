@@ -3,6 +3,7 @@ name: instacart-automation
 description: "Automate Instacart tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Instacart Automation via Rube MCP

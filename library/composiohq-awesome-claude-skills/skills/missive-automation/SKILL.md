@@ -3,6 +3,7 @@ name: missive-automation
 description: "Automate Missive tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Missive Automation via Rube MCP

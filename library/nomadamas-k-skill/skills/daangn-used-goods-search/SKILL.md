@@ -6,6 +6,7 @@ metadata:
   category: marketplace
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # daangn-used-goods-search

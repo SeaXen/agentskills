@@ -3,6 +3,7 @@ name: sensibo-automation
 description: "Automate Sensibo tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Sensibo Automation via Rube MCP

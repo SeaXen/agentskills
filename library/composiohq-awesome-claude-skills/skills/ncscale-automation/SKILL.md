@@ -3,6 +3,7 @@ name: ncscale-automation
 description: "Automate Ncscale tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Ncscale Automation via Rube MCP

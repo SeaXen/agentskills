@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.Playwright
 risk: unknown
 source: community
+category: testing-playwright-e2e
 ---
 
 # Azure.ResourceManager.Playwright (.NET)

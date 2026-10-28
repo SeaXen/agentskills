@@ -1,3 +1,7 @@
+---
+category: business-sales-crm
+---
+
 # AI Sales Pipeline
 
 ## Preamble (runs on skill start)

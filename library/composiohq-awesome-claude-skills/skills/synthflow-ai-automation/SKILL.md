@@ -3,6 +3,7 @@ name: synthflow-ai-automation
 description: "Automate Synthflow AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Synthflow AI Automation via Rube MCP

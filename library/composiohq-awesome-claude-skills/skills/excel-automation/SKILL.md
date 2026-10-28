@@ -3,6 +3,7 @@ name: Excel Automation
 description: "Excel Automation: create workbooks, manage worksheets, read/write cell data, and format spreadsheets via Microsoft Excel and Google Sheets integration"
 requires:
   mcp: [rube]
+category: business-finance-accounting
 ---
 
 # Excel Automation

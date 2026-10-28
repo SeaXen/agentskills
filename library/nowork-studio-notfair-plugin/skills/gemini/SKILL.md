@@ -24,6 +24,7 @@ triggers:
   - stress test gemini
   - gem review
   - gem consult
+category: prompt-llm-engineering
 ---
 
 # Canonical NotFair workflow

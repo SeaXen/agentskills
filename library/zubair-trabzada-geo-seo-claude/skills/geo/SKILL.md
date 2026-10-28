@@ -10,6 +10,7 @@ description: >
   "AI search", "AI visibility", "optimize", "citability", "llms.txt", "schema",
   "brand mentions", "GEO report", or any URL for analysis.
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
+category: code-quality-refactoring
 ---
 
 # GEO-SEO Analysis Tool — Claude Code Skill (February 2026)

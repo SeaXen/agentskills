@@ -4,6 +4,7 @@ description: "Apply DDD tactical patterns in code using entities, value objects,
 risk: safe
 source: self
 tags: [ddd, tactical, aggregates, value-objects, domain-events]
+category: architecture-system-design
 ---
 
 # DDD Tactical Patterns

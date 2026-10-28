@@ -1,6 +1,7 @@
 ---
 name: manipulation-tasks
 description: Perform task-specific real YAM manipulation with native CAP tools. Use for solving or turning a physical Rubik's Cube, bottle-cap removal and pouring, pill insertion and bottle closure, or inverted cup nesting.
+category: code-quality-refactoring
 ---
 
 # Manipulation tasks

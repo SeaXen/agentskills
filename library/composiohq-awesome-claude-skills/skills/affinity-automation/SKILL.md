@@ -3,6 +3,7 @@ name: affinity-automation
 description: "Automate Affinity tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Affinity Automation via Rube MCP

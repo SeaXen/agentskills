@@ -3,6 +3,7 @@ name: dictionary-api-automation
 description: "Automate Dictionary API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: backend-api-design
 ---
 
 # Dictionary API Automation via Rube MCP

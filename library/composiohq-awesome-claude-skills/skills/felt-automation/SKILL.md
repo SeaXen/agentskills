@@ -3,6 +3,7 @@ name: felt-automation
 description: "Automate Felt tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Felt Automation via Rube MCP

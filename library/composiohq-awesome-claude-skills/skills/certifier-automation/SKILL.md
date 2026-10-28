@@ -3,6 +3,7 @@ name: certifier-automation
 description: "Automate Certifier tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Certifier Automation via Rube MCP

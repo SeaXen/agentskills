@@ -23,6 +23,7 @@ metadata:
     - 删停顿
     - 删口误
     - 删重复
+category: code-quality-refactoring
 ---
 
 # 火山 ASR 转写 + 口播自动粗剪

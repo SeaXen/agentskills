@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: terminal-system-tools
 ---
 
 # Telegram Automation via Rube MCP

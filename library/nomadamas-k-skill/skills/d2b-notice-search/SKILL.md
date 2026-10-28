@@ -6,6 +6,7 @@ metadata:
   category: procurement
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # d2b-notice-search

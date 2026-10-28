@@ -9,6 +9,7 @@ description: >
 version: 1.0.0
 tags: [geo, business, crm, prospect, pipeline, sales]
 allowed-tools: Read, Write, Bash, Glob
+category: business-sales-crm
 ---
 
 # GEO Prospect Manager

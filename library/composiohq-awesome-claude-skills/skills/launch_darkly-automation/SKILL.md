@@ -3,6 +3,7 @@ name: launch_darkly-automation
 description: "Automate LaunchDarkly tasks via Rube MCP (Composio): feature flags, environments, segments, and rollout management. Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # LaunchDarkly Automation via Rube MCP

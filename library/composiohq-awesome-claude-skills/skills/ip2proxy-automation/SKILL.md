@@ -3,6 +3,7 @@ name: ip2proxy-automation
 description: "Automate Ip2proxy tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Ip2proxy Automation via Rube MCP

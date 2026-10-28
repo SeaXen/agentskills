@@ -9,6 +9,7 @@ description: >
   Hyperliquid (HL, HL DEX, hyperliquid.xyz) or asks about its perps, spot pairs such
   as PURR, funding, open interest, order book, or candles. Read-only market data: no
   account, order, or transfer operations.
+category: web3-smart-contracts
 ---
 
 # Hyperliquid Reader (Read-Only)

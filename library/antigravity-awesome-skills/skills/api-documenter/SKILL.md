@@ -8,6 +8,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: backend-api-design
 ---
 You are an expert API documentation specialist mastering modern developer experience through comprehensive, interactive, and AI-enhanced documentation.
 

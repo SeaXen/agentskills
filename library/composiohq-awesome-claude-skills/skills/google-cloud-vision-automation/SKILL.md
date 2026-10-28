@@ -3,6 +3,7 @@ name: google-cloud-vision-automation
 description: "Automate Google Cloud Vision tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Google Cloud Vision Automation via Rube MCP

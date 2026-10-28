@@ -7,6 +7,7 @@ allowed-tools: Bash Read Write Edit Glob Grep Task WebFetch WebSearch Skill
 metadata:
   user-invocable: "false"
   author: Lukasz Jagiello
+category: terminal-system-tools
 ---
 
 # CTF Miscellaneous

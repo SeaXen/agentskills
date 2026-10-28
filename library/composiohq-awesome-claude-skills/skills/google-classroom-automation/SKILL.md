@@ -3,6 +3,7 @@ name: google-classroom-automation
 description: "Automate Google Classroom tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Google Classroom Automation via Rube MCP

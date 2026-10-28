@@ -4,6 +4,7 @@ description: Build local constrained-browser agents with a safe_browser tool tha
 compatibility: "Requires Node.js 18+, npm, and a local Chromium (`npx playwright install chromium`). The generated Claude Agent SDK runtime app needs ANTHROPIC_API_KEY."
 license: MIT
 allowed-tools: Bash, Read, Write, Edit
+category: terminal-system-tools
 ---
 
 # Safe Browser

@@ -6,6 +6,7 @@ description: "|"
 package: azure-monitor-opentelemetry-exporter
 risk: unknown
 source: community
+category: mobile-ios-android
 ---
 
 # Azure Monitor OpenTelemetry Exporter for Python

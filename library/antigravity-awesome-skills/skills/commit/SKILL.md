@@ -3,6 +3,7 @@ name: commit
 description: "Create commit messages following Sentry conventions. Use when committing code changes, writing commit messages, or formatting git history. Follows conventional commits with Sentry-specific issue re..."
 source: "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/commit"
 risk: safe
+category: code-quality-refactoring
 ---
 
 # Sentry Commit Messages

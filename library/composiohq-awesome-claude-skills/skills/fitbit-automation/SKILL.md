@@ -3,6 +3,7 @@ name: fitbit-automation
 description: "Automate Fitbit tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Fitbit Automation via Rube MCP

@@ -12,6 +12,7 @@ description: >
   screenshots, mockups, wireframes, Figma exports, or UI code and wants feedback, even if they
   only say "review my design" or "is this good UI", or asks to audit a codebase or pull request.
   Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri, and Electron.
+category: frontend-visual-taste
 ---
 
 # Apple Design Skill

@@ -15,6 +15,7 @@ description: >
   shows for Thai users", "th/en page ranking in the wrong country", or any
   cross-language/cross-country ranking question. For full-site audits use
   /seo-analysis; for a single URL use /seo-page.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

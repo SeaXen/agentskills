@@ -1,6 +1,7 @@
 ---
 name: pead-screener
 description: Screen post-earnings gap-up stocks for PEAD (Post-Earnings Announcement Drift) patterns. Analyzes weekly candle formation to detect red candle pullbacks and breakout signals. Supports two input modes - FMP earnings calendar (Mode A) or earnings-trade-analyzer JSON output (Mode B). Use when user asks about PEAD screening, post-earnings drift, earnings gap follow-through, red candle breakout patterns, or weekly earnings momentum setups.
+category: productivity-workspace-tools
 ---
 
 # PEAD Screener - Post-Earnings Announcement Drift

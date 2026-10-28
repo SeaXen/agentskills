@@ -3,6 +3,7 @@ name: sourcegraph-automation
 description: "Automate Sourcegraph tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Sourcegraph Automation via Rube MCP

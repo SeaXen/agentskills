@@ -1,3 +1,7 @@
+---
+category: code-quality-refactoring
+---
+
 # AI Team Ops
 
 ## Preamble (runs on skill start)

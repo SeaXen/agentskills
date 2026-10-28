@@ -3,6 +3,7 @@ name: census-bureau-automation
 description: "Automate Census Bureau tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Census Bureau Automation via Rube MCP

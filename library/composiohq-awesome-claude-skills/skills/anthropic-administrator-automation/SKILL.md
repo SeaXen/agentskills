@@ -3,6 +3,7 @@ name: anthropic-administrator-automation
 description: "Automate Anthropic Admin tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Anthropic Admin Automation via Rube MCP

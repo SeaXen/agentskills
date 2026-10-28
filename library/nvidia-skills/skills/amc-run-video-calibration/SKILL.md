@@ -10,6 +10,7 @@ metadata:
   version: "1.0.0"
   author: "Shubham Agrawal <shuagrawal@nvidia.com>"
   tags: [amc, calibration, rest-api, camera, python]
+category: backend-api-design
 ---
 
 # Skill: Calibrate from Video Files

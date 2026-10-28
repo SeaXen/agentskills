@@ -1,6 +1,7 @@
 ---
 name: data-quality-checker
 description: Validate data quality in market analysis documents and blog articles before publication. Use when checking for price scale inconsistencies (ETF vs futures), instrument notation errors, date/day-of-week mismatches, allocation total errors, and unit mismatches. Supports English and Japanese content. Advisory mode -- flags issues as warnings for human review, not as blockers.
+category: data-engineering-ml
 ---
 
 ## Overview

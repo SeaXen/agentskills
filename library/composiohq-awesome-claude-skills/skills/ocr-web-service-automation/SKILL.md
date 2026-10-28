@@ -3,6 +3,7 @@ name: ocr-web-service-automation
 description: "Automate OCR Web Service tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # OCR Web Service Automation via Rube MCP

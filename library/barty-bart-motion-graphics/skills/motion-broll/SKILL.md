@@ -1,6 +1,7 @@
 ---
 name: motion-broll
 description: Turn a talking-head video and its transcript into motion-graphic B-roll timed to the speaker's words, in a continuous one-shape style (one element that morphs and never cuts, driven by a cursor, spring motion). Use when someone gives a video (and ideally a transcript) and asks for motion graphics, B-roll, animated cutaways or overlays.
+category: video-motion-production
 ---
 
 # Motion B-roll

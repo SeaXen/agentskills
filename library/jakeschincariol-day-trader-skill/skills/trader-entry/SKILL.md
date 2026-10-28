@@ -13,6 +13,7 @@ description: >-
   signal", "time my entry", "check my watchlist", or after /trader-scanner
   and /trader-news, before /trader-exit.
 argument-hint: "[TICKER] [--setup orb|level] [--interval 5m|1m]"
+category: code-quality-refactoring
 ---
 
 # trader-entry

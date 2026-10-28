@@ -11,6 +11,7 @@ description: >-
   "the new 13F changed the weights", "am I overweight", or on a schedule
   (monthly or quarterly) after /trader-copycat updates the targets.
 argument-hint: "[band in points]"
+category: code-quality-refactoring
 ---
 
 # trader-rebalance

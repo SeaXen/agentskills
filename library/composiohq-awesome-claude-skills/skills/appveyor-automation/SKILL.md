@@ -3,6 +3,7 @@ name: appveyor-automation
 description: "Automate Appveyor tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Appveyor Automation via Rube MCP

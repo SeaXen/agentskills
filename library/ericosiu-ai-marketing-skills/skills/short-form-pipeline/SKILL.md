@@ -1,3 +1,7 @@
+---
+category: business-sales-crm
+---
+
 # Short-Form Video Clip Pipeline — Skill
 
 ## Preamble (runs on skill start)

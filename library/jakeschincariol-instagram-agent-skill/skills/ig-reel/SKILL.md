@@ -7,6 +7,7 @@ description: >-
   short-form video script, a hook, a voiceover, "make a reel about X", "what
   should I say in this video", or is about to record and does not have the
   first line yet.
+category: code-quality-refactoring
 ---
 
 # ig-reel

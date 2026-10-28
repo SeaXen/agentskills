@@ -3,6 +3,7 @@ name: imagen
 description: "|"
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen"
 risk: safe
+category: code-quality-refactoring
 ---
 
 # Imagen - AI Image Generation Skill

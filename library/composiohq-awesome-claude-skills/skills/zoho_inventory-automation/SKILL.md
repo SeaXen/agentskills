@@ -3,6 +3,7 @@ name: zoho_inventory-automation
 description: "Automate Zoho Inventory tasks via Rube MCP (Composio): items, orders, warehouses, shipments, and stock management. Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Zoho Inventory Automation via Rube MCP

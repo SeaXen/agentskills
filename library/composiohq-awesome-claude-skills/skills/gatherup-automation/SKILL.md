@@ -3,6 +3,7 @@ name: gatherup-automation
 description: "Automate Gatherup tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Gatherup Automation via Rube MCP

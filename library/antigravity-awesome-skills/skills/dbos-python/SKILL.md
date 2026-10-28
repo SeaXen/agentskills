@@ -10,6 +10,7 @@ metadata:
   organization: DBOS
   date: January 2026
   abstract: Comprehensive guide for building fault-tolerant Python applications with DBOS. Covers workflows, steps, queues, communication patterns, and best practices for durable execution.
+category: frontend-ui-components
 ---
 
 # DBOS Python Best Practices

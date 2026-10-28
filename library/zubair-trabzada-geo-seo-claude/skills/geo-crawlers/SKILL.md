@@ -8,6 +8,7 @@ allowed-tools:
   - Bash
   - WebFetch
   - Write
+category: testing-playwright-e2e
 ---
 
 # AI Crawler Access Analysis Skill

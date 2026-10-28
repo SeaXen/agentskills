@@ -7,6 +7,7 @@ description: "|"
 package: com.azure:azure-monitor-query
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure Monitor Query SDK for Java

@@ -2,6 +2,7 @@
 name: seo-ops
 description: Structural checklist and checker script for SEO foundation engineering. Use when reviewing or accepting a site/page for SEO/GEO structural compliance (robots, sitemap, canonical, 301 canonicalization, JSON-LD, OG, hreflang, CWV, AI crawler access, rendering strategy), when running the machine checks to produce a report, or when judging whether a frontend change will affect indexing and citation. Also for answering "what exactly does this check require" and "why does it exist".
 compatibility: Requires Python 3.9+, requests, PyYAML, and network access to the target site
+category: database-sql-relational
 ---
 
 # seo-ops (plugin adapter)

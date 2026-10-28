@@ -3,6 +3,7 @@ name: timely-automation
 description: "Automate Timely tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Timely Automation via Rube MCP

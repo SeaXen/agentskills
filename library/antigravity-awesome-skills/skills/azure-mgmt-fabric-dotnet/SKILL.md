@@ -5,6 +5,7 @@ description: "|"
 package: Azure.ResourceManager.Fabric
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Azure.ResourceManager.Fabric (.NET)

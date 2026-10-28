@@ -6,6 +6,7 @@ metadata:
   category: food
   locale: ko-KR
   phase: v1
+category: backend-api-design
 ---
 
 # bccard-eatpl-search

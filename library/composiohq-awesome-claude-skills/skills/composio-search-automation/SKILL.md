@@ -3,6 +3,7 @@ name: composio-search-automation
 description: "Automate Composio Search tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Composio Search Automation via Rube MCP

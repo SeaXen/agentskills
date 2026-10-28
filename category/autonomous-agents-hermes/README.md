@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Skills in Category**: 176 real modular skills  
+> **Total Skills in Category**: 170 real modular skills  
 > **Directory**: [`.agents/category/autonomous-agents-hermes`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (176 Skills)
+## 📑 Complete Skill Catalog (170 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -46,7 +46,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`blocked-page-recovery`](./blocked-page-recovery/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | Use when a fetch fails: 403/429, paywall, WAF, bot wall. |
 | **[`blogwatcher`](./blogwatcher/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
 | **[`box`](./box/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | Box manages cloud files, sharing, search, and metadata. |
-| **[`brag`](./brag/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Project launch video via Hyperframes, upstream-maintained. |
 | **[`brag-slim`](./brag-slim/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Launch video from a project or URL, upstream-maintained. |
 | **[`canvas`](./canvas/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Fetch Canvas LMS courses and assignments via API token. |
 | **[`chroma`](./chroma/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Embedding database for RAG and semantic search. |
@@ -80,10 +79,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`fitness-nutrition`](./fitness-nutrition/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Workout planning, macros, and body metrics via wger/USDA. |
 | **[`flash-attention`](./flash-attention/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Speed up long-sequence transformer training and inference. |
 | **[`gif-search`](./gif-search/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | Search/download GIFs from Tenor via curl + jq. |
-| **[`github`](./github/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | GitHub via gh CLI: PRs, issues, reviews, repos, auth. |
 | **[`gitnexus-explorer`](./gitnexus-explorer/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Serve an interactive codebase knowledge graph web UI. |
 | **[`godmode`](./godmode/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN. |
-| **[`google-workspace`](./google-workspace/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | Gmail, Calendar, Drive, Docs, Sheets via gws CLI or Python. |
 | **[`grok`](./grok/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Delegate coding to xAI Grok Build CLI (features, PRs). |
 | **[`grounded-citations`](./grounded-citations/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | Ground answers and documents in cited, verifiable sources. |
 | **[`guidance`](./guidance/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Constrain LLM output with grammars; guarantee valid JSON. |
@@ -153,7 +150,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`qdrant`](./qdrant/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Vector search engine for production RAG systems. |
 | **[`qmd`](./qmd/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Hybrid local search over notes, docs, and transcripts. |
 | **[`reddit-reading`](./reddit-reading/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Read Reddit: subreddits, search, threads, users. No browser. |
-| **[`research-paper-writing`](./research-paper-writing/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Write ML papers for NeurIPS/ICML/ICLR: design→submit. |
 | **[`rest-graphql-debug`](./rest-graphql-debug/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Debug REST/GraphQL APIs: status codes, auth, schemas, repro. |
 | **[`rss-feeds`](./rss-feeds/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Read RSS, Atom, JSON feeds; discover feeds behind a page. |
 | **[`saelens`](./saelens/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Train sparse autoencoders to interpret model features. |
@@ -167,7 +163,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`sherlock`](./sherlock/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Find accounts for a username across 400+ platforms. |
 | **[`shop`](./shop/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Shop catalog search, checkout, order tracking, returns. |
 | **[`shopify`](./shopify/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Query Shopify Admin/Storefront GraphQL APIs via curl. |
-| **[`simple-english`](./simple-english/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Rewrite text to ASD-STE100 Simplified Technical English. |
 | **[`simplify-code`](./simplify-code/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | Parallel 4-agent cleanup of recent code changes. |
 | **[`simpo`](./simpo/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Reference-free preference alignment, simpler than DPO. |
 | **[`siyuan`](./siyuan/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Query and edit a SiYuan knowledge base via its API. |
@@ -186,7 +181,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`torchtitan`](./torchtitan/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Pretrain LLMs at scale with PyTorch 4D parallelism. |
 | **[`trl-fine-tuning`](./trl-fine-tuning/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | TRL: SFT, DPO, GRPO, RLOO reward modeling for LLM RLHF. |
 | **[`unbroker`](./unbroker/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Remove your info from data-broker sites, by name or phone. |
-| **[`unreal-mcp`](./unreal-mcp/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Automate Unreal Engine editor scenes, actors, and renders. |
 | **[`unsloth`](./unsloth/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Unsloth: 2-5x faster LoRA/QLoRA fine-tuning, less VRAM. |
 | **[`watchers`](./watchers/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Poll RSS, JSON APIs, and GitHub with watermark dedup. |
 | **[`web-pentest`](./web-pentest/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Authorized web pentest: recon, proof-based exploits, report. |

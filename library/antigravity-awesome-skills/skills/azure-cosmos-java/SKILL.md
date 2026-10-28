@@ -6,6 +6,7 @@ description: "|"
 package: azure-cosmos
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure Cosmos DB SDK for Java

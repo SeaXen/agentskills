@@ -5,6 +5,7 @@ version: 1.0.0
 author: geo-seo-claude
 tags: [geo, report, client-deliverable, executive-summary, action-plan]
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
+category: code-quality-refactoring
 ---
 
 # GEO Client Report Generator

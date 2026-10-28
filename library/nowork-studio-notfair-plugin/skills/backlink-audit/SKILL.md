@@ -15,6 +15,7 @@ description: >
   "disavow file", "who links to me", "link profile", "domain authority". NOTE: rich
   third-party metrics (DR/DA, full link index) require a paid data source; this
   skill is explicit about what it can and can't see without one.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

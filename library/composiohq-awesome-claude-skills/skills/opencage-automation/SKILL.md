@@ -3,6 +3,7 @@ name: opencage-automation
 description: "Automate Opencage tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Opencage Automation via Rube MCP

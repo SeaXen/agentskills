@@ -3,6 +3,7 @@ name: page-x-automation
 description: "Automate Page X tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Page X Automation via Rube MCP

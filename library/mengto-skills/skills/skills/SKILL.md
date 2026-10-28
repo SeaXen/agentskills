@@ -1,6 +1,7 @@
 ---
 name: skills
 description: Technical guides for implementing advanced 3D materials, environmental VFX, and seasonal transitions in Three.js.
+category: frontend-motion-animation
 ---
 
 # Claude Code — Repo Guide

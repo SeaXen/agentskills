@@ -1,6 +1,7 @@
 ---
 name: anthropic-cybersecurity
 description: Anthropic Cybersecurity and Threat Analysis Skills
+category: security-vulnerability-audit
 ---
 
 # AGENTS.md

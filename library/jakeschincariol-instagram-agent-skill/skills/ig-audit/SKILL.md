@@ -6,6 +6,7 @@ description: >-
   Instagram insights or past posts and asks "what's working", "why did this
   flop", "read my analytics", "audit my content", or wants to know what to do
   more of.
+category: code-quality-refactoring
 ---
 
 # ig-audit

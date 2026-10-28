@@ -3,6 +3,7 @@ name: realphonevalidation-automation
 description: "Automate Realphonevalidation tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Realphonevalidation Automation via Rube MCP

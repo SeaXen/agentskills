@@ -3,6 +3,7 @@ name: pilvio-automation
 description: "Automate Pilvio tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Pilvio Automation via Rube MCP

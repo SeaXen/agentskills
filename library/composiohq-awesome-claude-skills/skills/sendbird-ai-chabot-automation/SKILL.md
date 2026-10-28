@@ -3,6 +3,7 @@ name: sendbird-ai-chabot-automation
 description: "Automate Sendbird AI Chabot tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Sendbird AI Chabot Automation via Rube MCP

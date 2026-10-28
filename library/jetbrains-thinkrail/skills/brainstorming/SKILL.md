@@ -1,6 +1,7 @@
 ---
 name: brainstorming
 description: "Use before implementing a feature, a change in behavior, or a bug fix — however small. Not for questions, checks, or edits that change no behavior (typos, documentation or configuration only, mechanical refactors)."
+category: code-quality-refactoring
 ---
 
 # Brainstorming

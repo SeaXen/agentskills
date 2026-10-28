@@ -1,6 +1,7 @@
 ---
 name: ads
 description: "Operate professional paid advertising across Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, Amazon, Reddit, Pinterest, Snapchat, and X. Use for account intake, source-grounded audits, strategy, budget and measurement planning, creative production, experiments, reporting, monitoring, and explicitly approved campaign changes. Also trigger on PPC, paid social, retail media, attribution, tracking, landing pages, cross-platform conversion totals, negative keywords or search terms, beta-feature scoring, stale platform claims, API-token or credential setup, campaign deletion, and safe Claude Ads installation or uninstall."
+category: backend-api-design
 ---
 
 # Claude Ads

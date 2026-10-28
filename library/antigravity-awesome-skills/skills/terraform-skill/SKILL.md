@@ -7,6 +7,7 @@ author: "Anton Babenko"
 version: 1.5.0
 source: "https://github.com/antonbabenko/terraform-skill"
 risk: safe
+category: devops-docker-cicd
 ---
 # Terraform Skill for Claude
 

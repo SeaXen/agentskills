@@ -3,6 +3,7 @@ name: context-compression
 description: "Design and evaluate compression strategies for long-running sessions"
 source: "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-compression"
 risk: safe
+category: prompt-llm-engineering
 ---
 # Context Compression Strategies
 

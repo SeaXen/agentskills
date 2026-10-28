@@ -1,6 +1,7 @@
 ---
 name: text-to-cad
 description: A set of skills for generating parametric CAD models and sending sliced files to Bambu Lab printers.
+category: code-quality-refactoring
 ---
 
 # AGENTS.md

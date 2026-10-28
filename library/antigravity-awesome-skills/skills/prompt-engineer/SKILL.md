@@ -6,7 +6,7 @@ author: Eric Andrade
 created: 2025-02-01
 updated: 2026-02-04
 platforms: [github-copilot-cli, claude-code, codex]
-category: automation
+category: prompt-llm-engineering
 tags: [prompt-engineering, optimization, frameworks, ai-enhancement]
 risk: safe
 source: community

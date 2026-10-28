@@ -8,6 +8,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: architecture-system-design
 ---
 
 ## Use this skill when

@@ -9,6 +9,7 @@ license: MIT
 metadata:
   version: "1.0"
   category: tooling
+category: git-version-control
 ---
 
 # PR Review Skill

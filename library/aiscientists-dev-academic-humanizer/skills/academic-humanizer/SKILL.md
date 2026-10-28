@@ -10,6 +10,7 @@ description: |
 license: MIT
 compatibility: claude-code codex morphmind opencode
 allowed-tools: [Read, Write, Edit, Grep, Glob, AskUserQuestion]
+category: audio-voice-sound
 ---
 
 # Academic Humanizer

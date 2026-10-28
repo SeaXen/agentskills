@@ -3,6 +3,7 @@ name: pdf-co-automation
 description: "Automate PDF co tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # PDF co Automation via Rube MCP

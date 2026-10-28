@@ -2,6 +2,7 @@
 name: auto-empirical-research-skills
 description: Route empirical-research requests through the Auto-Empirical Research Skills catalog when this whole repository is installed as one skill in Codex, CodeBuddy, Claude Code, or another IDE. Use to choose and load the right vendored AERS skill for causal inference, econometrics, replication, data acquisition, manuscript writing, peer review and referee responses, citation checking, de-AIGC editing, or full empirical-paper workflows, or an end-to-end run from raw data all the way to a finished Word (.docx) manuscript, without reading the entire repository at once.
 license: CC-BY-SA-4.0
+category: academic-writing-publishing
 ---
 
 # Auto-Empirical Research Skills Router

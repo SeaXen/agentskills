@@ -7,6 +7,7 @@ metadata:
   version: 1.0.0
 risk: unknown
 source: community
+category: testing-unit-tdd
 ---
 
 # Workflow Patterns

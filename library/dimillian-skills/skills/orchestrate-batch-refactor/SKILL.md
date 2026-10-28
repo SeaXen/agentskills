@@ -1,6 +1,7 @@
 ---
 name: "orchestrate-batch-refactor"
 description: "Plan and execute large refactor or rewrite efforts efficiently with parallel multi-agent analysis and implementation. Use when a user asks to refactor many files, split workstreams, analyze a target code area, and coordinate sub-agents with clear ownership and dependency-aware execution."
+category: code-quality-refactoring
 ---
 
 # Orchestrate Batch Refactor

@@ -6,6 +6,7 @@ metadata:
   category: legal
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # court-payment-order-assistant

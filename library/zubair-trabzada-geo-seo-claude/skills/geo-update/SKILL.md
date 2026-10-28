@@ -5,6 +5,7 @@ allowed-tools:
   - Bash
   - Read
   - Write
+category: database-sql-relational
 ---
 
 # GEO-SEO Update Skill

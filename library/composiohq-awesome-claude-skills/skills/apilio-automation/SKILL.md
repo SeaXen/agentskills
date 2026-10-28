@@ -3,6 +3,7 @@ name: apilio-automation
 description: "Automate Apilio tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: backend-api-design
 ---
 
 # Apilio Automation via Rube MCP

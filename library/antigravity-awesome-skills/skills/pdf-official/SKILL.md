@@ -4,6 +4,7 @@ description: "Comprehensive PDF manipulation toolkit for extracting text and tab
 license: Proprietary. LICENSE.txt has complete terms
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # PDF Processing Guide

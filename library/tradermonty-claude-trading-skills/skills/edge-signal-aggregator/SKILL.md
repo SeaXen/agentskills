@@ -1,6 +1,7 @@
 ---
 name: edge-signal-aggregator
 description: Aggregate and rank signals from multiple edge-finding skills (edge-candidate-agent, theme-detector, sector-analyst, institutional-flow-tracker) into a prioritized conviction dashboard with weighted scoring, deduplication, and contradiction detection.
+category: cloudflare-edge
 ---
 
 # Edge Signal Aggregator

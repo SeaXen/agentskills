@@ -3,6 +3,7 @@ name: NetSuite Automation
 description: "NetSuite Automation: manage customers, sales orders, invoices, inventory, and records via Oracle NetSuite ERP with SuiteQL queries"
 requires:
   mcp: [rube]
+category: business-sales-crm
 ---
 
 # NetSuite Automation

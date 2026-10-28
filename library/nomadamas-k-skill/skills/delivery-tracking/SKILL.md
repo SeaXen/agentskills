@@ -6,6 +6,7 @@ metadata:
   category: logistics
   locale: ko-KR
   phase: v1
+category: business-finance-accounting
 ---
 
 # delivery-tracking

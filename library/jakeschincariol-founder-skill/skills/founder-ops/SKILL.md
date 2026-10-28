@@ -9,6 +9,7 @@ description: >-
   this", "operations", "suppliers", "staffing", "SOPs", "what do I need to open",
   "permits", or "day one".
 argument-hint: "[city or country]"
+category: code-quality-refactoring
 ---
 
 # founder-ops

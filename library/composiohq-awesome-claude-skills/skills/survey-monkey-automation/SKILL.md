@@ -4,6 +4,7 @@ description: "Automate SurveyMonkey survey creation, response collection, collec
 requires:
   mcp:
     - rube
+category: terminal-system-tools
 ---
 
 # SurveyMonkey Automation

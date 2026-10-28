@@ -3,6 +3,7 @@ name: imgix-automation
 description: "Automate Imgix tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Imgix Automation via Rube MCP

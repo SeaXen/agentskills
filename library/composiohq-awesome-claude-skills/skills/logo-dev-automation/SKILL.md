@@ -3,6 +3,7 @@ name: logo-dev-automation
 description: "Automate Logo Dev tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: graphics-branding-design
 ---
 
 # Logo Dev Automation via Rube MCP

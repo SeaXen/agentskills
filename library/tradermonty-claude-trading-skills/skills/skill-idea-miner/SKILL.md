@@ -1,6 +1,7 @@
 ---
 name: skill-idea-miner
 description: Mine Claude Code session logs for skill idea candidates. Use when running the weekly skill generation pipeline to extract, score, and backlog new skill ideas from recent coding sessions.
+category: business-sales-crm
 ---
 
 # Skill Idea Miner

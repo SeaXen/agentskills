@@ -1,6 +1,7 @@
 ---
 name: position-sizer
 description: Calculate risk-based position sizes for long stock trades. Use when user asks about position sizing, how many shares to buy, risk per trade, Kelly criterion, ATR-based sizing, fractional-share sizing, or portfolio risk allocation. Supports stop-loss distance calculation, volatility scaling, and sector concentration checks.
+category: algorithms-logic
 ---
 
 # Position Sizer

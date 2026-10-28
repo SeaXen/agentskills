@@ -5,6 +5,7 @@ description: "|"
 package: Azure.Security.KeyVault.Keys
 risk: unknown
 source: community
+category: security-vulnerability-audit
 ---
 
 # Azure.Security.KeyVault.Keys (.NET)

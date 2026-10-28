@@ -1,6 +1,7 @@
 ---
 name: genoffice
 description: Generates brand taglines, selling points, and brand stories from product and audience information.
+category: code-quality-refactoring
 ---
 
 # CLAUDE.md

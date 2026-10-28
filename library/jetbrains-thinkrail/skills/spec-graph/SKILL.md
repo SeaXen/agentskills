@@ -1,6 +1,7 @@
 ---
 name: spec-graph
 description: "Use when locating, reading, creating, updating, or validating project specs, or when work is governed by or may alter a documented boundary, contract, invariant, behavior, or architecture decision."
+category: business-strategy-legal
 ---
 
 # Spec graph

@@ -3,6 +3,7 @@ name: neuronwriter-automation
 description: "Automate Neuronwriter tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Neuronwriter Automation via Rube MCP

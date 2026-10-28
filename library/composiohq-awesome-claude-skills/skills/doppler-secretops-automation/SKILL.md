@@ -3,6 +3,7 @@ name: doppler-secretops-automation
 description: "Automate Doppler Secretops tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Doppler Secretops Automation via Rube MCP

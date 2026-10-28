@@ -9,6 +9,7 @@ description: >
 version: 1.0.0
 tags: [geo, business, proposal, sales, pricing, client]
 allowed-tools: Read, Write, Bash, Glob, WebFetch
+category: business-sales-crm
 ---
 
 # GEO Proposal Generator

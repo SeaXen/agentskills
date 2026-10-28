@@ -3,6 +3,7 @@ name: hystruct-automation
 description: "Automate Hystruct tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Hystruct Automation via Rube MCP

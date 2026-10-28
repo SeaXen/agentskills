@@ -3,6 +3,7 @@ name: mistral_ai-automation
 description: "Automate Mistral AI tasks via Rube MCP (Composio): completions, embeddings, fine-tuning, and model management. Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: prompt-llm-engineering
 ---
 
 # Mistral AI Automation via Rube MCP

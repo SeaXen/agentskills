@@ -3,6 +3,7 @@ name: bigmailer-automation
 description: "Automate Bigmailer tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Bigmailer Automation via Rube MCP

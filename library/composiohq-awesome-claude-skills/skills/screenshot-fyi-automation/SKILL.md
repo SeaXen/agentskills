@@ -3,6 +3,7 @@ name: screenshot-fyi-automation
 description: "Automate Screenshot Fyi tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Screenshot Fyi Automation via Rube MCP

@@ -6,6 +6,7 @@ description: "|"
 package: com.azure:azure-monitor-ingestion
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure Monitor Ingestion SDK for Java

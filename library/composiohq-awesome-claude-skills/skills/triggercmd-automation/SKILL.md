@@ -3,6 +3,7 @@ name: triggercmd-automation
 description: "Automate Triggercmd tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Triggercmd Automation via Rube MCP

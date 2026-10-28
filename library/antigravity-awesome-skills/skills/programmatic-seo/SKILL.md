@@ -9,6 +9,7 @@ description: ">"
   unless explicitly requested.
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 ---

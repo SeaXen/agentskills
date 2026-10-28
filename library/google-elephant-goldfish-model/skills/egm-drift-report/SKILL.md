@@ -7,6 +7,7 @@ description: >-
   code consistency. Produces an actionable report with differences. Use when the
   user asks to detect drift or check for consistency across all design documents
   or READMEs in a directory.
+category: code-quality-refactoring
 ---
 
 # Detect Drift In Designs and Code

@@ -5,6 +5,7 @@ license: MIT
 metadata:
   author: Paul Hudson
   version: "2.0.0"
+category: backend-api-design
 ---
 
 Review Swift and SwiftUI code for correctness, modern API usage, and adherence to project conventions. Report only genuine problems – do not nitpick or invent issues.

@@ -8,6 +8,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: mobile-ios-android
 ---
 
 ## Use this skill when

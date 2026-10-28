@@ -9,6 +9,7 @@ description: >-
   campaign", "how do I get customers", "where do I advertise", "write my ads", or
   "positioning".
 argument-hint: "[budget]"
+category: code-quality-refactoring
 ---
 
 # founder-marketing

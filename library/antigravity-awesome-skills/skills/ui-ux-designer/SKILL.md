@@ -8,6 +8,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: frontend-ui-components
 ---
 
 ## Use this skill when

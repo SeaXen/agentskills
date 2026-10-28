@@ -3,6 +3,7 @@ name: gan-ai-automation
 description: "Automate Gan AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Gan AI Automation via Rube MCP

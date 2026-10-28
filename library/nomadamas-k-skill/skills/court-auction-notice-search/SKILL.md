@@ -6,6 +6,7 @@ metadata:
   category: real-estate
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # court-auction-notice-search

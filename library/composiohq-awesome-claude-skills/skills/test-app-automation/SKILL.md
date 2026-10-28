@@ -3,6 +3,7 @@ name: test-app-automation
 description: "Automate Test App tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Test App Automation via Rube MCP

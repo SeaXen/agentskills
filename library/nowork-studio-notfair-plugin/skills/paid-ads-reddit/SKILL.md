@@ -2,6 +2,7 @@
 name: paid-ads-reddit
 description: Audit, diagnose, and safely operate connected Reddit Ads accounts through the NotFair MCP. Use for Reddit advertising, Reddit Ads performance, campaign or ad-group analysis, spend, conversions, targeting, audiences, pixels, budgets, bids, creative, campaign setup, or approved Reddit Ads changes.
 argument-hint: "<account, campaign, date range, or Reddit Ads goal>"
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

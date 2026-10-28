@@ -19,6 +19,7 @@ metadata:
       - social-media
       - research
       - scrapecreators
+category: business-sales-crm
 ---
 
 # Influencer Prospecting

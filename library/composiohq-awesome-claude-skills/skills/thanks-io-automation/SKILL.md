@@ -3,6 +3,7 @@ name: thanks-io-automation
 description: "Automate Thanks IO tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Thanks IO Automation via Rube MCP

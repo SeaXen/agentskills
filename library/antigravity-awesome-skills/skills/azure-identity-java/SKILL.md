@@ -4,6 +4,7 @@ description: "Azure Identity Java SDK for authentication with Azure services. Us
 package: com.azure:azure-identity
 risk: unknown
 source: community
+category: architecture-system-design
 ---
 
 # Azure Identity (Java)

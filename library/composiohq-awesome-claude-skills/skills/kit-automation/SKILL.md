@@ -3,6 +3,7 @@ name: kit-automation
 description: "Automate Kit tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Kit Automation via Rube MCP

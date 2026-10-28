@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: security-compliance-auth
 ---
 
 # Google Drive Automation via Rube MCP

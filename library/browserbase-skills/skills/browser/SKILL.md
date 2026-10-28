@@ -14,6 +14,7 @@ metadata:
         package: "browse"
         bins: [browse]
     homepage: https://github.com/browserbase/skills
+category: terminal-system-tools
 ---
 
 # Browser Automation

@@ -7,6 +7,7 @@ metadata:
   version: "0.4.0"
 allowed-tools: Bash Read Glob Grep Agent
 compatibility: "Requires the browse CLI (`npm install -g browse`). For remote testing: BROWSERBASE_API_KEY and cookie-sync skill."
+category: git-version-control
 ---
 
 # UI Test — Agentic UI Testing Skill

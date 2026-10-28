@@ -2,6 +2,7 @@
 name: meta-ads-creative
 description: Create evidence-based Meta ad creative briefs, copy angles, and testable asset concepts for Facebook and Instagram. Use when asked for Meta ad creative, Facebook ads copy, Instagram ad assets, UGC concepts, creative briefs, new ad concepts, or creative refreshes.
 argument-hint: "<campaign, audience, or 'build a creative slate'>"
+category: testing-unit-tdd
 ---
 
 # Canonical NotFair workflow

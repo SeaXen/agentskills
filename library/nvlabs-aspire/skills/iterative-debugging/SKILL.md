@@ -1,6 +1,7 @@
 ---
 name: iterative-debugging
 description: "Run the baseline-free CaP iterative debugging (fix loop) pipeline on a user-supplied list of benchmark tasks: inspect one initial observed scene per task, generate task-level code, debug failures on development seeds using recorded run artifacts, validate on the held-out partition, grade the skill library against what actually worked, and promote only those patterns a verifier could reproduce the fix from."
+category: testing-unit-tdd
 ---
 
 # Iterative Debugging (Fix Loop)

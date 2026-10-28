@@ -1,6 +1,7 @@
 ---
 name: hallmark
 description: A design skill that enforces strict tokens and accessibility standards to prevent generic AI-generated UI patterns.
+category: prompt-llm-engineering
 ---
 
 # Hallmark

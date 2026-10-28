@@ -3,6 +3,7 @@ name: zoho-bigin-automation
 description: "Automate Zoho Bigin tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Zoho Bigin Automation via Rube MCP

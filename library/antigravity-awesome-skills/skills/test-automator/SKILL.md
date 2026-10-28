@@ -8,6 +8,7 @@ metadata:
   model: sonnet
 risk: unknown
 source: community
+category: testing-unit-tdd
 ---
 
 ## Use this skill when

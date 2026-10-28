@@ -3,6 +3,7 @@ name: cincopa-automation
 description: "Automate Cincopa tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Cincopa Automation via Rube MCP

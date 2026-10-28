@@ -19,6 +19,7 @@ metadata:
       - social-media
       - research
       - scrapecreators
+category: audio-voice-sound
 ---
 
 # Comment Mining

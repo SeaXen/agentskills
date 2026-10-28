@@ -2,6 +2,7 @@
 name: niche-research
 description: >
   Surface the 20 most relevant stories in a niche from the last 7 days using available live research tools. Verified dates, real links, shareable angles. Use available browser or web search tools to inspect dated source material. Use this skill whenever the user says "research my niche", "what's trending", "find stories", "this week's news", "content research", or drops a niche and asks what's happening in it. Requires live source access for current research.
+category: frontend-ui-components
 ---
 
 # Niche Research

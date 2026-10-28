@@ -1,6 +1,7 @@
 ---
 name: shortform-production
 description: Produce readable vertical shorts with evidence-based B-roll, three opening treatments, editorial review, and authorized Metricool API delivery. Use for shortform edits, captions, hook experiments, or scheduling approved clips.
+category: backend-api-design
 ---
 
 # Shortform Production

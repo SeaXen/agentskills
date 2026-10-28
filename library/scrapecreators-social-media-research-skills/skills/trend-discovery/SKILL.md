@@ -19,6 +19,7 @@ metadata:
       - social-media
       - research
       - scrapecreators
+category: backend-api-design
 ---
 
 # Trend Discovery

@@ -10,6 +10,7 @@ metadata:
   model: haiku
 risk: unknown
 source: community
+category: devops-docker-cicd
 ---
 You are a deployment engineer specializing in modern CI/CD pipelines, GitOps workflows, and advanced deployment automation.
 

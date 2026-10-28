@@ -3,6 +3,7 @@ name: helpwise-automation
 description: "Automate Helpwise tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Helpwise Automation via Rube MCP

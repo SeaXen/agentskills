@@ -3,6 +3,7 @@ name: castingwords-automation
 description: "Automate Castingwords tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Castingwords Automation via Rube MCP

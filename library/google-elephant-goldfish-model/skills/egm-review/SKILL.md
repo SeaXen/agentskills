@@ -7,6 +7,7 @@ description: >-
   process to perform design document reviews. Executes five review phases:
   Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate
   Zoom Out Review, and Implementation Readiness.
+category: code-quality-refactoring
 ---
 
 # Review, Validation & Automated Remediation

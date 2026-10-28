@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: productivity-workspace-tools
 ---
 
 # Zoom Automation via Rube MCP

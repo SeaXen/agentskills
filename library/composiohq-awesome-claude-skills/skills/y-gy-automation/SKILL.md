@@ -3,6 +3,7 @@ name: y-gy-automation
 description: "Automate Y Gy tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Y Gy Automation via Rube MCP

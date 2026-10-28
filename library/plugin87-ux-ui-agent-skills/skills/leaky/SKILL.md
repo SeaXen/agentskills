@@ -1,6 +1,7 @@
 ---
 name: leaky
 description: A skill written the way the whole surface was written before 2026-10-05. The gate must reject it.
+category: code-quality-refactoring
 ---
 
 # Leaky

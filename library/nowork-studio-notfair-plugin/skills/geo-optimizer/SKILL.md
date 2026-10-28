@@ -13,6 +13,7 @@ description: >
   by Perplexity", "SGE optimization", "Search Generative Experience", or
   "make my content show up in AI answers". Distinct from regular SEO —
   this targets generative engines, not traditional Google rankings.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

@@ -1,6 +1,7 @@
 ---
 name: dev-browser
 description: Browser automation with persistent named pages via the dev-browser CLI. Use when users ask to navigate websites, fill forms, take screenshots, extract web data, test web apps, log into sites, or automate browser workflows. Trigger phrases include "go to [url]", "click on", "fill out the form", "take a screenshot", "scrape", "automate", "test the website", "log into", "open the browser", or any browser interaction request.
+category: testing-unit-tdd
 ---
 
 # dev-browser

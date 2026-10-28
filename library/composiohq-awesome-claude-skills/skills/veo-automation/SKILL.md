@@ -3,6 +3,7 @@ name: veo-automation
 description: "Automate Veo tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Veo Automation via Rube MCP

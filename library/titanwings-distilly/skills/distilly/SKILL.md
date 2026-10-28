@@ -5,6 +5,7 @@ argument-hint: "[colleague-name-or-slug]"
 version: "1.0.0"
 user-invocable: true
 allowed-tools: Read, Write, Edit, Bash
+category: data-engineering-ml
 ---
 
 > **Language / 语言**: This skill supports both English and Chinese. Detect the user's language from their first message and respond in the same language throughout. Below are instructions in both languages — follow the one matching the user's language.

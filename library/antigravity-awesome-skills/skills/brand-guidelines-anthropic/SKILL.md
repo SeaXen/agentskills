@@ -4,6 +4,7 @@ description: "Applies Anthropic's official brand colors and typography to any so
 license: Complete terms in LICENSE.txt
 risk: unknown
 source: community
+category: frontend-visual-taste
 ---
 
 # Anthropic Brand Styling

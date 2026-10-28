@@ -3,6 +3,7 @@ name: autobound-automation
 description: "Automate Autobound tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Autobound Automation via Rube MCP

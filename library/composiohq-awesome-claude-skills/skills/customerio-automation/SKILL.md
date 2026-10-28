@@ -4,6 +4,7 @@ description: "Automate customer engagement workflows including broadcast trigger
 requires:
   mcp:
     - rube
+category: business-sales-crm
 ---
 
 # Customer.io Automation

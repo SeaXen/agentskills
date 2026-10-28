@@ -3,6 +3,7 @@ name: imagekit-io-automation
 description: "Automate Imagekit IO tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Imagekit IO Automation via Rube MCP

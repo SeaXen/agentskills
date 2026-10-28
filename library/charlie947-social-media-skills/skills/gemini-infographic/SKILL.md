@@ -2,6 +2,7 @@
 name: gemini-infographic
 description: >
   Generate a hand-drawn whiteboard infographic prompt. Takes source content (a post, newsletter, blog, research note) and returns a complete Gemini image generation prompt with a structured brief. Use this skill whenever the user says "whiteboard infographic", "gemini infographic", "hand-drawn graphic", "turn this into a whiteboard", or wants an AI-generated infographic for a post.
+category: prompt-llm-engineering
 ---
 
 # Gemini Infographic

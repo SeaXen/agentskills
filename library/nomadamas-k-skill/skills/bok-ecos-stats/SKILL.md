@@ -6,6 +6,7 @@ metadata:
   category: data
   locale: ko-KR
   phase: v1
+category: backend-api-design
 ---
 
 # bok-ecos-stats

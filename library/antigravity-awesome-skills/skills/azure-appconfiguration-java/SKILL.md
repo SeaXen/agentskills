@@ -6,6 +6,7 @@ description: "|"
 package: com.azure:azure-data-appconfiguration
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Azure App Configuration SDK for Java

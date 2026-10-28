@@ -1,6 +1,7 @@
 ---
 name: economic-calendar-fetcher
 description: "Fetch upcoming economic events and data releases using FMP API. Retrieve scheduled central bank decisions, employment reports, inflation data, GDP releases, and other market-moving economic indicators for specified date ranges (default: next 7 days). The script outputs raw JSON or text; the assistant filters, assesses impact, and generates the Markdown report."
+category: productivity-workspace-tools
 ---
 
 # Economic Calendar Fetcher

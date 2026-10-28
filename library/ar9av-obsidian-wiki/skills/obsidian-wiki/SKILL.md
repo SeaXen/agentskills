@@ -1,6 +1,7 @@
 ---
 name: obsidian-wiki
 description: Ingests AI conversation and session history from tools like Claude Code and Codex CLI into Obsidian as distilled knowledge.
+category: cloudflare-edge
 ---
 
 # Obsidian Wiki — Agent Context

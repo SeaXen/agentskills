@@ -14,6 +14,7 @@ description: >
   "templated pages", "location pages at scale", "comparison pages", "[city] pages",
   "my generated pages aren't indexed", "doorway pages", "scale content". For one-off
   content use /content-writer; for keyword discovery use /keyword-research.
+category: prompt-llm-engineering
 ---
 
 # Canonical NotFair workflow

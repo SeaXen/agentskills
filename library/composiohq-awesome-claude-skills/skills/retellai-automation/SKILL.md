@@ -3,6 +3,7 @@ name: retellai-automation
 description: "Automate Retellai tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Retellai Automation via Rube MCP

@@ -1,6 +1,7 @@
 ---
 name: cap-tool-usage
 description: Localize objects and compose low-level CAP MCP actions using observations, Cartesian or synchronized motion, joint targets, and single-arm gripper control.
+category: frontend-motion-animation
 ---
 
 # CAP Tool Usage

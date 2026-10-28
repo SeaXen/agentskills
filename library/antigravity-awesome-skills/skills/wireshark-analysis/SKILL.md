@@ -6,6 +6,7 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # Wireshark Network Traffic Analysis

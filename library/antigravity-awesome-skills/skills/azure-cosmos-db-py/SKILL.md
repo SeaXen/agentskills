@@ -4,6 +4,7 @@ description: "Build Azure Cosmos DB NoSQL services with Python/FastAPI following
 package: azure-cosmos
 risk: unknown
 source: community
+category: database-nosql-serverless
 ---
 
 # Cosmos DB Service Implementation

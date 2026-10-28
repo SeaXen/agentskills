@@ -5,6 +5,7 @@ metadata:
   argument-hint: <feature|bug|chore|refactor> <name>
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 
 # New Track

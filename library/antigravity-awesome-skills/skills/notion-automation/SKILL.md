@@ -5,6 +5,7 @@ requires:
   mcp: [rube]
 risk: unknown
 source: community
+category: productivity-workspace-tools
 ---
 
 # Notion Automation via Rube MCP

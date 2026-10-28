@@ -20,6 +20,7 @@ metadata:
       - video-to-code
       - scrolltrigger
     category: development
+category: frontend-motion-animation
 ---
 
 # Motion2Code

@@ -16,6 +16,7 @@ description: >
   options activity", "backtest RSI on AAPL", and "top gainers on NASDAQ".
   For options greeks, watchlists, alerts, or chart screenshots use
   tradingview-reader instead.
+category: data-engineering-ml
 ---
 
 # TradingView MCP (Headless Market Data)

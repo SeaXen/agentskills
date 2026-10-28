@@ -1,6 +1,7 @@
 ---
 name: anti-slop
 description: A collection of filters for AI agents to remove generic comments, refine prose, and enforce high-quality UI layouts.
+category: frontend-visual-taste
 ---
 
 <p align="center">

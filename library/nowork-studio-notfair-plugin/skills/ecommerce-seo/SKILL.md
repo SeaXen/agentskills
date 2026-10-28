@@ -14,6 +14,7 @@ description: >
   "faceted navigation", "filter URLs in Google", "product schema", "rich snippets
   for products", "out of stock SEO", "duplicate product pages". For a single URL use
   /seo-page; for full-site use /seo-analysis.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

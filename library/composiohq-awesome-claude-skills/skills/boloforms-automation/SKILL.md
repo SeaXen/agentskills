@@ -3,6 +3,7 @@ name: boloforms-automation
 description: "Automate Boloforms tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Boloforms Automation via Rube MCP

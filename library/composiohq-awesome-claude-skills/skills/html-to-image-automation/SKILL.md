@@ -3,6 +3,7 @@ name: html-to-image-automation
 description: "Automate Html To Image tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: frontend-ui-components
 ---
 
 # Html To Image Automation via Rube MCP

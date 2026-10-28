@@ -4,6 +4,7 @@ description: "Automate product management workflows in Productboard -- manage fe
 requires:
   mcp:
     - rube
+category: terminal-system-tools
 ---
 
 # Productboard Automation

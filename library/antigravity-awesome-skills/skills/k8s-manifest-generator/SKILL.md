@@ -3,6 +3,7 @@ name: k8s-manifest-generator
 description: "Create production-ready Kubernetes manifests for Deployments, Services, ConfigMaps, and Secrets following best practices and security standards. Use when generating Kubernetes YAML manifests, creat..."
 risk: unknown
 source: community
+category: devops-docker-cicd
 ---
 
 # Kubernetes Manifest Generator

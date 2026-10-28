@@ -6,6 +6,7 @@ metadata:
   category: retail
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # daiso-product-search

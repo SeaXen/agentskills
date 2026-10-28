@@ -1,6 +1,7 @@
 ---
 name: melonjs
 description: Provides migration guidance for melonJS 20.x, covering async initialization, WebGL 2/WebGPU backends, and the replacement of deprecated shader properties.
+category: 3d-web-threejs
 ---
 
 melonJS 2

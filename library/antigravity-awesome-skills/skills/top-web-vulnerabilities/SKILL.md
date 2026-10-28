@@ -6,6 +6,7 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
+category: security-vulnerability-audit
 ---
 
 # Top 100 Web Vulnerabilities Reference

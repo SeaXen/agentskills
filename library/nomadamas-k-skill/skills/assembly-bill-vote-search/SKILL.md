@@ -6,6 +6,7 @@ metadata:
   category: civic
   locale: ko-KR
   phase: v1
+category: backend-api-design
 ---
 
 # assembly-bill-vote-search

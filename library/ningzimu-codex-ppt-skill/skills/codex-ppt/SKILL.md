@@ -1,6 +1,7 @@
 ---
 name: codex-ppt
 description: Generates image-based PPTX presentations from articles, reports, and outlines for use in AI agents.
+category: code-quality-refactoring
 ---
 
 # AGENTS.md

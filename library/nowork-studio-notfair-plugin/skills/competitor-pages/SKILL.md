@@ -16,6 +16,7 @@ description: >
   page", "analyze competitor pages", "SERP gap", "compete for [keyword]". For seed
   keyword discovery use /keyword-research; for a content calendar use
   /content-planner.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

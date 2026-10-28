@@ -1,6 +1,7 @@
 ---
 name: us-undervalued-growth-screener
 description: Autonomously screen NYSE, Nasdaq, and NYSE American operating-company stocks for undervalued-growth/GARP opportunities using forward same-basis valuation, driver-derived EPS/FCF forecasts, primary-source financial verification, SBC and dilution controls, sector and cycle normalization, auditable candidate-pool coverage, and fail-closed final reporting. Use when asked to find, screen, rank, or refresh US undervalued-growth stocks, including minimal requests with no ticker list or parameters.
+category: prompt-llm-engineering
 ---
 
 # US Undervalued Growth Screener — v3.6 (Claude Code Direct-FMP)

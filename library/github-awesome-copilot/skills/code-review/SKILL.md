@@ -1,6 +1,7 @@
 ---
 name: code-review
 description: 'Review pull requests for repository fit, meaningful value, trustworthy provenance, differentiation, and maintainability in awesome-copilot.'
+category: git-version-control
 ---
 
 # Awesome Copilot Code Review

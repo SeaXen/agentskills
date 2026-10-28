@@ -3,6 +3,7 @@ name: ip2whois-automation
 description: "Automate Ip2whois tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Ip2whois Automation via Rube MCP

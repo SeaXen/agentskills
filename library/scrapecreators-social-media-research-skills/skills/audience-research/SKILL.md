@@ -19,6 +19,7 @@ metadata:
       - social-media
       - research
       - scrapecreators
+category: prompt-llm-engineering
 ---
 
 # Audience Research

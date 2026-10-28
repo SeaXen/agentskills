@@ -10,6 +10,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
+category: backend-api-design
 ---
 You are a backend system architect specializing in scalable, resilient, and maintainable backend systems and APIs.
 

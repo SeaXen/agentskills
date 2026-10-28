@@ -4,6 +4,7 @@ description: "Build container-based Foundry Agents with Azure AI Projects SDK (I
 package: azure-ai-projects
 risk: unknown
 source: community
+category: devops-docker-cicd
 ---
 
 # Azure AI Hosted Agents (Python)

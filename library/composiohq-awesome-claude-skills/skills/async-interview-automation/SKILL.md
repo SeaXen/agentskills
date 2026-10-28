@@ -3,6 +3,7 @@ name: async-interview-automation
 description: "Automate Async Interview tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: business-strategy-legal
 ---
 
 # Async Interview Automation via Rube MCP

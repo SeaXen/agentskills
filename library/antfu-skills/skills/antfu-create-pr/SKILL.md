@@ -4,6 +4,7 @@ description: Create a reviewable GitHub pull request from the current branch wit
 metadata:
   author: Anthony Fu
   version: "2026.10.09"
+category: git-version-control
 ---
 
 # Create Pull Request

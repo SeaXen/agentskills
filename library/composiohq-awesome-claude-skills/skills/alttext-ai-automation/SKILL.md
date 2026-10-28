@@ -3,6 +3,7 @@ name: alttext-ai-automation
 description: "Automate Alttext AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Alttext AI Automation via Rube MCP

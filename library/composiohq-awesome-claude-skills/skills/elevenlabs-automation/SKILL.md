@@ -4,6 +4,7 @@ description: "Automate ElevenLabs text-to-speech workflows -- generate speech fr
 requires:
   mcp:
     - rube
+category: audio-voice-sound
 ---
 
 # ElevenLabs Automation

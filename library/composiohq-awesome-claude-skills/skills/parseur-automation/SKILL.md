@@ -3,6 +3,7 @@ name: parseur-automation
 description: "Automate Parseur tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Parseur Automation via Rube MCP

@@ -6,6 +6,7 @@ description: >-
   the user says "stories", "what do I post on my story", "story sequence",
   "poll idea", "I have nothing to story about", or wants to sell something
   without making a post about it.
+category: code-quality-refactoring
 ---
 
 # ig-story

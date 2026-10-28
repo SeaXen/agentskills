@@ -1,6 +1,7 @@
 ---
 name: shortform-format-library
 description: Build and maintain a visual short-form format library, evaluate supplied content spikes, and match source-grounded ideas to recording outlines and editing briefs. Use for format discovery, refreshing a swipe page, ranking a content table, or preparing a format-library lead magnet.
+category: business-sales-crm
 ---
 
 # Shortform Format Library

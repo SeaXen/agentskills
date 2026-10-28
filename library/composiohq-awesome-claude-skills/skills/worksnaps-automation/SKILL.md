@@ -3,6 +3,7 @@ name: worksnaps-automation
 description: "Automate Worksnaps tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Worksnaps Automation via Rube MCP

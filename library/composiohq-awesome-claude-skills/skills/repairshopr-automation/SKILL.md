@@ -3,6 +3,7 @@ name: repairshopr-automation
 description: "Automate Repairshopr tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: git-version-control
 ---
 
 # Repairshopr Automation via Rube MCP

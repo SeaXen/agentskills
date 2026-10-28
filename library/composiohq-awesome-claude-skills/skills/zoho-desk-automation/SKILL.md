@@ -4,6 +4,7 @@ description: "Zoho Desk automation via Rube MCP -- toolkit not currently availab
 requires:
   mcp:
     - rube
+category: code-quality-refactoring
 ---
 
 # Zoho Desk Automation

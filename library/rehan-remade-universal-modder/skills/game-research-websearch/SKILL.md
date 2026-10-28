@@ -1,6 +1,7 @@
 ---
 name: game-research-websearch
 description: Research a game, engine or modding technique on the open web with archive-aware, rate-limit-safe searches — Wayback Machine/archive.today for dead forums (XeNTaX, Zenhax, old threads), GitHub code/repo search, Nexus/Steam Workshop/Thunderstore APIs, Reddit JSON, YouTube transcripts, plus archive snapshots as evidence. Use when starting work on a game ("how did people mod X before?"), when a documented tool/link is dead, when forum threads are login-gated (semi-auto handoff to the human), and before writing a field note so claims carry source URLs.
+category: git-version-control
 ---
 
 # Game research: web search that survives dead forums

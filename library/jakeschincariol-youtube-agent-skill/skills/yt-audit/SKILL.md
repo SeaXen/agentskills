@@ -4,6 +4,7 @@ description: >-
   Audit a YouTube channel end to end - packaging, consistency, the first
   fifteen seconds, and what to fix first. Use for "audit my channel", "why
   isn't my channel growing", "review my videos", or a pasted channel URL.
+category: code-quality-refactoring
 ---
 
 # yt-audit

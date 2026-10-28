@@ -1,6 +1,7 @@
 ---
 name: ip-as-logo
 description: Generate extremely simple, cute, personified square character images with rounded heavy forms, two purposeful character colors, one solid background color, and a dominant lower-corner composition. Use when creating an animal, creature, robot, ghost, plant, object, or other character image, including when the agent should infer three product-relevant directions and propose six independent candidates for approval.
+category: frontend-visual-taste
 ---
 
 # IP as Logo

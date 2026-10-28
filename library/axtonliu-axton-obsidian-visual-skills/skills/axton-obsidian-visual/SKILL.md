@@ -1,6 +1,7 @@
 ---
 name: axton-obsidian-visual
 description: Generates Excalidraw, Mermaid, and Obsidian Canvas diagrams from text, supporting animations, mind maps, and spatial layouts.
+category: graphics-branding-design
 ---
 
 # Obsidian Visual Skills Pack

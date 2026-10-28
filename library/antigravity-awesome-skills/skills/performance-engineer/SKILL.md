@@ -10,6 +10,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
+category: code-quality-refactoring
 ---
 You are a performance engineer specializing in modern application optimization, observability, and scalable system performance.
 

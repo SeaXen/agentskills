@@ -1,6 +1,7 @@
 ---
 name: bug-hunt-swarm
 description: "Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures. Use when the user asks to investigate a bug, find the root cause, trace a regression, understand why something broke, or wants a ranked diagnosis with the fastest proof path without making code edits."
+category: multi-agent-orchestration
 ---
 
 # Bug Hunt Swarm

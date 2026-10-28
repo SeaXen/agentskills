@@ -3,6 +3,7 @@ name: habitica-automation
 description: "Automate Habitica tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Habitica Automation via Rube MCP

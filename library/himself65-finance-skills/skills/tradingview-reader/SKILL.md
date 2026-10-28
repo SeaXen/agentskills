@@ -11,6 +11,7 @@ description: >
   flag list, which alerts fired, or a screenshot of their chart. For plain quotes, TA
   readouts, scans, or futures without the desktop app, prefer tradingview-mcp.
   Read-only: it never places trades or edits watchlists, alerts, or layouts.
+category: code-quality-refactoring
 ---
 
 # TradingView Reader (Read-Only)

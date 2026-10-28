@@ -1,6 +1,7 @@
 ---
 name: wiki-ingest
 description: "Compile articles, documents, or notes into a structured wiki knowledge base. Use when user says 'ingest to wiki', 'compile to knowledge base', 'update wiki', 'wiki ingest', 'add this to wiki', or invokes /wiki-ingest. Supports single or batch ingest. Triggers: wiki, ingest, knowledge base, compile, digest, index, catalog."
+category: cloudflare-edge
 ---
 
 # Wiki Ingest — Knowledge Base Compiler

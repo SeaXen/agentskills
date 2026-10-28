@@ -3,6 +3,7 @@ name: parsehub-automation
 description: "Automate Parsehub tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Parsehub Automation via Rube MCP

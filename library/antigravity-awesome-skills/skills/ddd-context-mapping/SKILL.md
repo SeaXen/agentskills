@@ -4,6 +4,7 @@ description: "Map relationships between bounded contexts and define integration 
 risk: safe
 source: self
 tags: [ddd, context-map, anti-corruption-layer, integration]
+category: architecture-system-design
 ---
 
 # DDD Context Mapping

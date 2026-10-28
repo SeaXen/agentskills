@@ -3,6 +3,7 @@ name: ipinfo-io-automation
 description: "Automate Ipinfo IO tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Ipinfo IO Automation via Rube MCP

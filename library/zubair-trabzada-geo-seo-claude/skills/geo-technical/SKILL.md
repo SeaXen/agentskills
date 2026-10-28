@@ -5,6 +5,7 @@ version: 1.0.0
 author: geo-seo-claude
 tags: [geo, technical-seo, core-web-vitals, ssr, crawlability, security, performance]
 allowed-tools: Read, Grep, Glob, Bash, WebFetch, Write
+category: testing-playwright-e2e
 ---
 
 # GEO Technical SEO Audit

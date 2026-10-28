@@ -1,6 +1,7 @@
 ---
 name: macos-menubar-tuist-app
 description: Build, refactor, or review macOS menubar apps that use Tuist and SwiftUI. Use when creating or maintaining LSUIElement menubar utilities, defining Tuist targets/manifests, implementing model-client-store-view architecture, adding script-based launch flows, or validating reliable local build/run behavior without Xcode-first workflows.
+category: code-quality-refactoring
 ---
 
 # macos-menubar-tuist-app

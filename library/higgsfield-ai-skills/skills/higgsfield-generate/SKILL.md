@@ -22,6 +22,7 @@ description: |
   higgsfield-websites), or TTS.
 argument-hint: "[prompt-or-analysis-request] [--model <name>] [--image|--video <path-or-id>]"
 allowed-tools: Bash
+category: audio-voice-sound
 ---
 
 # Higgsfield Generate

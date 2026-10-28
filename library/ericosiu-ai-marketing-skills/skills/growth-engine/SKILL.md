@@ -1,3 +1,7 @@
+---
+category: code-quality-refactoring
+---
+
 # Growth Engine
 
 ## Preamble (runs on skill start)

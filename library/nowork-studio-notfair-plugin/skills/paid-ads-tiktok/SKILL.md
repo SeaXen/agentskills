@@ -2,6 +2,7 @@
 name: paid-ads-tiktok
 description: Audit, diagnose, and safely operate connected TikTok Ads accounts through the NotFair MCP. Use for TikTok advertising, Spark Ads, short-form video ads, campaign or ad-group analysis, spend, conversions, targeting, creative, budgets, bids, creator briefs, campaign setup, or approved TikTok Ads changes.
 argument-hint: "<account, campaign, date range, or TikTok Ads goal>"
+category: data-engineering-ml
 ---
 
 # Canonical NotFair workflow

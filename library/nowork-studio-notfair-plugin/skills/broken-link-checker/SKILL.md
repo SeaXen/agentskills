@@ -6,6 +6,7 @@ description: >
   identifies broken outbound links, and reports source pages for easy fixing.
   Use this when the user asks to "check for broken links", "find 404s",
   "audit my links", or "is my site healthy".
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

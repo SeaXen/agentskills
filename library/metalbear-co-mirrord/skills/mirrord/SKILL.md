@@ -1,6 +1,7 @@
 ---
 name: mirrord
 description: Injects artificial latency and connection errors into mirrord sessions to test application behavior under degraded network conditions.
+category: testing-unit-tdd
 ---
 
 # mirrord

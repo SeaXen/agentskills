@@ -3,6 +3,7 @@ name: mx-toolbox-automation
 description: "Automate Mx Toolbox tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Mx Toolbox Automation via Rube MCP

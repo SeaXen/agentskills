@@ -1,6 +1,7 @@
 ---
 name: carrel-search
 description: "Query the user's local knowledge bases through the Carrel search API, use original text and source images as needed in the answer, list the reference files and offer follow-up directions drawn from the knowledge graph. Use when the user asks to search the knowledge base, find evidence in the stored material, compare records, or answer from several documents together."
+category: backend-api-design
 ---
 
 # Carrel-Search

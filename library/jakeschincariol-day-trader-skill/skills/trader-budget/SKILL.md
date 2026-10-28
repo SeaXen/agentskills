@@ -13,6 +13,7 @@ description: >-
   a trade", "set my rules", "keep 10% in cash", or after /trader-exit writes
   a plan.
 argument-hint: "[budget in dollars]"
+category: code-quality-refactoring
 ---
 
 # trader-budget

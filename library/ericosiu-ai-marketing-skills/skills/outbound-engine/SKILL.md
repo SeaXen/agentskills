@@ -1,6 +1,7 @@
 ---
 name: cold-outbound-optimizer
 description: Design, analyze, and optimize cold outbound email campaigns for Instantly. Handles end-to-end ICP definition, expert panel scoring (recursive to 90+), sequence copywriting, infrastructure audit, capacity planning, and implementation docs. Use when asked to build cold outbound sequences, optimize cold email, analyze outbound campaigns, build sales sequences, build Instantly sequences, create cold outbound strategies, or design email campaigns. Supports both "start from scratch" and "optimize existing" modes.
+category: business-sales-crm
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 name: gpt-image2
 description: Analyzes reference images to extract high-fidelity prompts for recreating visual styles, compositions, and textures in AI image generators.
+category: prompt-llm-engineering
 ---
 
 <h1 align="center">GPT Image 2/2.5 Prompt Gallery + Agent Skills + CLI</h1>

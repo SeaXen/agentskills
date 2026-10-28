@@ -6,6 +6,7 @@ description: "|"
 package: azure-cosmos
 risk: unknown
 source: community
+category: database-nosql-serverless
 ---
 
 # Azure Cosmos DB SDK for Python

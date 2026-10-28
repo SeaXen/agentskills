@@ -3,6 +3,7 @@ name: route4me-automation
 description: "Automate Route4me tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Route4me Automation via Rube MCP

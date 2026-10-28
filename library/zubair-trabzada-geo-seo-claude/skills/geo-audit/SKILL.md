@@ -8,6 +8,7 @@ allowed-tools:
   - Bash
   - WebFetch
   - Write
+category: multi-agent-orchestration
 ---
 
 # GEO Audit Orchestration Skill

@@ -1,6 +1,7 @@
 ---
 name: marketing
 description: Tools for calculating A/B test statistical significance, determining sample sizes, and optimizing paid campaign structures.
+category: testing-unit-tdd
 ---
 
 # Claude Skills for Marketing: 49 free marketing skills for Claude Code and claude.ai

@@ -9,6 +9,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
+category: frontend-ui-components
 ---
 
 ## Use this skill when

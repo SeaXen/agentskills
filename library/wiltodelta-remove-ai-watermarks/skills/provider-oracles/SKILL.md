@@ -3,6 +3,7 @@ name: provider-oracles
 description: Run hash-bound Google, OpenAI, Microsoft, or Meta watermark-oracle checks for this repository. Use for provider verification, multi-account Gemini checks, SynthID Detector checks at synthid.com, isolated Playwright checks, or recording oracle evidence. Walk the existing plan automatically when a task needs a provider verdict.
 metadata:
   internal: true
+category: prompt-llm-engineering
 ---
 
 # Provider oracles

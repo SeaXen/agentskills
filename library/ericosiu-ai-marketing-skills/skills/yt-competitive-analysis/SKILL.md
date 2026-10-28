@@ -4,6 +4,7 @@ description: >-
   Analyze YouTube channels for outlier videos and packaging patterns. Identifies
   what's working (2x+ average views) across any set of channels. Use when asked for
   YouTube competitive analysis, viral video patterns, or packaging/title inspiration.
+category: code-quality-refactoring
 ---
 
 # YouTube Competitive Analysis

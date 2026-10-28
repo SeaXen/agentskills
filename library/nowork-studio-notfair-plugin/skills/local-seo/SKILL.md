@@ -14,6 +14,7 @@ description: >
   Google Maps", "store locator SEO", "multi-location SEO", "service area pages", or
   any location-based ranking question. For full-site (non-local) audits use
   /seo-analysis; for a single URL use /seo-page.
+category: code-quality-refactoring
 ---
 
 # Canonical NotFair workflow

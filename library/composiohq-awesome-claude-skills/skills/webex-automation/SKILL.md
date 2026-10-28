@@ -4,6 +4,7 @@ description: "Automate Cisco Webex messaging, rooms, teams, webhooks, and people
 requires:
   mcp:
     - rube
+category: terminal-system-tools
 ---
 
 # Webex Automation

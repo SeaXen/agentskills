@@ -3,6 +3,7 @@ name: globalping-automation
 description: "Automate Globalping tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Globalping Automation via Rube MCP

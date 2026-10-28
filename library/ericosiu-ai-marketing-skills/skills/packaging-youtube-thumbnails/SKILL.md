@@ -4,6 +4,7 @@ description: Use when a user supplies new video content or a channel and wants o
 metadata:
   version: 1.0.0
   updated: 2026-09-02
+category: video-motion-production
 ---
 
 # Packaging YouTube Thumbnails

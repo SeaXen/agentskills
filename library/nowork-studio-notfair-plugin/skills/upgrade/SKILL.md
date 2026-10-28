@@ -6,6 +6,7 @@ description: >
   installs the new version to the plugin cache, and updates installed_plugins.json.
   Use when asked to "upgrade notfair", "update notfair", or "get latest version".
   Also handles inline upgrade prompts when a skill detects UPGRADE_AVAILABLE at startup.
+category: testing-unit-tdd
 ---
 
 # Canonical NotFair workflow

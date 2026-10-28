@@ -3,6 +3,7 @@ name: hyperise-automation
 description: "Automate Hyperise tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Hyperise Automation via Rube MCP

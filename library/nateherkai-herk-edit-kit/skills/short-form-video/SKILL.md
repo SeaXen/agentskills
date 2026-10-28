@@ -1,6 +1,7 @@
 ---
 name: short-form-video
 description: Maintain the existing May Shorts teaching compositions using their legacy face-mode, scene-overlay, and karaoke-caption patterns. Use only when working on those examples or explicitly requesting this legacy scaffold. For new reels, Shorts, or short advertisements, use short-form-edit.
+category: video-motion-production
 ---
 
 # Short-Form Vertical Video (Hyperframes)

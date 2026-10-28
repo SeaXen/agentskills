@@ -4,6 +4,7 @@ description: "Deploy serverless browser automation as cloud functions using Brow
 compatibility: "Requires the browse CLI (`npm install -g browse`), Node.js 18+ with pnpm or npm, and BROWSERBASE_API_KEY."
 license: MIT
 allowed-tools: Bash Read Write Edit
+category: backend-api-design
 ---
 
 # Browserbase Functions

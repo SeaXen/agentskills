@@ -3,6 +3,7 @@ name: smartrecruiters-automation
 description: "Automate Smartrecruiters tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Smartrecruiters Automation via Rube MCP

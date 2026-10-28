@@ -9,6 +9,7 @@ credentials:
     required: false
     description: "API key for higher rate limits. Anonymous access available with lower rate limits."
     storage: ".env file, environment variable, or --api_key CLI flag"
+category: code-quality-refactoring
 ---
 
 ## Overview

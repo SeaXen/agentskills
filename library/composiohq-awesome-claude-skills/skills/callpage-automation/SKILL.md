@@ -3,6 +3,7 @@ name: callpage-automation
 description: "Automate Callpage tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Callpage Automation via Rube MCP

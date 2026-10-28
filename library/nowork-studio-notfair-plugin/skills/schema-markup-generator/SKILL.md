@@ -8,6 +8,7 @@ description: >
   Use when asked to "add schema markup", "generate structured data", "JSON-LD",
   "rich snippets", "FAQ schema", "product markup", "add structured data to my
   page", "how to get rich snippets", or any structured data task.
+category: database-sql-relational
 ---
 
 # Canonical NotFair workflow

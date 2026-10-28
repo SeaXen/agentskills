@@ -1,6 +1,7 @@
 ---
 name: scroll-craft
 description: Develops high-end, scroll-animated landing pages using dimensional hero compositions and planned visitor journey maps.
+category: frontend-motion-animation
 ---
 
 # scroll-craft

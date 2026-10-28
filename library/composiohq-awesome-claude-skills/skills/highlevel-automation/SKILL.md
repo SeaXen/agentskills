@@ -3,6 +3,7 @@ name: highlevel-automation
 description: "Automate Highlevel tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Highlevel Automation via Rube MCP

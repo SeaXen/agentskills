@@ -1,6 +1,7 @@
 ---
 name: evosearch
 description: "Run the CaP Fix Loop + Evolutionary Search experiment on a user-supplied list of low-performing benchmark tasks: iterative K=8 candidate search on development seeds 51–65, validation selection, and final held-out evaluation on seeds 1–50."
+category: testing-unit-tdd
 ---
 
 # Fix Loop + Evolutionary Search

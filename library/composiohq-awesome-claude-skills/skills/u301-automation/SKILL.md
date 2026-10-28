@@ -3,6 +3,7 @@ name: u301-automation
 description: "Automate U301 tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # U301 Automation via Rube MCP

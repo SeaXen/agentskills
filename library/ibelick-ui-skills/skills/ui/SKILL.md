@@ -1,6 +1,7 @@
 ---
 name: ui
 description: Tools for polishing UI layout, fixing accessibility issues, and creating interactive canvases to explore component variants.
+category: frontend-ui-components
 ---
 
 # AGENTS.md

@@ -1,6 +1,7 @@
 ---
 name: autoharness
 description: Distills real-time session lessons, corrected approaches, and user preferences into a reusable skill library for AI agents.
+category: code-quality-refactoring
 ---
 
 # autoharness

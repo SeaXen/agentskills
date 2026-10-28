@@ -1,6 +1,7 @@
 ---
 name: strategy-pivot-designer
 description: Detect backtest iteration stagnation and generate structurally different strategy pivot proposals when parameter tuning reaches a local optimum.
+category: testing-unit-tdd
 ---
 
 # Strategy Pivot Designer

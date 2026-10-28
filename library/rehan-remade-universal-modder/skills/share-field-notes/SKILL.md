@@ -1,6 +1,7 @@
 ---
 name: share-field-notes
 description: Search and contribute to the shared AI-modding knowledge base, where field notes record how specific games were modded, decompiled or reverse-engineered (exact versions, route, engine facts, verification, gotchas). Use before starting work on a game ("has anyone modded X?"), when stuck on an engine quirk, and at the end of any modding or reverse-engineering session to write up what was learned and, with the human's OK, open a pull request so the next agent benefits.
+category: git-version-control
 ---
 
 # Field notes: learn from other agents, then teach the next one

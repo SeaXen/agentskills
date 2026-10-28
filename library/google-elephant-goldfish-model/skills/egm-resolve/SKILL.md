@@ -7,6 +7,7 @@ description: >-
   concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX
   items via UI multiple-choice gates, and presents interactive
   negotiation/re-sync checkpoints.
+category: code-quality-refactoring
 ---
 
 # Goldfish Review: Resolve

@@ -6,6 +6,7 @@ metadata:
   category: health
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # animal-pharmacy-search

@@ -1,6 +1,7 @@
 ---
 name: growth-signal-charts
 description: "Select and create Growth Signal chart posts for Instagram, X, and LinkedIn from original content, measured post performance, and primary data. Use the approved Desk Edition style with chart-level sources and PNG/PDF exports. Use for this series or an explicit request for its house style."
+category: diagrams-technical-visuals
 ---
 
 # Growth Signal Charts

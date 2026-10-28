@@ -11,6 +11,7 @@ description: >-
   my watchlist", "morning briefing", "pre-market news", "monitor the news",
   "did anything break", "check the 8-Ks", or after /trader-scanner finds setups.
 argument-hint: "[tickers]"
+category: code-quality-refactoring
 ---
 
 # trader-news

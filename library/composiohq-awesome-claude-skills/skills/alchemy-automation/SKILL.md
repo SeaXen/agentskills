@@ -3,6 +3,7 @@ name: alchemy-automation
 description: "Automate Alchemy tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Alchemy Automation via Rube MCP

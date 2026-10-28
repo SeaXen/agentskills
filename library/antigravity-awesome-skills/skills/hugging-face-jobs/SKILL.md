@@ -4,6 +4,7 @@ description: "This skill should be used when users want to run any workload on H
 license: "Complete terms in LICENSE.txt"
 source: "https://github.com/huggingface/skills/tree/main/skills/hugging-face-jobs"
 risk: safe
+category: devops-docker-cicd
 ---
 
 # Running Workloads on Hugging Face Jobs

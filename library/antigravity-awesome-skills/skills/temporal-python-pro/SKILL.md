@@ -8,6 +8,7 @@ metadata:
   model: inherit
 risk: unknown
 source: community
+category: multi-agent-orchestration
 ---
 
 ## Use this skill when

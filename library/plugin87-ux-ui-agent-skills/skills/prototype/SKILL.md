@@ -5,6 +5,7 @@ description: Move an idea up the fidelity ladder (content-first â†’ wireframe â†
 # ignored without an error, so these six were auto-invocable the whole time they
 # were marked user-only. This is the field that actually does it.
 disable-model-invocation: true
+category: testing-unit-tdd
 ---
 
 # Skill: Prototype & Research

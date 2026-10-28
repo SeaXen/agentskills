@@ -3,6 +3,7 @@ name: cloudconvert-automation
 description: "Automate Cloudconvert tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Cloudconvert Automation via Rube MCP

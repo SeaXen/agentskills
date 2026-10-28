@@ -4,6 +4,7 @@ description: "Automate SEO analysis with SEMrush -- research keywords, analyze d
 requires:
   mcp:
     - rube
+category: code-quality-refactoring
 ---
 
 # SEMrush Automation

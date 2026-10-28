@@ -2,6 +2,7 @@
 name: paid-ads-amazon
 description: Plan and review Amazon Ads with margin-aware ACoS, product, and search-term guardrails. Use for Amazon advertising, Sponsored Products, Sponsored Brands, Sponsored Display, ASIN targeting, Amazon ACoS, or Amazon Ads performance exports.
 argument-hint: "<ASIN, product line, target ACoS, or Amazon export>"
+category: security-compliance-auth
 ---
 
 # Canonical NotFair workflow

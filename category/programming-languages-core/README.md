@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Skills in Category**: 79 real modular skills  
+> **Total Skills in Category**: 95 real modular skills  
 > **Directory**: [`.agents/category/programming-languages-core`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,10 +16,11 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (79 Skills)
+## 📑 Complete Skill Catalog (95 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
+| **[`antfu`](./antfu/SKILL.md)** | 📦 Library | `antfu-skills` | Anthony Fu's opinionated tooling and conventions for JavaScript/TypeScript projects. Use when setting up new projects, c |
 | **[`async-python-patterns`](./async-python-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Python asyncio, concurrent programming, and async/await patterns for high-performance applications. Use when buil |
 | **[`azure-ai-agents-persistent-java`](./azure-ai-agents-persistent-java/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`azure-ai-anomalydetector-java`](./azure-ai-anomalydetector-java/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build anomaly detection applications with Azure AI Anomaly Detector SDK for Java. Use when implementing univariate/multi |
@@ -61,42 +62,57 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`azure-storage-blob-java`](./azure-storage-blob-java/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build blob storage applications with Azure Storage Blob SDK for Java. Use when uploading, downloading, or managing files |
 | **[`azure-storage-blob-rust`](./azure-storage-blob-rust/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`azure-web-pubsub-ts`](./azure-web-pubsub-ts/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build real-time messaging applications using Azure Web PubSub SDKs for JavaScript (@azure/web-pubsub, @azure/web-pubsub- |
+| **[`blast-radius`](./blast-radius/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because |
 | **[`bullmq-specialist`](./bullmq-specialist/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | BullMQ expert for Redis-backed job queues, background processing, and reliable async execution in Node.js/TypeScript app |
 | **[`bun-development`](./bun-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Modern JavaScript/TypeScript development with Bun runtime. Covers package management, bundling, testing, and migration f |
 | **[`cc-skill-coding-standards`](./cc-skill-coding-standards/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development. |
+| **[`coding-standards`](./coding-standards/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development. |
 | **[`cpp-pro`](./cpp-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Write idiomatic C++ code with modern features, RAII, smart |
+| **[`create-toolset`](./create-toolset/SKILL.md)** | 📦 Library | `epicgames-unreal-engine-skills-for-claude-code-plugin` | Use this skill when authoring or extending an Unreal Engine toolset, a class of static, AI-callable functions registered |
+| **[`crustdata-automation`](./crustdata-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Crustdata tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`data-engineer`](./data-engineer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build scalable data pipelines, modern data warehouses, and |
 | **[`dbos-golang`](./dbos-golang/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | DBOS Go SDK for building reliable, fault-tolerant applications with durable workflows. Use this skill when writing Go co |
 | **[`dbos-typescript`](./dbos-typescript/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | DBOS TypeScript SDK for building reliable, fault-tolerant applications with durable workflows. Use this skill when writi |
 | **[`fp-ts-errors`](./fp-ts-errors/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Handle errors as values using fp-ts Either and TaskEither for cleaner, more predictable TypeScript code. Use when implem |
 | **[`fp-ts-pragmatic`](./fp-ts-pragmatic/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A practical, jargon-free guide to fp-ts functional programming - the 80/20 approach that gets results without the academ |
 | **[`fp-ts-react`](./fp-ts-react/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Practical patterns for using fp-ts with React - hooks, state, forms, data fetching. Use when building React apps with fu |
+| **[`geo-content`](./geo-content/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | Content quality and E-E-A-T assessment for AI citability — evaluate experience, expertise, authoritativeness, trustworth |
+| **[`golang-benchmark`](./golang-benchmark/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Golang benchmarking, profiling, and performance measurement. Use when writing, running, or comparing Go benchmarks, prof |
+| **[`golang-concurrency`](./golang-concurrency/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Golang concurrency design — goroutine lifecycle and leak prevention, channels and `select`, channel ownership and direct |
+| **[`golang-context`](./golang-context/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Idiomatic context.Context usage in Golang — propagation through API boundaries, cancellation, timeouts and deadlines, re |
+| **[`golang-data-structures`](./golang-data-structures/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Golang data structures — slices (internals, capacity growth, preallocation, slices package), maps (internals, hash bucke |
+| **[`golang-dependency-management`](./golang-dependency-management/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Dependency management for Golang projects — go.mod and go.sum, `go get` install and upgrade flows, Minimal Version Selec |
 | **[`golang-pro`](./golang-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Go 1.21+ with modern patterns, advanced concurrency, |
+| **[`huggingface-local-models`](./huggingface-local-models/SKILL.md)** | 📦 Library | `huggingface-skills` | Use to select models to run locally with llama.cpp and GGUF on CPU, Mac Metal, CUDA, or ROCm. Covers finding GGUFs, quan |
 | **[`incident-runbook-templates`](./incident-runbook-templates/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create structured incident response runbooks with step-by-step procedures, escalation paths, and recovery actions. Use w |
 | **[`javascript-sdk`](./javascript-sdk/SKILL.md)** | 📦 Library | `magentosh-superpowers` | JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate with all models. Package: @inferencesh |
 | **[`javascript-typescript-typescript-scaffold`](./javascript-typescript-typescript-scaffold/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.js and frontend appli |
 | **[`makepad-skills`](./makepad-skills/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Makepad UI development skills for Rust apps: setup, patterns, shaders, packaging, and troubleshooting. |
+| **[`manifoldbt-backtester`](./manifoldbt-backtester/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Runs a declarative strategy spec over OHLCV bars with the manifoldbt Rust engine, pairs the fill log into round trips, a |
 | **[`mcp-builder`](./mcp-builder/SKILL.md)** | 📦 Library | `anthropics-official-skills` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services |
 | **[`memory-safety-patterns`](./memory-safety-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement memory-safe programming with RAII, ownership, smart pointers, and resource management across Rust, C++, and C. |
-| **[`migrate-to-shoehorn`](./migrate-to-shoehorn/SKILL.md)** | 📦 Library | `core-antigravity-library` | Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to re |
+| **[`migrate-to-shoehorn`](./migrate-to-shoehorn/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to re |
 | **[`monorepo-management`](./monorepo-management/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master monorepo management with Turborepo, Nx, and pnpm workspaces to build efficient, scalable multi-package repositori |
 | **[`mtls-configuration`](./mtls-configuration/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing zero-trust networking |
 | **[`pagerduty-automation`](./pagerduty-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation policies, and on-cal |
 | **[`popup-cro`](./popup-cro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without harming user experi |
+| **[`principle-type-system-discipline`](./principle-type-system-discipline/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illeg |
 | **[`privilege-escalation-methods`](./privilege-escalation-methods/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"escalate privileges\", \"get root access\", \"become administrator\",  |
 | **[`python-patterns`](./python-patterns/SKILL.md)** | 🟢 Active | `active-skills` | Python development principles and decision-making. Framework selection, async patterns, type hints, project structure. T |
 | **[`react-patterns`](./react-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. |
+| **[`reverse-engineering`](./reverse-engineering/SKILL.md)** | 📦 Library | `rehan-remade-universal-modder` | Read how a game actually works so a mod can hook it. Decompile .NET/Mono (ILSpy), IL2CPP (Cpp2IL, Il2CppDumper), Java (V |
 | **[`rust-async-patterns`](./rust-async-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns. Use when building async |
-| **[`rust-pro`](./rust-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Rust 1.75+ with modern async patterns, advanced type system |
+| **[`rust-pro`](./rust-pro/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Master Rust 1.75+ with modern async patterns, advanced type system |
 | **[`scala-pro`](./scala-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master enterprise-grade Scala development with functional |
 | **[`security-best-practices`](./security-best-practices/SKILL.md)** | 🟢 Active | `active-skills` | Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the u |
-| **[`setup-ts-deep-modules`](./setup-ts-deep-modules/SKILL.md)** | 📦 Library | `core-antigravity-library` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder |
+| **[`setup-ts-deep-modules`](./setup-ts-deep-modules/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder |
 | **[`trigger-dev`](./trigger-dev/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent developer experience a |
 | **[`typescript-advanced-types`](./typescript-advanced-types/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript's advanced type system including generics, conditional types, mapped types, template literals, and uti |
-| **[`typescript-expert`](./typescript-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | >- |
+| **[`typescript-best-practices`](./typescript-best-practices/SKILL.md)** | 📦 Library | `backnotprop-pstack` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |
 | **[`typescript-pro`](./typescript-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript with advanced types, generics, and strict type |
-| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `core-antigravity-library` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
+| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `#core-antigravity-library` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
 | **[`unreal-engine-cpp-pro`](./unreal-engine-cpp-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices. |
+| **[`virustotal-automation`](./virustotal-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Virustotal tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`windows-privilege-escalation`](./windows-privilege-escalation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"escalate privileges on Windows,\" \"find Windows privesc vectors,\" \" |
 | **[`zustand-store-ts`](./zustand-store-ts/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create Zustand stores with TypeScript, subscribeWithSelector middleware, and proper state/action separation. Use when bu |
 

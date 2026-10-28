@@ -3,6 +3,7 @@ name: pipeline-crm-automation
 description: "Automate Pipeline CRM tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: business-sales-crm
 ---
 
 # Pipeline CRM Automation via Rube MCP

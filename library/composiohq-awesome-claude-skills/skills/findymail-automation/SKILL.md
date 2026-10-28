@@ -3,6 +3,7 @@ name: findymail-automation
 description: "Automate Findymail tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Findymail Automation via Rube MCP

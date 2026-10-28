@@ -3,6 +3,7 @@ name: adobe-automation
 description: "Automate Adobe tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Adobe Automation via Rube MCP

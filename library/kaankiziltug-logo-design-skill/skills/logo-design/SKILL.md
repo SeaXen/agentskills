@@ -1,6 +1,7 @@
 ---
 name: logo-design
 description: A comprehensive logo-design skill for Claude, Gemini CLI, Codex and other AI agents: principles, process, SVG craft, testing tools and a 1,400+ logo reference library.
+category: prompt-llm-engineering
 ---
 
 # Logo Design Skill for Claude & AI Agents

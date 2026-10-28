@@ -3,6 +3,7 @@ name: pypict-skill
 description: "Pairwise test generation"
 source: "https://github.com/omkamal/pypict-claude-skill/blob/main/SKILL.md"
 risk: safe
+category: testing-unit-tdd
 ---
 
 # Pypict Skill

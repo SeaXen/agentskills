@@ -3,6 +3,7 @@ name: docupost-automation
 description: "Automate Docupost tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Docupost Automation via Rube MCP

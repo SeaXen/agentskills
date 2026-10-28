@@ -8,6 +8,7 @@ allowed-tools:
   - "Read"
   - "Write"
   - "web_fetch"
+category: frontend-motion-animation
 ---
 
 # Stitch to Remotion Walkthrough Videos

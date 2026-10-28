@@ -15,6 +15,7 @@ description: >
   fetch sitemap", "crawl budget", "pages not indexed sitemap", "sitemap index",
   "lastmod", "robots.txt sitemap", or any sitemap/crawl-coverage question. For a
   full-site SEO audit use /seo-analysis; for broken links use /broken-link-checker.
+category: frontend-ui-components
 ---
 
 # Canonical NotFair workflow

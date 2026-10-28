@@ -6,6 +6,7 @@ description: "|"
 package: azure-containerregistry
 risk: unknown
 source: community
+category: devops-docker-cicd
 ---
 
 # Azure Container Registry SDK for Python

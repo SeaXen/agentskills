@@ -7,6 +7,7 @@ description: Pre-release gate. Run the full gate, responsive + render checks, th
 # starts it, the model never does, and its description stays out of the
 # listing budget the model's skill choice is drawn from.
 disable-model-invocation: true
+category: devops-docker-cicd
 ---
 > **Step 0: is the kit here?** This skill reads files from the kit. Check once:
 > `ls ${CLAUDE_SKILL_DIR}/../../../tokens >/dev/null 2>&1 && echo KIT_OK || echo KIT_MISSING`

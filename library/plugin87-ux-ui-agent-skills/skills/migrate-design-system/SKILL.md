@@ -5,6 +5,7 @@ description: Map this token system to or from any external design system (Materi
 # ignored without an error, so these six were auto-invocable the whole time they
 # were marked user-only. This is the field that actually does it.
 disable-model-invocation: true
+category: frontend-ui-components
 ---
 
 # Skill: Migrate / Interop Design System

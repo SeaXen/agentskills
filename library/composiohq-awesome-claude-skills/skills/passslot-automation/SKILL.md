@@ -3,6 +3,7 @@ name: passslot-automation
 description: "Automate Passslot tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Passslot Automation via Rube MCP

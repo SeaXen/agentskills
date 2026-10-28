@@ -7,6 +7,7 @@ description: Interrogate the brief before a line is built. Ask only the question
 # starts it, the model never does, and its description stays out of the
 # listing budget the model's skill choice is drawn from.
 disable-model-invocation: true
+category: frontend-ui-components
 ---
 
 > **Step 0: is the kit here?** This skill reads files from the kit. Check once:

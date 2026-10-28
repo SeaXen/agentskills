@@ -4,6 +4,7 @@ description: "Automate Zoho Books accounting workflows including invoice creatio
 requires:
   mcp:
     - rube
+category: business-finance-accounting
 ---
 
 # Zoho Books Automation

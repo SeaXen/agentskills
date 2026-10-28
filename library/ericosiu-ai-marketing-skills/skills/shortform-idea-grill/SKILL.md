@@ -1,6 +1,7 @@
 ---
 name: shortform-idea-grill
 description: Interview a founder or senior marketer one question at a time, mine current work and owned proof for net-new short-form video ideas, and return a ranked table with one five-second overlay hook, virality and three-second-hook scores, exactly three talking bullets, a complete payoff, and a mapped CTA. Use for Instagram Reels, TikTok, YouTube Shorts, LinkedIn video, founder-led content planning, hook development, content-day production queues, or turning active AI, marketing, and operating work into credible short-form concepts.
+category: video-motion-production
 ---
 
 # Shortform Idea Grill

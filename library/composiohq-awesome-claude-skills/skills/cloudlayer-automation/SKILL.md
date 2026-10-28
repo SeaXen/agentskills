@@ -3,6 +3,7 @@ name: cloudlayer-automation
 description: "Automate Cloudlayer tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Cloudlayer Automation via Rube MCP

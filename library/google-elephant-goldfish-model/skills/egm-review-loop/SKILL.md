@@ -9,6 +9,7 @@ description: >-
   apply approved fixes. Use when reviewing design docs, READMEs, feature
   specifications, implementation plans, or verifying document completeness
   and tone.
+category: code-quality-refactoring
 ---
 
 # Goldfish Review: Loop (Orchestration Driver)

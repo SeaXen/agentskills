@@ -2,6 +2,7 @@
 name: post-formatter
 description: >
   Turn a topic into a ready-to-publish LinkedIn post using PAS, AIDA, BAB, STAR, or SLAY frameworks. Up to 20 nonblank lines, mobile-formatted with blank lines between sentences. Use this skill whenever the user says "format this as a post", "turn this into a LinkedIn post", "write it as PAS" or any named framework, or wants a properly structured post from a topic. Different from post-writer: post-formatter applies a strict framework. post-writer drafts in the user's voice without framework constraints.
+category: mobile-ios-android
 ---
 
 # Post Formatter

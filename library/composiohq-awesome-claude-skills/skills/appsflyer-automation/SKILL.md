@@ -3,6 +3,7 @@ name: appsflyer-automation
 description: "Automate Appsflyer tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Appsflyer Automation via Rube MCP

@@ -3,6 +3,7 @@ name: langgraph
 description: "Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applications. Covers graph construction, state management, cycles and branches, persistence with checkpoin..."
 source: vibeship-spawner-skills (Apache 2.0)
 risk: unknown
+category: git-version-control
 ---
 
 # LangGraph

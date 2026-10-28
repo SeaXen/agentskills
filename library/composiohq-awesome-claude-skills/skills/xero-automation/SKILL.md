@@ -3,6 +3,7 @@ name: Xero Automation
 description: "Xero Automation: manage invoices, contacts, payments, bank transactions, and accounts in Xero for cloud-based bookkeeping"
 requires:
   mcp: [rube]
+category: audio-voice-sound
 ---
 
 # Xero Automation

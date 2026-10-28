@@ -4,6 +4,7 @@ description: "Automate recruiting workflows in Lever ATS -- manage opportunities
 requires:
   mcp:
     - rube
+category: business-sales-crm
 ---
 
 # Lever Automation

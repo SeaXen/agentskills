@@ -1,6 +1,7 @@
 ---
 name: shipping-a-pr
 description: "Use when finished work needs to ship as a pull request, or when creating, syncing, updating metadata, checking status, monitoring CI, or addressing review comments on a PR. Not for reviewing a PR you are not shipping."
+category: git-version-control
 ---
 
 # Shipping a PR

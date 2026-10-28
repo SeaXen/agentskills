@@ -1,6 +1,7 @@
 ---
 name: invisible_dots
 description: Provides undetectable Firefox browser identities with persistent profiles and fingerprints for AI-driven web automation.
+category: code-quality-refactoring
 ---
 
 <div align="center">

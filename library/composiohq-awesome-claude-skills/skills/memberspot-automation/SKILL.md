@@ -3,6 +3,7 @@ name: memberspot-automation
 description: "Automate Memberspot tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Memberspot Automation via Rube MCP

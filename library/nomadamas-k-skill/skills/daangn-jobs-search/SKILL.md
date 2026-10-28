@@ -6,6 +6,7 @@ metadata:
   category: jobs
   locale: ko-KR
   phase: v1
+category: code-quality-refactoring
 ---
 
 # daangn-jobs-search

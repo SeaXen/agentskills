@@ -6,6 +6,7 @@ metadata:
   version: "1.1"
 risk: unknown
 source: community
+category: programming-languages-core
 ---
 
 # Windows Privilege Escalation

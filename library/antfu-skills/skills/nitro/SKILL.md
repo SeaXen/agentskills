@@ -5,6 +5,7 @@ metadata:
   author: Anthony Fu
   version: "2026.9.25"
   source: Generated from https://github.com/nitrojs/nitro, scripts located at https://github.com/antfu/skills
+category: devops-docker-cicd
 ---
 
 > The skill is based on Nitro v3 (beta, 3.0.260903), generated at 2026-09-25.

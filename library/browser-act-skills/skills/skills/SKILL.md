@@ -1,6 +1,7 @@
 ---
 name: skills
 description: A repository of browser-act skills for automating website interactions and performing bulk data extraction from complex web interfaces.
+category: data-engineering-ml
 ---
 
 <div align="center">

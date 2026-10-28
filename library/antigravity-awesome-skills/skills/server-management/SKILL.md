@@ -4,6 +4,7 @@ description: "Server management principles and decision-making. Process manageme
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 risk: unknown
 source: community
+category: backend-api-design
 ---
 
 # Server Management

@@ -18,6 +18,7 @@ metadata:
   upstream_suite: "academic-research-skills"
   codex_adapter: true
 allowed-tools: Read, Glob, Grep, WebSearch, Bash(uv *), Bash(python *), Bash(python3 *)
+category: academic-writing-publishing
 ---
 
 # ARS-Codex

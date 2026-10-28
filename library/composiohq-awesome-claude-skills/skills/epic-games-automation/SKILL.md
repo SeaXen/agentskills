@@ -3,6 +3,7 @@ name: epic-games-automation
 description: "Automate Epic Games tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Epic Games Automation via Rube MCP

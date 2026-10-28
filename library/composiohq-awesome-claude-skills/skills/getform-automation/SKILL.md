@@ -3,6 +3,7 @@ name: getform-automation
 description: "Automate Getform tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Getform Automation via Rube MCP

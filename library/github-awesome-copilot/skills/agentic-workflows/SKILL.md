@@ -1,6 +1,7 @@
 ---
 name: agentic-workflows
 description: Route gh-aw workflow design/create/debug/upgrade requests to the right prompts.
+category: prompt-llm-engineering
 ---
 
 # Agentic Workflows Router

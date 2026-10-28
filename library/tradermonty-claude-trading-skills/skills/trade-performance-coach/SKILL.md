@@ -8,6 +8,7 @@ description: >-
   style review, rule-adherence review, next-session operating rules, or
   psychology-aware trading behavior feedback. This skill does not provide buy/sell
   advice, therapy, or broker execution.
+category: code-quality-refactoring
 ---
 
 # Trade Performance Coach

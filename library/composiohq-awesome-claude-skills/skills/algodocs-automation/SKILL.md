@@ -3,6 +3,7 @@ name: algodocs-automation
 description: "Automate Algodocs tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Algodocs Automation via Rube MCP

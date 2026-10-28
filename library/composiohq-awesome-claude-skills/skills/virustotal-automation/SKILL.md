@@ -3,6 +3,7 @@ name: virustotal-automation
 description: "Automate Virustotal tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: programming-languages-core
 ---
 
 # Virustotal Automation via Rube MCP

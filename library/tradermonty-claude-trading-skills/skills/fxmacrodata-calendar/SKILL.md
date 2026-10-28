@@ -1,6 +1,7 @@
 ---
 name: fxmacrodata-calendar
 description: Fetch official FXMacroData macro release-calendar events for trade planning, macro regime checks, and event-risk filters. Use before CPI, NFP, GDP, PCE, retail sales, PMI, and central-bank decision windows.
+category: business-sales-crm
 ---
 
 # FXMacroData Calendar

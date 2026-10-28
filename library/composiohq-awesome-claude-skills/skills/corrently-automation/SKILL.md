@@ -3,6 +3,7 @@ name: corrently-automation
 description: "Automate Corrently tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Corrently Automation via Rube MCP

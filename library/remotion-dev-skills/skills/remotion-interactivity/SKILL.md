@@ -2,6 +2,7 @@
 name: remotion-interactivity
 description: Structure Remotion markup for interactivity
 version: 4.0.539
+category: video-motion-production
 ---
 
 Studio edits the JSX nodes that create timeline items. Structure the code around

@@ -3,6 +3,7 @@ name: timecamp-automation
 description: "Automate Timecamp tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Timecamp Automation via Rube MCP

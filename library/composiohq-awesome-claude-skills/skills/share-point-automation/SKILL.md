@@ -3,6 +3,7 @@ name: SharePoint Automation
 description: "SharePoint Automation: manage sites, lists, documents, folders, pages, and search content across SharePoint and OneDrive"
 requires:
   mcp: [rube]
+category: code-quality-refactoring
 ---
 
 # SharePoint Automation

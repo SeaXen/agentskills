@@ -3,6 +3,7 @@ name: finmei-automation
 description: "Automate Finmei tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Finmei Automation via Rube MCP

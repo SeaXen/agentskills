@@ -8,6 +8,7 @@ description: >-
   user says "test my clone", "find bugs", "QA this", "click through
   everything", "write e2e tests", "does it work", or after /replica-build or
   /replica-backend.
+category: testing-unit-tdd
 ---
 
 # replica-test

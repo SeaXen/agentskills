@@ -1,6 +1,7 @@
 ---
 name: brag
 description: Generates short launch videos with music and motion from a website URL or project directory.
+category: frontend-motion-animation
 ---
 
 # /brag

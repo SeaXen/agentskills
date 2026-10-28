@@ -3,6 +3,7 @@ name: userlist-automation
 description: "Automate Userlist tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Userlist Automation via Rube MCP

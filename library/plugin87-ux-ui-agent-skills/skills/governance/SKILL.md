@@ -5,6 +5,7 @@ description: Govern how the design system evolves (SemVer for tokens/components,
 # ignored without an error, so these six were auto-invocable the whole time they
 # were marked user-only. This is the field that actually does it.
 disable-model-invocation: true
+category: prompt-llm-engineering
 ---
 
 # Skill: Governance

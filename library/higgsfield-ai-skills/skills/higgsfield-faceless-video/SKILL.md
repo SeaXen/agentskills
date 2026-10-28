@@ -5,6 +5,7 @@ description: |
   Create a finished faceless explainer, documentary, illustrated story or children's music video, or edit a previously created faceless video. Use when: "make a faceless video", "create a narrated explainer", "make a children's song video", "edit this faceless video". NOT for: a single silent clip, ads or UGC, unrelated footage edits, or script-only requests.
 argument-hint: "[topic or source] [duration] [language] [aspect ratio]"
 allowed-tools: Bash
+category: video-motion-production
 ---
 
 # Faceless video

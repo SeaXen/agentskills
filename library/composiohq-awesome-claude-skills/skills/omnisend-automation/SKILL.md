@@ -4,6 +4,7 @@ description: "Automate ecommerce marketing workflows including contact managemen
 requires:
   mcp:
     - rube
+category: code-quality-refactoring
 ---
 
 # Omnisend Automation

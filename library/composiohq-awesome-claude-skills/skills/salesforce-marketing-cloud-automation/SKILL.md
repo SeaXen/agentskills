@@ -3,6 +3,7 @@ name: salesforce-marketing-cloud-automation
 description: "Automate Salesforce Marketing Cloud tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Salesforce Marketing Cloud Automation via Rube MCP

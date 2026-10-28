@@ -1,6 +1,7 @@
 ---
 name: edge-hint-extractor
 description: Extract edge hints from daily market observations and news reactions, with optional LLM ideation, and output canonical hints.yaml for downstream concept synthesis and auto detection.
+category: cloudflare-edge
 ---
 
 # Edge Hint Extractor

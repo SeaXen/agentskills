@@ -1,6 +1,7 @@
 ---
 name: style-library
 description: Select, customize, or extend the project's reusable motion-graphics card library and style templates. Use for choosing a visual style, adding a card, building a new style pack, or reusing a template in a HyperFrames video.
+category: video-motion-production
 ---
 
 # Reuse the style library

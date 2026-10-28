@@ -6,6 +6,7 @@ description: >-
   when the user says "DM this person", "what do I send them", "outreach
   message", "how do I follow up", "pitch this brand", or is reaching out to
   someone specific.
+category: code-quality-refactoring
 ---
 
 # ig-dm

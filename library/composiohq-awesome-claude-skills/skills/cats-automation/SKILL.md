@@ -3,6 +3,7 @@ name: cats-automation
 description: "Automate Cats tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Cats Automation via Rube MCP

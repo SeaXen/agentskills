@@ -3,6 +3,7 @@ name: telnyx-automation
 description: "Automate Telnyx tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Telnyx Automation via Rube MCP

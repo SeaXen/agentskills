@@ -3,6 +3,7 @@ name: calendarhero-automation
 description: "Automate Calendarhero tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # Calendarhero Automation via Rube MCP

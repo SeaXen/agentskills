@@ -3,6 +3,7 @@ name: many-chat-automation
 description: "Automate ManyChat tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
+category: database-sql-relational
 ---
 
 # ManyChat Automation via Rube MCP
