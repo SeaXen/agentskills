@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Skill.Sea — Agent Skills Vault & Leaderboard</title>
-  <meta name="description" content="An independent directory, leaderboard, and one-click activation suite for 6,063+ AI Agent Skills across 38 functional categories from open GitHub repositories.">
+  <meta name="description" content="An independent directory, leaderboard, and one-click activation suite for 7,400+ AI Agent Skills across 38 functional categories from open GitHub repositories.">
   <meta name="keywords" content="AI Agent Skills, Antigravity, Claude Code, Agent Leaderboard, Tool Calling, MCP, Skills Vault, GitHub">
 
   <!-- Mobile Native & PWA Capabilities -->
@@ -18,7 +18,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Skill.Sea — Agent Skills Vault & Leaderboard">
-  <meta property="og:description" content="Discover, inspect, and install 6,063+ agent skills across 38 categories from 210 open repositories.">
+  <meta property="og:description" content="Discover, inspect, and install 7,400+ agent skills across 38 categories from 212 open repositories.">
   <meta property="og:type" content="website">
 
   <!-- CDN Warmup -->
@@ -69,7 +69,7 @@
           </button>
           <button class="nv" id="tab-library" onclick="switchView('library')">
             <i class="ti ti-books" aria-hidden="true"></i>
-            <span>Library & Git Repos (210)</span>
+            <span>Library & Git Repos (212)</span>
           </button>
           <button class="nv" id="tab-guide" onclick="switchView('guide')">
             <i class="ti ti-terminal-2" aria-hidden="true"></i>
@@ -80,7 +80,7 @@
         <div class="spacer"></div>
 
         <!-- Sync Indicator -->
-        <button type="button" class="pill" id="sync-btn" title="Vault Status: All 6,063 skills & 210 repositories updated" aria-label="Check vault synchronization status">
+        <button type="button" class="pill" id="sync-btn" title="Vault Status: All 7,401 skills & 212 repositories updated" aria-label="Check vault synchronization status">
           <span class="status-dot" aria-hidden="true"></span>
           <span>All Updated</span>
         </button>
@@ -98,33 +98,45 @@
 
       <!-- 2. Global Telemetry Metrics Row (Edge-to-Edge) -->
       <section class="metrics-row" aria-label="Vault Statistics">
-        <button type="button" class="mc" onclick="switchView('skill-hub')" aria-label="View all 6,063 skills in Skill Hub">
-          <div class="mc-text">
-            <span>Total Skills Tracked</span>
-            <div class="mc-sub">✓ All 6,063 Ingested & Updated</div>
+        <button type="button" class="mc" onclick="switchView('skill-hub')" aria-label="View all skills in Skill Hub">
+          <div class="mc-header">
+            <span class="mc-label"><i class="ti ti-folders" aria-hidden="true"></i> Total Skills Tracked</span>
+            <span class="mc-badge">Catalog</span>
           </div>
-          <b id="stat-total-skills">6,063</b>
+          <b id="stat-total-skills">7,401</b>
+          <div class="mc-sub" id="sub-total-skills">
+            <span class="status-dot"></span> All 7,401 Ingested & Verified
+          </div>
         </button>
         <button type="button" class="mc" onclick="switchView('categories')" aria-label="View 38 functional categories">
-          <div class="mc-text">
-            <span>Functional Categories</span>
-            <div class="mc-sub">✓ All 38 Domains Synchronized</div>
+          <div class="mc-header">
+            <span class="mc-label"><i class="ti ti-category" aria-hidden="true"></i> Functional Categories</span>
+            <span class="mc-badge">Taxonomy</span>
           </div>
           <b id="stat-total-cats">38</b>
-        </button>
-        <button type="button" class="mc" onclick="switchView('library')" aria-label="View 210 git origin repositories">
-          <div class="mc-text">
-            <span>Git Origin Repositories</span>
-            <div class="mc-sub">✓ All 210 Repositories Active</div>
+          <div class="mc-sub" id="sub-total-cats">
+            <span class="status-dot"></span> All 38 Domains Synchronized
           </div>
-          <b id="stat-total-repos">210</b>
         </button>
-        <button type="button" class="mc" onclick="switchView('hotset')" aria-label="View 130 active hot-set skills">
-          <div class="mc-text">
-            <span>Active Hot-Set Skills</span>
-            <div class="mc-sub">⚡ 130 Live in Hot-Set</div>
+        <button type="button" class="mc" onclick="switchView('library')" aria-label="View 212 git origin repositories">
+          <div class="mc-header">
+            <span class="mc-label"><i class="ti ti-git-branch" aria-hidden="true"></i> Git Origin Repositories</span>
+            <span class="mc-badge">Sources</span>
+          </div>
+          <b id="stat-total-repos">212</b>
+          <div class="mc-sub" id="sub-total-repos">
+            <span class="status-dot"></span> All 212 Repositories Active
+          </div>
+        </button>
+        <button type="button" class="mc mc-hot" onclick="switchView('hotset')" aria-label="View 130 active hot-set skills">
+          <div class="mc-header">
+            <span class="mc-label"><i class="ti ti-flame" aria-hidden="true" style="color:#f59e0b"></i> Active Hot-Set Skills</span>
+            <span class="mc-badge mc-badge-hot">Zero-Latency</span>
           </div>
           <b id="stat-active-hot">130</b>
+          <div class="mc-sub" id="sub-active-hot">
+            <span class="status-dot status-dot-hot"></span> 130 Live in Hot-Set
+          </div>
         </button>
       </section>
 
@@ -144,7 +156,7 @@
         <section class="toolbar" aria-label="Skill Hub Controls">
           <div class="search-box">
             <i class="ti ti-search" aria-hidden="true"></i>
-            <input type="text" id="search-input" name="search" placeholder="Search 6,063 skills, commands, repos (Press /)" aria-label="Search 6,063 skills by name, description, category, or command" autocomplete="off">
+            <input type="text" id="search-input" name="search" placeholder="Search 7,400+ skills, commands, repos (Press /)" aria-label="Search 7,400+ skills by name, description, category, or command" autocomplete="off">
             <span class="kbd-shortcut" aria-hidden="true">/</span>
           </div>
 
@@ -272,7 +284,7 @@
       <div id="view-categories" class="page-view">
         <div class="page-hero">
           <h2><i class="ti ti-layout-grid" style="color:var(--teal)" aria-hidden="true"></i> 38 Functional Skill Categories</h2>
-          <p>Explore the complete ecosystem of 6,063+ specialized skills organized into 38 distinct engineering and operational disciplines.</p>
+          <p>Explore the complete ecosystem of 7,400+ specialized skills organized into 38 distinct engineering and operational disciplines.</p>
         </div>
 
         <div class="search-box" style="width:340px;margin-bottom:8px">
@@ -320,7 +332,7 @@
           
           <div class="guide-hero">
             <h2><i class="ti ti-terminal-2" style="color:var(--teal)"></i> Universal Installation & Integration Hub</h2>
-            <p>Seamlessly integrate any of the 6,063+ agent skills into Google Antigravity, Claude Code, Cursor, Windsurf, or custom agent setups. Install individual skills, full category packs, entire upstream repositories, or clone the full vault.</p>
+            <p>Activate any of the 7,400+ curated agent skills in Google Antigravity, Claude Code, Cursor, Windsurf, or custom agent setups. Install individual skills, full category packs, entire upstream repositories, or clone the full vault.</p>
             <div class="guide-quick-nav">
               <a href="#guide-full-vault" class="guide-nav-pill"><i class="ti ti-folder-star"></i> 1. Full Vault Repo</a>
               <a href="#guide-single-skill" class="guide-nav-pill"><i class="ti ti-bolt"></i> 2. Single Skill</a>
@@ -340,10 +352,10 @@
                   <i class="ti ti-folder-star" style="color:var(--teal)"></i>
                   <span>1. Install Entire AgentSkills Vault (My Repo)</span>
                 </div>
-                <span class="guide-card-badge badge-teal">Recommended · All 6,063 Skills</span>
+                <span class="guide-card-badge badge-teal">Recommended · All 7,400+ Skills</span>
               </div>
               <div class="guide-card-desc">
-                Clone the complete vault directly into your project's <code>.agents</code> directory. Includes all 38 categories, 210 curated repositories, automation tools, and catalog data.
+                Clone the complete vault directly into your project's <code>.agents</code> directory. Includes all 38 categories, 212 curated repositories, automation tools, and catalog data.
               </div>
 
               <div class="guide-code-block">
