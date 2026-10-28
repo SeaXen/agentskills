@@ -9,7 +9,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Skill.Sea — Agent Skills Vault & Leaderboard">
-  <meta property="og:description" content="Discover, inspect, and install 6,063+ agent skills across 38 categories from 225 open repositories.">
+  <meta property="og:description" content="Discover, inspect, and install 6,063+ agent skills across 38 categories from 210 open repositories.">
   <meta property="og:type" content="website">
 
   <!-- CDN Warmup -->
@@ -59,7 +59,7 @@
           </button>
           <button class="nv" id="tab-library" onclick="switchView('library')">
             <i class="ti ti-books" aria-hidden="true"></i>
-            <span>Library & Git Repos (225)</span>
+            <span>Library & Git Repos (210)</span>
           </button>
           <button class="nv" id="tab-guide" onclick="switchView('guide')">
             <i class="ti ti-terminal-2" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
         <div class="spacer"></div>
 
         <!-- Sync Indicator -->
-        <button type="button" class="pill" id="sync-btn" title="Vault Status: All 6,063 skills & 225 repositories updated" aria-label="Check vault synchronization status">
+        <button type="button" class="pill" id="sync-btn" title="Vault Status: All 6,063 skills & 210 repositories updated" aria-label="Check vault synchronization status">
           <span class="status-dot" aria-hidden="true"></span>
           <span>All Updated</span>
         </button>
@@ -102,12 +102,12 @@
           </div>
           <b id="stat-total-cats">38</b>
         </button>
-        <button type="button" class="mc" onclick="switchView('library')" aria-label="View 225 git origin repositories">
+        <button type="button" class="mc" onclick="switchView('library')" aria-label="View 210 git origin repositories">
           <div class="mc-text">
             <span>Git Origin Repositories</span>
-            <div class="mc-sub">✓ All 225 Repositories Active</div>
+            <div class="mc-sub">✓ All 210 Repositories Active</div>
           </div>
-          <b id="stat-total-repos">225</b>
+          <b id="stat-total-repos">210</b>
         </button>
         <button type="button" class="mc" onclick="switchView('hotset')" aria-label="View 130 active hot-set skills">
           <div class="mc-text">
@@ -146,7 +146,7 @@
 
             <!-- Filter by Library / Repository -->
             <select id="library-filter-select" name="library" class="filter-select" aria-label="Filter by Library / Repository">
-              <option value="all">Library: All (225)</option>
+              <option value="all">Library: All (210)</option>
             </select>
 
             <!-- Filter by Tier -->
@@ -276,21 +276,21 @@
       </div>
 
       <!-- ==================================================================
-           PAGE 4: LIBRARY & GIT ORIGIN REPOSITORIES VIEW (225 Repos)
+           PAGE 4: LIBRARY & GIT ORIGIN REPOSITORIES VIEW (210 Repos)
            ================================================================== -->
       <div id="view-library" class="page-view">
         <div class="page-hero">
-          <h2><i class="ti ti-books" style="color:var(--teal)" aria-hidden="true"></i> Library & Git Origin Repositories (225 Vaults)</h2>
+          <h2><i class="ti ti-books" style="color:var(--teal)" aria-hidden="true"></i> Library & Git Origin Repositories (210 Vaults)</h2>
           <p>Every skill is mapped to its original upstream GitHub repository. Inspect origins, copy clone commands, and browse repository contents.</p>
         </div>
 
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
           <div class="search-box" style="width:360px">
             <i class="ti ti-search" aria-hidden="true"></i>
-            <input type="text" id="repo-search-input" name="repo-search" placeholder="Search 225 repositories by name or author…" aria-label="Search repositories" autocomplete="off">
+            <input type="text" id="repo-search-input" name="repo-search" placeholder="Search 210 repositories by name or author…" aria-label="Search repositories" autocomplete="off">
           </div>
           <div id="repo-count-badge" class="pill">
-            <span>225 Repositories</span>
+            <span>210 Repositories</span>
           </div>
         </div>
 

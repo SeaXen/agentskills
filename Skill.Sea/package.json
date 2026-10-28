@@ -8,8 +8,8 @@
     "dev": "node server.js",
     "build": "node scripts/build-catalog.js",
     "build:catalog": "node scripts/build-catalog.js",
-    "sync:r2": "node scripts/sync-r2.js",
-    "test": "node scripts/verify.js",
+    "test": "node scripts/verify.js && python tests/test_webapp.py",
+    "test:e2e": "python tests/test_webapp.py",
     "verify": "node scripts/verify.js"
   },
   "keywords": [
