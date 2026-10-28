@@ -3,7 +3,6 @@ name: baserow-automation
 description: "Automate Baserow tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Baserow Automation via Rube MCP

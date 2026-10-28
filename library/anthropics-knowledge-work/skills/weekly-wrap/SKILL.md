@@ -1,7 +1,6 @@
 ---
 name: weekly-wrap
 description: End-of-week summary for a rep or leader - what closed, what moved, what slipped, and what's on deck Monday. Optionally drafts a chat post to the team channel. Use when the user says "weekly wrap", "week in review", "what happened this week", or "Friday summary".
-category: business-sales-crm
 ---
 
 # Weekly Wrap

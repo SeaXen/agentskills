@@ -13,7 +13,6 @@ description: >
   this," or "catch me up on my mail." Reach for it for one forwarded message as
   readily as for a whole morning's backlog.
 allowed-tools: Read, WebFetch
-category: code-quality-refactoring
 ---
 
 # Inbox Manager

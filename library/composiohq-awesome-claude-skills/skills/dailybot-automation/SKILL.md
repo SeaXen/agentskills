@@ -3,7 +3,6 @@ name: dailybot-automation
 description: "Automate Dailybot tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Dailybot Automation via Rube MCP

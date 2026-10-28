@@ -3,7 +3,6 @@ name: metaads-automation
 description: "Automate Metaads tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Metaads Automation via Rube MCP

@@ -3,7 +3,6 @@ name: deadline-funnel-automation
 description: "Automate Deadline Funnel tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Deadline Funnel Automation via Rube MCP

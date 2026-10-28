@@ -11,7 +11,6 @@ metadata:
       },
     "homepage": "https://clipcat.ai",
   }
-category: prompt-llm-engineering
 ---
 
 # Clipcat CLI

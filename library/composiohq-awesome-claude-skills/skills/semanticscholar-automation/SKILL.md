@@ -3,7 +3,6 @@ name: semanticscholar-automation
 description: "Automate Semanticscholar tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Semanticscholar Automation via Rube MCP

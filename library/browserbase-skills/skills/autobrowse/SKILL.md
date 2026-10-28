@@ -7,7 +7,6 @@ allowed-tools: Bash Read Write Edit Glob Grep Agent
 metadata:
   author: browserbase
   homepage: https://github.com/browserbase/skills
-category: frontend-ui-components
 ---
 
 # AutoBrowse — Self-Improving Browser Skill

@@ -2,7 +2,6 @@
 name: post-scorer
 description: >
   Score a LinkedIn post using real performance data. Pulls the user's own post history via Apify (or uses cached data) to identify what actually performs, then scores the draft against those patterns. Use this skill whenever the user says "score my post", "review my post", "rate this post", "give me feedback", "how good is this post", or pastes a LinkedIn post and asks for critique. Separates historical comparisons from an explicitly labelled editorial-only fallback. Designed for live scoring at events and everyday post review.
-category: architecture-system-design
 ---
 
 # Post Scorer

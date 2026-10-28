@@ -4,7 +4,6 @@ description: "Automate AI video generation, avatar browsing, template-based vide
 requires:
   mcp:
     - rube
-category: video-motion-production
 ---
 
 # HeyGen Automation

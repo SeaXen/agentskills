@@ -3,7 +3,6 @@ name: apipie-ai-automation
 description: "Automate Apipie AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Apipie AI Automation via Rube MCP

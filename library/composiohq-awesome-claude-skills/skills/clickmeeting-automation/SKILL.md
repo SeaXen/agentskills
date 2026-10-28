@@ -3,7 +3,6 @@ name: clickmeeting-automation
 description: "Automate Clickmeeting tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Clickmeeting Automation via Rube MCP

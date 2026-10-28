@@ -3,7 +3,6 @@ name: QuickBooks Automation
 description: "QuickBooks Automation: manage invoices, customers, accounts, and payments in QuickBooks Online for streamlined bookkeeping"
 requires:
   mcp: [rube]
-category: audio-voice-sound
 ---
 
 # QuickBooks Automation

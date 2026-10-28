@@ -4,7 +4,6 @@ description: "Automate Uploadcare file management including listing, storing, in
 requires:
   mcp:
     - rube
-category: terminal-system-tools
 ---
 
 # Uploadcare Automation

@@ -1,0 +1,730 @@
+[
+  {
+    "id": "agent-experience",
+    "name": "agent-experience",
+    "category": "terminal-system-tools",
+    "repository": "browserbase-skills",
+    "description": "\"Audit the developer experience of a product, SDK, docs site, or SKILL.md by dropping multiple Claude subagents at it with only a tiny task prompt and real tools (WebFetch, Bash, Write). Agents must discover the docs themselves, install deps, ask for credentials if needed, and attempt real execution. The skill captures each agent's trace \u2014 tool calls, retries, wall time, errors \u2014 and scores on Setup Friction, Speed, Efficiency, Error Recovery, and Doc Quality, then emits an HTML report with an A\u2013F grade and concrete fixes. Use when the user asks to audit agent experience, test a skill, audit docs for agents, check if a SDK is agent-friendly, validate a SKILL.md, measure agent DX, or benchmark how painful onboarding is for an AI agent. Triggers: 'audit agent experience', 'test this skill', 'audit docs for agents', 'is my SDK agent-friendly', 'run a DX audit', 'agent experience test', 'test my docs', 'how do agents do with my product'.\"",
+    "path": "category/terminal-system-tools/agent-experience"
+  },
+  {
+    "id": "ai-automation-workflows",
+    "name": "ai-automation-workflows",
+    "category": "terminal-system-tools",
+    "repository": "magentosh-superpowers",
+    "description": "\"Build automated AI workflows combining multiple models and services. Patterns: batch processing, scheduled tasks, event-driven pipelines, agent loops. Tools: inference.sh CLI, bash scripting, Python SDK, webhook integration. Use for: content automation, data processing, monitoring, scheduled generation. Triggers: ai automation, workflow automation, batch processing, ai pipeline, automated content, scheduled ai, ai cron, ai batch job, automated generation, ai workflow, content at scale, automation script, ai orchestration\"",
+    "path": "category/terminal-system-tools/ai-automation-workflows"
+  },
+  {
+    "id": "arxiv-cli-tools",
+    "name": "arxiv-cli-tools",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Command-line tools for searching and batch-downloading arXiv papers\"",
+    "path": "category/terminal-system-tools/arxiv-cli-tools"
+  },
+  {
+    "id": "bash-defensive-patterns",
+    "name": "bash-defensive-patterns",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Master defensive Bash programming techniques for production-grade scripts. Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring fault tolerance and safety.\"",
+    "path": "category/terminal-system-tools/bash-defensive-patterns"
+  },
+  {
+    "id": "bash-linux",
+    "name": "bash-linux",
+    "category": "terminal-system-tools",
+    "repository": "active",
+    "description": "Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working on macOS or Linux systems.",
+    "path": "category/terminal-system-tools/bash-linux"
+  },
+  {
+    "id": "bash-pro",
+    "name": "bash-pro",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Master of defensive Bash scripting for production automation, CI/CD\"",
+    "path": "category/terminal-system-tools/bash-pro"
+  },
+  {
+    "id": "bats-testing-patterns",
+    "name": "bats-testing-patterns",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for shell scripts, CI/CD pipelines, or requiring test-driven development of shell utilities.\"",
+    "path": "category/terminal-system-tools/bats-testing-patterns"
+  },
+  {
+    "id": "bb-cli",
+    "name": "bb-cli",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "Use this when controlling bb. The bb CLI inspects and manages threads, environments, projects, machines, providers, skills, plugins, settings, terminals, and other BB services.",
+    "path": "category/terminal-system-tools/bb-cli"
+  },
+  {
+    "id": "bb-plugins",
+    "name": "bb-plugins",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "'Build, install, and debug bb plugins. Use when the user wants a bb plugin, a sidebar panel, a bb CLI subcommand, an agent tool, a theme, a provider, or to extend bb itself. For running threads and the core bb CLI, use bb-cli instead.'",
+    "path": "category/terminal-system-tools/bb-plugins"
+  },
+  {
+    "id": "binlog-generation",
+    "name": "binlog-generation",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "\"Generate MSBuild binary logs (binlogs) for build diagnostics and analysis. USE FOR: adding /bl:{} to any dotnet build, test, pack, publish, or restore command to capture a full build execution trace, prerequisite for binlog-failure-analysis and build-perf-diagnostics skills, enabling post-build investigation of errors or performance. Requires MSBuild 17.8+ / .NET 8 SDK+ for {} placeholder; PowerShell must quote the complete switch as '-bl:{}'. DO NOT USE FOR: non-MSBuild build systems (npm, Maven, CMake), analyzing an existing binlog (use binlog-failure-analysis instead), binlog MCP startup failures (use troubleshoot-binlog-mcp).\"",
+    "path": "category/terminal-system-tools/binlog-generation"
+  },
+  {
+    "id": "book-study",
+    "name": "book-study",
+    "category": "terminal-system-tools",
+    "repository": "sanyuan0704-sanyuan-skills",
+    "description": "\"Reading coach: guides users through books systematically with knowledge compilation, mastery testing, spaced repetition, and knowledge querying. Use when user says 'read this book with me', 'book study', 'start studying X', 'reading plan', 'ingest this chapter', 'review what I read', 'quiz me on the book', 'what did the book say about X', or invokes /book-study. Supports sub-commands: ingest, query, review, compare, status. Triggers: book, study, read, chapter, ingest, review, quiz, reading plan, book notes.\"",
+    "path": "category/terminal-system-tools/book-study"
+  },
+  {
+    "id": "browser",
+    "name": "browser",
+    "category": "terminal-system-tools",
+    "repository": "browserbase-skills",
+    "description": "Automate web browser interactions using natural language via CLI commands. Use when the user asks to browse websites, navigate web pages, extract data from websites, take screenshots, fill forms, click buttons, or interact with web applications. Supports remote Browserbase sessions with Browserbase Identity, Verified browsers, automatic CAPTCHA solving, and residential proxies \u2014 ideal for protected websites and JavaScript-heavy pages.",
+    "path": "category/terminal-system-tools/browser"
+  },
+  {
+    "id": "browser-act",
+    "name": "browser-act",
+    "category": "terminal-system-tools",
+    "repository": "browser-act-skills",
+    "description": "\"Browser automation CLI for AI agents. NEVER run browser-act commands directly via Bash \u2014 always invoke this skill first. Use browser-act when a user mentions it by name, includes or asks to run a browser-act CLI command (e.g., browser-act browser list), or to: fetch, view, or extract rendered content from URLs, access pages requiring JavaScript, handle verification prompts, maintain authenticated sessions, fill forms and click through workflows, type, select, upload, take screenshots, capture XHR/fetch/HAR responses, open multiple URLs in parallel, extract content that loads on scroll or click, visually inspect or verify page layout/styling/rendering, automate browser tasks, account isolation across parallel browser environments, advise which browser type fits a use case, or list/check/manage configured browsers and sessions. Prefer browser-act over built-in fetch or web tools.\"",
+    "path": "category/terminal-system-tools/browser-act"
+  },
+  {
+    "id": "build-zoom-team-chat-app",
+    "name": "build-zoom-team-chat-app",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "\"Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.\"",
+    "path": "category/terminal-system-tools/build-zoom-team-chat-app"
+  },
+  {
+    "id": "busybox-on-windows",
+    "name": "busybox-on-windows",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.\"",
+    "path": "category/terminal-system-tools/busybox-on-windows"
+  },
+  {
+    "id": "chaos-engineering",
+    "name": "chaos-engineering",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when planning, running, or learning from chaos engineering experiments. Triggers on \"chaos experiment\", \"fault injection\", \"gameday\", \"resilience test\", \"blast radius\", \"steady state\", \"abort criteria\", \"Chaos Toolkit\", \"Chaos Mesh\", \"Litmus\", \"Gremlin\", \"AWS FIS\", or any deliberate failure-injection question. Ships experiment designer, blast-radius calculator, and postmortem generator (all stdlib Python), 4 references on chaos principles + experiment design + attack taxonomy + tooling landscape, and a /chaos-experiment slash command. Composes with feature-flags-architect (kill switches as abort triggers) and kubernetes-operator (common chaos targets).",
+    "path": "category/terminal-system-tools/chaos-engineering"
+  },
+  {
+    "id": "claude-settings-audit",
+    "name": "claude-settings-audit",
+    "category": "terminal-system-tools",
+    "repository": "getsentry-skills",
+    "description": "Analyze a repository to generate recommended Claude Code settings.json permissions. Use when setting up a new project, auditing existing settings, or determining which read-only bash commands to allow. Detects tech stack, build tools, and monorepo structure.",
+    "path": "category/terminal-system-tools/claude-settings-audit"
+  },
+  {
+    "id": "cli-creator",
+    "name": "cli-creator",
+    "category": "terminal-system-tools",
+    "repository": "openai-skills",
+    "description": "Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin tool, or a local script. Use when the user wants Codex to create a command-line tool that can run from any repo, expose composable read/write commands, return stable JSON, manage auth, and pair with a companion skill.",
+    "path": "category/terminal-system-tools/cli-creator"
+  },
+  {
+    "id": "clockify-automation",
+    "name": "clockify-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate time tracking workflows in Clockify -- create and manage time entries, workspaces, and users through natural language commands.\"",
+    "path": "category/terminal-system-tools/clockify-automation"
+  },
+  {
+    "id": "cloudinary-automation",
+    "name": "cloudinary-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate Cloudinary media management including folder organization, upload presets, asset lookup, transformations, and usage monitoring through natural language commands\"",
+    "path": "category/terminal-system-tools/cloudinary-automation"
+  },
+  {
+    "id": "cmux",
+    "name": "cmux",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "'Control the cmux macOS terminal app: workspaces, panes, surfaces, browsers, notifications, settings, and hooks. Use only when the user explicitly names cmux. Read before running any cmux command.'",
+    "path": "category/terminal-system-tools/cmux"
+  },
+  {
+    "id": "command-development",
+    "name": "command-development",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "This skill should be used when the user asks to \"create a slash command\", \"add a command\", \"write a custom command\", \"define command arguments\", \"use command frontmatter\", \"organize commands\", \"create command with file references\", \"interactive command\", \"use AskUserQuestion in command\", or needs guidance on slash command structure, YAML frontmatter fields, dynamic arguments, bash execution in commands, user interaction patterns, or command development best practices for Claude Code.",
+    "path": "category/terminal-system-tools/command-development"
+  },
+  {
+    "id": "cqrs-implementation",
+    "name": "cqrs-implementation",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Implement Command Query Responsibility Segregation for scalable architectures. Use when separating read and write models, optimizing query performance, or building event-sourced systems.\"",
+    "path": "category/terminal-system-tools/cqrs-implementation"
+  },
+  {
+    "id": "csharp-scripts",
+    "name": "csharp-scripts",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "\"Run file-based C# apps with the .NET CLI when the user explicitly wants C#/.NET code without creating a project. Use for C# language/API experiments, one-file C# apps, small multi-file C# apps composed with `#:include`/`#:exclude`, or C# file-based apps linked with `#:ref`. Do not use for language-agnostic throwaway scripts, generic computations, Python/PowerShell-style automation, full projects, or existing app integration.\"",
+    "path": "category/terminal-system-tools/csharp-scripts"
+  },
+  {
+    "id": "ctf-misc",
+    "name": "ctf-misc",
+    "category": "terminal-system-tools",
+    "repository": "ljagiello-ctf-skills",
+    "description": "Provides miscellaneous CTF challenge techniques for problems that do not cleanly fit the main categories. Use for encoding puzzles, pyjails, bash jails, RF/SDR, DNS oddities, unicode tricks, esoteric languages, QR or audio puzzles, constraint solving, game theory, unusual sandbox escapes, and hybrid logic puzzles. Prefer a more specific skill first when the challenge is mainly web, pwn, reverse, forensics, malware, OSINT, or crypto. Treat this as the fallback skill for genuine cross-category or edge-case challenges, not the default starting point.",
+    "path": "category/terminal-system-tools/ctf-misc"
+  },
+  {
+    "id": "ctf-pwn",
+    "name": "ctf-pwn",
+    "category": "terminal-system-tools",
+    "repository": "ljagiello-ctf-skills",
+    "description": "Provides binary exploitation techniques for CTF challenges. Use when you already have a vulnerable native target or service and need to turn memory corruption or low-level primitives into code execution or privilege escalation, such as buffer overflows, format strings, heap bugs, ROP, ret2libc, shellcode, kernel exploitation, seccomp bypass, sandbox escape, or Windows/Linux exploit chains. Do not use it when the main blocker is understanding what the binary does; use reverse engineering first. Do not use it for pure web bugs, disk or packet forensics, or standalone crypto/math challenges.",
+    "path": "category/terminal-system-tools/ctf-pwn"
+  },
+  {
+    "id": "cua-driver",
+    "name": "cua-driver",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "'Use Cua Driver for desktop or browser tasks that are awkward or unavailable through Bash/APIs, or when the user explicitly wants GUI interaction: app testing, visual bug reproduction, form filling, calendar entry, screenshots, and demo recording. Also covers Cua setup; not OpenAI Codex Computer Use or web research.'",
+    "path": "category/terminal-system-tools/cua-driver"
+  },
+  {
+    "id": "datadog-logs",
+    "name": "datadog-logs",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "Query and filter Datadog logs from the shell using the Composio CLI. Run scoped log searches, pivot across services/environments, and export structured JSON for downstream agents instead of click-driving the Datadog UI.",
+    "path": "category/terminal-system-tools/datadog-logs"
+  },
+  {
+    "id": "desktop-commander-overview",
+    "name": "desktop-commander-overview",
+    "category": "terminal-system-tools",
+    "repository": "cline-skills",
+    "description": "Use for Desktop Commander MCP capabilities \u2014 persistent shells and REPLs, long-running processes, filesystem beyond the workspace, structured files (.xlsx, .docx, .pdf, images) and large local data files such as CSVs, ripgrep search at scale, SSH, or cross-turn state.",
+    "path": "category/terminal-system-tools/desktop-commander-overview"
+  },
+  {
+    "id": "discord-bot-architect",
+    "name": "discord-bot-architect",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Specialized skill for building production-ready Discord bots. Covers Discord.js (JavaScript) and Pycord (Python), gateway intents, slash commands, interactive components, rate limiting, and sharding.\"",
+    "path": "category/terminal-system-tools/discord-bot-architect"
+  },
+  {
+    "id": "dotnet-trace-collect",
+    "name": "dotnet-trace-collect",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Guide developers through capturing diagnostic artifacts to diagnose production .NET performance issues. Use when the user needs help choosing diagnostic tools, collecting performance data, or understanding tool trade-offs across different environments (Windows/Linux, .NET Framework/modern .NET, container/non-container).",
+    "path": "category/terminal-system-tools/dotnet-trace-collect"
+  },
+  {
+    "id": "endor-setup",
+    "name": "endor-setup",
+    "category": "terminal-system-tools",
+    "repository": "cline-skills",
+    "description": "\"Use when user asks to setup endorctl, install endorctl, run endorctl scan, scan for vulnerabilities, run endor scan or run Endor Labs scan or when any endorctl command fails with 'command not found', 'no such file or directory', authentication errors, 'unauthorized', '403', 'tenant not found', EOF error, or namespace/access errors.\"",
+    "path": "category/terminal-system-tools/endor-setup"
+  },
+  {
+    "id": "eventbrite-automation",
+    "name": "eventbrite-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate Eventbrite event management, attendee tracking, organization discovery, and category browsing through natural language commands\"",
+    "path": "category/terminal-system-tools/eventbrite-automation"
+  },
+  {
+    "id": "feature-flags-architect",
+    "name": "feature-flags-architect",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when adding, retiring, or auditing feature flags. Triggers on \"add a flag\", \"ship behind a flag\", \"rollout plan\", \"kill switch\", \"stale flags\", \"flag debt\", \"LaunchDarkly\", \"GrowthBook\", \"Statsig\", \"Unleash\", \"Flipt\", or any progressive-delivery question. Ships flag debt scanner, rollout planner, and kill-switch auditor (all stdlib Python), 4 references on flag taxonomy + provider trade-offs + rollout strategies + lifecycle, plus a /flag-cleanup slash command.",
+    "path": "category/terminal-system-tools/feature-flags-architect"
+  },
+  {
+    "id": "founder-mode",
+    "name": "founder-mode",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"/c-level-agents:founder-mode [question] \u2014 Auto-routes any founder question to the right C-role advisor or to /c-level-agents:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits \u2014 e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO.\"",
+    "path": "category/terminal-system-tools/founder-mode"
+  },
+  {
+    "id": "game-automation",
+    "name": "game-automation",
+    "category": "terminal-system-tools",
+    "repository": "rehan-remade-universal-modder",
+    "description": "Launch, see and drive a real game so an agent can test its own mods. Covers launching via Steam or the exe, windowed mode at a fixed size, screenshots of the game window (GPU-safe capture), clicking and typing into menus, holding keys, relative mouse, crash-reporter cleanup, killing by PID, reading logs, scripted test scenes, and an in-game JSON bridge that lets an agent observe and act. Windows-first (also from WSL), with notes for Linux and macOS. Use when a mod must be verified in game, when navigating menus automatically, or when building a repeatable test or demo scene.",
+    "path": "category/terminal-system-tools/game-automation"
+  },
+  {
+    "id": "game-recon",
+    "name": "game-recon",
+    "category": "terminal-system-tools",
+    "repository": "rehan-remade-universal-modder",
+    "description": "Figure out how a specific installed game can be modded, before writing any mod code. Covers where it's installed, the engine and version, managed vs native code, anti-cheat, loaders already present, save and config folders, and the community's modding route. Also whether this machine can run it (a Windows game on macOS or Linux, x64 on ARM). Use when the user asks \"can I mod <game>?\", \"what engine is <game>\", \"how do people mod <game>\", or at the start of any modding task. Produces MODDING_PLAN.md.",
+    "path": "category/terminal-system-tools/game-recon"
+  },
+  {
+    "id": "gate",
+    "name": "gate",
+    "category": "terminal-system-tools",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "description": "Run the one-command quality gate and report the real N/N result. Use before claiming any build/review is done.",
+    "path": "category/terminal-system-tools/gate"
+  },
+  {
+    "id": "gcode",
+    "name": "gcode",
+    "category": "terminal-system-tools",
+    "repository": "earthtojake-text-to-cad",
+    "description": "Slice 3D models into printer-ready G-code with OrcaSlicer, the open-source slicer with built-in profiles for most FDM printers (Prusa, Bambu Lab, Creality, Voron and more). Use when the user wants an `.stl`, `.3mf` or `.obj` model sliced for their printer, as a sliced `.gcode.3mf` or plain `.gcode`, headless with OrcaSlicer's command line or by opening the model in OrcaSlicer. Never contacts a printer.",
+    "path": "category/terminal-system-tools/gcode"
+  },
+  {
+    "id": "genoffice",
+    "name": "genoffice",
+    "category": "terminal-system-tools",
+    "repository": "genspark-ai-genoffice",
+    "description": "Create, convert, read and edit Office documents locally with GenOffice's command line. Build a new presentation (pptx) from a brief through a checked outline, per-page spec and render pipeline, a new spreadsheet (xlsx) from CSV or JSON data with formulas, a new Word document (docx) from Markdown or HTML, or a PDF; convert between pdf, docx, xlsx, pptx, md, html and csv; read the structure and text of an existing file (including the user's own docx / xlsx / pptx as source material) and apply structured edits to it. Use whenever the user asks for a slide deck, presentation, spreadsheet, workbook, report, Word document or any real Office file, a format conversion, a rewrite of part of an existing document, or wants the result opened in the GenOffice editor. Documents are processed locally; only search, image and media send the query or the referenced file to the provider configured in GenOffice.",
+    "path": "category/terminal-system-tools/genoffice"
+  },
+  {
+    "id": "global-agent-guardrails",
+    "name": "global-agent-guardrails",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "\"Configure the shared guard against catastrophic shell commands in local AI agents. Use when changing block patterns, adding an agent or machine, or investigating why a command was or wasn't blocked.\"",
+    "path": "category/terminal-system-tools/global-agent-guardrails"
+  },
+  {
+    "id": "golang-cli",
+    "name": "golang-cli",
+    "category": "terminal-system-tools",
+    "repository": "samber-cc-skills-golang",
+    "description": "\"Golang CLI application development. Use when building, modifying, or reviewing a Go CLI tool \u2014 especially for command structure, flag handling, configuration layering, version embedding, exit codes, I/O patterns, signal handling, shell completion, argument validation, and CLI unit testing. Also triggers when code uses cobra, viper, or urfave/cli. For cobra-specific APIs \u2192 See `samber/cc-skills-golang@golang-spf13-cobra` skill; for viper configuration layering \u2192 See `samber/cc-skills-golang@golang-spf13-viper` skill.\"",
+    "path": "category/terminal-system-tools/golang-cli"
+  },
+  {
+    "id": "google-agents-cli-onboarding",
+    "name": "google-agents-cli-onboarding",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": ">-",
+    "path": "category/terminal-system-tools/google-agents-cli-onboarding"
+  },
+  {
+    "id": "harvest-automation",
+    "name": "harvest-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate time tracking, project management, and invoicing workflows in Harvest -- log hours, manage projects, clients, and tasks through natural language commands.\"",
+    "path": "category/terminal-system-tools/harvest-automation"
+  },
+  {
+    "id": "herdr",
+    "name": "herdr",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "Operate and coordinate AI agents in Herdr workspaces in Ghostty. Use when the user mentions Herdr or asks to inspect, message, wait for, or coordinate its agents. Excludes cmux and ordinary terminal sessions.",
+    "path": "category/terminal-system-tools/herdr"
+  },
+  {
+    "id": "hf-cli",
+    "name": "hf-cli",
+    "category": "terminal-system-tools",
+    "repository": "huggingface-skills",
+    "description": "\"Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, buckets, repos, papers, jobs, and more on the Hugging Face Hub. Use when: handling authentication; managing local cache; managing Hugging Face Buckets; running or scheduling jobs on Hugging Face infrastructure; managing Hugging Face repos; discussions and pull requests; browsing models, datasets and spaces; reading, searching, or browsing academic papers; managing collections; querying datasets; configuring spaces; setting up webhooks; or deploying and managing HF Inference Endpoints. Make sure to use this skill whenever the user mentions 'hf', 'huggingface', 'Hugging Face', 'huggingface-cli', or 'hugging face cli', or wants to do anything related to the Hugging Face ecosystem and to AI and ML in general. Also use for cloud storage needs like training checkpoints, data pipelines, or agent traces. Use even if the user doesn't explicitly ask for a CLI command. Replaces the deprecated `huggingface-cli`.\"",
+    "path": "category/terminal-system-tools/hf-cli"
+  },
+  {
+    "id": "hub-run",
+    "name": "hub-run",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:hub-run or asks to execute a full AgentHub competition end-to-end.\"",
+    "path": "category/terminal-system-tools/hub-run"
+  },
+  {
+    "id": "hunt-file-upload",
+    "name": "hunt-file-upload",
+    "category": "terminal-system-tools",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "\"Hunt file upload bugs \u2014 RCE via webshell, XSS via SVG/HTML, SSRF via XXE in DOCX, path traversal via filename. Bypass tables (10 techniques): double extension (shell.php.jpg if server checks last ext only), magic bytes spoofing (PNG header on PHP), null byte (shell.php\\0.jpg), case (PHP, .Php, .pHP), .htaccess upload to enable execution, SVG with <script>, HTML/SVG XSS, DOCX with embedded XXE, ZIP slip (../../../etc/passwd in archive), polyglot files. Detection: any /upload, /avatar, /profile-picture, /attachment, /import endpoint. Test: upload PHP/JSP/ASPX shells, request via direct URL, check response. Validate: actual code execution (whoami output) for RCE; reflected XSS in profile-photo URL. Use when testing file upload features, avatar/attachment endpoints, import/export functions, XML/DOCX/ZIP processors. Real paid examples.\"",
+    "path": "category/terminal-system-tools/hunt-file-upload"
+  },
+  {
+    "id": "jotform-automation",
+    "name": "jotform-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate Jotform form listing, user management, activity history, folder organization, and plan inspection through natural language commands\"",
+    "path": "category/terminal-system-tools/jotform-automation"
+  },
+  {
+    "id": "linear-sdk-scripting",
+    "name": "linear-sdk-scripting",
+    "category": "terminal-system-tools",
+    "repository": "cline-skills",
+    "description": "Perform actions in Linear (read, create, update, search issues, projects, comments, teams, cycles, labels, etc.) by writing and running small Node scripts against the official @linear/sdk TypeScript SDK with a personal API key. Use this when the user wants to do Linear work from the terminal without the Linear MCP server, or asks to list/open/create/update/close Linear issues, leave comments, or query teams, projects, users, or workflow states.",
+    "path": "category/terminal-system-tools/linear-sdk-scripting"
+  },
+  {
+    "id": "linux",
+    "name": "linux",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "\"Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support\"",
+    "path": "category/terminal-system-tools/linux"
+  },
+  {
+    "id": "linux-privilege-escalation",
+    "name": "linux-privilege-escalation",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"This skill should be used when the user asks to \\\"escalate privileges on Linux\\\", \\\"find privesc vectors on Linux systems\\\", \\\"exploit sudo misconfigurations\\\", \\\"abuse SUID binaries\\\", \\\"ex...\"",
+    "path": "category/terminal-system-tools/linux-privilege-escalation"
+  },
+  {
+    "id": "linux-shell-scripting",
+    "name": "linux-shell-scripting",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"This skill should be used when the user asks to \\\"create bash scripts\\\", \\\"automate Linux tasks\\\", \\\"monitor system resources\\\", \\\"backup files\\\", \\\"manage users\\\", or \\\"write production she...\"",
+    "path": "category/terminal-system-tools/linux-shell-scripting"
+  },
+  {
+    "id": "managing-mcp-servers",
+    "name": "managing-mcp-servers",
+    "category": "terminal-system-tools",
+    "repository": "jetbrains-thinkrail",
+    "description": "Use when the user asks to add, change, remove, enable or disable an MCP server, or when an MCP tool is missing, needs sign-in, fails, or was blocked. ThinkRail runs pi in-process, so there is no `pi` command to call.",
+    "path": "category/terminal-system-tools/managing-mcp-servers"
+  },
+  {
+    "id": "maui-shell-navigation",
+    "name": "maui-shell-navigation",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": ">-",
+    "path": "category/terminal-system-tools/maui-shell-navigation"
+  },
+  {
+    "id": "ms365-tenant-manager",
+    "name": "ms365-tenant-manager",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Microsoft 365 tenant administration for Global Administrators. Automate M365 tenant setup, Office 365 admin tasks, Azure AD user management, Exchange Online configuration, Teams administration, and security policies. Generate PowerShell scripts for bulk operations, Conditional Access policies, license management, and compliance reporting. Use for M365 tenant manager, Office 365 admin, Azure AD users, Global Administrator, tenant configuration, or Microsoft 365 automation.",
+    "path": "category/terminal-system-tools/ms365-tenant-manager"
+  },
+  {
+    "id": "mt5-robot-tester",
+    "name": "mt5-robot-tester",
+    "category": "terminal-system-tools",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Select the best MetaTrader 5 trading robots (Expert Advisors) that have not been backtested yet, by running the MT5 Strategy Tester from the command line through a 3-round pipeline. Use when the user wants to batch-test MT5 bots/EAs, screen robots across all symbols, optimize EA parameters, or move candidate bots to finalists based on profit, drawdown, positive months/years and equity-curve criteria. Runs terminal64.exe headless; Windows + MetaTrader 5 required at run time.",
+    "path": "category/terminal-system-tools/mt5-robot-tester"
+  },
+  {
+    "id": "obsidian-cli",
+    "name": "obsidian-cli",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.",
+    "path": "category/terminal-system-tools/obsidian-cli"
+  },
+  {
+    "id": "onboard",
+    "name": "onboard",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"/cs-onboard \u2014 Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context \u2014 e.g. before a first /c-level-agents:boardroom or after a fundraise changes the numbers.\"",
+    "path": "category/terminal-system-tools/onboard"
+  },
+  {
+    "id": "opencli-reader",
+    "name": "opencli-reader",
+    "category": "terminal-system-tools",
+    "repository": "himself65-finance-skills",
+    "description": ">",
+    "path": "category/terminal-system-tools/opencli-reader"
+  },
+  {
+    "id": "overleaf-cli-guide",
+    "name": "overleaf-cli-guide",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Sync and manage Overleaf LaTeX projects from the command line\"",
+    "path": "category/terminal-system-tools/overleaf-cli-guide"
+  },
+  {
+    "id": "papis-cli-guide",
+    "name": "papis-cli-guide",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Guide to Papis command-line document and bibliography manager for researchers\"",
+    "path": "category/terminal-system-tools/papis-cli-guide"
+  },
+  {
+    "id": "pentest-commands",
+    "name": "pentest-commands",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"This skill should be used when the user asks to \\\"run pentest commands\\\", \\\"scan with nmap\\\", \\\"use metasploit exploits\\\", \\\"crack passwords with hydra or john\\\", \\\"scan web vulnerabilities ...\"",
+    "path": "category/terminal-system-tools/pentest-commands"
+  },
+  {
+    "id": "persistent-localhost",
+    "name": "persistent-localhost",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "\"Manage persistent dev servers, APIs, and other local processes on a port using macOS LaunchAgents. Use when starting, stopping, restarting, inspecting, or troubleshooting local servers that should survive shell exit and restart after crashes.\"",
+    "path": "category/terminal-system-tools/persistent-localhost"
+  },
+  {
+    "id": "playwright",
+    "name": "playwright",
+    "category": "terminal-system-tools",
+    "repository": "active",
+    "description": "\"Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.\"",
+    "path": "category/terminal-system-tools/playwright"
+  },
+  {
+    "id": "pnpm",
+    "name": "pnpm",
+    "category": "terminal-system-tools",
+    "repository": "antfu-skills",
+    "description": "Node.js package manager with strict dependency resolution. Use when running pnpm specific commands, configuring workspaces via pnpm-workspace.yaml, or managing dependencies with catalogs, patches, overrides, config dependencies, or the global virtual store.",
+    "path": "category/terminal-system-tools/pnpm"
+  },
+  {
+    "id": "posix-shell-pro",
+    "name": "posix-shell-pro",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Expert in strict POSIX sh scripting for maximum portability across\"",
+    "path": "category/terminal-system-tools/posix-shell-pro"
+  },
+  {
+    "id": "powershell-windows",
+    "name": "powershell-windows",
+    "category": "terminal-system-tools",
+    "repository": "active",
+    "description": "PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling.",
+    "path": "category/terminal-system-tools/powershell-windows"
+  },
+  {
+    "id": "principle-make-operations-idempotent",
+    "name": "principle-make-operations-idempotent",
+    "category": "terminal-system-tools",
+    "repository": "backnotprop-pstack",
+    "description": "\"Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.\"",
+    "path": "category/terminal-system-tools/principle-make-operations-idempotent"
+  },
+  {
+    "id": "productboard-automation",
+    "name": "productboard-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate product management workflows in Productboard -- manage features, notes, objectives, components, and releases through natural language commands.\"",
+    "path": "category/terminal-system-tools/productboard-automation"
+  },
+  {
+    "id": "runbook",
+    "name": "runbook",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "Create or update an operational runbook for a recurring task or procedure. Use when documenting a task that on-call or ops needs to run repeatably, turning tribal knowledge into exact step-by-step commands, adding troubleshooting and rollback steps to an existing procedure, or writing escalation paths for when things go wrong.",
+    "path": "category/terminal-system-tools/runbook"
+  },
+  {
+    "id": "safe-browser",
+    "name": "safe-browser",
+    "category": "terminal-system-tools",
+    "repository": "browserbase-skills",
+    "description": "Build local constrained-browser agents with a safe_browser tool that owns CDP, enforces a domain allowlist with Fetch interception, and lets a runtime Claude Agent SDK agent complete browsing tasks without raw browser, shell, or CDP access. Use when the user wants an agent to browse or scrape while staying on approved domains, demo blocked off-domain navigation, or generate a safe browser client.",
+    "path": "category/terminal-system-tools/safe-browser"
+  },
+  {
+    "id": "sentry",
+    "name": "sentry",
+    "category": "terminal-system-tools",
+    "repository": "getsentry-skills",
+    "description": "\"Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.\"",
+    "path": "category/terminal-system-tools/sentry"
+  },
+  {
+    "id": "sentry-cli",
+    "name": "sentry-cli",
+    "category": "terminal-system-tools",
+    "repository": "cline-skills",
+    "description": "Guide for using the Sentry CLI to interact with Sentry from the command line. Use when the user asks about viewing issues, events, projects, organizations, making API calls, or authenticating with Sentry via CLI.",
+    "path": "category/terminal-system-tools/sentry-cli"
+  },
+  {
+    "id": "seo-new-keywords-research",
+    "name": "seo-new-keywords-research",
+    "category": "terminal-system-tools",
+    "repository": "zhuyansen-new-term-radar",
+    "description": "Turn new AI names or unstructured AI market signals into a keyword priority table. For each name it finds the generic search terms downstream of it, screens them for relevance, and checks novelty, demand size and momentum against Google Ads volume and DataForSEO Trends (an estimate of Google search interest), ending in prioritize, watch or skip. Use when the user has new model, product or repository names (or an AI listening report, a batch of posts, a changelog) and asks which keywords to build pages or tools for. Runs the new-term-radar command line; needs an AISA_API_KEY, and a GOANYAPI_API_KEY improves it.",
+    "path": "category/terminal-system-tools/seo-new-keywords-research"
+  },
+  {
+    "id": "setup",
+    "name": "setup",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Use when the user runs /ar:setup or asks to start optimizing a file with the autoresearch loop.\"",
+    "path": "category/terminal-system-tools/setup"
+  },
+  {
+    "id": "shell-conventions",
+    "name": "shell-conventions",
+    "category": "terminal-system-tools",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "description": "PowerShell shell conventions for Windows. Avoid bash-isms. Reference before running terminal commands.",
+    "path": "category/terminal-system-tools/shell-conventions"
+  },
+  {
+    "id": "shellcheck-configuration",
+    "name": "shellcheck-configuration",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting up linting infrastructure, fixing code issues, or ensuring script portability.\"",
+    "path": "category/terminal-system-tools/shellcheck-configuration"
+  },
+  {
+    "id": "shortcut-automation",
+    "name": "shortcut-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate project management workflows in Shortcut -- create stories, manage tasks, track epics, and organize workflows through natural language commands.\"",
+    "path": "category/terminal-system-tools/shortcut-automation"
+  },
+  {
+    "id": "stata-help",
+    "name": "stata-help",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Look up Stata command documentation and display formatted help text.",
+    "path": "category/terminal-system-tools/stata-help"
+  },
+  {
+    "id": "stata-log",
+    "name": "stata-log",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Tail, read, or search a Stata log file from a previous command or background task.",
+    "path": "category/terminal-system-tools/stata-log"
+  },
+  {
+    "id": "stata-results",
+    "name": "stata-results",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Fetch and display stored r(), e(), and s() results from the last Stata command.",
+    "path": "category/terminal-system-tools/stata-results"
+  },
+  {
+    "id": "stata-toolkit",
+    "name": "stata-toolkit",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Activate when users mention Stata commands, .do files, regressions, econometrics, stored results, graphs, dataset inspection, replication, or Stata errors. Route the task through mcp-stata tools and the specialized research skills instead of treating it as plain text coding.",
+    "path": "category/terminal-system-tools/stata-toolkit"
+  },
+  {
+    "id": "survey-monkey-automation",
+    "name": "survey-monkey-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate SurveyMonkey survey creation, response collection, collector management, and survey discovery through natural language commands\"",
+    "path": "category/terminal-system-tools/survey-monkey-automation"
+  },
+  {
+    "id": "team-chat",
+    "name": "team-chat",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "\"Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.\"",
+    "path": "category/terminal-system-tools/team-chat"
+  },
+  {
+    "id": "telegram-automation",
+    "name": "telegram-automation",
+    "category": "terminal-system-tools",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents, and handle bot commands. Always search tools first for current schemas.\"",
+    "path": "category/terminal-system-tools/telegram-automation"
+  },
+  {
+    "id": "toggl-automation",
+    "name": "toggl-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate time tracking workflows in Toggl Track -- create time entries, manage projects, clients, tags, and workspaces through natural language commands.\"",
+    "path": "category/terminal-system-tools/toggl-automation"
+  },
+  {
+    "id": "uploadcare-automation",
+    "name": "uploadcare-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate Uploadcare file management including listing, storing, inspecting, downloading, and organizing file groups through natural language commands\"",
+    "path": "category/terminal-system-tools/uploadcare-automation"
+  },
+  {
+    "id": "webex-automation",
+    "name": "webex-automation",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate Cisco Webex messaging, rooms, teams, webhooks, and people management through natural language commands\"",
+    "path": "category/terminal-system-tools/webex-automation"
+  },
+  {
+    "id": "wiki-cli",
+    "name": "wiki-cli",
+    "category": "terminal-system-tools",
+    "repository": "agricidaniel-claude-obsidian",
+    "description": "\"Detect and use the official Obsidian command-line interface for read-only vault access; use for wiki-cli, Obsidian CLI, Obsidian read, Obsidian search, vault transport, which transport, transport detection, backlinks, tags, or Obsidian command line. Mutations always go through the claude-obsidian transaction core.\"",
+    "path": "category/terminal-system-tools/wiki-cli"
+  },
+  {
+    "id": "wizard",
+    "name": "wizard",
+    "category": "terminal-system-tools",
+    "repository": "mattpocock-skills",
+    "description": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.",
+    "path": "category/terminal-system-tools/wizard"
+  }
+]

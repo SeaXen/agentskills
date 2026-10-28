@@ -3,7 +3,6 @@ name: satismeter-automation
 description: "Automate Satismeter tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Satismeter Automation via Rube MCP

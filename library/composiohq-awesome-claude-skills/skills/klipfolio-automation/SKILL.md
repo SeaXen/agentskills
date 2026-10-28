@@ -3,7 +3,6 @@ name: klipfolio-automation
 description: "Automate Klipfolio tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Klipfolio Automation via Rube MCP

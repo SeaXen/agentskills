@@ -11,7 +11,6 @@ description: >-
   "watch my stocks", "is the market open", "when does the market open",
   "get me prices", or to refresh prices before sizing, risk or tax.
 argument-hint: "[ticker] [price]"
-category: code-quality-refactoring
 ---
 
 # trader-alerts

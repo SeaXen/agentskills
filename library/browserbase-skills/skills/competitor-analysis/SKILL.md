@@ -20,7 +20,6 @@ allowed-tools: Bash Agent AskUserQuestion
 metadata:
   author: browserbase
   version: "0.2.0"
-category: code-quality-refactoring
 ---
 
 # Competitor Analysis

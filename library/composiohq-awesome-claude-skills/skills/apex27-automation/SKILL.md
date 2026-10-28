@@ -3,7 +3,6 @@ name: apex27-automation
 description: "Automate Apex27 tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Apex27 Automation via Rube MCP

@@ -3,7 +3,6 @@ name: datagma-automation
 description: "Automate Datagma tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Datagma Automation via Rube MCP

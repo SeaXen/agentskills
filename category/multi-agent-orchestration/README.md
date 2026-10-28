@@ -1,50 +1,56 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Skills in Category**: 24 real modular skills  
-> **Directory**: [`.agents/category/multi-agent-orchestration`](./)  
-> **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
+> **Total Curated Skills**: 35 skills  
+> **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
 
-## ⚡ Quick Activation Command
+## 📖 Operational Playbook
 
-To link any skill from this category into your active hot-set (`.agents/skills/`):
-```bash
-python .agents/library/activate_skill.py link <skill-name>
+### 1. 📥 How to Install / Activate
+```powershell
+python .agents/library/activate_skill.py activate <skill-name>
 ```
 
 ---
 
-## 📑 Complete Skill Catalog (24 Skills)
+## 🗂️ Curated Skill Inventory
 
-| Skill Folder | Status | Upstream Source | Description |
+| Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
-| **[`agent-orchestration`](./agent-orchestration/SKILL.md)** | 📦 Library | `davidondrej-skills` | Tools for managing BB services via CLI and developing custom plugins, agent tools, and provider extensions. |
-| **[`agent-orchestration-multi-agent-optimize`](./agent-orchestration-multi-agent-optimize/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orchestration. Use when i |
-| **[`ai-agents-architect`](./ai-agents-architect/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning strategies, and multi- |
-| **[`antigravity-expert`](./antigravity-expert/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Complete mastery of Google Antigravity platform architecture. Use when authoring or debugging Antigravity skills, hierar |
-| **[`behavioral-modes`](./behavioral-modes/SKILL.md)** | 🟢 Active | `active-skills` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt behavior based on ta |
-| **[`bug-hunt-swarm`](./bug-hunt-swarm/SKILL.md)** | 📦 Library | `dimillian-skills` | Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained f |
-| **[`chief-of-staff`](./chief-of-staff/SKILL.md)** | 📦 Library | `mattpocock-skills` | Pursue a long-running goal in a single session by co-ordinating subagents. |
-| **[`crewai`](./crewai/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies. Covers agent desig |
-| **[`design-orchestration`](./design-orchestration/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Orchestrates design workflows by routing work through |
-| **[`discover-brand`](./discover-brand/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | This skill orchestrates autonomous discovery of brand materials across enterprise |
-| **[`dispatching-parallel-agents`](./dispatching-parallel-agents/SKILL.md)** | 🟢 Active | `active-skills` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies |
-| **[`full-stack-orchestration-full-stack-feature`](./full-stack-orchestration-full-stack-feature/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when working with full stack orchestration full stack feature |
-| **[`game-development`](./game-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Game development orchestrator. Routes to platform-specific skills based on project needs. |
-| **[`geo-audit`](./geo-audit/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | Full website GEO+SEO audit with parallel subagent delegation. Orchestrates a comprehensive Generative Engine Optimizatio |
-| **[`loki-mode`](./loki-mode/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Multi-agent autonomous startup system for Claude Code. Triggers on \"Loki Mode\". Orchestrates 100+ specialized agents a |
-| **[`one-skill-to-rule-them-all`](./one-skill-to-rule-them-all/SKILL.md)** | 📦 Library | `rebelytics-one-skill-to-rule-them-all` | Monitors task execution for skill improvement opportunities: logs patterns, user corrections and methodology worth prese |
-| **[`parallel-agents`](./parallel-agents/SKILL.md)** | 🟢 Active | `active-skills` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domain expertise or when  |
-| **[`poteto-mode`](./poteto-mode/SKILL.md)** | 📦 Library | `backnotprop-pstack` | poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified w |
-| **[`principle-guard-the-context-window`](./principle-guard-the-context-window/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents;  |
-| **[`rebelytics-one-skill-to-rule-them-all`](./rebelytics-one-skill-to-rule-them-all/SKILL.md)** | 📦 Library | `rebelytics-one-skill-to-rule-them-all` | Monitors task execution for skill improvement opportunities: logs patterns, user corrections and methodology worth prese |
-| **[`reflect`](./reflect/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit o |
-| **[`search-strategy`](./search-strategy/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per  |
-| **[`subagent-driven-development`](./subagent-driven-development/SKILL.md)** | 🟢 Active | `active-skills` | Use when executing implementation plans with independent tasks in the current session |
-| **[`temporal-python-pro`](./temporal-python-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Temporal workflow orchestration with Python SDK. Implements |
-
----
-
-*Part of the [AgentSkills Vault](https://github.com/SeaXen/agentskills). Master directory in [category/README.md](../README.md).*
+| [`agent-browser`](skills/agent-browser) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Browser automation CLI for AI agents. Use when the user needs to interact with websites, includ... |
+| [`agent-orchestration`](skills/agent-orchestration) | ⚪ Reserve | `davidondrej-skills` | Tools for managing BB services via CLI and developing custom plugins, agent tools, and provider... |
+| [`agent-orchestration-multi-agent-optimize`](skills/agent-orchestration-multi-agent-optimize) | ⚪ Reserve | `antigravity-awesome-skills` | "Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware... |
+| [`ai-agents-architect`](skills/ai-agents-architect) | ⚪ Reserve | `antigravity-awesome-skills` | "Expert in designing and building autonomous AI agents. Masters tool use, memory systems, plann... |
+| [`antigravity-expert`](skills/antigravity-expert) | ⚪ Reserve | `vudovn-antigravity-kit` | Complete mastery of Google Antigravity platform architecture. Use when authoring or debugging A... |
+| [`automation`](skills/automation) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "10 research automation skills. Trigger: automating experiments, tracking results, reproducible... |
+| [`behavioral-modes`](skills/behavioral-modes) | 🟢 Active | `active` | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to a... |
+| [`bug-hunt-swarm`](skills/bug-hunt-swarm) | ⚪ Reserve | `dimillian-skills` | "Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky ... |
+| [`competitive-analysis-process`](skills/competitive-analysis-process) | ⚪ Reserve | `deanpeters-product-manager-skills` | "Orchestrate a complete competitive analysis across six steps, from landscape to strategic dire... |
+| [`crewai`](skills/crewai) | ⚪ Reserve | `antigravity-awesome-skills` | "Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 com... |
+| [`daaf-orchestrator`](skills/daaf-orchestrator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | >- |
+| [`design-orchestration`](skills/design-orchestration) | ⚪ Reserve | `antigravity-awesome-skills` | Orchestrates design workflows by routing work through |
+| [`dispatching-parallel-agents`](skills/dispatching-parallel-agents) | 🟢 Active | `active` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential d... |
+| [`full-stack-orchestration-full-stack-feature`](skills/full-stack-orchestration-full-stack-feature) | ⚪ Reserve | `antigravity-awesome-skills` | "Use when working with full stack orchestration full stack feature" |
+| [`game-development`](skills/game-development) | ⚪ Reserve | `antigravity-awesome-skills` | "Game development orchestrator. Routes to platform-specific skills based on project needs." |
+| [`geo-audit`](skills/geo-audit) | ⚪ Reserve | `zubair-trabzada-geo-seo-claude` | Full website GEO+SEO audit with parallel subagent delegation. Orchestrates a comprehensive Gene... |
+| [`hivemind`](skills/hivemind) | ⚪ Reserve | `alirezarezvani-claude-skills` | Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grun... |
+| [`hunt-dispatch`](skills/hunt-dispatch) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Skill-set loader for /hunt orchestrator. Fingerprints the target, picks the right platform atta... |
+| [`loki-mode`](skills/loki-mode) | ⚪ Reserve | `antigravity-awesome-skills` | "Multi-agent autonomous startup system for Claude Code. Triggers on \"Loki Mode\". Orchestrates... |
+| [`marketing-ops`](skills/marketing-ops) | ⚪ Reserve | `alirezarezvani-claude-skills` | "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use... |
+| [`one-skill-to-rule-them-all`](skills/one-skill-to-rule-them-all) | ⚪ Reserve | `rebelytics-one-skill-to-rule-them-all` | "Monitors task execution for skill improvement opportunities: logs patterns, user corrections a... |
+| [`orchestrator`](skills/orchestrator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | / |
+| [`parallel-agents`](skills/parallel-agents) | 🟢 Active | `active` | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different ... |
+| [`poteto-mode`](skills/poteto-mode) | ⚪ Reserve | `backnotprop-pstack` | poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, si... |
+| [`principle-guard-the-context-window`](skills/principle-guard-the-context-window) | ⚪ Reserve | `backnotprop-pstack` | "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning.... |
+| [`rebelytics-one-skill-to-rule-them-all`](skills/rebelytics-one-skill-to-rule-them-all) | ⚪ Reserve | `rebelytics-one-skill-to-rule-them-all` | "Monitors task execution for skill improvement opportunities: logs patterns, user corrections a... |
+| [`search-strategy`](skills/search-strategy) | ⚪ Reserve | `anthropics-knowledge-work` | Query decomposition and multi-source search orchestration. Breaks natural language questions in... |
+| [`slfg`](skills/slfg) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Full autonomous research workflow using swarm mode for parallel execution |
+| [`subagent-driven-development`](skills/subagent-driven-development) | 🟢 Active | `active` | Use when executing implementation plans with independent tasks in the current session |
+| [`subagent-driven-review`](skills/subagent-driven-review) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Use parallel subagents for large-scale paper screening and deep dive analysis |
+| [`team-level`](skills/team-level) | ⚪ Reserve | `donchitos-claude-code-game-studios` | "Orchestrate the level team — level-designer, narrative-director, world-builder, art-director, ... |
+| [`team-live-ops`](skills/team-live-ops) | ⚪ Reserve | `donchitos-claude-code-game-studios` | "Orchestrate the live-ops team — live-ops-designer, economy-designer, analytics-engineer, commu... |
+| [`team-narrative`](skills/team-narrative) | ⚪ Reserve | `donchitos-claude-code-game-studios` | "Orchestrate the narrative team — narrative-director, writer, world-builder, level-designer — f... |
+| [`temporal-python-pro`](skills/temporal-python-pro) | ⚪ Reserve | `antigravity-awesome-skills` | "Master Temporal workflow orchestration with Python SDK. Implements" |
+| [`web-research`](skills/web-research) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Searches multiple web sources, synthesizes findings, and produces cited research reports using ... |

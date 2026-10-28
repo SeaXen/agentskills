@@ -1,7 +1,6 @@
 ---
 name: react-component-performance
 description: Analyze and optimize React component performance issues (slow renders, re-render thrash, laggy lists, expensive computations). Use when asked to profile or improve a React component, reduce re-renders, or speed up UI updates in React apps.
-category: frontend-ui-components
 ---
 
 # React Component Performance

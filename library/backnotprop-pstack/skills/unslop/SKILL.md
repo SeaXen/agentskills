@@ -2,7 +2,6 @@
 name: unslop
 description: Cut AI tells from any writing.
 disable-model-invocation: true
-category: code-quality-refactoring
 ---
 
 # Unslop

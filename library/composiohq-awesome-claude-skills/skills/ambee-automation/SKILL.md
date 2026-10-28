@@ -3,7 +3,6 @@ name: ambee-automation
 description: "Automate Ambee tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Ambee Automation via Rube MCP

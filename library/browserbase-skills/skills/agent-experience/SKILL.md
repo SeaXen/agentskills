@@ -7,7 +7,6 @@ metadata:
   author: jay-sahnan
   version: "1.4.0"
 allowed-tools: Read WebFetch Write Bash AskUserQuestion Agent
-category: terminal-system-tools
 ---
 
 # Audit Agent Experience

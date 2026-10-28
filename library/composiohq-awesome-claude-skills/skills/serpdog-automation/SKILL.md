@@ -3,7 +3,6 @@ name: serpdog-automation
 description: "Automate Serpdog tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Serpdog Automation via Rube MCP

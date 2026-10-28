@@ -3,7 +3,6 @@ name: contentful-graphql-automation
 description: "Automate Contentful Graphql tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Contentful Graphql Automation via Rube MCP

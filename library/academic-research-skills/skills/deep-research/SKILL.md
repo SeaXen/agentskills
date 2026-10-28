@@ -10,7 +10,6 @@ metadata:
   related_skills:
     - academic-paper
     - academic-pipeline
-category: academic-writing-publishing
 ---
 
 # Deep Research — Universal Academic Research Agent Team

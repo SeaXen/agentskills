@@ -14,7 +14,6 @@ description: >-
   market open", "when does the market open", "get me a price", or right
   after /trader-exit writes a plan.
 argument-hint: "[ticker] [price]"
-category: code-quality-refactoring
 ---
 
 # trader-alerts

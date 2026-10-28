@@ -3,7 +3,6 @@ name: v0-automation
 description: "Automate V0 tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # V0 Automation via Rube MCP

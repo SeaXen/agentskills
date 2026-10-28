@@ -4,7 +4,6 @@ description: "Automate headless CMS operations in Contentful -- list spaces, ret
 requires:
   mcp:
     - rube
-category: testing-playwright-e2e
 ---
 
 # Contentful Automation

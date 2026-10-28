@@ -1,7 +1,6 @@
 ---
 name: threejs-loaders
 description: "Loading three.js assets: glTF with Draco, meshopt and KTX2 compression, other model formats, textures, HDR and EXR environments, progress, caching, cloning and disposal. Use when loading 3D models, textures or environment maps, or managing loading progress, on WebGL or with WebGPU and TSL."
-category: 3d-web-threejs
 ---
 
 # Three.js Loaders

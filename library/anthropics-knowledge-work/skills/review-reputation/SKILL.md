@@ -15,7 +15,6 @@ description: >
   customers have gone quiet," "who hasn't ordered in a while," "how do I win
   them back," or "are customers happy."
 allowed-tools: Read, WebFetch
-category: business-sales-crm
 ---
 
 # Review and Reputation

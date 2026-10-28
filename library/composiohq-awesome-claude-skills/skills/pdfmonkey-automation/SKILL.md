@@ -3,7 +3,6 @@ name: pdfmonkey-automation
 description: "Automate Pdfmonkey tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Pdfmonkey Automation via Rube MCP

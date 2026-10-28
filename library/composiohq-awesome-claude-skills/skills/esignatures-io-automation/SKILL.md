@@ -3,7 +3,6 @@ name: esignatures-io-automation
 description: "Automate Esignatures IO tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Esignatures IO Automation via Rube MCP

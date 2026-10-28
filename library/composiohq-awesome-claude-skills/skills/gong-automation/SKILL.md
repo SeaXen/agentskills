@@ -1,7 +1,7 @@
 ---
 name: Gong Automation
 description: "Automate Gong conversation intelligence -- retrieve call recordings, transcripts, detailed analytics, speaker stats, and workspace data -- using natural language through the Composio MCP integration."
-category: data-engineering-ml
+category: conversation-intelligence
 requires:
   mcp:
     - rube

@@ -4,7 +4,6 @@ description: "Automate project management workflows in Shortcut -- create storie
 requires:
   mcp:
     - rube
-category: terminal-system-tools
 ---
 
 # Shortcut Automation

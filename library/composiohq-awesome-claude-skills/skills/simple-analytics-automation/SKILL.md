@@ -3,7 +3,6 @@ name: simple-analytics-automation
 description: "Automate Simple Analytics tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Simple Analytics Automation via Rube MCP

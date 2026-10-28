@@ -1,7 +1,6 @@
 ---
 name: dr-bedrock
 description: Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users report Bedrock CLI errors, AWS profile/default-chain issues, credential_process/SSO/IAM credential failures, missing region, AccessDenied, model access, or provider config problems.
-category: security-compliance-auth
 ---
 
 # Dr. Bedrock: Cline CLI Bedrock Auth Troubleshooter

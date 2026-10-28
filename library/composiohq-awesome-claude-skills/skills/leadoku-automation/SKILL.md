@@ -3,7 +3,6 @@ name: leadoku-automation
 description: "Automate Leadoku tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Leadoku Automation via Rube MCP

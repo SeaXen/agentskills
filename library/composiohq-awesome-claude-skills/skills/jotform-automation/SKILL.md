@@ -4,7 +4,6 @@ description: "Automate Jotform form listing, user management, activity history, 
 requires:
   mcp:
     - rube
-category: terminal-system-tools
 ---
 
 # Jotform Automation

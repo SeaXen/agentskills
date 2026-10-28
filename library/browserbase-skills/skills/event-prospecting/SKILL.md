@@ -21,7 +21,6 @@ allowed-tools: Bash Agent AskUserQuestion
 metadata:
   author: browserbase
   version: "0.1.0"
-category: business-sales-crm
 ---
 
 # Event Prospecting

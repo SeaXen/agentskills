@@ -4,7 +4,6 @@ description: Create, compile, and validate site-specific WebMCP init scripts fro
 compatibility: "Requires Node 18+ and Chrome/Chromium with WebMCP testing flags. Run `pnpm install` in the skill directory to install the Stagehand dependency. Page exploration uses the browse CLI (`npm install -g browse`)."
 license: MIT
 allowed-tools: Bash Read Grep Edit Write
-category: security-compliance-auth
 ---
 
 # WebMCP Gen

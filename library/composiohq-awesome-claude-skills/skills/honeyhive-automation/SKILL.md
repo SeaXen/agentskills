@@ -3,7 +3,6 @@ name: honeyhive-automation
 description: "Automate Honeyhive tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Honeyhive Automation via Rube MCP

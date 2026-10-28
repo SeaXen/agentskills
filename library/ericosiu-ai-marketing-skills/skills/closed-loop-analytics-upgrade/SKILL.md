@@ -1,7 +1,6 @@
 ---
 name: closed-loop-analytics-upgrade
 description: Upgrade marketing, content, SEO/AEO/GEO, and revenue skills so changes are judged by platform analytics instead of vibes. Use when applying closed-loop learning to X, YouTube, SEO, AEO/GEO, outbound, paid creative, or revenue workflows.
-category: business-finance-accounting
 ---
 
 # Closed-Loop Analytics Upgrade

@@ -3,7 +3,6 @@ name: googlesuper-automation
 description: "Automate Google Super tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Google Super Automation via Rube MCP

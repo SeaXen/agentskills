@@ -1,7 +1,6 @@
 ---
 name: steering-user-elicitation
 description: Elicit and challenge data-analysis requirements before querying. Use when the user asks ambiguous data questions, requests business/report answers, needs metric definitions clarified, or may be drawing decisions from incomplete data.
-category: web3-smart-contracts
 ---
 
 # Steering and User Elicitation

@@ -1,7 +1,6 @@
 ---
 name: daily-briefing
 description: Morning rundown - today's meetings with account context, opps closing soon with stale flags, waiting customer emails, and the day's top actions. Use when the user says "daily briefing", "daily brief", "morning briefing", "what's my day", "what's on my plate today", "prep my day", "start my day", "morning rundown", or on a schedule.
-category: productivity-workspace-tools
 ---
 
 # Daily Briefing

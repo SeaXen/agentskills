@@ -1,7 +1,6 @@
 ---
 name: wrangler
 description: Run or troubleshoot Wrangler CLI commands in projects that have a wrangler.jsonc, wrangler.json, or wrangler.toml file, including local development, Previews, deployment, and resource management. For new projects and projects without a Wrangler configuration file, use the cf CLI instead.
-category: cloudflare-edge
 ---
 
 # Wrangler CLI
@@ -70,3 +69,7 @@ For deployment changes, use the project's build workflow and `wrangler deploy --
 For Previews, a returned URL does not validate behavior that depends on bindings Wrangler reports as missing. Validate the behavior the user requested, using Preview-specific logs and configuration when needed. Writes to production resources, destructive testing, and deletion of named Previews must match the user's explicit intent.
 
 Report what changed, the target environment, checks performed, and any unresolved validation gaps. Link the documentation used when the result depends on current command or configuration behavior.
+
+## Skill feedback
+
+If the user reports that this skill gave incorrect or outdated guidance, or is missing information, read [references/skill-feedback.md](references/skill-feedback.md).

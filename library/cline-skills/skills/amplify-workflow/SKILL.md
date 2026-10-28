@@ -11,7 +11,6 @@ description: 'Build and deploy full-stack web and mobile apps with AWS Amplify G
   packages; user asks about defineBackend, defineAuth, defineData, defineStorage,
   or npx ampx. SKIP: Amplify Gen1 (amplify CLI v6), standalone SAM/CDK without Amplify
   (use aws-serverless), direct Bedrock without Amplify AI Kit (use bedrock).'
-category: devops-docker-cicd
 ---
 
 # AWS Amplify Gen2

@@ -3,7 +3,6 @@ name: nano-nets-automation
 description: "Automate Nano Nets tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Nano Nets Automation via Rube MCP

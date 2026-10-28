@@ -1,7 +1,6 @@
 ---
 name: tailored-resume-generator
 description: Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills, and achievements to maximize interview chances
-category: business-strategy-legal
 ---
 
 # Tailored Resume Generator

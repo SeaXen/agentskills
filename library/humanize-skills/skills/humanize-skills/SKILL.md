@@ -14,7 +14,6 @@ description: >-
   language are plain words in the request (--academic, --lang=de); also --audit,
   --strict / --light, --calibrate, --redo, --free / --careful / --minimal, --write,
   --tone=xx.
-category: code-quality-refactoring
 ---
 
 # humanize-skills

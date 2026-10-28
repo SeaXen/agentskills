@@ -3,7 +3,6 @@ name: moco-automation
 description: "Automate Moco tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Moco Automation via Rube MCP

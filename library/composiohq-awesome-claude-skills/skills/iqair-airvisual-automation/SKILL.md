@@ -3,7 +3,6 @@ name: iqair-airvisual-automation
 description: "Automate Iqair Airvisual tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Iqair Airvisual Automation via Rube MCP

@@ -14,7 +14,6 @@ description: >
   no brief — "I need to post more," "what should we post" — use
   social-content-engine instead; it owns the standing calendar.
 allowed-tools: Read, WebFetch
-category: graphics-branding-design
 ---
 
 # Canva Creator

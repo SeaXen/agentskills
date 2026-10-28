@@ -3,7 +3,6 @@ name: folk-automation
 description: "Automate Folk tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Folk Automation via Rube MCP

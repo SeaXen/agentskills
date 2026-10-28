@@ -3,117 +3,90 @@
     "id": "higgsfield-brandkit",
     "name": "higgsfield-brandkit",
     "repository": "higgsfield-ai-skills",
-    "category": "frontend",
-    "description": "Create and extend complete visual brand systems through the Higgsfield CLI and bundled deterministic local tooling: palettes, SVG logo marks, typography, mockups, social graphics, packaging, signage, merchandise, posters, presentation decks, and editable PPTX/PDF brandbooks. Preserves official supplied assets, persists approvals locally, and regenerates only dependent outputs. Use when: \"create a brand kit\", \"make a visual identity\", \"design a logo and brandbook\", \"apply this logo to branded assets\", \"make packaging or signage\", or \"extend our existing branding\". Chain with higgsfield-generate for general image production and Marketing Studio brand-kits when importing website metadata for ads. NOT for unbranded image generation (use higgsfield-generate), product catalog photography (use higgsfield-product-photoshoot), website implementation (use higgsfield-websites), or native Figma/Canva/PSD/AI delivery.",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-brandkit",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-brandkit",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-brandkit",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-brandkit"
   },
   {
     "id": "higgsfield-faceless-video",
     "name": "higgsfield-faceless-video",
     "repository": "higgsfield-ai-skills",
-    "category": "general-development",
-    "description": "Create a finished faceless explainer, documentary, illustrated story or children's music video, or edit a previously created faceless video. Use when: \"make a faceless video\", \"create a narrated explainer\", \"make a children's song video\", \"edit this faceless video\". NOT for: a single silent clip, ads or UGC, unrelated footage edits, or script-only requests.",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-faceless-video",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-faceless-video",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-faceless-video",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-faceless-video"
   },
   {
     "id": "higgsfield-generate",
     "name": "higgsfield-generate",
     "repository": "higgsfield-ai-skills",
-    "category": "frontend",
-    "description": "Generate images/videos/3D assets/audio via Higgsfield AI. Defaults: GPT Image 2.5 for image/design/text, Seedance 2.5 for video, Nano Banana 2 for cartoon characters, Marketing Studio for ads, Seed Audio 1.0 for audio. Use when: \"generate an image\", \"make a video\", \"animate this photo\", \"image-to-video\", \"edit/stylize/remix this image\", \"reframe this video\", \"edit this video from a sketch\", \"create a 3D model/GLB\", \"create a sound effect\", \"make music\", \"text-to-audio\", \"create an ad\", \"make a UGC video\", \"unboxing\", \"presenter video\", \"import product from URL\", or \"analyze video virality\". Supports generic generation, workflows, Marketing Studio, and Virality Predictor. Chain with higgsfield-soul-id for face/identity consistency. NOT for: Soul training, brand systems/brandbooks (use higgsfield-brandkit), photoshoots, cards, YouTube thumbnails (use higgsfield-youtube-thumbnail), explainers (use higgsfield-video-explainer), playable games/assets (use higgsfield-websites), or TTS.",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-generate",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-generate",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-generate",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-generate"
   },
   {
     "id": "higgsfield-marketplace-cards",
     "name": "higgsfield-marketplace-cards",
     "repository": "higgsfield-ai-skills",
-    "category": "sales-marketing",
-    "description": "Generate marketplace product image cards through Higgsfield: compliant main image, secondary product images, and A+ style content modules. Use when the user asks for marketplace listing images, product detail cards, secondary product images, product infographics, lifestyle listing shots, A+ style content, marketplace image sets, or sales-ready product visuals. Backend owns marketplace compliance references and prompt templates; this skill only routes user intent to the CLI. NOT for generic brand product photography without marketplace/listing context (use higgsfield-product-photoshoot), video generation or UGC ads (use higgsfield-generate), or Soul Character training (use higgsfield-soul-id).",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-marketplace-cards",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-marketplace-cards",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-marketplace-cards",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-marketplace-cards"
   },
   {
     "id": "higgsfield-product-photoshoot",
     "name": "higgsfield-product-photoshoot",
     "repository": "higgsfield-ai-skills",
-    "category": "sales-marketing",
-    "description": "Generate brand-quality product images through Higgsfield product-photoshoot prompt enhancement on GPT Image 2 / gpt_image_2. Entry point for professional brand/product visuals. Use when: \"product photo\", \"studio shot\", \"lifestyle image\", \"Pinterest pin\", \"hero/banner\", \"carousel\", \"ad creative\", \"Meta ads\", \"virtual try-on\", \"model wearing\", \"person holding product\", \"closeup with hands\", \"levitating/floating/splash product\", \"CGI/surreal product\", \"restyle\", \"seasonal/aesthetic variation\", or any product, brand, or paid-social creative. Modes: product_shot, lifestyle_scene, closeup_product_with_person, moodboard_pin, hero_banner, social_carousel, ad_creative_pack, virtual_model_tryout, conceptual_product, restyle. Backend assembles the final prompt; never freehand it. NOT for: no-product text-to-image (use higgsfield-generate), branded avatar video (use higgsfield-generate Marketing Studio), marketplace listing cards (use higgsfield-marketplace-cards), Soul Character training (use higgsfield-soul-id).",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-product-photoshoot",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-product-photoshoot",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-product-photoshoot",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-product-photoshoot"
   },
   {
     "id": "higgsfield-soul-id",
     "name": "higgsfield-soul-id",
     "repository": "higgsfield-ai-skills",
-    "category": "frontend",
-    "description": "Train a Soul Character \u2014 a personalized model on a person's face that Higgsfield uses for identity-faithful image and video generation. Use when: \"create my Soul\", \"train my face\", \"make my digital twin\", \"build me an avatar\", \"learn my appearance\", \"create a character of me\", \"set up identity for video\", \"I want my face in generated images\". Chain: train Soul (one-time, returns reference_id) \u2192 use in higgsfield-generate via `--soul-id <id>` with models like `text2image_soul_v2` or `soul_cinematic`. NOT for: one-shot face swaps (use higgsfield-generate with --image), named-character / non-photo avatars (use higgsfield-generate with prompt).",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-soul-id",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-soul-id",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-soul-id",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-soul-id"
   },
   {
     "id": "higgsfield-video-explainer",
     "name": "higgsfield-video-explainer",
     "repository": "higgsfield-ai-skills",
-    "category": "agent-orchestration",
-    "description": "Compatibility entry for the former video explainer skill. Use when: the user explicitly invokes higgsfield-video-explainer or continues its existing workflow. NOT for: new generic explainer requests, ads, single clips, or unrelated video edits.",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-video-explainer",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-video-explainer",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-video-explainer",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-video-explainer"
   },
   {
     "id": "higgsfield-websites",
     "name": "higgsfield-websites",
     "repository": "higgsfield-ai-skills",
-    "category": "frontend",
-    "description": "Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield website \u2026`). Each is a React 19 + TanStack Start SSR app in one Cloudflare Worker (D1/R2/KV/DO/Containers). THREE product types, picked via `--type` on create: `website` (standalone, no Higgsfield integration \u2014 references/website-flow.md), `app` (Sign in with Higgsfield + fnf SDK, Quanta \u2014 references/app-flow.md), `game` (realtime multiplayer rooms \u2014 references/game-flow.md). Routes to the right flow; each carries its own rules and deploy/publish gates. Use when: \"build me a website\", \"make a landing page\", \"create a web app\", \"build a SaaS dashboard / portfolio\", \"make me a game\", \"deploy this site\", \"publish\". Also owns GAME ART: \"make a spritesheet\", \"tileable texture\", \"animate a 3D character\", game music/SFX \u2014 see the game-* references. NOT for: single image/video/audio generation (higgsfield-generate), product photos (higgsfield-product-photoshoot), marketplace cards (higgsfield-marketplace-cards).",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-websites",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-websites",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-websites",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-websites"
   },
   {
     "id": "higgsfield-youtube-thumbnail",
     "name": "higgsfield-youtube-thumbnail",
     "repository": "higgsfield-ai-skills",
-    "category": "frontend",
-    "description": "Create high-click-through YouTube thumbnails and vertical video covers through the Higgsfield CLI. Builds a truthful information-gap concept, preserves up to three referenced identities, supports logos and controlled variants, renders the main image with Nano Banana Pro, and applies focused Seedream edits. Use when: \"make a YouTube thumbnail\", \"thumbnail for this video\", \"MrBeast-style cover\", \"Shorts cover\", or \"Instagram video cover\". Chain after any video workflow once its truthful topic and visual direction are known. NOT for producing the video itself (use higgsfield-generate), product catalog photos (use higgsfield-product-photoshoot), or marketplace cards (use higgsfield-marketplace-cards).",
+    "category": "general",
+    "description": "",
     "path": "library/higgsfield-ai-skills/skills/higgsfield-youtube-thumbnail",
     "activation_cmd": "python .agents/library/activate_skill.py activate higgsfield-youtube-thumbnail",
-    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-youtube-thumbnail",
-    "allowed_tools": [
-      "Bash"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link higgsfield-youtube-thumbnail"
   }
 ]

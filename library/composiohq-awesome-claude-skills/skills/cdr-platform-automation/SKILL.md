@@ -3,7 +3,6 @@ name: cdr-platform-automation
 description: "Automate Cdr Platform tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Cdr Platform Automation via Rube MCP

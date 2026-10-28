@@ -2,7 +2,6 @@
 name: report-pack
 description: Delivers the owner's custom recurring report pack on a set cadence — runs the saved report definition from report-builder, wraps it in a business-pulse snapshot so the numbers have context, and hands over one chat summary plus the workbook. Defined once, then delivered on schedule without being asked again. Runs on any single connected data source, or entirely from an uploaded CSV or XLSX. Use it when the owner asks for their report pack, their weekly or monthly numbers, "send me the usual report," "run my report pack," "set this up to come every Monday," or "I want these numbers on a schedule."
 allowed-tools: Read, WebFetch
-category: productivity-workspace-tools
 ---
 
 # Report Pack

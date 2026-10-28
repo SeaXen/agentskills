@@ -3,7 +3,6 @@ name: shotstack-automation
 description: "Automate Shotstack tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Shotstack Automation via Rube MCP

@@ -3,7 +3,6 @@ name: renderform-automation
 description: "Automate Renderform tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Renderform Automation via Rube MCP

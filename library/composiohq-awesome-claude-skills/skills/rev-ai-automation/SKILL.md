@@ -3,7 +3,6 @@ name: rev-ai-automation
 description: "Automate Rev AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Rev AI Automation via Rube MCP

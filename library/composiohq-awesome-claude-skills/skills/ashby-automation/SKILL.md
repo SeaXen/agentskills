@@ -4,7 +4,6 @@ description: "Automate recruiting and hiring workflows in Ashby -- manage candid
 requires:
   mcp:
     - rube
-category: business-strategy-legal
 ---
 
 # Ashby Automation

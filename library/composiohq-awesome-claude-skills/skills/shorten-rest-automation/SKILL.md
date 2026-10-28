@@ -3,7 +3,6 @@ name: shorten-rest-automation
 description: "Automate Shorten Rest tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Shorten Rest Automation via Rube MCP

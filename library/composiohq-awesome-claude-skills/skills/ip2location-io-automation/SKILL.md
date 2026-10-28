@@ -3,7 +3,6 @@ name: ip2location-io-automation
 description: "Automate Ip2location IO tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Ip2location IO Automation via Rube MCP

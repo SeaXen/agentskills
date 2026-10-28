@@ -2,7 +2,6 @@
 name: pipeline-review
 description: Stage-by-stage pipeline health check - coverage, aging, conversion, and at-risk deals - from CRM opportunity data. Use when the user asks "review my pipeline", "pipeline health", "where's my pipeline stuck", "weekly pipeline review", "which deals should I focus on this week", "any stale or stuck deals", "which deals have past close dates", "which deals are single-threaded", or "check my pipeline coverage against my number".
 argument-hint: "<segment or rep>"
-category: business-sales-crm
 ---
 
 # Pipeline Review

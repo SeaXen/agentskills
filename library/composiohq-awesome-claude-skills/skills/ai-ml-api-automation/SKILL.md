@@ -3,7 +3,6 @@ name: ai-ml-api-automation
 description: "Automate AI ML API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # AI ML API Automation via Rube MCP

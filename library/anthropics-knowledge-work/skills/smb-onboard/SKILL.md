@@ -9,7 +9,6 @@ description: >
   "setup," "help me get set up," "get started," "help me get started," "get me
   started," "what can you do," "I'm new to this," or is in their first session.
 allowed-tools: Read, WebFetch
-category: code-quality-refactoring
 ---
 
 # SMB Onboard

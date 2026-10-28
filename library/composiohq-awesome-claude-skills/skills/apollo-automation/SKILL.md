@@ -1,7 +1,7 @@
 ---
 name: Apollo Automation
 description: "Automate Apollo.io lead generation -- search organizations, discover contacts, enrich prospect data, manage contact stages, and build targeted outreach lists -- using natural language through the Composio MCP integration."
-category: business-sales-crm
+category: sales-intelligence
 requires:
   mcp:
     - rube

@@ -3,7 +3,6 @@ name: sequence-load
 description: "Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow."
 user-invocable: true
 argument-hint: "[targeting criteria + sequence name]"
-category: business-sales-crm
 ---
 
 # Sequence Load

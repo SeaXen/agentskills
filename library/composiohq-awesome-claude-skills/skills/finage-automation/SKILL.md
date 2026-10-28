@@ -3,7 +3,6 @@ name: finage-automation
 description: "Automate Finage tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Finage Automation via Rube MCP

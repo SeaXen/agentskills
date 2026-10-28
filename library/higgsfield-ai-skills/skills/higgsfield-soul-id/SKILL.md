@@ -14,7 +14,6 @@ description: |
   named-character / non-photo avatars (use higgsfield-generate with prompt).
 argument-hint: "[name] [photo paths...]"
 allowed-tools: Bash
-category: code-quality-refactoring
 ---
 
 # Higgsfield Soul Character

@@ -8,7 +8,6 @@ allowed-tools:
   - "Write"
   - "Bash"
   - "web_fetch"
-category: frontend-ui-components
 ---
 
 # shadcn/ui Component Integration

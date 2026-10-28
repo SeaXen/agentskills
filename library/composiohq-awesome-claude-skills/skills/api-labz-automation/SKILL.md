@@ -3,7 +3,6 @@ name: api-labz-automation
 description: "Automate API Labz tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # API Labz Automation via Rube MCP

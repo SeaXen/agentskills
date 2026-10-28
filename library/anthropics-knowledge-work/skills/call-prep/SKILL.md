@@ -1,7 +1,6 @@
 ---
 name: call-prep
 description: Pre-call brief for an upcoming meeting - attendees, account history, prior call context from transcripts, open opportunity status, and suggested discovery questions. Use when the user asks "prep me for [meeting/company]", "call prep [company]", "I'm meeting with [company], prep me", "get me ready for [meeting]", or "what do I need to know before my [time] call".
-category: productivity-workspace-tools
 ---
 
 # Call Prep

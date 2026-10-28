@@ -19,7 +19,6 @@ metadata:
           ],
       },
   }
-category: testing-playwright-e2e
 ---
 
 # Browser Use

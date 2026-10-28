@@ -3,7 +3,6 @@ name: everhour-automation
 description: "Automate Everhour tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Everhour Automation via Rube MCP

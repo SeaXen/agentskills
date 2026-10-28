@@ -3,7 +3,6 @@ name: browseai-automation
 description: "Automate Browseai tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Browseai Automation via Rube MCP

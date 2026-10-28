@@ -1,7 +1,6 @@
 ---
 name: gemini-api-dev
 description: Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, multimodal understanding, image generation, video generation, speech generation (TTS), voice design, voice replication, streaming responses, background research tasks, function calling, structured output, or migrating from the old generateContent API. Covers SDK usage and best practices for Gemini models and agents in Python and TypeScript.
-category: audio-voice-sound
 ---
 
 # Gemini API Development Skill

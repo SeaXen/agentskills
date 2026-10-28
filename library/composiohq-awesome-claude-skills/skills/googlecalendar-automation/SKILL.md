@@ -3,7 +3,6 @@ name: googlecalendar-automation
 description: "Automate Google Calendar tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: productivity-workspace-tools
 ---
 
 # Google Calendar Automation via Rube MCP

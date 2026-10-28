@@ -3,7 +3,6 @@ name: agentql-automation
 description: "Automate Agentql tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Agentql Automation via Rube MCP

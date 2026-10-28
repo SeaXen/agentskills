@@ -3,7 +3,6 @@ name: smtp2go-automation
 description: "Automate Smtp2go tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Smtp2go Automation via Rube MCP

@@ -3,7 +3,6 @@ name: mocean-automation
 description: "Automate Mocean tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Mocean Automation via Rube MCP

@@ -5,7 +5,6 @@ description: >-
   actually leave, then say what to change. Use for "why do people stop
   watching", "my retention is bad", a pasted retention chart or CSV, or "fix
   my pacing".
-category: code-quality-refactoring
 ---
 
 # yt-retention

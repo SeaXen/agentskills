@@ -1,7 +1,6 @@
 ---
 name: teardown
 description: Creates technical illustrations of physical objects and of how things work, such as display pixels or interface layers, with coherent views, fine linework and part fills.
-category: code-quality-refactoring
 ---
 
 # Teardown

@@ -4,7 +4,6 @@ description: "Automate user behavior analytics with Microsoft Clarity -- export 
 requires:
   mcp:
     - rube
-category: mobile-ios-android
 ---
 
 # Microsoft Clarity Automation

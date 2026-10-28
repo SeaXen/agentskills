@@ -10,7 +10,6 @@ description: >-
   "what should I include", "guarantee", "bonuses", "grand slam offer", or after the
   panel shows people passing.
 argument-hint: "[what you sell]"
-category: code-quality-refactoring
 ---
 
 # founder-offer

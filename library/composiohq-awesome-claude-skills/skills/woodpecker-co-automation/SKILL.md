@@ -3,7 +3,6 @@ name: woodpecker-co-automation
 description: "Automate Woodpecker co tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Woodpecker co Automation via Rube MCP

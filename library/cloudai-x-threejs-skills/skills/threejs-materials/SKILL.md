@@ -1,7 +1,6 @@
 ---
 name: threejs-materials
 description: "Choosing and configuring three.js materials - unlit, diffuse, specular, PBR, toon, point and line materials - shared properties like blending and stencil, environment response, and the WebGPU node-material and TSL equivalents. Use when styling meshes or tuning material behavior."
-category: frontend-ui-components
 ---
 
 # Three.js Materials

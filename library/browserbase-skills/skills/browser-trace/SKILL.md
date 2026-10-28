@@ -4,7 +4,6 @@ description: Capture a full DevTools-protocol trace of any browser automation â€
 compatibility: "Requires Node 18+, the browse CLI (`npm install -g browse`) with `browse cdp`, and optionally `jq` for ad-hoc querying of the bisected JSONL files. For remote Browserbase sessions, also requires `BROWSERBASE_API_KEY`. The skill scripts themselves use only the Node standard library â€” no `npm install` step."
 license: MIT
 allowed-tools: Bash, Read, Grep
-category: code-quality-refactoring
 ---
 
 # Browser Trace

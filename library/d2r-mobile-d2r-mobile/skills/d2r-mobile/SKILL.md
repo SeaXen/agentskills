@@ -1,7 +1,6 @@
 ---
 name: d2r-mobile
 description: Build and install D2R Mobile (Diablo II Resurrected with Reign of the Warlock, running natively on iPhone and iPad) from the user's own Switch game files, end to end. Use when the user asks to build, reproduce, set up, install or sideload D2R Mobile, to "复刻 / 编译 / 安装 D2R Mobile", to get Diablo II Resurrected on iPhone or iPad from this repository, or points an agent at https://github.com/d2r-mobile/d2r-mobile. Works in Claude Code and Codex.
-category: git-version-control
 ---
 
 # D2R Mobile: build it for your own iPhone or iPad

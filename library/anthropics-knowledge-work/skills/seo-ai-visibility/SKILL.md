@@ -14,7 +14,6 @@ description: >
   search visibility," "my competitor ranks above me," "fix my product
   listings," or "I asked an AI about my industry and we weren't in the answer."
 allowed-tools: Read, WebFetch
-category: code-quality-refactoring
 ---
 
 # SEO and AI Visibility

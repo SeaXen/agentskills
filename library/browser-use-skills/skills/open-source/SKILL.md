@@ -12,7 +12,6 @@ description: >
   pricing — use the cloud skill instead. Do NOT use this for directly
   automating a browser via CLI commands — use the browser-use skill instead.
 allowed-tools: Read
-category: testing-playwright-e2e
 ---
 
 # Browser Use Open-Source Library Reference

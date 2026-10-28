@@ -3,7 +3,6 @@ name: pushover-automation
 description: "Automate Pushover tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Pushover Automation via Rube MCP

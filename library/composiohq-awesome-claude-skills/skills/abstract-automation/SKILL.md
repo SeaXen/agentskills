@@ -3,7 +3,6 @@ name: abstract-automation
 description: "Automate Abstract tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: academic-writing-publishing
 ---
 
 # Abstract Automation via Rube MCP

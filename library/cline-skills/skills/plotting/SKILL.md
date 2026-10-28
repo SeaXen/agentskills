@@ -1,7 +1,6 @@
 ---
 name: plotting
 description: Create standardized charts and visual assets from analytics query results. Prefer dependency-free plain HTML/CSS/JavaScript/SVG for interactive exploratory charts; use local plotting tools such as matplotlib, seaborn, or Plotly when static/report-ready exports or specialized charting libraries are more appropriate. Use for trends, comparisons, distributions, report assets, CSV-to-chart work, and presentation-ready data visuals.
-category: frontend-ui-components
 ---
 
 # Plotting

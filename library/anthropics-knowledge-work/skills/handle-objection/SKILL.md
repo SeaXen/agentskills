@@ -1,7 +1,6 @@
 ---
 name: handle-objection
 description: Work through a live objection or competitive threat - what's really being said, the response that has worked before, and the proof points to use, grounded in your own win/loss history and customer quotes. Use when the user says "they said we're too expensive", "how do I respond to [objection]", "[competitor] is in the deal", "help me handle this pushback", or pastes an objection from an email or call.
-category: business-sales-crm
 ---
 
 # Handle Objection

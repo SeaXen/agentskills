@@ -14,7 +14,6 @@ description: >-
   this a coin flip", or after /trader-exit writes a plan, before
   /trader-budget.
 argument-hint: "[path to plan.json, or TICKER]"
-category: code-quality-refactoring
 ---
 
 # trader-timemachine

@@ -2,7 +2,6 @@
 name: setup-zoom-mcp
 description: Decide when Zoom MCP is the right fit and produce a safe setup plan for Claude. Use when planning AI workflows over Zoom data, deciding between MCP and REST, or defining a hybrid MCP architecture.
 argument-hint: "<AI workflow or MCP use case>"
-category: architecture-system-design
 ---
 
 # /setup-zoom-mcp

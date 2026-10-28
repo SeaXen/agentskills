@@ -1,7 +1,6 @@
 ---
 name: contact-research
 description: "Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question."
-category: business-sales-crm
 ---
 
 # Contact Research

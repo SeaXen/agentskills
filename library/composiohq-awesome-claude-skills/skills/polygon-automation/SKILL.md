@@ -3,7 +3,6 @@ name: polygon-automation
 description: "Automate Polygon tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Polygon Automation via Rube MCP

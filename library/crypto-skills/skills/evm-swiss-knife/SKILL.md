@@ -1,7 +1,6 @@
 ---
 name: evm-swiss-knife
 description: Interact with EVM-compatible blockchains using Foundry's cast tool for querying balances, calling contracts, sending transactions, and blockchain exploration. Use when needing to interact with Ethereum Virtual Machine networks via command-line, including reading contract state, sending funds, executing contract functions, or inspecting blockchain data.
-category: web3-smart-contracts
 ---
 
 # EVM Swiss Knife

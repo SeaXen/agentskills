@@ -3,7 +3,6 @@ name: diffbot-automation
 description: "Automate Diffbot tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Diffbot Automation via Rube MCP

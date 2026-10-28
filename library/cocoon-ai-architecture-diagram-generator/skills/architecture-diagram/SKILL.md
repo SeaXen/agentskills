@@ -1,7 +1,6 @@
 ---
 name: architecture-diagram
 description: Create polished dark-themed architecture diagrams as self-contained HTML+SVG files. Use when the user asks for system, infrastructure, cloud, security, or network topology diagrams.
-category: diagrams-technical-visuals
 ---
 
 # Architecture Diagram Skill

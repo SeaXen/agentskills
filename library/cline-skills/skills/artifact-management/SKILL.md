@@ -1,7 +1,6 @@
 ---
 name: artifact-management
 description: Save, organize, and describe reusable analysis artifacts such as SQL, result snapshots, CSV exports, summaries, caveats, plots, and report-ready files. Use when users ask to save, export, share, cite, reproduce, or organize data-analysis outputs.
-category: database-sql-relational
 ---
 
 # Artifact Management

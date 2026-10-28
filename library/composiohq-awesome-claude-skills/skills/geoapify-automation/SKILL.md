@@ -3,7 +3,6 @@ name: geoapify-automation
 description: "Automate Geoapify tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Geoapify Automation via Rube MCP

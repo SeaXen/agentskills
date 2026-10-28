@@ -1,7 +1,6 @@
 ---
 name: update-opportunity
 description: Guided updates to an opportunity - push the stage, move the close date, set next steps, fix amount or forecast category. Shows the before/after, writes what you ask for or accept, and verifies with a record link. Use when the user says "push [deal] to [stage]", "move the close date on [opp]", "update next steps on [account]", "mark [deal] commit", or accepts a suggested update from another skill.
-category: git-version-control
 ---
 
 # Update Opportunity

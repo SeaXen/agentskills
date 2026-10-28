@@ -5,7 +5,6 @@ description: >-
   the ones worth answering, sorted by which ones are. Use when the user pastes
   their comments, says "reply to these", "handle my comments", "someone said X
   on my reel", or is dealing with a critic, a hater or a lead in the comments.
-category: code-quality-refactoring
 ---
 
 # ig-reply

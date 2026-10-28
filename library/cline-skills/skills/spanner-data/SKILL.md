@@ -1,7 +1,6 @@
 ---
 name: spanner-data
 description: Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and execute custom SQL queries to interact with your data.
-category: database-sql-relational
 ---
 
 ## Usage

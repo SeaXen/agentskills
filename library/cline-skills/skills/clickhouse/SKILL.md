@@ -1,7 +1,6 @@
 ---
 name: clickhouse
 description: Connect to and query ClickHouse (a local server or a ClickHouse Cloud service) from the terminal using the official clickhousectl CLI, including the browser OAuth login flow. Use when the user wants to run SQL against ClickHouse, explore schemas and tables, inspect Cloud services, or authenticate clickhousectl. For building a local dev environment or deploying to Cloud, defer to the official ClickHouse skills (see Scope).
-category: database-sql-relational
 ---
 
 # ClickHouse via clickhousectl

@@ -3,7 +3,6 @@ name: jumpcloud-automation
 description: "Automate Jumpcloud tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Jumpcloud Automation via Rube MCP

@@ -6,7 +6,6 @@ description: >-
   before it goes out. Use when the user says "write the caption", "caption this",
   "what do I put in the description", has a reel or a carousel ready and needs
   the text, or asks about hashtags.
-category: code-quality-refactoring
 ---
 
 # ig-caption

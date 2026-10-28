@@ -1,7 +1,6 @@
 ---
 name: dev-skills
 version: 2026.10.23
-category: git-version-control
 description: >
   Development discipline: commit approval, versioned builds, security scanning,
   cost control, and a strict gate workflow that never advances silently. Trigger

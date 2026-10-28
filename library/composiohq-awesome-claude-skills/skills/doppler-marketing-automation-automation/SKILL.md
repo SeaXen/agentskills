@@ -3,7 +3,6 @@ name: doppler-marketing-automation-automation
 description: "Automate Doppler Marketing Automation tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Doppler Marketing Automation Automation via Rube MCP

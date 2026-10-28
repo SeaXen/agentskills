@@ -3,7 +3,6 @@ name: extracta-ai-automation
 description: "Automate Extracta AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Extracta AI Automation via Rube MCP

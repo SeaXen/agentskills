@@ -3,7 +3,6 @@ name: api-sports-automation
 description: "Automate API Sports tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # API Sports Automation via Rube MCP

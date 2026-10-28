@@ -8,7 +8,6 @@ description: >-
   chose. Use when the user says "name my business", "brand this", "logo", "brand
   identity", "what should it look like", "tagline", or "brand voice".
 argument-hint: "[name ideas, if any]"
-category: code-quality-refactoring
 ---
 
 # founder-brand

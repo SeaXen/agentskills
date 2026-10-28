@@ -3,7 +3,6 @@ name: openweather-api-automation
 description: "Automate Openweather API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Openweather API Automation via Rube MCP

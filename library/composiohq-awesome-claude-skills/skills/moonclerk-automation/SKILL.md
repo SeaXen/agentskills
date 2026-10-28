@@ -3,7 +3,6 @@ name: moonclerk-automation
 description: "Automate Moonclerk tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Moonclerk Automation via Rube MCP

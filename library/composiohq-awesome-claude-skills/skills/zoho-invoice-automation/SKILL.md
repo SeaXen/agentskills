@@ -3,7 +3,6 @@ name: zoho-invoice-automation
 description: "Automate Zoho Invoice tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: business-finance-accounting
 ---
 
 # Zoho Invoice Automation via Rube MCP

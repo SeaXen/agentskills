@@ -4,7 +4,6 @@ description: poteto's agent style for concise, detailed responses, deliberate su
 disable-model-invocation: true
 icon: crown
 color: yellow
-category: multi-agent-orchestration
 ---
 
 # Poteto mode

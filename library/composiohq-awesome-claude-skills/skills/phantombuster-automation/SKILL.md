@@ -4,7 +4,6 @@ description: "Automate lead generation, web scraping, and social media data extr
 requires:
   mcp:
     - rube
-category: business-sales-crm
 ---
 
 # PhantomBuster Automation

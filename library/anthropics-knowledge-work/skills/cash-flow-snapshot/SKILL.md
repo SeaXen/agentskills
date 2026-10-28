@@ -10,7 +10,6 @@ description: >
   Falls back to CSV upload when no connector is live.
 compatibility: "Requires one or more of: a ledger MCP (MYOB, NetSuite, QuickBooks, Xero, Zoho Books), PayPal MCP, Shopify MCP, Square MCP, Stripe MCP, file upload (CSV fallback). Output uses xlsx skill."
 allowed-tools: Read, WebFetch
-category: cloudflare-edge
 ---
 
 # Cash Flow Snapshot

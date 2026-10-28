@@ -3,7 +3,6 @@ name: echtpost-automation
 description: "Automate Echtpost tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Echtpost Automation via Rube MCP

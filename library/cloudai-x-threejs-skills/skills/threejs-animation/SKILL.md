@@ -1,7 +1,6 @@
 ---
 name: threejs-animation
 description: "Keyframe, skeletal and morph-target animation, procedural motion and clip blending, on WebGL or with WebGPU and TSL. Use when animating objects, playing glTF animations, posing bones, driving morph targets, or mixing and crossfading clips."
-category: frontend-motion-animation
 ---
 
 # Three.js Animation

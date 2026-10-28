@@ -1,30 +1,290 @@
 [
   {
+    "id": "agentic-workflows",
+    "name": "agentic-workflows",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/agentic-workflows",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentic-workflows",
+    "link_cmd": "python .agents/library/activate_skill.py link agentic-workflows"
+  },
+  {
+    "id": "analyzing-dotnet-performance",
+    "name": "analyzing-dotnet-performance",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/analyzing-dotnet-performance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analyzing-dotnet-performance",
+    "link_cmd": "python .agents/library/activate_skill.py link analyzing-dotnet-performance"
+  },
+  {
+    "id": "android-tombstone-symbolication",
+    "name": "android-tombstone-symbolication",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/android-tombstone-symbolication",
+    "activation_cmd": "python .agents/library/activate_skill.py activate android-tombstone-symbolication",
+    "link_cmd": "python .agents/library/activate_skill.py link android-tombstone-symbolication"
+  },
+  {
+    "id": "apple-crash-symbolication",
+    "name": "apple-crash-symbolication",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/apple-crash-symbolication",
+    "activation_cmd": "python .agents/library/activate_skill.py activate apple-crash-symbolication",
+    "link_cmd": "python .agents/library/activate_skill.py link apple-crash-symbolication"
+  },
+  {
+    "id": "assertion-quality",
+    "name": "assertion-quality",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/assertion-quality",
+    "activation_cmd": "python .agents/library/activate_skill.py activate assertion-quality",
+    "link_cmd": "python .agents/library/activate_skill.py link assertion-quality"
+  },
+  {
+    "id": "author-component",
+    "name": "author-component",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/author-component",
+    "activation_cmd": "python .agents/library/activate_skill.py activate author-component",
+    "link_cmd": "python .agents/library/activate_skill.py link author-component"
+  },
+  {
     "id": "authoring-github-workflows",
     "name": "authoring-github-workflows",
     "repository": "dotnet-skills",
-    "category": "frontend",
-    "description": "\"Author and review GitHub Actions workflow YAML safely so syntactically-valid YAML can't ship a workflow that GitHub Actions refuses to run. USE FOR: editing, adding, or reviewing any file under .github/workflows/, writing run-name/name/if/env/run values that contain ${{ }} expressions, diagnosing a run that fails with 'This run likely failed because of a workflow file issue' and no jobs starting, deciding when a workflow scalar must be quoted, validating workflows with actionlint. DO NOT USE FOR: authoring application YAML unrelated to GitHub Actions, Azure Pipelines, GitLab CI, or non-workflow YAML. SCOPE: this skill covers *syntactic/structural* correctness of workflow YAML (quoting, parsing, actionlint); for *semantic and functional* workflow design (what a workflow should do, agentic-workflow behavior), see .github/agents/agentic-workflows.agent.md \u2014 the two are complementary. INVOKES: actionlint (downloaded pinned binary) plus git/grep for inspection.\"",
+    "category": "general",
+    "description": "",
     "path": "library/dotnet-skills/skills/authoring-github-workflows",
     "activation_cmd": "python .agents/library/activate_skill.py activate authoring-github-workflows",
     "link_cmd": "python .agents/library/activate_skill.py link authoring-github-workflows"
   },
   {
+    "id": "binlog-failure-analysis",
+    "name": "binlog-failure-analysis",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/binlog-failure-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate binlog-failure-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link binlog-failure-analysis"
+  },
+  {
+    "id": "binlog-generation",
+    "name": "binlog-generation",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/binlog-generation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate binlog-generation",
+    "link_cmd": "python .agents/library/activate_skill.py link binlog-generation"
+  },
+  {
+    "id": "build-parallelism",
+    "name": "build-parallelism",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/build-parallelism",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-parallelism",
+    "link_cmd": "python .agents/library/activate_skill.py link build-parallelism"
+  },
+  {
+    "id": "build-perf-baseline",
+    "name": "build-perf-baseline",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/build-perf-baseline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-perf-baseline",
+    "link_cmd": "python .agents/library/activate_skill.py link build-perf-baseline"
+  },
+  {
+    "id": "build-perf-diagnostics",
+    "name": "build-perf-diagnostics",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/build-perf-diagnostics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-perf-diagnostics",
+    "link_cmd": "python .agents/library/activate_skill.py link build-perf-diagnostics"
+  },
+  {
+    "id": "check-bin-obj-clash",
+    "name": "check-bin-obj-clash",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/check-bin-obj-clash",
+    "activation_cmd": "python .agents/library/activate_skill.py activate check-bin-obj-clash",
+    "link_cmd": "python .agents/library/activate_skill.py link check-bin-obj-clash"
+  },
+  {
+    "id": "clr-activation-debugging",
+    "name": "clr-activation-debugging",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/clr-activation-debugging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clr-activation-debugging",
+    "link_cmd": "python .agents/library/activate_skill.py link clr-activation-debugging"
+  },
+  {
+    "id": "code-testing",
+    "name": "code-testing",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/code-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link code-testing"
+  },
+  {
+    "id": "code-testing-agent",
+    "name": "code-testing-agent",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/code-testing-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-testing-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link code-testing-agent"
+  },
+  {
+    "id": "code-testing-extensions",
+    "name": "code-testing-extensions",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/code-testing-extensions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-testing-extensions",
+    "link_cmd": "python .agents/library/activate_skill.py link code-testing-extensions"
+  },
+  {
+    "id": "collect-user-input",
+    "name": "collect-user-input",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/collect-user-input",
+    "activation_cmd": "python .agents/library/activate_skill.py activate collect-user-input",
+    "link_cmd": "python .agents/library/activate_skill.py link collect-user-input"
+  },
+  {
+    "id": "configure-auth",
+    "name": "configure-auth",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/configure-auth",
+    "activation_cmd": "python .agents/library/activate_skill.py activate configure-auth",
+    "link_cmd": "python .agents/library/activate_skill.py link configure-auth"
+  },
+  {
+    "id": "convert-blazor-server-to-webapp",
+    "name": "convert-blazor-server-to-webapp",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/convert-blazor-server-to-webapp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate convert-blazor-server-to-webapp",
+    "link_cmd": "python .agents/library/activate_skill.py link convert-blazor-server-to-webapp"
+  },
+  {
+    "id": "convert-to-cpm",
+    "name": "convert-to-cpm",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/convert-to-cpm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate convert-to-cpm",
+    "link_cmd": "python .agents/library/activate_skill.py link convert-to-cpm"
+  },
+  {
+    "id": "coordinate-components",
+    "name": "coordinate-components",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/coordinate-components",
+    "activation_cmd": "python .agents/library/activate_skill.py activate coordinate-components",
+    "link_cmd": "python .agents/library/activate_skill.py link coordinate-components"
+  },
+  {
+    "id": "copy-to-output-directory",
+    "name": "copy-to-output-directory",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/copy-to-output-directory",
+    "activation_cmd": "python .agents/library/activate_skill.py activate copy-to-output-directory",
+    "link_cmd": "python .agents/library/activate_skill.py link copy-to-output-directory"
+  },
+  {
+    "id": "coverage-analysis",
+    "name": "coverage-analysis",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/coverage-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate coverage-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link coverage-analysis"
+  },
+  {
+    "id": "crap-score",
+    "name": "crap-score",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/crap-score",
+    "activation_cmd": "python .agents/library/activate_skill.py activate crap-score",
+    "link_cmd": "python .agents/library/activate_skill.py link crap-score"
+  },
+  {
+    "id": "create-blazor-project",
+    "name": "create-blazor-project",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/create-blazor-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-blazor-project",
+    "link_cmd": "python .agents/library/activate_skill.py link create-blazor-project"
+  },
+  {
     "id": "create-custom-agent",
     "name": "create-custom-agent",
     "repository": "dotnet-skills",
-    "category": "agent-orchestration",
-    "description": "Creates VS Code custom agent files (.agent.md) for specialized AI personas with tools, instructions, and handoffs. Use when scaffolding new custom agents, configuring agent workflows, or setting up agent-to-agent handoffs.",
+    "category": "general",
+    "description": "",
     "path": "library/dotnet-skills/skills/create-custom-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-custom-agent",
     "link_cmd": "python .agents/library/activate_skill.py link create-custom-agent"
   },
   {
+    "id": "create-datadriven-aspnetcore",
+    "name": "create-datadriven-aspnetcore",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/create-datadriven-aspnetcore",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-datadriven-aspnetcore",
+    "link_cmd": "python .agents/library/activate_skill.py link create-datadriven-aspnetcore"
+  },
+  {
     "id": "create-skill",
     "name": "create-skill",
     "repository": "dotnet-skills",
-    "category": "frontend",
-    "description": "Scaffolds new agent skills for the dotnet/skills repository. Use when creating a new skill, generating SKILL.md files, writing a skill description that the runtime will actually route to, or setting up skill directory structures. Handles frontmatter generation, section templates, and validation guidance. Do not use for fixing a skill that already fails its evaluation (use improve-skill-quality) or for writing eval.yaml (use create-skill-test).",
+    "category": "general",
+    "description": "",
     "path": "library/dotnet-skills/skills/create-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-skill",
     "link_cmd": "python .agents/library/activate_skill.py link create-skill"
@@ -33,20 +293,850 @@
     "id": "create-skill-test",
     "name": "create-skill-test",
     "repository": "dotnet-skills",
-    "category": "database-sql",
-    "description": "Scaffolds eval.yaml evaluation specs for skills, custom agents, and redistributable gh-aw workflow packages in the dotnet/skills repository. Use when creating skill or workflow-package tests, writing evaluation stimuli, defining graders and rubrics, sizing an eval for statistical power, or setting up test fixture files. Handles the Vally eval.yaml schema, fixture organization, and overfitting avoidance. Do not use for running or debugging existing evals (use improve-skill-quality) nor for skills authoring (use create-skill).",
+    "category": "general",
+    "description": "",
     "path": "library/dotnet-skills/skills/create-skill-test",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-skill-test",
     "link_cmd": "python .agents/library/activate_skill.py link create-skill-test"
   },
   {
+    "id": "csharp-expert",
+    "name": "csharp-expert",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/csharp-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate csharp-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link csharp-expert"
+  },
+  {
+    "id": "csharp-refactoring",
+    "name": "csharp-refactoring",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/csharp-refactoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate csharp-refactoring",
+    "link_cmd": "python .agents/library/activate_skill.py link csharp-refactoring"
+  },
+  {
+    "id": "csharp-scripts",
+    "name": "csharp-scripts",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/csharp-scripts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate csharp-scripts",
+    "link_cmd": "python .agents/library/activate_skill.py link csharp-scripts"
+  },
+  {
+    "id": "detect-static-dependencies",
+    "name": "detect-static-dependencies",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/detect-static-dependencies",
+    "activation_cmd": "python .agents/library/activate_skill.py activate detect-static-dependencies",
+    "link_cmd": "python .agents/library/activate_skill.py link detect-static-dependencies"
+  },
+  {
+    "id": "directory-build-organization",
+    "name": "directory-build-organization",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/directory-build-organization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate directory-build-organization",
+    "link_cmd": "python .agents/library/activate_skill.py link directory-build-organization"
+  },
+  {
+    "id": "dotnet-aot-compat",
+    "name": "dotnet-aot-compat",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/dotnet-aot-compat",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-aot-compat",
+    "link_cmd": "python .agents/library/activate_skill.py link dotnet-aot-compat"
+  },
+  {
+    "id": "dotnet-maui-doctor",
+    "name": "dotnet-maui-doctor",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/dotnet-maui-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-maui-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link dotnet-maui-doctor"
+  },
+  {
+    "id": "dotnet-pinvoke",
+    "name": "dotnet-pinvoke",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/dotnet-pinvoke",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-pinvoke",
+    "link_cmd": "python .agents/library/activate_skill.py link dotnet-pinvoke"
+  },
+  {
+    "id": "dotnet-trace-collect",
+    "name": "dotnet-trace-collect",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/dotnet-trace-collect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-trace-collect",
+    "link_cmd": "python .agents/library/activate_skill.py link dotnet-trace-collect"
+  },
+  {
+    "id": "dotnet-webapi",
+    "name": "dotnet-webapi",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/dotnet-webapi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-webapi",
+    "link_cmd": "python .agents/library/activate_skill.py link dotnet-webapi"
+  },
+  {
+    "id": "dump-collect",
+    "name": "dump-collect",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/dump-collect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dump-collect",
+    "link_cmd": "python .agents/library/activate_skill.py link dump-collect"
+  },
+  {
+    "id": "eliminate-redundant-restores",
+    "name": "eliminate-redundant-restores",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/eliminate-redundant-restores",
+    "activation_cmd": "python .agents/library/activate_skill.py activate eliminate-redundant-restores",
+    "link_cmd": "python .agents/library/activate_skill.py link eliminate-redundant-restores"
+  },
+  {
+    "id": "eval-performance",
+    "name": "eval-performance",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/eval-performance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate eval-performance",
+    "link_cmd": "python .agents/library/activate_skill.py link eval-performance"
+  },
+  {
+    "id": "exp-mock-usage-analysis",
+    "name": "exp-mock-usage-analysis",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/exp-mock-usage-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate exp-mock-usage-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link exp-mock-usage-analysis"
+  },
+  {
+    "id": "exp-test-maintainability",
+    "name": "exp-test-maintainability",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/exp-test-maintainability",
+    "activation_cmd": "python .agents/library/activate_skill.py activate exp-test-maintainability",
+    "link_cmd": "python .agents/library/activate_skill.py link exp-test-maintainability"
+  },
+  {
+    "id": "extension-points",
+    "name": "extension-points",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/extension-points",
+    "activation_cmd": "python .agents/library/activate_skill.py activate extension-points",
+    "link_cmd": "python .agents/library/activate_skill.py link extension-points"
+  },
+  {
+    "id": "fetch-and-send-data",
+    "name": "fetch-and-send-data",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/fetch-and-send-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fetch-and-send-data",
+    "link_cmd": "python .agents/library/activate_skill.py link fetch-and-send-data"
+  },
+  {
+    "id": "filter-syntax",
+    "name": "filter-syntax",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/filter-syntax",
+    "activation_cmd": "python .agents/library/activate_skill.py activate filter-syntax",
+    "link_cmd": "python .agents/library/activate_skill.py link filter-syntax"
+  },
+  {
+    "id": "find-untested-sources",
+    "name": "find-untested-sources",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/find-untested-sources",
+    "activation_cmd": "python .agents/library/activate_skill.py activate find-untested-sources",
+    "link_cmd": "python .agents/library/activate_skill.py link find-untested-sources"
+  },
+  {
+    "id": "generate-testability-wrappers",
+    "name": "generate-testability-wrappers",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/generate-testability-wrappers",
+    "activation_cmd": "python .agents/library/activate_skill.py activate generate-testability-wrappers",
+    "link_cmd": "python .agents/library/activate_skill.py link generate-testability-wrappers"
+  },
+  {
+    "id": "grade-tests",
+    "name": "grade-tests",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/grade-tests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grade-tests",
+    "link_cmd": "python .agents/library/activate_skill.py link grade-tests"
+  },
+  {
     "id": "improve-skill-quality",
     "name": "improve-skill-quality",
     "repository": "dotnet-skills",
-    "category": "testing-qa",
-    "description": "Diagnoses and fixes skills in the dotnet/skills repository that lose to their own baseline, fail to activate, time out, or return \"no credible improvement\". Use when an evaluation verdict is a regression or underpowered, when a skill regressed after a change, when /evaluate reports no results, or when deciding whether a weak skill should be strengthened or retired. Do not use for scaffolding a brand-new skill (use create-skill) or a brand-new eval (use create-skill-test).",
+    "category": "general",
+    "description": "",
     "path": "library/dotnet-skills/skills/improve-skill-quality",
     "activation_cmd": "python .agents/library/activate_skill.py activate improve-skill-quality",
     "link_cmd": "python .agents/library/activate_skill.py link improve-skill-quality"
+  },
+  {
+    "id": "including-generated-files",
+    "name": "including-generated-files",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/including-generated-files",
+    "activation_cmd": "python .agents/library/activate_skill.py activate including-generated-files",
+    "link_cmd": "python .agents/library/activate_skill.py link including-generated-files"
+  },
+  {
+    "id": "incremental-build",
+    "name": "incremental-build",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/incremental-build",
+    "activation_cmd": "python .agents/library/activate_skill.py activate incremental-build",
+    "link_cmd": "python .agents/library/activate_skill.py link incremental-build"
+  },
+  {
+    "id": "item-management",
+    "name": "item-management",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/item-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate item-management",
+    "link_cmd": "python .agents/library/activate_skill.py link item-management"
+  },
+  {
+    "id": "maui-app-lifecycle",
+    "name": "maui-app-lifecycle",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/maui-app-lifecycle",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maui-app-lifecycle",
+    "link_cmd": "python .agents/library/activate_skill.py link maui-app-lifecycle"
+  },
+  {
+    "id": "maui-collectionview",
+    "name": "maui-collectionview",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/maui-collectionview",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maui-collectionview",
+    "link_cmd": "python .agents/library/activate_skill.py link maui-collectionview"
+  },
+  {
+    "id": "maui-data-binding",
+    "name": "maui-data-binding",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/maui-data-binding",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maui-data-binding",
+    "link_cmd": "python .agents/library/activate_skill.py link maui-data-binding"
+  },
+  {
+    "id": "maui-dependency-injection",
+    "name": "maui-dependency-injection",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/maui-dependency-injection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maui-dependency-injection",
+    "link_cmd": "python .agents/library/activate_skill.py link maui-dependency-injection"
+  },
+  {
+    "id": "maui-safe-area",
+    "name": "maui-safe-area",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/maui-safe-area",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maui-safe-area",
+    "link_cmd": "python .agents/library/activate_skill.py link maui-safe-area"
+  },
+  {
+    "id": "maui-shell-navigation",
+    "name": "maui-shell-navigation",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/maui-shell-navigation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maui-shell-navigation",
+    "link_cmd": "python .agents/library/activate_skill.py link maui-shell-navigation"
+  },
+  {
+    "id": "maui-theming",
+    "name": "maui-theming",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/maui-theming",
+    "activation_cmd": "python .agents/library/activate_skill.py activate maui-theming",
+    "link_cmd": "python .agents/library/activate_skill.py link maui-theming"
+  },
+  {
+    "id": "microbenchmarking",
+    "name": "microbenchmarking",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/microbenchmarking",
+    "activation_cmd": "python .agents/library/activate_skill.py activate microbenchmarking",
+    "link_cmd": "python .agents/library/activate_skill.py link microbenchmarking"
+  },
+  {
+    "id": "migrate-dotnet10-to-dotnet11",
+    "name": "migrate-dotnet10-to-dotnet11",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-dotnet10-to-dotnet11",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-dotnet10-to-dotnet11",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-dotnet10-to-dotnet11"
+  },
+  {
+    "id": "migrate-dotnet8-to-dotnet9",
+    "name": "migrate-dotnet8-to-dotnet9",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-dotnet8-to-dotnet9",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-dotnet8-to-dotnet9",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-dotnet8-to-dotnet9"
+  },
+  {
+    "id": "migrate-dotnet9-to-dotnet10",
+    "name": "migrate-dotnet9-to-dotnet10",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-dotnet9-to-dotnet10",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-dotnet9-to-dotnet10",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-dotnet9-to-dotnet10"
+  },
+  {
+    "id": "migrate-mstest-v1v2-to-v3",
+    "name": "migrate-mstest-v1v2-to-v3",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-mstest-v1v2-to-v3",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-mstest-v1v2-to-v3",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-mstest-v1v2-to-v3"
+  },
+  {
+    "id": "migrate-mstest-v3-to-v4",
+    "name": "migrate-mstest-v3-to-v4",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-mstest-v3-to-v4",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-mstest-v3-to-v4",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-mstest-v3-to-v4"
+  },
+  {
+    "id": "migrate-nullable-references",
+    "name": "migrate-nullable-references",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-nullable-references",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-nullable-references",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-nullable-references"
+  },
+  {
+    "id": "migrate-nunit-to-mstest",
+    "name": "migrate-nunit-to-mstest",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-nunit-to-mstest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-nunit-to-mstest",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-nunit-to-mstest"
+  },
+  {
+    "id": "migrate-static-to-wrapper",
+    "name": "migrate-static-to-wrapper",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-static-to-wrapper",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-static-to-wrapper",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-static-to-wrapper"
+  },
+  {
+    "id": "migrate-vstest-to-mtp",
+    "name": "migrate-vstest-to-mtp",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-vstest-to-mtp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-vstest-to-mtp",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-vstest-to-mtp"
+  },
+  {
+    "id": "migrate-xunit-to-mstest",
+    "name": "migrate-xunit-to-mstest",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-xunit-to-mstest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-xunit-to-mstest",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-xunit-to-mstest"
+  },
+  {
+    "id": "migrate-xunit-to-xunit-v3",
+    "name": "migrate-xunit-to-xunit-v3",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/migrate-xunit-to-xunit-v3",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-xunit-to-xunit-v3",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-xunit-to-xunit-v3"
+  },
+  {
+    "id": "msbuild",
+    "name": "msbuild",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/msbuild",
+    "activation_cmd": "python .agents/library/activate_skill.py activate msbuild",
+    "link_cmd": "python .agents/library/activate_skill.py link msbuild"
+  },
+  {
+    "id": "msbuild-antipatterns",
+    "name": "msbuild-antipatterns",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/msbuild-antipatterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate msbuild-antipatterns",
+    "link_cmd": "python .agents/library/activate_skill.py link msbuild-antipatterns"
+  },
+  {
+    "id": "msbuild-modernization",
+    "name": "msbuild-modernization",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/msbuild-modernization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate msbuild-modernization",
+    "link_cmd": "python .agents/library/activate_skill.py link msbuild-modernization"
+  },
+  {
+    "id": "mtp-hot-reload",
+    "name": "mtp-hot-reload",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/mtp-hot-reload",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mtp-hot-reload",
+    "link_cmd": "python .agents/library/activate_skill.py link mtp-hot-reload"
+  },
+  {
+    "id": "no-eval-skill",
+    "name": "no-eval-skill",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/no-eval-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate no-eval-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link no-eval-skill"
+  },
+  {
+    "id": "nuget-trusted-publishing",
+    "name": "nuget-trusted-publishing",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/nuget-trusted-publishing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nuget-trusted-publishing",
+    "link_cmd": "python .agents/library/activate_skill.py link nuget-trusted-publishing"
+  },
+  {
+    "id": "optimizing-ef-core-queries",
+    "name": "optimizing-ef-core-queries",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/optimizing-ef-core-queries",
+    "activation_cmd": "python .agents/library/activate_skill.py activate optimizing-ef-core-queries",
+    "link_cmd": "python .agents/library/activate_skill.py link optimizing-ef-core-queries"
+  },
+  {
+    "id": "plan-ui-change",
+    "name": "plan-ui-change",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/plan-ui-change",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-ui-change",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-ui-change"
+  },
+  {
+    "id": "platform-detection",
+    "name": "platform-detection",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/platform-detection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate platform-detection",
+    "link_cmd": "python .agents/library/activate_skill.py link platform-detection"
+  },
+  {
+    "id": "process-api-net11",
+    "name": "process-api-net11",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/process-api-net11",
+    "activation_cmd": "python .agents/library/activate_skill.py activate process-api-net11",
+    "link_cmd": "python .agents/library/activate_skill.py link process-api-net11"
+  },
+  {
+    "id": "property-patterns",
+    "name": "property-patterns",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/property-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate property-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link property-patterns"
+  },
+  {
+    "id": "resolve-project-references",
+    "name": "resolve-project-references",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/resolve-project-references",
+    "activation_cmd": "python .agents/library/activate_skill.py activate resolve-project-references",
+    "link_cmd": "python .agents/library/activate_skill.py link resolve-project-references"
+  },
+  {
+    "id": "run-tests",
+    "name": "run-tests",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/run-tests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate run-tests",
+    "link_cmd": "python .agents/library/activate_skill.py link run-tests"
+  },
+  {
+    "id": "sample-skill",
+    "name": "sample-skill",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/sample-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sample-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link sample-skill"
+  },
+  {
+    "id": "scaffold-dotnet-test-project",
+    "name": "scaffold-dotnet-test-project",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/scaffold-dotnet-test-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scaffold-dotnet-test-project",
+    "link_cmd": "python .agents/library/activate_skill.py link scaffold-dotnet-test-project"
+  },
+  {
+    "id": "setup-local-sdk",
+    "name": "setup-local-sdk",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/setup-local-sdk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-local-sdk",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-local-sdk"
+  },
+  {
+    "id": "support-prerendering",
+    "name": "support-prerendering",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/support-prerendering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate support-prerendering",
+    "link_cmd": "python .agents/library/activate_skill.py link support-prerendering"
+  },
+  {
+    "id": "system-text-json-net11",
+    "name": "system-text-json-net11",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/system-text-json-net11",
+    "activation_cmd": "python .agents/library/activate_skill.py activate system-text-json-net11",
+    "link_cmd": "python .agents/library/activate_skill.py link system-text-json-net11"
+  },
+  {
+    "id": "target-authoring",
+    "name": "target-authoring",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/target-authoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate target-authoring",
+    "link_cmd": "python .agents/library/activate_skill.py link target-authoring"
+  },
+  {
+    "id": "technology-selection",
+    "name": "technology-selection",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/technology-selection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate technology-selection",
+    "link_cmd": "python .agents/library/activate_skill.py link technology-selection"
+  },
+  {
+    "id": "template-authoring",
+    "name": "template-authoring",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/template-authoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate template-authoring",
+    "link_cmd": "python .agents/library/activate_skill.py link template-authoring"
+  },
+  {
+    "id": "template-comparison",
+    "name": "template-comparison",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/template-comparison",
+    "activation_cmd": "python .agents/library/activate_skill.py activate template-comparison",
+    "link_cmd": "python .agents/library/activate_skill.py link template-comparison"
+  },
+  {
+    "id": "template-discovery",
+    "name": "template-discovery",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/template-discovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate template-discovery",
+    "link_cmd": "python .agents/library/activate_skill.py link template-discovery"
+  },
+  {
+    "id": "template-instantiation",
+    "name": "template-instantiation",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/template-instantiation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate template-instantiation",
+    "link_cmd": "python .agents/library/activate_skill.py link template-instantiation"
+  },
+  {
+    "id": "template-smart-defaults",
+    "name": "template-smart-defaults",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/template-smart-defaults",
+    "activation_cmd": "python .agents/library/activate_skill.py activate template-smart-defaults",
+    "link_cmd": "python .agents/library/activate_skill.py link template-smart-defaults"
+  },
+  {
+    "id": "template-validation",
+    "name": "template-validation",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/template-validation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate template-validation",
+    "link_cmd": "python .agents/library/activate_skill.py link template-validation"
+  },
+  {
+    "id": "test-analysis-extensions",
+    "name": "test-analysis-extensions",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/test-analysis-extensions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-analysis-extensions",
+    "link_cmd": "python .agents/library/activate_skill.py link test-analysis-extensions"
+  },
+  {
+    "id": "test-anti-patterns",
+    "name": "test-anti-patterns",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/test-anti-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-anti-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link test-anti-patterns"
+  },
+  {
+    "id": "test-gap-analysis",
+    "name": "test-gap-analysis",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/test-gap-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-gap-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link test-gap-analysis"
+  },
+  {
+    "id": "test-smell-detection",
+    "name": "test-smell-detection",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/test-smell-detection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-smell-detection",
+    "link_cmd": "python .agents/library/activate_skill.py link test-smell-detection"
+  },
+  {
+    "id": "test-tagging",
+    "name": "test-tagging",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/test-tagging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-tagging",
+    "link_cmd": "python .agents/library/activate_skill.py link test-tagging"
+  },
+  {
+    "id": "test-value-evidence",
+    "name": "test-value-evidence",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/test-value-evidence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-value-evidence",
+    "link_cmd": "python .agents/library/activate_skill.py link test-value-evidence"
+  },
+  {
+    "id": "testability-obstacle",
+    "name": "testability-obstacle",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/testability-obstacle",
+    "activation_cmd": "python .agents/library/activate_skill.py activate testability-obstacle",
+    "link_cmd": "python .agents/library/activate_skill.py link testability-obstacle"
+  },
+  {
+    "id": "thread-abort-migration",
+    "name": "thread-abort-migration",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/thread-abort-migration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate thread-abort-migration",
+    "link_cmd": "python .agents/library/activate_skill.py link thread-abort-migration"
+  },
+  {
+    "id": "troubleshoot-binlog-mcp",
+    "name": "troubleshoot-binlog-mcp",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/troubleshoot-binlog-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate troubleshoot-binlog-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link troubleshoot-binlog-mcp"
+  },
+  {
+    "id": "use-igniteui-blazor",
+    "name": "use-igniteui-blazor",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/use-igniteui-blazor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate use-igniteui-blazor",
+    "link_cmd": "python .agents/library/activate_skill.py link use-igniteui-blazor"
+  },
+  {
+    "id": "use-js-interop",
+    "name": "use-js-interop",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/use-js-interop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate use-js-interop",
+    "link_cmd": "python .agents/library/activate_skill.py link use-js-interop"
+  },
+  {
+    "id": "vectorization",
+    "name": "vectorization",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/vectorization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vectorization",
+    "link_cmd": "python .agents/library/activate_skill.py link vectorization"
+  },
+  {
+    "id": "winforms-expert",
+    "name": "winforms-expert",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/winforms-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate winforms-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link winforms-expert"
+  },
+  {
+    "id": "writing-mstest-tests",
+    "name": "writing-mstest-tests",
+    "repository": "dotnet-skills",
+    "category": "general",
+    "description": "",
+    "path": "library/dotnet-skills/skills/writing-mstest-tests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-mstest-tests",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-mstest-tests"
   }
 ]

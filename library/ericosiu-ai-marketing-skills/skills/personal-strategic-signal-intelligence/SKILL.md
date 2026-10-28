@@ -1,7 +1,6 @@
 ---
 name: personal-strategic-signal-intelligence
 description: Turn an executive or operator's private reading, highlights, notes, social bookmarks, and applied work into source-grounded decision intelligence. Use when detecting attention drift, surfacing pre-decision signals, testing contradictions, converting bookmarks into builds, recombining founder IP, finding service-offer arbitrage, or mapping content negative space.
-category: prompt-llm-engineering
 ---
 
 # Personal Strategic Signal Intelligence

@@ -1,7 +1,6 @@
 ---
 name: threejs-lighting
 description: "Light types and physical units, shadow maps, HDR environment lighting, light probes, and lighting performance, on WebGL or with WebGPU and TSL. Use when adding or tuning lights, fixing shadow acne, setting up image-based lighting, or dimming an environment map."
-category: 3d-web-threejs
 ---
 
 # Three.js Lighting

@@ -3,7 +3,6 @@ name: dovetail-automation
 description: "Automate Dovetail tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Dovetail Automation via Rube MCP

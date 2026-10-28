@@ -3,7 +3,6 @@ name: cardly-automation
 description: "Automate Cardly tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Cardly Automation via Rube MCP

@@ -1,7 +1,9 @@
 ---
 name: powershell-windows
 description: PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling.
+when_to_use: "When working on Windows systems, writing PowerShell scripts, or using Windows-specific commands. NOT for macOS/Linux."
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+version: 1.0.0
 category: terminal-system-tools
 ---
 
@@ -107,7 +109,7 @@ Write-Output "Value: $value"
 |-----------|--------|
 | Empty array | `$array = @()` |
 | Add item | `$array += $item` |
-| ArrayList add | `$list.Add($item) | Out-Null` |
+| ArrayList add | `$list.Add($item) \| Out-Null` |
 
 ---
 
@@ -125,8 +127,8 @@ Write-Output "Value: $value"
 
 | Operation | Pattern |
 |-----------|---------|
-| Read | `Get-Content "file.json" -Raw | ConvertFrom-Json` |
-| Write | `$data | ConvertTo-Json -Depth 10 | Out-File "file.json" -Encoding UTF8` |
+| Read | `Get-Content "file.json" -Raw \| ConvertFrom-Json` |
+| Write | `$data \| ConvertTo-Json -Depth 10 \| Out-File "file.json" -Encoding UTF8` |
 
 ---
 

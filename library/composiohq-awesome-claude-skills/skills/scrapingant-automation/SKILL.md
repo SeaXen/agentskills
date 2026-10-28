@@ -3,7 +3,6 @@ name: scrapingant-automation
 description: "Automate Scrapingant tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Scrapingant Automation via Rube MCP

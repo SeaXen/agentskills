@@ -1,7 +1,6 @@
 ---
 name: choosing-a-workflow
 description: "Use at the start of new project onboarding, PR lifecycle work including PR checks, or any change to what the product does — a feature, a behavior change, or a bug fix. Not for continuing work already routed to a workflow, non-PR questions, checks, explanations, or edits that change no behavior."
-category: business-strategy-legal
 ---
 
 # Choosing a Workflow

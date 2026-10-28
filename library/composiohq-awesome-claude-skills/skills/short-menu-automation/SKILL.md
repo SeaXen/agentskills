@@ -3,7 +3,6 @@ name: short-menu-automation
 description: "Automate Short Menu tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Short Menu Automation via Rube MCP

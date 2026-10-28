@@ -3,7 +3,6 @@ name: sendloop-automation
 description: "Automate Sendloop tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Sendloop Automation via Rube MCP

@@ -3,7 +3,6 @@ name: ritekit-automation
 description: "Automate Ritekit tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Ritekit Automation via Rube MCP

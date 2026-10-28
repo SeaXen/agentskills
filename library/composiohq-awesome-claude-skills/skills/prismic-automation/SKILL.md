@@ -4,7 +4,6 @@ description: "Automate headless CMS operations in Prismic -- query documents, se
 requires:
   mcp:
     - rube
-category: testing-playwright-e2e
 ---
 
 # Prismic Automation

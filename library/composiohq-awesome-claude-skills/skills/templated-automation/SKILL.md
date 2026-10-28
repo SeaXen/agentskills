@@ -3,7 +3,6 @@ name: templated-automation
 description: "Automate Templated tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Templated Automation via Rube MCP

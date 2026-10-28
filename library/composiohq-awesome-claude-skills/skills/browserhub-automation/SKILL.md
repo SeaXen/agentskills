@@ -3,7 +3,6 @@ name: browserhub-automation
 description: "Automate Browserhub tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Browserhub Automation via Rube MCP

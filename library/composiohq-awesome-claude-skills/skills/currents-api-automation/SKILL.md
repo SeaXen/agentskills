@@ -3,7 +3,6 @@ name: currents-api-automation
 description: "Automate Currents API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Currents API Automation via Rube MCP

@@ -4,7 +4,6 @@ description: Turn a website's observable HTTP traffic into a best-effort OpenAPI
 compatibility: "Requires Node 18+ and a `browser-trace` run directory (`.o11y/<run>/`) produced by the sibling `browser-trace` skill. The scripts use only the Node standard library — no `npm install` step. `jq` is referenced in docs for ad-hoc querying but is not required by the scripts."
 license: MIT
 allowed-tools: Bash, Read, Grep
-category: backend-api-design
 ---
 
 # Browser to API

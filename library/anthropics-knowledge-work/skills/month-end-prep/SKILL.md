@@ -14,7 +14,6 @@ description: >
   duplicates and missing receipts," or "write the P&L narrative for this
   month."
 allowed-tools: Read, WebFetch
-category: business-finance-accounting
 ---
 
 # Month End Prep

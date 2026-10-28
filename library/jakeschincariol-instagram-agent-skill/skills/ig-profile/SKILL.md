@@ -6,7 +6,6 @@ description: >-
   grid. Use when the user says "optimize my profile", "fix my bio", "score my
   Instagram", "why don't people follow me", or pastes their profile and asks how
   it reads.
-category: code-quality-refactoring
 ---
 
 # ig-profile

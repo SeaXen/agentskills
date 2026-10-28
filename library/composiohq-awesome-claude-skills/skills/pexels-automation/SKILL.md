@@ -3,7 +3,6 @@ name: pexels-automation
 description: "Automate Pexels tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Pexels Automation via Rube MCP

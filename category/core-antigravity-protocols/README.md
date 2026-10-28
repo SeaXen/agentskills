@@ -1,34 +1,33 @@
 # ⚔️ Core Antigravity Kit Protocols
 
 > **Category**: `core-antigravity-protocols`  
-> **Total Skills in Category**: 8 real modular skills  
-> **Directory**: [`.agents/category/core-antigravity-protocols`](./)  
-> **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
+> **Total Curated Skills**: 12 skills  
+> **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
 
-## ⚡ Quick Activation Command
+## 📖 Operational Playbook
 
-To link any skill from this category into your active hot-set (`.agents/skills/`):
-```bash
-python .agents/library/activate_skill.py link <skill-name>
+### 1. 📥 How to Install / Activate
+```powershell
+python .agents/library/activate_skill.py activate <skill-name>
 ```
 
 ---
 
-## 📑 Complete Skill Catalog (8 Skills)
+## 🗂️ Curated Skill Inventory
 
-| Skill Folder | Status | Upstream Source | Description |
+| Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
-| **[`antigravity-workflows`](./antigravity-workflows/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, security audits, AI agent builds |
-| **[`battle`](./battle/SKILL.md)** | 🟢 Active | `active-skills` | - |
-| **[`compaction`](./compaction/SKILL.md)** | 🟢 Active | `active-skills` | - |
-| **[`context-optimization`](./context-optimization/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Apply compaction, masking, and caching strategies |
-| **[`infinite-gratitude`](./infinite-gratitude/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case studies). |
-| **[`owl`](./owl/SKILL.md)** | 🟢 Active | `active-skills` | - |
-| **[`owl-protocol-automation`](./owl-protocol-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Owl Protocol tasks via Rube MCP (Composio). Always search tools first for current schemas. |
-| **[`strategic-compact`](./strategic-compact/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Context window management with strategic compaction |
-
----
-
-*Part of the [AgentSkills Vault](https://github.com/SeaXen/agentskills). Master directory in [category/README.md](../README.md).*
+| [`antigravity-workflows`](skills/antigravity-workflows) | ⚪ Reserve | `antigravity-awesome-skills` | "Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, securi... |
+| [`battle`](skills/battle) | 🟢 Active | `active` | >- |
+| [`battle-card-builder`](skills/battle-card-builder) | ⚪ Reserve | `deanpeters-product-manager-skills` | "Research and draft a competitive battle card from public evidence — every claim labeled and so... |
+| [`compaction`](skills/compaction) | 🟢 Active | `active` | >- |
+| [`competitive-intel-watch`](skills/competitive-intel-watch) | ⚪ Reserve | `deanpeters-product-manager-skills` | "Scheduled delta monitoring against a prior competitive snapshot. Use when tracking competitors... |
+| [`context-optimization`](skills/context-optimization) | ⚪ Reserve | `antigravity-awesome-skills` | "Apply compaction, masking, and caching strategies" |
+| [`incident-commander`](skills/incident-commander) | ⚪ Reserve | `alirezarezvani-claude-skills` | "Comprehensive incident response framework from detection through resolution and post-incident ... |
+| [`infinite-gratitude`](skills/infinite-gratitude) | ⚪ Reserve | `antigravity-awesome-skills` | "Multi-agent research skill for parallel research execution (10 agents, battle-tested with real... |
+| [`owl`](skills/owl) | 🟢 Active | `active` | >- |
+| [`owl-protocol-automation`](skills/owl-protocol-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | "Automate Owl Protocol tasks via Rube MCP (Composio). Always search tools first for current sch... |
+| [`property-patterns`](skills/property-patterns) | ⚪ Reserve | `dotnet-skills` | "Diagnose and fix concrete MSBuild property defects in projects and existing shared-file hierar... |
+| [`strategic-compact`](skills/strategic-compact) | ⚪ Reserve | `besync-labs-antigravity-ai-kit` | Context window management with strategic compaction |

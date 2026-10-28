@@ -3,7 +3,6 @@ name: axonaut-automation
 description: "Automate Axonaut tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Axonaut Automation via Rube MCP

@@ -3,7 +3,6 @@ name: precoro-automation
 description: "Automate Precoro tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Precoro Automation via Rube MCP

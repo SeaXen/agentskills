@@ -1,7 +1,6 @@
 ---
 name: importing-a-codebase
 description: "Use when asked to create the initial spec graph for an existing codebase that has source code but no specs. Normally reached via setting-up-a-project."
-category: code-quality-refactoring
 ---
 
 # Importing a codebase

@@ -4,7 +4,6 @@ description: "Automate email marketing workflows including subscriber management
 requires:
   mcp:
     - rube
-category: code-quality-refactoring
 ---
 
 # MailerLite Automation

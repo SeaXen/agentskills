@@ -4,7 +4,6 @@ description: Analyze an existing web application, identify safe user-visible cap
 compatibility: "Requires Node.js 22.18 or newer. Validation needs Chrome/Chromium locally or BROWSERBASE_API_KEY for a publicly reachable preview."
 license: MIT
 allowed-tools: Bash Read Grep Edit Write
-category: database-sql-relational
 ---
 
 # Add WebMCP

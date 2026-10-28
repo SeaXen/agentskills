@@ -3,7 +3,6 @@ name: Coinbase Automation
 description: "Coinbase Automation: list and manage cryptocurrency wallets, accounts, and portfolio data via Coinbase CDP SDK"
 requires:
   mcp: [rube]
-category: web3-smart-contracts
 ---
 
 # Coinbase Automation

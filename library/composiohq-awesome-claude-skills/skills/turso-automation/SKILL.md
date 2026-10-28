@@ -3,7 +3,6 @@ name: turso-automation
 description: "Automate Turso tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Turso Automation via Rube MCP

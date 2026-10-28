@@ -3,7 +3,6 @@ name: stack-exchange-automation
 description: "Automate Stack Exchange tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Stack Exchange Automation via Rube MCP

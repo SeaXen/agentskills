@@ -3,7 +3,6 @@ name: ayrshare-automation
 description: "Automate Ayrshare tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Ayrshare Automation via Rube MCP

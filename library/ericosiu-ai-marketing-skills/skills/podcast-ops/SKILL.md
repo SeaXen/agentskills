@@ -11,7 +11,6 @@ description: >-
   from this episode", "podcast to social", "content from RSS feed", "batch
   process episodes", or any request to turn podcast/audio content into a
   multi-platform content plan.
-category: audio-voice-sound
 ---
 
 

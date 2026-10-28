@@ -17,7 +17,6 @@ triggers:
   - "zoom docs via mcp"
   - "zoom transcript via mcp"
   - "meeting transcript via mcp"
-category: productivity-workspace-tools
 ---
 
 # Zoom MCP

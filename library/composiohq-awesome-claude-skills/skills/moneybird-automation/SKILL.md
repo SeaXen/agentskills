@@ -3,7 +3,6 @@ name: moneybird-automation
 description: "Automate Moneybird tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Moneybird Automation via Rube MCP

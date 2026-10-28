@@ -3,7 +3,6 @@ name: dripcel-automation
 description: "Automate Dripcel tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Dripcel Automation via Rube MCP

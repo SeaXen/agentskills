@@ -18,7 +18,6 @@ compatibility: claude-code cursor codex gemini-cli opencode
 metadata:
   version: "2.1.1"
   standard: ASD-STE100 Issue 9 (2025-01-15)
-category: code-quality-refactoring
 ---
 
 # Simple English

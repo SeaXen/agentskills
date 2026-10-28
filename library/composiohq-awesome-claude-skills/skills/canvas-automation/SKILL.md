@@ -3,7 +3,6 @@ name: canvas-automation
 description: "Automate Canvas tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: graphics-branding-design
 ---
 
 # Canvas Automation via Rube MCP

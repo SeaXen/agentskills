@@ -1,7 +1,6 @@
 ---
 name: narrow-react-prop-types
 description: narrow React component prop types to match live code paths
-category: frontend-ui-components
 ---
 
 # Narrow React Prop Types

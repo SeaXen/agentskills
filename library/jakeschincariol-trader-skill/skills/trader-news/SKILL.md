@@ -10,7 +10,6 @@ description: >-
   "what's happening with Apple", "monitor the news", "watch my portfolio",
   "did anything break", "check the 8-Ks", or "morning briefing".
 argument-hint: "[tickers]"
-category: code-quality-refactoring
 ---
 
 # trader-news

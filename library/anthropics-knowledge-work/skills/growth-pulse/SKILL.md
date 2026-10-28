@@ -12,7 +12,6 @@ description: >
   "how's the funnel," or "where should I put my money next month." Reach for it
   even when the owner names a single channel rather than growth overall.
 allowed-tools: Read, WebFetch
-category: code-quality-refactoring
 ---
 
 # Growth Pulse

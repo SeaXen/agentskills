@@ -4,7 +4,6 @@ description: "Automate Eventbrite event management, attendee tracking, organizat
 requires:
   mcp:
     - rube
-category: terminal-system-tools
 ---
 
 # Eventbrite Automation

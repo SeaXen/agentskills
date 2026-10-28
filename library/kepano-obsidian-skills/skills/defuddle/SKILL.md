@@ -1,7 +1,6 @@
 ---
 name: defuddle
 description: Extract clean Markdown from HTML pages with Defuddle CLI.
-category: frontend-ui-components
 ---
 
 # Defuddle

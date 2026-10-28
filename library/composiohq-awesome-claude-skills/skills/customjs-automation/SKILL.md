@@ -3,7 +3,6 @@ name: customjs-automation
 description: "Automate Customjs tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Customjs Automation via Rube MCP

@@ -4,7 +4,6 @@ description: Triage open issues and PRs of the current GitHub repo - find alread
 metadata:
   author: Anthony Fu
   version: "2026.10.23"
-category: git-version-control
 ---
 
 # Issue Triage

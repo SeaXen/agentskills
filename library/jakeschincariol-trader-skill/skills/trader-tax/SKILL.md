@@ -11,7 +11,6 @@ description: >-
   "what would selling cost me in tax", "short or long term", "wash sale", or
   before selling anything.
 argument-hint: "[ticker]"
-category: business-finance-accounting
 ---
 
 # trader-tax

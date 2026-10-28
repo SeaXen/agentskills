@@ -3,7 +3,6 @@ name: pdf-api-io-automation
 description: "Automate PDF API IO tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # PDF API IO Automation via Rube MCP

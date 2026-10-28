@@ -3,7 +3,6 @@ name: codereadr-automation
 description: "Automate Codereadr tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: architecture-system-design
 ---
 
 # Codereadr Automation via Rube MCP

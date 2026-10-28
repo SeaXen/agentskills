@@ -3,7 +3,6 @@ name: boxhero-automation
 description: "Automate Boxhero tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Boxhero Automation via Rube MCP

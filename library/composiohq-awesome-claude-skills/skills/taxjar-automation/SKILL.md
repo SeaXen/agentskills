@@ -3,7 +3,6 @@ name: taxjar-automation
 description: "Automate Taxjar tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Taxjar Automation via Rube MCP

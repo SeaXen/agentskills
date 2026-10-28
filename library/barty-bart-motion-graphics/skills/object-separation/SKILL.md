@@ -1,7 +1,6 @@
 ---
 name: object-separation
 description: Separate a person, product or hand from the background in a video, on the user's own computer with SAM 2. Scans the machine first to pick the right model size, then outputs the same video with the separated subject highlighted in green, plus frame-by-frame masks. Use when someone wants to separate, isolate, cut out or rotoscope something in a video.
-category: video-motion-production
 ---
 
 # Object separation

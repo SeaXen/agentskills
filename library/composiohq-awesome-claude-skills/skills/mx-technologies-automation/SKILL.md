@@ -3,7 +3,6 @@ name: mx-technologies-automation
 description: "Automate MX Technologies tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # MX Technologies Automation via Rube MCP

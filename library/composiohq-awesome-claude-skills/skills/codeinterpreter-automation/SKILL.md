@@ -3,7 +3,6 @@ name: codeinterpreter-automation
 description: "Automate Codeinterpreter tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Codeinterpreter Automation via Rube MCP

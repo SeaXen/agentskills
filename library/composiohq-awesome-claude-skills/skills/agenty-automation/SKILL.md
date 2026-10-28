@@ -3,7 +3,6 @@ name: agenty-automation
 description: "Automate Agenty tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Agenty Automation via Rube MCP

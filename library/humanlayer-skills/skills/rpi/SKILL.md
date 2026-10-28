@@ -1,7 +1,6 @@
 ---
 name: rpi
 description: Only use when the user explicitly invokes this skill by name.
-category: code-quality-refactoring
 ---
 
 # Research, Design, and Implement

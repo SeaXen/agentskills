@@ -1,7 +1,6 @@
 ---
 name: video-content-engine
 description: "Diagnose and transform any authorized video URL, upload, recording, transcript, podcast, interview, presentation, screen recording, webinar, ad, or published video into the strongest justified content portfolio. Use for video audits, format recommendations, long-form editing, mid-form explainers, Shorts and Reels, teasers, tutorials, case studies, paid cutdowns, captions, packaging, delivery, or publication preparation."
-category: business-strategy-legal
 ---
 
 # Video Content Engine

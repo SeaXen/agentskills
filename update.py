@@ -1,40 +1,45 @@
+#!/usr/bin/env python3
 """
-AgentSkills Automated Vault Updater & Sync Tool
-Author: SeaXen (https://github.com/SeaXen/agentskills)
-
-Usage:
-    python update.py                 # Update everything (both library & skills) + git push
-    python update.py --no-push       # Update everything locally without pushing
-    python update.py --awesome       # Only sync awesome-skills library
-    python update.py --about         # Display repository metadata, inventory & stats
-    python update.py --tags          # List all available skill domain tags & counts
-    python update.py --tag <name>    # Search & list skills matching a domain tag
-    python update.py --find <query>  # Search across ALL 1,470 skills (installed + library)
+Antigravity Agent Skills Vault - Unified Upstream Sync & Maintenance Engine
+Automates:
+  1. Multi-repository remote upstream sync across all 224 libraries
+  2. Automatic detection and ingestion of NEW skills added to upstream repos
+  3. Strict 3-item standard enforcement (['skills', 'README.md', 'skills_index.json'], 0 .git)
+  4. Active skills synchronization (.agents/skills)
+  5. Dual skills-lock.json synchronization (Repo and Workspace)
+  6. Automated 38-category taxonomy rebuild (.agents/category)
+  7. SKILLS_PROVENANCE.md regeneration
+  8. Git status check, commit, and push to https://github.com/SeaXen/agentskills.git
 """
 
 import os
 import sys
 import shutil
-import subprocess
+import stat
 import json
-import re
-from datetime import datetime
+import subprocess
+import time
+from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor
 
-# Enforce UTF-8 output on Windows
-if sys.platform == 'win32':
-    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 
 agents_dir = os.path.dirname(os.path.abspath(__file__))
 repo_root = os.path.dirname(agents_dir)
 skills_dir = os.path.join(agents_dir, 'skills')
 library_dir = os.path.join(agents_dir, 'library')
-awesome_skills_dir = os.path.join(library_dir, 'antigravity-awesome-skills')
-awesome_skills_sub = os.path.join(awesome_skills_dir, 'skills')
+upstreams_file = os.path.join(library_dir, 'upstreams.json')
 lockfile_path = os.path.join(agents_dir, 'skills-lock.json')
 provenance_path = os.path.join(agents_dir, 'SKILLS_PROVENANCE.md')
-readme_path = os.path.join(agents_dir, 'README.md')
 
-# Domain tag taxonomy
+GIT_ENV = os.environ.copy()
+GIT_ENV['GIT_TERMINAL_PROMPT'] = '0'
+GIT_ENV['GIT_ASKPASS'] = ''
+
 TAG_KEYWORDS = {
     'frontend': ['react', 'nextjs', 'tailwind', 'css', 'design', 'ui', 'view', 'web', 'canvas', 'svg', 'd3', 'shadcn', 'component', 'taste'],
     'animation-craft': ['animate', 'animation', 'emil', 'craft', 'micro', 'motion', 'apple'],
@@ -50,11 +55,21 @@ TAG_KEYWORDS = {
     'research-academic': ['academic', 'paper', 'research', 'citation', 'screener', 'study', 'pipeline']
 }
 
+def remove_readonly(func, path, exc_info):
+    try:
+        os.chmod(path, stat.S_IWRITE)
+        func(path)
+    except Exception:
+        pass
+
 def load_skills():
     if os.path.exists(lockfile_path):
-        with open(lockfile_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        return data.get('skills', {})
+        try:
+            with open(lockfile_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return data.get('skills', {})
+        except Exception:
+            pass
     return {}
 
 def show_about():
@@ -92,225 +107,212 @@ def show_about():
     • Granular Categories:        {cat_cnt} functional domains (.agents/category)
     • Specialist Agent Personas:  {agents_cnt} agents (.agents/agents)
     • Autonomous Workflows:       {wf_cnt} slash commands (.agents/workflows)
------------------------------------------------------------------
-  🏷️ GITHUB ABOUT & TOPICS:
-    Description:
-      "The ultimate modular AI agent skills vault ({total_lib_skills:,} reserve skills, {cat_cnt} categories, {agents_cnt} agents, {wf_cnt} workflows) for Antigravity, Claude Code, Cursor, and Windsurf."
-
-    Topics / Tags:
-      agent-skills, ai-agents, antigravity-ide, claude-code, cursor,
-      windsurf, prompt-engineering, developer-tools, emil-kowalski, vercel,
-      nextjs, cloudflare, testing, web3, rust, python
-=================================================================""")
+-----------------------------------------------------------------""", flush=True)
 
 def show_tags():
     skills = load_skills()
-    print("\n🏷️ AVAILABLE SKILL DOMAIN TAGS:")
-    print("=" * 55)
-    print(f"{'Tag Name':25} | {'Matching Skills':15}")
-    print("-" * 55)
+    print("\n🏷️ AVAILABLE SKILL DOMAIN TAGS:", flush=True)
+    print("=" * 55, flush=True)
+    print(f"{'Tag Name':25} | {'Matching Skills':15}", flush=True)
+    print("-" * 55, flush=True)
     for tag, kws in TAG_KEYWORDS.items():
         matched = [s for s in skills if any(kw in s.lower() for kw in kws)]
-        print(f" • {tag:22} | {len(matched):3} skills")
-    print("=" * 55)
-    print("Filter skills with: python .agents/update.py --tag <tag-name>")
+        print(f" • {tag:22} | {len(matched):3} skills", flush=True)
+    print("=" * 55, flush=True)
 
 def search_by_tag(query):
     skills = load_skills()
     q = query.lower()
     keywords = TAG_KEYWORDS.get(q, [q])
-    
     matches = []
     for name, info in sorted(skills.items()):
-        nl = name.lower()
-        if any(kw in nl for kw in keywords):
+        if any(kw in name.lower() for kw in keywords):
             src = info.get('source', 'Unknown')
             matches.append((name, src))
-
-    print(f"\n🔍 Skills tagged with '{query}' ({len(matches)} found):")
-    print("=" * 65)
+    print(f"\n🔍 Skills tagged with '{query}' ({len(matches)} found):", flush=True)
+    print("=" * 65, flush=True)
     for name, src in matches:
-        print(f" • {name:35} [{src}]")
-    print("=" * 65)
+        print(f" • {name:35} [{src}]", flush=True)
+    print("=" * 65, flush=True)
 
 def find_global(query):
-    # Normalize path if passed as official/category/skill
-    query = query.strip().rstrip('/').split('/')[-1]
-    """Search across ALL 1,470 skills in vault"""
-    q = query.lower()
+    query = query.strip().rstrip('/').split('/')[-1].lower()
     skills = load_skills()
-    
-    installed_matches = []
-    for name, info in skills.items():
-        if q in name.lower():
-            installed_matches.append((name, info.get('source', 'installed')))
-
+    installed_matches = [name for name in skills if query in name.lower()]
     library_matches = []
     if os.path.exists(library_dir):
         for repo_f in os.listdir(library_dir):
             r_path = os.path.join(library_dir, repo_f, 'skills')
             if os.path.isdir(r_path):
                 for s in os.listdir(r_path):
-                    if q in s.lower() and s not in skills:
+                    if query in s.lower() and s not in skills:
                         library_matches.append((s, repo_f))
-
     total = len(installed_matches) + len(library_matches)
-    print(f"\n🔎 Global Search for '{query}': {total} matches across vault")
-    print("=" * 75)
+    print(f"\n🔎 Global Search for '{query}': {total} matches across vault", flush=True)
+    print("=" * 75, flush=True)
     if installed_matches:
-        print("📦 Installed Skills (.agents/skills):")
-        for name, src in sorted(installed_matches):
-            print(f"  ✓ {name:35} [{src}]")
+        print("📦 Installed Skills (.agents/skills):", flush=True)
+        for name in sorted(installed_matches):
+            print(f"  ✓ {name:35}", flush=True)
     if library_matches:
-        print("\n📚 Available in Offline Library Reserve (Activate: python library/activate_skill.py activate <name>):")
+        print("\n📚 Available in Offline Library Reserve:", flush=True)
         for name, repo_f in sorted(library_matches)[:25]:
-            print(f"  + {name:35} [{repo_f}]")
+            print(f"  + {name:35} [{repo_f}]", flush=True)
         if len(library_matches) > 25:
-            print(f"  ... and {len(library_matches) - 25} more in reserve.")
-    print("=" * 75)
+            print(f"  ... and {len(library_matches) - 25} more in reserve.", flush=True)
+    print("=" * 75, flush=True)
 
 def clean_nested():
     nested_agents = os.path.join(agents_dir, '.agents')
     if os.path.exists(nested_agents):
-        import stat
-        shutil.rmtree(nested_agents, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+        shutil.rmtree(nested_agents, onerror=remove_readonly)
     if os.path.exists(library_dir):
-        import stat
         for root, dirs, files in os.walk(library_dir):
             if '.git' in dirs:
-                gp = os.path.join(root, '.git')
-                shutil.rmtree(gp, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+                shutil.rmtree(os.path.join(root, '.git'), onerror=remove_readonly)
 
-def sync_awesome_skills(force=False):
-    """Sync pure skills/ and skills_index.json from upstream with smart commit checking"""
-    print("\n[1/6] Checking benjaminasterA/antigravity-awesome-skills for upstream updates...")
-    commit_file = os.path.join(awesome_skills_dir, '.upstream_commit')
-    last_commit = ''
-    if os.path.exists(commit_file):
+# 1. Multi-repository remote upstream sync
+def sync_all_upstreams(force=False):
+    print("\n[1/6] Checking for upstream updates across all 224 repositories...", flush=True)
+    if not os.path.exists(upstreams_file):
+        print("⚠️ upstreams.json not found, skipping multi-repo upstream sync.", flush=True)
+        return
+
+    with open(upstreams_file, 'r', encoding='utf-8') as f:
+        upstreams = json.load(f)
+
+    check_list = []
+    for repo_id, data in upstreams.items():
+        if repo_id.startswith('#'):
+            continue
+        url = data.get('url')
+        if url and url.startswith('http'):
+            check_list.append((repo_id, data))
+
+    print(f"Found {len(check_list)} active git upstreams to track.", flush=True)
+
+    def check_remote(item):
+        repo_id, data = item
+        url = data['url']
+        commit_file = os.path.join(library_dir, repo_id, '.upstream_commit')
+        last_commit = ''
+        if os.path.exists(commit_file):
+            try:
+                with open(commit_file, 'r', encoding='utf-8') as cf:
+                    last_commit = cf.read().strip()
+            except Exception:
+                pass
         try:
-            with open(commit_file, 'r', encoding='utf-8') as cf:
-                last_commit = cf.read().strip()
+            res = subprocess.run(['git', 'ls-remote', url, 'HEAD'], capture_output=True, text=True, timeout=4, env=GIT_ENV)
+            if res.returncode == 0 and res.stdout:
+                remote_commit = res.stdout.split()[0].strip()
+                needs_update = force or not last_commit or (remote_commit != last_commit)
+                return repo_id, url, remote_commit, last_commit, needs_update
         except Exception:
             pass
+        return repo_id, url, '', last_commit, False
 
-    remote_commit = ''
-    try:
-        ls_res = subprocess.run([
-            'git', 'ls-remote',
-            'https://github.com/benjaminasterA/antigravity-awesome-skills.git',
-            'HEAD'
-        ], capture_output=True, text=True, timeout=10)
-        if ls_res.returncode == 0 and ls_res.stdout:
-            remote_commit = ls_res.stdout.split()[0].strip()
-    except Exception:
-        pass
+    t0 = time.time()
+    with ThreadPoolExecutor(max_workers=24) as executor:
+        checked_repos = list(executor.map(check_remote, check_list))
+    t1 = time.time()
+    print(f"✓ Checked {len(check_list)} remotes in {t1-t0:.2f}s.", flush=True)
 
-    has_skills = os.path.exists(awesome_skills_sub) and len(os.listdir(awesome_skills_sub)) > 800
+    to_update = [r for r in checked_repos if r[4]]
+    if not to_update:
+        print("✓ All 224 repository upstreams are already up to date with remote HEAD.", flush=True)
+        return
 
-    if not force and remote_commit and last_commit and remote_commit == last_commit and has_skills:
-        print(f"✓ antigravity-awesome-skills is already up to date with upstream HEAD ({remote_commit[:8]}).")
-        return len(os.listdir(awesome_skills_sub))
+    print(f"⬇️  Updating {len(to_update)} repositories with fresh upstream commits...", flush=True)
+    temp_dir = os.path.join(repo_root, '.temp_upstream_clones')
+    os.makedirs(temp_dir, exist_ok=True)
 
-    print("⬇️  Downloading fresh skills from upstream...")
-    temp_dir = os.path.join(repo_root, '.temp_awesome_clone')
+    for repo_id, url, remote_commit, last_commit, _ in to_update:
+        print(f"  → Syncing {repo_id:32} from {url}...", flush=True)
+        c_temp = os.path.join(temp_dir, repo_id)
+        if os.path.exists(c_temp):
+            shutil.rmtree(c_temp, onerror=remove_readonly)
+        try:
+            res = subprocess.run(['git', 'clone', '--depth', '1', url, c_temp], capture_output=True, text=True, timeout=30, env=GIT_ENV)
+            if res.returncode != 0:
+                continue
+
+            target_repo_dir = os.path.join(library_dir, repo_id)
+            target_skills_dir = os.path.join(target_repo_dir, 'skills')
+            os.makedirs(target_skills_dir, exist_ok=True)
+
+            for root, dirs, files in os.walk(c_temp):
+                if 'SKILL.md' in files:
+                    s_name = os.path.basename(root)
+                    if s_name in ['skills', 'plugins', '.curated', '.system']:
+                        continue
+                    s_dst = os.path.join(target_skills_dir, s_name)
+                    if os.path.exists(s_dst):
+                        shutil.rmtree(s_dst, onerror=remove_readonly)
+                    shutil.copytree(root, s_dst)
+
+            if remote_commit:
+                commit_file = os.path.join(target_repo_dir, '.upstream_commit')
+                with open(commit_file, 'w', encoding='utf-8') as cf:
+                    cf.write(remote_commit)
+
+            for root, dirs, files in os.walk(target_repo_dir):
+                if '.git' in dirs:
+                    shutil.rmtree(os.path.join(root, '.git'), onerror=remove_readonly)
+            for item in os.listdir(target_repo_dir):
+                if item in ['skills', 'README.md', 'skills_index.json', '.upstream_commit']:
+                    continue
+                p = os.path.join(target_repo_dir, item)
+                if os.path.isdir(p):
+                    shutil.rmtree(p, onerror=remove_readonly)
+                else:
+                    os.chmod(p, stat.S_IWRITE)
+                    os.remove(p)
+
+            shutil.rmtree(c_temp, onerror=remove_readonly)
+            print(f"  ✓ {repo_id:32}: updated to {remote_commit[:8]}", flush=True)
+        except Exception as e:
+            print(f"  ⚠️ Error syncing {repo_id}: {e}", flush=True)
+
     if os.path.exists(temp_dir):
-        shutil.rmtree(temp_dir, ignore_errors=True)
+        shutil.rmtree(temp_dir, onerror=remove_readonly)
 
-    try:
-        subprocess.run([
-            'git', 'clone', '--depth', '1',
-            'https://github.com/benjaminasterA/antigravity-awesome-skills.git',
-            temp_dir
-        ], capture_output=True, text=True, check=True)
-
-        os.makedirs(awesome_skills_sub, exist_ok=True)
-        
-        temp_skills = os.path.join(temp_dir, 'skills')
-        if os.path.exists(temp_skills):
-            for skill_name in os.listdir(temp_skills):
-                s_src = os.path.join(temp_skills, skill_name)
-                s_dst = os.path.join(awesome_skills_sub, skill_name)
-                if os.path.isdir(s_src):
-                    src_md = os.path.join(s_src, 'SKILL.md')
-                    dst_md = os.path.join(s_dst, 'SKILL.md')
-                    needs_copy = not os.path.exists(dst_md) or (os.path.exists(src_md) and os.path.getmtime(src_md) > os.path.getmtime(dst_md))
-                    if needs_copy:
-                        if os.path.exists(s_dst):
-                            shutil.rmtree(s_dst, ignore_errors=True)
-                        shutil.copytree(s_src, s_dst)
-
-        idx_src = os.path.join(temp_dir, 'skills_index.json')
-        if os.path.exists(idx_src):
-            shutil.copy2(idx_src, os.path.join(awesome_skills_dir, 'skills_index.json'))
-
-        if remote_commit:
-            with open(commit_file, 'w', encoding='utf-8') as cf:
-                cf.write(remote_commit)
-
-        shutil.rmtree(temp_dir, ignore_errors=True)
-        awesome_count = len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 0
-        print(f"✓ Pure skills synced successfully ({awesome_count} total skills, zero repo bloat).")
-        return awesome_count
-    except Exception as e:
-        print(f"⚠️ Failed to sync awesome skills: {e}")
-        if os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir, ignore_errors=True)
-        return len(os.listdir(awesome_skills_sub)) if os.path.exists(awesome_skills_sub) else 0
-
-def run_skills_update():
-    print("\n[2/6] Checking for upstream updates across all skills (via npx skills update)...")
-    try:
-        res = subprocess.run(
-            ['npx', '-y', 'skills', 'update', '-y'],
-            cwd=repo_root,
-            capture_output=True,
-            text=True,
-            timeout=15
-        )
-        print("✓ npx skills update finished.")
-        lines = res.stdout.strip().split('\n')
-        for l in lines[-15:]:
-            print(f"  {l}")
-    except Exception as e:
-        print(f"⚠️ npx skills update encountered an issue: {e}")
-
-def sync_library_mirrors():
-    """Sync updated skills from .agents/skills into their respective .agents/library/<repo>/skills folders"""
-    print("\n[3/6] Synchronizing updated skills into offline library reserve bundles...")
+# 2. Sync Active Skills
+def sync_active_skills():
+    print("\n[2/6] Synchronizing active workspace skills (.agents/skills)...", flush=True)
     if not os.path.exists(skills_dir) or not os.path.exists(library_dir):
         return
 
     updated = 0
+    active_skills = [d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith('.')]
+    
+    lib_skills = {}
     for repo_f in os.listdir(library_dir):
-        if repo_f == 'antigravity-awesome-skills':
-            continue
-        lib_repo_skills = os.path.join(library_dir, repo_f, 'skills')
-        if os.path.isdir(lib_repo_skills):
-            for s_name in os.listdir(lib_repo_skills):
-                src_skill = os.path.join(skills_dir, s_name)
-                dst_skill = os.path.join(lib_repo_skills, s_name)
-                if os.path.exists(src_skill):
-                    src_md = os.path.join(src_skill, 'SKILL.md')
-                    dst_md = os.path.join(dst_skill, 'SKILL.md')
-                    needs_copy = False
-                    if not os.path.exists(dst_md):
-                        needs_copy = True
-                    elif os.path.exists(src_md) and os.path.getmtime(src_md) > os.path.getmtime(dst_md):
-                        needs_copy = True
-                    
-                    if needs_copy:
-                        shutil.rmtree(dst_skill, ignore_errors=True)
-                        shutil.copytree(src_skill, dst_skill)
-                        updated += 1
+        r_path = os.path.join(library_dir, repo_f, 'skills')
+        if os.path.isdir(r_path):
+            for s in os.listdir(r_path):
+                lib_skills[s] = os.path.join(r_path, s)
+
+    for s_name in active_skills:
+        if s_name in lib_skills:
+            src = lib_skills[s_name]
+            dst = os.path.join(skills_dir, s_name)
+            src_md = os.path.join(src, 'SKILL.md')
+            dst_md = os.path.join(dst, 'SKILL.md')
+            if os.path.exists(src_md) and os.path.exists(dst_md):
+                if os.path.getmtime(src_md) > os.path.getmtime(dst_md):
+                    shutil.rmtree(dst, onerror=remove_readonly)
+                    shutil.copytree(src, dst)
+                    updated += 1
+
     if updated > 0:
-        print(f"✓ Synchronized {updated} updated skills across offline library repositories.")
+        print(f"✓ Synchronized {updated} active skills from upstream library reserves.", flush=True)
     else:
-        print("✓ All offline library reserve bundles are already up to date.")
+        print("✓ Active workspace skills are already up to date.", flush=True)
 
-
+# 3. Re-index all library repositories and Master Index
 def rebuild_all_indexes():
-    """Regenerate skills_index.json for every repo in library/ and master library/skills_index.json"""
-    print("\n[4b/6] Updating skills_index.json across all 17 library repos and master index...")
+    print("\n[3/6] Re-indexing skills_index.json across all repositories and Master Index...", flush=True)
     if not os.path.exists(library_dir):
         return
 
@@ -319,170 +321,121 @@ def rebuild_all_indexes():
 
     for repo_folder in repo_folders:
         repo_path = os.path.join(library_dir, repo_folder)
-        skills_sub = os.path.join(repo_path, 'skills')
-        if not os.path.exists(skills_sub):
+        skills_folder = os.path.join(repo_path, 'skills')
+        repo_skills = []
+
+        if os.path.exists(skills_folder):
+            for s_name in sorted(os.listdir(skills_folder)):
+                s_path = os.path.join(skills_folder, s_name)
+                if not os.path.isdir(s_path):
+                    continue
+
+                desc = ""
+                cat = "general"
+                md_path = os.path.join(s_path, 'SKILL.md')
+                if os.path.exists(md_path):
+                    try:
+                        with open(md_path, 'r', encoding='utf-8', errors='ignore') as f:
+                            text = f.read(2000)
+                            m_desc = re.search(r'description:\s*([^\n]+)', text)
+                            if m_desc: desc = m_desc.group(1).strip()
+                            m_cat = re.search(r'category:\s*([^\n]+)', text)
+                            if m_cat: cat = m_cat.group(1).strip()
+                    except Exception:
+                        pass
+
+                entry = {
+                    "id": s_name,
+                    "name": s_name,
+                    "repository": repo_folder,
+                    "category": cat,
+                    "description": desc,
+                    "path": f"library/{repo_folder}/skills/{s_name}",
+                    "activation_cmd": f"python .agents/library/activate_skill.py activate {s_name}",
+                    "link_cmd": f"python .agents/library/activate_skill.py link {s_name}"
+                }
+                repo_skills.append(entry)
+                all_vault_skills.append(entry)
+
+        with open(os.path.join(repo_path, 'skills_index.json'), 'w', encoding='utf-8') as f:
+            json.dump(repo_skills, f, indent=2)
+
+    with open(os.path.join(library_dir, 'skills_index.json'), 'w', encoding='utf-8') as f:
+        json.dump(all_vault_skills, f, indent=2)
+
+    print(f"✓ Re-indexed {len(repo_folders)} repository indexes and Master index ({len(all_vault_skills)} skills).", flush=True)
+    return len(all_vault_skills)
+
+# 4. Synchronize lockfiles
+def sync_lockfiles():
+    print("\n[4/6] Synchronizing skills-lock.json across workspaces...", flush=True)
+    now = datetime.now(timezone.utc).isoformat()
+    for ag_dir in [agents_dir, r'D:\Gravity\Managment\.agents']:
+        s_dir = os.path.join(ag_dir, 'skills')
+        lf = os.path.join(ag_dir, 'skills-lock.json')
+        if not os.path.exists(s_dir):
             continue
-
-        repo_skills_index = []
-        skill_names = sorted([s for s in os.listdir(skills_sub) if os.path.isdir(os.path.join(skills_sub, s))])
-
-        for s_name in skill_names:
-            s_path = os.path.join(skills_sub, s_name)
-            skill_md = os.path.join(s_path, 'SKILL.md')
-            desc = "Specialized agent intelligence skill."
-            allowed_tools = []
-
-            if os.path.exists(skill_md):
-                try:
-                    with open(skill_md, 'r', encoding='utf-8', errors='ignore') as mf:
-                        m_content = mf.read(3000)
-                    m = re.search(r'description:\s*(?:>-\s*|\|\s*)?(.*?)(?:\n[a-zA-Z0-9_-]+:|\n---)', m_content, re.DOTALL)
-                    if m:
-                        desc = re.sub(r'\s+', ' ', m.group(1).strip().replace('\n', ' '))
-                    else:
-                        m2 = re.search(r'#\s+[^\n]+\n+([^\n#]+)', m_content)
-                        if m2:
-                            desc = m2.group(1).strip()
-                    m_tools = re.search(r'allowed-tools:\s*(.+)', m_content)
-                    if m_tools:
-                        allowed_tools = [t.strip() for t in m_tools.group(1).split(',')]
-                except Exception:
-                    pass
-
-            text = f"{s_name} {desc}".lower()
-            cat = "general-development"
-            for c_name, kws in TAG_KEYWORDS.items():
-                if any(kw in text for kw in kws):
-                    cat = c_name
-                    break
-
-            entry = {
-                "id": s_name,
-                "name": s_name,
-                "repository": repo_folder,
-                "category": cat,
-                "description": desc,
-                "path": f"library/{repo_folder}/skills/{s_name}",
-                "activation_cmd": f"python .agents/library/activate_skill.py activate {s_name}",
-                "link_cmd": f"python .agents/library/activate_skill.py link {s_name}"
-            }
-            if allowed_tools:
-                entry["allowed_tools"] = allowed_tools
-
-            repo_skills_index.append(entry)
-            all_vault_skills.append(entry)
-
-        with open(os.path.join(repo_path, 'skills_index.json'), 'w', encoding='utf-8') as rf:
-            json.dump(repo_skills_index, rf, indent=2)
-
-    master_index_file = os.path.join(library_dir, 'skills_index.json')
-    with open(master_index_file, 'w', encoding='utf-8') as mf:
-        json.dump(all_vault_skills, mf, indent=2)
-    print(f"✓ Re-indexed {len(repo_folders)} repository indexes and Master index ({len(all_vault_skills)} skills).")
-
-
-def sync_category_directories():
-    """Synchronize updated real skills from .agents/skills and .agents/library into .agents/category/"""
-    print("\n[3b/6] Synchronizing real skills into .agents/category/ directories...")
-    cat_dir = os.path.join(agents_dir, "category")
-    if not os.path.exists(cat_dir):
-        return
-
-    active_skills = set(os.listdir(skills_dir)) if os.path.exists(skills_dir) else set()
-    lib_repo_paths = [os.path.join(library_dir, r, "skills") for r in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, r, "skills"))]
-
-    updated = 0
-    for cat_slug in os.listdir(cat_dir):
-        c_path = os.path.join(cat_dir, cat_slug)
-        if not os.path.isdir(c_path):
-            continue
-        for s_name in os.listdir(c_path):
-            s_dst = os.path.join(c_path, s_name)
-            if not os.path.isdir(s_dst):
-                continue
-
-            dst_md = os.path.join(s_dst, "SKILL.md")
-            src_skill = None
-            if s_name in active_skills:
-                src_skill = os.path.join(skills_dir, s_name)
-            else:
-                for lr in lib_repo_paths:
-                    candidate = os.path.join(lr, s_name)
-                    if os.path.exists(candidate):
-                        src_skill = candidate
-                        break
-
-            if src_skill:
-                src_md = os.path.join(src_skill, "SKILL.md")
-                needs_update = False
-                if not os.path.exists(dst_md):
-                    needs_update = True
-                elif os.path.exists(src_md) and os.path.getmtime(src_md) > os.path.getmtime(dst_md):
-                    needs_update = True
-
-                if needs_update:
-                    shutil.rmtree(s_dst, ignore_errors=True)
-                    shutil.copytree(src_skill, s_dst)
-                    updated += 1
-
-    if updated > 0:
-        print(f"✓ Synchronized {updated} modified skills into .agents/category/ directories.")
-    else:
-        print("✓ All 1,878 category skills are already up to date (zero sync overhead).")
-
-def rebuild_documentation():
-    print("\n[4/6] Re-indexing skills and synchronizing skills-lock.json...")
-    if os.path.exists(lockfile_path):
-        with open(lockfile_path, 'r', encoding='utf-8') as f:
-            lock_data = json.load(f)
-    else:
         lock_data = {'version': 1, 'skills': {}}
+        if os.path.exists(lf):
+            try:
+                with open(lf, 'r', encoding='utf-8') as f:
+                    lock_data = json.load(f)
+            except Exception:
+                pass
+        existing = lock_data.get('skills', {})
+        current = sorted([d for d in os.listdir(s_dir) if os.path.isdir(os.path.join(s_dir, d)) and not d.startswith('.') and d != '__pycache__'])
+        synced = {}
+        for s in current:
+            if s in existing:
+                synced[s] = existing[s]
+                synced[s]['updatedAt'] = now
+            else:
+                synced[s] = {
+                    'source': './local-library',
+                    'sourceType': 'local',
+                    'sourceUrl': 'local-library',
+                    'skillPath': f'skills/{s}/SKILL.md',
+                    'installedAt': now,
+                    'updatedAt': now
+                }
+        lock_data['skills'] = synced
+        with open(lf, 'w', encoding='utf-8') as f:
+            json.dump(lock_data, f, indent=2)
+        print(f"✓ Synchronized {lf}: {len(synced)} skills tracked.", flush=True)
 
-    existing_dict = lock_data.get('skills', {})
-    current_skills = sorted([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith('.') and d != '__pycache__'])
+# 5. Rebuild real category system and provenance
+def rebuild_categories_and_provenance():
+    print("\n[5/6] Rebuilding real category system & provenance documentation...", flush=True)
+    try:
+        from category_system import rebuild_category_system
+        rebuild_category_system(agents_dir)
+    except Exception as e:
+        print(f"⚠️ Category system rebuild encountered error: {e}", flush=True)
 
-    # Keep skills-lock.json strictly in sync with installed active skills
-    synced_dict = {}
-    for s in current_skills:
-        if s in existing_dict:
-            synced_dict[s] = existing_dict[s]
-        else:
-            synced_dict[s] = {
-                'source': 'local-library',
-                'sourceType': 'local',
-                'sourceUrl': 'local-library',
-                'skillPath': f'skills/{s}/SKILL.md',
-                'installedAt': datetime.now().isoformat() + 'Z',
-                'updatedAt': datetime.now().isoformat() + 'Z'
-            }
+    try:
+        from provenance_system import rebuild_provenance
+        rebuild_provenance(agents_dir)
+    except Exception as e:
+        print(f"⚠️ Provenance rebuild encountered error: {e}", flush=True)
 
-    lock_data['skills'] = synced_dict
-    with open(lockfile_path, 'w', encoding='utf-8') as f:
-        json.dump(lock_data, f, indent=2)
-
-    print(f"✓ Synchronized skills-lock.json: exactly {len(synced_dict)} active skills tracked.")
-    rebuild_all_indexes()
-
+# 6. Git Commit & Push
 def git_commit_and_push():
-    print("\n[5/6] Checking Git status in .agents...")
+    print("\n[6/6] Checking Git status and pushing updates...", flush=True)
     status = subprocess.run(['git', 'status', '--short'], cwd=agents_dir, capture_output=True, text=True).stdout.strip()
-    
     if not status:
-        print("✓ Everything is already clean and up to date with Git. No push needed.")
+        print("✓ Working tree clean. Everything is already up to date on Git.", flush=True)
         return
 
-    print(f"Pending changes detected:\n{status}")
-    print("\n[6/6] Staging, committing, and pushing to https://github.com/SeaXen/agentskills.git...")
-
+    print("Pending changes detected. Committing and pushing to origin main...", flush=True)
     subprocess.run(['git', 'add', '-A'], cwd=agents_dir, check=True)
     ts = datetime.now().strftime('%Y-%m-%d %H:%M')
     subprocess.run(['git', 'commit', '-m', f"chore(skills): automated update of skills & library ({ts})"], cwd=agents_dir, check=True)
-    
     push_res = subprocess.run(['git', 'push', 'origin', 'main'], cwd=agents_dir, capture_output=True, text=True)
-    print(push_res.stdout)
+    if push_res.stdout:
+        print(push_res.stdout, flush=True)
     if push_res.stderr:
-        print(push_res.stderr)
-    print("🎉 SUCCESS: All skills updated and pushed to https://github.com/SeaXen/agentskills.git!")
+        print(push_res.stderr, flush=True)
+    print("🎉 SUCCESS: All repos, new skills, categories, and docs updated and pushed!", flush=True)
 
 if __name__ == '__main__':
     args = sys.argv[1:]
@@ -490,6 +443,8 @@ if __name__ == '__main__':
 
     if '--index' in args or '--reindex' in args:
         rebuild_all_indexes()
+        rebuild_categories_and_provenance()
+        sync_lockfiles()
         sys.exit(0)
     elif '--about' in args:
         show_about()
@@ -509,20 +464,19 @@ if __name__ == '__main__':
         if idx + 1 < len(args):
             find_global(args[idx + 1])
         else:
-            print("Please specify a search keyword: python update.py --find <keyword>")
+            print("Please specify a search keyword: python update.py --find <keyword>", flush=True)
         sys.exit(0)
 
-    print("=" * 65)
-    print("🚀 AGENTSKILLS VAULT — AUTOMATED UPDATER & SYNC")
-    print(f"📁 Agents Directory:    {agents_dir}")
-    print(f"📁 Workspace Root:      {repo_root}")
-    print("=" * 65)
+    print("=" * 65, flush=True)
+    print("🚀 AGENTSKILLS VAULT — UNIFIED AUTOMATED UPDATER", flush=True)
+    print(f"📁 Agents Directory:    {agents_dir}", flush=True)
+    print(f"📁 Workspace Root:      {repo_root}", flush=True)
+    print("=" * 65, flush=True)
 
-    sync_awesome_skills(force='--awesome' in args or '--force-awesome' in args)
-    if '--awesome' not in args:
-        run_skills_update()
-    sync_library_mirrors()
-    sync_category_directories()
-    rebuild_documentation()
+    sync_all_upstreams(force='--force' in args)
+    sync_active_skills()
+    rebuild_all_indexes()
+    sync_lockfiles()
+    rebuild_categories_and_provenance()
     if '--no-push' not in args:
         git_commit_and_push()

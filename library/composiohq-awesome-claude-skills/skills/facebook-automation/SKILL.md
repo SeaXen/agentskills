@@ -4,7 +4,6 @@ description: "Automate Facebook Page management including post creation, schedul
 requires:
   mcp:
     - rube
-category: video-motion-production
 ---
 
 # Facebook Automation

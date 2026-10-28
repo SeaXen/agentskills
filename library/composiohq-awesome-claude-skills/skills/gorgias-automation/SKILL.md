@@ -4,7 +4,6 @@ description: "Automate e-commerce customer support workflows in Gorgias -- manag
 requires:
   mcp:
     - rube
-category: business-sales-crm
 ---
 
 # Gorgias Automation

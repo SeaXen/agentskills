@@ -3,7 +3,6 @@ name: storeganise-automation
 description: "Automate Storeganise tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Storeganise Automation via Rube MCP

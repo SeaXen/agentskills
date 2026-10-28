@@ -5,7 +5,6 @@ description: >-
   copy, and the 1080x1350 files to upload. Use when the user says "carousel",
   "slides", "swipe post", "turn this into a carousel", or has a list-shaped or
   step-shaped idea that would die as a single image.
-category: code-quality-refactoring
 ---
 
 # ig-carousel

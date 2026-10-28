@@ -3,7 +3,6 @@ name: platerecognizer-automation
 description: "Automate Platerecognizer tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Platerecognizer Automation via Rube MCP

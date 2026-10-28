@@ -3,7 +3,6 @@ name: anonyflow-automation
 description: "Automate Anonyflow tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Anonyflow Automation via Rube MCP

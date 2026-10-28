@@ -3,7 +3,6 @@ name: icims-talent-cloud-automation
 description: "Automate Icims Talent Cloud tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Icims Talent Cloud Automation via Rube MCP

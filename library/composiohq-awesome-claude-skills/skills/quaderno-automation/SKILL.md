@@ -3,7 +3,6 @@ name: quaderno-automation
 description: "Automate Quaderno tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Quaderno Automation via Rube MCP

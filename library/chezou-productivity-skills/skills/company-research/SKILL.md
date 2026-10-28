@@ -2,7 +2,6 @@
 name: company-research
 description: Research a company a candidate is applying to or interviewing with, and produce a one-page brief covering what the company does, how it makes money, the shape of the team, warning signs, and interview preparation. Use this when the user names a company they are applying to, asks "what should I know about X before my interview", asks whether a company is worth applying to, wants questions to ask an interviewer, or is preparing for a specific interview round. Pairs with resume-tailor, which handles the application documents themselves. Do not use this for competitive analysis, investment research, or vendor due diligence.
 license: MIT
-category: business-strategy-legal
 ---
 
 # Company Research

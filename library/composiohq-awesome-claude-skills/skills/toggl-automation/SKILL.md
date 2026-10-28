@@ -4,7 +4,6 @@ description: "Automate time tracking workflows in Toggl Track -- create time ent
 requires:
   mcp:
     - rube
-category: terminal-system-tools
 ---
 
 # Toggl Automation

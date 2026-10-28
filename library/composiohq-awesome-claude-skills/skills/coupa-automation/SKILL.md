@@ -3,7 +3,6 @@ name: coupa-automation
 description: "Automate Coupa tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Coupa Automation via Rube MCP

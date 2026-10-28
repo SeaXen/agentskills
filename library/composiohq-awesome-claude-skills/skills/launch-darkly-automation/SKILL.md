@@ -4,7 +4,6 @@ description: "Automate LaunchDarkly feature flag management -- list projects and
 requires:
   mcp:
     - rube
-category: code-quality-refactoring
 ---
 
 # LaunchDarkly Automation

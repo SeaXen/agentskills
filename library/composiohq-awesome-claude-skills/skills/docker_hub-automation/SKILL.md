@@ -3,7 +3,6 @@ name: docker_hub-automation
 description: "Automate Docker Hub tasks via Rube MCP (Composio): repositories, images, tags, and container registry management. Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: devops-docker-cicd
 ---
 
 # Docker Hub Automation via Rube MCP

@@ -3,7 +3,6 @@ name: deel-automation
 description: "Automate Deel tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Deel Automation via Rube MCP

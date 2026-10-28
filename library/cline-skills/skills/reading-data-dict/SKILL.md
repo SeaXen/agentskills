@@ -1,7 +1,6 @@
 ---
 name: reading-data-dict
 description: Read project data documentation (data dictionaries, dbt manifests, model docs, column descriptions, lineage, metric definitions) before writing analytics SQL. Use for mapping business and product terms to concrete models and columns.
-category: database-sql-relational
 ---
 
 # Reading Data Dictionary

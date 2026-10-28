@@ -4,7 +4,6 @@ description: Migrate browser-use (Python) browser-automation scripts to Stagehan
 compatibility: "The skill itself uses only Read/Write/Edit/Grep/Bash — no install step. The Stagehand code it generates needs Node 18+, `@browserbasehq/stagehand` (v3) and `zod`, plus `BROWSERBASE_API_KEY` / `BROWSERBASE_PROJECT_ID` and a model-provider key (e.g. `ANTHROPIC_API_KEY`) to run. The optional trace-assisted path uses the Browserbase SDK or the sibling `browser-trace` skill."
 license: MIT
 allowed-tools: Read, Write, Edit, Grep, Bash
-category: testing-playwright-e2e
 ---
 
 # browser-use → Stagehand on Browserbase (`/browser-use-to-stagehand`)

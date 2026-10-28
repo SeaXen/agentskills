@@ -5,7 +5,6 @@ description: >-
   checking truncation, duplication and vagueness before publish. Use for
   "title ideas", "what should I call this", "thumbnail text", "my CTR is
   bad", packaging, or any request to rename or repackage an existing video.
-category: code-quality-refactoring
 ---
 
 # yt-package

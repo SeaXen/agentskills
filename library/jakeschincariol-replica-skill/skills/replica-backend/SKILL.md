@@ -7,7 +7,6 @@ description: >-
   the user says "add login", "set up auth", "wire up the database", "add
   payments", "connect Stripe", "add Google Calendar", "send emails",
   "backend for my clone", or when /replica-build is running on fake data.
-category: backend-api-design
 ---
 
 # replica-backend

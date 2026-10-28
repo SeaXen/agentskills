@@ -12,7 +12,6 @@ triggers:
   - "diagnose audio video"
   - "browser compatibility diagnostics"
   - "diagnostic report"
-category: video-motion-production
 ---
 
 # Zoom Probe SDK

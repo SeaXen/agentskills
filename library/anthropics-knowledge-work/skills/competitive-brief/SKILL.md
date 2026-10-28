@@ -1,332 +1,302 @@
 ---
 name: competitive-brief
-description: Research competitors and generate a positioning and messaging comparison with content gaps, opportunities, and threats. Use when building sales battlecards, when finding positioning gaps and messaging angles competitors haven't claimed, or when a competitor makes a move and you need to assess the impact.
-argument-hint: "<competitor or market segment>"
-category: business-sales-crm
+description: Create a competitive analysis brief for one or more competitors or a feature area. Use when informing product strategy or feature prioritization, building sales battle cards, prepping board or investor materials, or deciding where to differentiate vs. achieve parity.
+argument-hint: "<competitor or feature area>"
 ---
 
 # Competitive Brief
 
 > If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../../CONNECTORS.md).
 
-Research competitors and generate a structured competitive analysis comparing positioning, messaging, content strategy, and market presence.
+Create a competitive analysis brief for one or more competitors or a feature area.
 
-## Trigger
+## Usage
 
-User runs `/competitive-brief` or asks for a competitive analysis, competitor research, or market comparison.
+```
+/competitive-brief $ARGUMENTS
+```
 
-## Inputs
+## Workflow
 
-Gather the following from the user:
+### 1. Scope the Analysis
 
-1. **Competitor name(s)** — one or more competitors to analyze (required)
+Ask the user:
+- **Competitor(s)**: Which specific competitor(s) to analyze? Or a feature area to compare across competitors?
+- **Focus**: Full product comparison, specific feature area, pricing/packaging, go-to-market, or positioning?
+- **Context**: What decision will this inform? (product strategy, sales enablement, investor/board materials, feature prioritization)
 
-2. **Your company/product context** (optional but recommended):
-   - What you sell and to whom
-   - Your positioning or value proposition
-   - Key differentiators you want to highlight
+### 2. Research
 
-3. **Focus areas** (optional — if not specified, cover all):
-   - Messaging and positioning
-   - Product and feature comparison
-   - Content and thought leadership strategy
-   - Recent announcements and news
-   - Pricing and packaging (if publicly available)
-   - Market presence and audience
+**Via web search**:
+- Product pages and feature lists
+- Pricing pages and packaging
+- Recent product launches, blog posts, and changelogs
+- Press coverage and analyst reports
+- Customer reviews and ratings (G2, Capterra, TrustRadius)
+- Job postings (signal of strategic direction)
+- Social media and community discussions
 
-## Research Process
+If **~~knowledge base** is connected:
+- Search for existing competitive analysis documents
+- Find win/loss reports or sales battle cards
+- Pull prior competitive research
 
-For each competitor, research using web search:
+If **~~chat** is connected:
+- Search for competitive mentions in sales or product channels
+- Find recent deal feedback involving competitors
 
-1. **Company website** — homepage messaging, product pages, about page, pricing page
-2. **Recent news** — press releases, funding announcements, product launches, partnerships (last 6 months)
-3. **Content strategy** — blog topics, resource types, social media presence, webinars, podcasts
-4. **Review sites and comparisons** — third-party comparisons, analyst mentions, customer review themes
-5. **Job postings** — hiring signals that indicate strategic direction (optional)
+### 3. Generate the Brief
 
-### Research Sources
-
-Gather intelligence from these categories of sources:
-
-#### Primary Sources (Direct from Competitor)
-- **Website**: homepage, product pages, pricing, about page, careers
-- **Blog and resource center**: content themes, publishing frequency, depth
-- **Social media profiles**: messaging, engagement, content strategy
-- **Product demos and free trials**: UX, features, onboarding experience
-- **Webinars and events**: topics, speakers, audience engagement
-- **Press releases and newsroom**: announcements, partnerships, milestones
-- **Job postings**: hiring signals that reveal strategic priorities (e.g., hiring for a new product line or market)
-
-#### Secondary Sources (Third-Party)
-- **Review sites**: G2, Capterra, TrustRadius, Product Hunt — customer sentiment themes
-- **Analyst reports**: Gartner, Forrester, IDC — market positioning and category placement
-- **News coverage**: TechCrunch, industry publications — funding, partnerships, narrative
-- **Social listening**: mentions, sentiment, share of voice across social platforms
-- **SEO tools**: keyword rankings, organic traffic estimates, content gaps
-- **Financial filings**: revenue, growth rate, investment areas (for public companies)
-- **Community forums**: community forums (e.g. Reddit, Discourse), industry chat groups (e.g. Slack communities) — user sentiment
-
-### Research Cadence
-- **Deep competitive analysis**: quarterly (full research across all sources)
-- **Competitive monitoring**: monthly (scan for new announcements, content, messaging changes)
-- **Real-time alerts**: ongoing (set up alerts for competitor brand mentions, press, job postings)
-
-## Competitive Brief Structure
-
-### 1. Executive Summary
-- 2-3 sentence overview of the competitive landscape
-- Key takeaway: your biggest opportunity and biggest threat
-
-### 2. Competitor Profiles
-
+#### Competitor Overview
 For each competitor:
+- Company summary: founding, size, funding/revenue if public, target market
+- Product positioning: how they describe themselves, who they target
+- Recent momentum: launches, funding, partnerships, customer wins
 
-#### Company Overview
-- What they do (one-sentence positioning)
-- Target audience
-- Company size/stage indicators (funding, employee count if available)
-- Key recent developments
+#### Feature Comparison
+Compare capabilities across key areas relevant to the analysis. See **Feature Comparison Matrices** below for rating scales and matrix templates.
 
-#### Messaging Analysis
-- Primary tagline or headline
-- Core value proposition
-- Key messaging themes (3-5)
-- Tone and voice characterization
-- How they describe the problem they solve
+#### Positioning Analysis
+Analyze how each competitor positions themselves — target customer, category claim, key differentiator, and value proposition. See **Positioning Analysis Frameworks** below for the positioning statement template and message architecture levels.
 
-#### Product/Solution Positioning
-- How they categorize their product
-- Key features they emphasize
-- Claimed differentiators
-- Pricing approach (if publicly available)
+#### Strengths and Weaknesses
+For each competitor:
+- **Strengths**: Where they genuinely excel. What customers praise.
+- **Weaknesses**: Where they fall short. What customers complain about.
+- Be honest and evidence-based — do not dismiss competitors or inflate their weaknesses.
 
-#### Content Strategy
-- Blog frequency and topics
-- Content types produced (ebooks, webinars, case studies, tools)
-- Social media presence and engagement approach
-- Thought leadership themes
-- SEO strategy observations (what terms they appear to target)
+#### Opportunities
+Based on the analysis:
+- Where are there gaps in competitor offerings we could exploit?
+- What are customers asking for that no one provides well?
+- Where are competitors making bets we disagree with?
+- What market shifts could advantage our approach?
 
-#### Strengths
-- What they do well
-- Where their messaging resonates
-- Competitive advantages
+#### Threats
+- Where are competitors investing heavily?
+- What competitive moves could disrupt our position?
+- Where are we most vulnerable?
+- What would a "nightmare scenario" competitive move look like?
 
-#### Weaknesses
-- Gaps in their messaging or positioning
-- Areas where they are vulnerable
-- Customer complaints or criticism themes (from reviews)
+#### Strategic Implications
+Tie the analysis back to product strategy:
+- What should we build, accelerate, or deprioritize based on this analysis?
+- Where should we differentiate vs. achieve parity?
+- How should we adjust positioning or messaging?
+- What should we monitor going forward?
 
-### 3. Messaging Comparison Matrix
+### 4. Follow Up
 
-| Dimension | Your Company | Competitor A | Competitor B |
-|-----------|-------------|--------------|--------------|
-| Primary tagline | ... | ... | ... |
-| Target buyer | ... | ... | ... |
-| Key differentiator | ... | ... | ... |
-| Tone/voice | ... | ... | ... |
-| Core value prop | ... | ... | ... |
+After generating the brief:
+- Ask if the user wants to dive deeper on any section
+- Offer to create a one-page summary for executives
+- Offer to create sales battle cards for competitive deals
+- Offer to draft a "how to win against [competitor]" guide
+- Offer to set up a monitoring plan for competitive moves
 
-(Include user's company only if they provided their positioning context)
+## Competitive Landscape Mapping
 
-### 4. Content Gap Analysis
-- Topics your competitors cover that you do not (or vice versa)
-- Content formats they use that you could adopt
-- Keywords or themes they own vs. opportunities they have missed
+### Identifying the Competitive Set
+Define competitors at multiple levels:
 
-### 5. Opportunities
-- Positioning gaps you can exploit
-- Messaging angles your competitors have not claimed
-- Audience segments they are underserving
-- Content or channel opportunities
+**Direct competitors**: Products that solve the same problem for the same users in the same way.
+- These are the products your customers actively evaluate against you
+- They appear in your deals, in customer comparisons, in review site matchups
 
-### 6. Threats
-- Areas where competitors are strong and you are vulnerable
-- Trends that favor their positioning
-- Recent moves that could shift the market
+**Indirect competitors**: Products that solve the same problem but differently.
+- Different approach to the same user need (e.g., spreadsheets vs dedicated project management tool)
+- Include "non-consumption" — sometimes the competitor is doing nothing or using a manual process
 
-### 7. Recommended Actions
-- 3-5 specific, actionable recommendations based on the analysis
-- Quick wins (things you can act on this week)
-- Strategic moves (longer-term positioning or content investments)
+**Adjacent competitors**: Products that do not compete today but could.
+- Companies with similar technology, customer base, or distribution that could expand into your space
+- Larger platforms that could add your functionality as a feature
+- Startups attacking a niche that could grow into your core market
 
-## Analysis Frameworks
+**Substitute solutions**: Entirely different ways users solve the underlying need.
+- Hiring a person instead of buying software
+- Using a general-purpose tool (Excel, email) instead of a specialized one
+- Outsourcing the process entirely
 
-### Messaging Comparison Frameworks
+### Landscape Map
+Position competitors on meaningful dimensions:
 
-#### Value Proposition Comparison
+**Common axes**:
+- Breadth vs depth (suite vs point solution)
+- SMB vs enterprise (market segment focus)
+- Self-serve vs sales-led (go-to-market approach)
+- Simple vs powerful (product complexity)
+- Horizontal vs vertical (general purpose vs industry-specific)
 
-For each competitor, document:
-- **Promise**: what they promise the customer will achieve
-- **Evidence**: how they prove the promise (data, testimonials, demos)
-- **Mechanism**: how their product delivers on the promise (the "how it works")
-- **Uniqueness**: what they claim only they can do
+Choose axes that reveal strategic positioning differences relevant to your market. The right axes make competitive dynamics visible.
 
-#### Narrative Analysis
+### Monitoring the Landscape
+Track competitive movements over time:
+- Product launches and feature releases (changelogs, blog posts, press releases)
+- Pricing and packaging changes
+- Funding rounds and acquisitions
+- Key hires and job postings (signal strategic direction)
+- Customer wins and losses (especially your wins/losses)
+- Analyst and review coverage
+- Partnership announcements
 
-Identify each competitor's story arc:
-- **Villain**: what problem or enemy they position against (status quo, legacy tools, complexity)
-- **Hero**: who is the hero in their story (the customer? the product? the team?)
-- **Transformation**: what before/after do they promise?
-- **Stakes**: what happens if you do not act?
+## Feature Comparison Matrices
 
-This reveals positioning strategy and emotional appeals.
+### Building a Feature Comparison
+1. **Define capability areas**: Group features into functional categories that matter to buyers (not your internal architecture). Use the categories buyers use when evaluating.
+2. **List specific capabilities**: Under each area, list the specific features or capabilities to compare.
+3. **Rate each competitor**: Use a consistent rating scale.
 
-#### Messaging Strengths and Vulnerabilities
+### Rating Scale Options
 
-For each competitor's messaging, assess:
-- **Clarity**: can a first-time visitor understand what they do in 5 seconds?
-- **Differentiation**: is their positioning distinct or generic?
-- **Proof**: do they back up claims with evidence?
-- **Consistency**: is messaging consistent across channels?
-- **Resonance**: does their messaging address real customer pain points?
+**Simple (recommended for most cases)**:
+- Strong: Market-leading capability. Deep functionality, well-executed.
+- Adequate: Functional capability. Gets the job done but not differentiated.
+- Weak: Exists but limited. Significant gaps or poor execution.
+- Absent: Does not have this capability.
 
-### Content Gap Analysis Methodology
+**Detailed (for deep-dive comparisons)**:
+- 5: Best-in-class. Defines the standard others aspire to.
+- 4: Strong. Fully-featured and well-executed.
+- 3: Adequate. Meets basic needs without differentiation.
+- 2: Limited. Exists but with significant gaps.
+- 1: Minimal. Barely functional or in early beta.
+- 0: Absent. Not available.
 
-#### Content Audit Comparison
+### Comparison Matrix Template
+```
+| Capability Area | Our Product | Competitor A | Competitor B |
+|----------------|-------------|-------------|-------------|
+| [Area 1]       |             |             |             |
+|   [Feature 1]  | Strong      | Adequate    | Absent      |
+|   [Feature 2]  | Adequate    | Strong      | Weak        |
+| [Area 2]       |             |             |             |
+|   [Feature 3]  | Strong      | Strong      | Adequate    |
+```
 
-Map content across competitors by:
+### Tips for Feature Comparison
+- Rate based on real product experience, customer feedback, and reviews — not just marketing claims
+- Features exist on a spectrum. "Has feature X" is less useful than "How well does it do X?"
+- Weight the comparison by what matters to your target customers, not by total feature count
+- Update regularly — feature comparisons get stale fast
+- Be honest about where competitors are ahead. A comparison that always shows you winning is not credible.
+- Include the "why it matters" for each capability area. Not all features matter equally to buyers.
 
-| Topic/Theme | Your Content | Competitor A | Competitor B | Gap? |
-|-------------|-------------|--------------|--------------|------|
-| [Topic 1] | Blog post, ebook | Blog series, webinar | Nothing | Opportunity for B |
-| [Topic 2] | Nothing | Whitepaper | Blog post, video | Gap for you |
-| [Topic 3] | Case study | Nothing | Case study | Parity |
+## Positioning Analysis Frameworks
 
-#### Content Type Coverage
+### Positioning Statement Analysis
+For each competitor, extract their positioning:
 
-| Content Format | You | Comp A | Comp B | Comp C |
-|----------------|-----|--------|--------|--------|
-| Blog posts | Y | Y | Y | Y |
-| Case studies | Y | Y | N | Y |
-| Ebooks/Whitepapers | N | Y | Y | N |
-| Webinars | Y | Y | Y | N |
-| Podcast | N | N | Y | N |
-| Video content | N | Y | Y | Y |
-| Interactive tools | N | N | N | Y |
-| Templates/Resources | Y | N | Y | N |
+**Template**: For [target customer] who [need/problem], [Product] is a [category] that [key benefit]. Unlike [competitor/alternative], [Product] [key differentiator].
 
-#### Identifying Content Opportunities
-1. **Topics they cover that you do not**: potential gaps in your content strategy
-2. **Topics you cover that they do not**: potential differentiators to amplify
-3. **Formats they use that you do not**: format gaps that could reach new audiences
-4. **Audience segments they address that you do not**: underserved audiences
-5. **Search terms they rank for that you do not**: SEO content gaps
+**Sources for positioning**:
+- Homepage headline and subheadline
+- Product description on app stores or review sites
+- Sales pitch decks (sometimes leaked or shared by prospects)
+- Analyst briefing materials
+- Earnings call language (for public companies)
 
-#### Content Quality Assessment
-- Depth: surface-level or comprehensive?
-- Freshness: regularly updated or stale?
-- Engagement: do posts get comments, shares, links?
-- Production value: text-only or multimedia?
-- Thought leadership: original insights or rehashed content?
+### Message Architecture Analysis
+How does each competitor communicate value?
 
-### Positioning Strategy
+**Level 1 — Category**: What category do they claim? (CRM, project management, collaboration platform)
+**Level 2 — Differentiator**: What makes them different within that category? (AI-powered, all-in-one, developer-first)
+**Level 3 — Value Proposition**: What outcome do they promise? (Close deals faster, ship products faster, never miss a deadline)
+**Level 4 — Proof Points**: What evidence do they provide? (Customer logos, metrics, awards, case studies)
 
-#### Positioning Statement Framework
+### Positioning Gaps and Opportunities
+Look for:
+- **Unclaimed positions**: Value propositions no competitor owns that matter to buyers
+- **Crowded positions**: Claims every competitor makes that have lost meaning
+- **Emerging positions**: New value propositions driven by market changes (AI, remote work, compliance)
+- **Vulnerable positions**: Claims competitors make that they cannot fully deliver on
 
-For your company and each competitor, define (or reverse-engineer) their positioning statement:
+## Win/Loss Analysis Methodology
 
-> For [target audience], [product/company] is the [category] that [key benefit/differentiator] because [reason to believe].
+### Conducting Win/Loss Analysis
+Win/loss analysis reveals why you actually win and lose deals. It is the most actionable competitive intelligence.
 
-Example:
-> For mid-market SaaS marketing teams, Acme is the campaign management platform that unifies planning and execution in one workspace because it is built on a single data model that eliminates tool fragmentation.
+**Data sources**:
+- CRM notes from sales team (available immediately, but biased)
+- Customer interviews shortly after decision (most valuable, least biased)
+- Churned customer surveys or exit interviews
+- Prospect surveys (for lost deals)
 
-#### Positioning Map
+### Win/Loss Interview Questions
+For wins:
+- What problem were you trying to solve?
+- What alternatives did you evaluate? (Reveals competitive set)
+- Why did you choose us over alternatives?
+- What almost made you choose someone else?
+- What would we need to lose for you to reconsider?
 
-Plot competitors on a 2x2 matrix using the two most important dimensions for your market:
+For losses:
+- What problem were you trying to solve?
+- What did you end up choosing? Why?
+- Where did our product fall short?
+- What could we have done differently?
+- Would you reconsider us in the future? Under what conditions?
 
-Common axis pairs:
-- **Price vs. Capability** (low cost / basic vs. premium / full-featured)
-- **Ease of Use vs. Power** (simple / limited vs. complex / flexible)
-- **SMB Focus vs. Enterprise Focus** (self-serve / individual vs. sales-led / team)
-- **Point Solution vs. Platform** (does one thing well vs. does many things)
-- **Innovative vs. Established** (new approach vs. proven track record)
+### Analyzing Win/Loss Data
+- Track win/loss reasons over time. Are patterns changing?
+- Segment by deal type: enterprise vs SMB, new vs expansion, industry vertical
+- Identify the top 3-5 reasons for wins and losses
+- Distinguish between product reasons (features, quality) and non-product reasons (pricing, brand, relationship, timing)
+- Calculate competitive win rates by competitor: what % of deals involving each competitor do you win?
 
-Identify which quadrant is underserved or where your differentiation is strongest.
+### Common Win/Loss Patterns
+- **Feature gap**: Competitor has a specific capability you lack that is a dealbreaker
+- **Integration advantage**: Competitor integrates with tools the buyer already uses
+- **Pricing structure**: Not always cheaper — sometimes different pricing model (per-seat vs usage-based) fits better
+- **Incumbent advantage**: Buyer sticks with what they have because switching cost is too high
+- **Sales execution**: Better demo, faster response, more relevant case studies
+- **Brand/trust**: Buyer chooses the safer or more well-known option
 
-#### Category Strategy
-- **Create a new category**: if you do something genuinely different, define and own the category (high risk, high reward)
-- **Reframe the existing category**: change how buyers evaluate the category to favor your strengths
-- **Win the existing category**: compete directly on recognized criteria and out-execute
-- **Niche within the category**: own a specific segment, use case, or audience
+## Market Trend Identification
 
-#### Positioning Pitfalls to Avoid
-- Positioning against a competitor rather than for a customer need
-- Claiming too many differentiators (pick 1-2 that matter most)
-- Using category jargon the customer does not use
-- Positioning on features rather than outcomes
-- Changing positioning too frequently (confuses the market)
+### Sources for Trend Identification
+- **Industry analyst reports**: Gartner, Forrester, IDC for market sizing and trends
+- **Venture capital**: What are VCs funding? Investment themes signal where smart money sees opportunity.
+- **Conference themes**: What are industry events focusing on? What topics draw the biggest audiences?
+- **Technology shifts**: New platforms, APIs, or capabilities that enable new product categories
+- **Regulatory changes**: New regulations that create requirements or opportunities
+- **Customer behavior changes**: How are user expectations evolving? (e.g., mobile-first, AI-assisted, privacy-conscious)
+- **Talent movement**: Where are top people going? What skills are in demand?
 
-### Battlecard Creation
+### Trend Analysis Framework
+For each trend identified:
 
-A competitive battlecard is a one-page reference for sales and marketing teams. Include:
+1. **What is changing?**: Describe the trend clearly and specifically
+2. **Why now?**: What is driving this change? (Technology, regulation, behavior, economics)
+3. **Who is affected?**: Which customer segments or market categories?
+4. **What is the timeline?**: Is this happening now, in 1-2 years, or 3-5 years?
+5. **What is the implication for us?**: How should this influence our product strategy?
+6. **What are competitors doing?**: How are competitors responding to this trend?
 
-#### Header
-- Competitor name and logo
-- Last updated date
-- Competitive win rate (if tracked)
+### Separating Signal from Noise
+- **Signals**: Trends backed by behavioral data, growing investment, regulatory action, or customer demand
+- **Noise**: Trends backed only by media hype, conference buzz, or competitor announcements without customer traction
+- Test trends against your own customer data: are YOUR customers asking for this or experiencing this change?
+- Be wary of "trend of the year" hype cycles. Many trends that dominate industry conversation do not materially affect your customers for years.
 
-#### Quick Overview
-- What they do (one sentence)
-- Their target customer
-- Pricing model summary
-- Key recent developments
+### Strategic Response Options
+For each significant trend:
+- **Lead**: Invest early and try to define the category or approach. High risk, high reward.
+- **Fast follow**: Wait for early signals of customer demand, then move quickly. Lower risk but harder to differentiate.
+- **Monitor**: Track the trend but do not invest yet. Set triggers for when to act.
+- **Ignore**: Explicitly decide this trend is not relevant to your strategy. Document why.
 
-#### Their Pitch
-- How they describe themselves
-- Their primary tagline
-- Their top 3 claimed differentiators
+The right response depends on: your competitive position, your customer base, your resources, and how fast the trend is moving.
 
-#### Strengths (Be Honest)
-- Where they genuinely compete well
-- What customers like about them (from reviews)
-- Features or capabilities where they lead
+## Output Format
 
-#### Weaknesses
-- Consistent customer complaints (from reviews)
-- Technical limitations
-- Gaps in their offering
-- Areas where customers report dissatisfaction
+Use tables for feature comparisons. Use clear headers for each section. Keep the strategic implications section concise and actionable — this is where the value is for the reader.
 
-#### Our Differentiators
-- 3-5 specific ways your product or approach is different
-- For each: the differentiator, why it matters to the customer, and proof
+## Tips
 
-#### Objection Handling
-| If the prospect says... | Respond with... |
-|------------------------|----------------|
-| "[Competitor] does X too" | "Here is how our approach differs..." |
-| "[Competitor] is cheaper" | "Here is what that price difference gets you..." |
-| "I've heard good things about [Competitor]" | "They are strong at X. Where we differ is..." |
-
-#### Landmines to Set
-Questions to ask prospects early that highlight your advantages:
-- "How do you currently handle [area where competitor is weak]?"
-- "How important is [capability you have that they lack]?"
-- "Have you considered [risk that your product mitigates]?"
-
-#### Landmines to Defuse
-Questions competitors might encourage prospects to ask you, with prepared responses.
-
-#### Win/Loss Themes
-- Common reasons deals are won against this competitor
-- Common reasons deals are lost to this competitor
-- What types of prospects favor them vs. you
-
-#### Battlecard Maintenance
-- Review and update quarterly at minimum
-- Update immediately after major competitor announcements
-- Incorporate win/loss feedback from sales team
-- Track which objection-handling responses are most effective
-
-## Output
-
-Present the full competitive brief with clear formatting. Note the date of the research so the user knows the freshness of the data.
-
-After the brief, ask:
-
-"Would you like me to:
-- Create a battlecard for your sales team based on this analysis?
-- Draft messaging that exploits the positioning gaps identified?
-- Dive deeper into any specific competitor?
-- Set up a competitive monitoring plan?"
+- Be honest about competitor strengths. Dismissing competitors makes the analysis useless.
+- Focus on what matters to customers, not what matters to product teams. Customers do not care about architecture elegance.
+- Pricing is hard to compare fairly. Note the caveats (different packaging, usage-based vs seat-based, enterprise custom pricing).
+- Job postings are underrated competitive intelligence. A competitor hiring ML engineers signals a strategic direction.
+- Customer reviews are gold. They reveal what real users love and hate, unfiltered by marketing.
+- The most valuable part of competitive analysis is the "so what" — the strategic implications. Do not skip this.
+- Competitive analysis has a shelf life. Note the date and flag areas that change quickly.

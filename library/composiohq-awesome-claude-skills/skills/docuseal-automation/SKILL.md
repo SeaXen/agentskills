@@ -3,7 +3,6 @@ name: docuseal-automation
 description: "Automate Docuseal tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Docuseal Automation via Rube MCP

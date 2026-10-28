@@ -5,7 +5,6 @@ license: MIT-0
 metadata:
   author: aws-geospatial
   version: "1.0"
-category: backend-api-design
 ---
 
 ## Overview

@@ -4,7 +4,6 @@ description: "Automate Neon serverless Postgres operations -- manage projects, b
 requires:
   mcp:
     - rube
-category: database-sql-relational
 ---
 
 # Neon Automation

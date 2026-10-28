@@ -1,7 +1,6 @@
 ---
 name: managing-mcp-servers
 description: Use when the user asks to add, change, remove, enable or disable an MCP server, or when an MCP tool is missing, needs sign-in, fails, or was blocked. ThinkRail runs pi in-process, so there is no `pi` command to call.
-category: terminal-system-tools
 ---
 
 # Managing MCP servers in ThinkRail

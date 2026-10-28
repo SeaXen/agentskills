@@ -3,7 +3,6 @@ name: cloudflare-automation
 description: "Automate Cloudflare tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: cloudflare-edge
 ---
 
 # Cloudflare Automation via Rube MCP

@@ -2,7 +2,6 @@
 name: reactivate
 description: Wins back customers who have quietly stopped buying — finds the ones whose gap has stretched past their own normal rhythm or who are showing churn signals, ranks them by what the relationship was worth, drafts a win-back message per customer in the owner's voice, and sends and logs only what the owner approves. Chains review-reputation, outreach-composer, and crm-autopilot, and keeps the rule that the first touch acknowledges the gap without pitching. Use this whenever the owner is worried about customers drifting away, including phrasings like "who hasn't ordered in a while," "win back my old customers," "which customers have gone quiet," "we lost some regulars," "reach out to the people who stopped calling," or "how do I get them back." Reach for it when the owner names a customer they have not heard from, as readily as for a full win-back campaign.
 allowed-tools: Read, WebFetch
-category: business-sales-crm
 ---
 
 Run the win-back chain: `review-reputation` to find who went quiet and why, `outreach-composer` to write to them, `crm-autopilot` to log it. The owner approves at every handoff, per message.

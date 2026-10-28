@@ -3,7 +3,6 @@ name: mapbox-automation
 description: "Automate Mapbox tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Mapbox Automation via Rube MCP

@@ -1,7 +1,6 @@
 ---
 name: endor-setup
 description: "Use when user asks to setup endorctl, install endorctl, run endorctl scan, scan for vulnerabilities, run endor scan or run Endor Labs scan or when any endorctl command fails with 'command not found', 'no such file or directory', authentication errors, 'unauthorized', '403', 'tenant not found', EOF error, or namespace/access errors."
-category: terminal-system-tools
 ---
 
 # Endorctl Setup and Security Scan

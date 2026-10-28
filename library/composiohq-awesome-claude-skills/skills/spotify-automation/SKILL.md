@@ -4,7 +4,6 @@ description: "Automate Spotify workflows including playlist management, music se
 requires:
   mcp:
     - rube
-category: audio-voice-sound
 ---
 
 # Spotify Automation

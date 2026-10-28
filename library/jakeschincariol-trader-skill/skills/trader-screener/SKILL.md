@@ -10,7 +10,6 @@ description: >-
   "which of these pass my rules", "shortlist candidates", "rank these
   stocks", or "growing companies under 30 times earnings".
 argument-hint: "[metrics file] [--rules rules.json]"
-category: code-quality-refactoring
 ---
 
 # trader-screener

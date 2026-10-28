@@ -3,7 +3,6 @@ name: parma-automation
 description: "Automate Parma tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Parma Automation via Rube MCP

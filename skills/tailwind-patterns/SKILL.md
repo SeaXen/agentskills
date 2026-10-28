@@ -1,11 +1,13 @@
 ---
 name: tailwind-patterns
 description: Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design token architecture.
+when_to_use: "When using Tailwind CSS v4, implementing design tokens, container queries, or modern CSS patterns with Tailwind."
 allowed-tools: Read, Write, Edit, Glob, Grep
+version: 1.0.0
 category: frontend-ui-components
 ---
 
-# Tailwind CSS Patterns (v4 - 2025)
+# Tailwind CSS Patterns (v4)
 
 > Modern utility-first CSS with CSS-native configuration.
 
@@ -18,7 +20,7 @@ category: frontend-ui-components
 | v3 (Legacy) | v4 (Current) |
 |-------------|--------------|
 | `tailwind.config.js` | CSS-based `@theme` directive |
-| PostCSS plugin | Oxide engine (10x faster) |
+| PostCSS plugin | Oxide engine (full builds ~5x, incremental >100x) |
 | JIT mode | Native, always-on |
 | Plugin system | CSS-native features |
 | `@apply` directive | Still works, discouraged |
@@ -238,7 +240,7 @@ category: frontend-ui-components
 | Method | Use When |
 |--------|----------|
 | **React/Vue component** | Dynamic, JS needed |
-| **@apply in CSS** | Static, no JS needed |
+| **@apply in CSS** | Sparingly — only when a component layer isn't available |
 | **Design tokens** | Reusable values |
 
 ---
@@ -262,7 +264,7 @@ category: frontend-ui-components
 |-----------|----------------|
 | **Purge unused** | Automatic in v4 |
 | **Avoid dynamism** | No template string classes |
-| **Use Oxide** | Default in v4, 10x faster |
+| **Use Oxide** | Default in v4 (full builds ~5x, incremental >100x) |
 | **Cache builds** | CI/CD caching |
 
 ---

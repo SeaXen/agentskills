@@ -10,7 +10,6 @@ description: >
   or earnings history and calendars, EOD or last prices, security lookup by ticker,
   CUSIP, ISIN, or FIGI, Fintel leaderboards, or their Fintel watchlists and alerts.
   Read-only: GET endpoints only.
-category: backend-api-design
 ---
 
 # Fintel Data Skill

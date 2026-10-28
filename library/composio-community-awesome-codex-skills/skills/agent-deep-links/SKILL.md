@@ -1,7 +1,6 @@
 ---
 name: agent-deep-links
 description: Build, validate, and troubleshoot deep links for Codex, Cursor, VS Code, Visual Studio, and similar tools. Use when users ask for clickable links (especially in Slack) that open threads, files, folders, or app settings.
-category: productivity-workspace-tools
 ---
 
 # Agent Deep Links

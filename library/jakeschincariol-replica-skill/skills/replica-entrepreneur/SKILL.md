@@ -9,7 +9,6 @@ description: >-
   Use when the user says "what do people hate about X", "read the reviews",
   "how do I make mine better", "find the gap", "what features are missing",
   "how do I position this", "make it sellable", or after /replica-diff.
-category: code-quality-refactoring
 ---
 
 # replica-entrepreneur

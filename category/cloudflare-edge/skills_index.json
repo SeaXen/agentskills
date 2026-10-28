@@ -1,0 +1,682 @@
+[
+  {
+    "id": "10-phack-polyglot",
+    "name": "10-phack-polyglot",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Run the instrumented specification search in the user's own statistical language \u2014 Stata (reghdfe, ivreghdfe, rdrobust, did2s), R (fixest, rdrobust, did2s), Python (statsmodels, linearmodels) or StatsPAI \u2014 and bring the results back into the audit, null calibration and honest report. Exports the enumerated grid as a language-neutral specs table plus a generated runner, ingests the runner's ledger, replays the null draws in that language, and reports cross-language parity. Use when an analysis or an agent evaluation must happen in Stata, R or StatsPAI rather than the Python engine, when a p-hacked result was produced in one of those languages and needs auditing on its own footing, when reading Stata / R / StatsPAI code for search and disclosure signals, or when checking that the engine's numbers agree with a reference implementation.",
+    "path": "category/cloudflare-edge/10-phack-polyglot"
+  },
+  {
+    "id": "agents-sdk",
+    "name": "agents-sdk",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build, debug, or review Cloudflare Agents SDK applications using the agents package.",
+    "path": "category/cloudflare-edge/agents-sdk"
+  },
+  {
+    "id": "asd-ste100",
+    "name": "asd-ste100",
+    "category": "cloudflare-edge",
+    "repository": "danyuchn-asd-ste100-skill",
+    "description": "\"Use when English text must be parsed without a human to resolve ambiguity \u2014 tool descriptions, error messages, inter-agent instructions, system prompts, status reports \u2014 and misreading has a real cost, or when text reads as dense, hedged, or easy to misparse. Triggers: disambiguate, STE100 rewrite, apply Simplified Technical English, plain-language rewrite, controlled-language rewrite, rewrite so an agent cannot misread this. Not for creative or marketing copy.\"",
+    "path": "category/cloudflare-edge/asd-ste100"
+  },
+  {
+    "id": "basin",
+    "name": "basin",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build and troubleshoot Cloudflare Basin analytics workflows with Basin Pipelines, Basin Catalog, and Basin SQL. Use for streaming data into R2 Iceberg tables, managing catalogs, or querying those tables; also use for requests using the former Data Platform, Pipelines, R2 Data Catalog, or R2 SQL names.",
+    "path": "category/cloudflare-edge/basin"
+  },
+  {
+    "id": "cf-cli",
+    "name": "cf-cli",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Cloudflare's official cf CLI (beta) for the public Cloudflare API and Workers projects. Use for finding and running Cloudflare commands from the terminal \u2014 sign-in and profiles, cf cli search, cf schema, cf deploy/dev/build, resource commands for DNS, zones, D1, KV, and R2 \u2014 and for choosing between cf and Wrangler in a project.",
+    "path": "category/cloudflare-edge/cf-cli"
+  },
+  {
+    "id": "cloudflare",
+    "name": "cloudflare",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and security. Use for architecture and product selection, including when the user describes a need without naming a Cloudflare product; then find the relevant skill or documentation.",
+    "path": "category/cloudflare-edge/cloudflare"
+  },
+  {
+    "id": "cloudflare-automation",
+    "name": "cloudflare-automation",
+    "category": "cloudflare-edge",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate Cloudflare tasks via Rube MCP (Composio). Always search tools first for current schemas.\"",
+    "path": "category/cloudflare-edge/cloudflare-automation"
+  },
+  {
+    "id": "cloudflare-browser-rendering-automation",
+    "name": "cloudflare-browser-rendering-automation",
+    "category": "cloudflare-edge",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate Cloudflare Browser Rendering tasks via Rube MCP (Composio). Always search tools first for current schemas.\"",
+    "path": "category/cloudflare-edge/cloudflare-browser-rendering-automation"
+  },
+  {
+    "id": "cloudflare-deploy",
+    "name": "cloudflare-deploy",
+    "category": "cloudflare-edge",
+    "repository": "active",
+    "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
+    "path": "category/cloudflare-edge/cloudflare-deploy"
+  },
+  {
+    "id": "cloudflare-email-service",
+    "name": "cloudflare-email-service",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Implement or troubleshoot Cloudflare Email Sending and Email Routing integrations and their delivery configuration.",
+    "path": "category/cloudflare-edge/cloudflare-email-service"
+  },
+  {
+    "id": "cloudflare-one",
+    "name": "cloudflare-one",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Design, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use cloudflare-one-migrations for migration planning from other vendors.",
+    "path": "category/cloudflare-edge/cloudflare-one"
+  },
+  {
+    "id": "cloudflare-one-migrations",
+    "name": "cloudflare-one-migrations",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Assess and plan migrations from existing VPN, SWG, or SASE platforms to Cloudflare One, including policy mapping, parity gaps, and rollout.",
+    "path": "category/cloudflare-edge/cloudflare-one-migrations"
+  },
+  {
+    "id": "code-review",
+    "name": "code-review",
+    "category": "cloudflare-edge",
+    "repository": "anthropics-knowledge-work",
+    "description": "Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, \"review this before I merge\", \"is this code safe?\", or when checking a change for N+1 queries, injection risks, missing edge cases, or error handling gaps.",
+    "path": "category/cloudflare-edge/code-review"
+  },
+  {
+    "id": "coordinator-mode",
+    "name": "coordinator-mode",
+    "category": "cloudflare-edge",
+    "repository": "vudovn-antigravity-kit",
+    "description": "Advanced multi-agent orchestration with parallel workers, synthesis protocols, and coordinator lifecycle. Use when complex tasks require multiple agents working in parallel with intelligent result synthesis.",
+    "path": "category/cloudflare-edge/coordinator-mode"
+  },
+  {
+    "id": "custom-blocks",
+    "name": "custom-blocks",
+    "category": "cloudflare-edge",
+    "repository": "makenotion-notion-cookbook",
+    "description": "Create, modify, and troubleshoot custom blocks in Notion Workers. Use when the user wants to build interactive UI inside Notion connected to Notion data. Covers the author workflow from project setup to local preview and deployment.",
+    "path": "category/cloudflare-edge/custom-blocks"
+  },
+  {
+    "id": "danyuchn-asd-ste100",
+    "name": "danyuchn-asd-ste100",
+    "category": "cloudflare-edge",
+    "repository": "danyuchn-asd-ste100-skill",
+    "description": "\"Use when English text must be parsed without a human to resolve ambiguity \u2014 tool descriptions, error messages, inter-agent instructions, system prompts, status reports \u2014 and misreading has a real cost, or when text reads as dense, hedged, or easy to misparse. Triggers: disambiguate, STE100 rewrite, apply Simplified Technical English, plain-language rewrite, controlled-language rewrite, rewrite so an agent cannot misread this. Not for creative or marketing copy.\"",
+    "path": "category/cloudflare-edge/danyuchn-asd-ste100"
+  },
+  {
+    "id": "danyuchn-asd-ste100-skill",
+    "name": "danyuchn-asd-ste100-skill",
+    "category": "cloudflare-edge",
+    "repository": "danyuchn-asd-ste100-skill",
+    "description": "\"Use when English text must be parsed without a human to resolve ambiguity \u2014 tool descriptions, error messages, inter-agent instructions, system prompts, status reports \u2014 and misreading has a real cost, or when text reads as dense, hedged, or easy to misparse. Triggers: disambiguate, STE100 rewrite, apply Simplified Technical English, plain-language rewrite, controlled-language rewrite, rewrite so an agent cannot misread this. Not for creative or marketing copy.\"",
+    "path": "category/cloudflare-edge/danyuchn-asd-ste100-skill"
+  },
+  {
+    "id": "deepread",
+    "name": "deepread",
+    "category": "cloudflare-edge",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"Use when the user asks to deeply read a book, article, PDF, or document set; extract claims and evidence; build a knowledge map; or learn through Feynman explanation and recall. Covers quick, deep, map, Feynman, and whole-book reading modes.\"",
+    "path": "category/cloudflare-edge/deepread"
+  },
+  {
+    "id": "demo-video",
+    "name": "demo-video",
+    "category": "cloudflare-edge",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"Use when the user asks to create a demo video, product walkthrough, feature showcase, animated presentation, marketing video, or GIF from screenshots or scene descriptions. Orchestrates playwright, ffmpeg, and edge-tts MCPs to produce polished video content.\"",
+    "path": "category/cloudflare-edge/demo-video"
+  },
+  {
+    "id": "durable-objects",
+    "name": "durable-objects",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build, debug, or review Cloudflare Durable Objects code for persistent state and coordination.",
+    "path": "category/cloudflare-edge/durable-objects"
+  },
+  {
+    "id": "edge-candidate-agent",
+    "name": "edge-candidate-agent",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Generate and prioritize US equity long-side edge research tickets from EOD observations, then export pipeline-ready candidate specs for trade-strategy-pipeline Phase I. Use when users ask to turn hypotheses/anomalies into reproducible research tickets, convert validated ideas into `strategy.yaml` + `metadata.json`, or preflight-check interface compatibility (`edge-finder-candidate/v1`) before running pipeline backtests.",
+    "path": "category/cloudflare-edge/edge-candidate-agent"
+  },
+  {
+    "id": "edge-concept-synthesizer",
+    "name": "edge-concept-synthesizer",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Abstract detector tickets and hints into reusable edge concepts with thesis, invalidation signals, and strategy playbooks before strategy design/export.",
+    "path": "category/cloudflare-edge/edge-concept-synthesizer"
+  },
+  {
+    "id": "edge-hint-extractor",
+    "name": "edge-hint-extractor",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Extract edge hints from daily market observations and news reactions, with optional LLM ideation, and output canonical hints.yaml for downstream concept synthesis and auto detection.",
+    "path": "category/cloudflare-edge/edge-hint-extractor"
+  },
+  {
+    "id": "edge-pipeline-orchestrator",
+    "name": "edge-pipeline-orchestrator",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Orchestrate the full edge research pipeline from candidate detection through strategy design, review, revision, and export. Use when coordinating multi-stage edge research workflows end-to-end.",
+    "path": "category/cloudflare-edge/edge-pipeline-orchestrator"
+  },
+  {
+    "id": "edge-signal-aggregator",
+    "name": "edge-signal-aggregator",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Aggregate and rank signals from multiple edge-finding skills (edge-candidate-agent, theme-detector, sector-analyst, institutional-flow-tracker) into a prioritized conviction dashboard with weighted scoring, deduplication, and contradiction detection.",
+    "path": "category/cloudflare-edge/edge-signal-aggregator"
+  },
+  {
+    "id": "edge-strategy-designer",
+    "name": "edge-strategy-designer",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Convert abstract edge concepts into strategy draft variants and optional exportable ticket YAMLs for edge-candidate-agent export/validation.",
+    "path": "category/cloudflare-edge/edge-strategy-designer"
+  },
+  {
+    "id": "edge-strategy-reviewer",
+    "name": "edge-strategy-reviewer",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": ">",
+    "path": "category/cloudflare-edge/edge-strategy-reviewer"
+  },
+  {
+    "id": "edge-to-edge",
+    "name": "edge-to-edge",
+    "category": "cloudflare-edge",
+    "repository": "android-skills",
+    "description": "Use this skill to migrate your Jetpack Compose app to add adaptive edge-to-edge",
+    "path": "category/cloudflare-edge/edge-to-edge"
+  },
+  {
+    "id": "feishu-notify",
+    "name": "feishu-notify",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Send notifications to Feishu/Lark. Internal utility used by other skills, or manually via /feishu-notify. Supports push-only (webhook) and interactive (bidirectional) modes. Use when user says \\\\\\\"\\u53d1\\u98de\\u4e66\\\\\\\", \\\\\\\"notify feishu\\\\\\\", or other skills need to send status updates.\"",
+    "path": "category/cloudflare-edge/feishu-notify"
+  },
+  {
+    "id": "file-uploads",
+    "name": "file-uploads",
+    "category": "cloudflare-edge",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, multipart uploads, and image optimization. Knows how to handle large files without blocking. Use when: f...\"",
+    "path": "category/cloudflare-edge/file-uploads"
+  },
+  {
+    "id": "gateway-workers",
+    "name": "gateway-workers",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build, debug, or review Cloudflare Workers invoked by the Forward action in Gateway HTTP policies, including the GatewayMiddleware entrypoint, Gateway types, context, and continuation.",
+    "path": "category/cloudflare-edge/gateway-workers"
+  },
+  {
+    "id": "graphiti-guide",
+    "name": "graphiti-guide",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Build real-time knowledge graphs for AI agents using Graphiti by Zep\"",
+    "path": "category/cloudflare-edge/graphiti-guide"
+  },
+  {
+    "id": "hunt-cache-poison",
+    "name": "hunt-cache-poison",
+    "category": "cloudflare-edge",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Hunting skill for cache poison vulnerabilities. Built from 10 public bug bounty reports including X-Forwarded-Host poisoning, X-HTTP-Method-Override / GCS cache, reflected\u2192stored XSS via cache, classic Omer-Gil Web Cache Deception, Cloudflare Cache Deception Armor bypass, session-token cache deception, Akamai hop-by-hop smuggling \u2192 server-side edge poisoning, and Kettle's 2024 path-normalization WCD against Cloudflare/Fastly/GCP. Host/X-Forwarded-Host injection that reaches app logic (reset-link poisoning, routing SSRF, OAuth issuer) is owned by hunt-host-header; this skill owns the case where the poisoned response is CACHED and served to other users. Use when hunting cache poisoning, Web Cache Deception, CDN-fronted apps.",
+    "path": "category/cloudflare-edge/hunt-cache-poison"
+  },
+  {
+    "id": "ibd-distribution-day-monitor",
+    "name": "ibd-distribution-day-monitor",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Detect IBD-style Distribution Days for QQQ/SPY (close down at least 0.2% on higher volume), track 25-session expiration and 5% invalidation, count d5/d15/d25 clusters, classify market risk (NORMAL/CAUTION/HIGH/SEVERE), and emit TQQQ/QQQ exposure recommendations. Use after market close, before TQQQ exposure changes, or as input to FTD/market-state frameworks. Does not execute trades.",
+    "path": "category/cloudflare-edge/ibd-distribution-day-monitor"
+  },
+  {
+    "id": "inngest",
+    "name": "inngest",
+    "category": "cloudflare-edge",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Inngest expert for serverless-first background jobs, event-driven workflows, and durable execution without managing queues or workers. Use when: inngest, serverless background job, event-driven wor...\"",
+    "path": "category/cloudflare-edge/inngest"
+  },
+  {
+    "id": "k2",
+    "name": "k2",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build and troubleshoot Cloudflare K2 or K2 Streams durable logs. Use for stream setup, producing from Workers or HTTP, configuring retention and inputs, and consuming through subscriptions.",
+    "path": "category/cloudflare-edge/k2"
+  },
+  {
+    "id": "kaggle-learner",
+    "name": "kaggle-learner",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "This skill should be used when the user asks to \"learn from Kaggle\", \"study Kaggle solutions\", \"analyze Kaggle competitions\", or mentions Kaggle competition URLs. Provides access to extracted knowledge from winning Kaggle solutions across NLP, CV, time series, tabular, and multimodal domains.",
+    "path": "category/cloudflare-edge/kaggle-learner"
+  },
+  {
+    "id": "kb-article",
+    "name": "kb-article",
+    "category": "cloudflare-edge",
+    "repository": "anthropics-knowledge-work",
+    "description": "Draft a knowledge base article from a resolved issue or common question. Use when a ticket resolution is worth documenting for self-service, the same question keeps coming up, a workaround needs to be published, or a known issue should be communicated to customers.",
+    "path": "category/cloudflare-edge/kb-article"
+  },
+  {
+    "id": "khoj-research-guide",
+    "name": "khoj-research-guide",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"AI second brain for deep research and personal knowledge management\"",
+    "path": "category/cloudflare-edge/khoj-research-guide"
+  },
+  {
+    "id": "knowledge-catalog-discovery",
+    "name": "knowledge-catalog-discovery",
+    "category": "cloudflare-edge",
+    "repository": "cline-skills",
+    "description": "Use these skills when you need to discover and explore data assets in the Knowledge Catalog. It allows you to search for entries, lookup specific metadata, and explore aspect types to understand your data platform's assets.",
+    "path": "category/cloudflare-edge/knowledge-catalog-discovery"
+  },
+  {
+    "id": "knowledge-graph",
+    "name": "knowledge-graph",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"9 knowledge graphs skills. Trigger: building knowledge graphs, connecting concepts, ontology design. Design: graph construction, traversal, and visualization for research knowledge.\"",
+    "path": "category/cloudflare-edge/knowledge-graph"
+  },
+  {
+    "id": "knowledge-synthesis",
+    "name": "knowledge-synthesis",
+    "category": "cloudflare-edge",
+    "repository": "anthropics-knowledge-work",
+    "description": "Combines search results from multiple sources into coherent, deduplicated answers with source attribution. Handles confidence scoring based on freshness and authority, and summarizes large result sets effectively.",
+    "path": "category/cloudflare-edge/knowledge-synthesis"
+  },
+  {
+    "id": "medgeclaw-guide",
+    "name": "medgeclaw-guide",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"AI research assistant for biomedicine, RNA-seq, and drug discovery\"",
+    "path": "category/cloudflare-edge/medgeclaw-guide"
+  },
+  {
+    "id": "memory-management",
+    "name": "memory-management",
+    "category": "cloudflare-edge",
+    "repository": "anthropics-knowledge-work",
+    "description": "Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base.",
+    "path": "category/cloudflare-edge/memory-management"
+  },
+  {
+    "id": "nextjs-on-cloudflare",
+    "name": "nextjs-on-cloudflare",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build, migrate, and deploy Next.js apps on Cloudflare Workers with vinext. Use when starting a Next.js project on Cloudflare, moving an existing app to Workers, choosing between vinext and OpenNext, or setting up vinext for Workers. For setup, migration, or deployment, install vinext's upstream skills with `npx skills add cloudflare/vinext` if missing, then read and follow the applicable skill and docs.",
+    "path": "category/cloudflare-edge/nextjs-on-cloudflare"
+  },
+  {
+    "id": "npcpy-research-guide",
+    "name": "npcpy-research-guide",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"All-in-one Python library for NLP, agents, and knowledge graphs\"",
+    "path": "category/cloudflare-edge/npcpy-research-guide"
+  },
+  {
+    "id": "obsidian-link-graph",
+    "name": "obsidian-link-graph",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Use this skill when the user wants to repair or strengthen Obsidian wikilinks among existing canonical project notes, especially across papers, knowledge notes, experiments, results, and writing.",
+    "path": "category/cloudflare-edge/obsidian-link-graph"
+  },
+  {
+    "id": "obsidian-project-bootstrap",
+    "name": "obsidian-project-bootstrap",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "This skill should be used when the user asks to start a new research project, import an existing code-plus-Markdown repository into Obsidian, or bind the current repository to a compact research knowledge base for future syncing.",
+    "path": "category/cloudflare-edge/obsidian-project-bootstrap"
+  },
+  {
+    "id": "obsidian-project-lifecycle",
+    "name": "obsidian-project-lifecycle",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Use this skill when the user wants to detach, archive, purge, or otherwise change the lifecycle state of an Obsidian project knowledge base.",
+    "path": "category/cloudflare-edge/obsidian-project-lifecycle"
+  },
+  {
+    "id": "obsidian-project-memory",
+    "name": "obsidian-project-memory",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "This skill should be used when the user asks to maintain an Obsidian knowledge base for a research project, import an existing research repository into Obsidian, keep project memory or daily notes synchronized, summarize project context into durable notes, or update experiments, results, papers, writing, and plans in an Obsidian vault without requiring MCP.",
+    "path": "category/cloudflare-edge/obsidian-project-memory"
+  },
+  {
+    "id": "obsidian-wiki",
+    "name": "obsidian-wiki",
+    "category": "cloudflare-edge",
+    "repository": "ar9av-obsidian-wiki",
+    "description": "Ingests AI conversation and session history from tools like Claude Code and Codex CLI into Obsidian as distilled knowledge.",
+    "path": "category/cloudflare-edge/obsidian-wiki"
+  },
+  {
+    "id": "obsidian-zotero-guide",
+    "name": "obsidian-zotero-guide",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Insert citations and notes from Zotero into Obsidian knowledge bases\"",
+    "path": "category/cloudflare-edge/obsidian-zotero-guide"
+  },
+  {
+    "id": "ontology-design-guide",
+    "name": "ontology-design-guide",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Design ontologies and knowledge graphs for research data modeling\"",
+    "path": "category/cloudflare-edge/ontology-design-guide"
+  },
+  {
+    "id": "openspg-guide",
+    "name": "openspg-guide",
+    "category": "cloudflare-edge",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\"Ant Group knowledge graph engine with SPG and KAG framework\"",
+    "path": "category/cloudflare-edge/openspg-guide"
+  },
+  {
+    "id": "process-doc",
+    "name": "process-doc",
+    "category": "cloudflare-edge",
+    "repository": "anthropics-knowledge-work",
+    "description": "Document a business process \u2014 flowcharts, RACI, and SOPs. Use when formalizing a process that lives in someone's head, building a RACI to clarify who owns what, writing an SOP for a handoff or audit, or capturing the exceptions and edge cases of how work actually gets done.",
+    "path": "category/cloudflare-edge/process-doc"
+  },
+  {
+    "id": "react-flow-architect",
+    "name": "react-flow-architect",
+    "category": "cloudflare-edge",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Expert ReactFlow architect for building interactive graph applications with hierarchical node-edge systems, performance optimization, and auto-layout integration. Use when Claude needs to create or...\"",
+    "path": "category/cloudflare-edge/react-flow-architect"
+  },
+  {
+    "id": "reconciliation",
+    "name": "reconciliation",
+    "category": "cloudflare-edge",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items.",
+    "path": "category/cloudflare-edge/reconciliation"
+  },
+  {
+    "id": "remember",
+    "name": "remember",
+    "category": "cloudflare-edge",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"Explicitly save important knowledge to auto-memory with timestamp and context. Use when the user says 'remember this', asks you to capture a lesson so you stop repeating a mistake across sessions, or when a discovery is too important to rely on auto-capture.\"",
+    "path": "category/cloudflare-edge/remember"
+  },
+  {
+    "id": "residual-edge-analyzer",
+    "name": "residual-edge-analyzer",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Separate a strategy return series into declared baseline exposure and residual edge with returns-based OLS attribution, HAC inference, rolling stability, alternate-baseline sensitivity, and regime breakdowns. Use when evaluating whether backtest, out-of-sample, or live returns contain independent alpha beyond market, equal-weight, momentum, sector, or user-supplied factor returns; when explaining whether a drawdown came from baseline exposure or strategy-specific behavior; or when a strategy needs an attribution quality gate after backtesting. Do not use for holdings-based Brinson attribution, feature-level Shapley explanations, or analysis from summary metrics without a dated return series.",
+    "path": "category/cloudflare-edge/residual-edge-analyzer"
+  },
+  {
+    "id": "retrieving-developer-knowledge",
+    "name": "retrieving-developer-knowledge",
+    "category": "cloudflare-edge",
+    "repository": "google-skills",
+    "description": ">-",
+    "path": "category/cloudflare-edge/retrieving-developer-knowledge"
+  },
+  {
+    "id": "sandbox-migrate-to-next",
+    "name": "sandbox-migrate-to-next",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Migrate Cloudflare Sandbox apps from stable @cloudflare/sandbox to @cloudflare/sandbox@next (SDK 1.0 preview). Use sandbox-next for apps already on the preview.",
+    "path": "category/cloudflare-edge/sandbox-migrate-to-next"
+  },
+  {
+    "id": "sandbox-next",
+    "name": "sandbox-next",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build or maintain Cloudflare Sandbox apps on @cloudflare/sandbox@next (SDK 1.0 preview). Use sandbox-migrate-to-next when porting a stable app.",
+    "path": "category/cloudflare-edge/sandbox-next"
+  },
+  {
+    "id": "sandbox-stable",
+    "name": "sandbox-stable",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Build or maintain Cloudflare Sandbox apps on the stable @cloudflare/sandbox package. Use sandbox-next for preview apps and sandbox-migrate-to-next for stable-to-preview migrations.",
+    "path": "category/cloudflare-edge/sandbox-stable"
+  },
+  {
+    "id": "self-improving-agent",
+    "name": "self-improving-agent",
+    "category": "cloudflare-edge",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "\"Curate the agent's own memory into durable project knowledge. Reviews Claude Code auto-memory (MEMORY.md and its topic files) for learnings worth keeping, promotes proven ones into CLAUDE.md or .claude/rules/, records a correction as a lesson that persists across sessions, prunes stale or duplicate entries, and turns a recurring fix into a reusable skill. Use whenever the user asks what you have learned or saved about the project, which memories should become permanent rules, to remember a lesson or stop repeating a mistake, or to clean up, audit or check the health of memory.\"",
+    "path": "category/cloudflare-edge/self-improving-agent"
+  },
+  {
+    "id": "signal-postmortem",
+    "name": "signal-postmortem",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Record and analyze post-trade outcomes for signals generated by edge pipeline and other skills. Track false positives, missed opportunities, and regime mismatches. Feed results back to edge-signal-aggregator weights and skill improvement backlog.",
+    "path": "category/cloudflare-edge/signal-postmortem"
+  },
+  {
+    "id": "soak-test",
+    "name": "soak-test",
+    "category": "cloudflare-edge",
+    "repository": "donchitos-claude-code-game-studios",
+    "description": "\"Soak test protocol for extended play \u2014 what to observe and log for slow leaks, fatigue, late-appearing edge cases.\"",
+    "path": "category/cloudflare-edge/soak-test"
+  },
+  {
+    "id": "spreadsheet-formula-helper",
+    "name": "spreadsheet-formula-helper",
+    "category": "cloudflare-edge",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "Write and debug spreadsheet formulas (Excel/Google Sheets), pivot tables, and array formulas; translate between dialects; use when users need working formulas with examples and edge-case checks.",
+    "path": "category/cloudflare-edge/spreadsheet-formula-helper"
+  },
+  {
+    "id": "stockbee-20pct-study",
+    "name": "stockbee-20pct-study",
+    "category": "cloudflare-edge",
+    "repository": "tradermonty-claude-trading-skills",
+    "description": "Build and maintain a Stockbee-style daily 20% mover study for US equities by scanning +20%/-20% movers, classifying catalysts and setup context, updating forward outcomes, and summarizing cohort patterns. Use when the user asks to run a daily 20% study, backfill historical 20% movers, find recurring edge patterns, or build a model book of explosive market moves.",
+    "path": "category/cloudflare-edge/stockbee-20pct-study"
+  },
+  {
+    "id": "swarm",
+    "name": "swarm",
+    "category": "cloudflare-edge",
+    "repository": "backnotprop-pstack",
+    "description": "\"Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration.\"",
+    "path": "category/cloudflare-edge/swarm"
+  },
+  {
+    "id": "tdd-workflows-tdd-red",
+    "name": "tdd-workflows-tdd-red",
+    "category": "cloudflare-edge",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Generate failing tests for the TDD red phase to define expected behavior and edge cases.\"",
+    "path": "category/cloudflare-edge/tdd-workflows-tdd-red"
+  },
+  {
+    "id": "to-tickets",
+    "name": "to-tickets",
+    "category": "cloudflare-edge",
+    "repository": "mattpocock-skills",
+    "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).",
+    "path": "category/cloudflare-edge/to-tickets"
+  },
+  {
+    "id": "turnstile-spin",
+    "name": "turnstile-spin",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Set up, repair, or migrate to Cloudflare Turnstile bot verification in an existing frontend and backend, including server-side Siteverify.",
+    "path": "category/cloudflare-edge/turnstile-spin"
+  },
+  {
+    "id": "typing-exclusion-worker",
+    "name": "typing-exclusion-worker",
+    "category": "cloudflare-edge",
+    "repository": "getsentry-skills",
+    "description": "\"Python typing exclusion worker: remove assigned mypy exclusion modules in small scoped batches, fix typing issues, run validation, and produce a structured completion summary. Use when running parallel typing-debt workers or when asked to remove modules from pyproject mypy exclusion overrides.\"",
+    "path": "category/cloudflare-edge/typing-exclusion-worker"
+  },
+  {
+    "id": "understand-chat",
+    "name": "understand-chat",
+    "category": "cloudflare-edge",
+    "repository": "egonex-ai-understand-anything",
+    "description": "Use when you need to ask questions about a codebase or understand code using a knowledge graph",
+    "path": "category/cloudflare-edge/understand-chat"
+  },
+  {
+    "id": "understand-dashboard",
+    "name": "understand-dashboard",
+    "category": "cloudflare-edge",
+    "repository": "egonex-ai-understand-anything",
+    "description": "Launch the interactive web dashboard to visualize a codebase's knowledge graph",
+    "path": "category/cloudflare-edge/understand-dashboard"
+  },
+  {
+    "id": "understand-domain",
+    "name": "understand-domain",
+    "category": "cloudflare-edge",
+    "repository": "egonex-ai-understand-anything",
+    "description": "Extract business domain knowledge from a codebase and generate an interactive domain flow graph. Works standalone (lightweight scan) or derives from an existing /understand knowledge graph.",
+    "path": "category/cloudflare-edge/understand-domain"
+  },
+  {
+    "id": "unit-testing-test-generate",
+    "name": "unit-testing-test-generate",
+    "category": "cloudflare-edge",
+    "repository": "antigravity-awesome-skills",
+    "description": "\"Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case focus.\"",
+    "path": "category/cloudflare-edge/unit-testing-test-generate"
+  },
+  {
+    "id": "web-perf",
+    "name": "web-perf",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Audit, diagnose, or optimize website loading and interaction performance, Core Web Vitals, and Lighthouse performance scores.",
+    "path": "category/cloudflare-edge/web-perf"
+  },
+  {
+    "id": "wiki",
+    "name": "wiki",
+    "category": "cloudflare-edge",
+    "repository": "agricidaniel-claude-obsidian",
+    "description": "\"Initialize, adopt, and route work for a separate Obsidian knowledge vault through the portable claude-obsidian core. Use for vault setup, scaffolding, workspace selection, cross-project configuration, or choosing the correct wiki sub-skill. Triggers: /wiki, set up wiki, scaffold vault, create knowledge base, adopt this vault, Obsidian vault, second brain setup, persistent wiki.\"",
+    "path": "category/cloudflare-edge/wiki"
+  },
+  {
+    "id": "wiki-mode",
+    "name": "wiki-mode",
+    "category": "cloudflare-edge",
+    "repository": "agricidaniel-claude-obsidian",
+    "description": "\"Read or configure the vault filing methodology and suggest destinations for planned knowledge creation under Generic, LYT, PARA, or Zettelkasten. Use for wiki mode, methodology mode, what is my vault mode, set vault mode, switch to PARA, use LYT, Zettelkasten setup, change mode, configure mode, or methodology routing. This skill does not save content or migrate notes.\"",
+    "path": "category/cloudflare-edge/wiki-mode"
+  },
+  {
+    "id": "wiki-query",
+    "name": "wiki-query",
+    "category": "cloudflare-edge",
+    "repository": "agricidaniel-claude-obsidian",
+    "description": "\"Answer an explicitly vault-scoped question from an Obsidian wiki without changing it. Use when the user selects the vault as the evidence source: query the wiki, query quick, query deep, explain from the wiki, summarize the vault, find in wiki, search the wiki, or based on the wiki. Do not route ordinary general-knowledge questions here.\"",
+    "path": "category/cloudflare-edge/wiki-query"
+  },
+  {
+    "id": "workday-automation",
+    "name": "workday-automation",
+    "category": "cloudflare-edge",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "\"Automate HR operations in Workday -- manage workers, time off requests, absence balances, and employee data through natural language commands.\"",
+    "path": "category/cloudflare-edge/workday-automation"
+  },
+  {
+    "id": "workers-best-practices",
+    "name": "workers-best-practices",
+    "category": "cloudflare-edge",
+    "repository": "active",
+    "description": "Cloudflare Workers best practices for production applications. Use when writing, reviewing, or configuring Workers.",
+    "path": "category/cloudflare-edge/workers-best-practices"
+  },
+  {
+    "id": "workers-profiling",
+    "name": "workers-profiling",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Profile or debug CPU usage and memory allocation in deployed Cloudflare Workers and Durable Objects. Then use this information to optimize your code.",
+    "path": "category/cloudflare-edge/workers-profiling"
+  },
+  {
+    "id": "wrangler",
+    "name": "wrangler",
+    "category": "cloudflare-edge",
+    "repository": "cloudflare-skills",
+    "description": "Run or troubleshoot Wrangler CLI commands in projects that have a wrangler.jsonc, wrangler.json, or wrangler.toml file, including local development, Previews, deployment, and resource management. For new projects and projects without a Wrangler configuration file, use the cf CLI instead.",
+    "path": "category/cloudflare-edge/wrangler"
+  }
+]

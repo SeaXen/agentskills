@@ -3,7 +3,6 @@ name: nasdaq-automation
 description: "Automate Nasdaq tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Nasdaq Automation via Rube MCP

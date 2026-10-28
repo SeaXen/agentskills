@@ -3,7 +3,6 @@ name: finerworks-automation
 description: "Automate Finerworks tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Finerworks Automation via Rube MCP

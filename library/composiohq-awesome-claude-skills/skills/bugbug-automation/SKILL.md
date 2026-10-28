@@ -3,7 +3,6 @@ name: bugbug-automation
 description: "Automate Bugbug tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Bugbug Automation via Rube MCP

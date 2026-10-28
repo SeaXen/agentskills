@@ -3,7 +3,6 @@ name: humanize
 description: AI가 쓴 한글 텍스트를 자연스럽게 윤문하는 진입 명령. humanize-korean 파이프라인을 shim 의 route_hint 가 정한 경로(light 1콜 · standard 2콜 · heavy 3+콜)로 실행하고 `--strict`면 heavy 고정. 트리거 — "/humanize".
 argument-hint: "[윤문할 텍스트 또는 파일 경로]"
 disable-model-invocation: true
-category: business-strategy-legal
 ---
 
 # /humanize — 한글 AI 티 제거

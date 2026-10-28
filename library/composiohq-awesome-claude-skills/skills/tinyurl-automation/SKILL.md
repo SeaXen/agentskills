@@ -3,7 +3,6 @@ name: tinyurl-automation
 description: "Automate Tinyurl tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Tinyurl Automation via Rube MCP

@@ -1,7 +1,6 @@
 ---
 name: threejs-geometry
 description: "Creating and shaping three.js geometry: built-in shapes, 3D text, vertex buffers and attributes, merging, instancing, batching, point clouds and lines, on WebGL or with WebGPU and TSL. Use when building 3D shapes or text, custom vertex data, custom meshes, instanced meshes, or point clouds."
-category: 3d-web-threejs
 ---
 
 # Three.js Geometry

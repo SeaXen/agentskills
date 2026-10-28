@@ -3,7 +3,6 @@ name: fillout_forms-automation
 description: "Automate Fillout tasks via Rube MCP (Composio): forms, submissions, workflows, and form builder. Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Fillout Automation via Rube MCP

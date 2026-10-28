@@ -3,7 +3,6 @@ name: eodhd-apis-automation
 description: "Automate Eodhd Apis tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # Eodhd Apis Automation via Rube MCP

@@ -1,7 +1,6 @@
 ---
 name: sidebar-prioritizer
 description: Reset and prioritize the Codex task sidebar with work categories, P0–P4 priorities, and B7 labels for tasks inactive beyond seven days. Use for sidebar cleanup, confusing task lists, or refreshing follow-up priorities.
-category: code-quality-refactoring
 ---
 
 # Sidebar Prioritizer

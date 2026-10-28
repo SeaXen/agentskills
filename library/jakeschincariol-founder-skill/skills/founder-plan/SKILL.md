@@ -10,7 +10,6 @@ description: >-
   when the user says "write my business plan", "put it all together", "is it
   profitable", "give me the plan", or at the end of the founder pack.
 argument-hint: "[--min-buy-rate 0.25]"
-category: code-quality-refactoring
 ---
 
 # founder-plan

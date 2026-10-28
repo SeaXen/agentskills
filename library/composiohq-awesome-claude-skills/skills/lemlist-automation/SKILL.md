@@ -4,7 +4,6 @@ description: "Automate Lemlist multichannel outreach -- manage campaigns, enroll
 requires:
   mcp:
     - rube
-category: business-sales-crm
 ---
 
 # Lemlist Automation

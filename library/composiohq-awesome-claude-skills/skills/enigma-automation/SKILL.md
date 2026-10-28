@@ -3,7 +3,6 @@ name: enigma-automation
 description: "Automate Enigma tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Enigma Automation via Rube MCP

@@ -3,7 +3,6 @@ name: fullenrich-automation
 description: "Automate Fullenrich tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Fullenrich Automation via Rube MCP

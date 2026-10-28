@@ -3,7 +3,6 @@ name: aero-workflow-automation
 description: "Automate Aero Workflow tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Aero Workflow Automation via Rube MCP

@@ -3,7 +3,6 @@ name: feathery-automation
 description: "Automate Feathery tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Feathery Automation via Rube MCP

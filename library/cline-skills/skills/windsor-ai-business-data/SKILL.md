@@ -2,7 +2,6 @@
 name: windsor-ai-business-data
 description: Query Windsor.ai business data across marketing, sales, CRM, ecommerce, finance, and analytics connectors. Use when users need dashboards, reports, data visualization, schema exploration, or connector-backed test data from Windsor.ai.
 disable-model-invocation: false
-category: business-sales-crm
 ---
 
 # Windsor.ai Business Data Skill

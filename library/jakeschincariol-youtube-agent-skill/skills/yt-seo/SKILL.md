@@ -4,7 +4,6 @@ description: >-
   Write the description, tags and search-facing text for a YouTube video,
   aimed at the query a real person types. Use for "write my description",
   "tags", "SEO", "help this video get found", "nobody is finding this".
-category: code-quality-refactoring
 ---
 
 # yt-seo

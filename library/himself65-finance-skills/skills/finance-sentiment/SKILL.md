@@ -8,7 +8,6 @@ description: >
   Polymarket bets a company has, whether Reddit, X, and news agree, or wants to
   compare stock buzz and sentiment across tickers. Read-only: it never places trades
   or modifies anything.
-category: business-finance-accounting
 ---
 
 # Finance Sentiment Skill

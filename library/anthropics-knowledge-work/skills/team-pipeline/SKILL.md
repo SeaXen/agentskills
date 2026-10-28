@@ -1,7 +1,6 @@
 ---
 name: team-pipeline
 description: Leader view - roll up a team's pipeline by rep and stage, flag at-risk deals, and surface coaching moments. Use when the user asks "show my team's pipeline", "team forecast", "prep for my team's pipeline review", or "where does my team need help".
-category: business-sales-crm
 ---
 
 # Team Pipeline

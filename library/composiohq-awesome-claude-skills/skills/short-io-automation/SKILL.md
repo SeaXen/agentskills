@@ -3,7 +3,6 @@ name: short-io-automation
 description: "Automate Short IO tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Short IO Automation via Rube MCP

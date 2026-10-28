@@ -1,7 +1,6 @@
 ---
 name: swift-concurrency-expert
 description: Swift Concurrency review and remediation for Swift 6.2+. Use when asked to review Swift Concurrency usage, improve concurrency compliance, or fix Swift concurrency compiler errors in a feature or file. Concrete actions include adding Sendable conformance, applying @MainActor annotations, resolving actor isolation warnings, fixing data race diagnostics, and migrating completion handlers to async/await.
-category: security-compliance-auth
 ---
 
 # Swift Concurrency Expert

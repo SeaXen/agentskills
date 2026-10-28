@@ -10,7 +10,6 @@ description: >-
   "expert score", "evaluate this copy/strategy/page", or when another skill
   needs a quality gate on its output. Also triggers on: "score this landing page",
   "expert panel these email variants", "rate this headline", "panel these charts".
-category: code-quality-refactoring
 ---
 
 

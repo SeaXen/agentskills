@@ -10,7 +10,6 @@ description: >-
   else is out there", "competitor analysis", "find the gap", or "who am I up
   against".
 argument-hint: "[city or market]"
-category: code-quality-refactoring
 ---
 
 # founder-competitors

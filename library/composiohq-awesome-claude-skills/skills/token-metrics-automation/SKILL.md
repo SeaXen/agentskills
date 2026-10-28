@@ -3,7 +3,6 @@ name: token-metrics-automation
 description: "Automate Token Metrics tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: prompt-llm-engineering
 ---
 
 # Token Metrics Automation via Rube MCP

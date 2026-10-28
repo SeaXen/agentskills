@@ -3,7 +3,6 @@ name: appcircle-automation
 description: "Automate Appcircle tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Appcircle Automation via Rube MCP

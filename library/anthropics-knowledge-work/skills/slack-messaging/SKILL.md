@@ -1,7 +1,6 @@
 ---
 name: slack-messaging
 description: Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax
-category: productivity-workspace-tools
 ---
 
 # Slack Messaging Best Practices

@@ -3,7 +3,6 @@ name: textrazor-automation
 description: "Automate Textrazor tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Textrazor Automation via Rube MCP

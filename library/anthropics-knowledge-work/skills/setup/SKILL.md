@@ -1,7 +1,6 @@
 ---
 name: setup
 description: First-run setup - checks which tools are connected, shows what's connected and what each one unlocks, learns how you write from your sent email, and renders a starter dashboard right away with no upfront interview. When tools are missing it walks through connecting the CRM, then email, then calendar, showing something useful after each. Use on first open, or when the user says "set me up", "get started", "what's connected", "learn my voice", "match my writing style", or "onboard me".
-category: business-strategy-legal
 ---
 
 # Setup

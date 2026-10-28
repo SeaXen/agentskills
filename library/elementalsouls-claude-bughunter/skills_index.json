@@ -1,12 +1,842 @@
 [
   {
+    "id": "apk-redteam-pipeline",
+    "name": "apk-redteam-pipeline",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/apk-redteam-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate apk-redteam-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link apk-redteam-pipeline"
+  },
+  {
+    "id": "bb-local-toolkit",
+    "name": "bb-local-toolkit",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/bb-local-toolkit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bb-local-toolkit",
+    "link_cmd": "python .agents/library/activate_skill.py link bb-local-toolkit"
+  },
+  {
+    "id": "bb-methodology",
+    "name": "bb-methodology",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/bb-methodology",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bb-methodology",
+    "link_cmd": "python .agents/library/activate_skill.py link bb-methodology"
+  },
+  {
+    "id": "bug-bounty",
+    "name": "bug-bounty",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/bug-bounty",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bug-bounty",
+    "link_cmd": "python .agents/library/activate_skill.py link bug-bounty"
+  },
+  {
+    "id": "bugcrowd-reporting",
+    "name": "bugcrowd-reporting",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/bugcrowd-reporting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bugcrowd-reporting",
+    "link_cmd": "python .agents/library/activate_skill.py link bugcrowd-reporting"
+  },
+  {
     "id": "claude-bughunter",
     "name": "claude-bughunter",
     "repository": "elementalsouls-claude-bughunter",
-    "category": "frontend",
-    "description": "An Android red-team pipeline that automates APK acquisition, jadx decompilation, secret grepping, and Frida instrumentation.",
+    "category": "general",
+    "description": "",
     "path": "library/elementalsouls-claude-bughunter/skills/claude-bughunter",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-bughunter",
     "link_cmd": "python .agents/library/activate_skill.py link claude-bughunter"
+  },
+  {
+    "id": "cloud-iam-deep",
+    "name": "cloud-iam-deep",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/cloud-iam-deep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cloud-iam-deep",
+    "link_cmd": "python .agents/library/activate_skill.py link cloud-iam-deep"
+  },
+  {
+    "id": "enterprise-vpn-attack",
+    "name": "enterprise-vpn-attack",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/enterprise-vpn-attack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate enterprise-vpn-attack",
+    "link_cmd": "python .agents/library/activate_skill.py link enterprise-vpn-attack"
+  },
+  {
+    "id": "evidence-hygiene",
+    "name": "evidence-hygiene",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/evidence-hygiene",
+    "activation_cmd": "python .agents/library/activate_skill.py activate evidence-hygiene",
+    "link_cmd": "python .agents/library/activate_skill.py link evidence-hygiene"
+  },
+  {
+    "id": "hunt-api-misconfig",
+    "name": "hunt-api-misconfig",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-api-misconfig",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-api-misconfig",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-api-misconfig"
+  },
+  {
+    "id": "hunt-aspnet",
+    "name": "hunt-aspnet",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-aspnet",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-aspnet",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-aspnet"
+  },
+  {
+    "id": "hunt-ato",
+    "name": "hunt-ato",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-ato",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ato",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-ato"
+  },
+  {
+    "id": "hunt-auth-bypass",
+    "name": "hunt-auth-bypass",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-auth-bypass",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-auth-bypass",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-auth-bypass"
+  },
+  {
+    "id": "hunt-brute-force",
+    "name": "hunt-brute-force",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-brute-force",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-brute-force",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-brute-force"
+  },
+  {
+    "id": "hunt-business-logic",
+    "name": "hunt-business-logic",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-business-logic",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-business-logic",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-business-logic"
+  },
+  {
+    "id": "hunt-cache-poison",
+    "name": "hunt-cache-poison",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-cache-poison",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cache-poison",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-cache-poison"
+  },
+  {
+    "id": "hunt-captcha-bypass",
+    "name": "hunt-captcha-bypass",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-captcha-bypass",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-captcha-bypass",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-captcha-bypass"
+  },
+  {
+    "id": "hunt-cicd",
+    "name": "hunt-cicd",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-cicd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cicd",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-cicd"
+  },
+  {
+    "id": "hunt-clickjacking",
+    "name": "hunt-clickjacking",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-clickjacking",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-clickjacking",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-clickjacking"
+  },
+  {
+    "id": "hunt-cloud-misconfig",
+    "name": "hunt-cloud-misconfig",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-cloud-misconfig",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cloud-misconfig",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-cloud-misconfig"
+  },
+  {
+    "id": "hunt-cors",
+    "name": "hunt-cors",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-cors",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cors",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-cors"
+  },
+  {
+    "id": "hunt-csrf",
+    "name": "hunt-csrf",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-csrf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-csrf",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-csrf"
+  },
+  {
+    "id": "hunt-deserialization",
+    "name": "hunt-deserialization",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-deserialization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-deserialization",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-deserialization"
+  },
+  {
+    "id": "hunt-dispatch",
+    "name": "hunt-dispatch",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-dispatch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-dispatch",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-dispatch"
+  },
+  {
+    "id": "hunt-dom",
+    "name": "hunt-dom",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-dom",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-dom",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-dom"
+  },
+  {
+    "id": "hunt-exceptional-conditions",
+    "name": "hunt-exceptional-conditions",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-exceptional-conditions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-exceptional-conditions",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-exceptional-conditions"
+  },
+  {
+    "id": "hunt-file-upload",
+    "name": "hunt-file-upload",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-file-upload",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-file-upload",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-file-upload"
+  },
+  {
+    "id": "hunt-fintech-graphql",
+    "name": "hunt-fintech-graphql",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-fintech-graphql",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-fintech-graphql",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-fintech-graphql"
+  },
+  {
+    "id": "hunt-forgot-password",
+    "name": "hunt-forgot-password",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-forgot-password",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-forgot-password",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-forgot-password"
+  },
+  {
+    "id": "hunt-graphql",
+    "name": "hunt-graphql",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-graphql",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-graphql",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-graphql"
+  },
+  {
+    "id": "hunt-grpc",
+    "name": "hunt-grpc",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-grpc",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-grpc",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-grpc"
+  },
+  {
+    "id": "hunt-host-header",
+    "name": "hunt-host-header",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-host-header",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-host-header",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-host-header"
+  },
+  {
+    "id": "hunt-html-injection",
+    "name": "hunt-html-injection",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-html-injection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-html-injection",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-html-injection"
+  },
+  {
+    "id": "hunt-http-smuggling",
+    "name": "hunt-http-smuggling",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-http-smuggling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-http-smuggling",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-http-smuggling"
+  },
+  {
+    "id": "hunt-idor",
+    "name": "hunt-idor",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-idor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-idor",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-idor"
+  },
+  {
+    "id": "hunt-jwt-crypto",
+    "name": "hunt-jwt-crypto",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-jwt-crypto",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-jwt-crypto",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-jwt-crypto"
+  },
+  {
+    "id": "hunt-k8s",
+    "name": "hunt-k8s",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-k8s",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-k8s",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-k8s"
+  },
+  {
+    "id": "hunt-laravel",
+    "name": "hunt-laravel",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-laravel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-laravel",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-laravel"
+  },
+  {
+    "id": "hunt-ldap",
+    "name": "hunt-ldap",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-ldap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ldap",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-ldap"
+  },
+  {
+    "id": "hunt-lfi",
+    "name": "hunt-lfi",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-lfi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-lfi",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-lfi"
+  },
+  {
+    "id": "hunt-llm-ai",
+    "name": "hunt-llm-ai",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-llm-ai",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-llm-ai",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-llm-ai"
+  },
+  {
+    "id": "hunt-mfa-bypass",
+    "name": "hunt-mfa-bypass",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-mfa-bypass",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-mfa-bypass",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-mfa-bypass"
+  },
+  {
+    "id": "hunt-misc",
+    "name": "hunt-misc",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-misc",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-misc",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-misc"
+  },
+  {
+    "id": "hunt-nextjs",
+    "name": "hunt-nextjs",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-nextjs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-nextjs",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-nextjs"
+  },
+  {
+    "id": "hunt-nodejs",
+    "name": "hunt-nodejs",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-nodejs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-nodejs",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-nodejs"
+  },
+  {
+    "id": "hunt-nosqli",
+    "name": "hunt-nosqli",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-nosqli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-nosqli",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-nosqli"
+  },
+  {
+    "id": "hunt-ntlm-info",
+    "name": "hunt-ntlm-info",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-ntlm-info",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ntlm-info",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-ntlm-info"
+  },
+  {
+    "id": "hunt-oauth",
+    "name": "hunt-oauth",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-oauth",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-oauth",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-oauth"
+  },
+  {
+    "id": "hunt-open-redirect",
+    "name": "hunt-open-redirect",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-open-redirect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-open-redirect",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-open-redirect"
+  },
+  {
+    "id": "hunt-race-condition",
+    "name": "hunt-race-condition",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-race-condition",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-race-condition",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-race-condition"
+  },
+  {
+    "id": "hunt-rag-vector",
+    "name": "hunt-rag-vector",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-rag-vector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-rag-vector",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-rag-vector"
+  },
+  {
+    "id": "hunt-rce",
+    "name": "hunt-rce",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-rce",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-rce",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-rce"
+  },
+  {
+    "id": "hunt-saml",
+    "name": "hunt-saml",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-saml",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-saml",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-saml"
+  },
+  {
+    "id": "hunt-session",
+    "name": "hunt-session",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-session",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-session",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-session"
+  },
+  {
+    "id": "hunt-shadow-api",
+    "name": "hunt-shadow-api",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-shadow-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-shadow-api",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-shadow-api"
+  },
+  {
+    "id": "hunt-sharepoint",
+    "name": "hunt-sharepoint",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-sharepoint",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-sharepoint",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-sharepoint"
+  },
+  {
+    "id": "hunt-source-leak",
+    "name": "hunt-source-leak",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-source-leak",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-source-leak",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-source-leak"
+  },
+  {
+    "id": "hunt-spa-api",
+    "name": "hunt-spa-api",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-spa-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-spa-api",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-spa-api"
+  },
+  {
+    "id": "hunt-springboot",
+    "name": "hunt-springboot",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-springboot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-springboot",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-springboot"
+  },
+  {
+    "id": "hunt-sqli",
+    "name": "hunt-sqli",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-sqli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-sqli",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-sqli"
+  },
+  {
+    "id": "hunt-ssrf",
+    "name": "hunt-ssrf",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-ssrf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ssrf",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-ssrf"
+  },
+  {
+    "id": "hunt-ssti",
+    "name": "hunt-ssti",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-ssti",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ssti",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-ssti"
+  },
+  {
+    "id": "hunt-subdomain",
+    "name": "hunt-subdomain",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-subdomain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-subdomain",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-subdomain"
+  },
+  {
+    "id": "hunt-tls-network",
+    "name": "hunt-tls-network",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-tls-network",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-tls-network",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-tls-network"
+  },
+  {
+    "id": "hunt-websocket",
+    "name": "hunt-websocket",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-websocket",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-websocket",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-websocket"
+  },
+  {
+    "id": "hunt-xss",
+    "name": "hunt-xss",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-xss",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-xss",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-xss"
+  },
+  {
+    "id": "hunt-xxe",
+    "name": "hunt-xxe",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/hunt-xxe",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hunt-xxe",
+    "link_cmd": "python .agents/library/activate_skill.py link hunt-xxe"
+  },
+  {
+    "id": "ios-redteam-pipeline",
+    "name": "ios-redteam-pipeline",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/ios-redteam-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ios-redteam-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link ios-redteam-pipeline"
+  },
+  {
+    "id": "m365-entra-attack",
+    "name": "m365-entra-attack",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/m365-entra-attack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate m365-entra-attack",
+    "link_cmd": "python .agents/library/activate_skill.py link m365-entra-attack"
+  },
+  {
+    "id": "meme-coin-audit",
+    "name": "meme-coin-audit",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/meme-coin-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate meme-coin-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link meme-coin-audit"
+  },
+  {
+    "id": "mid-engagement-ir-detection",
+    "name": "mid-engagement-ir-detection",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/mid-engagement-ir-detection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mid-engagement-ir-detection",
+    "link_cmd": "python .agents/library/activate_skill.py link mid-engagement-ir-detection"
+  },
+  {
+    "id": "offensive-osint",
+    "name": "offensive-osint",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/offensive-osint",
+    "activation_cmd": "python .agents/library/activate_skill.py activate offensive-osint",
+    "link_cmd": "python .agents/library/activate_skill.py link offensive-osint"
+  },
+  {
+    "id": "okta-attack",
+    "name": "okta-attack",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/okta-attack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate okta-attack",
+    "link_cmd": "python .agents/library/activate_skill.py link okta-attack"
+  },
+  {
+    "id": "osint-methodology",
+    "name": "osint-methodology",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/osint-methodology",
+    "activation_cmd": "python .agents/library/activate_skill.py activate osint-methodology",
+    "link_cmd": "python .agents/library/activate_skill.py link osint-methodology"
+  },
+  {
+    "id": "recon-scope-triage",
+    "name": "recon-scope-triage",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/recon-scope-triage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate recon-scope-triage",
+    "link_cmd": "python .agents/library/activate_skill.py link recon-scope-triage"
+  },
+  {
+    "id": "redteam-mindset",
+    "name": "redteam-mindset",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/redteam-mindset",
+    "activation_cmd": "python .agents/library/activate_skill.py activate redteam-mindset",
+    "link_cmd": "python .agents/library/activate_skill.py link redteam-mindset"
+  },
+  {
+    "id": "redteam-report-template",
+    "name": "redteam-report-template",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/redteam-report-template",
+    "activation_cmd": "python .agents/library/activate_skill.py activate redteam-report-template",
+    "link_cmd": "python .agents/library/activate_skill.py link redteam-report-template"
+  },
+  {
+    "id": "report-writing",
+    "name": "report-writing",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/report-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate report-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link report-writing"
+  },
+  {
+    "id": "security-arsenal",
+    "name": "security-arsenal",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/security-arsenal",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-arsenal",
+    "link_cmd": "python .agents/library/activate_skill.py link security-arsenal"
+  },
+  {
+    "id": "supply-chain-attack-recon",
+    "name": "supply-chain-attack-recon",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/supply-chain-attack-recon",
+    "activation_cmd": "python .agents/library/activate_skill.py activate supply-chain-attack-recon",
+    "link_cmd": "python .agents/library/activate_skill.py link supply-chain-attack-recon"
+  },
+  {
+    "id": "triage-validation",
+    "name": "triage-validation",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/triage-validation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage-validation",
+    "link_cmd": "python .agents/library/activate_skill.py link triage-validation"
+  },
+  {
+    "id": "vmware-vcenter-attack",
+    "name": "vmware-vcenter-attack",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/vmware-vcenter-attack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vmware-vcenter-attack",
+    "link_cmd": "python .agents/library/activate_skill.py link vmware-vcenter-attack"
+  },
+  {
+    "id": "web2-recon",
+    "name": "web2-recon",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/web2-recon",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web2-recon",
+    "link_cmd": "python .agents/library/activate_skill.py link web2-recon"
+  },
+  {
+    "id": "web3-audit",
+    "name": "web3-audit",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "",
+    "path": "library/elementalsouls-claude-bughunter/skills/web3-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web3-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link web3-audit"
   }
 ]

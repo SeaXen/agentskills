@@ -3,7 +3,6 @@ name: whautomate-automation
 description: "Automate Whautomate tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Whautomate Automation via Rube MCP

@@ -4,7 +4,6 @@ description: "Automate HR operations in Workday -- manage workers, time off requ
 requires:
   mcp:
     - rube
-category: cloudflare-edge
 ---
 
 # Workday Automation

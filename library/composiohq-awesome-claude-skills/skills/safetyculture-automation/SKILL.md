@@ -3,7 +3,6 @@ name: safetyculture-automation
 description: "Automate Safetyculture tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Safetyculture Automation via Rube MCP

@@ -5,7 +5,6 @@ description: >-
   what order, sized to the creator's actual capacity. Use for "plan my
   week", "content calendar", "what should I post", "I have no idea what to
   make next".
-category: code-quality-refactoring
 ---
 
 # yt-plan

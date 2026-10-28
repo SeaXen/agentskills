@@ -12,7 +12,6 @@ metadata:
     - deep-research
     - academic-paper
     - academic-paper-reviewer
-category: academic-writing-publishing
 ---
 
 # Academic Pipeline v3.24.0 — Full Academic Research Workflow Orchestrator

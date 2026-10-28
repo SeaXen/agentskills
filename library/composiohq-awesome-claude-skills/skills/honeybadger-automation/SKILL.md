@@ -3,7 +3,6 @@ name: honeybadger-automation
 description: "Automate Honeybadger tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Honeybadger Automation via Rube MCP

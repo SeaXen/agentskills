@@ -5,7 +5,6 @@ metadata:
   author: Anthony Fu
   version: "2026.9.25"
   source: Generated from https://github.com/vitejs/vite, scripts at https://github.com/antfu/skills
-category: backend-api-design
 ---
 
 # Vite

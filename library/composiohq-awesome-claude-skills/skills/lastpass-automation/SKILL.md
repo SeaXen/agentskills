@@ -3,7 +3,6 @@ name: lastpass-automation
 description: "Automate Lastpass tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Lastpass Automation via Rube MCP

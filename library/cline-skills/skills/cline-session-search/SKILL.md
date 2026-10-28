@@ -1,7 +1,6 @@
 ---
 name: cline-session-history
 description: Search and browse Cline session history. Use when the user asks to find, list, inspect, or export Cline sessions by time period, prompt content, status, model, provider, source, mode, workspace, or other criteria. Also use when the user wants to read a session transcript or export sessions to a directory. Trigger phrases include "find my session", "search my session history", "show me past sessions", "what was that session where", "find the session that started with", and any mention of past Cline conversations.
-category: prompt-llm-engineering
 ---
 
 # Cline Session History

@@ -3,7 +3,6 @@ name: minerstat-automation
 description: "Automate Minerstat tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Minerstat Automation via Rube MCP

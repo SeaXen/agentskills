@@ -3,7 +3,6 @@ name: crustdata-automation
 description: "Automate Crustdata tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: programming-languages-core
 ---
 
 # Crustdata Automation via Rube MCP

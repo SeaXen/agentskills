@@ -14,7 +14,6 @@ description: >
   RFP," "we've got 50 solicitations to filter," "what's due on the federal
   grant," or "help me write the proposal narrative."
 allowed-tools: Read, WebFetch
-category: academic-writing-publishing
 ---
 
 # Grant and RFP Writer

@@ -3,7 +3,6 @@ name: onepage-automation
 description: "Automate Onepage tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Onepage Automation via Rube MCP

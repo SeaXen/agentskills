@@ -3,7 +3,6 @@ name: draftable-automation
 description: "Automate Draftable tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Draftable Automation via Rube MCP

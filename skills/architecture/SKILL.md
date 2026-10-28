@@ -1,86 +1,58 @@
 ---
 name: architecture
-description: Create or evaluate an architecture decision record (ADR). Use when choosing between technologies (e.g., Kafka vs SQS), documenting a design decision with trade-offs and consequences, reviewing a system design proposal, or designing a new component from requirements and constraints.
-argument-hint: "<decision or system to design>"
+description: Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.
+when_to_use: "When making architectural decisions, evaluating trade-offs, writing ADRs, or analyzing system design. NOT for direct code implementation."
+allowed-tools: Read, Glob, Grep
+version: 1.0.0
 category: architecture-system-design
 ---
 
-# /architecture
+# Architecture Decision Framework
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../../CONNECTORS.md).
+> "Requirements drive architecture. Trade-offs inform decisions. ADRs capture rationale."
 
-Create an Architecture Decision Record (ADR) or evaluate a system design.
+## 🎯 Selective Reading Rule
 
-## Usage
+**Read ONLY files relevant to the request!** Check the content map, find what you need.
 
-```
-/architecture $ARGUMENTS
-```
+| File | Description | When to Read |
+|------|-------------|--------------|
+| `context-discovery.md` | Questions to ask, project classification | Starting architecture design |
+| `trade-off-analysis.md` | ADR templates, trade-off framework | Documenting decisions |
+| `pattern-selection.md` | Decision trees, anti-patterns | Choosing patterns |
+| `examples.md` | MVP, SaaS, Enterprise examples | Reference implementations |
+| `patterns-reference.md` | Quick lookup for patterns | Pattern comparison |
 
-## Modes
+---
 
-**Create an ADR**: "Should we use Kafka or SQS for our event bus?"
-**Evaluate a design**: "Review this microservices proposal"
-**System design**: "Design the notification system for our app"
+## 🔗 Related Skills
 
-See the **system-design** skill for detailed frameworks on requirements gathering, scalability analysis, and trade-off evaluation.
+| Skill | Use For |
+|-------|---------|
+| `@[skills/database-design]` | Database schema design |
+| `@[skills/api-patterns]` | API design patterns |
+| `@[skills/deployment-procedures]` | Deployment architecture |
 
-## Output — ADR Format
+---
 
-```markdown
-# ADR-[number]: [Title]
+## Core Principle
 
-**Status:** Proposed | Accepted | Deprecated | Superseded
-**Date:** [Date]
-**Deciders:** [Who needs to sign off]
+**"Simplicity is the ultimate sophistication."**
 
-## Context
-[What is the situation? What forces are at play?]
+- Start simple
+- Add complexity ONLY when proven necessary
+- You can always add patterns later
+- Removing complexity is MUCH harder than adding it
 
-## Decision
-[What is the change we're proposing?]
+---
 
-## Options Considered
+## Validation Checklist
 
-### Option A: [Name]
-| Dimension | Assessment |
-|-----------|------------|
-| Complexity | [Low/Med/High] |
-| Cost | [Assessment] |
-| Scalability | [Assessment] |
-| Team familiarity | [Assessment] |
+Before finalizing architecture:
 
-**Pros:** [List]
-**Cons:** [List]
-
-### Option B: [Name]
-[Same format]
-
-## Trade-off Analysis
-[Key trade-offs between options with clear reasoning]
-
-## Consequences
-- [What becomes easier]
-- [What becomes harder]
-- [What we'll need to revisit]
-
-## Action Items
-1. [ ] [Implementation step]
-2. [ ] [Follow-up]
-```
-
-## If Connectors Available
-
-If **~~knowledge base** is connected:
-- Search for prior ADRs and design docs
-- Find relevant technical context
-
-If **~~project tracker** is connected:
-- Link to related epics and tickets
-- Create implementation tasks
-
-## Tips
-
-1. **State constraints upfront** — "We need to ship in 2 weeks" or "Must handle 10K rps" shapes the answer.
-2. **Name your options** — Even if you're leaning one way, I'll give a more balanced analysis with explicit alternatives.
-3. **Include non-functional requirements** — Latency, cost, team expertise, and maintenance burden matter as much as features.
+- [ ] Requirements clearly understood
+- [ ] Constraints identified
+- [ ] Each decision has trade-off analysis
+- [ ] Simpler alternatives considered
+- [ ] ADRs written for significant decisions
+- [ ] Team expertise matches chosen patterns

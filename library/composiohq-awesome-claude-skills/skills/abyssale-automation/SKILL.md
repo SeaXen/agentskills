@@ -3,7 +3,6 @@ name: abyssale-automation
 description: "Automate Abyssale tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Abyssale Automation via Rube MCP

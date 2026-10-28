@@ -3,7 +3,6 @@ name: leadfeeder-automation
 description: "Automate Leadfeeder tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Leadfeeder Automation via Rube MCP

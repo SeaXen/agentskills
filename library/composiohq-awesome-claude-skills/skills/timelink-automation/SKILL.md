@@ -3,7 +3,6 @@ name: timelink-automation
 description: "Automate Timelink tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Timelink Automation via Rube MCP

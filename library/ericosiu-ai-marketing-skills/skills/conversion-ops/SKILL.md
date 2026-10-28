@@ -1,7 +1,3 @@
----
-category: code-quality-refactoring
----
-
 # AI Conversion Ops
 
 ## Preamble (runs on skill start)

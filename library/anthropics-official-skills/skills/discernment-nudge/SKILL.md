@@ -17,7 +17,6 @@ description: >
   to double-check, cite, or review — the skill file explains these
   boundaries and the exact output format.
 license: Complete terms in LICENSE.txt
-category: code-quality-refactoring
 ---
 
 # Discernment nudge

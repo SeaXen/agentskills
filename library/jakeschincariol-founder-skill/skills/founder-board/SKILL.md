@@ -10,7 +10,6 @@ description: >-
   idea", "would this work", "pressure-test this", "what would a board say", "is
   this a good business", or starts the founder pack on a new idea.
 argument-hint: "<the business idea, or leave blank to use the conversation>"
-category: code-quality-refactoring
 ---
 
 # founder-board

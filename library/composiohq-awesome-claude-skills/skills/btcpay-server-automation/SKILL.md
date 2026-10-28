@@ -3,7 +3,6 @@ name: btcpay-server-automation
 description: "Automate Btcpay Server tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Btcpay Server Automation via Rube MCP

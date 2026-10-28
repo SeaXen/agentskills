@@ -1,7 +1,6 @@
 ---
 name: competitive-intelligence
 description: Competitive analysis two ways - the in-deal play against a named competitor, and win/loss patterns, competitor mentions, and battlecards across the book. Use when the user asks "competitive intel", "research competitors", "how do we compare to [competitor]", "what's new with [competitor]", "battlecard for [competitor]", "how do we beat [competitor]", "what's the play against [competitor] in [deal]", "where are we losing to [competitor]", "win/loss patterns", "competitive analysis", "refresh the battlecards", or on a weekly schedule.
-category: business-sales-crm
 ---
 
 # Competitive Intelligence

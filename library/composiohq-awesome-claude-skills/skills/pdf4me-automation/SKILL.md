@@ -3,7 +3,6 @@ name: pdf4me-automation
 description: "Automate Pdf4me tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Pdf4me Automation via Rube MCP

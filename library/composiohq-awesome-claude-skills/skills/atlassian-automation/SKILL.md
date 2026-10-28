@@ -3,7 +3,6 @@ name: atlassian-automation
 description: "Automate Atlassian tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: architecture-system-design
 ---
 
 # Atlassian Automation via Rube MCP

@@ -4,7 +4,6 @@ description: "Automate time tracking, project management, and invoicing workflow
 requires:
   mcp:
     - rube
-category: terminal-system-tools
 ---
 
 # Harvest Automation

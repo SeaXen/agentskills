@@ -11,7 +11,6 @@ metadata:
   agentskills_spec: "1.0"
   openclaw:
     emoji: "✍️"
-category: audio-voice-sound
 ---
 
 # Avoid AI Writing — Audit & Rewrite

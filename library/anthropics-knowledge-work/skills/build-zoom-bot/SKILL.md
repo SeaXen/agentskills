@@ -1,7 +1,6 @@
 ---
 name: build-zoom-bot
 description: Build a Zoom meeting bot, recorder, or real-time media workflow. Use when joining meetings programmatically, processing live media or transcripts, or combining Meeting SDK, RTMS, and backend services.
-category: backend-api-design
 ---
 
 # /build-zoom-bot

@@ -7,7 +7,6 @@ allowed-tools:
   - "Write"
   - "Bash"
   - "web_fetch"
-category: web3-smart-contracts
 ---
 
 # Stitch to React + Vite Dashboard

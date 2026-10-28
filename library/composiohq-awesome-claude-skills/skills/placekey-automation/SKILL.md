@@ -3,7 +3,6 @@ name: placekey-automation
 description: "Automate Placekey tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Placekey Automation via Rube MCP

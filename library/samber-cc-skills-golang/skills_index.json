@@ -3,130 +3,100 @@
     "id": "golang-benchmark",
     "name": "golang-benchmark",
     "repository": "samber-cc-skills-golang",
-    "category": "general-development",
-    "description": "\"Golang benchmarking, profiling, and performance measurement. Use when writing, running, or comparing Go benchmarks, profiling hot paths with pprof, interpreting CPU/memory/trace profiles, analyzing results with benchstat, setting up CI benchmark regression detection, or investigating production performance with Prometheus runtime metrics. Also use when the developer needs deep analysis on a specific performance indicator - this skill provides the measurement methodology, while `samber/cc-skills-golang@golang-performance` provides the optimization patterns.\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-benchmark",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-benchmark",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-benchmark",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent WebFetch Bash(benchstat:*) Bash(benchdiff:*) Bash(cob:*) Bash(gobenchdata:*) Bash(curl:*) mcp__context7__resolve-library-id mcp__context7__query-docs WebSearch AskUserQuestion EnterWorktree ExitWorktree"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-benchmark"
   },
   {
     "id": "golang-cli",
     "name": "golang-cli",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"Golang CLI application development. Use when building, modifying, or reviewing a Go CLI tool \u2014 especially for command structure, flag handling, configuration layering, version embedding, exit codes, I/O patterns, signal handling, shell completion, argument validation, and CLI unit testing. Also triggers when code uses cobra, viper, or urfave/cli. For cobra-specific APIs \u2192 See `samber/cc-skills-golang@golang-spf13-cobra` skill; for viper configuration layering \u2192 See `samber/cc-skills-golang@golang-spf13-viper` skill.\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-cli",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-cli",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-cli",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent AskUserQuestion"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-cli"
   },
   {
     "id": "golang-code-style",
     "name": "golang-code-style",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"Golang code style conventions \u2014 line length and breaking, variable declarations, control flow clarity, when comments help vs hurt. Use when writing or reviewing Go code, asking about style or clarity, or establishing project coding standards. Not for naming conventions (\u2192 See `samber/cc-skills-golang@golang-naming` skill), linter configuration (\u2192 See `samber/cc-skills-golang@golang-lint` skill), or doc comments (\u2192 See `samber/cc-skills-golang@golang-documentation` skill).\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-code-style",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-code-style",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-code-style",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-code-style"
   },
   {
     "id": "golang-concurrency",
     "name": "golang-concurrency",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"Golang concurrency design \u2014 goroutine lifecycle and leak prevention, channels and `select`, channel ownership and direction, `sync.Mutex`/`RWMutex`/`sync.Map`/`sync.Once`/atomics, `errgroup`, `singleflight`, worker pools, and fan-out/fan-in pipelines. Use when writing or reviewing concurrent Go code, when choosing between channels and mutexes, when protecting a shared map or counter, or when a goroutine has no clear exit. Not for defensive coding unrelated to concurrency such as nil panics, slice aliasing, or numeric overflow (\u2192 See `samber/cc-skills-golang@golang-safety` skill), and not for debugging a specific hung, crashing, or racing program after the fact (\u2192 See `samber/cc-skills-golang@golang-troubleshooting` skill).\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-concurrency",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-concurrency",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-concurrency",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent AskUserQuestion"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-concurrency"
   },
   {
     "id": "golang-context",
     "name": "golang-context",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"Idiomatic context.Context usage in Golang \u2014 propagation through API boundaries, cancellation, timeouts and deadlines, request-scoped values, context.WithoutCancel for background work outliving requests. Apply when designing context propagation across layers, debugging leaked or unexpired contexts, choosing between context.Background/TODO/WithoutCancel, or storing values in context. Not for code that merely accepts ctx as first parameter.\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-context",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-context",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-context",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-context"
   },
   {
     "id": "golang-continuous-integration",
     "name": "golang-continuous-integration",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"GitHub Actions CI/CD pipeline configuration for Golang projects \u2014 workflow files for test, lint, SAST, coverage and vulnerability-scan jobs, Dependabot and Renovate config files, GoReleaser release pipelines, Docker build/push, repository security settings, and AI-driven PR review. Use when setting up or improving Go project CI, writing or fixing `.github/workflows/*.yml`, adding a linter or security scanner as a pipeline job, wiring automated dependency-update bots, or adding quality gates. Covers wiring tools into a pipeline, not the analysis they perform: do NOT use for choosing or interpreting security findings (\u2192 See `samber/cc-skills-golang@golang-security` skill) or for choosing, upgrading, or auditing dependency versions (\u2192 See `samber/cc-skills-golang@golang-dependency-management` skill).\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-continuous-integration",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-continuous-integration",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-continuous-integration",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent WebFetch Bash(goreleaser:*) Bash(gh:*) AskUserQuestion"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-continuous-integration"
   },
   {
     "id": "golang-data-structures",
     "name": "golang-data-structures",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"Golang data structures \u2014 slices (internals, capacity growth, preallocation, slices package), maps (internals, hash buckets, maps package), arrays, container/list/heap/ring, strings.Builder vs bytes.Buffer, generic collections, pointers (unsafe.Pointer, weak.Pointer), and copy semantics. Use when choosing or optimizing Go data structures, implementing generic containers, using container/ packages, unsafe or weak pointers, or questioning slice/map internals. Not for applying optimization patterns once profiling has identified a bottleneck (\u2192 See `samber/cc-skills-golang@golang-performance` skill).\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-data-structures",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-data-structures",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-data-structures",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent Bash(godig:*) Bash(gopls:*) LSP mcp__gopls__* mcp__context7__resolve-library-id mcp__context7__query-docs"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-data-structures"
   },
   {
     "id": "golang-database",
     "name": "golang-database",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"Comprehensive guide for Go database access \u2014 parameterized queries, struct scanning, NULLable columns, transactions, isolation levels, SELECT FOR UPDATE, connection pool, batch processing, context propagation, and migration tooling. Use when writing, reviewing, or debugging Golang code that interacts with PostgreSQL, MariaDB, MySQL, or SQLite; for database testing; or for questions about database/sql, sqlx, or pgx. Does NOT generate database schemas or migration SQL.\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-database",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-database",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-database",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent AskUserQuestion"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-database"
   },
   {
     "id": "golang-dependency-injection",
     "name": "golang-dependency-injection",
     "repository": "samber-cc-skills-golang",
-    "category": "frontend",
-    "description": "\"Comprehensive guide for dependency injection (DI) in Golang. Covers why DI matters (testability, loose coupling, separation of concerns, lifecycle management), manual constructor injection, and DI library comparison (google/wire, uber-go/dig, uber-go/fx, samber/do). Use this skill when designing service architecture, setting up dependency injection, refactoring tightly coupled code, managing singletons or service factories, or when the user asks about inversion of control, service containers, or wiring dependencies in Go. For a specific DI library, \u2192 See `samber/cc-skills-golang@golang-google-wire`, `samber/cc-skills-golang@golang-uber-dig`, `samber/cc-skills-golang@golang-uber-fx`, or `samber/cc-skills-golang@golang-samber-do` skills.\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-dependency-injection",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-dependency-injection",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-dependency-injection",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent WebFetch mcp__context7__resolve-library-id mcp__context7__query-docs AskUserQuestion"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-dependency-injection"
   },
   {
     "id": "golang-dependency-management",
     "name": "golang-dependency-management",
     "repository": "samber-cc-skills-golang",
-    "category": "testing-qa",
-    "description": "\"Dependency management for Golang projects \u2014 go.mod and go.sum, `go get` install and upgrade flows, Minimal Version Selection, conflict resolution with replace/exclude/retract, `govulncheck` scanning of the module tree, outdated dependency and binary size auditing, vendoring, `tool` directives, and go.work workspaces. Use when adding, removing, or upgrading Go dependencies, deciding whether to take on a package, resolving version conflicts, or auditing what a module pulls in. Covers choosing and upgrading dependency versions, not the surrounding tooling: do NOT use for fixing an exploitable vulnerability in code (\u2192 See `samber/cc-skills-golang@golang-security` skill) or for wiring Dependabot/Renovate update bots into CI workflows (\u2192 See `samber/cc-skills-golang@golang-continuous-integration` skill).\"",
+    "category": "general",
+    "description": "",
     "path": "library/samber-cc-skills-golang/skills/golang-dependency-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate golang-dependency-management",
-    "link_cmd": "python .agents/library/activate_skill.py link golang-dependency-management",
-    "allowed_tools": [
-      "Read Edit Write Glob Grep Bash(go:*) Bash(golangci-lint:*) Bash(git:*) Agent Bash(govulncheck:*) AskUserQuestion"
-    ]
+    "link_cmd": "python .agents/library/activate_skill.py link golang-dependency-management"
   }
 ]

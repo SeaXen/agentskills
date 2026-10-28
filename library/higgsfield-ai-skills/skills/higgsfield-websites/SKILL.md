@@ -7,7 +7,6 @@ description: |
   NOT for: single image/video/audio generation (higgsfield-generate), product photos (higgsfield-product-photoshoot), marketplace cards (higgsfield-marketplace-cards).
 argument-hint: "[what to build or edit] [--type website|app|game]"
 allowed-tools: Bash
-category: cloudflare-edge
 ---
 
 # Higgsfield website builder (CLI) — three product types, three flows

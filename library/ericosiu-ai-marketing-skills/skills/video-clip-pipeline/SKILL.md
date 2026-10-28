@@ -1,7 +1,3 @@
----
-category: video-motion-production
----
-
 # Long-Form Video Clip Pipeline
 
 ## Preamble (runs on skill start)

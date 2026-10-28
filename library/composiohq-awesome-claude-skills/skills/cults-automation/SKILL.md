@@ -3,7 +3,6 @@ name: cults-automation
 description: "Automate Cults tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Cults Automation via Rube MCP

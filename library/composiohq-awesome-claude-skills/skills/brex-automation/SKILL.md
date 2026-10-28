@@ -3,7 +3,6 @@ name: brex-automation
 description: "Automate Brex tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Brex Automation via Rube MCP

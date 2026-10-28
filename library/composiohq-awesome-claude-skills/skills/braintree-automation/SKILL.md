@@ -3,7 +3,6 @@ name: Braintree Automation
 description: "Braintree Automation: manage payment processing via Stripe-compatible tools for customers, subscriptions, payment methods, and transactions"
 requires:
   mcp: [rube]
-category: business-sales-crm
 ---
 
 # Braintree Automation

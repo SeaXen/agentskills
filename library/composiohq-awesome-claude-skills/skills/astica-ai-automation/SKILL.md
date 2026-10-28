@@ -3,7 +3,6 @@ name: astica-ai-automation
 description: "Automate Astica AI tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Astica AI Automation via Rube MCP

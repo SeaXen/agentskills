@@ -3,7 +3,6 @@ name: salesforce-service-cloud-automation
 description: "Automate Salesforce Service Cloud tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Salesforce Service Cloud Automation via Rube MCP

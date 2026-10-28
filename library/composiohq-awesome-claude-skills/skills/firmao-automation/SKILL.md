@@ -3,7 +3,6 @@ name: firmao-automation
 description: "Automate Firmao tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Firmao Automation via Rube MCP

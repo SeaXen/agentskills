@@ -1,7 +1,6 @@
 ---
 name: deal-slip-scenario
 description: Model what happens to your number if a deal slips, shrinks, or dies - quota impact, coverage ratio change, and the substitute pipeline needed to stay on plan. Use when the user asks "what if [deal] slips", "what happens if [account] pushes to next quarter", "can I still hit my number without [deal]", or "model losing [deal]".
-category: business-sales-crm
 ---
 
 # Deal Slip Scenario

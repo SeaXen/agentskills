@@ -5,7 +5,6 @@ description: |
   Compatibility entry for the former video explainer skill. Use when: the user explicitly invokes higgsfield-video-explainer or continues its existing workflow. NOT for: new generic explainer requests, ads, single clips, or unrelated video edits.
 argument-hint: "[topic or source files] [duration] [language] [aspect ratio]"
 allowed-tools: Bash
-category: video-motion-production
 ---
 
 # Video explainer

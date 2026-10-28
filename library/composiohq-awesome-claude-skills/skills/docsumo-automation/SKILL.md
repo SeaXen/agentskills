@@ -3,7 +3,6 @@ name: docsumo-automation
 description: "Automate Docsumo tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Docsumo Automation via Rube MCP

@@ -2,7 +2,6 @@
 name: policy-lookup
 description: Find and explain company policies in plain language. Trigger with "what's our PTO policy", "can I work remotely from another country", "how do expenses work", or any plain-language question about benefits, travel, leave, or handbook rules.
 argument-hint: "<policy topic — PTO, benefits, travel, expenses, etc.>"
-category: code-quality-refactoring
 ---
 
 # /policy-lookup

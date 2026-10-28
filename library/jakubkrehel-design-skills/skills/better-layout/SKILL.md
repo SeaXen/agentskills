@@ -1,7 +1,6 @@
 ---
 name: better-layout
 description: Sets grouping, alignment, reading order, responsive structure and room for translated text, so a layout holds up when it is resized, translated or mirrored.
-category: code-quality-refactoring
 ---
 
 # Layout

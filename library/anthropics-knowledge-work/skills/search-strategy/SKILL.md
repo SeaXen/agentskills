@@ -2,7 +2,6 @@
 name: search-strategy
 description: Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per source, translates queries into source-specific syntax, ranks results by relevance, and handles ambiguity and fallback strategies.
 user-invocable: false
-category: multi-agent-orchestration
 ---
 
 # Search Strategy

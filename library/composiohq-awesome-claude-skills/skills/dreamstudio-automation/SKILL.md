@@ -3,7 +3,6 @@ name: dreamstudio-automation
 description: "Automate Dreamstudio tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Dreamstudio Automation via Rube MCP

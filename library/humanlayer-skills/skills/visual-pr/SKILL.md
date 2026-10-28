@@ -1,7 +1,6 @@
 ---
 name: visual-pr
 description: Only use when the user explicitly invokes this skill by name.
-category: code-quality-refactoring
 ---
 
 # Describe a Pull Request

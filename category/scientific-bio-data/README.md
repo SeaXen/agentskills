@@ -1,206 +1,215 @@
 # 🔬 Scientific Bio-Informatics & Laboratory
 
 > **Category**: `scientific-bio-data`  
-> **Total Skills in Category**: 180 real modular skills  
-> **Directory**: [`.agents/category/scientific-bio-data`](./)  
-> **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
+> **Total Curated Skills**: 194 skills  
+> **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
 
-## ⚡ Quick Activation Command
+## 📖 Operational Playbook
 
-To link any skill from this category into your active hot-set (`.agents/skills/`):
-```bash
-python .agents/library/activate_skill.py link <skill-name>
+### 1. 📥 How to Install / Activate
+```powershell
+python .agents/library/activate_skill.py activate <skill-name>
 ```
 
 ---
 
-## 📑 Complete Skill Catalog (180 Skills)
+## 🗂️ Curated Skill Inventory
 
-| Skill Folder | Status | Upstream Source | Description |
+| Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
-| **[`13c-metabolic-flux`](./13c-metabolic-flux/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Estimates intracellular metabolic fluxes from steady-state carbon-13 isotope-tracing measurements using validated atom m |
-| **[`adaptyv`](./adaptyv/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Uses the Adaptyv Bio Foundry API and Python SDK to design protein characterization experiments, estimate costs, submit s |
-| **[`aeon`](./aeon/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | This skill should be used for time series machine learning tasks including classification, regression, clustering, forec |
-| **[`alphagenome`](./alphagenome/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Looks up precomputed AlphaGenome Atlas effects for any GRCh38 single-nucleotide variant (AVI score with Phred and 18 SHA |
-| **[`analytical-method-validation`](./analytical-method-validation/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Plans, executes, and documents validation, verification, and transfer of analytical procedures under the governing frame |
-| **[`anndata`](./anndata/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Handles annotated matrices in single-cell analysis, .h5ad and Zarr files, and integration with the scverse ecosystem. Th |
-| **[`arbor`](./arbor/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Applies Arbor Hypothesis Tree Refinement to research artifacts with repeatable evaluators, including model training, age |
-| **[`arboreto`](./arboreto/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Infers candidate gene regulatory networks from bulk or single-cell expression data using AertsLab Arboreto GRNBoost2 and |
-| **[`astropy`](./astropy/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Core Python library for astronomy and astrophysics workflows that need Astropy APIs, including units/quantities, coordin |
-| **[`autoskill`](./autoskill/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Analyzes user-requested Screenpipe history windows to detect repeated research workflows, match existing scientific skil |
-| **[`benchling-integration`](./benchling-integration/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Benchling Python SDK and REST API integration for registry entities, inventory, ELN entries, workflows, Benchling Apps,  |
-| **[`bgpt-paper-search`](./bgpt-paper-search/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Searches BGPT scientific papers by topic or DOI and retrieves claim-level evidence extracted from full text, including e |
-| **[`bids`](./bids/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Organizes, queries, validates, and converts Brain Imaging Data Structure (BIDS) datasets. Supports |
-| **[`biopython`](./biopython/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Provides Biopython workflows for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmati |
-| **[`bioservices`](./bioservices/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Provides a Python interface to bioinformatics services including UniProt, KEGG, ChEMBL, Reactome, QuickGO, and UniChem.  |
-| **[`bulk-rnaseq`](./bulk-rnaseq/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Prepares bulk RNA-seq FASTQ, Salmon, STAR or featureCounts output for gene-level differential expression. Covers nf-core |
-| **[`cantera`](./cantera/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Runs Cantera homogeneous chemical reactors and evaluates ignition delay with mechanism provenance, conservation checks,  |
-| **[`cellprofiler`](./cellprofiler/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Runs reproducible CellProfiler microscopy pipelines for nuclear segmentation, cell counts, and per-object fluorescence m |
-| **[`cellxgene-census`](./cellxgene-census/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcriptomics data. Use  |
-| **[`cirq`](./cirq/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-aware circuits, or ru |
-| **[`citation-management`](./citation-management/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Comprehensive citation management for academic research. Search OpenAlex, PubMed, and Google Scholar for papers, extract |
-| **[`claude-scientific-skills`](./claude-scientific-skills/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Scientific research and analysis skills |
-| **[`clinical-decision-support`](./clinical-decision-support/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Prepares and validates research-only clinical decision-support evaluation, evidence-profile, cohort, survival, biomarker |
-| **[`clinical-reports`](./clinical-reports/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates safety-bounded draft structures and runs local deterministic checks for clinical case, diagnostic, trial, safety |
-| **[`cobrapy`](./cobrapy/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs constraint-based metabolic modeling with COBRApy, including FBA, pFBA, FVA, gene knockouts, flux sampling, grow |
-| **[`consciousness-council`](./consciousness-council/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Structures a multi-perspective council exercise for decisions, research trade-offs, and creative challenges. Simulates t |
-| **[`dask`](./dask/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Scales pandas, NumPy, and custom Python research workflows beyond memory or across clusters with Dask. Covers DataFrames |
-| **[`database-lookup`](./database-lookup/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries documented public database APIs with explicit endpoints, filters, pagination, and provenance. Used when a scient |
-| **[`datalad`](./datalad/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Retrieves, versions, and publishes scientific datasets with DataLad and git-annex, and captures computational provenance |
-| **[`datamol`](./datamol/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standard drug discovery inc |
-| **[`deepchem`](./deepchem/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds molecular property prediction and MoleculeNet workflows with DeepChem, including SMILES featurization, scaffold o |
-| **[`deepspot-m`](./deepspot-m/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Generates transcriptome-wide virtual spatial transcriptomics from H&E histology with DeepSpot-M. Used for predicted log1 |
-| **[`deeptools`](./deeptools/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profiles (TSS, peaks), for |
-| **[`depmap`](./depmap/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Retrieves and analyzes Cancer Dependency Map (DepMap) release data, including CRISPR Chronos gene effects, cancer model  |
-| **[`dhdna-profiler`](./dhdna-profiler/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Applies the DHDNA framework as an exploratory rubric for reasoning and writing patterns in supplied text. Used for expli |
-| **[`diffdock`](./diffdock/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Predicts protein-small-molecule binding poses with DiffDock and DiffDock-L from PDB or sequence plus SMILES/SDF/MOL2. Co |
-| **[`dnanexus-integration`](./dnanexus-integration/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds and operates reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/applets, native workflows, d |
-| **[`esm`](./esm/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Uses the Biohub esm Python SDK for ESM3 protein generation, ESMC embeddings, and ESMFold2 all-atom folding. Applies to l |
-| **[`etetoolkit`](./etetoolkit/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Analyzes, manipulates, compares, annotates, and visualizes phylogenetic or other hierarchical trees with ETE 4. Supports |
-| **[`experimental-design`](./experimental-design/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Designs experiments and studies BEFORE data is collected — choosing a design, randomizing, blocking, and laying out trea |
-| **[`exploratory-data-analysis`](./exploratory-data-analysis/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs bounded, local exploratory analysis of explicitly supported scientific files. Supports redacted CSV/TSV/JSON pr |
-| **[`fictiv`](./fictiv/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Operates Fictiv (app.fictiv.com), the on-demand manufacturing platform, end to end in the user's browser. Covers uploadi |
-| **[`flowio`](./flowio/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Reads, inspects, and writes Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for low-level FCS met |
-| **[`flowkit`](./flowkit/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Analyzes flow cytometry data with FlowKit, including spillover compensation, logicle and biexponential transforms, hiera |
-| **[`fluidsim`](./fluidsim/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Plans, configures, inspects, restarts, and analyzes bounded FluidSim computational-fluid-dynamics simulations with expli |
-| **[`folklore-variant-evidence`](./folklore-variant-evidence/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Retrieves ClinGen gene-disease validity assertions for a public gene or disease, and reviews source-linked public eviden |
-| **[`generate-image`](./generate-image/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Generates or edits images with AI models through the OpenRouter Image API (Gemini, Seedream, Recraft, GPT-Image, Riverfl |
-| **[`geniml`](./geniml/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports audited local Geniml genomic-interval workflows: validate BED and universe contracts, plan Region2Vec or scEmbe |
-| **[`genomic-coordinates`](./genomic-coordinates/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Converts genomic intervals between coordinate conventions, normalises and compares variant representations, and detects  |
-| **[`genomic-intelligence`](./genomic-intelligence/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Predicts regulatory features, gene structure, and expression directly from DNA sequence using Genomic Intelligence's hos |
-| **[`geomaster`](./geomaster/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports geospatial research workflows for remote sensing, vector and raster GIS, spatial statistics, terrain and networ |
-| **[`geopandas`](./geopandas/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Guidance and local audit tools for Python workflows that directly use GeoPandas GeoSeries, GeoDataFrame, spatial operati |
-| **[`get-available-resources`](./get-available-resources/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Detects host inventory and effective CPU, memory, disk, scheduler, container, and accelerator limits when a user asks fo |
-| **[`gget`](./gget/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries 20+ bioinformatics resources through CLI/Python. Supports quick lookups of gene info, BLAST/BLAT, viral sequence |
-| **[`ginkgo-cloud-lab`](./ginkgo-cloud-lab/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Guides protocol selection, input preparation, pricing checks, and browser ordering on Ginkgo Bioworks Cloud Lab (cloud.g |
-| **[`glycoengineering`](./glycoengineering/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Analyzes and engineers protein glycosylation by scanning canonical N-glycosylation sequons, describing S/T-rich regions, |
-| **[`gtars`](./gtars/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports Gtars for local genomic interval models and set algebra, overlaps and counts, consensus and coverage, tokenizat |
-| **[`histolab`](./histolab/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Extracts and preprocesses whole-slide histology image tiles with Histolab. Use for WSI inspection, tissue masks, random/ |
-| **[`hugging-science`](./hugging-science/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Discovers and evaluates scientific datasets, models, methodology posts, and Spaces through the Hugging Science catalog.  |
-| **[`hypogenic`](./hypogenic/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation from labeled text dataset |
-| **[`hypothesis-generation`](./hypothesis-generation/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Formulates evidence-bounded scientific questions, candidate hypotheses, rival explanations, causal or associational clai |
-| **[`imaging-data-commons`](./imaging-data-commons/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries and downloads public cancer imaging data from NCI Imaging Data Commons. Supports IDC collection discovery, DICOM |
-| **[`infographics`](./infographics/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates and reviews infographics with Nano Banana 2 via OpenRouter. Use for statistical summaries, timelines, comparison |
-| **[`iso-standards-readiness`](./iso-standards-readiness/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-competence standards - ISO |
-| **[`lab-hardware-cad`](./lab-hardware-cad/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Designs custom laboratory hardware as parametric build123d models and exports fabrication artifacts as STEP, STL, and DX |
-| **[`labarchive-integration`](./labarchive-integration/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Integrates with the official LabArchives ELN REST-like API and Inventory API v1. Supports regional endpoint selection, s |
-| **[`lamindb`](./lamindb/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Manages biological datasets and models with LaminDB, including artifact registration, lineage tracking, schema validatio |
-| **[`latchbio-integration`](./latchbio-integration/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds, registers, debugs, and operates bioinformatics workflows on Latch using the Python SDK, CLI, Latch Data and Regi |
-| **[`latex-posters`](./latex-posters/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates research posters in LaTeX using beamerposter, tikzposter, or baposter. Use for conference posters, academic pres |
-| **[`liteparse`](./liteparse/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Local document and PDF parsing that returns spatial text with bounding boxes. Use for extracting text from PDFs, DOCX, O |
-| **[`literature-review`](./literature-review/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Conducts systematic, scoping, and narrative literature reviews using PubMed, arXiv, bioRxiv, Semantic Scholar, and other |
-| **[`mageck`](./mageck/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Analyzes pooled CRISPR screen FASTQ reads and guide-count matrices with MAGeCK, validates guide libraries and contrasts, |
-| **[`marine-carbonate-chemistry`](./marine-carbonate-chemistry/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Solves seawater carbonate chemistry with PyCO2SYS for chemical oceanography, ocean acidification, and marine carbon-cycl |
-| **[`markdown-mermaid-writing`](./markdown-mermaid-writing/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Writes scientific Markdown documentation and Mermaid diagrams for workflows, relationships, timelines, and schemas. Prov |
-| **[`market-research-reports`](./market-research-reports/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds evidence-traceable market research reports and assumption-driven market sizing or forecast scenarios. Use for mar |
-| **[`markitdown`](./markitdown/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Converts heterogeneous documents and selected URIs to Markdown with Microsoft MarkItDown for text analysis, search, and  |
-| **[`matchms`](./matchms/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Processes, cleans, compares, and searches tandem mass spectra with matchms. Use for MS/MS file I/O, metadata harmonizati |
-| **[`matlab`](./matlab/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds, reviews, migrates, and plans MATLAB or GNU Octave numerical workflows. Use for arrays, tabular/time data, tests, |
-| **[`matplotlib`](./matplotlib/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates and customizes scientific plots with Matplotlib. Used for fine-grained control over plot elements, novel plot ty |
-| **[`medchem`](./medchem/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Applies medicinal chemistry filters for compound triage, using drug-likeness rules (Lipinski, Veber, CNS), structural al |
-| **[`modal`](./modal/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Use when deploying or servi |
-| **[`molecular-dynamics`](./molecular-dynamics/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Runs and analyzes molecular dynamics simulations with OpenMM and MDAnalysis. Sets up protein/small molecule systems, def |
-| **[`molfeat`](./molfeat/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Featurizes small molecules with Molfeat for QSAR/QSPR, chemical similarity, virtual screening, and molecular ML. Covers  |
-| **[`ncats-arax`](./ncats-arax/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries the NCATS Translator ARAX production API for bounded, typed, provenance-rich one-hop and endpoint-pinned two-hop |
-| **[`networkx`](./networkx/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates, analyzes, and visualizes complex networks and graphs in Python with NetworkX. Use when working with network/gra |
-| **[`neurokit2`](./neurokit2/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds and audits reproducible NeuroKit2 research workflows for physiological time-series preprocessing, event/interval  |
-| **[`neuropixels-analysis`](./neuropixels-analysis/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Analyzes Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX/Open Ephys/NWB dat |
-| **[`nextflow`](./nextflow/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds, runs, and debugs Nextflow DSL2 pipelines and nf-core workflows. Use for Nextflow, nf-core, .nf files, nextflow.c |
-| **[`nextflow-development`](./nextflow-development/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when analyzing RNA-seq, WGS/WES, o |
-| **[`nmrglue`](./nmrglue/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Processes calibrated one-dimensional complex NMR free-induction decays with nmrglue into phased spectra, peak candidates |
-| **[`nwb-conversion`](./nwb-conversion/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Converts neuroscience acquisition data to Neurodata Without Borders files with NeuroConv and PyNWB, preserves metadata a |
-| **[`omero-integration`](./omero-integration/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Inspects and automates microscopy data workflows against OMERO.server with omero-py, BlitzGateway, OMERO CLI, tables, an |
-| **[`onekgpd`](./onekgpd/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries the 1000 Genomes Project dataset (3,202 whole-genome-sequenced |
-| **[`ontology-term-resolution`](./ontology-term-resolution/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Resolves free-text scientific labels to ontology term IDs and validates existing CURIEs against the EBI Ontology Lookup  |
-| **[`open-notebook`](./open-notebook/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Organizes research with the self-hosted Open Notebook alternative to NotebookLM. Supports source ingestion (PDFs, web pa |
-| **[`openpiv`](./openpiv/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs Particle Image Velocimetry (PIV) analysis with OpenPIV. Use when extracting velocity fields from PIV image pair |
-| **[`opentrons-integration`](./opentrons-integration/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Authors, reviews, migrates, simulates, and troubleshoots official Opentrons Python Protocol API v2 protocols for Flex an |
-| **[`optimize-for-gpu`](./optimize-for-gpu/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct and faster. Use for CUDA/GP |
-| **[`pacsomatic`](./pacsomatic/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Prepares and launches nf-core/pacsomatic matched tumor-normal PacBio HiFi genomics workflows from unaligned BAM inputs.  |
-| **[`paper-lookup`](./paper-lookup/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Searches 18 scholarly APIs for papers, preprints, citations, open-access full text, repository records, and journal OA s |
-| **[`paperclip`](./paperclip/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Searches and reads biomedical papers, FDA/PMDA/EMA documents, clinical trials, and protein records with the GXL Papercli |
-| **[`paperzilla`](./paperzilla/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Reads projects, searches project feeds, and retrieves recommendations and canonical papers in Paperzilla through the pz  |
-| **[`parallel-web`](./parallel-web/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Uses Parallel CLI for web search, URL extraction, deep research, structured data enrichment, entity discovery, and recur |
-| **[`pathml`](./pathml/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports local computational pathology research with PathML: slide loading and tiling, preprocessing and QC, h5path stor |
-| **[`pathogen-variant-surveillance`](./pathogen-variant-surveillance/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries public GenSpectrum LAPIS data for pathogen genomic surveillance, current lineage nomenclature, weekly sequence p |
-| **[`pathway-enrichment`](./pathway-enrichment/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs pathway and gene-set enrichment analysis on gene lists or ranked gene data and interprets the results. Used whe |
-| **[`peer-review`](./peer-review/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Prepares evidence-bounded, constructive peer-review drafts and structured manuscript assessments. Supports authorized re |
-| **[`pennylane`](./pennylane/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds and differentiates PennyLane quantum circuits, hybrid PyTorch or JAX models, molecular VQE and QAOA workflows. Us |
-| **[`phylogenetics`](./phylogenetics/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds and analyzes phylogenetic trees using MAFFT multiple sequence alignment, IQ-TREE maximum likelihood with ModelFin |
-| **[`pi-agent`](./pi-agent/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds with and operates Pi, the minimal terminal coding harness. Use for installing Pi, configuring providers/models/se |
-| **[`pkpd-modeling`](./pkpd-modeling/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Pharmacokinetic and pharmacodynamic modelling and simulation - non-compartmental analysis, compartmental and population  |
-| **[`polars`](./polars/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | High-performance DataFrame library for Python ETL, analytics, and pandas migration. It supports expression-based data ma |
-| **[`polars-bio`](./polars-bio/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs genomic interval overlap, nearest, merge, coverage, complement and subtraction on Polars DataFrames, and reads  |
-| **[`pptx-posters`](./pptx-posters/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates and audits editable scientific posters in macro-free PowerPoint (.pptx) from author-approved local content and a |
-| **[`primekg`](./primekg/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries a pinned Precision Medicine Knowledge Graph (PrimeKG) CSV for typed gene, drug, disease, and phenotype nodes, di |
-| **[`primer-design`](./primer-design/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Designs and audits PCR and RT-qPCR primers with Primer3, explicit thermodynamic conditions, reference-based off-target a |
-| **[`protocolsio-integration`](./protocolsio-integration/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Reads, validates, and safely exports protocols.io data with current official REST/MCP contracts, or creates non-executin |
-| **[`pufferlib`](./pufferlib/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Version-aware guidance for PufferLib reinforcement-learning environments, vectorization, policies, PuffeRL training, eva |
-| **[`pybamm`](./pybamm/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Simulates lithium-ion battery charge, discharge and rest experiments with PyBaMM, records parameter-set provenance, chec |
-| **[`pycalphad`](./pycalphad/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Computes finite-temperature CALPHAD equilibria, phase fractions, and phase compositions from thermodynamic TDB databases |
-| **[`pydeseq2`](./pydeseq2/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs bulk RNA-seq differential expression analysis with PyDESeq2, including count validation, formula designs, expli |
-| **[`pydicom`](./pydicom/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Reads, inspects, writes, transforms, and preflights local DICOM datasets and pixel data. Applies to DICOM metadata, tran |
-| **[`pyhealth`](./pyhealth/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds and validates PyHealth clinical machine-learning pipelines for EHR, signals, imaging, and medical codes. Use for  |
-| **[`pylabrobot`](./pylabrobot/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Develops and reviews PyLabRobot lab-automation resources, liquid-handling plans, offline simulations, and supported-devi |
-| **[`pymatgen`](./pymatgen/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Analyzes, validates, converts, and transforms materials structures and computed materials data with pymatgen. Use for lo |
-| **[`pymc`](./pymc/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds and checks Bayesian models with PyMC, including hierarchical models, NUTS MCMC, variational inference, mutable-da |
-| **[`pymoo`](./pymoo/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Solves and validates single-, multi-, and many-objective optimization with pymoo, including NSGA-II, NSGA-III, MOEA/D, c |
-| **[`pyopenms`](./pyopenms/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Processes mass spectrometry data with pyOpenMS. Supports proteomics and metabolomics workflows—feature detection, peptid |
-| **[`pysam`](./pysam/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Provides Python/HTSlib workflows for genomic files. Used when reading, querying, filtering, or writing SAM/BAM/CRAM, VCF |
-| **[`pytdc`](./pytdc/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Provides Therapeutics Data Commons workflows through PyTDC for registry discovery, dataset access, task-aware splits, ev |
-| **[`pytorch-lightning`](./pytorch-lightning/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into LightningModules, configure  |
-| **[`pyzotero`](./pyzotero/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | - |
-| **[`qiime2-amplicon`](./qiime2-amplicon/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Processes paired-end 16S amplicon reads into QIIME 2 ASVs and taxonomy with retained artifact provenance. Checks paired  |
-| **[`qiskit`](./qiskit/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds, simulates, transpiles, and executes quantum circuits with Qiskit and IBM Quantum Runtime. Use for Qiskit 2.x cir |
-| **[`qutip`](./qutip/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic, trajectory, steady-state |
-| **[`rdkit`](./rdkit/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, LogP, TPSA), fingerprin |
-| **[`relion`](./relion/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Validates and executes RELION single-particle cryo-EM refinement and half-map postprocessing. Supports STAR optics/acqui |
-| **[`relsa-severity-assessment`](./relsa-severity-assessment/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports multivariate severity assessment and exploratory endpoint-time score forecasting for laboratory animal studies  |
-| **[`research-engineer`](./research-engineer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objective criticism, and zero fla |
-| **[`research-grants`](./research-grants/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports research proposal preparation and review for NSF, NIH, DOE, DARPA, and Taiwan NSTC, including opportunity-speci |
-| **[`research-lookup`](./research-lookup/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Compiles current scholarly evidence for a scientific manuscript or research brief when the user explicitly asks to gathe |
-| **[`rowan`](./rowan/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Python API. Use for pKa and  |
-| **[`scanpy`](./scanpy/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs Scanpy single-cell RNA-seq QC, normalization, HVG selection, PCA/UMAP/t-SNE, clustering, exploratory marker ran |
-| **[`scholar-evaluation`](./scholar-evaluation/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Provides qualitative-first, evidence-traceable developmental review of scholarly works and audit low-stakes research-ass |
-| **[`scientific-brainstorming`](./scientific-brainstorming/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Facilitates evidence-aware scientific ideation with independent generation, structured discussion, explicit assumptions, |
-| **[`scientific-critical-thinking`](./scientific-critical-thinking/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Evaluates scientific claims and evidence quality. Applies to experimental design validity, biases and confounders, stati |
-| **[`scientific-problem-selection`](./scientific-problem-selection/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | This skill should be used when scientists need help with research problem selection, project ideation, troubleshooting s |
-| **[`scientific-schematics`](./scientific-schematics/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Generates scientific diagram drafts using Nano Banana 2 AI with smart iterative refinement. Uses Gemini 3.7 Flash for qu |
-| **[`scientific-slides`](./scientific-slides/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds slide decks and presentations for research talks. Used for making PowerPoint slides, conference presentations, se |
-| **[`scientific-visualization`](./scientific-visualization/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates and audits truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn, or Plotly. Use i |
-| **[`scientific-writing`](./scientific-writing/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Drafts, revises, and audits scientific manuscripts or reports with explicit evidence provenance, reporting-guideline cov |
-| **[`scikit-bio`](./scikit-bio/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (alpha/beta, UniFrac), ord |
-| **[`scikit-learn`](./scikit-learn/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports machine learning in Python with scikit-learn. Applies when working with supervised learning (classification, re |
-| **[`scikit-survival`](./scikit-survival/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds, evaluates, and audits right-censored or competing-risk survival workflows with scikit-survival, including leakag |
-| **[`scvelo`](./scvelo/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs RNA velocity analysis with scVelo from spliced and unspliced single-cell RNA counts. Fits deterministic or dyna |
-| **[`scvi-tools`](./scvi-tools/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Deep learning for single-cell analysis using scvi-tools. This skill should be used when users need (1) data integration  |
-| **[`seaborn`](./seaborn/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Creates Seaborn statistical visualizations with pandas integration for distributions, relationships, categorical compari |
-| **[`shap`](./shap/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Explain and audit machine-learning predictions with SHAP. Use for selecting SHAP explainers and maskers, computing and v |
-| **[`simpy`](./simpy/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds, inspects, tests, and analyzes bounded process-based discrete-event simulations with SimPy. Use for event schedul |
-| **[`single-cell-rna-qc`](./single-cell-rna-qc/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best practices with MAD-based fi |
-| **[`stable-baselines3`](./stable-baselines3/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Trains and evaluates single-agent reinforcement learning with Stable Baselines3 (PPO, SAC, DQN, TD3, DDPG, A2C), Gymnasi |
-| **[`statistical-power`](./statistical-power/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Calculates sample sizes and statistical power for study planning. Applies when someone asks "how many subjects/samples/r |
-| **[`statsmodels`](./statsmodels/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Fits and diagnoses Python statistical models including OLS, GLM, discrete and mixed models, ARIMA and SARIMAX. Supports  |
-| **[`sympy`](./sympy/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs exact symbolic mathematics with SymPy for algebra, calculus, equation solving, symbolic linear algebra, physics |
-| **[`tamarind`](./tamarind/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Provides access to a collection of open-source molecular design and structural biology tools on the Tamarind Bio platfor |
-| **[`tellurium`](./tellurium/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Simulates biochemical kinetic models from SBML or Antimony with Tellurium and libRoadRunner, checks model units, compare |
-| **[`tiledbvcf`](./tiledbvcf/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Stores and retrieves genomic variant calls with TileDB-VCF. Use for indexed single-sample VCF/BCF ingestion, incremental |
-| **[`timesfm-forecasting`](./timesfm-forecasting/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Performs zero-shot time-series forecasting with Google's TimesFM, including regular-grid CSV preparation, quantile forec |
-| **[`torch-geometric`](./torch-geometric/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports PyTorch Geometric (PyG) graph neural networks — node/link/graph classification, message passing (GCN, GAT, Grap |
-| **[`torchdrug`](./torchdrug/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Builds and troubleshoots TorchDrug 0.2.1 workflows for molecular graphs, property prediction, self-supervised pretrainin |
-| **[`transformers`](./transformers/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and Trainer fine-tuning o |
-| **[`treatment-plans`](./treatment-plans/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Formats and structurally validates local treatment-plan documentation after clinical decisions have already been supplie |
-| **[`umap-learn`](./umap-learn/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Applies UMAP-learn to nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, supervised or semi |
-| **[`uncertainty-and-units`](./uncertainty-and-units/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Tracks physical units and propagates measurement uncertainty in scientific calculations using pint and uncertainties. Us |
-| **[`usfiscaldata`](./usfiscaldata/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Queries the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use for national debt (D |
-| **[`vaex`](./vaex/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Processes large tabular scientific datasets with Vaex expressions, filtered views, streamed statistics, binned visualiza |
-| **[`venue-templates`](./venue-templates/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Prepares journal manuscripts, conference papers, research posters, and grant documents using venue-specific formatting g |
-| **[`waypoint-bio`](./waypoint-bio/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports work with Outpost Bio's open microbiome foundation models - the Waypoint checkpoints (Waypoint-6m, Waypoint-45m |
-| **[`what-if-oracle`](./what-if-oracle/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Supports structured what-if scenario analysis for research planning, experimental contingencies, and scientific project  |
-| **[`zarr-python`](./zarr-python/SKILL.md)** | 📦 Library | `kdense-scientific-skills` | Stores and queries chunked N-D scientific arrays with Zarr-Python 3, including codecs, sharding, S3/GCS storage, and Num |
-
----
-
-*Part of the [AgentSkills Vault](https://github.com/SeaXen/agentskills). Master directory in [category/README.md](../README.md).*
+| [`13c-metabolic-flux`](skills/13c-metabolic-flux) | ⚪ Reserve | `kdense-scientific-skills` | Estimates intracellular metabolic fluxes from steady-state carbon-13 isotope-tracing measuremen... |
+| [`adaptyv`](skills/adaptyv) | ⚪ Reserve | `kdense-scientific-skills` | Uses the Adaptyv Bio Foundry API and Python SDK to design protein characterization experiments,... |
+| [`aeon`](skills/aeon) | ⚪ Reserve | `kdense-scientific-skills` | This skill should be used for time series machine learning tasks including classification, regr... |
+| [`ai-scientist-v2-guide`](skills/ai-scientist-v2-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Automated scientific discovery via agentic tree search by Sakana AI" |
+| [`alphagenome`](skills/alphagenome) | ⚪ Reserve | `kdense-scientific-skills` | "Looks up precomputed AlphaGenome Atlas effects for any GRCh38 single-nucleotide variant (AVI s... |
+| [`analytical-method-validation`](skills/analytical-method-validation) | ⚪ Reserve | `kdense-scientific-skills` | Plans, executes, and documents validation, verification, and transfer of analytical procedures ... |
+| [`anndata`](skills/anndata) | ⚪ Reserve | `kdense-scientific-skills` | Handles annotated matrices in single-cell analysis, .h5ad and Zarr files, and integration with ... |
+| [`arbor`](skills/arbor) | ⚪ Reserve | `kdense-scientific-skills` | Applies Arbor Hypothesis Tree Refinement to research artifacts with repeatable evaluators, incl... |
+| [`arboreto`](skills/arboreto) | ⚪ Reserve | `kdense-scientific-skills` | Infers candidate gene regulatory networks from bulk or single-cell expression data using AertsL... |
+| [`astropy`](skills/astropy) | ⚪ Reserve | `kdense-scientific-skills` | Core Python library for astronomy and astrophysics workflows that need Astropy APIs, including ... |
+| [`autoskill`](skills/autoskill) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes user-requested Screenpipe history windows to detect repeated research workflows, match... |
+| [`benchling-integration`](skills/benchling-integration) | ⚪ Reserve | `kdense-scientific-skills` | Benchling Python SDK and REST API integration for registry entities, inventory, ELN entries, wo... |
+| [`bgpt-paper-search`](skills/bgpt-paper-search) | ⚪ Reserve | `kdense-scientific-skills` | Searches BGPT scientific papers by topic or DOI and retrieves claim-level evidence extracted fr... |
+| [`bids`](skills/bids) | ⚪ Reserve | `kdense-scientific-skills` | > |
+| [`biomedical`](skills/biomedical) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "24 biomedical research skills. Trigger: medical research, clinical trials, genomics, bioinform... |
+| [`biopython`](skills/biopython) | ⚪ Reserve | `kdense-scientific-skills` | Provides Biopython workflows for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylo... |
+| [`bioservices`](skills/bioservices) | ⚪ Reserve | `kdense-scientific-skills` | Provides a Python interface to bioinformatics services including UniProt, KEGG, ChEMBL, Reactom... |
+| [`bulk-rnaseq`](skills/bulk-rnaseq) | ⚪ Reserve | `kdense-scientific-skills` | Prepares bulk RNA-seq FASTQ, Salmon, STAR or featureCounts output for gene-level differential e... |
+| [`cantera`](skills/cantera) | ⚪ Reserve | `kdense-scientific-skills` | Runs Cantera homogeneous chemical reactors and evaluates ignition delay with mechanism provenan... |
+| [`cellprofiler`](skills/cellprofiler) | ⚪ Reserve | `kdense-scientific-skills` | Runs reproducible CellProfiler microscopy pipelines for nuclear segmentation, cell counts, and ... |
+| [`cellxgene-census`](skills/cellxgene-census) | ⚪ Reserve | `kdense-scientific-skills` | Queries the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial t... |
+| [`chemgraph-agent-guide`](skills/chemgraph-agent-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Automate molecular simulations with the ChemGraph agentic framework" |
+| [`chemistry`](skills/chemistry) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "9 chemistry skills. Trigger: chemical structure analysis, reaction prediction, molecular model... |
+| [`cirq`](skills/cirq) | ⚪ Reserve | `kdense-scientific-skills` | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing no... |
+| [`claude-scientific-guide`](skills/claude-scientific-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Ready-to-use agent skills for scientific research and engineering" |
+| [`claude-scientific-skills`](skills/claude-scientific-skills) | ⚪ Reserve | `antigravity-awesome-skills` | "Scientific research and analysis skills" |
+| [`clawbio-guide`](skills/clawbio-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "OpenClaw bioinformatics skill library for genomics pipelines" |
+| [`clinical-decision-support`](skills/clinical-decision-support) | ⚪ Reserve | `kdense-scientific-skills` | Prepares and validates research-only clinical decision-support evaluation, evidence-profile, co... |
+| [`clinical-dialogue-agents-guide`](skills/clinical-dialogue-agents-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Papers on AI agents for clinical dialogue and medical QA" |
+| [`clinical-pharmacology-guide`](skills/clinical-pharmacology-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Clinical pharmacology principles for dosing, drug interactions, and patient s..." |
+| [`clinical-reports`](skills/clinical-reports) | ⚪ Reserve | `kdense-scientific-skills` | Creates safety-bounded draft structures and runs local deterministic checks for clinical case, ... |
+| [`clinical-research-guide`](skills/clinical-research-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Design clinical studies and report using CONSORT, STROBE guidelines" |
+| [`clinical-trial-design-guide`](skills/clinical-trial-design-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Clinical trial methodology, biostatistics, and study design guidance" |
+| [`cobrapy`](skills/cobrapy) | ⚪ Reserve | `kdense-scientific-skills` | Performs constraint-based metabolic modeling with COBRApy, including FBA, pFBA, FVA, gene knock... |
+| [`computational-chemistry-guide`](skills/computational-chemistry-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "DFT, molecular simulation, and reaction prediction tools for chemists" |
+| [`consciousness-council`](skills/consciousness-council) | ⚪ Reserve | `kdense-scientific-skills` | Structures a multi-perspective council exercise for decisions, research trade-offs, and creativ... |
+| [`dask`](skills/dask) | ⚪ Reserve | `kdense-scientific-skills` | Scales pandas, NumPy, and custom Python research workflows beyond memory or across clusters wit... |
+| [`database-lookup`](skills/database-lookup) | ⚪ Reserve | `kdense-scientific-skills` | Queries documented public database APIs with explicit endpoints, filters, pagination, and prove... |
+| [`datalad`](skills/datalad) | ⚪ Reserve | `kdense-scientific-skills` | Retrieves, versions, and publishes scientific datasets with DataLad and git-annex, and captures... |
+| [`datamol`](skills/datamol) | ⚪ Reserve | `kdense-scientific-skills` | Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for st... |
+| [`deepchem`](skills/deepchem) | ⚪ Reserve | `kdense-scientific-skills` | Builds molecular property prediction and MoleculeNet workflows with DeepChem, including SMILES ... |
+| [`deepspot-m`](skills/deepspot-m) | ⚪ Reserve | `kdense-scientific-skills` | Generates transcriptome-wide virtual spatial transcriptomics from H&E histology with DeepSpot-M... |
+| [`deeptools`](skills/deeptools) | ⚪ Reserve | `kdense-scientific-skills` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/p... |
+| [`depmap`](skills/depmap) | ⚪ Reserve | `kdense-scientific-skills` | Retrieves and analyzes Cancer Dependency Map (DepMap) release data, including CRISPR Chronos ge... |
+| [`dhdna-profiler`](skills/dhdna-profiler) | ⚪ Reserve | `kdense-scientific-skills` | Applies the DHDNA framework as an exploratory rubric for reasoning and writing patterns in supp... |
+| [`diffdock`](skills/diffdock) | ⚪ Reserve | `kdense-scientific-skills` | Predicts protein-small-molecule binding poses with DiffDock and DiffDock-L from PDB or sequence... |
+| [`dnanexus-integration`](skills/dnanexus-integration) | ⚪ Reserve | `kdense-scientific-skills` | Builds and operates reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/app... |
+| [`esm`](skills/esm) | ⚪ Reserve | `kdense-scientific-skills` | Uses the Biohub esm Python SDK for ESM3 protein generation, ESMC embeddings, and ESMFold2 all-a... |
+| [`etetoolkit`](skills/etetoolkit) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes, manipulates, compares, annotates, and visualizes phylogenetic or other hierarchical t... |
+| [`experimental-design`](skills/experimental-design) | ⚪ Reserve | `kdense-scientific-skills` | Designs experiments and studies BEFORE data is collected — choosing a design, randomizing, bloc... |
+| [`exploratory-data-analysis`](skills/exploratory-data-analysis) | ⚪ Reserve | `kdense-scientific-skills` | "Performs bounded, local exploratory analysis of explicitly supported scientific files. Support... |
+| [`fictiv`](skills/fictiv) | ⚪ Reserve | `kdense-scientific-skills` | Operates Fictiv (app.fictiv.com), the on-demand manufacturing platform, end to end in the user'... |
+| [`flowio`](skills/flowio) | ⚪ Reserve | `kdense-scientific-skills` | Reads, inspects, and writes Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. ... |
+| [`flowkit`](skills/flowkit) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes flow cytometry data with FlowKit, including spillover compensation, logicle and biexpo... |
+| [`fluidsim`](skills/fluidsim) | ⚪ Reserve | `kdense-scientific-skills` | Plans, configures, inspects, restarts, and analyzes bounded FluidSim computational-fluid-dynami... |
+| [`folklore-variant-evidence`](skills/folklore-variant-evidence) | ⚪ Reserve | `kdense-scientific-skills` | "Retrieves ClinGen gene-disease validity assertions for a public gene or disease, and reviews s... |
+| [`generate-image`](skills/generate-image) | ⚪ Reserve | `kdense-scientific-skills` | Generates or edits images with AI models through the OpenRouter Image API (Gemini, Seedream, Re... |
+| [`geniml`](skills/geniml) | ⚪ Reserve | `kdense-scientific-skills` | "Supports audited local Geniml genomic-interval workflows: validate BED and universe contracts,... |
+| [`genomic-coordinates`](skills/genomic-coordinates) | ⚪ Reserve | `kdense-scientific-skills` | Converts genomic intervals between coordinate conventions, normalises and compares variant repr... |
+| [`genomic-intelligence`](skills/genomic-intelligence) | ⚪ Reserve | `kdense-scientific-skills` | "Predicts regulatory features, gene structure, and expression directly from DNA sequence using ... |
+| [`geomaster`](skills/geomaster) | ⚪ Reserve | `kdense-scientific-skills` | Supports geospatial research workflows for remote sensing, vector and raster GIS, spatial stati... |
+| [`get-available-resources`](skills/get-available-resources) | ⚪ Reserve | `kdense-scientific-skills` | Detects host inventory and effective CPU, memory, disk, scheduler, container, and accelerator l... |
+| [`gget`](skills/gget) | ⚪ Reserve | `kdense-scientific-skills` | "Queries 20+ bioinformatics resources through CLI/Python. Supports quick lookups of gene info, ... |
+| [`ginkgo-cloud-lab`](skills/ginkgo-cloud-lab) | ⚪ Reserve | `kdense-scientific-skills` | Guides protocol selection, input preparation, pricing checks, and browser ordering on Ginkgo Bi... |
+| [`glycoengineering`](skills/glycoengineering) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes and engineers protein glycosylation by scanning canonical N-glycosylation sequons, des... |
+| [`grants`](skills/grants) | ⚪ Reserve | `alirezarezvani-claude-skills` | "NIH grant research skill for clinical researchers. Grill-me intake (research idea + career sta... |
+| [`gtars`](skills/gtars) | ⚪ Reserve | `kdense-scientific-skills` | Supports Gtars for local genomic interval models and set algebra, overlaps and counts, consensu... |
+| [`histolab`](skills/histolab) | ⚪ Reserve | `kdense-scientific-skills` | Extracts and preprocesses whole-slide histology image tiles with Histolab. Use for WSI inspecti... |
+| [`hugging-science`](skills/hugging-science) | ⚪ Reserve | `kdense-scientific-skills` | Discovers and evaluates scientific datasets, models, methodology posts, and Spaces through the ... |
+| [`hypogenic`](skills/hypogenic) | ⚪ Reserve | `kdense-scientific-skills` | Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation ... |
+| [`hypothesis-generation`](skills/hypothesis-generation) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Generate testable hypotheses. Formulate from observations, design experiments, explore competi... |
+| [`imaging-data-commons`](skills/imaging-data-commons) | ⚪ Reserve | `kdense-scientific-skills` | Queries and downloads public cancer imaging data from NCI Imaging Data Commons. Supports IDC co... |
+| [`infographics`](skills/infographics) | ⚪ Reserve | `kdense-scientific-skills` | "Creates and reviews infographics with Nano Banana 2 via OpenRouter. Use for statistical summar... |
+| [`iso-standards-readiness`](skills/iso-standards-readiness) | ⚪ Reserve | `kdense-scientific-skills` | Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-c... |
+| [`lab-hardware-cad`](skills/lab-hardware-cad) | ⚪ Reserve | `kdense-scientific-skills` | Designs custom laboratory hardware as parametric build123d models and exports fabrication artif... |
+| [`labarchive-integration`](skills/labarchive-integration) | ⚪ Reserve | `kdense-scientific-skills` | Integrates with the official LabArchives ELN REST-like API and Inventory API v1. Supports regio... |
+| [`lamindb`](skills/lamindb) | ⚪ Reserve | `kdense-scientific-skills` | Manages biological datasets and models with LaminDB, including artifact registration, lineage t... |
+| [`latchbio-integration`](skills/latchbio-integration) | ⚪ Reserve | `kdense-scientific-skills` | Builds, registers, debugs, and operates bioinformatics workflows on Latch using the Python SDK,... |
+| [`latex-drawing-guide`](skills/latex-drawing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "TikZ and PGFPlots techniques for publication-quality scientific figures" |
+| [`latex-posters`](skills/latex-posters) | ⚪ Reserve | `kdense-scientific-skills` | "Creates research posters in LaTeX using beamerposter, tikzposter, or baposter. Use for confere... |
+| [`lifelines`](skills/lifelines) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Complete survival analysis library in Python. Handles right-censored data, Kaplan-Meier curves,... |
+| [`liteparse`](skills/liteparse) | ⚪ Reserve | `kdense-scientific-skills` | Local document and PDF parsing that returns spatial text with bounding boxes. Use for extractin... |
+| [`mageck`](skills/mageck) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes pooled CRISPR screen FASTQ reads and guide-count matrices with MAGeCK, validates guide... |
+| [`marine-carbonate-chemistry`](skills/marine-carbonate-chemistry) | ⚪ Reserve | `kdense-scientific-skills` | Solves seawater carbonate chemistry with PyCO2SYS for chemical oceanography, ocean acidificatio... |
+| [`markdown-mermaid-writing`](skills/markdown-mermaid-writing) | ⚪ Reserve | `kdense-scientific-skills` | Writes scientific Markdown documentation and Mermaid diagrams for workflows, relationships, tim... |
+| [`market-research-reports`](skills/market-research-reports) | ⚪ Reserve | `kdense-scientific-skills` | Builds evidence-traceable market research reports and assumption-driven market sizing or foreca... |
+| [`matchms`](skills/matchms) | ⚪ Reserve | `kdense-scientific-skills` | Processes, cleans, compares, and searches tandem mass spectra with matchms. Use for MS/MS file ... |
+| [`matlab`](skills/matlab) | ⚪ Reserve | `kdense-scientific-skills` | Builds, reviews, migrates, and plans MATLAB or GNU Octave numerical workflows. Use for arrays, ... |
+| [`matplotlib`](skills/matplotlib) | ⚪ Reserve | `kdense-scientific-skills` | Creates and customizes scientific plots with Matplotlib. Used for fine-grained control over plo... |
+| [`medchem`](skills/medchem) | ⚪ Reserve | `kdense-scientific-skills` | Applies medicinal chemistry filters for compound triage, using drug-likeness rules (Lipinski, V... |
+| [`methodology`](skills/methodology) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "13 research methodology skills. Trigger: study design, methodology selection, scientific reaso... |
+| [`modal`](skills/modal) | ⚪ Reserve | `kdense-scientific-skills` | Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Us... |
+| [`molecular-dynamics`](skills/molecular-dynamics) | ⚪ Reserve | `kdense-scientific-skills` | Runs and analyzes molecular dynamics simulations with OpenMM and MDAnalysis. Sets up protein/sm... |
+| [`molecular-dynamics-guide`](skills/molecular-dynamics-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Molecular dynamics simulation setup, execution, and trajectory analysis" |
+| [`molfeat`](skills/molfeat) | ⚪ Reserve | `kdense-scientific-skills` | Featurizes small molecules with Molfeat for QSAR/QSPR, chemical similarity, virtual screening, ... |
+| [`ncats-arax`](skills/ncats-arax) | ⚪ Reserve | `kdense-scientific-skills` | Queries the NCATS Translator ARAX production API for bounded, typed, provenance-rich one-hop an... |
+| [`networkx`](skills/networkx) | ⚪ Reserve | `kdense-scientific-skills` | Creates, analyzes, and visualizes complex networks and graphs in Python with NetworkX. Use when... |
+| [`neurokit2`](skills/neurokit2) | ⚪ Reserve | `kdense-scientific-skills` | Builds and audits reproducible NeuroKit2 research workflows for physiological time-series prepr... |
+| [`neuropixels-analysis`](skills/neuropixels-analysis) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading Sp... |
+| [`nextflow`](skills/nextflow) | ⚪ Reserve | `kdense-scientific-skills` | Builds, runs, and debugs Nextflow DSL2 pipelines and nf-core workflows. Use for Nextflow, nf-co... |
+| [`nextflow-development`](skills/nextflow-development) | ⚪ Reserve | `anthropics-knowledge-work` | Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when anal... |
+| [`nmrglue`](skills/nmrglue) | ⚪ Reserve | `kdense-scientific-skills` | Processes calibrated one-dimensional complex NMR free-induction decays with nmrglue into phased... |
+| [`numerical-methods-guide`](skills/numerical-methods-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Apply numerical methods and scientific computing techniques" |
+| [`nwb-conversion`](skills/nwb-conversion) | ⚪ Reserve | `kdense-scientific-skills` | Converts neuroscience acquisition data to Neurodata Without Borders files with NeuroConv and Py... |
+| [`omero-integration`](skills/omero-integration) | ⚪ Reserve | `kdense-scientific-skills` | Inspects and automates microscopy data workflows against OMERO.server with omero-py, BlitzGatew... |
+| [`onekgpd`](skills/onekgpd) | ⚪ Reserve | `kdense-scientific-skills` | > |
+| [`ontology-term-resolution`](skills/ontology-term-resolution) | ⚪ Reserve | `kdense-scientific-skills` | Resolves free-text scientific labels to ontology term IDs and validates existing CURIEs against... |
+| [`open-notebook`](skills/open-notebook) | ⚪ Reserve | `kdense-scientific-skills` | Organizes research with the self-hosted Open Notebook alternative to NotebookLM. Supports sourc... |
+| [`openpiv`](skills/openpiv) | ⚪ Reserve | `kdense-scientific-skills` | Performs Particle Image Velocimetry (PIV) analysis with OpenPIV. Use when extracting velocity f... |
+| [`opentrons-integration`](skills/opentrons-integration) | ⚪ Reserve | `kdense-scientific-skills` | Authors, reviews, migrates, simulates, and troubleshoots official Opentrons Python Protocol API... |
+| [`optimize-for-gpu`](skills/optimize-for-gpu) | ⚪ Reserve | `kdense-scientific-skills` | GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct an... |
+| [`pacsomatic`](skills/pacsomatic) | ⚪ Reserve | `kdense-scientific-skills` | Prepares and launches nf-core/pacsomatic matched tumor-normal PacBio HiFi genomics workflows fr... |
+| [`paper-lookup`](skills/paper-lookup) | ⚪ Reserve | `kdense-scientific-skills` | Searches 18 scholarly APIs for papers, preprints, citations, open-access full text, repository ... |
+| [`paperclip`](skills/paperclip) | ⚪ Reserve | `kdense-scientific-skills` | Searches and reads biomedical papers, FDA/PMDA/EMA documents, clinical trials, and protein reco... |
+| [`paperzilla`](skills/paperzilla) | ⚪ Reserve | `kdense-scientific-skills` | Reads projects, searches project feeds, and retrieves recommendations and canonical papers in P... |
+| [`parallel-web`](skills/parallel-web) | ⚪ Reserve | `kdense-scientific-skills` | "Uses Parallel CLI for web search, URL extraction, deep research, structured data enrichment, e... |
+| [`pathml`](skills/pathml) | ⚪ Reserve | `kdense-scientific-skills` | "Supports local computational pathology research with PathML: slide loading and tiling, preproc... |
+| [`pathogen-variant-surveillance`](skills/pathogen-variant-surveillance) | ⚪ Reserve | `kdense-scientific-skills` | Queries public GenSpectrum LAPIS data for pathogen genomic surveillance, current lineage nomenc... |
+| [`pathway-enrichment`](skills/pathway-enrichment) | ⚪ Reserve | `kdense-scientific-skills` | Performs pathway and gene-set enrichment analysis on gene lists or ranked gene data and interpr... |
+| [`pennylane`](skills/pennylane) | ⚪ Reserve | `kdense-scientific-skills` | Builds and differentiates PennyLane quantum circuits, hybrid PyTorch or JAX models, molecular V... |
+| [`phylogenetics`](skills/phylogenetics) | ⚪ Reserve | `kdense-scientific-skills` | Builds and analyzes phylogenetic trees using MAFFT multiple sequence alignment, IQ-TREE maximum... |
+| [`pi-agent`](skills/pi-agent) | ⚪ Reserve | `kdense-scientific-skills` | Builds with and operates Pi, the minimal terminal coding harness. Use for installing Pi, config... |
+| [`pkpd-modeling`](skills/pkpd-modeling) | ⚪ Reserve | `kdense-scientific-skills` | Pharmacokinetic and pharmacodynamic modelling and simulation - non-compartmental analysis, comp... |
+| [`plotly-interactive-guide`](skills/plotly-interactive-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Guide to Plotly.py for interactive scientific visualizations in Python" |
+| [`polars-bio`](skills/polars-bio) | ⚪ Reserve | `kdense-scientific-skills` | Performs genomic interval overlap, nearest, merge, coverage, complement and subtraction on Pola... |
+| [`pptx-posters`](skills/pptx-posters) | ⚪ Reserve | `kdense-scientific-skills` | Creates and audits editable scientific posters in macro-free PowerPoint (.pptx) from author-app... |
+| [`primekg`](skills/primekg) | ⚪ Reserve | `kdense-scientific-skills` | Queries a pinned Precision Medicine Knowledge Graph (PrimeKG) CSV for typed gene, drug, disease... |
+| [`primer-design`](skills/primer-design) | ⚪ Reserve | `kdense-scientific-skills` | Designs and audits PCR and RT-qPCR primers with Primer3, explicit thermodynamic conditions, ref... |
+| [`protocolsio-integration`](skills/protocolsio-integration) | ⚪ Reserve | `kdense-scientific-skills` | Reads, validates, and safely exports protocols.io data with current official REST/MCP contracts... |
+| [`pufferlib`](skills/pufferlib) | ⚪ Reserve | `kdense-scientific-skills` | Version-aware guidance for PufferLib reinforcement-learning environments, vectorization, polici... |
+| [`pybamm`](skills/pybamm) | ⚪ Reserve | `kdense-scientific-skills` | Simulates lithium-ion battery charge, discharge and rest experiments with PyBaMM, records param... |
+| [`pycalphad`](skills/pycalphad) | ⚪ Reserve | `kdense-scientific-skills` | Computes finite-temperature CALPHAD equilibria, phase fractions, and phase compositions from th... |
+| [`pydeseq2`](skills/pydeseq2) | ⚪ Reserve | `kdense-scientific-skills` | Performs bulk RNA-seq differential expression analysis with PyDESeq2, including count validatio... |
+| [`pydicom`](skills/pydicom) | ⚪ Reserve | `kdense-scientific-skills` | Reads, inspects, writes, transforms, and preflights local DICOM datasets and pixel data. Applie... |
+| [`pyhealth`](skills/pyhealth) | ⚪ Reserve | `kdense-scientific-skills` | Builds and validates PyHealth clinical machine-learning pipelines for EHR, signals, imaging, an... |
+| [`pylabrobot`](skills/pylabrobot) | ⚪ Reserve | `kdense-scientific-skills` | Develops and reviews PyLabRobot lab-automation resources, liquid-handling plans, offline simula... |
+| [`pymatgen`](skills/pymatgen) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes, validates, converts, and transforms materials structures and computed materials data ... |
+| [`pymc`](skills/pymc) | ⚪ Reserve | `kdense-scientific-skills` | Builds and checks Bayesian models with PyMC, including hierarchical models, NUTS MCMC, variatio... |
+| [`pymoo`](skills/pymoo) | ⚪ Reserve | `kdense-scientific-skills` | Solves and validates single-, multi-, and many-objective optimization with pymoo, including NSG... |
+| [`pyopenms`](skills/pyopenms) | ⚪ Reserve | `kdense-scientific-skills` | Processes mass spectrometry data with pyOpenMS. Supports proteomics and metabolomics workflows—... |
+| [`pysam`](skills/pysam) | ⚪ Reserve | `kdense-scientific-skills` | Provides Python/HTSlib workflows for genomic files. Used when reading, querying, filtering, or ... |
+| [`pytdc`](skills/pytdc) | ⚪ Reserve | `kdense-scientific-skills` | Provides Therapeutics Data Commons workflows through PyTDC for registry discovery, dataset acce... |
+| [`pytorch-lightning`](skills/pytorch-lightning) | ⚪ Reserve | `kdense-scientific-skills` | Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into Lig... |
+| [`pyzotero`](skills/pyzotero) | ⚪ Reserve | `kdense-scientific-skills` | >- |
+| [`qiime2-amplicon`](skills/qiime2-amplicon) | ⚪ Reserve | `kdense-scientific-skills` | Processes paired-end 16S amplicon reads into QIIME 2 ASVs and taxonomy with retained artifact p... |
+| [`qiskit`](skills/qiskit) | ⚪ Reserve | `kdense-scientific-skills` | Builds, simulates, transpiles, and executes quantum circuits with Qiskit and IBM Quantum Runtim... |
+| [`qutip`](skills/qutip) | ⚪ Reserve | `kdense-scientific-skills` | Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic,... |
+| [`rdkit`](skills/rdkit) | ⚪ Reserve | `kdense-scientific-skills` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW... |
+| [`relion`](skills/relion) | ⚪ Reserve | `kdense-scientific-skills` | Validates and executes RELION single-particle cryo-EM refinement and half-map postprocessing. S... |
+| [`relsa-severity-assessment`](skills/relsa-severity-assessment) | ⚪ Reserve | `kdense-scientific-skills` | Supports multivariate severity assessment and exploratory endpoint-time score forecasting for l... |
+| [`research-engineer`](skills/research-engineer) | ⚪ Reserve | `antigravity-awesome-skills` | "An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objecti... |
+| [`research-lookup`](skills/research-lookup) | ⚪ Reserve | `kdense-scientific-skills` | "Compiles current scholarly evidence for a scientific manuscript or research brief when the use... |
+| [`results-analysis`](skills/results-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill should be used when the user asks to "analyze experimental results", "run strict sta... |
+| [`rowan`](skills/rowan) | ⚪ Reserve | `kdense-scientific-skills` | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Pyt... |
+| [`scanpy`](skills/scanpy) | ⚪ Reserve | `kdense-scientific-skills` | Performs Scanpy single-cell RNA-seq QC, normalization, HVG selection, PCA/UMAP/t-SNE, clusterin... |
+| [`scientific-article-pdf`](skills/scientific-article-pdf) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Generate publication-ready scientific article PDFs from templates" |
+| [`scientific-brainstorming`](skills/scientific-brainstorming) | ⚪ Reserve | `kdense-scientific-skills` | Facilitates evidence-aware scientific ideation with independent generation, structured discussi... |
+| [`scientific-critical-thinking`](skills/scientific-critical-thinking) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Evaluate research rigor. Assess methodology, experimental design, statistical validity, biases... |
+| [`scientific-illustration-guide`](skills/scientific-illustration-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Create graphical abstracts, schematic diagrams, and scientific illustrations" |
+| [`scientific-problem-selection`](skills/scientific-problem-selection) | ⚪ Reserve | `anthropics-knowledge-work` | This skill should be used when scientists need help with research problem selection, project id... |
+| [`scientific-schematics`](skills/scientific-schematics) | ⚪ Reserve | `kdense-scientific-skills` | Generates scientific diagram drafts using Nano Banana 2 AI with smart iterative refinement. Use... |
+| [`scientific-slides`](skills/scientific-slides) | ⚪ Reserve | `kdense-scientific-skills` | Builds slide decks and presentations for research talks. Used for making PowerPoint slides, con... |
+| [`scientific-visualization`](skills/scientific-visualization) | ⚪ Reserve | `kdense-scientific-skills` | Creates and audits truthful, accessible, publication-ready scientific figures with Matplotlib, ... |
+| [`scientific-writing-guide`](skills/scientific-writing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Curated tools and techniques for scientific writing beyond LaTeX" |
+| [`scientific-writing-resources`](skills/scientific-writing-resources) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Curated tools and resources for effective scientific writing" |
+| [`scientific-writing-wrapper`](skills/scientific-writing-wrapper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "AI-powered scientific writing workflow from outline to polished draft" |
+| [`scikit-bio`](skills/scikit-bio) | ⚪ Reserve | `kdense-scientific-skills` | Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (... |
+| [`scikit-survival`](skills/scikit-survival) | ⚪ Reserve | `kdense-scientific-skills` | Builds, evaluates, and audits right-censored or competing-risk survival workflows with scikit-s... |
+| [`scvelo`](skills/scvelo) | ⚪ Reserve | `kdense-scientific-skills` | Performs RNA velocity analysis with scVelo from spliced and unspliced single-cell RNA counts. F... |
+| [`scvi-tools`](skills/scvi-tools) | ⚪ Reserve | `anthropics-knowledge-work` | Deep learning for single-cell analysis using scvi-tools. This skill should be used when users n... |
+| [`seaborn`](skills/seaborn) | ⚪ Reserve | `kdense-scientific-skills` | Creates Seaborn statistical visualizations with pandas integration for distributions, relations... |
+| [`shap`](skills/shap) | ⚪ Reserve | `kdense-scientific-skills` | Explain and audit machine-learning predictions with SHAP. Use for selecting SHAP explainers and... |
+| [`simpy`](skills/simpy) | ⚪ Reserve | `kdense-scientific-skills` | Builds, inspects, tests, and analyzes bounded process-based discrete-event simulations with Sim... |
+| [`single-cell-rna-qc`](skills/single-cell-rna-qc) | ⚪ Reserve | `anthropics-knowledge-work` | Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best pr... |
+| [`stable-baselines3`](skills/stable-baselines3) | ⚪ Reserve | `kdense-scientific-skills` | Trains and evaluates single-agent reinforcement learning with Stable Baselines3 (PPO, SAC, DQN,... |
+| [`statistical-power`](skills/statistical-power) | ⚪ Reserve | `kdense-scientific-skills` | Calculates sample sizes and statistical power for study planning. Applies when someone asks "ho... |
+| [`sympy`](skills/sympy) | ⚪ Reserve | `kdense-scientific-skills` | Performs exact symbolic mathematics with SymPy for algebra, calculus, equation solving, symboli... |
+| [`tamarind`](skills/tamarind) | ⚪ Reserve | `kdense-scientific-skills` | Provides access to a collection of open-source molecular design and structural biology tools on... |
+| [`tellurium`](skills/tellurium) | ⚪ Reserve | `kdense-scientific-skills` | Simulates biochemical kinetic models from SBML or Antimony with Tellurium and libRoadRunner, ch... |
+| [`tikz-diagrams-guide`](skills/tikz-diagrams-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Create publication-quality scientific diagrams with TikZ in LaTeX" |
+| [`tiledbvcf`](skills/tiledbvcf) | ⚪ Reserve | `kdense-scientific-skills` | Stores and retrieves genomic variant calls with TileDB-VCF. Use for indexed single-sample VCF/B... |
+| [`timesfm-forecasting`](skills/timesfm-forecasting) | ⚪ Reserve | `kdense-scientific-skills` | Performs zero-shot time-series forecasting with Google's TimesFM, including regular-grid CSV pr... |
+| [`torch-geometric`](skills/torch-geometric) | ⚪ Reserve | `kdense-scientific-skills` | Supports PyTorch Geometric (PyG) graph neural networks — node/link/graph classification, messag... |
+| [`torchdrug`](skills/torchdrug) | ⚪ Reserve | `kdense-scientific-skills` | Builds and troubleshoots TorchDrug 0.2.1 workflows for molecular graphs, property prediction, s... |
+| [`transformers`](skills/transformers) | ⚪ Reserve | `kdense-scientific-skills` | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, ... |
+| [`treatment-plans`](skills/treatment-plans) | ⚪ Reserve | `kdense-scientific-skills` | Formats and structurally validates local treatment-plan documentation after clinical decisions ... |
+| [`umap-learn`](skills/umap-learn) | ⚪ Reserve | `kdense-scientific-skills` | Applies UMAP-learn to nonlinear dimensionality reduction, 2D/3D embeddings, clustering preproce... |
+| [`uncertainty-and-units`](skills/uncertainty-and-units) | ⚪ Reserve | `kdense-scientific-skills` | Tracks physical units and propagates measurement uncertainty in scientific calculations using p... |
+| [`usfiscaldata`](skills/usfiscaldata) | ⚪ Reserve | `kdense-scientific-skills` | Queries the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required.... |
+| [`vaex`](skills/vaex) | ⚪ Reserve | `kdense-scientific-skills` | Processes large tabular scientific datasets with Vaex expressions, filtered views, streamed sta... |
+| [`venue-templates`](skills/venue-templates) | ⚪ Reserve | `kdense-scientific-skills` | Prepares journal manuscripts, conference papers, research posters, and grant documents using ve... |
+| [`waypoint-bio`](skills/waypoint-bio) | ⚪ Reserve | `kdense-scientific-skills` | Supports work with Outpost Bio's open microbiome foundation models - the Waypoint checkpoints (... |
+| [`what-if-oracle`](skills/what-if-oracle) | ⚪ Reserve | `kdense-scientific-skills` | Supports structured what-if scenario analysis for research planning, experimental contingencies... |
+| [`zarr-python`](skills/zarr-python) | ⚪ Reserve | `kdense-scientific-skills` | Stores and queries chunked N-D scientific arrays with Zarr-Python 3, including codecs, sharding... |

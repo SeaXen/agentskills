@@ -1,7 +1,6 @@
 ---
 name: analyzer
 description: Analyze queried data for trends, week-over-week comparisons, distributions, funnels, cohorts, top-N lists, anomalies, sanity checks, and report-ready findings. Use after or alongside ClickHouse queries when the user wants insight rather than raw rows.
-category: data-engineering-ml
 ---
 
 # Analyzer

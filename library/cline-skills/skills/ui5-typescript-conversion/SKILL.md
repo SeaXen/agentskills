@@ -1,7 +1,6 @@
 ---
 name: ui5-typescript-conversion
 description: A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript.
-category: programming-languages-core
 ---
 
 # UI5 TypeScript Conversion Guidelines

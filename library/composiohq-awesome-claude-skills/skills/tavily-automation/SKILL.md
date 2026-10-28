@@ -3,7 +3,6 @@ name: tavily-automation
 description: "Automate Tavily tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Tavily Automation via Rube MCP

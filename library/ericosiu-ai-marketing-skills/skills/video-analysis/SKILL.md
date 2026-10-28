@@ -1,7 +1,6 @@
 ---
 name: video-analysis
 description: Analyze YouTube videos or local footage using transcripts first, with silent video checks for demonstrations, delivery, editing, and clip boundaries. Use for video summaries, research, repurposing, or timestamped critiques.
-category: video-motion-production
 ---
 
 # Video Analysis

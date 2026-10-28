@@ -1,7 +1,6 @@
 ---
 name: writing-workflow-skills
 description: "Use when adding a new workflow skill to pi-thinkrail-workflow, changing an existing workflow skill's role, trigger, handoff, or structure, or checking a workflow skill against the workflow system's rules. Not for authoring general-purpose skills outside this package."
-category: security-compliance-auth
 ---
 
 # Writing Workflow Skills

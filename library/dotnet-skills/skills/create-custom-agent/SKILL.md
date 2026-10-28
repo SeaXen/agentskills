@@ -1,7 +1,6 @@
 ---
 name: create-custom-agent
 description: Creates VS Code custom agent files (.agent.md) for specialized AI personas with tools, instructions, and handoffs. Use when scaffolding new custom agents, configuring agent workflows, or setting up agent-to-agent handoffs.
-category: code-quality-refactoring
 ---
 
 # Create Custom Agent

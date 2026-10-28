@@ -3,7 +3,6 @@ name: api-ninjas-automation
 description: "Automate API Ninjas tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # API Ninjas Automation via Rube MCP

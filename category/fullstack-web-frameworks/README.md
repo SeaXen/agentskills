@@ -1,33 +1,33 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Skills in Category**: 7 real modular skills  
-> **Directory**: [`.agents/category/fullstack-web-frameworks`](./)  
-> **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
+> **Total Curated Skills**: 12 skills  
+> **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
 
-## ⚡ Quick Activation Command
+## 📖 Operational Playbook
 
-To link any skill from this category into your active hot-set (`.agents/skills/`):
-```bash
-python .agents/library/activate_skill.py link <skill-name>
+### 1. 📥 How to Install / Activate
+```powershell
+python .agents/library/activate_skill.py activate <skill-name>
 ```
 
 ---
 
-## 📑 Complete Skill Catalog (7 Skills)
+## 🗂️ Curated Skill Inventory
 
-| Skill Folder | Status | Upstream Source | Description |
+| Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
-| **[`app-builder`](./app-builder/SKILL.md)** | 🟢 Active | `active-skills` | Main application building orchestrator. Creates full-stack applications from natural language requests. Determines proje |
-| **[`cs-fullstack-engineer`](./cs-fullstack-engineer/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
-| **[`cs-fullstack-review`](./cs-fullstack-review/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
-| **[`nextjs-app-router-patterns`](./nextjs-app-router-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced data fetching. Use when b |
-| **[`nextjs-best-practices`](./nextjs-best-practices/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
-| **[`nextjs-react-expert`](./nextjs-react-expert/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | React and Next.js performance optimization from Vercel Engineering. Use when building React components, optimizing perfo |
-| **[`nextjs-supabase-auth`](./nextjs-supabase-auth/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authentication next.js, login  |
-
----
-
-*Part of the [AgentSkills Vault](https://github.com/SeaXen/agentskills). Master directory in [category/README.md](../README.md).*
+| [`app-builder`](skills/app-builder) | 🟢 Active | `active` | Main application building orchestrator. Creates full-stack applications from natural language r... |
+| [`astrophysics-data-guide`](skills/astrophysics-data-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "Astronomical data processing with Astropy, FITS files, and sky surveys" |
+| [`cs-fullstack-engineer`](skills/cs-fullstack-engineer) | ⚪ Reserve | `alirezarezvani-claude-skills` |  |
+| [`cs-fullstack-review`](skills/cs-fullstack-review) | ⚪ Reserve | `alirezarezvani-claude-skills` |  |
+| [`google-cloud-solution-n-tier-serverless-web-app`](skills/google-cloud-solution-n-tier-serverless-web-app) | ⚪ Reserve | `google-skills` | >- |
+| [`hunt-nextjs`](skills/hunt-nextjs) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunt Next.js specific vulnerabilities — Server Actions arbitrary function execution, Middleware... |
+| [`ink-app-builder`](skills/ink-app-builder) | ⚪ Reserve | `android-skills` | Adds inking and freehand drawing capabilities to an Android app using |
+| [`nextjs-app-router-patterns`](skills/nextjs-app-router-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | "Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced... |
+| [`nextjs-best-practices`](skills/nextjs-best-practices) | ⚪ Reserve | `antigravity-awesome-skills` | "Next.js App Router principles. Server Components, data fetching, routing patterns." |
+| [`nextjs-react-expert`](skills/nextjs-react-expert) | ⚪ Reserve | `vudovn-antigravity-kit` | React and Next.js performance optimization from Vercel Engineering. Use when building React com... |
+| [`nextjs-supabase-auth`](skills/nextjs-supabase-auth) | ⚪ Reserve | `antigravity-awesome-skills` | "Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, auth... |
+| [`physics`](skills/physics) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | "5 physics & astrophysics skills. Trigger: physics simulations, astronomical data, computationa... |

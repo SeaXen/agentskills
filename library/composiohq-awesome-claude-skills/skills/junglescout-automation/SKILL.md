@@ -3,7 +3,6 @@ name: junglescout-automation
 description: "Automate Junglescout tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Junglescout Automation via Rube MCP

@@ -3,7 +3,6 @@ name: givebutter-automation
 description: "Automate Givebutter tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Givebutter Automation via Rube MCP

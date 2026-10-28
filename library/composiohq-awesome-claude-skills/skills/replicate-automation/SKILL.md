@@ -4,7 +4,6 @@ description: "Automate Replicate AI model operations -- run predictions, upload 
 requires:
   mcp:
     - rube
-category: database-sql-relational
 ---
 
 # Replicate Automation

@@ -3,7 +3,6 @@ name: toneden-automation
 description: "Automate Toneden tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Toneden Automation via Rube MCP

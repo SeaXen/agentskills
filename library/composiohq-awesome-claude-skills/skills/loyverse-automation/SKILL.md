@@ -3,7 +3,6 @@ name: loyverse-automation
 description: "Automate Loyverse tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Loyverse Automation via Rube MCP

@@ -14,7 +14,6 @@ description: >
   companies in this area that need what we do." Reach for it even when the
   owner describes the customer they want rather than asking for a list.
 allowed-tools: Read, WebFetch
-category: business-sales-crm
 ---
 
 # Lead Finder

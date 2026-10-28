@@ -1,7 +1,6 @@
 ---
 name: better-typography
 description: Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, truncation and punctuation.
-category: frontend-visual-taste
 ---
 
 # Typography

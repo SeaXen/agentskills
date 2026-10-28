@@ -12,7 +12,6 @@ description: >-
   trades", "did any congressman buy X", "alert me when Pelosi files", or
   "run the Pelosi skill".
 argument-hint: "[member name] [--read]"
-category: code-quality-refactoring
 ---
 
 # trader-pelosi

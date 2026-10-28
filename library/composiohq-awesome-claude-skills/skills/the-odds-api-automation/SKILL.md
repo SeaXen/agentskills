@@ -3,7 +3,6 @@ name: the-odds-api-automation
 description: "Automate The Odds API tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: backend-api-design
 ---
 
 # The Odds API Automation via Rube MCP

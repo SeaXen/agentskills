@@ -5,7 +5,6 @@ description: >-
   engage with. Use when the user says "plan my week", "what should I post",
   "content calendar", "I have nothing to post about", or wants a posting
   schedule and an engagement list.
-category: code-quality-refactoring
 ---
 
 # ig-plan

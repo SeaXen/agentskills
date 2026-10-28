@@ -4,7 +4,6 @@ description: "Automate AI inference, chat completions, audio translation, and TT
 requires:
   mcp:
     - rube
-category: audio-voice-sound
 ---
 
 # GroqCloud Automation

@@ -1,7 +1,6 @@
 ---
 name: threejs-shaders
 description: "Custom GLSL vertex and fragment shaders: uniforms, varyings, shader chunks, extending built-in materials, instanced attributes, plus the same effects as node materials with TSL on WebGPU. Use when writing a shader, a custom material or effect, moving vertices in a shader, or porting GLSL to TSL."
-category: 3d-web-threejs
 ---
 
 # Three.js Shaders

@@ -3,7 +3,6 @@ name: rippling-automation
 description: "Automate Rippling tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Rippling Automation via Rube MCP

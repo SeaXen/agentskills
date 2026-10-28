@@ -3,7 +3,6 @@ name: benchmark-email-automation
 description: "Automate Benchmark Email tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: testing-unit-tdd
 ---
 
 # Benchmark Email Automation via Rube MCP

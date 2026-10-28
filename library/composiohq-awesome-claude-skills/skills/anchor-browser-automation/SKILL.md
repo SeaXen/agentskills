@@ -3,7 +3,6 @@ name: anchor-browser-automation
 description: "Automate Anchor Browser tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: testing-playwright-e2e
 ---
 
 # Anchor Browser Automation via Rube MCP

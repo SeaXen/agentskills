@@ -3,7 +3,6 @@ name: dock-certs-automation
 description: "Automate Dock Certs tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Dock Certs Automation via Rube MCP

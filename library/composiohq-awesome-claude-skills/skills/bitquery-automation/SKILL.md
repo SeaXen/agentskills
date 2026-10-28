@@ -3,7 +3,6 @@ name: bitquery-automation
 description: "Automate Bitquery tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Bitquery Automation via Rube MCP

@@ -20,7 +20,6 @@ triggers:
   - "blank panel"
   - "runningContext"
   - "zoomSdk"
-category: productivity-workspace-tools
 ---
 
 # Zoom Apps SDK

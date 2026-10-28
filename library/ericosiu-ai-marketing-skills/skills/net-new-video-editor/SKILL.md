@@ -1,7 +1,6 @@
 ---
 name: net-new-video-editor
 description: Turn newly recorded talking-head footage into review-ready vertical video drafts with an explicit edit plan, deterministic FFmpeg rendering, captions, hook cards, audio normalization, and visual QA. Use for original Instagram Reels, TikTok videos, YouTube Shorts, LinkedIn videos, founder-led recordings, multiple takes of a new script or idea card, or requests to automate the first video-editing pass. Do not use to mine clips from long-form source videos.
-category: video-motion-production
 ---
 
 # Net-New Video Editor

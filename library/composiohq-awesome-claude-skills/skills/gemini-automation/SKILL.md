@@ -3,7 +3,6 @@ name: gemini-automation
 description: "Automate Gemini tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: prompt-llm-engineering
 ---
 
 # Gemini Automation via Rube MCP

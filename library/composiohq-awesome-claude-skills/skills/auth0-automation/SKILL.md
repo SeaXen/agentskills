@@ -3,7 +3,6 @@ name: auth0-automation
 description: "Automate Auth0 tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Auth0 Automation via Rube MCP

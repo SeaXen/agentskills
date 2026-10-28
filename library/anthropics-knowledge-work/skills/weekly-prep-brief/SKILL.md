@@ -1,7 +1,6 @@
 ---
 name: weekly-prep-brief
 description: "Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on 'weekly prep brief', 'prepare my week', 'what calls do I have this week', 'Monday prep', or any weekly planning request."
-category: productivity-workspace-tools
 ---
 
 # Weekly Prep Brief

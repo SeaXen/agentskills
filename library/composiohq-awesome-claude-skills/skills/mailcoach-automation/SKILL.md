@@ -3,7 +3,6 @@ name: mailcoach-automation
 description: "Automate Mailcoach tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Mailcoach Automation via Rube MCP

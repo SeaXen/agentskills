@@ -8,7 +8,6 @@ description: >
   "what brand materials do we have", "find our style guide", "where are our brand docs",
   "do we have a style guide", "discover brand voice", "brand content audit",
   or "find brand assets".
-category: multi-agent-orchestration
 ---
 
 # Brand Discovery

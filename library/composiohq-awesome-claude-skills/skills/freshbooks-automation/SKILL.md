@@ -3,7 +3,6 @@ name: FreshBooks Automation
 description: "FreshBooks Automation: manage businesses, projects, time tracking, and billing in FreshBooks cloud accounting"
 requires:
   mcp: [rube]
-category: business-finance-accounting
 ---
 
 # FreshBooks Automation

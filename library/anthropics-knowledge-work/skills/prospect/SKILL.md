@@ -1,91 +1,99 @@
 ---
 name: prospect
-description: "Full ICP-to-leads pipeline. Describe your ideal customer in plain English and get a ranked table of enriched decision-maker leads with emails and phone numbers."
-user-invocable: true
-argument-hint: "[describe your ideal customer]"
-category: business-sales-crm
+description: "Build targeted account or contact lists using Common Room's Prospector. Triggers on 'find companies that match [criteria]', 'build a prospect list', 'find contacts at [type of company]', 'show me companies hiring [role]', or any list-building request."
 ---
 
-# Prospect
+# Prospecting
 
-Go from an ICP description to a ranked, enriched lead list in one shot. The user describes their ideal customer via "$ARGUMENTS".
+Build targeted account and contact lists using Common Room's Prospector. Supports iterative refinement through natural conversation, intent-based discovery, and both net-new prospecting and signal-based queries against existing accounts.
 
-## Examples
+## Critical Distinction: Two Object Types
 
-- `/apollo:prospect VP of Engineering at Series B+ SaaS companies in the US, 200-1000 employees`
-- `/apollo:prospect heads of marketing at e-commerce companies in Europe`
-- `/apollo:prospect CTOs at fintech startups, 50-500 employees, New York`
-- `/apollo:prospect procurement managers at manufacturing companies with 1000+ employees`
-- `/apollo:prospect SDR leaders at companies using Salesforce and Outreach`
+Common Room's Prospector operates against two fundamentally different object types. Always clarify which one is in play before running a query:
 
-## Step 1 — Parse the ICP
+**`ProspectorOrganization`** — Companies **not yet in Common Room**
+- Net-new companies that match specified criteria
+- Available fields are firmographic only: name, domain, size, industry, capital raised, annual revenue, location
+- Fewer filter options — no signal-based filters, no scores, no activity history
+- Use when: building a brand-new target list, territory planning, top-of-funnel expansion
 
-Extract structured filters from the natural language description in "$ARGUMENTS":
+**`Organization`** (in Common Room) — Companies **already in your CR workspace**
+- Full signal data available: product usage, community activity, CRM fields, scores, custom fields
+- Much richer filter set — includes signal-based, score-based, segment-based, and firmographic filters
+- Use when: finding warm accounts to prioritize, identifying expansion candidates, surfacing intent signals within existing pipeline
 
-**Company filters:**
-- Industry/vertical keywords → `q_organization_keyword_tags`
-- Employee count ranges → `organization_num_employees_ranges`
-- Company locations → `organization_locations`
-- Specific domains → `q_organization_domains_list`
+When a user's request could apply to both (e.g., "Show companies hiring AI engineers this month"), clarify:
+> "Are you looking for net-new companies not yet in Common Room, or filtering accounts already in your workspace?"
 
-**Person filters:**
-- Job titles → `person_titles`
-- Seniority levels → `person_seniorities`
-- Person locations → `person_locations`
+The catalog should make this distinction explicit so the LLM can select the right Prospector endpoint.
 
-If the ICP is vague, ask 1-2 clarifying questions before proceeding. At minimum, you need a title/role and an industry or company size.
+## Step 0: Load User Context (Me)
 
-## Step 2 — Search for Companies
+Fetch the `Me` object to get the user's segments. When prospecting against `Organization` records (accounts already in CR), default to filtering within "My Segments" unless the user asks for a broader search.
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_mixed_companies_search` with the company filters:
-- `q_organization_keyword_tags` for industry/vertical
-- `organization_num_employees_ranges` for size
-- `organization_locations` for geography
-- Set `per_page` to 25
+## Step 1: Gather Targeting Criteria
 
-## Step 3 — Enrich Top Companies
+If criteria are already provided, proceed. Otherwise ask:
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_organizations_bulk_enrich` with the domains from the top 10 results. This reveals revenue, funding, headcount, and firmographic data to help rank companies.
+> "What kind of accounts or contacts are you looking for? For example: company size, industry, job titles, signals like recent product activity or community engagement, geographic region, or specific intent signals like recent funding or job postings."
 
-## Step 4 — Find Decision Makers
+Use the Common Room object catalog to see available filters for each object type. The key distinction:
+- **ProspectorOrganization** — firmographic and technographic filters only (industry, size, geography, funding, tech stack)
+- **Organization** — all firmographic filters plus signal-based, score-based, segment-based, and CRM filters
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_mixed_people_api_search` with:
-- `person_titles` and `person_seniorities` from the ICP
-- `q_organization_domains_list` scoped to the enriched company domains
-- `per_page` set to 25
+**Lookalike search:** If the user asks to "find companies like [X]", first look up the reference company in Common Room (or via web search if not in CR). Extract its key attributes — industry, employee range, tech stack, funding stage, geography — and propose those as filter criteria. Present the derived criteria to the user for confirmation before running the search, since lookalike targeting works best when the user can refine which attributes matter most.
 
-## Step 5 — Enrich Top Leads
+## Step 2: Support Iterative Refinement
 
-> **Credit warning**: Tell the user exactly how many credits will be consumed before proceeding.
+Prospecting is conversational. Support multi-turn refinement naturally:
 
-Use `mcp__claude_ai_Apollo_MCP__apollo_people_bulk_match` to enrich up to 10 leads per call with:
-- `first_name`, `last_name`, `domain` for each person
-- `reveal_personal_emails` set to `true`
+1. Run initial query with provided criteria
+2. If results are large (50+), summarize and offer: "I found [N] results. Want to narrow by [suggested filter]?"
+3. If results are too few (< 5), suggest: "Only [N] results with those filters — I can broaden by relaxing [specific criterion]."
+4. Apply each refinement as a follow-up query, not a new search from scratch
 
-If more than 10 leads, batch into multiple calls.
+Example flow:
+- Rep: "Find cybersecurity companies in California." → 500 results
+- Rep: "Only show ones over 300 employees using AWS." → 47 results
+- Rep: "Focus on the ones with recent hiring activity." → 12 results ✓
 
-## Step 6 — Present the Lead Table
+## Step 3: Run the Query and Present Results
 
-Show results in a ranked table:
+Execute the Prospector query with confirmed criteria. Sort by signal strength or fit score where available (not alphabetically).
 
-### Leads matching: [ICP Summary]
+**For `ProspectorOrganization` (net-new) results:**
 
-| # | Name | Title | Company | Employees | Revenue | Email | Phone | ICP Fit |
-|---|---|---|---|---|---|---|---|---|
+| Company | Domain | Industry | Size | Capital Raised | Revenue | Location |
+|---------|--------|----------|------|---------------|---------|----------|
 
-**ICP Fit** scoring:
-- **Strong** — title, seniority, company size, and industry all match
-- **Good** — 3 of 4 criteria match
-- **Partial** — 2 of 4 criteria match
+**For `Organization` (in CR) results:**
 
-**Summary**: Found X leads across Y companies. Z credits consumed.
+| Company | Industry | Size | Top Signal | Signal Date | Score | CRM Stage |
+|---------|----------|------|-----------|-------------|-------|-----------|
 
-## Step 7 — Offer Next Actions
+Flag any results where data is thin or the most recent signal is older than 90 days.
 
-Ask the user:
+## Step 3.5: Enrich Net-New Results with Web Search
 
-1. **Save all to Apollo** — Bulk-create contacts via `mcp__claude_ai_Apollo_MCP__apollo_contacts_create` with `run_dedupe: true` for each lead
-2. **Load into a sequence** — Ask which sequence and run the sequence-load flow for these contacts
-3. **Deep-dive a company** — Run `/apollo:company-intel` on any company from the list
-4. **Refine the search** — Adjust filters and re-run
-5. **Export** — Format leads as a CSV-style table for easy copy-paste
+For `ProspectorOrganization` results (net-new companies not in CR), run a quick web search on the top 3–5 companies to add context beyond firmographics. CR has no behavioral signals for these companies, so web search fills the gap — look for recent funding, product launches, leadership changes, or news coverage. Include findings as brief annotations next to each company in the results.
+
+## Step 4: Offer Next Steps
+
+- "Want me to draft outreach for the top 3–5 prospects?"
+- "Should I run a full account brief on any of these?"
+- "Want to refine the criteria or add another filter?"
+- "I can format this as a CSV if you'd like to export it."
+- "For any net-new companies here, I can add them to Common Room for enrichment." *(future capability)*
+
+## Quality Standards
+
+- Always confirm which object type (ProspectorOrg vs Organization) before running the query
+- Default to "My Segments" when querying Organization records, unless user specifies otherwise
+- Support iterative refinement — treat each follow-up as a filter adjustment, not a fresh start
+- Never mix result fields from ProspectorOrganization and Organization in the same list
+- Fewer high-quality results beat a long unqualified list
+- **Only show data the query returned** — leave blank or "—" for missing fields, don't invent values
+
+## Reference Files
+
+- **`references/prospect-guide.md`** — filter types, signal-based sorting, object type distinctions, and list-building strategies

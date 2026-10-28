@@ -1,170 +1,179 @@
 ---
 name: brag
-description: Generates short launch videos with music and motion from a website URL or project directory.
-category: frontend-motion-animation
+description: Turn the current project website into a short, polished, shareable launch video using Hyperframes. Use when someone says "/brag", "let's brag about this", "make a launch video", "turn this into a video", or wants to share what they built. Reads the project code directly — no live URL or screenshots needed.
 ---
 
 # /brag
 
-**You built it. Now brag.**
+You built it. Now let's brag about it.
 
-> **Want a video without running `/brag` yourself?** Paste your site's link at [letsbrag.app](https://letsbrag.app).
+## Invocation dispatch (must happen first)
 
-[![the /brag launch site — you built it, now brag](docs/assets/hero.png)](https://latent-spaces.github.io/brag/)
+**Model check.** If you are Claude Opus 5.5 and the invocation doesn't ask for the full workflow (`--full`, "use the full brag") or for voiceover (`--voice`, which brag-slim doesn't do), switch to brag-slim: read `<skill-dir>/slim.md` (the /brag-slim skill, bundled here) and follow it for the rest of this run instead of this file. Pass along the user's input, and pass any other options (`--no-music`, `--title`, …) as plain-language direction. Tell the user in one line first, e.g. "You're on Opus 5.5, so I'm using /brag-slim: I build the whole video myself. Say 'use the full brag' to switch back." If you are any other model, or can't tell which model you are, skip this check.
 
-`/brag` is an agent skill that turns the project you created into a short, shareable launch video — music, motion, and share copy included. One command, powered by [Hyperframes](https://hyperframes.heygen.com/).
+Before inspecting the project, parse the complete `/brag` invocation. If the
+invocation contains `--voice`, set `voice.enabled = true`. Enable narration
+only for that run. Do not enable narration automatically and do not fall back
+to the normal no-voice workflow.
 
-The looping video on the [launch site](https://latent-spaces.github.io/brag/) was made by `/brag` on this very repo. 
+`/brag` turns the current project website or app into a short, polished, shareable launch video using Hyperframes. It is narrow, opinionated, and fun.
 
-## Rather not run it yourself? Use letsbrag.app
+## What this skill does
 
-[letsbrag.app](https://letsbrag.app) runs `/brag` for you. Paste your site's link and get a 20-second launch video with music, motion, and share copy. No setup, no subscription.
+1. Reads the current project code to understand the app.
+2. Plans a short brag concept specific to this project.
+3. Scripts and storyboards the video.
+4. Hands a focused composition brief to Hyperframes.
+5. Validates, renders, and writes share copy.
 
-The skill stays free and open source. Install it below and run it yourself anytime.
+## Parsing the invocation
 
-## New: `/brag-slim`
+The user may invoke with natural language or flags:
 
-**The same /brag, rebuilt lean for Opus 5.5.**
-
-A smooth launch video, designed for your specific project, with its own soundtrack and share copy.
-
-No Hyperframes, no bundled assets, same creative rules.
-
-Just tell Opus 5.5: *let's /brag about this.*
-
-On Opus 5.5, `/brag` switches to `/brag-slim` automatically. Run `/brag --full` to keep the classic Hyperframes workflow.
-
-**Install just `/brag-slim`:**
-
-```bash
-npx skills add https://github.com/latent-spaces/brag --skill brag-slim
+```
+/brag
+/brag --tone chaotic
+/brag --tone polished --format vertical
+/brag this. Make it feel like a ridiculous startup launch.
 ```
 
-Already have the Claude Code `/brag` plugin? `/brag-slim` is included from version 0.4.0. Run `claude plugin update brag` to get it.
+Parse these options:
 
-## Install /brag
+| Option | Values | Default |
+|---|---|---|
+| `--tone` | preset or freeform description | inferred |
+| `--format` | `landscape`, `vertical`, `square` | `landscape` |
+| `--duration` | seconds | auto (15-25s) |
+| `--no-music` | flag | music on |
+| `--no-sfx` | flag | sfx on |
+| `--title` | string | inferred from project |
+| `--voice` | flag | narration off |
 
-**Codex:**
+Voice is opt-in. If `--voice` is present, use Kokoro via Hyperframes and do
+not add any provider-selection logic. The voice workflow is intentionally
+single-provider.
 
-```bash
-codex plugin marketplace add latent-spaces/brag
-codex plugin add brag@brag
+Tone can be a preset (`default`, `polished`, `yc-parody`, `chaotic`, `deadpan`, `cinematic`, `app-store`) or a creative direction such as "fake Series A launch from 2016", "museum exhibit", or "overproduced mobile game ad".
+
+When the user gives freeform tone direction, map it to the nearest preset for pacing and structure, but preserve the user's direction in the plan and composition brief.
+
+## Narration guidance
+
+When `--voice` is enabled, write narration that complements the visuals, does
+not simply read visible text, matches scene pacing, sounds natural and
+conversational, and moves smoothly between scenes. Keep the script concise and
+specific to the product so the voice feels like part of the edit rather than a
+separate narration track.
+
+---
+
+## Output directory
+
+By default, output goes to `brag-output/`. To avoid overwriting previous runs, use a timestamped directory:
+
+```
+brag-output-2026-05-04-143022/
 ```
 
-To update it later:
+Use a timestamp when:
+- The user explicitly asks for a new run without overriding previous results
+- A `brag-output/` directory already exists in the project
 
-```bash
-codex plugin marketplace upgrade brag
-codex plugin add brag@brag
+Generate the timestamp at the start of the run (`YYYY-MM-DD-HHmmss`) and use it consistently for all output paths in that run: plan, brief, composition, render, and share copy.
+
+## Skill directory
+
+`<skill-dir>` is the directory containing this `SKILL.md`. Claude Code prints it as "Base directory for this skill" when the skill loads; for other agents it's wherever the skill was installed. Bundled assets are under `<skill-dir>/assets/` and scripts under `<skill-dir>/scripts/`. Don't guess an install path: a plugin install, a `~/.claude/skills/` copy, and this repo all put it somewhere different.
+
+---
+
+## Step 1: Inspect the project
+
+**Read:** [references/step-1-inspect.md](references/step-1-inspect.md)
+
+Scan the project directory and extract the information needed to plan the brag video.
+
+**Gate:** You can answer all 9 questions in the brag planning rubric.
+
+---
+
+## Step 2: Plan and storyboard
+
+**Read:** [references/step-2-plan.md](references/step-2-plan.md)
+
+Write `<output-dir>/brag-plan.md` (where `<output-dir>` is `brag-output/` or the timestamped variant chosen above). Answer the planning rubric. Commit to a creative angle. Write the beat-by-beat storyboard including scenes, text, timing, transitions, and SFX cues.
+
+When music is selected, include a compact `Music cue guidance` section: read the bundled track's cue preset from `<skill-dir>/assets/music/cues/` if present, otherwise note cues will be detected at composition time (any track now supports beat sync — see `references/audio.md`). Cue metadata is optional timing guidance only: story, readability, pacing, and product clarity stay primary.
+
+**Gate:** `<output-dir>/brag-plan.md` exists with a full storyboard. Scene durations sum to 15–25 seconds.
+
+---
+
+## Step 3: Hand off to Hyperframes
+
+**Read:** The Hyperframes skills — `hyperframes` (contract, `references/format.md`, `references/motion.md`, `references/look.md`), `hyperframes-cli`, `hyperframes-registry`, and `media-use` for audio. /brag is its own workflow: skip the `hyperframes` storyline step: don't read `references/types/*` or `references/story.md`, don't propose storylines, and don't write a `SPEC.md`. The brag plan and composition brief replace them, including the LOOK line `references/look.md` asks for. Also skip its `usage`, `history`, `feedback` and REVIEW.md steps; `check` is brag's gate. Do not route into its generic launch-video workflow.
+**Read:** [references/step-3-compose.md](references/step-3-compose.md)
+**Read:** [references/audio.md](references/audio.md)
+
+Write the composition brief and use Hyperframes to create the video implementation in `<output-dir>/composition/`.
+
+`/brag` owns the product angle, source material, storyboard, tone, format, audio selection, music cue guidance, and delivery expectations. Hyperframes owns the concrete composition structure, exact animation timing, animation mechanics, runtime choices, linting rules, and render workflow.
+
+**Gate:** `npx hyperframes check` passes with zero errors inside `<output-dir>/composition/` (the single browser gate before render — see hyperframes-cli for what it audits).
+
+---
+
+## Step 4: Validate, render, and deliver
+
+**Read:** [references/step-4-deliver.md](references/step-4-deliver.md)
+
+Validate, preview, render to `<output-dir>/brag.mp4`, pick the best poster frame into `<output-dir>/brag.jpg`, bake that poster as the video's frame 0 so it's the idle thumbnail everywhere, and write `<output-dir>/share-copy.txt`.
+
+**Gate:** `<output-dir>/brag.mp4` exists. A best-frame poster `<output-dir>/brag.jpg` is picked (not an arbitrary frame) and baked as frame 0 of `brag.mp4`. Share copy is written.
+
+---
+
+## Tone system
+
+Seven tone presets ship with `/brag`. Each changes scripting energy, pacing, typography personality, and transition style. Presets are defaults, not limits.
+
+Full definitions: [references/tones.md](references/tones.md)
+
+| Tone | Energy | One-liner |
+|---|---|---|
+| `default` | Playful, clean, postable | The good-vibes default |
+| `polished` | Serious, elegant | For projects that are not jokes |
+| `yc-parody` | Deadpan startup energy | Fake seriousness applied to absurd projects |
+| `chaotic` | Fast, loud, aggressive | Over-the-top and unhinged |
+| `deadpan` | Calm, dry, understated | The joke is that nothing is a joke |
+| `cinematic` | Dramatic, trailer-scale | Big motion, bigger claims |
+| `app-store` | Smooth, feature-card clean | Corporate but not boring |
+
+Always allow a freeform creative direction to refine or override the preset.
+
+---
+
+## Creative laws
+
+These apply to every brag video regardless of tone.
+
+**Short.** 15–25 seconds. Not one second more without a reason. This holds whether or not narration is on; narration does not extend the window.
+
+**Readable.** Keep the pace high through motion and cuts, never by flashing text. Every line a viewer must read holds long enough to read it (short label ~0.8s settled; a sentence ~0.3s per word). Fast-in, then hold — never fast-in, then gone.
+
+**Specific.** The video must feel like it was made for this exact project, not any project.
+
+**Show the thing.** At least one scene must display actual UI, copy, or a key visual from the product. No abstract filler.
+
+**No generic SaaS language.** "Streamline your workflow" is banned. Use the project's actual copy and claims.
+
+**The hook is everything.** The first 2 seconds determine whether someone keeps watching. Plan the hook before anything else.
+
+**Funny earns its place.** Humor should come from the project's absurdity, not from trying to be funny.
+
+**Pattern:**
+```
+Hook (2-3s) → Reveal (2-4s) → 2-3 sharp highlights (5-12s) → Punchline/outro (2-4s)
 ```
 
-**Claude Code:**
-
-```bash
-/plugin marketplace add latent-spaces/brag
-/plugin install brag@brag
-```
-
-Then run `/brag` inside any project. The plugin includes `/brag-slim` too.
-
-**Any other agent** — one command via the [`skills`](https://github.com/vercel-labs/skills) CLI (Cursor, Codex, Copilot, Gemini CLI, opencode, and more):
-
-```bash
-npx skills add https://github.com/latent-spaces/brag --skill brag
-```
-
-Add `-g` to install globally (available in every project); drop it to scope to the current one. ([browse on skills.sh](https://www.skills.sh/latent-spaces/brag/brag))
-
-<details>
-<summary>No installer? Copy the skill directly.</summary>
-
-```bash
-rsync -a --exclude '.DS_Store' skills/brag/ ~/.claude/skills/brag/
-rsync -a --exclude '.DS_Store' skills/brag-slim/ ~/.claude/skills/brag-slim/  # optional: the /brag-slim command
-```
-
-Restart Claude Code after copying.
-</details>
-
-### Also works with
-
-This repo exposes the skill at every agent's standard discovery path via symlinks. No extra config needed.
-
-| Agent | How it discovers |
-|---|---|
-| **Google Antigravity** | Auto-detects from `.agents/skills/brag/` at project root or `~/.gemini/config/skills/brag/` globally |
-| **opencode** | Auto-detects from `.opencode/skills/brag/` at project root |
-| **Codex CLI** | Reads `.agents/skills/brag/`, walking up to repo root |
-| **Claude Code** | Also reads `.claude/skills/brag/` (in addition to the `.claude-plugin/` marketplace install above) |
-| **Other agents** | Point custom instructions at `skills/brag/SKILL.md` — see [`docs/other-agents.md`](docs/other-agents.md) |
-
-> **Windows users:** Git requires `git config core.symlinks true` (or `git clone -c core.symlinks=true`) and Windows Developer Mode or Administrator privileges to create symlinks. If symlinks don't work on your system, copy `skills/brag/` to the agent's skill directory manually instead.
-
-## Use it
-
-From any project directory, ask your agent:
-
-```text
-let's /brag
-```
-
-Or steer the tone:
-
-```text
-/brag --tone "fake Series A launch from 2016"
-```
-
-Voiceover is off by default. Enable it explicitly with:
-
-```text
-/brag --voice
-```
-
-Narration uses Kokoro through Hyperframes when enabled.
-
-You get a `brag-output/` folder with the plan, a composition brief, share copy, and the rendered `brag.mp4`.
-
-## How it works
-
-`/brag` owns the story — the product angle, tone, and which moments to show. It hands a focused brief to [Hyperframes](https://hyperframes.heygen.com/), which builds, times, and renders the video.
-
-## Requirements
-
-- An agent that supports Agent Skills — Claude Code, opencode, Codex CLI, or any agent with custom instructions (see "Also works with" above)
-- Node.js 22+
-- FFmpeg on `PATH`
-- Hyperframes CLI — `npx hyperframes` (check it with `npx hyperframes doctor`)
-
-## What's in this repo
-
-- `skills/brag/` — the skill, references, and bundled music + SFX
-- `skills/brag-slim/` — `/brag-slim`, the single-file skill for Claude Opus 5.5
-- `examples/` — fake product sites used as a benchmark suite
-- `docs/` — the launch site (GitHub Pages)
-- `plugin.json` — portable Agent Plugins manifest
-- `.codex-plugin/` — Codex compatibility manifest
-- `.claude-plugin/` — Claude Code manifest + shared marketplace catalog (also recognized by Codex)
-- `.claude/skills/brag/` — symlink → `skills/brag/` (Claude Code discovery)
-- `.agents/skills/brag/` — symlink → `skills/brag/` (Codex CLI + opencode discovery)
-- `.opencode/skills/brag/` — symlink → `skills/brag/` (opencode discovery)
-
-## Credits
-
-- Music — [ende.app](https://ende.app/en) "Happy Beats / Business Moves" (CC BY 4.0)
-- Sound effects — [Kenney](https://kenney.nl/)
-- Video generation — [Hyperframes](https://hyperframes.heygen.com/)
-- Fake demo sites — built with [Impeccable](https://impeccable.style/)
-
-## Contributing
-
-Contributions, ideas, and new demo brags are welcome — open an issue or a PR.
-
-## Star History
-
-<a href="https://www.star-history.com/?type=date&repos=latent-spaces%2Fbrag">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=latent-spaces/brag&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=latent-spaces/brag&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=latent-spaces/brag&type=date&legend=top-left" />
- </picture>
-</a>
+Adapt this. Not every project needs exactly 3 highlights. The pattern is a starting shape, not a template.

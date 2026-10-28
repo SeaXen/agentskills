@@ -1,7 +1,6 @@
 ---
 name: rederive
 description: Teaches a codebase by making the user re-derive its design decisions from first principles through Socratic questions, instead of explaining the code. Works on the user's own repo or any open source repo (local path or git URL). Use when the user runs /rederive, wants to explain a project they built with AI, is preparing to talk about a project in an interview, or wants to learn how a well-known project works.
-category: business-strategy-legal
 ---
 
 # Rederive

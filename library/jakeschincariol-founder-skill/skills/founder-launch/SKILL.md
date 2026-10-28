@@ -8,7 +8,6 @@ description: >-
   measure and what to change. Use when the user says "how do I launch", "launch
   plan", "when can I open", "launch checklist", "go live", or "soft open".
 argument-hint: "[target launch date]"
-category: code-quality-refactoring
 ---
 
 # founder-launch

@@ -1,7 +1,6 @@
 ---
 name: rep-context
 description: Leader's prep on a single rep before a 1:1 - their pipeline, recent activity, what they've been working on per chat and calendar, and where they might need help. Use when the user asks "prep for my 1:1 with [rep]" (a rep you manage), "how is [rep] doing", or "what's [rep] working on".
-category: business-sales-crm
 ---
 
 # Rep Context

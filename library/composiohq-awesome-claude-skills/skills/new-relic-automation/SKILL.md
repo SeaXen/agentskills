@@ -4,7 +4,6 @@ description: "Automate New Relic observability workflows -- manage alert policie
 requires:
   mcp:
     - rube
-category: code-quality-refactoring
 ---
 
 # New Relic Automation

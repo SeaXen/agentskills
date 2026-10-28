@@ -4,7 +4,6 @@ description: Anthony Fu's opinionated tooling and conventions for JavaScript/Typ
 metadata:
   author: Anthony Fu
   version: "2026.09.30"
-category: programming-languages-core
 ---
 
 > Reference template: [antfu/starter-ts](https://github.com/antfu/starter-ts). When scaffolding a new TypeScript project, mirror its `package.json` scripts, `eslint.config.js`, `knip.json`, `tsdown.config.ts` and workflows rather than inventing a new layout.

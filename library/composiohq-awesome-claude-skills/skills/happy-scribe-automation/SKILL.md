@@ -3,7 +3,6 @@ name: happy-scribe-automation
 description: "Automate Happy Scribe tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Happy Scribe Automation via Rube MCP

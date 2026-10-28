@@ -3,7 +3,6 @@ name: bouncer-automation
 description: "Automate Bouncer tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Bouncer Automation via Rube MCP

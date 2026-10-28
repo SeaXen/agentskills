@@ -4,7 +4,6 @@ description: Sync cookies from local Chrome to a Browserbase persistent context 
 compatibility: "Requires Node.js 22+, a local Chromium-based browser (Chrome, Brave, Edge) with remote debugging enabled, and BROWSERBASE_API_KEY. Run `npm install` in the skill directory before first use."
 license: MIT
 allowed-tools: Bash
-category: security-compliance-auth
 ---
 
 # Cookie Sync — Local Chrome → Browserbase Context

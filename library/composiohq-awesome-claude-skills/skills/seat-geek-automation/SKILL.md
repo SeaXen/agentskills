@@ -3,7 +3,6 @@ name: seat-geek-automation
 description: "Automate Seat Geek tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # Seat Geek Automation via Rube MCP

@@ -15,7 +15,6 @@ description: >-
   "close my position", "flatten", "get me out", "connect Alpaca", "set up
   paper trading", or after /trader-risk passes.
 argument-hint: "[order number]"
-category: code-quality-refactoring
 ---
 
 # trader-broker

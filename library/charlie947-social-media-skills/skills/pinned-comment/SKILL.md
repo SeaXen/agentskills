@@ -1,7 +1,6 @@
 ---
 name: pinned-comment
 description: Write deadpan LinkedIn pinned comments AND matching image generation prompts in the user’s voice. Use when the user asks for a pinned comment, pin comment, or first comment for a LinkedIn post. ALWAYS produce the image prompt FIRST, then caption it with the 4-line comment. Output both together unless told otherwise.
-category: prompt-llm-engineering
 ---
 
 # LinkedIn Pinned Comment + Image Prompt Skill

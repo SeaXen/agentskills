@@ -3,7 +3,6 @@ name: d2lbrightspace-automation
 description: "Automate D2lbrightspace tasks via Rube MCP (Composio). Always search tools first for current schemas."
 requires:
   mcp: [rube]
-category: database-sql-relational
 ---
 
 # D2lbrightspace Automation via Rube MCP

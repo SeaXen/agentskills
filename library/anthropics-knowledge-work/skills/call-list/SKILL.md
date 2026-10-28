@@ -2,7 +2,6 @@
 name: call-list
 description: Builds today's call list. Runs lead-triage to rank the top-5 leads most worth calling, supplies talking points from email history, blocks time on the calendar, and drafts follow-up messages. Trigger on "call list," "who am I calling today," "top five to call today," or "block time for calls." An owner who wants leads scored or ranked with no calendar blocks routes to lead-triage directly. Accepts optional count and date arguments.
 allowed-tools: Read, WebFetch
-category: business-sales-crm
 ---
 
 Run the lead prioritization. Scan the pipeline, rank by urgency and opportunity, pull relevant email context, and get the owner ready to make calls.
