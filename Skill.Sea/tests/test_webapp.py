@@ -64,14 +64,26 @@ def run_tests():
         # -----------------------------------------------------------------
         print("\n[Suite 2] Telemetry Metrics Tiles")
         page.wait_for_selector('#stat-total-skills')
-        skills_text = page.locator('#stat-total-skills').text_content()
-        cats_text = page.locator('#stat-total-cats').text_content()
-        repos_text = page.locator('#stat-total-repos').text_content()
-        hot_text = page.locator('#stat-active-hot').text_content()
+        skills_text = page.locator('#stat-total-skills').text_content().strip()
+        cats_text = page.locator('#stat-total-cats').text_content().strip()
+        repos_text = page.locator('#stat-total-repos').text_content().strip()
+        hot_text = page.locator('#stat-active-hot').text_content().strip()
 
-        record("Total Skills Metric 6,063", skills_text == "6,063", f"Got: {skills_text}")
+        stats_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'stats.json')
+        expected_skills = "7,401"
+        expected_repos = 212
+        if os.path.exists(stats_path):
+            try:
+                with open(stats_path, 'r', encoding='utf-8') as sf:
+                    s_data = json.load(sf)
+                    expected_skills = f"{s_data.get('totalSkills', 7401):,}"
+                    expected_repos = s_data.get('totalRepositories', 212)
+            except Exception:
+                pass
+
+        record(f"Total Skills Metric matches stats.json ({expected_skills})", skills_text == expected_skills, f"Got: {skills_text}")
         record("Total Categories Metric 38", cats_text == "38", f"Got: {cats_text}")
-        record("Total Repositories Metric 210", repos_text == "210", f"Got: {repos_text}")
+        record(f"Total Repositories Metric matches stats.json ({expected_repos})", repos_text == str(expected_repos), f"Got: {repos_text}")
         record("Active Hot-Set Metric 130", hot_text == "130", f"Got: {hot_text}")
 
         # -----------------------------------------------------------------
@@ -200,7 +212,8 @@ def run_tests():
         page.locator('#tab-library').click()
         page.wait_for_timeout(200)
         record("Library View Active", page.locator('#view-library').is_visible())
-        record("210 Repository Cards Rendered", page.locator('#repo-grid .repo-card').count() == 210)
+        repo_card_count = page.locator('#repo-grid .repo-card').count()
+        record(f"{expected_repos} Repository Cards Rendered", repo_card_count == expected_repos, f"Got: {repo_card_count}")
 
         # 9.4 Guide
         page.locator('#tab-guide').click()

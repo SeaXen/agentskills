@@ -418,6 +418,18 @@ def rebuild_categories_and_provenance():
     except Exception as e:
         print(f"⚠️ Provenance rebuild encountered error: {e}", flush=True)
 
+    rebuild_skill_sea_catalog()
+
+def rebuild_skill_sea_catalog():
+    print("\n[5.5/6] Rebuilding Skill.Sea web catalog, categories & stats JSON...", flush=True)
+    script_path = os.path.join(agents_dir, 'Skill.Sea', 'scripts', 'build-catalog.js')
+    if os.path.exists(script_path):
+        try:
+            subprocess.run(['node', script_path], cwd=os.path.join(agents_dir, 'Skill.Sea'), check=True)
+            print("✓ Skill.Sea web catalog successfully synced.", flush=True)
+        except Exception as e:
+            print(f"⚠️ Skill.Sea catalog rebuild error: {e}", flush=True)
+
 # 6. Git Commit & Push
 def git_commit_and_push():
     print("\n[6/6] Checking Git status and pushing updates...", flush=True)
