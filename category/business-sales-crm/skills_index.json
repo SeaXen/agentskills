@@ -1,26 +1,10 @@
 [
   {
-    "id": "00.2-Full-empirical-analysis-skill_Stata",
-    "name": "00.2-Full-empirical-analysis-skill_Stata",
-    "category": "business-sales-crm",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Classical end-to-end empirical analysis workflow in the traditional Stata ecosystem \u2014 native Stata + reghdfe + ivreg2 + csdid + did_imputation + eventstudyinteract + sdid + rdrobust + rddensity + synth + synth_runner + psmatch2 + teffects + ebalance + coefplot + esttab + asdoc + binscatter. **Defaults to economics empirical-paper style** (AER / QJE / AEJ) \u2014 every run produces a publication-ready output set with a multi-column regression table (M1\u2192M6 progressive controls/FE) as the centerpiece, plus Table 1 (descriptives), mechanism / heterogeneity / robustness tables, and event-study + coefficient + trend figures. Covers the full 8-step Stata pipeline an applied economist runs on every paper \u2014 (1) data import & cleaning (use/import, destring, misstable, duplicates, merge assert), (2) variable construction (gen/egen/winsor2/xtile/xtset with L./F./D.), (3) descriptive statistics & Table 1 (tabstat/balancetable/asdoc), (4) classical diagnostic tests (sktest/swilk/hettest/imtest/xtserial/xttest3/vif/dfuller/kpss/hausman/estat overid), (5) baseline modeling (reg/xtreg/reghdfe/ivreg2/ivregress/csdid/did_imputation/eventstudyinteract/sdid/rdrobust/synth/psmatch2/teffects/heckman/qreg/ppmlhdfe), (6) robustness battery (bacondecomp/honestdid/rwolf/ritest/wildbootstrap/oster), (7) further analysis (subgroup/triple-diff/interactions/medsem/marginsplot/binscatter by group), (8) publication-ready tables & figures (esttab/outreg2/estout/coefplot/marginsplot/rdplot/twoway combined). **Also covers two parallel domain modes that share the same 8-step scaffolding** \u2014 **Mode A \u2014 Epidemiology / public health** (target-trial emulation, IPTW + g-formula + TMLE doubly-robust triplet via `teffects ipw` / `teffects ipwra` / `teffects aipw` / `eltmle`, Mendelian randomization via `mrrobust` (IVW / Egger / weighted median) and `mregger` / `mrpresso`, KM / Cox / AFT / RMST survival via `sts` / `stcox` / `streg` / `strmst2`, E-value sensitivity via `evalue` (Linden-Mathur), principal stratification \u2014 STROBE / TRIPOD reporting), and **Mode B \u2014 ML causal inference** (DML via `ddml` / `pdslasso`, S/T/X/R/DR meta-learners via `crforest` and `ddml interactive`, causal forest via `crforest` / `cforest`, BART/BCF via `bart` / `bartCause`-style externals, CATE distribution + policy tree via `crforest`, off-policy evaluation, conformal causal externals, fairness audit, DAG learning via `pcalg` / external Python callouts). Use when the",
-    "path": "category/business-sales-crm/00.2-Full-empirical-analysis-skill_Stata"
-  },
-  {
-    "id": "00.3-Full-empirical-analysis-skill_R",
-    "name": "00.3-Full-empirical-analysis-skill_R",
-    "category": "business-sales-crm",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Classical end-to-end empirical analysis workflow in the modern tidyverse + econometrics R ecosystem \u2014 dplyr + tidyr + haven + fixest + sandwich + lmtest + clubSandwich + AER + ivreg + did + bacondecomp + HonestDiD + eventstudyr + rdrobust + rddensity + Synth + gsynth + synthdid + MatchIt + WeightIt + cobalt + ebal + grf + DoubleML + mediation + marginaleffects + modelsummary + kableExtra + gt + ggplot2 + ggpubr + cowplot + binsreg. **Defaults to economics empirical-paper style** (AER / QJE / AEJ) \u2014 every run produces a publication-ready output set with a multi-column regression table (M1\u2192M6 progressive controls/FE) as the centerpiece, plus Table 1 (descriptives), mechanism / heterogeneity / robustness tables, and event-study + coefficient + trend figures. Covers the full 8-step R pipeline an applied economist runs on every paper \u2014 (1) data import & cleaning (read_dta/read_csv, naniar, janitor, validate-merges), (2) variable construction (mutate/across/winsorize/group_by + lag/lead with dplyr), (3) descriptive statistics & Table 1 (gtsummary, modelsummary::datasummary, tableone), (4) classical diagnostic tests (shapiro/jarque.bera.test/bptest/dwtest/bgtest/vif/adf.test/kpss.test/Hausman), (5) baseline modeling (fixest::feols, ivreg, did::att_gt, eventstudyr, sun_ab, did_imputation, synthdid, rdrobust, MatchIt, WeightIt, grf::causal_forest, DoubleML, mediation), (6) robustness battery (modelsummary stack, clubSandwich CRSE, fwildclusterboot, ri2, robomit Oster, bacondecomp, HonestDiD), (7) further analysis (interactions + marginaleffects, mediation::mediate, gsem via lavaan, dose-response splines, grf CATE), (8) publication-ready tables & figures (modelsummary, kableExtra, gt, stargazer, texreg, flextable to LaTeX/Word/HTML; ggplot2 + ggpubr + cowplot + binsreg + iplot for figures). **Also covers two parallel domain modes that share the same 8-step scaffolding** \u2014 **Mode A \u2014 Epidemiology / public health** (target-trial emulation, IPTW + g-formula + TMLE doubly-robust triplet via `WeightIt` / `gfoRmula` / `tmle` / `ltmle`, Mendelian randomization via `MendelianRandomization` / `TwoSampleMR` / `MRPRESSO`, KM / Cox / AFT / RMST survival via `survival` / `survminer` / `flexsurv`, E-value sensitivity via `EValue`, principal stratification \u2014 STROBE / TRIPOD reporting), and **Mode B \u2014 ML causal inference** (DML via `DoubleML`, S/T/X/R/DR meta-learners via `causalweight` / `grf`, causal forest via `grf::causal_f",
-    "path": "category/business-sales-crm/00.3-Full-empirical-analysis-skill_R"
-  },
-  {
     "id": "10-Jill0099-causal-inference-mixtape",
     "name": "10-Jill0099-causal-inference-mixtape",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "'This skill should be used when the user asks to \"implement a DiD regression\", \"write a causal inference pipeline\", \"set up an event study\", \"implement instrumental variables\", \"run a regression discontinuity design\", \"build a synthetic control model\", \"implement propensity score matching\", \"write parallel trends test\", \"implement Bacon decomposition\", or needs code templates for causal inference methods in Python, R, or Stata. Based on Scott Cunningham''s Causal Inference: The Mixtape.'",
+    "description": "This skill should be used when the user asks to \"implement a DiD regression\", \"write a causal inference pipeline\", \"set up an event study\", \"implement instrumental variables\", \"run a regression discontinuity design\", \"build a synthetic control model\", \"implement propensity score matching\", \"write parallel trends test\", \"implement Bacon decomposition\", or needs code templates for causal inference methods in Python, R, or Stata. Based on Scott Cunningham''s Causal Inference: The Mixtape.",
     "path": "category/business-sales-crm/10-Jill0099-causal-inference-mixtape"
   },
   {
@@ -60,7 +44,7 @@
     "name": "ads-linkedin",
     "category": "business-sales-crm",
     "repository": "agricidaniel-claude-ads",
-    "description": "\"Audit LinkedIn Ads measurement, Insight Tag and conversions, professional audiences, lead generation, ABM, creative, bidding, budgets, pacing, automation, and policy. Use for LinkedIn Ads, Campaign Manager, Insight Tag, Lead Gen Forms, Thought Leader Ads, ABM campaigns, or B2B paid media.\"",
+    "description": "Audit LinkedIn Ads measurement, Insight Tag and conversions, professional audiences, lead generation, ABM, creative, bidding, budgets, pacing, automation, and policy. Use for LinkedIn Ads, Campaign Manager, Insight Tag, Lead Gen Forms, Thought Leader Ads, ABM campaigns, or B2B paid media.",
     "path": "category/business-sales-crm/ads-linkedin"
   },
   {
@@ -76,7 +60,7 @@
     "name": "amazon-product-detail",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"Amazon product detail page scraper: extract full product data from any open Amazon product detail URL (any /dp/{asin} or /gp/product/{asin} page across all Amazon regional TLDs) \u2014 returns asin, url, title, brand, price, listPrice, stars, reviewsCount, starsBreakdown (5/4/3/2/1 star percentages), answeredQuestions, inStock, inStockText, delivery, fastestDelivery, returnPolicy, breadCrumbs, features (bullet points), description, bookDescription, thumbnailImage, highResolutionImages, galleryThumbnails, productOverview (Brand/Model/etc.), attributes (tech spec table), attributesMapped (flat key-value), bestsellerRanks (rank + category + url), variantAttributes (currently selected color/size/style), variantAsins, seller (name + id + url), isAmazonChoice, amazonChoiceText, monthlyPurchaseVolume, hasAPlusContent, hasBrandStory, aiReviewsSummary, reviewsLink, productPageReviews (sample), videosCount, locationText, loadedCountryCode. Works on amazon.com, amazon.co.uk, amazon.de, amazon.co.jp, amazon.fr, amazon.it, amazon.es, amazon.ca, amazon.com.au, amazon.in, amazon.com.mx, amazon.com.br, amazon.nl, amazon.se, amazon.sg, amazon.ae, amazon.sa, amazon.pl, amazon.tr, amazon.eg. Use when user mentions Amazon product page, Amazon /dp/, Amazon dp URL, Amazon ASIN scraper, Amazon product detail, Amazon PDP, Amazon product data, Amazon product info, Amazon product fields, Amazon product attributes, Amazon full field extraction, Amazon per-ASIN enrichment, Amazon rating breakdown, Amazon stars breakdown, Amazon bestseller rank, Amazon BSR, Amazon variants, Amazon variant ASINs, Amazon color size options, Amazon feature bullets, Amazon A+ content, Amazon brand story, Amazon AI review summary, Amazon bought in past month, Amazon monthly sales volume, Amazon Amazon's Choice badge, Amazon seller info, scrape Amazon product, enrich Amazon ASIN, Amazon ASIN details, Amazon product review data. Also applies to bulk ASIN enrichment from a list of URLs, competitive product research, brand catalog audits, price and stock monitoring per ASIN, and building a normalized product dataset from a list of Amazon URLs.\"",
+    "description": "Amazon product detail page scraper: extract full product data from any open Amazon product detail URL (any /dp/{asin} or /gp/product/{asin} page across all Amazon regional TLDs) \u2014 returns asin, url, title, brand, price, listPrice, stars, reviewsCount, starsBreakdown (5/4/3/2/1 star percentages), answeredQuestions, inStock, inStockText, delivery, fastestDelivery, returnPolicy, breadCrumbs, features (bullet points), description, bookDescription, thumbnailImage, highResolutionImages, galleryThumbnails, productOverview (Brand/Model/etc.), attributes (tech spec table), attributesMapped (flat key-value), bestsellerRanks (rank + category + url), variantAttributes (currently selected color/size/style), variantAsins, seller (name + id + url), isAmazonChoice, amazonChoiceText, monthlyPurchaseVolume, hasAPlusContent, hasBrandStory, aiReviewsSummary, reviewsLink, productPageReviews (sample), videosCount, locationText, loadedCountryCode. Works on amazon.com, amazon.co.uk, amazon.de, amazon.co.jp, amazon.fr, amazon.it, amazon.es, amazon.ca, amazon.com.au, amazon.in, amazon.com.mx, amazon.com.br, amazon.nl, amazon.se, amazon.sg, amazon.ae, amazon.sa, amazon.pl, amazon.tr, amazon.eg. Use when user mentions Amazon product page, Amazon /dp/, Amazon dp URL, Amazon ASIN scraper, Amazon product detail, Amazon PDP, Amazon product data, Amazon product info, Amazon product fields, Amazon product attributes, Amazon full field extraction, Amazon per-ASIN enrichment, Amazon rating breakdown, Amazon stars breakdown, Amazon bestseller rank, Amazon BSR, Amazon variants, Amazon variant ASINs, Amazon color size options, Amazon feature bullets, Amazon A+ content, Amazon brand story, Amazon AI review summary, Amazon bought in past month, Amazon monthly sales volume, Amazon Amazon's Choice badge, Amazon seller info, scrape Amazon product, enrich Amazon ASIN, Amazon ASIN details, Amazon product review data. Also applies to bulk ASIN enrichment from a list of URLs, competitive product research, brand catalog audits, price and stock monitoring per ASIN, and building a normalized product dataset from a list of Amazon URLs.",
     "path": "category/business-sales-crm/amazon-product-detail"
   },
   {
@@ -84,7 +68,7 @@
     "name": "apollo-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Apollo.io lead generation -- search organizations, discover contacts, enrich prospect data, manage contact stages, and build targeted outreach lists -- using natural language through the Composio MCP integration.\"",
+    "description": "Automate Apollo.io lead generation -- search organizations, discover contacts, enrich prospect data, manage contact stages, and build targeted outreach lists -- using natural language through the Composio MCP integration.",
     "path": "category/business-sales-crm/apollo-automation"
   },
   {
@@ -92,7 +76,7 @@
     "name": "attio-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Attio CRM operations -- search records, query contacts and companies with advanced filters, manage notes, list attributes, and navigate your relationship data -- using natural language through the Composio MCP integration.\"",
+    "description": "Automate Attio CRM operations -- search records, query contacts and companies with advanced filters, manage notes, list attributes, and navigate your relationship data -- using natural language through the Composio MCP integration.",
     "path": "category/business-sales-crm/attio-automation"
   },
   {
@@ -104,27 +88,27 @@
     "path": "category/business-sales-crm/attribution"
   },
   {
+    "id": "automating-ioc-enrichment",
+    "name": "automating-ioc-enrichment",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Automates the enrichment of raw indicators of compromise with multi-source",
+    "path": "category/business-sales-crm/automating-ioc-enrichment"
+  },
+  {
     "id": "bd-screening",
     "name": "bd-screening",
     "category": "business-sales-crm",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": ">",
+    "description": "7-phase BD screening pipeline for crypto exchange listing. From HOT token detection through verified lead to outreach execution. Dual-source verification (DexScreener + DexTools), security deep dive, contact discovery, email-first outreach with trust-gated automation. Permanent process for every token scoring 85+.",
     "path": "category/business-sales-crm/bd-screening"
-  },
-  {
-    "id": "binance-leaderboard",
-    "name": "binance-leaderboard",
-    "category": "business-sales-crm",
-    "repository": "binance-binance-skills-hub",
-    "description": "|",
-    "path": "category/business-sales-crm/binance-leaderboard"
   },
   {
     "id": "braintree-automation",
     "name": "braintree-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Braintree Automation: manage payment processing via Stripe-compatible tools for customers, subscriptions, payment methods, and transactions\"",
+    "description": "Braintree Automation: manage payment processing via Stripe-compatible tools for customers, subscriptions, payment methods, and transactions",
     "path": "category/business-sales-crm/braintree-automation"
   },
   {
@@ -132,15 +116,39 @@
     "name": "brief",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:brief [topic] \u2014 Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation \u2014 e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision.\"",
+    "description": "/c-level-agents:brief [topic] \u2014 Generate a one-page strategy brief from an office-hours intake. First step in the strategic sprint pipeline. Use when a strategic question needs to be framed before boardroom deliberation \u2014 e.g. locking options, assumptions, and success criteria for a pricing change or a market-entry decision.",
     "path": "category/business-sales-crm/brief"
+  },
+  {
+    "id": "building-automated-malware-submission-pipeline",
+    "name": "building-automated-malware-submission-pipeline",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Builds an automated malware submission and analysis pipeline that collects",
+    "path": "category/business-sales-crm/building-automated-malware-submission-pipeline"
+  },
+  {
+    "id": "building-ioc-defanging-and-sharing-pipeline",
+    "name": "building-ioc-defanging-and-sharing-pipeline",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Build an automated pipeline that ingests raw IOCs (URLs, IPs, domains,",
+    "path": "category/business-sales-crm/building-ioc-defanging-and-sharing-pipeline"
+  },
+  {
+    "id": "building-ioc-enrichment-pipeline-with-opencti",
+    "name": "building-ioc-enrichment-pipeline-with-opencti",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Build an automated IOC enrichment pipeline on OpenCTI (STIX 2.1 native",
+    "path": "category/business-sales-crm/building-ioc-enrichment-pipeline-with-opencti"
   },
   {
     "id": "business-contact-social-links-skill",
     "name": "business-contact-social-links-skill",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"This skill helps users automatically extract official website and social media profiles. Agent should proactively apply this skill when users express needs like search for official website and social media contacts of a company, find YouTube and LinkedIn profiles by company name, extract social media links from a specific website URL, discover a company's X and Facebook presence, gather business contact details using their brand name, retrieve TikTok and Instagram links from a target website, track competitor social media strategy, extract multi-platform social links for lead generation, find official contact channels of local businesses, collect canonical profile URLs for outreach campaigns, or build a contact database from Yellow Pages leads.\"",
+    "description": "This skill helps users automatically extract official website and social media profiles. Agent should proactively apply this skill when users express needs like search for official website and social media contacts of a company, find YouTube and LinkedIn profiles by company name, extract social media links from a specific website URL, discover a company's X and Facebook presence, gather business contact details using their brand name, retrieve TikTok and Instagram links from a target website, track competitor social media strategy, extract multi-platform social links for lead generation, find official contact channels of local businesses, collect canonical profile URLs for outreach campaigns, or build a contact database from Yellow Pages leads.",
     "path": "category/business-sales-crm/business-contact-social-links-skill"
   },
   {
@@ -148,7 +156,7 @@
     "name": "business-growth-skills",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Router/index for the 4 business & growth skills bundled in this plugin: customer-success-manager (health scoring, churn risk, expansion), sales-engineer (RFP analysis, competitive matrices, PoC planning), revenue-operations (pipeline, forecast accuracy, GTM efficiency), and contract-and-proposal-writer. Use when a growth/revenue request doesn't obviously match one skill and you need to pick the right one (e.g., 'which accounts are at risk', 'should we bid on this RFP').\"",
+    "description": "Router/index for the 4 business & growth skills bundled in this plugin: customer-success-manager (health scoring, churn risk, expansion), sales-engineer (RFP analysis, competitive matrices, PoC planning), revenue-operations (pipeline, forecast accuracy, GTM efficiency), and contract-and-proposal-writer. Use when a growth/revenue request doesn't obviously match one skill and you need to pick the right one (e.g., 'which accounts are at risk', 'should we bid on this RFP').",
     "path": "category/business-sales-crm/business-growth-skills"
   },
   {
@@ -156,7 +164,7 @@
     "name": "c-level-agents",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /c-level-agents:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /c-level-agents:* commands, or when orchestrating multi-role decisions.\"",
+    "description": "Founder-mode executive team. 13 cs-* C-suite agents (CFO, CMO, CRO, CPO, COO, CHRO, CISO, GC, CDO, CAIO, CCO, VPE, Chief of Staff) and 21 /c-level-agents:* slash commands for forcing-question office hours, multi-role boardroom deliberation, strategic sprint pipeline, and meta routing. Use when the founder needs a virtual executive team, when invoking /c-level-agents:* commands, or when orchestrating multi-role decisions.",
     "path": "category/business-sales-crm/c-level-agents"
   },
   {
@@ -188,7 +196,7 @@
     "name": "capsule-crm-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Capsule CRM operations -- manage contacts (parties), run structured filter queries, track tasks and projects, log entries, and handle organizations -- using natural language through the Composio MCP integration.\"",
+    "description": "Automate Capsule CRM operations -- manage contacts (parties), run structured filter queries, track tasks and projects, log entries, and handle organizations -- using natural language through the Composio MCP integration.",
     "path": "category/business-sales-crm/capsule-crm-automation"
   },
   {
@@ -196,7 +204,7 @@
     "name": "capsule_crm-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Capsule CRM tasks via Rube MCP (Composio): contacts, opportunities, cases, tasks, and pipeline management. Always search tools first for current schemas.\"",
+    "description": "Automate Capsule CRM tasks via Rube MCP (Composio): contacts, opportunities, cases, tasks, and pipeline management. Always search tools first for current schemas.",
     "path": "category/business-sales-crm/capsule_crm-automation"
   },
   {
@@ -204,7 +212,7 @@
     "name": "case-study-writing",
     "category": "business-sales-crm",
     "repository": "magentosh-superpowers",
-    "description": "\"B2B case study writing with STAR framework, data visualization, and research. Covers structure, customer quotes, metrics presentation, and distribution formats. Use for: customer success stories, portfolio pieces, sales enablement, marketing content. Triggers: case study, customer story, success story, b2b case study, client testimonial, customer case study, portfolio case study, use case, customer win, results story\"",
+    "description": "B2B case study writing with STAR framework, data visualization, and research. Covers structure, customer quotes, metrics presentation, and distribution formats. Use for: customer success stories, portfolio pieces, sales enablement, marketing content. Triggers: case study, customer story, success story, b2b case study, client testimonial, customer case study, portfolio case study, use case, customer win, results story",
     "path": "category/business-sales-crm/case-study-writing"
   },
   {
@@ -212,7 +220,7 @@
     "name": "cco-review",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:cco-review [plan] \u2014 Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring. Use when gross retention is slipping, before approving CSM headcount, or when deciding which customer segments to keep or fire.\"",
+    "description": "/c-level-agents:cco-review [plan] \u2014 Retention-obsessed Chief Customer Officer interrogation of any plan that touches customer retention, segmentation, CS team sizing, or CS team hiring. Use when gross retention is slipping, before approving CSM headcount, or when deciding which customer segments to keep or fire.",
     "path": "category/business-sales-crm/cco-review"
   },
   {
@@ -220,15 +228,23 @@
     "name": "ceo-advisor",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Use when planning strategy, preparing board presentations, managing investors, developing organizational culture, making executive decisions, fundraising, or when user mentions CEO, strategic planning, board meetings, investor updates, organizational leadership, or executive strategy.\"",
+    "description": "Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Use when planning strategy, preparing board presentations, managing investors, developing organizational culture, making executive decisions, fundraising, or when user mentions CEO, strategic planning, board meetings, investor updates, organizational leadership, or executive strategy.",
     "path": "category/business-sales-crm/ceo-advisor"
+  },
+  {
+    "id": "certisyn-independent-verification",
+    "name": "certisyn-independent-verification",
+    "category": "business-sales-crm",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Independent, third-party verification of what a counterparty claims about itself, established BEFORE an agent commits funds, signs, delegates authority, or admits that counterparty to a deal. Declared coverage today is verification by physical law - vehicle telemetry and orbital node claims - where a finding is arithmetic that can be re-derived rather than an opinion that must be weighed. Use for any reliance on a counterparty assertion, when drafting the verification clause of an agreement, and when assembling or assessing a dispute filing. Returns one of four outcomes, always names what it could not determine, and states the conditions under which its own evidence should be ruled out.",
+    "path": "category/business-sales-crm/certisyn-independent-verification"
   },
   {
     "id": "cfo-advisor",
     "name": "cfo-advisor",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Financial leadership for startups and scaling companies. Financial modeling, unit economics, fundraising strategy, cash management, and board financial packages. Use when building financial models, analyzing unit economics, planning fundraising, managing cash runway, preparing board materials, or when user mentions CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheets, or financial strategy.\"",
+    "description": "Financial leadership for startups and scaling companies. Financial modeling, unit economics, fundraising strategy, cash management, and board financial packages. Use when building financial models, analyzing unit economics, planning fundraising, managing cash runway, preparing board materials, or when user mentions CFO, burn rate, runway, fundraising, unit economics, LTV, CAC, term sheets, or financial strategy.",
     "path": "category/business-sales-crm/cfo-advisor"
   },
   {
@@ -236,15 +252,31 @@
     "name": "channel-economics",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when reviewing or rebalancing direct vs. partner-led channel economics \u2014 computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel makes money after CAC, support load, partner discount, deal-velocity differences, retention differential, and overhead allocation are all loaded in. Outputs cost to serve, channel ROI verdicts (DOUBLE-DOWN / MAINTAIN / DEFUND / EXIT), a sensitivity-tested channel-mix recommendation, and the diminishing-returns inflection (e.g., 'which channel actually makes money \u2014 direct or partner?').\"",
+    "description": "Use when reviewing or rebalancing direct vs. partner-led channel economics \u2014 computing fully-loaded cost-to-serve per channel, channel ROI with cash / LTV / marginal lenses, and optimal channel mix subject to constraints. For Head of Commercial, RevOps, and VP Sales doing quarterly channel review when pipeline is mixed (e.g., 60% direct + 40% partner-led) and nobody actually knows which channel makes money after CAC, support load, partner discount, deal-velocity differences, retention differential, and overhead allocation are all loaded in. Outputs cost to serve, channel ROI verdicts (DOUBLE-DOWN / MAINTAIN / DEFUND / EXIT), a sensitivity-tested channel-mix recommendation, and the diminishing-returns inflection (e.g., 'which channel actually makes money \u2014 direct or partner?').",
     "path": "category/business-sales-crm/channel-economics"
+  },
+  {
+    "id": "channel-mix-optimizer",
+    "name": "channel-mix-optimizer",
+    "category": "business-sales-crm",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Given your total budget, recommends the optimal split across Google Search, PMax, Meta prospecting, Meta retargeting, and any other active channels based on your last 60-90 days of marginal ROAS and CPA by channel. Tells you where each additional dollar produces the best return. Platform: Google and Meta.",
+    "path": "category/business-sales-crm/channel-mix-optimizer"
+  },
+  {
+    "id": "citation-source-gap-finder",
+    "name": "citation-source-gap-finder",
+    "category": "business-sales-crm",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Find the exact pages AI assistants cite when answering questions in your category, and identify which ones you can get into. Claude clusters the cited sources, scores each by attainability, and outputs an outreach/content plan. Platform: AI visibility.",
+    "path": "category/business-sales-crm/citation-source-gap-finder"
   },
   {
     "id": "close-automation",
     "name": "close-automation",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and track notes. Always search tools first for current schemas.\"",
+    "description": "Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and track notes. Always search tools first for current schemas.",
     "path": "category/business-sales-crm/close-automation"
   },
   {
@@ -260,7 +292,7 @@
     "name": "cmo-advisor",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Marketing leadership for scaling companies. Brand positioning, growth model design, marketing budget allocation, and marketing org design. Use when designing brand strategy, selecting growth models (PLG vs sales-led vs community-led), allocating marketing budgets, building marketing teams, or when user mentions CMO, brand strategy, growth model, CAC, LTV, channel mix, or marketing ROI.\"",
+    "description": "Marketing leadership for scaling companies. Brand positioning, growth model design, marketing budget allocation, and marketing org design. Use when designing brand strategy, selecting growth models (PLG vs sales-led vs community-led), allocating marketing budgets, building marketing teams, or when user mentions CMO, brand strategy, growth model, CAC, LTV, channel mix, or marketing ROI.",
     "path": "category/business-sales-crm/cmo-advisor"
   },
   {
@@ -268,7 +300,7 @@
     "name": "co-marketing",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborate with another company,' 'partnership ideas,' or 'co-brand.' For customer referral programs, see referrals. For launch-specific partnerships, see launch.\"",
+    "description": "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborate with another company,' 'partnership ideas,' or 'co-brand.' For customer referral programs, see referrals. For launch-specific partnerships, see launch.",
     "path": "category/business-sales-crm/co-marketing"
   },
   {
@@ -276,7 +308,7 @@
     "name": "cold-email",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"When the user wants to write, improve, or build a sequence of B2B cold outreach emails to prospects who haven't asked to hear from them. Use when the user mentions 'cold email,' 'cold outreach,' 'prospecting emails,' 'SDR emails,' 'sales emails,' 'first touch email,' 'follow-up sequence,' or 'email prospecting.' Also use when they share an email draft that sounds too sales-y and needs to be humanized. Distinct from email-sequence (lifecycle/nurture to opted-in subscribers) \u2014 this is unsolicited outreach to new prospects. NOT for lifecycle emails, newsletters, or drip campaigns (use email-sequence).\"",
+    "description": "When the user wants to write, improve, or build a sequence of B2B cold outreach emails to prospects who haven't asked to hear from them. Use when the user mentions 'cold email,' 'cold outreach,' 'prospecting emails,' 'SDR emails,' 'sales emails,' 'first touch email,' 'follow-up sequence,' or 'email prospecting.' Also use when they share an email draft that sounds too sales-y and needs to be humanized. Distinct from email-sequence (lifecycle/nurture to opted-in subscribers) \u2014 this is unsolicited outreach to new prospects. NOT for lifecycle emails, newsletters, or drip campaigns (use email-sequence).",
     "path": "category/business-sales-crm/cold-email"
   },
   {
@@ -284,7 +316,7 @@
     "name": "commercial-forecaster",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when building a quarterly bookings forecast, ARR projection, pipeline forecast, NRR projection, or commit/best-case/pipe-only board number \u2014 especially when the CRO needs to walk the board through funnel math + cohort ARR + per-stage conversion assumptions without the theatre of a single undefended number. Decomposes pipeline into commit, best-case, and pipe-only tiers; projects cohort-level NRR/GRR to surface leaky cohorts before they show up in the consolidated number; scores per-stage funnel confidence so soft-floor stages get treated differently from high-confidence ones. Every output explicitly names the conversion rate used, the data window, and the weighting choice. For Head of Commercial, RevOps, VP Sales, and CRO at quarterly forecast or board prep. NOT financial close (see finance/financial-analysis). NOT strategic CRO hiring/territory (see c-level-advisor/cro-advisor). NOT pricing (see sibling pricing-strategist).\"",
+    "description": "Use when building a quarterly bookings forecast, ARR projection, pipeline forecast, NRR projection, or commit/best-case/pipe-only board number \u2014 especially when the CRO needs to walk the board through funnel math + cohort ARR + per-stage conversion assumptions without the theatre of a single undefended number. Decomposes pipeline into commit, best-case, and pipe-only tiers; projects cohort-level NRR/GRR to surface leaky cohorts before they show up in the consolidated number; scores per-stage funnel confidence so soft-floor stages get treated differently from high-confidence ones. Every output explicitly names the conversion rate used, the data window, and the weighting choice. For Head of Commercial, RevOps, VP Sales, and CRO at quarterly forecast or board prep. NOT financial close (see finance/financial-analysis). NOT strategic CRO hiring/territory (see c-level-advisor/cro-advisor). NOT pricing (see sibling pricing-strategist).",
     "path": "category/business-sales-crm/commercial-forecaster"
   },
   {
@@ -292,7 +324,7 @@
     "name": "commercial-policy",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when designing or revising a company's commercial policy \u2014 the rules of engagement governing discounts off list price, approver thresholds, exception flows, and the deal framework that Deal Desk and AEs operate under. Covers discount matrix design (ARR band x term length x payment terms x strategic value), commercial policy design, exception policy, discount governance, approval thresholds, deal framework structure, and policy linting (contradictions, gaps, cliff edges, gaming surfaces). For Head of Commercial, Head of Deal Desk, VP Sales, or RevOps at the policy-design moment \u2014 NOT per-deal application (that is deal-desk) and NOT pricing model selection (that is pricing-strategist).\"",
+    "description": "Use when designing or revising a company's commercial policy \u2014 the rules of engagement governing discounts off list price, approver thresholds, exception flows, and the deal framework that Deal Desk and AEs operate under. Covers discount matrix design (ARR band x term length x payment terms x strategic value), commercial policy design, exception policy, discount governance, approval thresholds, deal framework structure, and policy linting (contradictions, gaps, cliff edges, gaming surfaces). For Head of Commercial, Head of Deal Desk, VP Sales, or RevOps at the policy-design moment \u2014 NOT per-deal application (that is deal-desk) and NOT pricing model selection (that is pricing-strategist).",
     "path": "category/business-sales-crm/commercial-policy"
   },
   {
@@ -302,6 +334,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Use when reviewing, approving, or designing commercial motion \u2014 pricing models, deal review, discount approval, partnership economics, channel mix, commercial policy, RFP/RFI response, bookings forecast. Triggers on \"review this deal\", \"should we discount\", \"pricing model\", \"partner economics\", \"RFP response\", \"bookings forecast\", \"channel mix\". Forks context to route to one of seven Commercial sub-skills (pricing-strategist, deal-desk, partnerships-architect, channel-economics, commercial-policy, rfp-responder, commercial-forecaster) and returns a digest. Distinct from business-growth (sales execution) and c-level-advisor/cro-advisor (strategic CRO judgment).",
     "path": "category/business-sales-crm/commercial-skills"
+  },
+  {
+    "id": "company-research",
+    "name": "company-research",
+    "category": "business-sales-crm",
+    "repository": "browserbase-skills",
+    "description": "Company discovery and deep research skill. Researches a company's product and ICP, discovers target companies to sell to using Browserbase Search API, deeply researches each using a Plan\u2192Research\u2192Synthesize pattern, and scores ICP fit \u2014 compiled into a scored research report and CSV. Supports depth modes (quick/deep/deeper) for balancing scale vs intelligence. Use when the user wants to: (1) find companies to sell to, (2) research potential customers, (3) discover companies matching an ICP, (4) build a target company list, (5) do market research on prospects. Triggers: \"find companies to sell to\", \"company research\", \"find prospects\", \"ICP research\", \"target companies\", \"who should we sell to\", \"market research\", \"lead research\", \"prospect list\".",
+    "path": "category/business-sales-crm/company-research"
   },
   {
     "id": "competitive-brief",
@@ -316,7 +356,7 @@
     "name": "competitive-intel",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Systematic competitor tracking that feeds CMO positioning, CRO battlecards, and CPO roadmap decisions. Use when analyzing competitors, building sales battlecards, tracking market moves, positioning against alternatives, or when user mentions competitive intelligence, competitive analysis, competitor research, battlecards, win/loss, or market positioning.\"",
+    "description": "Systematic competitor tracking that feeds CMO positioning, CRO battlecards, and CPO roadmap decisions. Use when analyzing competitors, building sales battlecards, tracking market moves, positioning against alternatives, or when user mentions competitive intelligence, competitive analysis, competitor research, battlecards, win/loss, or market positioning.",
     "path": "category/business-sales-crm/competitive-intel"
   },
   {
@@ -332,23 +372,15 @@
     "name": "competitor-profiling",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep dive,' 'who are my competitors,' 'competitor landscape,' 'competitor dossier,' 'competitive audit,' or 'research these competitors.' Input is a list of competitor URLs. Output is structured competitor profile markdown files. For creating comparison/alternative pages from profiles, see competitors. For sales-specific battle cards, see sales-enablement. For researching accounts you're selling to, see prospecting.\"",
+    "description": "When the user wants to research, profile, or analyze competitors from their URLs. Also use when the user mentions 'competitor profile,' 'competitor research,' 'competitor analysis,' 'profile this competitor,' 'analyze competitor,' 'competitive intelligence,' 'competitor deep dive,' 'who are my competitors,' 'competitor landscape,' 'competitor dossier,' 'competitive audit,' or 'research these competitors.' Input is a list of competitor URLs. Output is structured competitor profile markdown files. For creating comparison/alternative pages from profiles, see competitors. For sales-specific battle cards, see sales-enablement. For researching accounts you're selling to, see prospecting.",
     "path": "category/business-sales-crm/competitor-profiling"
-  },
-  {
-    "id": "competitor-teardown",
-    "name": "competitor-teardown",
-    "category": "business-sales-crm",
-    "repository": "magentosh-superpowers",
-    "description": "\"Structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review. Covers research frameworks, pricing comparison, review mining, and visual deliverables. Use for: market research, competitive intelligence, investor decks, product strategy, sales enablement. Triggers: competitor analysis, competitive analysis, competitor teardown, market research, competitive intelligence, swot analysis, competitor comparison, market landscape, competitor review, competitive landscape, feature comparison, market positioning\"",
-    "path": "category/business-sales-crm/competitor-teardown"
   },
   {
     "id": "competitors",
     "name": "competitors",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing use. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'competitor teardown,' 'audit our competitor pages,' 'are our comparison pages out of date,' or 'competitive asset audit.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For auditing existing claims (not researching competitors from scratch, which is competitor-profiling; not technical SEO on these pages, which is seo-audit), use the asset audit here. For internal battle cards and sales-specific competitor docs, see sales-enablement.\"",
+    "description": "When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing use. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'competitor teardown,' 'audit our competitor pages,' 'are our comparison pages out of date,' or 'competitive asset audit.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For auditing existing claims (not researching competitors from scratch, which is competitor-profiling; not technical SEO on these pages, which is seo-audit), use the asset audit here. For internal battle cards and sales-specific competitor docs, see sales-enablement.",
     "path": "category/business-sales-crm/competitors"
   },
   {
@@ -356,7 +388,7 @@
     "name": "compose-outreach",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Generate personalized outreach messages using Common Room signals. Triggers on 'draft outreach to [person]', 'write an email to [name]', 'compose a message for [contact]', or any outreach drafting request.\"",
+    "description": "Generate personalized outreach messages using Common Room signals. Triggers on 'draft outreach to [person]', 'write an email to [name]', 'compose a message for [contact]', or any outreach drafting request.",
     "path": "category/business-sales-crm/compose-outreach"
   },
   {
@@ -364,7 +396,7 @@
     "name": "contact-research",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question.\"",
+    "description": "Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email]', 'research [contact]', 'is [name] a warm lead', or any contact-level question.",
     "path": "category/business-sales-crm/contact-research"
   },
   {
@@ -372,7 +404,7 @@
     "name": "content-production",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Full content production pipeline \u2014 takes a topic from blank page to published-ready piece. Use when you need to execute content: write a blog post, article, or guide end-to-end. Triggers: 'write a post about', 'draft an article', 'create content for', 'help me write', 'I need a blog post'. NOT for content strategy or calendar planning (use content-strategy). NOT for repurposing existing content (use content-repurposing). NOT for social captions only.\"",
+    "description": "Full content production pipeline \u2014 takes a topic from blank page to published-ready piece. Use when you need to execute content: write a blog post, article, or guide end-to-end. Triggers: 'write a post about', 'draft an article', 'create content for', 'help me write', 'I need a blog post'. NOT for content strategy or calendar planning (use content-strategy). NOT for repurposing existing content (use content-repurposing). NOT for social captions only.",
     "path": "category/business-sales-crm/content-production"
   },
   {
@@ -388,7 +420,7 @@
     "name": "coo-advisor",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Operations leadership for scaling companies. Process design, OKR execution, operational cadence, and scaling playbooks. Use when designing operations, setting up OKRs, building processes, scaling teams, analyzing bottlenecks, planning operational cadence, or when user mentions COO, operations, process improvement, OKRs, scaling, operational efficiency, or execution.\"",
+    "description": "Operations leadership for scaling companies. Process design, OKR execution, operational cadence, and scaling playbooks. Use when designing operations, setting up OKRs, building processes, scaling teams, analyzing bottlenecks, planning operational cadence, or when user mentions COO, operations, process improvement, OKRs, scaling, operational efficiency, or execution.",
     "path": "category/business-sales-crm/coo-advisor"
   },
   {
@@ -404,7 +436,7 @@
     "name": "crm-autopilot",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Keeps the CRM current without the owner ever opening it. Creates and updates contacts and deals from email, calendar, and call transcripts; logs activity automatically; drafts follow-ups on deals that have gone quiet; and maintains a next-step queue so nothing sits unowned. Runs on demand or on a schedule, includes a hygiene sweep for duplicates and stale records, and builds a lightweight CRM in a spreadsheet for owners who don't have one. Use this whenever CRM data or pipeline hygiene comes up \u2014 including phrasings like \"update my CRM,\" \"log this call,\" \"clean up HubSpot,\" \"clean up Salesforce,\" \"add this to the deal,\" \"turn my meeting into a deal note,\" \"which deals have gone quiet,\" \"I hate data entry,\" or \"my pipeline is out of date.\" Reach for it when the owner describes a call or meeting worth recording, even without naming the CRM.",
     "path": "category/business-sales-crm/crm-autopilot"
   },
   {
@@ -420,7 +452,7 @@
     "name": "cro-advisor",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Revenue leadership for B2B SaaS companies. Revenue forecasting, sales model design, pricing strategy, net revenue retention, and sales team scaling. Use when designing the revenue engine, setting quotas, modeling NRR, evaluating pricing, building board forecasts, or when user mentions CRO, chief revenue officer, revenue strategy, sales model, ARR growth, NRR, expansion revenue, churn, pricing strategy, or sales capacity.\"",
+    "description": "Revenue leadership for B2B SaaS companies. Revenue forecasting, sales model design, pricing strategy, net revenue retention, and sales team scaling. Use when designing the revenue engine, setting quotas, modeling NRR, evaluating pricing, building board forecasts, or when user mentions CRO, chief revenue officer, revenue strategy, sales model, ARR growth, NRR, expansion revenue, churn, pricing strategy, or sales capacity.",
     "path": "category/business-sales-crm/cro-advisor"
   },
   {
@@ -428,7 +460,7 @@
     "name": "cro-review",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:cro-review [plan] \u2014 Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win rates drop, or before scaling the sales team.\"",
+    "description": "/c-level-agents:cro-review [plan] \u2014 Pipeline-paranoid interrogation of revenue, win rate, NRR, and ramp time. Use when the forecast misses pipeline coverage, win rates drop, or before scaling the sales team.",
     "path": "category/business-sales-crm/cro-review"
   },
   {
@@ -436,7 +468,7 @@
     "name": "cs-engineering-lead",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "",
+    "description": "../../../agents/engineering-team/cs-engineering-lead.md",
     "path": "category/business-sales-crm/cs-engineering-lead"
   },
   {
@@ -476,7 +508,7 @@
     "name": "customer-persona",
     "category": "business-sales-crm",
     "repository": "magentosh-superpowers",
-    "description": "\"Research-backed customer persona creation with market data and avatar generation. Covers demographics, psychographics, jobs-to-be-done, journey mapping, and anti-personas. Use for: marketing strategy, product development, UX research, sales enablement, content strategy. Triggers: customer persona, buyer persona, user persona, target audience, ideal customer, customer profile, audience research, user research, icp, ideal customer profile, target market, customer avatar, audience persona\"",
+    "description": "Research-backed customer persona creation with market data and avatar generation. Covers demographics, psychographics, jobs-to-be-done, journey mapping, and anti-personas. Use for: marketing strategy, product development, UX research, sales enablement, content strategy. Triggers: customer persona, buyer persona, user persona, target audience, ideal customer, customer profile, audience research, user research, icp, ideal customer profile, target market, customer avatar, audience persona",
     "path": "category/business-sales-crm/customer-persona"
   },
   {
@@ -492,7 +524,7 @@
     "name": "customer-support",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Elite AI-powered customer support specialist mastering\"",
+    "description": "Elite AI-powered customer support specialist mastering",
     "path": "category/business-sales-crm/customer-support"
   },
   {
@@ -500,7 +532,7 @@
     "name": "customerio-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate customer engagement workflows including broadcast triggers, message analytics, segment management, and newsletter tracking through Customer.io via Composio\"",
+    "description": "Automate customer engagement workflows including broadcast triggers, message analytics, segment management, and newsletter tracking through Customer.io via Composio",
     "path": "category/business-sales-crm/customerio-automation"
   },
   {
@@ -508,7 +540,7 @@
     "name": "data-cleaning-pipeline",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Systematic data cleaning workflows for research datasets\"",
+    "description": "Systematic data cleaning workflows for research datasets",
     "path": "category/business-sales-crm/data-cleaning-pipeline"
   },
   {
@@ -516,8 +548,16 @@
     "name": "data-collection-automation",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Automate survey deployment, data collection, and pipeline management\"",
+    "description": "Automate survey deployment, data collection, and pipeline management",
     "path": "category/business-sales-crm/data-collection-automation"
+  },
+  {
+    "id": "data-manager-api-audience-ingestion",
+    "name": "data-manager-api-audience-ingestion",
+    "category": "business-sales-crm",
+    "repository": "google-skills",
+    "description": "Guides developers through managing (adding, removing, and clearing) audience members for Google products using the Data Manager API and its associated client libraries. Use this skill when the user wants to upload audience members, remove specific users, or clear/replace an entire audience for Customer Match, mobile device ID audiences, or any other audience use case supported by the Data Manager API. Don't use for uploading events or conversions (use the data-manager-api-event-ingestion skill).",
+    "path": "category/business-sales-crm/data-manager-api-audience-ingestion"
   },
   {
     "id": "deal-advance-gap",
@@ -572,8 +612,24 @@
     "name": "design-screen",
     "category": "business-sales-crm",
     "repository": "plugin87-ux-ui-agent-skills",
-    "description": "'Design or build a page, screen, landing page, website, app or UI from a request - the whole job, end to end. Use this for \"design a landing page\", \"build a settings screen\", \"make me a website\", \"design the onboarding\", \"\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a\u0e2b\u0e19\u0e49\u0e32\u0e40\u0e27\u0e47\u0e1a\", \"\u0e17\u0e33\u0e2b\u0e19\u0e49\u0e32 landing\", \"\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a UI\", \"\u0e17\u0e33\u0e41\u0e2d\u0e1b\". It runs the pipeline no single skill covers: the house doctrine, a written Brief Inference so the result is not the statistical mean, a committed visual direction, tokens, build, the objective gates, then an adversarial critic. Hands off to data-dashboard for dense data screens, redesign for existing UI, and image-to-code when a reference image is given.'",
+    "description": "Design or build a page, screen, landing page, website, app or UI from a request - the whole job, end to end. Use this for \"design a landing page\", \"build a settings screen\", \"make me a website\", \"design the onboarding\", \"\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a\u0e2b\u0e19\u0e49\u0e32\u0e40\u0e27\u0e47\u0e1a\", \"\u0e17\u0e33\u0e2b\u0e19\u0e49\u0e32 landing\", \"\u0e2d\u0e2d\u0e01\u0e41\u0e1a\u0e1a UI\", \"\u0e17\u0e33\u0e41\u0e2d\u0e1b\". It runs the pipeline no single skill covers: the house doctrine, a written Brief Inference so the result is not the statistical mean, a committed visual direction, tokens, build, the objective gates, then an adversarial critic. Hands off to data-dashboard for dense data screens, redesign for existing UI, and image-to-code when a reference image is given.",
     "path": "category/business-sales-crm/design-screen"
+  },
+  {
+    "id": "detecting-aws-guardduty-findings-automation",
+    "name": "detecting-aws-guardduty-findings-automation",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Build automated AWS GuardDuty finding response pipelines using EventBridge",
+    "path": "category/business-sales-crm/detecting-aws-guardduty-findings-automation"
+  },
+  {
+    "id": "detecting-data-and-model-poisoning",
+    "name": "detecting-data-and-model-poisoning",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Identify poisoned training data and backdoored ML models across the pipeline using IBM's Adversarial Robustness Toolbox (activation clustering, spectral signatures, trigger reconstruction), Cleanlab for label-quality issues, and supply-chain checks like weight-hash verification and safetensors enforcement. Use before training or deploying on third-party/user-contributed data or downloaded checkpoints, during ML supply-chain reviews, or when investigating model misbehavior tied to specific inputs (suspected backdoor trigger).",
+    "path": "category/business-sales-crm/detecting-data-and-model-poisoning"
   },
   {
     "id": "director-readiness-advisor",
@@ -596,7 +652,7 @@
     "name": "document",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"10 document processing skills. Trigger: extracting text from PDFs, parsing references, document Q&A. Design: parsing pipelines (GROBID, marker) and structured extraction tools.\"",
+    "description": "10 document processing skills. Trigger: extracting text from PDFs, parsing references, document Q&A. Design: parsing pipelines (GROBID, marker) and structured extraction tools.",
     "path": "category/business-sales-crm/document"
   },
   {
@@ -620,7 +676,7 @@
     "name": "drug-development-guide",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"End-to-end drug development pipeline from target identification to regulatory...\"",
+    "description": "End-to-end drug development pipeline from target identification to regulatory...",
     "path": "category/business-sales-crm/drug-development-guide"
   },
   {
@@ -628,7 +684,7 @@
     "name": "dynamics365-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Dynamics 365 Automation: manage CRM contacts, accounts, leads, opportunities, sales orders, invoices, and cases via the Dynamics CRM Web API\"",
+    "description": "Dynamics 365 Automation: manage CRM contacts, accounts, leads, opportunities, sales orders, invoices, and cases via the Dynamics CRM Web API",
     "path": "category/business-sales-crm/dynamics365-automation"
   },
   {
@@ -636,7 +692,7 @@
     "name": "ecommerce-reviews",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"Extract customer reviews from any e-commerce product page or reviews page. Returns reviewer name, star rating, date, review title, review body, verified purchase status, and helpful votes per review. Works on Amazon, WooCommerce, Shopify, and any site with standard review markup. Supports pagination for multi-page review sections. Use when: product reviews, customer feedback, review scraping, get reviews, sentiment analysis data, review extraction, customer ratings, extract customer opinions, product feedback, user reviews, review mining, bulk review collection, review analysis, scrape ratings and comments, ecommerce review data.\"",
+    "description": "Extract customer reviews from any e-commerce product page or reviews page. Returns reviewer name, star rating, date, review title, review body, verified purchase status, and helpful votes per review. Works on Amazon, WooCommerce, Shopify, and any site with standard review markup. Supports pagination for multi-page review sections. Use when: product reviews, customer feedback, review scraping, get reviews, sentiment analysis data, review extraction, customer ratings, extract customer opinions, product feedback, user reviews, review mining, bulk review collection, review analysis, scrape ratings and comments, ecommerce review data.",
     "path": "category/business-sales-crm/ecommerce-reviews"
   },
   {
@@ -668,7 +724,7 @@
     "name": "enrich-lead",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions.\"",
+    "description": "Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions.",
     "path": "category/business-sales-crm/enrich-lead"
   },
   {
@@ -676,7 +732,7 @@
     "name": "eol-internal-enablement",
     "category": "business-sales-crm",
     "repository": "deanpeters-product-manager-skills",
-    "description": "\"Build the support FAQ, sales talking points, and objection handling teams need before an EOL announcement. Use when customer-facing teams must be ready before customers hear.\"",
+    "description": "Build the support FAQ, sales talking points, and objection handling teams need before an EOL announcement. Use when customer-facing teams must be ready before customers hear.",
     "path": "category/business-sales-crm/eol-internal-enablement"
   },
   {
@@ -684,7 +740,7 @@
     "name": "eol-message",
     "category": "business-sales-crm",
     "repository": "deanpeters-product-manager-skills",
-    "description": "\"Write a right-sized EOL announcement \u2014 brief notice through full phased comms \u2014 with rationale, customer impact, and next steps. Use when retiring a product, feature, or plan.\"",
+    "description": "Write a right-sized EOL announcement \u2014 brief notice through full phased comms \u2014 with rationale, customer impact, and next steps. Use when retiring a product, feature, or plan.",
     "path": "category/business-sales-crm/eol-message"
   },
   {
@@ -692,7 +748,7 @@
     "name": "estimate",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Run a structural estimation pipeline \u2014 routes to /workflows:work with estimation context from empirical-playbook\"",
+    "description": "Run a structural estimation pipeline \u2014 routes to /workflows:work with estimation context from empirical-playbook",
     "path": "category/business-sales-crm/estimate"
   },
   {
@@ -700,8 +756,24 @@
     "name": "event-prospecting",
     "category": "business-sales-crm",
     "repository": "browserbase-skills",
-    "description": "|",
+    "description": "Event prospecting skill. Takes a conference / event speakers URL, extracts the people, filters their companies against the user's ICP, then deep-researches only the speakers at ICP-fit companies. Outputs a person-first HTML report where each card answers \"why should the AE talk to this person?\" with all public links and a one-click DM opener. Use when the user wants to: (1) find leads at a specific conference, (2) prep for an event, (3) research event speakers, (4) build a target list from a sponsor/exhibitor page, (5) scrape conference speakers and rank by ICP fit. Triggers: \"find leads at {event}\", \"research speakers at\", \"prospect this conference\", \"stripe sessions leads\", \"ai engineer summit prospects\", \"event prospecting\", \"scrape conference speakers\", \"who should I meet at\".",
     "path": "category/business-sales-crm/event-prospecting"
+  },
+  {
+    "id": "event-studies",
+    "name": "event-studies",
+    "category": "business-sales-crm",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Use this skill whenever the user wants to conduct an event study, create event study plots, test for parallel trends, implement difference-in-differences designs, or work with any panel data estimation that involves pre/post treatment comparisons. Trigger on phrases like \"event study\", \"parallel trends\", \"pre-trends\", \"dynamic treatment effects\", \"leads and lags\", \"TWFE\", \"two-way fixed effects\", \"staggered adoption\", \"staggered treatment\", \"difference-in-differences\", \"DiD\", \"Sun and Abraham\", \"Callaway and Sant'Anna\", \"de Chaisemartin\", \"Borusyak\", \"did_multiplegt\", \"fixest\", \"did2s\", \"bacon decomposition\", or any reference to plotting coefficients around a treatment event. Also trigger when the user uploads panel data and wants to estimate treatment effects with variation in treatment timing. All code is in R.",
+    "path": "category/business-sales-crm/event-studies"
+  },
+  {
+    "id": "exec-summary",
+    "name": "exec-summary",
+    "category": "business-sales-crm",
+    "repository": "mvschwarz-openrig",
+    "description": "Generate a 1-2 page executive summary for a feature \u2014 orients sales, leadership, and engineering from a single document.",
+    "path": "category/business-sales-crm/exec-summary"
   },
   {
     "id": "expansion-whitespace",
@@ -736,11 +808,43 @@
     "path": "category/business-sales-crm/form-cro"
   },
   {
+    "id": "founder-cfo",
+    "name": "founder-cfo",
+    "category": "business-sales-crm",
+    "repository": "jakeschincariol-founder-skill",
+    "description": "Your CFO. Builds the unit economics of a business before money is spent: what one unit earns after its direct costs, the real profit margin at the planned volume, the break-even point in units a day, year 1 month by month, the cash needed before it pays for itself, how long the startup spend takes to earn back, and what happens if the price drops, sales come in low or costs rise. Every number traces to an input the user can check. Use when the user says \"find the profit margins\", \"do the numbers\", \"is this profitable\", \"break-even\", \"unit economics\", \"how much do I need to start\", or \"run the CFO\".",
+    "path": "category/business-sales-crm/founder-cfo"
+  },
+  {
+    "id": "founder-competitors",
+    "name": "founder-competitors",
+    "category": "business-sales-crm",
+    "repository": "jakeschincariol-founder-skill",
+    "description": "Maps every competitor and the gap they leave. Finds the direct competitors, indirect ones and the substitutes a buyer would use instead, from public sources only, and records what each sells, at what price, how they position themselves and what their customers complain about in public reviews, every fact with a link. Ends with a positioning map and the gap the new business can own. Use when the user says \"who are my competitors\", \"is this market crowded\", \"what else is out there\", \"competitor analysis\", \"find the gap\", or \"who am I up against\".",
+    "path": "category/business-sales-crm/founder-competitors"
+  },
+  {
+    "id": "founder-launch",
+    "name": "founder-launch",
+    "category": "business-sales-crm",
+    "repository": "jakeschincariol-founder-skill",
+    "description": "Your launch lead. Builds a dated, step-by-step launch plan: a cheap real-world test first (a waitlist, a pre-sale or a pop-up with a real price, so real buyers confirm what the simulated panel said), then the countdown to opening day with owners and deadlines, the launch-day run sheet, and the first 30 days of what to measure and what to change. Use when the user says \"how do I launch\", \"launch plan\", \"when can I open\", \"launch checklist\", \"go live\", or \"soft open\".",
+    "path": "category/business-sales-crm/founder-launch"
+  },
+  {
+    "id": "founder-marketing",
+    "name": "founder-marketing",
+    "category": "business-sales-crm",
+    "repository": "jakeschincariol-founder-skill",
+    "description": "Your marketing director. Turns the buyer panel and the competitor map into positioning, the channels the target customer actually uses, a 30-day launch campaign with dated posts and ads, the first ten hooks, a budget split and the numbers to watch. Every message answers an objection real or simulated buyers raised. Use when the user says \"how do I market this\", \"marketing plan\", \"launch campaign\", \"how do I get customers\", \"where do I advertise\", \"write my ads\", or \"positioning\".",
+    "path": "category/business-sales-crm/founder-marketing"
+  },
+  {
     "id": "free-tool-strategy",
     "name": "free-tool-strategy",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"When the user wants to build a free tool for marketing \u2014 lead generation, SEO value, or brand awareness. Use when they mention 'engineering as marketing,' 'free tool,' 'calculator,' 'generator,' 'checker,' 'grader,' 'marketing tool,' 'lead gen tool,' 'build something for traffic,' 'interactive tool,' or 'free resource.' Covers idea evaluation, tool design, and launch strategy. For pure SEO content strategy (no tool), use seo-audit or content-strategy instead.\"",
+    "description": "When the user wants to build a free tool for marketing \u2014 lead generation, SEO value, or brand awareness. Use when they mention 'engineering as marketing,' 'free tool,' 'calculator,' 'generator,' 'checker,' 'grader,' 'marketing tool,' 'lead gen tool,' 'build something for traffic,' 'interactive tool,' or 'free resource.' Covers idea evaluation, tool design, and launch strategy. For pure SEO content strategy (no tool), use seo-audit or content-strategy instead.",
     "path": "category/business-sales-crm/free-tool-strategy"
   },
   {
@@ -760,11 +864,19 @@
     "path": "category/business-sales-crm/fxmacrodata-calendar"
   },
   {
+    "id": "g1",
+    "name": "g1",
+    "category": "business-sales-crm",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "VS-Enhanced Journal Matcher with Journal Intelligence MCP \u2014 Real-time journal data pipeline with checkpoint-based human decisions. Uses OpenAlex + Crossref APIs for live metrics. Light VS applied: Avoids IF-centric recommendations + multi-dimensional matching strategy Use when: selecting target journals, planning submissions, comparing publication options Triggers: journal, submission, impact factor, academic journal, publication, submit",
+    "path": "category/business-sales-crm/g1"
+  },
+  {
     "id": "gc-review",
     "name": "gc-review",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:gc-review [plan] \u2014 General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product.\"",
+    "description": "/c-level-agents:gc-review [plan] \u2014 General Counsel interrogation of contracts, IP, regulatory, term sheets, and employment-law surface. Use when reviewing a term sheet before signing, redlining a customer MSA, or checking IP assignment and regulatory exposure on a new product.",
     "path": "category/business-sales-crm/gc-review"
   },
   {
@@ -772,7 +884,7 @@
     "name": "geo-proposal",
     "category": "business-sales-crm",
     "repository": "zubair-trabzada-geo-seo-claude",
-    "description": ">",
+    "description": "Auto-generate a professional, client-ready GEO service proposal from audit data. Creates a full proposal in markdown and PDF including executive summary, findings, recommended service packages (Basic/Standard/Premium), pricing, timeline, and terms. Use when user says \"proposal\", \"proposta\", \"offerta\", \"preventivo\", \"generate proposal\", or after completing a GEO audit for a prospect.",
     "path": "category/business-sales-crm/geo-proposal"
   },
   {
@@ -780,15 +892,23 @@
     "name": "geo-prospect",
     "category": "business-sales-crm",
     "repository": "zubair-trabzada-geo-seo-claude",
-    "description": ">",
+    "description": "CRM-lite for managing GEO agency prospects and clients. Track leads through the full sales pipeline: Lead \u2192 Qualified \u2192 Proposal Sent \u2192 Won \u2192 Lost. Store audit history, notes, deal values, and generate pipeline summaries. Use when user says \"prospect\", \"lead\", \"client\", \"pipeline\", \"crm\", \"nuovo prospect\", \"aggiungi cliente\", or when managing the business side of GEO services.",
     "path": "category/business-sales-crm/geo-prospect"
+  },
+  {
+    "id": "gke-workload-scaling-troubleshooting",
+    "name": "gke-workload-scaling-troubleshooting",
+    "category": "business-sales-crm",
+    "repository": "google-skills",
+    "description": "Diagnoses GKE HorizontalPodAutoscaler (HPA) failures \u2014 metrics showing as <unknown>, FailedGetResourceMetric / FailedGetScale / FailedComputeMetricsReplicas events, missing Pod resource requests, custom/external metrics-pipeline breakage (FailedGetExternalMetric / FailedGetCustomMetric, unavailable metrics adapter, control-plane firewall blocking the adapter), HPA that won't scale up or down (tolerance / stabilization window / unavailable rate metrics), scale-to/from-zero problems, and slow HPA reaction on large clusters. Use when an HPA isn't scaling a workload as expected or reports metric errors. Don't use for configuring or authoring new HPA/VPA objects or scaling best practices (see the gke-workload-scaling skill), or for Cluster Autoscaler / node-pool sizing.",
+    "path": "category/business-sales-crm/gke-workload-scaling-troubleshooting"
   },
   {
     "id": "gmail-outreach",
     "name": "gmail-outreach",
     "category": "business-sales-crm",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": "",
+    "description": "category: business-sales-crm",
     "path": "category/business-sales-crm/gmail-outreach"
   },
   {
@@ -804,7 +924,7 @@
     "name": "google-maps-api-skill",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"This skill helps users automatically scrape business data from Google Maps using the BrowserAct Google Maps API. Agent should proactively trigger this skill for needs like finding restaurants in a specific city, extracting contact info of dental clinics, researching local competitors, collecting addresses of coffee shops, generating lead lists for specific industries, monitoring business ratings and reviews, getting opening hours of local services, finding specialized stores (e.g., Turkish-style restaurants), analyzing business categories in a region, extracting website links from local businesses, gathering phone numbers for sales outreach, mapping out service providers in a specific country.\"",
+    "description": "This skill helps users automatically scrape business data from Google Maps using the BrowserAct Google Maps API. Agent should proactively trigger this skill for needs like finding restaurants in a specific city, extracting contact info of dental clinics, researching local competitors, collecting addresses of coffee shops, generating lead lists for specific industries, monitoring business ratings and reviews, getting opening hours of local services, finding specialized stores (e.g., Turkish-style restaurants), analyzing business categories in a region, extracting website links from local businesses, gathering phone numbers for sales outreach, mapping out service providers in a specific country.",
     "path": "category/business-sales-crm/google-maps-api-skill"
   },
   {
@@ -812,7 +932,7 @@
     "name": "google-maps-search-api-skill",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"This skill is designed to help users automatically extract business data from Google Maps search results. The Agent should proactively apply this skill when the user makes the following requests searching for coffee shops in a specific city, finding dentists or medical clinics nearby, tracking competitors' locations in a certain area, extracting business leads from Google Maps lists, gathering restaurant data for market research, finding hotels or accommodation options in a region, locating specific services like coworking spaces or gyms, monitoring new business openings in a neighborhood, collecting contact information and addresses for sales prospecting, analyzing price ranges and cuisines of local eateries, getting ratings and review counts for a list of businesses, exporting local business data into a CRM or database.\"",
+    "description": "This skill is designed to help users automatically extract business data from Google Maps search results. The Agent should proactively apply this skill when the user makes the following requests searching for coffee shops in a specific city, finding dentists or medical clinics nearby, tracking competitors' locations in a certain area, extracting business leads from Google Maps lists, gathering restaurant data for market research, finding hotels or accommodation options in a region, locating specific services like coworking spaces or gyms, monitoring new business openings in a neighborhood, collecting contact information and addresses for sales prospecting, analyzing price ranges and cuisines of local eateries, getting ratings and review counts for a list of businesses, exporting local business data into a CRM or database.",
     "path": "category/business-sales-crm/google-maps-search-api-skill"
   },
   {
@@ -820,7 +940,7 @@
     "name": "gorgias-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate e-commerce customer support workflows in Gorgias -- manage tickets, customers, tags, and teams through natural language commands.\"",
+    "description": "Automate e-commerce customer support workflows in Gorgias -- manage tickets, customers, tags, and teams through natural language commands.",
     "path": "category/business-sales-crm/gorgias-automation"
   },
   {
@@ -832,11 +952,19 @@
     "path": "category/business-sales-crm/grow-pipeline"
   },
   {
+    "id": "growth-pulse",
+    "name": "growth-pulse",
+    "category": "business-sales-crm",
+    "repository": "anthropics-knowledge-work",
+    "description": "Answers one question for an SMB owner \u2014 is the growth engine actually working? Pulls sales trend by channel, funnel conversion, campaign return, best and worst performing products, and customer sentiment from whatever is connected, then ends with the three growth actions worth taking this week. The growth-side twin of business-pulse, which covers the finance side. Use this whenever the owner asks how marketing or sales is performing, whether a campaign paid off, where leads are coming from, why the pipeline is stalling, which products are moving, or says anything like \"is my marketing working,\" \"growth check,\" \"how's the funnel,\" or \"where should I put my money next month.\" Reach for it even when the owner names a single channel rather than growth overall.",
+    "path": "category/business-sales-crm/growth-pulse"
+  },
+  {
     "id": "gumroad-automation",
     "name": "gumroad-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Gumroad product management, sales tracking, license verification, and webhook subscriptions using natural language through the Composio MCP integration.\"",
+    "description": "Automate Gumroad product management, sales tracking, license verification, and webhook subscriptions using natural language through the Composio MCP integration.",
     "path": "category/business-sales-crm/gumroad-automation"
   },
   {
@@ -852,40 +980,64 @@
     "name": "hubspot-automation",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using Composio integration.\"",
+    "description": "Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP using Composio integration.",
     "path": "category/business-sales-crm/hubspot-automation"
+  },
+  {
+    "id": "humanize",
+    "name": "humanize",
+    "category": "business-sales-crm",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Humanization Pipeline Orchestrator v3.1 - Multi-pass 4-layer transformation pipeline Orchestrates G5 (Auditor), G6 (Humanizer), F5 (Verifier) in sequential passes Enforces checkpoints between every pass with mandatory AskUserQuestion Supports conservative (L1-2), balanced (L1-3), balanced-fast (L1-3 merged), aggressive (L1-4) modes Rich Checkpoint v2.0: section-level scores, selective humanization, target auto-stop G5+F5 parallel execution, section-selective humanization Triggers: humanize, humanize my draft, humanize manuscript, make natural, remove AI patterns Korean triggers: \ud734\uba3c\ud654, \uc790\uc5f0\uc2a4\ub7fd\uac8c, AI \ud328\ud134 \uc81c\uac70",
+    "path": "category/business-sales-crm/humanize"
   },
   {
     "id": "i-have-adhd",
     "name": "i-have-adhd",
     "category": "business-sales-crm",
     "repository": "ayghri-i-have-adhd",
-    "description": "'Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /i-have-adhd; stays on until \"stop adhd mode\".'",
+    "description": "Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visible. Invoke with /i-have-adhd; stays on until \"stop adhd mode\".",
     "path": "category/business-sales-crm/i-have-adhd"
+  },
+  {
+    "id": "icp-research-assistant",
+    "name": "icp-research-assistant",
+    "category": "business-sales-crm",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Build detailed B2B buyer personas with pain points, objections, buying triggers, and messaging angles. Use when given a product and market to research ideal customer profiles, creating buyer personas, or needing to understand who you're selling to before launching campaigns. Platform: Google and Meta.",
+    "path": "category/business-sales-crm/icp-research-assistant"
   },
   {
     "id": "idea-discovery",
     "name": "idea-discovery",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Workflow 1: Full idea discovery pipeline. Orchestrates research-lit \\u2192 idea-creator \\u2192 novelty-check \\u2192 research-review to go from a broad research direction to validated, pilot-tested ideas. Use when user says \\\\\\\"\\u627eidea\\u5168\\u6d41\\u7a0b\\\\\\\", \\\\\\\"idea discovery pipeline\\\\\\\", \\\\\\\"\\u4ece\\u96f6\\u5f00\\u59cb\\u627e\\u65b9\\u5411\\\\\\\", or wants the complete idea exploration workflow.\"",
+    "description": "Workflow 1: Full idea discovery pipeline. Orchestrates research-lit \\u2192 idea-creator \\u2192 novelty-check \\u2192 research-review to go from a broad research direction to validated, pilot-tested ideas. Use when user says \\\\\\\"\\u627eidea\\u5168\\u6d41\\u7a0b\\\\\\\", \\\\\\\"idea discovery pipeline\\\\\\\", \\\\\\\"\\u4ece\\u96f6\\u5f00\\u59cb\\u627e\\u65b9\\u5411\\\\\\\", or wants the complete idea exploration workflow.",
     "path": "category/business-sales-crm/idea-discovery"
   },
   {
-    "id": "ima-dai-sdk",
-    "name": "ima-dai-sdk",
+    "id": "ig-dm",
+    "name": "ig-dm",
     "category": "business-sales-crm",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/business-sales-crm/ima-dai-sdk"
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "description": "Write Instagram DMs that get replies - the keyword delivery, the first message to someone who engaged, the collab pitch, and the two follow-ups. Use when the user says \"DM this person\", \"what do I send them\", \"outreach message\", \"how do I follow up\", \"pitch this brand\", or is reaching out to someone specific.",
+    "path": "category/business-sales-crm/ig-dm"
   },
   {
-    "id": "ima-sdk-client-side",
-    "name": "ima-sdk-client-side",
+    "id": "ig-reply",
+    "name": "ig-reply",
     "category": "business-sales-crm",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/business-sales-crm/ima-sdk-client-side"
+    "repository": "jakeschincariol-instagram-agent-skill",
+    "description": "Handle the comments under the user's own reels and posts - draft replies to the ones worth answering, sorted by which ones are. Use when the user pastes their comments, says \"reply to these\", \"handle my comments\", \"someone said X on my reel\", or is dealing with a critic, a hater or a lead in the comments.",
+    "path": "category/business-sales-crm/ig-reply"
+  },
+  {
+    "id": "implementing-log-forwarding-with-fluentd",
+    "name": "implementing-log-forwarding-with-fluentd",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Configures Fluent Bit as an endpoint log forwarder and Fluentd as the central aggregator for centralized log collection, routing, filtering, and enrichment, covering input plugins for syslog/file-tailing/application logs and output routing to Elasticsearch, S3, and Splunk. Use when setting up centralized log aggregation across distributed infrastructure or generating Fluent Bit/Fluentd configuration files for a new log pipeline.",
+    "path": "category/business-sales-crm/implementing-log-forwarding-with-fluentd"
   },
   {
     "id": "inbox-sweep",
@@ -900,7 +1052,7 @@
     "name": "incident-response-smart-fix",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"[Extended thinking: This workflow implements a sophisticated debugging and resolution pipeline that leverages AI-assisted debugging tools and observability platforms to systematically diagnose and res\"",
+    "description": "[Extended thinking: This workflow implements a sophisticated debugging and resolution pipeline that leverages AI-assisted debugging tools and observability platforms to systematically diagnose and res",
     "path": "category/business-sales-crm/incident-response-smart-fix"
   },
   {
@@ -916,7 +1068,7 @@
     "name": "instantly-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Instantly cold email outreach -- manage campaigns, sending accounts, lead lists, bulk lead imports, and campaign analytics -- using natural language through the Composio MCP integration.\"",
+    "description": "Automate Instantly cold email outreach -- manage campaigns, sending accounts, lead lists, bulk lead imports, and campaign analytics -- using natural language through the Composio MCP integration.",
     "path": "category/business-sales-crm/instantly-automation"
   },
   {
@@ -932,8 +1084,16 @@
     "name": "internal-narrative",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Build and maintain one coherent company story across all audiences \u2014 employees, investors, customers, candidates, and partners. Detects narrative contradictions and ensures the same truth is framed for each audience's needs. Use when preparing investor updates, all-hands presentations, board communications, recruiting narratives, crisis communications, or when user mentions company narrative, messaging consistency, storytelling, all-hands, investor update, or crisis communication.\"",
+    "description": "Build and maintain one coherent company story across all audiences \u2014 employees, investors, customers, candidates, and partners. Detects narrative contradictions and ensures the same truth is framed for each audience's needs. Use when preparing investor updates, all-hands presentations, board communications, recruiting narratives, crisis communications, or when user mentions company narrative, messaging consistency, storytelling, all-hands, investor update, or crisis communication.",
     "path": "category/business-sales-crm/internal-narrative"
+  },
+  {
+    "id": "inventory-planner",
+    "name": "inventory-planner",
+    "category": "business-sales-crm",
+    "repository": "anthropics-knowledge-work",
+    "description": "Works out what to reorder and when, from what is actually selling: pulls sales history and stock on hand from Shopify, Square, NetSuite, or an uploaded CSV, computes 7-day and 28-day sales velocity per item, projects a conservative stockout date for each, sizes a 60-day reorder quantity, and drafts the purchase orders and vendor emails to cover it. Flags the money sitting still too \u2014 overstock, dead stock, and zero-velocity items, reported as slow movers to clear rather than things to buy more of. Seasonality is applied where the history supports it and named where it does not. Nothing is ordered and no vendor is emailed without approval. Reach for this whenever stock comes up \u2014 \"what do I need to reorder,\" \"am I going to run out,\" \"what should I order this month,\" \"we keep running out of filters,\" \"how much cash is sitting in the warehouse,\" \"what is not moving,\" or \"draft a PO for my supplier.",
+    "path": "category/business-sales-crm/inventory-planner"
   },
   {
     "id": "jobs-to-be-done",
@@ -948,7 +1108,7 @@
     "name": "kedro-pipeline-guide",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Build reproducible data science pipelines with Kedro for research projects\"",
+    "description": "Build reproducible data science pipelines with Kedro for research projects",
     "path": "category/business-sales-crm/kedro-pipeline-guide"
   },
   {
@@ -956,7 +1116,7 @@
     "name": "kommo-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Kommo CRM operations -- manage leads, pipelines, pipeline stages, tasks, and custom fields -- using natural language through the Composio MCP integration.\"",
+    "description": "Automate Kommo CRM operations -- manage leads, pipelines, pipeline stages, tasks, and custom fields -- using natural language through the Composio MCP integration.",
     "path": "category/business-sales-crm/kommo-automation"
   },
   {
@@ -964,7 +1124,7 @@
     "name": "lead-dossier",
     "category": "business-sales-crm",
     "repository": "ericosiu-ai-marketing-skills",
-    "description": ">",
+    "description": "Multi-source account research, cascade enrichment, and lead pipeline. Combines website scraping, tech stack detection, CRM enrichment, hiring/news signals into structured dossiers. Includes full lead sourcing pipeline: search \u2192 verify \u2192 dedupe \u2192 upload. Triggers on: \"research account\", \"build dossier\", \"enrich leads\", \"lead pipeline\", \"source leads\", \"prospect research\", \"account intel\", \"cascade enrichment\", \"lead scoring\", \"find leads\", \"verify emails\", \"upload leads\".",
     "path": "category/business-sales-crm/lead-dossier"
   },
   {
@@ -972,7 +1132,7 @@
     "name": "lead-finder",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Builds a ranked list of prospects worth contacting. Works out the owner's ideal customer profile from the customers they already have, finds look-alike companies and the right contact at each, enriches them with firmographics and buying signals, scores them, and delivers the list as an XLSX, with an offer to also create the records in the CRM. Runs on Apollo when connected and falls back to web research plus an uploaded customer list when it isn't. Use this whenever the owner wants new prospects, a target list, or help finding customers \u2014 including phrasings like \"who should I be calling,\" \"find me more customers like my best ones,\" \"build me a prospect list,\" \"I need leads,\" \"who else looks like Acme,\" or \"help me find companies in this area that need what we do.\" Reach for it even when the owner describes the customer they want rather than asking for a list.",
     "path": "category/business-sales-crm/lead-finder"
   },
   {
@@ -996,7 +1156,7 @@
     "name": "lead-triage",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Scores inbound HubSpot leads by engagement signals, company fit, and urgency markers, ranks the ones worth a call today with talking points, drafts the follow-ups, and proposes calendar times for the owner to book. Use when the owner asks to prioritize, score, or rank leads, asks \"who should I call first,\" or asks about their pipeline. An ask that wants the ranked leads turned into a call list with time blocked on the calendar routes to /call-list, which runs this skill first and then books the time.",
     "path": "category/business-sales-crm/lead-triage"
   },
   {
@@ -1004,7 +1164,7 @@
     "name": "lemlist-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Lemlist multichannel outreach -- manage campaigns, enroll leads, add personalization variables, export campaign data, and handle unsubscribes via the Composio MCP integration.\"",
+    "description": "Automate Lemlist multichannel outreach -- manage campaigns, enroll leads, add personalization variables, export campaign data, and handle unsubscribes via the Composio MCP integration.",
     "path": "category/business-sales-crm/lemlist-automation"
   },
   {
@@ -1012,7 +1172,7 @@
     "name": "lemon-squeezy-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Lemon Squeezy store management -- products, orders, subscriptions, customers, discounts, and checkout tracking -- using natural language through the Composio MCP integration.\"",
+    "description": "Automate Lemon Squeezy store management -- products, orders, subscriptions, customers, discounts, and checkout tracking -- using natural language through the Composio MCP integration.",
     "path": "category/business-sales-crm/lemon-squeezy-automation"
   },
   {
@@ -1020,7 +1180,7 @@
     "name": "lemon_squeezy-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Lemon Squeezy tasks via Rube MCP (Composio): products, orders, subscriptions, checkouts, and digital sales. Always search tools first for current schemas.\"",
+    "description": "Automate Lemon Squeezy tasks via Rube MCP (Composio): products, orders, subscriptions, checkouts, and digital sales. Always search tools first for current schemas.",
     "path": "category/business-sales-crm/lemon_squeezy-automation"
   },
   {
@@ -1028,7 +1188,7 @@
     "name": "lever-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate recruiting workflows in Lever ATS -- manage opportunities, job postings, requisitions, pipeline stages, and candidate tags through the Composio Lever integration.\"",
+    "description": "Automate recruiting workflows in Lever ATS -- manage opportunities, job postings, requisitions, pipeline stages, and candidate tags through the Composio Lever integration.",
     "path": "category/business-sales-crm/lever-automation"
   },
   {
@@ -1036,8 +1196,16 @@
     "name": "link-building",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations. Also use when the user mentions 'link building,' 'linkbuilding,' 'backlinks,' 'get more backlinks,' 'link prospecting,' 'link gap,' 'competitor backlinks,' 'unlinked mentions,' 'link reclamation,' 'broken link building,' 'resource pages,' 'guest posting,' 'get into best-of lists,' 'listicle outreach,' 'domain rating,' 'referring domains,' 'anchor text,' or 'is this link vendor safe.' Use this whenever rankings stall on authority or someone wants off-site mentions that AI engines cite. Never recommend buying links that pass ranking credit: paid or exchanged placements get rel=sponsored or nofollow. For press coverage and journalist requests, see public-relations. For directories, see directory-submissions. For reviews, see referrals. For Reddit and communities, see community-marketing. For on-site AI citation work, see ai-seo.\"",
+    "description": "When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations. Also use when the user mentions 'link building,' 'linkbuilding,' 'backlinks,' 'get more backlinks,' 'link prospecting,' 'link gap,' 'competitor backlinks,' 'unlinked mentions,' 'link reclamation,' 'broken link building,' 'resource pages,' 'guest posting,' 'get into best-of lists,' 'listicle outreach,' 'domain rating,' 'referring domains,' 'anchor text,' or 'is this link vendor safe.' Use this whenever rankings stall on authority or someone wants off-site mentions that AI engines cite. Never recommend buying links that pass ranking credit: paid or exchanged placements get rel=sponsored or nofollow. For press coverage and journalist requests, see public-relations. For directories, see directory-submissions. For reviews, see referrals. For Reddit and communities, see community-marketing. For on-site AI citation work, see ai-seo.",
     "path": "category/business-sales-crm/link-building"
+  },
+  {
+    "id": "linkedin-ads-audit",
+    "name": "linkedin-ads-audit",
+    "category": "business-sales-crm",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "LinkedIn Ads campaign analysis for B2B marketers detecting CTR issues, audience quality problems, lead gen form friction, and budget inefficiencies. Use when pasting LinkedIn campaign exports, analyzing B2B ad performance, or auditing LinkedIn advertising spend. Platform: LinkedIn.",
+    "path": "category/business-sales-crm/linkedin-ads-audit"
   },
   {
     "id": "linkedin-engagement",
@@ -1060,7 +1228,7 @@
     "name": "localize",
     "category": "business-sales-crm",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Localization pipeline \u2014 find hardcoded strings, extract string tables, cultural review, VO, RTL, enforce string freeze.\"",
+    "description": "Localization pipeline \u2014 find hardcoded strings, extract string tables, cultural review, VO, RTL, enforce string freeze.",
     "path": "category/business-sales-crm/localize"
   },
   {
@@ -1076,7 +1244,7 @@
     "name": "ma-playbook",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"M&A strategy for acquiring companies or being acquired. Due diligence, valuation, integration, and deal structure. Use when evaluating acquisitions, preparing for acquisition, M&A due diligence, integration planning, or deal negotiation.\"",
+    "description": "M&A strategy for acquiring companies or being acquired. Due diligence, valuation, integration, and deal structure. Use when evaluating acquisitions, preparing for acquisition, M&A due diligence, integration planning, or deal negotiation.",
     "path": "category/business-sales-crm/ma-playbook"
   },
   {
@@ -1084,7 +1252,7 @@
     "name": "madd-drug-discovery-guide",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Multi-agent system for automated drug discovery pipelines\"",
+    "description": "Multi-agent system for automated drug discovery pipelines",
     "path": "category/business-sales-crm/madd-drug-discovery-guide"
   },
   {
@@ -1100,7 +1268,7 @@
     "name": "marketing-skills",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Directory and router for the marketing skills library. Use when you need to find the right marketing skill for a task, see what marketing capabilities exist, or get oriented in this plugin. 44 specialist skills across 8 pods (content, SEO + AEO, CRO, channels, growth, intelligence, sales enablement, ops), 59 stdlib Python tools. Routes to one skill \u2014 it does not execute marketing work itself.\"",
+    "description": "Directory and router for the marketing skills library. Use when you need to find the right marketing skill for a task, see what marketing capabilities exist, or get oriented in this plugin. 44 specialist skills across 8 pods (content, SEO + AEO, CRO, channels, growth, intelligence, sales enablement, ops), 59 stdlib Python tools. Routes to one skill \u2014 it does not execute marketing work itself.",
     "path": "category/business-sales-crm/marketing-skills"
   },
   {
@@ -1116,7 +1284,7 @@
     "name": "mlops-engineer",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Build comprehensive ML pipelines, experiment tracking, and model\"",
+    "description": "Build comprehensive ML pipelines, experiment tracking, and model",
     "path": "category/business-sales-crm/mlops-engineer"
   },
   {
@@ -1124,7 +1292,7 @@
     "name": "netsuite-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"NetSuite Automation: manage customers, sales orders, invoices, inventory, and records via Oracle NetSuite ERP with SuiteQL queries\"",
+    "description": "NetSuite Automation: manage customers, sales orders, invoices, inventory, and records via Oracle NetSuite ERP with SuiteQL queries",
     "path": "category/business-sales-crm/netsuite-automation"
   },
   {
@@ -1140,7 +1308,7 @@
     "name": "office-hours",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:office-hours [topic] \u2014 YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit. Use when a founder question is too vague to route \u2014 e.g. 'should we grow faster?' \u2014 or before drafting a strategy brief.\"",
+    "description": "/c-level-agents:office-hours [topic] \u2014 YC-style 6-question founder interrogation before any advice. Forces clarity on problem, customer, distribution, defensibility, capital, and founder fit. Use when a founder question is too vague to route \u2014 e.g. 'should we grow faster?' \u2014 or before drafting a strategy brief.",
     "path": "category/business-sales-crm/office-hours"
   },
   {
@@ -1148,7 +1316,7 @@
     "name": "open-researcher-guide",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Open pipeline for generating deep research trajectories with LLMs\"",
+    "description": "Open pipeline for generating deep research trajectories with LLMs",
     "path": "category/business-sales-crm/open-researcher-guide"
   },
   {
@@ -1164,7 +1332,7 @@
     "name": "outreach-composer",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Writes prospect outreach and follow-up sequences that sound like the owner wrote them, not like an AI did. Learns a voice profile from the owner's own sent mail, grounds every message in something specific about that prospect, builds the follow-up sequence behind it, queues every send for approval, and logs each touch to the CRM. Runs draft-only when no mail connector is available, so the copy can be pasted anywhere. Use this whenever the owner needs to reach out to prospects or customers \u2014 including phrasings like \"write this cold email,\" \"draft a follow-up,\" \"reach out to these leads,\" \"what do I say to them,\" \"I need a sequence for this list,\" \"nudge the people who didn't reply,\" or \"write it but don't make it sound like a robot.\" Reach for it whenever outreach copy is the deliverable, even for a single message.",
     "path": "category/business-sales-crm/outreach-composer"
   },
   {
@@ -1180,7 +1348,7 @@
     "name": "partnerships-architect",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when a startup is approached by a prospective partner and someone has to decide should we sign this partner, at what partner tier (referral / reseller / OEM / SI-consulting / strategic alliance), with what joint GTM commitment, and at what revshare. Classifies partner tier from independent-demand evidence vs. preferential-terms hunting, designs a 90-day joint GTM plan, models revshare against direct-sale margin, and surfaces kill criteria for unwinding under-performing partnerships. For Head of Partnerships, Head of BD, and Founder-CEOs doing reseller agreement, OEM deal, or strategic alliance review \u2014 not technical sale enablement, not channel cost economics, not M&A.\"",
+    "description": "Use when a startup is approached by a prospective partner and someone has to decide should we sign this partner, at what partner tier (referral / reseller / OEM / SI-consulting / strategic alliance), with what joint GTM commitment, and at what revshare. Classifies partner tier from independent-demand evidence vs. preferential-terms hunting, designs a 90-day joint GTM plan, models revshare against direct-sale margin, and surfaces kill criteria for unwinding under-performing partnerships. For Head of Partnerships, Head of BD, and Founder-CEOs doing reseller agreement, OEM deal, or strategic alliance review \u2014 not technical sale enablement, not channel cost economics, not M&A.",
     "path": "category/business-sales-crm/partnerships-architect"
   },
   {
@@ -1192,11 +1360,19 @@
     "path": "category/business-sales-crm/people-report"
   },
   {
+    "id": "performing-malware-hash-enrichment-with-virustotal",
+    "name": "performing-malware-hash-enrichment-with-virustotal",
+    "category": "business-sales-crm",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Enrich malware file hashes (MD5, SHA-1, SHA-256) using the VirusTotal",
+    "path": "category/business-sales-crm/performing-malware-hash-enrichment-with-virustotal"
+  },
+  {
     "id": "phantombuster-automation",
     "name": "phantombuster-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate lead generation, web scraping, and social media data extraction workflows through PhantomBuster's cloud platform via Composio\"",
+    "description": "Automate lead generation, web scraping, and social media data extraction workflows through PhantomBuster's cloud platform via Composio",
     "path": "category/business-sales-crm/phantombuster-automation"
   },
   {
@@ -1204,7 +1380,7 @@
     "name": "pharma",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"6 pharmaceutical research skills. Trigger: drug discovery, pharmacology, clinical trial design, regulatory filing. Design: end-to-end pipeline from target identification to clinical trials.\"",
+    "description": "6 pharmaceutical research skills. Trigger: drug discovery, pharmacology, clinical trial design, regulatory filing. Design: end-to-end pipeline from target identification to clinical trials.",
     "path": "category/business-sales-crm/pharma"
   },
   {
@@ -1212,7 +1388,7 @@
     "name": "pipedrive-automation",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and pipeline management via Rube MCP (Composio). Always search tools first for current schemas.\"",
+    "description": "Automate Pipedrive CRM operations including deals, contacts, organizations, activities, notes, and pipeline management via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/business-sales-crm/pipedrive-automation"
   },
   {
@@ -1220,7 +1396,7 @@
     "name": "pipeline",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "",
+    "description": "../../../commands/pipeline.md",
     "path": "category/business-sales-crm/pipeline"
   },
   {
@@ -1228,7 +1404,7 @@
     "name": "pipeline-crm-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Pipeline CRM tasks via Rube MCP (Composio). Always search tools first for current schemas.\"",
+    "description": "Automate Pipeline CRM tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/business-sales-crm/pipeline-crm-automation"
   },
   {
@@ -1260,7 +1436,7 @@
     "name": "pricing-strategist",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when designing or revisiting product pricing \u2014 selecting a pricing model (subscription seat-based, usage-based, value-based, freemium, or hybrid), running Van Westendorp Price Sensitivity Meter analysis on WTP survey data, or designing Good/Better/Best packaging tiers. Recommends a model and a price range with trade-offs, never a single number. For Commercial leads, Product Marketing, and CMOs at the pricing-design moment \u2014 not deal-by-deal discounting, not brand positioning.\"",
+    "description": "Use when designing or revisiting product pricing \u2014 selecting a pricing model (subscription seat-based, usage-based, value-based, freemium, or hybrid), running Van Westendorp Price Sensitivity Meter analysis on WTP survey data, or designing Good/Better/Best packaging tiers. Recommends a model and a price range with trade-offs, never a single number. For Commercial leads, Product Marketing, and CMOs at the pricing-design moment \u2014 not deal-by-deal discounting, not brand positioning.",
     "path": "category/business-sales-crm/pricing-strategist"
   },
   {
@@ -1276,7 +1452,7 @@
     "name": "product-marketing",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' 'brand voice,' 'tone of voice,' 'brand guidelines,' 'what have we learned,' 'log this learning,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills \u2014 it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context.\"",
+    "description": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' 'brand voice,' 'tone of voice,' 'brand guidelines,' 'what have we learned,' 'log this learning,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills \u2014 it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context.",
     "path": "category/business-sales-crm/product-marketing"
   },
   {
@@ -1284,7 +1460,7 @@
     "name": "producthunt-launches",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"Scrape Product Hunt daily/weekly/monthly/yearly leaderboard launches with full product details, maker profiles, and website contact info. Use when user mentions Product Hunt, producthunt, PH scraper, product hunt launches, product hunt leaderboard, scrape product hunt, product hunt data, PH daily launches, product hunt upvotes, product hunt maker info, extract product hunt, product hunt today, top products product hunt, product hunt archive, PH products, product hunt email extraction, product hunt contact info, producthunt.com scraping, get product hunt launches, product hunt API alternative. Also applies to: startup launch monitoring, new product discovery, maker/founder contact enrichment, product hunt lead generation, daily product hunt digest, competitive product tracking.\"",
+    "description": "Scrape Product Hunt daily/weekly/monthly/yearly leaderboard launches with full product details, maker profiles, and website contact info. Use when user mentions Product Hunt, producthunt, PH scraper, product hunt launches, product hunt leaderboard, scrape product hunt, product hunt data, PH daily launches, product hunt upvotes, product hunt maker info, extract product hunt, product hunt today, top products product hunt, product hunt archive, PH products, product hunt email extraction, product hunt contact info, producthunt.com scraping, get product hunt launches, product hunt API alternative. Also applies to: startup launch monitoring, new product discovery, maker/founder contact enrichment, product hunt lead generation, daily product hunt digest, competitive product tracking.",
     "path": "category/business-sales-crm/producthunt-launches"
   },
   {
@@ -1292,7 +1468,7 @@
     "name": "prospect",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Build targeted account or contact lists using Common Room's Prospector. Triggers on 'find companies that match [criteria]', 'build a prospect list', 'find contacts at [type of company]', 'show me companies hiring [role]', or any list-building request.\"",
+    "description": "Build targeted account or contact lists using Common Room's Prospector. Triggers on 'find companies that match [criteria]', 'build a prospect list', 'find contacts at [type of company]', 'show me companies hiring [role]', or any list-building request.",
     "path": "category/business-sales-crm/prospect"
   },
   {
@@ -1316,7 +1492,7 @@
     "name": "public-relations",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'press,' 'press release,' 'media outreach,' 'pitch a journalist,' 'get featured,' 'media list,' 'media kit,' 'press kit,' 'newsjacking,' 'news hijack,' 'HARO,' 'Qwoted,' 'Featured,' 'reporter request,' 'tech press,' 'TechCrunch,' 'thought leadership placement,' 'op-ed,' 'guest article,' 'press contacts,' 'podcast prep,' 'podcast guest,' 'prep me for this podcast,' 'how do I get press,' 'PR crisis,' 'crisis communications,' 'respond to backlash,' 'we got hacked,' 'data breach statement,' or 'holding statement.' Also covers crisis response when something goes wrong. For startup/SaaS/AI directory submissions, see directory-submissions. For product launches, see launch. For social-media engagement, see social. For cold-email outreach to prospects, see cold-email.\"",
+    "description": "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'press,' 'press release,' 'media outreach,' 'pitch a journalist,' 'get featured,' 'media list,' 'media kit,' 'press kit,' 'newsjacking,' 'news hijack,' 'HARO,' 'Qwoted,' 'Featured,' 'reporter request,' 'tech press,' 'TechCrunch,' 'thought leadership placement,' 'op-ed,' 'guest article,' 'press contacts,' 'podcast prep,' 'podcast guest,' 'prep me for this podcast,' 'how do I get press,' 'PR crisis,' 'crisis communications,' 'respond to backlash,' 'we got hacked,' 'data breach statement,' or 'holding statement.' Also covers crisis response when something goes wrong. For startup/SaaS/AI directory submissions, see directory-submissions. For product launches, see launch. For social-media engagement, see social. For cold-email outreach to prospects, see cold-email.",
     "path": "category/business-sales-crm/public-relations"
   },
   {
@@ -1332,7 +1508,7 @@
     "name": "rebuttal",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Workflow 4: Submission rebuttal pipeline. Parses external reviews, enforces coverage and grounding, drafts a safe text-only rebuttal under venue limits, and manages follow-up rounds.\"",
+    "description": "Workflow 4: Submission rebuttal pipeline. Parses external reviews, enforces coverage and grounding, drafts a safe text-only rebuttal under venue limits, and manages follow-up rounds.",
     "path": "category/business-sales-crm/rebuttal"
   },
   {
@@ -1340,7 +1516,7 @@
     "name": "referral-program",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"When the user wants to design, launch, or optimize a referral or affiliate program. Use when they mention 'referral program,' 'affiliate program,' 'word of mouth,' 'refer a friend,' 'incentive program,' 'customer referrals,' 'brand ambassador,' 'partner program,' 'referral link,' or 'growth through referrals.' Covers program mechanics, incentive design, and optimization \u2014 not just the idea of referrals but the actual system.\"",
+    "description": "When the user wants to design, launch, or optimize a referral or affiliate program. Use when they mention 'referral program,' 'affiliate program,' 'word of mouth,' 'refer a friend,' 'incentive program,' 'customer referrals,' 'brand ambassador,' 'partner program,' 'referral link,' or 'growth through referrals.' Covers program mechanics, incentive design, and optimization \u2014 not just the idea of referrals but the actual system.",
     "path": "category/business-sales-crm/referral-program"
   },
   {
@@ -1348,7 +1524,7 @@
     "name": "referrals",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,' 'how to get referrals,' 'customers referring customers,' 'affiliate payout,' 'get more reviews,' 'G2 reviews,' 'review campaign,' or 'respond to a bad review.' Use this whenever someone wants existing users or partners to bring in new customers. For launch-specific virality, see launch.\"",
+    "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,' 'how to get referrals,' 'customers referring customers,' 'affiliate payout,' 'get more reviews,' 'G2 reviews,' 'review campaign,' or 'respond to a bad review.' Use this whenever someone wants existing users or partners to bring in new customers. For launch-specific virality, see launch.",
     "path": "category/business-sales-crm/referrals"
   },
   {
@@ -1360,12 +1536,12 @@
     "path": "category/business-sales-crm/rep-context"
   },
   {
-    "id": "reproducible-pipelines",
-    "name": "reproducible-pipelines",
+    "id": "research-companion",
+    "name": "research-companion",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": ">-",
-    "path": "category/business-sales-crm/reproducible-pipelines"
+    "description": "Strategic research companion \u2014 brainstorm, evaluate, and decide on research directions. TRIGGER when the user wants to brainstorm research, evaluate research ideas, do project triage, or explore a problem space. Orchestrates brainstormer, idea-critic, and research-strategist agents through a 6-phase pipeline: Seed \u2192 Diverge \u2192 Evaluate \u2192 Deepen \u2192 Frame \u2192 Decide. Includes Carlini's conclusion-first test.",
+    "path": "category/business-sales-crm/research-companion"
   },
   {
     "id": "research-director",
@@ -1376,11 +1552,19 @@
     "path": "category/business-sales-crm/research-director"
   },
   {
+    "id": "research-init",
+    "name": "research-init",
+    "category": "business-sales-crm",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Scaffold a new research project with full reproducibility infrastructure in R and/or Python. Creates directory structure, pipeline stubs (targets/Snakemake), environment lockfiles (renv/uv), documentation templates (codebook, decision log, pre-registration, Cornell README), Quarto manuscript template, and proper .gitignore. Can wrap existing data in gold-standard structure. Use when the user says \"new project,\" \"scaffold,\" \"start a study,\" \"set up a project,\" \"I have data and need to organize it,\" or when /research-intake recommends scaffolding.",
+    "path": "category/business-sales-crm/research-init"
+  },
+  {
     "id": "research-pipeline",
     "name": "research-pipeline",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Full research pipeline: Workflow 1 (idea discovery) \\u2192 implementation \\u2192 Workflow 2 (auto review loop). Goes from a broad research direction all the way to a submission-ready paper. Use when user says \\\\\\\"\\u5168\\u6d41\\u7a0b\\\\\\\", \\\\\\\"full pipeline\\\\\\\", \\\\\\\"\\u4ece\\u627eidea\\u5230\\u6295\\u7a3f\\\\\\\", \\\\\\\"end-to-end research\\\\\\\", or wants the complete autonomous research lifecycle.\"",
+    "description": "Full research pipeline: Workflow 1 (idea discovery) \\u2192 implementation \\u2192 Workflow 2 (auto review loop). Goes from a broad research direction all the way to a submission-ready paper. Use when user says \\\\\\\"\\u5168\\u6d41\\u7a0b\\\\\\\", \\\\\\\"full pipeline\\\\\\\", \\\\\\\"\\u4ece\\u627eidea\\u5230\\u6295\\u7a3f\\\\\\\", \\\\\\\"end-to-end research\\\\\\\", or wants the complete autonomous research lifecycle.",
     "path": "category/business-sales-crm/research-pipeline"
   },
   {
@@ -1388,7 +1572,7 @@
     "name": "research-refine-pipeline",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Run an end-to-end workflow that chains `research-refine` and `experiment-plan`. Use when the user wants a one-shot pipeline from vague research direction to focused final proposal plus detailed experiment roadmap, or asks to \\\"\\u4e32\\u8d77\\u6765\\\", build a pipeline, do it end-to-end, or generate both the method and experiment plan together.\"",
+    "description": "Run an end-to-end workflow that chains `research-refine` and `experiment-plan`. Use when the user wants a one-shot pipeline from vague research direction to focused final proposal plus detailed experiment roadmap, or asks to \\\"\\u4e32\\u8d77\\u6765\\\", build a pipeline, do it end-to-end, or generate both the method and experiment plan together.",
     "path": "category/business-sales-crm/research-refine-pipeline"
   },
   {
@@ -1396,7 +1580,7 @@
     "name": "research-workflow-automation",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Automate repetitive research tasks with pipelines, schedulers, and scripting\"",
+    "description": "Automate repetitive research tasks with pipelines, schedulers, and scripting",
     "path": "category/business-sales-crm/research-workflow-automation"
   },
   {
@@ -1404,7 +1588,7 @@
     "name": "resolve-project-references",
     "category": "business-sales-crm",
     "repository": "dotnet-skills",
-    "description": "\"Guide for interpreting ResolveProjectReferences time in MSBuild performance summaries. Activate when ResolveProjectReferences appears as the most expensive target and developers are trying to optimize it directly. Explains that the reported time includes wait time for dependent project builds and is misleading. Guides users to focus on task self-time instead. Do not activate for general build performance -- use build-perf-diagnostics instead.\"",
+    "description": "Guide for interpreting ResolveProjectReferences time in MSBuild performance summaries. Activate when ResolveProjectReferences appears as the most expensive target and developers are trying to optimize it directly. Explains that the reported time includes wait time for dependent project builds and is misleading. Guides users to focus on task self-time instead. Do not activate for general build performance -- use build-perf-diagnostics instead.",
     "path": "category/business-sales-crm/resolve-project-references"
   },
   {
@@ -1412,7 +1596,7 @@
     "name": "restock",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": "Turns what is actually selling into a reorder decision and gets it all the way into the books \u2014 computes sales velocity and conservative stockout dates per item, sizes the reorder, drafts the purchase order and the vendor email, and then stages the matching entry so the bill matches against the PO when it arrives. Flags the money sitting still too, so dead stock gets cleared instead of reordered. Runs on Shopify, Square, or an uploaded sales and stock CSV, and deepens with QuickBooks, Gmail or M365, Calendar, and NetSuite. No PO is sent and no vendor is emailed without approval. Use it when the owner says \"what do I need to reorder,\" \"am I going to run out,\" \"restock,\" \"we keep running out of filters,\" \"draft a PO for my supplier,\" or \"how much cash is sitting in the warehouse.\"",
+    "description": "Turns what is actually selling into a reorder decision and gets it all the way into the books \u2014 computes sales velocity and conservative stockout dates per item, sizes the reorder, drafts the purchase order and the vendor email, and then stages the matching entry so the bill matches against the PO when it arrives. Flags the money sitting still too, so dead stock gets cleared instead of reordered. Runs on Shopify, Square, or an uploaded sales and stock CSV, and deepens with QuickBooks, Gmail or M365, Calendar, and NetSuite. No PO is sent and no vendor is emailed without approval. Use it when the owner says \"what do I need to reorder,\" \"am I going to run out,\" \"restock,\" \"we keep running out of filters,\" \"draft a PO for my supplier,\" or \"how much cash is sitting in the warehouse.",
     "path": "category/business-sales-crm/restock"
   },
   {
@@ -1428,7 +1612,7 @@
     "name": "revops",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'outbound pipeline stages,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,' 'marketing-to-sales handoff,' 'data hygiene,' 'leads aren't getting to sales,' 'pipeline management,' 'lead qualification,' or 'when should marketing hand off to sales.' Use this for anything involving the systems and processes that connect marketing to revenue. For cold outreach emails, see cold-email. For email drip campaigns, see emails. For pricing decisions, see pricing.\"",
+    "description": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'outbound pipeline stages,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,' 'marketing-to-sales handoff,' 'data hygiene,' 'leads aren't getting to sales,' 'pipeline management,' 'lead qualification,' or 'when should marketing hand off to sales.' Use this for anything involving the systems and processes that connect marketing to revenue. For cold outreach emails, see cold-email. For email drip campaigns, see emails. For pricing decisions, see pricing.",
     "path": "category/business-sales-crm/revops"
   },
   {
@@ -1436,7 +1620,7 @@
     "name": "rfp-responder",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when an RFP, RFI, RFQ, security questionnaire, vendor questionnaire, or proposal request arrives and the team needs a structured response \u2014 parsing multi-section buyer-dictated requirements (MANDATORY vs WEIGHTED vs NICE-TO-HAVE), building a Shipley-method proof-point matrix mapping each requirement to a verifiable proof point, articulating 3-5 win-themes that ladder up across requirements, and producing a Shipley-derived winrate estimate that informs a bid / no-bid / partner-bid recommendation. For Bid Managers, Proposal Leads, Directors of Sales, and Sales Engineers at the response-strategy moment. Surfaces GAP requirements explicitly \u2014 never invents claims. NOT free-form proposal narrative authoring, NOT contract redline, NOT marketing collateral.\"",
+    "description": "Use when an RFP, RFI, RFQ, security questionnaire, vendor questionnaire, or proposal request arrives and the team needs a structured response \u2014 parsing multi-section buyer-dictated requirements (MANDATORY vs WEIGHTED vs NICE-TO-HAVE), building a Shipley-method proof-point matrix mapping each requirement to a verifiable proof point, articulating 3-5 win-themes that ladder up across requirements, and producing a Shipley-derived winrate estimate that informs a bid / no-bid / partner-bid recommendation. For Bid Managers, Proposal Leads, Directors of Sales, and Sales Engineers at the response-strategy moment. Surfaces GAP requirements explicitly \u2014 never invents claims. NOT free-form proposal narrative authoring, NOT contract redline, NOT marketing collateral.",
     "path": "category/business-sales-crm/rfp-responder"
   },
   {
@@ -1460,7 +1644,7 @@
     "name": "sales-automator",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Draft cold emails, follow-ups, and proposal templates. Creates\"",
+    "description": "Draft cold emails, follow-ups, and proposal templates. Creates",
     "path": "category/business-sales-crm/sales-automator"
   },
   {
@@ -1468,7 +1652,7 @@
     "name": "sales-enablement",
     "category": "business-sales-crm",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'battle card,' 'battlecard,' 'competitive one-pager,' 'win-loss analysis,' 'why are we losing deals,' 'loss reasons,' 'how do I respond to this objection,' 'prospect just said,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps,' 'cold call script,' or 'voicemail script.' Use this for any document or asset that helps a sales team close deals. For public competitor comparison pages, see competitors. For running buyer interviews or churn research, see customer-research. For marketing website copy, see copywriting. For cold outreach emails, see cold-email. For the offer being sold (bonuses, guarantees, pricing structure), see offers.\"",
+    "description": "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'battle card,' 'battlecard,' 'competitive one-pager,' 'win-loss analysis,' 'why are we losing deals,' 'loss reasons,' 'how do I respond to this objection,' 'prospect just said,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps,' 'cold call script,' or 'voicemail script.' Use this for any document or asset that helps a sales team close deals. For public competitor comparison pages, see competitors. For running buyer interviews or churn research, see customer-research. For marketing website copy, see copywriting. For cold outreach emails, see cold-email. For the offer being sold (bonuses, guarantees, pricing structure), see offers.",
     "path": "category/business-sales-crm/sales-enablement"
   },
   {
@@ -1484,7 +1668,7 @@
     "name": "sales-pipeline",
     "category": "business-sales-crm",
     "repository": "ericosiu-ai-marketing-skills",
-    "description": "",
+    "description": "python3 telemetry/version_check.py 2>/dev/null || true",
     "path": "category/business-sales-crm/sales-pipeline"
   },
   {
@@ -1492,7 +1676,7 @@
     "name": "sales-playbook",
     "category": "business-sales-crm",
     "repository": "ericosiu-ai-marketing-skills",
-    "description": "",
+    "description": "python3 telemetry/version_check.py 2>/dev/null || true",
     "path": "category/business-sales-crm/sales-playbook"
   },
   {
@@ -1500,15 +1684,31 @@
     "name": "salesforce-automation",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL queries. Always search tools first for current schemas.\"",
+    "description": "Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SOQL queries. Always search tools first for current schemas.",
     "path": "category/business-sales-crm/salesforce-automation"
+  },
+  {
+    "id": "salesforce-developer",
+    "name": "salesforce-developer",
+    "category": "business-sales-crm",
+    "repository": "jeffallan-claude-skills",
+    "description": "Writes and debugs Apex code, builds Lightning Web Components, optimizes SOQL queries, implements triggers, batch jobs, platform events, and integrations on the Salesforce platform. Use when developing Salesforce applications, customizing CRM workflows, managing governor limits, bulk processing, or setting up Salesforce DX and CI/CD pipelines.",
+    "path": "category/business-sales-crm/salesforce-developer"
+  },
+  {
+    "id": "scikit-learn",
+    "name": "scikit-learn",
+    "category": "business-sales-crm",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Machine learning: clustering, PCA/t-SNE/UMAP, classification, prediction regression (Ridge/Lasso/ensemble), cross-validation, Pipelines. For unsupervised analysis, classification, or prediction. For econometric regression use pyfixest/statsmodels.",
+    "path": "category/business-sales-crm/scikit-learn"
   },
   {
     "id": "segment-cdp",
     "name": "segment-cdp",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tracking plans with Protocols, identity resolution, destinations configuration, and data governance ...\"",
+    "description": "Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tracking plans with Protocols, identity resolution, destinations configuration, and data governance ...",
     "path": "category/business-sales-crm/segment-cdp"
   },
   {
@@ -1516,7 +1716,7 @@
     "name": "sequence-load",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow.\"",
+    "description": "Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow.",
     "path": "category/business-sales-crm/sequence-load"
   },
   {
@@ -1524,7 +1724,7 @@
     "name": "short-form-pipeline",
     "category": "business-sales-crm",
     "repository": "ericosiu-ai-marketing-skills",
-    "description": "",
+    "description": "python3 telemetry/version_check.py 2>/dev/null || true",
     "path": "category/business-sales-crm/short-form-pipeline"
   },
   {
@@ -1564,7 +1764,7 @@
     "name": "social-media-finder-skill",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"This skill helps users automatically find social media profiles across platforms like Facebook, Twitter, Instagram, LinkedIn, etc. using the BrowserAct API. Agent should proactively apply this skill when users express needs like finding someone's social media accounts, discovering a brand's social media presence, tracking down social profiles of job candidates, finding contact info for sales prospects, researching a person's digital footprint, verifying the identity of someone met online, monitoring the social media reach of influencers, checking social accounts of business competitors, gathering public profiles for background research, locating official customer service accounts across platforms, or compiling contact databases for networking.\"",
+    "description": "This skill helps users automatically find social media profiles across platforms like Facebook, Twitter, Instagram, LinkedIn, etc. using the BrowserAct API. Agent should proactively apply this skill when users express needs like finding someone's social media accounts, discovering a brand's social media presence, tracking down social profiles of job candidates, finding contact info for sales prospects, researching a person's digital footprint, verifying the identity of someone met online, monitoring the social media reach of influencers, checking social accounts of business competitors, gathering public profiles for background research, locating official customer service accounts across platforms, or compiling contact databases for networking.",
     "path": "category/business-sales-crm/social-media-finder-skill"
   },
   {
@@ -1572,7 +1772,7 @@
     "name": "speed-to-lead",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Makes sure no inbound lead goes unanswered. Watches web forms, the shared inbox, and the CRM for new inquiries, qualifies each one against the owner's criteria, drafts a reply in the owner's voice with real meeting times for the owner to approve and send, routes anything hot to a human right away, and logs the whole thing to the CRM. Never sends on its own. Built to run on a schedule so overnight inquiries are drafted and sorted by morning, and works from forwarded or pasted inquiries when no connector is available. Use this whenever the owner is worried about inbound leads or response time \u2014 including phrasings like \"leads are going cold,\" \"did anyone answer that inquiry,\" \"I keep missing form submissions,\" \"nothing falls through the cracks,\" \"handle my inbound,\" \"respond to this lead,\" or \"we lose people because nobody gets back fast enough.\" Reach for it for a single unanswered inquiry as readily as for a standing setup.",
     "path": "category/business-sales-crm/speed-to-lead"
   },
   {
@@ -1628,7 +1828,7 @@
     "name": "taobao-keyword-search",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"Search Taobao and Tmall product listings by keyword, returning paginated product cards with title, price, shop, image, sales, and tags. Use when user asks to search Taobao, find products on Taobao/Tmall, scrape Taobao search results, get product listings from Taobao, collect Taobao items by keyword, \u641c\u7d22\u6dd8\u5b9d, \u6dd8\u5b9d\u5173\u952e\u8bcd\u641c\u7d22, \u91c7\u96c6\u6dd8\u5b9d\u5546\u54c1, \u6293\u53d6\u6dd8\u5b9d\u641c\u7d22\u7ed3\u679c, \u6dd8\u5b9d\u5929\u732b\u5546\u54c1\u5217\u8868. Also applies to bulk keyword searches, price monitoring across keywords, and competitive product research on Taobao.\"",
+    "description": "Search Taobao and Tmall product listings by keyword, returning paginated product cards with title, price, shop, image, sales, and tags. Use when user asks to search Taobao, find products on Taobao/Tmall, scrape Taobao search results, get product listings from Taobao, collect Taobao items by keyword, \u641c\u7d22\u6dd8\u5b9d, \u6dd8\u5b9d\u5173\u952e\u8bcd\u641c\u7d22, \u91c7\u96c6\u6dd8\u5b9d\u5546\u54c1, \u6293\u53d6\u6dd8\u5b9d\u641c\u7d22\u7ed3\u679c, \u6dd8\u5b9d\u5929\u732b\u5546\u54c1\u5217\u8868. Also applies to bulk keyword searches, price monitoring across keywords, and competitive product research on Taobao.",
     "path": "category/business-sales-crm/taobao-keyword-search"
   },
   {
@@ -1636,7 +1836,7 @@
     "name": "taobao-product-reviews",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"Fetch customer reviews for a Taobao or Tmall product by itemId, returning reviewer name, date, purchased variant, review text, and photo URLs. Use when user asks to get product reviews from Taobao, scrape Taobao customer feedback, extract buyer reviews by item ID, collect Tmall ratings and comments, \u91c7\u96c6\u6dd8\u5b9d\u5546\u54c1\u8bc4\u4ef7, \u6293\u53d6\u6dd8\u5b9d\u4e70\u5bb6\u8bc4\u8bba, \u83b7\u53d6\u6dd8\u5b9d\u5546\u54c1\u8bc4\u8bba, \u5929\u732b\u5546\u54c1\u8bc4\u4ef7\u6293\u53d6, \u6309\u5546\u54c1ID\u83b7\u53d6\u8bc4\u4ef7. Also applies to sentiment analysis of product reviews, building review datasets, and monitoring product rating changes.\"",
+    "description": "Fetch customer reviews for a Taobao or Tmall product by itemId, returning reviewer name, date, purchased variant, review text, and photo URLs. Use when user asks to get product reviews from Taobao, scrape Taobao customer feedback, extract buyer reviews by item ID, collect Tmall ratings and comments, \u91c7\u96c6\u6dd8\u5b9d\u5546\u54c1\u8bc4\u4ef7, \u6293\u53d6\u6dd8\u5b9d\u4e70\u5bb6\u8bc4\u8bba, \u83b7\u53d6\u6dd8\u5b9d\u5546\u54c1\u8bc4\u8bba, \u5929\u732b\u5546\u54c1\u8bc4\u4ef7\u6293\u53d6, \u6309\u5546\u54c1ID\u83b7\u53d6\u8bc4\u4ef7. Also applies to sentiment analysis of product reviews, building review datasets, and monitoring product rating changes.",
     "path": "category/business-sales-crm/taobao-product-reviews"
   },
   {
@@ -1660,7 +1860,7 @@
     "name": "team-qa",
     "category": "business-sales-crm",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Orchestrate the QA team through a full testing cycle \u2014 qa-lead strategy and test plan, qa-tester case writing, execution, sign-off.\"",
+    "description": "Orchestrate the QA team through a full testing cycle \u2014 qa-lead strategy and test plan, qa-tester case writing, execution, sign-off.",
     "path": "category/business-sales-crm/team-qa"
   },
   {
@@ -1668,7 +1868,7 @@
     "name": "team-release",
     "category": "business-sales-crm",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Orchestrate the release team \u2014 release-manager, qa-lead, devops-engineer, producer \u2014 to execute a release from candidate to deployment.\"",
+    "description": "Orchestrate the release team \u2014 release-manager, qa-lead, devops-engineer, producer \u2014 to execute a release from candidate to deployment.",
     "path": "category/business-sales-crm/team-release"
   },
   {
@@ -1676,8 +1876,16 @@
     "name": "team-ui",
     "category": "business-sales-crm",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Orchestrate the UI team through the UX pipeline \u2014 authoring, visual design, implementation, review, polish. Uses /ux-design, /ux-review, studio templates.\"",
+    "description": "Orchestrate the UI team through the UX pipeline \u2014 authoring, visual design, implementation, review, polish. Uses /ux-design, /ux-review, studio templates.",
     "path": "category/business-sales-crm/team-ui"
+  },
+  {
+    "id": "ticket-deflector",
+    "name": "ticket-deflector",
+    "category": "business-sales-crm",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reads a forwarded customer email or ticket, pulls order and refund status from a payments connector (PayPal, Square, or Stripe) or Shopify, account history from the CRM, and open tickets from a support desk (Zoho Desk), drafts a tone-matched reply in the owner's writing voice, and can issue a refund through the payments connector with explicit owner approval. With Shopify connected it also runs a proactive order-triage mode that surfaces orders needing attention \u2014 unfulfilled past the promised window, payment problems, pending refunds, stuck shipments \u2014 and drafts the next action for each before the customer has to ask. Use when the user says \"draft a response,\" \"answer this customer,\" \"where's my order,\" \"I want a refund,\" \"check my orders,\" or \"anything about to blow up.",
+    "path": "category/business-sales-crm/ticket-deflector"
   },
   {
     "id": "ticket-triage",
@@ -1692,7 +1900,7 @@
     "name": "trustpilot-company-info",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"Trustpilot company profile lookup on trustpilot.com \u2014 input a company domain (e.g. apple.com, shopify.com, shopwagandtail.com) and extract company metadata: official display name, businessUnitId, TrustScore (1-5), star rating, total review count, last-12-months review count, primary category and all categories, verification flags (verifiedByGoogle, verifiedPaymentMethod, verifiedUserIdentity), claimed/closed status, website URL, contact info (email, phone, country, city, address, zip), profile image, and optional reply behavior metrics (averageDaysToReply, replyPercentage, negativeReviewsWithRepliesCount, companyUsesAIResponses). Detects company-not-found and returns isCompanyFound=false with the searched domain. Use when user mentions Trustpilot company info, Trustpilot TrustScore, look up Trustpilot rating, check Trustpilot stars, Trustpilot business profile, Trustpilot review count, Trustpilot company lookup, Trustpilot verification status, Trustpilot reply percentage, Trustpilot AI responses, business unit ID Trustpilot, get company rating from Trustpilot, scrape Trustpilot company, batch enrich domains with Trustpilot, bulk company info Trustpilot, fast domain enrichment with TrustScore, Trustpilot company metadata, Trustpilot brand monitoring, competitor TrustScore comparison, trustpilot.com domain enrichment, trustpilot company profile, trustpilot domain check, trustpilot business listing, check if company is on Trustpilot, Trustpilot category lookup, company contact info from Trustpilot. Also applies to lead-list enrichment with reputation scores, supplier vetting, agency or KOL vetting via review reputation, aggregator sites that need TrustScores for many domains, due-diligence workflows, and pre-outreach reputation checks.\"",
+    "description": "Trustpilot company profile lookup on trustpilot.com \u2014 input a company domain (e.g. apple.com, shopify.com, shopwagandtail.com) and extract company metadata: official display name, businessUnitId, TrustScore (1-5), star rating, total review count, last-12-months review count, primary category and all categories, verification flags (verifiedByGoogle, verifiedPaymentMethod, verifiedUserIdentity), claimed/closed status, website URL, contact info (email, phone, country, city, address, zip), profile image, and optional reply behavior metrics (averageDaysToReply, replyPercentage, negativeReviewsWithRepliesCount, companyUsesAIResponses). Detects company-not-found and returns isCompanyFound=false with the searched domain. Use when user mentions Trustpilot company info, Trustpilot TrustScore, look up Trustpilot rating, check Trustpilot stars, Trustpilot business profile, Trustpilot review count, Trustpilot company lookup, Trustpilot verification status, Trustpilot reply percentage, Trustpilot AI responses, business unit ID Trustpilot, get company rating from Trustpilot, scrape Trustpilot company, batch enrich domains with Trustpilot, bulk company info Trustpilot, fast domain enrichment with TrustScore, Trustpilot company metadata, Trustpilot brand monitoring, competitor TrustScore comparison, trustpilot.com domain enrichment, trustpilot company profile, trustpilot domain check, trustpilot business listing, check if company is on Trustpilot, Trustpilot category lookup, company contact info from Trustpilot. Also applies to lead-list enrichment with reputation scores, supplier vetting, agency or KOL vetting via review reputation, aggregator sites that need TrustScores for many domains, due-diligence workflows, and pre-outreach reputation checks.",
     "path": "category/business-sales-crm/trustpilot-company-info"
   },
   {
@@ -1700,7 +1908,7 @@
     "name": "trustpilot-reviews",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"Trustpilot customer reviews scraper for any company listed on trustpilot.com \u2014 given a company domain (e.g. shopify.com, apple.com, shopwagandtail.com) plus optional filters (page number, single star rating 1-5, single language ISO code, verified-only flag, has-company-reply flag, date period last30days/last3months/last6months/last12months, free-text keyword search, and reviewer countryCode client-side filter), extracts paginated reviews with 20+ fields per review: reviewId, reviewUrl, reviewTitle, reviewDescription, reviewRatingScore (1-5), reviewDate (ISO publishedDate), reviewDateOfExperience, reviewLabel, isReviewVerified, reviewer (display name), reviewerId, reviewersCountry (ISO Alpha-2), reviewLanguage, reviewCompanyResponse (the company reply text), plus pagination metadata (currentPage, totalPages, totalCount). Optional flags add reviewer profile metadata (reviewerNumberOfReviews, reviewerProfileIsVerified), reply analysis dates (companyReplyPublishedDate, companyReplyUpdatedDate), extended metadata (reviewSource, reviewVerificationSource, reviewLikes), and review photos. Use when user mentions Trustpilot reviews, scrape Trustpilot, get reviews from Trustpilot, Trustpilot review scraper, Trustpilot customer reviews, extract Trustpilot reviews, Trustpilot review data, download Trustpilot reviews, paginate Trustpilot, paginated Trustpilot reviews, filter Trustpilot reviews by star, filter Trustpilot by language, verified reviews Trustpilot, has reply Trustpilot, company response Trustpilot, Trustpilot reply analysis, brand monitoring Trustpilot, sentiment analysis Trustpilot, competitor reviews Trustpilot, bulk reviews from a Trustpilot page, batch download reviews, trustpilot.com reviews scraping, fake review research Trustpilot, Trustpilot dataset, persona research from Trustpilot reviews, Trustpilot keyword search reviews, Trustpilot date range reviews, review export Trustpilot. Also applies to comparing review trends across competitors, training data for LLM sentiment classifiers, monitoring competitor response time, exporting reviews for BI dashboards, lead generation from active reviewers, ML / fake-review detection, and aggregator sites that display third-party reviews.\"",
+    "description": "Trustpilot customer reviews scraper for any company listed on trustpilot.com \u2014 given a company domain (e.g. shopify.com, apple.com, shopwagandtail.com) plus optional filters (page number, single star rating 1-5, single language ISO code, verified-only flag, has-company-reply flag, date period last30days/last3months/last6months/last12months, free-text keyword search, and reviewer countryCode client-side filter), extracts paginated reviews with 20+ fields per review: reviewId, reviewUrl, reviewTitle, reviewDescription, reviewRatingScore (1-5), reviewDate (ISO publishedDate), reviewDateOfExperience, reviewLabel, isReviewVerified, reviewer (display name), reviewerId, reviewersCountry (ISO Alpha-2), reviewLanguage, reviewCompanyResponse (the company reply text), plus pagination metadata (currentPage, totalPages, totalCount). Optional flags add reviewer profile metadata (reviewerNumberOfReviews, reviewerProfileIsVerified), reply analysis dates (companyReplyPublishedDate, companyReplyUpdatedDate), extended metadata (reviewSource, reviewVerificationSource, reviewLikes), and review photos. Use when user mentions Trustpilot reviews, scrape Trustpilot, get reviews from Trustpilot, Trustpilot review scraper, Trustpilot customer reviews, extract Trustpilot reviews, Trustpilot review data, download Trustpilot reviews, paginate Trustpilot, paginated Trustpilot reviews, filter Trustpilot reviews by star, filter Trustpilot by language, verified reviews Trustpilot, has reply Trustpilot, company response Trustpilot, Trustpilot reply analysis, brand monitoring Trustpilot, sentiment analysis Trustpilot, competitor reviews Trustpilot, bulk reviews from a Trustpilot page, batch download reviews, trustpilot.com reviews scraping, fake review research Trustpilot, Trustpilot dataset, persona research from Trustpilot reviews, Trustpilot keyword search reviews, Trustpilot date range reviews, review export Trustpilot. Also applies to comparing review trends across competitors, training data for LLM sentiment classifiers, monitoring competitor response time, exporting reviews for BI dashboards, lead generation from active reviewers, ML / fake-review detection, and aggregator sites that display third-party reviews.",
     "path": "category/business-sales-crm/trustpilot-reviews"
   },
   {
@@ -1708,8 +1916,16 @@
     "name": "turborepo-caching",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up Turborepo, optimizing build pipelines, or implementing distributed caching.\"",
+    "description": "Configure Turborepo for efficient monorepo builds with local and remote caching. Use when setting up Turborepo, optimizing build pipelines, or implementing distributed caching.",
     "path": "category/business-sales-crm/turborepo-caching"
+  },
+  {
+    "id": "universal-ma-codebook",
+    "name": "universal-ma-codebook",
+    "category": "business-sales-crm",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Universal Meta-Analysis Codebook v2.2 - AI-Human collaboration for meta-analysis data extraction. 4-layer design: Identifiers, Statistics, AI Provenance, Human Verification. Integrates with C5/C6/C7 agents and Category I systematic review pipeline. Triggers: meta-analysis, codebook, data extraction, Hedges g, effect size",
+    "path": "category/business-sales-crm/universal-ma-codebook"
   },
   {
     "id": "vendor-check",
@@ -1724,7 +1940,7 @@
     "name": "vibe-prospecting",
     "category": "business-sales-crm",
     "repository": "cline-skills",
-    "description": "\"Find company & contact data. Turn your agent into a prospecting platform. Get contact information, roles, tech stack, business events, website changes, intent data. Build lead lists, research prospects, identify talent. 150M+ companies, 800M+ professionals, 50+ data sources.\"",
+    "description": "Find company & contact data. Turn your agent into a prospecting platform. Get contact information, roles, tech stack, business events, website changes, intent data. Build lead lists, research prospects, identify talent. 150M+ companies, 800M+ professionals, 50+ data sources.",
     "path": "category/business-sales-crm/vibe-prospecting"
   },
   {
@@ -1732,7 +1948,7 @@
     "name": "vpe-advisor",
     "category": "business-sales-crm",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"VP of Engineering advisory for startups: delivery throughput (DORA 4 metrics + bottleneck identification), engineering hiring funnel (sourcing \u2192 screen \u2192 onsite \u2192 offer conversion + time-to-fill + pipeline gap), engineering team structure (squad/tribe/chapter design + tech-lead manager-trigger thresholds), and production discipline (on-call, deployment cadence, postmortem culture). Use when sprint velocity is dropping, eng hiring is broken, team structure is unclear, or deciding when to add a tech-lead manager. NOT a CTO skill (which owns architecture) \u2014 VPE owns delivery operations and how the team ships.\"",
+    "description": "VP of Engineering advisory for startups: delivery throughput (DORA 4 metrics + bottleneck identification), engineering hiring funnel (sourcing \u2192 screen \u2192 onsite \u2192 offer conversion + time-to-fill + pipeline gap), engineering team structure (squad/tribe/chapter design + tech-lead manager-trigger thresholds), and production discipline (on-call, deployment cadence, postmortem culture). Use when sprint velocity is dropping, eng hiring is broken, team structure is unclear, or deciding when to add a tech-lead manager. NOT a CTO skill (which owns architecture) \u2014 VPE owns delivery operations and how the team ships.",
     "path": "category/business-sales-crm/vpe-advisor"
   },
   {
@@ -1764,7 +1980,7 @@
     "name": "workflow-automation",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, a network hiccup during a 10-step payment flow means lost money and angry customers. With it, wor...\"",
+    "description": "Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, a network hiccup during a 10-step payment flow means lost money and angry customers. With it, wor...",
     "path": "category/business-sales-crm/workflow-automation"
   },
   {
@@ -1780,7 +1996,7 @@
     "name": "wrangling",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"10 data wrangling skills. Trigger: messy data, format conversion, missing values, data reshaping. Design: pipeline-oriented recipes for common data cleaning and transformation tasks.\"",
+    "description": "10 data wrangling skills. Trigger: messy data, format conversion, missing values, data reshaping. Design: pipeline-oriented recipes for common data cleaning and transformation tasks.",
     "path": "category/business-sales-crm/wrangling"
   },
   {
@@ -1788,7 +2004,7 @@
     "name": "x-keyword-comment",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"X (Twitter) keyword-based reply posting: search tweets by keyword, read each tweet's content, generate contextual replies from a configured brand persona, and post replies to the reply area. Use when user wants to batch reply to X tweets by keyword, auto-comment on X topic tweets, drive traffic via X comments, X comment outreach, search X tweets and leave comments, bulk reply to Twitter search results, keyword comment on Twitter, post replies on X search page, Twitter keyword comment marketing, X reply campaign, engage with X discussions, or comment on tweets matching a topic.\"",
+    "description": "X (Twitter) keyword-based reply posting: search tweets by keyword, read each tweet's content, generate contextual replies from a configured brand persona, and post replies to the reply area. Use when user wants to batch reply to X tweets by keyword, auto-comment on X topic tweets, drive traffic via X comments, X comment outreach, search X tweets and leave comments, bulk reply to Twitter search results, keyword comment on Twitter, post replies on X search page, Twitter keyword comment marketing, X reply campaign, engage with X discussions, or comment on tweets matching a topic.",
     "path": "category/business-sales-crm/x-keyword-comment"
   },
   {
@@ -1796,7 +2012,7 @@
     "name": "youtube-channel-business-email",
     "category": "business-sales-crm",
     "repository": "browser-act-skills",
-    "description": "\"YouTube channel business email and contact extractor: accepts a channel id (UCxxx), handle (@name), or URL; navigates the channel About view; extracts the business email from the description text plus full channel metadata (name, id, country, subscriber count, view count, video count, joined date, external links classified as social/aggregator/personal). When the description has no email, follows non-social outbound links (personal site, business site, link aggregator) and scans those pages for an email so creators who place their inquiry email on their own site are still covered. Use when user mentions youtube channel email, youtube business email, youtube creator email, youtube contact email, youtube channel contact, youtube channel scraper email, youtube email finder, youtube influencer email, youtube outreach, youtube sponsorship contact, youtube partnership email, scrape email from youtube, get email from youtube channel, find youtube creator contact, extract youtube channel emails in bulk, youtube channel inquiry email, business inquiries youtube, brand deal email youtube, lead generation youtube creators, youtube creator outreach list, youtube channel about email, ytInitialData about, youtube channel id to email, youtube handle to email, youtube channel url to email, youtube about page scraper, channel about page email, youtube channel metadata, youtube channel social links, youtube channel external links, youtube channel description email, follow channel website for email, scrape creator personal website from youtube. Also applies to building creator/KOL contact databases for influencer marketing, agency lead lists, sponsorship prospecting, brand-creator collaboration sourcing, and enriching existing YouTube channel lists with contact info.\"",
+    "description": "YouTube channel business email and contact extractor: accepts a channel id (UCxxx), handle (@name), or URL; navigates the channel About view; extracts the business email from the description text plus full channel metadata (name, id, country, subscriber count, view count, video count, joined date, external links classified as social/aggregator/personal). When the description has no email, follows non-social outbound links (personal site, business site, link aggregator) and scans those pages for an email so creators who place their inquiry email on their own site are still covered. Use when user mentions youtube channel email, youtube business email, youtube creator email, youtube contact email, youtube channel contact, youtube channel scraper email, youtube email finder, youtube influencer email, youtube outreach, youtube sponsorship contact, youtube partnership email, scrape email from youtube, get email from youtube channel, find youtube creator contact, extract youtube channel emails in bulk, youtube channel inquiry email, business inquiries youtube, brand deal email youtube, lead generation youtube creators, youtube creator outreach list, youtube channel about email, ytInitialData about, youtube channel id to email, youtube handle to email, youtube channel url to email, youtube about page scraper, channel about page email, youtube channel metadata, youtube channel social links, youtube channel external links, youtube channel description email, follow channel website for email, scrape creator personal website from youtube. Also applies to building creator/KOL contact databases for influencer marketing, agency lead lists, sponsorship prospecting, brand-creator collaboration sourcing, and enriching existing YouTube channel lists with contact info.",
     "path": "category/business-sales-crm/youtube-channel-business-email"
   },
   {
@@ -1804,7 +2020,7 @@
     "name": "zoho-crm-automation",
     "category": "business-sales-crm",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage leads, and convert leads. Always search tools first for current schemas.\"",
+    "description": "Automate Zoho CRM tasks via Rube MCP (Composio): create/update records, search contacts, manage leads, and convert leads. Always search tools first for current schemas.",
     "path": "category/business-sales-crm/zoho-crm-automation"
   },
   {
@@ -1812,7 +2028,7 @@
     "name": "zoho_bigin-automation",
     "category": "business-sales-crm",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Zoho Bigin tasks via Rube MCP (Composio): pipelines, contacts, companies, products, and small business CRM. Always search tools first for current schemas.\"",
+    "description": "Automate Zoho Bigin tasks via Rube MCP (Composio): pipelines, contacts, companies, products, and small business CRM. Always search tools first for current schemas.",
     "path": "category/business-sales-crm/zoho_bigin-automation"
   },
   {
@@ -1820,7 +2036,7 @@
     "name": "zotero-reference-guide",
     "category": "business-sales-crm",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"PDF references add-on for enriching Zotero library metadata\"",
+    "description": "PDF references add-on for enriching Zotero library metadata",
     "path": "category/business-sales-crm/zotero-reference-guide"
   }
 ]

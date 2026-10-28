@@ -37,7 +37,7 @@ GRANULAR_CATEGORIES = {
     },
     "fullstack-web-frameworks": {
         "title": "🌐 Fullstack Web Frameworks & Apps",
-        "keywords": ["fullstack", "nextjs", "remix", "astro", "app-router", "server-action", "serverless-web", "tanstack", "app-builder"]
+        "keywords": ["fullstack", "nextjs", "remix", "astrojs", "astro.build", "app-router", "server-action", "serverless-web", "tanstack", "app-builder"]
     },
     "algorithms-logic": {
         "title": "🧮 Algorithms, Logic & Math",
@@ -188,8 +188,8 @@ GRANULAR_CATEGORIES = {
         "keywords": ["academic-paper", "paper", "literature", "citation", "peer-review", "abstract", "academic-pipeline", "scholar"]
     },
     "scientific-bio-data": {
-        "title": "🔬 Scientific Bio-Informatics & Laboratory",
-        "keywords": ["kdense", "scientific", "bioinformatics", "rna-qc", "clinical", "molecular", "laboratory", "scvi"]
+        "title": "🔬 Scientific, Bio-Informatics & Astrophysics",
+        "keywords": ["astrophysics", "astronomy", "astropy", "fits", "physics", "kdense", "scientific", "bioinformatics", "rna-qc", "clinical", "molecular", "laboratory", "scvi"]
     },
 
     # Core Antigravity
@@ -301,6 +301,40 @@ def inject_category(file_path, category):
     except Exception:
         return False
 
+def parse_skill_description(content):
+    if not content:
+        return ""
+    # 1. Frontmatter multiline folded scalar: description: >- \n ...
+    multi_m = re.search(r'description:\s*(?:[\|\>][\-\+]?|["\'][\|\>][\-\+]?["\'])\r?\n((?:[ \t]+[^\r\n]+(?:\r?\n|$))+)', content, re.IGNORECASE)
+    if multi_m:
+        lines = [l.strip() for l in multi_m.group(1).splitlines() if l.strip()]
+        combined = " ".join(lines).strip()
+        if combined and combined not in [".", ">", ">-", "|", "|-", '""', "''"]:
+            return combined.strip('"\'')
+
+    # 2. Frontmatter single-line
+    fm_m = re.search(r'^---\r?\n([\s\S]*?)\r?\n---', content)
+    if fm_m:
+        fm = fm_m.group(1)
+        m = re.search(r'description:\s*([^\r\n]+)', fm, re.IGNORECASE)
+        if m:
+            val = m.group(1).strip().strip('"\'')
+            if val and val not in [">", ">-", "|", "|-", '""', "''"]:
+                return val
+
+    # 3. Markdown lead paragraph or blockquote fallback
+    for line in content.splitlines()[:25]:
+        line = line.strip()
+        if line.startswith(">"):
+            val = line.lstrip("> *").strip()
+            if len(val) > 15:
+                return val
+        elif line and not line.startswith("#") and not line.startswith("-") and not line.startswith("---"):
+            if len(line) > 15 and not line.startswith("```"):
+                return line
+
+    return ""
+
 def rebuild_category_system(agents_dir=None):
     if not agents_dir:
         agents_dir = os.path.dirname(os.path.abspath(__file__))
@@ -323,9 +357,8 @@ def rebuild_category_system(agents_dir=None):
         if os.path.exists(skill_md):
             try:
                 with open(skill_md, "r", encoding="utf-8", errors="ignore") as f:
-                    txt = f.read(2500)
-                    m = re.search(r"description:\s*([^\n]+)", txt)
-                    if m: desc = m.group(1).strip()
+                    txt = f.read(3000)
+                    desc = parse_skill_description(txt)
                     m2 = re.search(r"category:\s*([^\n]+)", txt)
                     if m2: cat = m2.group(1).strip()
             except Exception:
@@ -356,9 +389,8 @@ def rebuild_category_system(agents_dir=None):
             if os.path.exists(skill_md):
                 try:
                     with open(skill_md, "r", encoding="utf-8", errors="ignore") as f:
-                        txt = f.read(2500)
-                        m = re.search(r"description:\s*([^\n]+)", txt)
-                        if m: desc = m.group(1).strip()
+                        txt = f.read(3000)
+                        desc = parse_skill_description(txt)
                         m2 = re.search(r"category:\s*([^\n]+)", txt)
                         if m2: cat = m2.group(1).strip()
                 except Exception:
@@ -415,18 +447,8 @@ python .agents/library/activate_skill.py activate <skill-name>
             status_badge = "🟢 Active" if item["is_active"] else "⚪ Reserve"
             desc_clean = item["description"][:95] + "..." if len(item["description"]) > 95 else item["description"]
             desc_clean = desc_clean.replace("|", "/")
-            readme_content += f"| [`{item['name']}`](skills/{item['name']}) | {status_badge} | `{item['repo']}` | {desc_clean} |\n"
-
-            # Ensure skill directory exists in category folder
-            dest_skill_dir = os.path.join(c_dir, item["name"])
-            if not os.path.exists(dest_skill_dir):
-                try:
-                    shutil.copytree(item["source_dir"], dest_skill_dir)
-                    md_path = os.path.join(dest_skill_dir, "SKILL.md")
-                    if os.path.exists(md_path):
-                        inject_category(md_path, slug)
-                except Exception:
-                    pass
+            rel_link = f"../../skills/{item['name']}" if item["is_active"] else f"../../library/{item['repo']}/skills/{item['name']}"
+            readme_content += f"| [`{item['name']}`]({rel_link}) | {status_badge} | `{item['repo']}` | {desc_clean} |\n"
 
         with open(os.path.join(c_dir, "README.md"), "w", encoding="utf-8") as f:
             f.write(readme_content)

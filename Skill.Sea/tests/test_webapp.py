@@ -281,8 +281,13 @@ def run_tests():
         tap_highlight = page.evaluate("() => window.getComputedStyle(document.documentElement).webkitTapHighlightColor")
         record("Tap Highlight Disabled (-webkit-tap-highlight-color: transparent)", "rgba(0, 0, 0, 0)" in tap_highlight or tap_highlight == "transparent", f"Got: {tap_highlight}")
 
-        overscroll_y = page.evaluate("() => window.getComputedStyle(document.body).overscrollBehaviorY")
-        record("Overscroll Behavior Y Set to None", overscroll_y == "none", f"Got: {overscroll_y}")
+        # Check Desktop Mouse Wheel Scroll Capability (Smooth & Unblocked)
+        page.mouse.move(640, 400)
+        page.mouse.wheel(0, 500)
+        page.wait_for_timeout(200)
+        desktop_scroll = page.evaluate("() => window.scrollY")
+        record("Desktop Mouse Wheel Scrolling Functional", desktop_scroll > 0, f"ScrollY: {desktop_scroll}")
+        page.evaluate("() => window.scrollTo(0, 0)")
 
         manifest_count = page.locator('link[rel="manifest"]').count()
         record("Web App Manifest Linked", manifest_count == 1, "link[rel=manifest] present")

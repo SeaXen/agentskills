@@ -1,13 +1,5 @@
 [
   {
-    "id": "00.1-Full-empirical-analysis-skill_Python",
-    "name": "00.1-Full-empirical-analysis-skill_Python",
-    "category": "prompt-llm-engineering",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Classical end-to-end empirical analysis workflow in the traditional Python econometric stack \u2014 pandas + numpy + scipy + statsmodels + linearmodels + pyfixest + rdrobust + econml + causalml + matplotlib/seaborn. **Defaults to economics empirical-paper style** (AER / QJE / AEJ) \u2014 every run produces a publication-ready output set with a multi-column regression table (M1\u2192M6 progressive controls/FE) as the centerpiece, plus Table 1 (descriptives), mechanism / heterogeneity / robustness tables, and event-study + coefficient + trend figures. Covers the full 8-step pipeline an applied economist or quantitative social scientist runs on every paper \u2014 (1) data cleaning, (2) variable construction & transformation, (3) descriptive statistics & Table 1, (4) statistical diagnostic tests, (5) baseline empirical modeling, (6) robustness battery, (7) further analysis (mechanism, heterogeneity, mediation, moderation), (8) publication-ready tables & figures. **Also covers two parallel domain modes that share the same 8-step scaffolding** \u2014 **Mode A \u2014 Epidemiology / public health** (target-trial emulation via `zepid` / hand-rolled `pandas`, IPTW + g-formula + TMLE doubly-robust triplet via `zepid` / `econml` / `lifelines`, Mendelian randomization via `pymr` / `mrtool` (or `rpy2` \u2192 `MendelianRandomization`/`TwoSampleMR`), KM / AFT / Cox survival via `lifelines`, E-value sensitivity, principal stratification \u2014 STROBE / TRIPOD reporting), and **Mode B \u2014 ML causal inference** (DML via `econml.dml` / `doubleml`, S/T/X/R/DR meta-learners via `econml.metalearners` / `causalml`, causal forest via `econml.grf` / `causalml`, Dragonnet / TARNet / CEVAE neural causal via `causalml`, BCF via `pymc-bart` / `bcf-py`, matrix completion, CATE distribution + policy tree via `econml.policy` / `policytree-py`, off-policy evaluation, conformal causal via `mapie`, fairness audit via `fairlearn`, DAG learning via `causal-learn` / `cdt` / LLM-assisted). Prescribes which library to reach for at each step, shows the canonical code, and links to deeper `references/` files for variant-specific patterns. Use when the user asks for a **complete empirical analysis** in Python, wants to replicate an applied-economics paper from scratch, needs a reproducible workflow that is NOT opinionated on any single vertical package (contrast with StatsPAI), wants explicit control over every estimator and diagnostic, or asks \"how do I write a full empirical pipeline in",
-    "path": "category/prompt-llm-engineering/00.1-Full-empirical-analysis-skill_Python"
-  },
-  {
     "id": "04-framing-attacks",
     "name": "04-framing-attacks",
     "category": "prompt-llm-engineering",
@@ -32,11 +24,19 @@
     "path": "category/prompt-llm-engineering/39-vincentarelbundock-marginaleffects"
   },
   {
+    "id": "advanced-evaluation",
+    "name": "advanced-evaluation",
+    "category": "prompt-llm-engineering",
+    "repository": "muratcankoylan-agent-skills-for-context-engineering",
+    "description": "This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment.",
+    "path": "category/prompt-llm-engineering/advanced-evaluation"
+  },
+  {
     "id": "aeo",
     "name": "aeo",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Answer Engine Optimization (AEO) skill \u2014 optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO \u2014 AEO optimizes for citation in LLM-generated responses, not search rankings. Use when planning content for AI-first search audiences, auditing existing content for E-E-A-T signals, tracking which pages get cited by which LLMs, or building a citation-friendly content strategy. Triggers \u2014 'AEO audit', 'optimize for ChatGPT', 'get cited by Perplexity', 'LLM citation strategy', 'answer engine optimization', 'content for AI search', 'E-E-A-T audit'. Output is a markdown audit report (default) or JSON for pipeline integration. Stdlib-only Python tools.\"",
+    "description": "Answer Engine Optimization (AEO) skill \u2014 optimize content to be cited by AI language models (ChatGPT, Perplexity, Claude, Gemini, Mistral) as authoritative sources. Distinct from SEO \u2014 AEO optimizes for citation in LLM-generated responses, not search rankings. Use when planning content for AI-first search audiences, auditing existing content for E-E-A-T signals, tracking which pages get cited by which LLMs, or building a citation-friendly content strategy. Triggers \u2014 'AEO audit', 'optimize for ChatGPT', 'get cited by Perplexity', 'LLM citation strategy', 'answer engine optimization', 'content for AI search', 'E-E-A-T audit'. Output is a markdown audit report (default) or JSON for pipeline integration. Stdlib-only Python tools.",
     "path": "category/prompt-llm-engineering/aeo"
   },
   {
@@ -60,7 +60,7 @@
     "name": "agent-evaluation",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability metrics, and production monitoring\\u2014where even top agents achieve less than 50% on re...\"",
+    "description": "Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability metrics, and production monitoring\\u2014where even top agents achieve less than 50% on re...",
     "path": "category/prompt-llm-engineering/agent-evaluation"
   },
   {
@@ -68,7 +68,7 @@
     "name": "agent-orchestration-improve-agent",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Systematic improvement of existing agents through performance analysis, prompt engineering, and continuous iteration.\"",
+    "description": "Systematic improvement of existing agents through performance analysis, prompt engineering, and continuous iteration.",
     "path": "category/prompt-llm-engineering/agent-orchestration-improve-agent"
   },
   {
@@ -76,24 +76,40 @@
     "name": "agent-platform-eval-flywheel",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
+    "description": "Measures and improves the quality of AI models and agents on Google Cloud using the Eval Quality Flywheel methodology. Use when generating synthetic user scenarios, evaluating an agent or model, building an eval dataset, picking or writing evaluation metrics, analyzing failures, comparing results before and after a fix, or when guidance is needed on Agent Platform eval methodology \u2014 including dataset schema, LLM-as-judge scoring, and common failure causes. For fine-tuning, use agent-platform-tuning. For general production deployment, use agent-platform-deploy.",
     "path": "category/prompt-llm-engineering/agent-platform-eval-flywheel"
+  },
+  {
+    "id": "agent-platform-inference",
+    "name": "agent-platform-inference",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Connects to and performs inference with Google Cloud Agent Platform GenAI models, including First-Party Gemini models and Third-Party OpenMaaS models (Llama, DeepSeek, Qwen, etc.). Use when asked to perform inference, ask a model a question, run a test prompt, execute chat completions, or generate code for calling Gemini or OpenMaaS models, authenticate with GenAI SDK, OpenAI SDK, or legacy Agent Platform SDK, configure base URLs and global/regional endpoints, or troubleshoot 429 Resource Exhausted (DSQ), 400 User Validation, or 404 Not Found errors. Don't use for deploying models to endpoints or for running model evaluations.",
+    "path": "category/prompt-llm-engineering/agent-platform-inference"
+  },
+  {
+    "id": "agent-platform-migrate-from-ai-studio",
+    "name": "agent-platform-migrate-from-ai-studio",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Guides agents and users through migrating from Gemini API in Google AI Studio to Gemini Enterprise Agent Platform (formerly Vertex AI). Use this skill when moving applications to Google Cloud, to leverage Cloud credits, or to unify inferencing with other Cloud infrastructure (IAM, billing, telemetry).",
+    "path": "category/prompt-llm-engineering/agent-platform-migrate-from-ai-studio"
   },
   {
     "id": "agent-platform-prompt-management",
     "name": "agent-platform-prompt-management",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
+    "description": "Manages and orchestrates prompts in Agent Platform. Use when you need to create, list, retrieve, version, or delete managed prompts in Agent Platform. Don't use for model training, model deployment to endpoints, or managing non-Agent Platform prompts.",
     "path": "category/prompt-llm-engineering/agent-platform-prompt-management"
   },
   {
-    "id": "agent-platform-rag-engine-management",
-    "name": "agent-platform-rag-engine-management",
+    "id": "agent-platform-skill-registry",
+    "name": "agent-platform-skill-registry",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/agent-platform-rag-engine-management"
+    "description": "Interact with the Gemini Enterprise Agent Platform Skill Registry to create and search for available skills. Use this skill to enable agents to register functionality or discover new capabilities.",
+    "path": "category/prompt-llm-engineering/agent-platform-skill-registry"
   },
   {
     "id": "agent-regression-evals",
@@ -108,7 +124,7 @@
     "name": "agent-tool-builder",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Tools are how AI agents interact with the world. A well-designed tool is the difference between an agent that works and one that hallucinates, fails silently, or costs 10x more tokens than necessar...\"",
+    "description": "Tools are how AI agents interact with the world. A well-designed tool is the difference between an agent that works and one that hallucinates, fails silently, or costs 10x more tokens than necessar...",
     "path": "category/prompt-llm-engineering/agent-tool-builder"
   },
   {
@@ -116,7 +132,7 @@
     "name": "agent-tools",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, OpenRouter, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, openrouter, tavily, exa search, twitter api, grok\"",
+    "description": "Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, OpenRouter, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, openrouter, tavily, exa search, twitter api, grok",
     "path": "category/prompt-llm-engineering/agent-tools"
   },
   {
@@ -124,7 +140,7 @@
     "name": "agentic-actions-auditor",
     "category": "prompt-llm-engineering",
     "repository": "trailofbits-skills",
-    "description": "\"Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations.\"",
+    "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations.",
     "path": "category/prompt-llm-engineering/agentic-actions-auditor"
   },
   {
@@ -140,7 +156,7 @@
     "name": "ai-engineer",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Build production-ready LLM applications, advanced RAG systems, and\"",
+    "description": "Build production-ready LLM applications, advanced RAG systems, and",
     "path": "category/prompt-llm-engineering/ai-engineer"
   },
   {
@@ -148,7 +164,7 @@
     "name": "ai-image-generation",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.sh CLI. Models: GPT-Image-2, FLUX Dev LoRA, FLUX.2 Klein LoRA, Gemini 3 Pro Image, Grok Imagine, Seedream 4.5, Reve, ImagineArt. Capabilities: text-to-image, image-to-image, inpainting, LoRA, image editing, upscaling, text rendering. Use for: AI art, product mockups, concept art, social media graphics, marketing visuals, illustrations. Triggers: flux, image generation, ai image, text to image, stable diffusion, generate image, ai art, midjourney alternative, dall-e alternative, text2img, t2i, image generator, ai picture, create image with ai, generative ai, ai illustration, grok image, gemini image, gpt image, openai image, chatgpt image\"",
+    "description": "Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.sh CLI. Models: GPT-Image-2, FLUX Dev LoRA, FLUX.2 Klein LoRA, Gemini 3 Pro Image, Grok Imagine, Seedream 4.5, Reve, ImagineArt. Capabilities: text-to-image, image-to-image, inpainting, LoRA, image editing, upscaling, text rendering. Use for: AI art, product mockups, concept art, social media graphics, marketing visuals, illustrations. Triggers: flux, image generation, ai image, text to image, stable diffusion, generate image, ai art, midjourney alternative, dall-e alternative, text2img, t2i, image generator, ai picture, create image with ai, generative ai, ai illustration, grok image, gemini image, gpt image, openai image, chatgpt image",
     "path": "category/prompt-llm-engineering/ai-image-generation"
   },
   {
@@ -156,7 +172,7 @@
     "name": "ai-product",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Every product will be AI-powered. The question is whether you'll build it right or ship a demo that falls apart in production.  This skill covers LLM integration patterns, RAG architecture, prompt ...\"",
+    "description": "Every product will be AI-powered. The question is whether you'll build it right or ship a demo that falls apart in production.  This skill covers LLM integration patterns, RAG architecture, prompt ...",
     "path": "category/prompt-llm-engineering/ai-product"
   },
   {
@@ -164,7 +180,7 @@
     "name": "ai-rag-pipeline",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: research, fact-checking, grounded responses, knowledge retrieval. Use for: AI agents, research assistants, fact-checkers, knowledge bases. Triggers: rag, retrieval augmented generation, grounded ai, search and answer, research agent, fact checking, knowledge retrieval, ai research, search + llm, web grounded, perplexity alternative, ai with sources, citation, research pipeline\"",
+    "description": "Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: research, fact-checking, grounded responses, knowledge retrieval. Use for: AI agents, research assistants, fact-checkers, knowledge bases. Triggers: rag, retrieval augmented generation, grounded ai, search and answer, research agent, fact checking, knowledge retrieval, ai research, search + llm, web grounded, perplexity alternative, ai with sources, citation, research pipeline",
     "path": "category/prompt-llm-engineering/ai-rag-pipeline"
   },
   {
@@ -172,7 +188,7 @@
     "name": "ai-seo",
     "category": "prompt-llm-engineering",
     "repository": "coreyhaines31-marketingskills",
-    "description": "\"When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' 'optimize for Claude/Gemini,' 'llms.txt,' 'llms-full.txt,' 'OKF,' 'Open Knowledge Format,' 'knowledge bundle,' 'agent-readable site,' 'agent readiness,' 'is my site agent-ready,' 'WebMCP,' 'do listicles still work for AI,' 'ChatGPT stopped citing comparison pages,' 'how do LLMs see our brand,' 'LinkedIn for AEO,' or 'AI citation format shift.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema.\"",
+    "description": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' 'zero-click search,' 'how do I show up in AI answers,' 'LLM mentions,' 'optimize for Claude/Gemini,' 'llms.txt,' 'llms-full.txt,' 'OKF,' 'Open Knowledge Format,' 'knowledge bundle,' 'agent-readable site,' 'agent readiness,' 'is my site agent-ready,' 'WebMCP,' 'do listicles still work for AI,' 'ChatGPT stopped citing comparison pages,' 'how do LLMs see our brand,' 'LinkedIn for AEO,' or 'AI citation format shift.' Use this whenever someone wants their content to be cited or surfaced by AI assistants and AI search engines. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema.",
     "path": "category/prompt-llm-engineering/ai-seo"
   },
   {
@@ -184,27 +200,51 @@
     "path": "category/prompt-llm-engineering/ai-shaped-readiness-advisor"
   },
   {
+    "id": "ai-visibility-audit",
+    "name": "ai-visibility-audit",
+    "category": "prompt-llm-engineering",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Audit how visible your brand is inside AI answers (ChatGPT, Claude, Gemini, Perplexity, AI Overviews). Claude builds a prompt panel for your category, scores where you show up vs competitors, and turns the gaps into a prioritized fix list. Platform: AI visibility.",
+    "path": "category/prompt-llm-engineering/ai-visibility-audit"
+  },
+  {
     "id": "ai-wrapper-product",
     "name": "ai-wrapper-product",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people will pay for. Not just 'ChatGPT but different' - products that solve specific problems with AI. Cov...\"",
+    "description": "Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people will pay for. Not just 'ChatGPT but different' - products that solve specific problems with AI. Cov...",
     "path": "category/prompt-llm-engineering/ai-wrapper-product"
+  },
+  {
+    "id": "analyzing-security-logs-with-splunk",
+    "name": "analyzing-security-logs-with-splunk",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Leverages Splunk Enterprise Security and SPL (Search Processing Language)",
+    "path": "category/prompt-llm-engineering/analyzing-security-logs-with-splunk"
   },
   {
     "id": "andreessen",
     "name": "andreessen",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Marc Andreessen-mode decision and productivity skill. A blunt, market-first operator that pressure-tests ideas, ventures, features, and career bets through Andreessen's actual frameworks \u2014 market dominates team and product; the only milestone that matters is product/market fit; bias to build over deliberate. Use when the user says 'andreessen', 'pmarca mode', 'should I build this', 'is there a market', 'are we at product/market fit', 'pmf check', 'pressure-test this idea', 'be brutal about this venture', 'market-first take', or wants a no-disclaimers, no-hedging, confidence-leveled verdict on whether something is worth pursuing. Also provides the 3x5-card + Anti-Todo personal productivity routine. Runs on a fixed anti-sycophancy operating prompt: leads with the strongest counterargument, never validates premises, uses explicit confidence levels, never apologizes for disagreeing. Not for polite brainstorming \u2014 this skill exists to tell you the market is dead when it is.\"",
+    "description": "Marc Andreessen-mode decision and productivity skill. A blunt, market-first operator that pressure-tests ideas, ventures, features, and career bets through Andreessen's actual frameworks \u2014 market dominates team and product; the only milestone that matters is product/market fit; bias to build over deliberate. Use when the user says 'andreessen', 'pmarca mode', 'should I build this', 'is there a market', 'are we at product/market fit', 'pmf check', 'pressure-test this idea', 'be brutal about this venture', 'market-first take', or wants a no-disclaimers, no-hedging, confidence-leveled verdict on whether something is worth pursuing. Also provides the 3x5-card + Anti-Todo personal productivity routine. Runs on a fixed anti-sycophancy operating prompt: leads with the strongest counterargument, never validates premises, uses explicit confidence levels, never apologizes for disagreeing. Not for polite brainstorming \u2014 this skill exists to tell you the market is dead when it is.",
     "path": "category/prompt-llm-engineering/andreessen"
+  },
+  {
+    "id": "apigee-agent-gateway-governance",
+    "name": "apigee-agent-gateway-governance",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Stands up an Apigee API proxy that a Google Cloud Agent Gateway calls as an ext-proc (Service Extension) callout on an agent's LLM traffic, to meter token usage per model, extract caller identity, and apply Model Armor prompt screening or a semantic cache. Use when wiring Apigee in as an AI gateway behind an Agent Gateway, when an agent's model egress needs governing, or when a callout proxy returns no verdict and you need to find out why. The distinguishing question is whether Apigee forwards the traffic or only inspects it: this skill is inspect-only, and builds the proxy itself. Don't use it when Apigee is meant to receive a request and route it onward to a backend \u2014 including hosting an MCP server behind Apigee \u2014 which needs a proxy with a target instead. Don't use for governing the agent's calls to tools or MCP servers. Don't use for choosing or switching which model a request goes to. Don't use for creating the Agent Gateway itself, nor for Apigee hybrid.",
+    "path": "category/prompt-llm-engineering/apigee-agent-gateway-governance"
   },
   {
     "id": "ar-run",
     "name": "ar-run",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:ar-run or asks for one manual autoresearch iteration.\"",
+    "description": "Run a single experiment iteration. Edit the target file, evaluate, keep or discard. Use when the user runs /ar:ar-run or asks for one manual autoresearch iteration.",
     "path": "category/prompt-llm-engineering/ar-run"
   },
   {
@@ -212,7 +252,7 @@
     "name": "asset-spec",
     "category": "prompt-llm-engineering",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Per-asset visual specs plus AI generation prompts from GDDs and character profiles. After the art bible.\"",
+    "description": "Per-asset visual specs plus AI generation prompts from GDDs and character profiles. After the art bible.",
     "path": "category/prompt-llm-engineering/asset-spec"
   },
   {
@@ -228,7 +268,7 @@
     "name": "auto-paper-improvement-loop",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Autonomously improve a generated paper via Gemini review through gemini-review MCP \u2192 implement fixes \u2192 recompile, for 2 rounds. Use when user says \\\"\u6539\u8bba\u6587\\\", \\\"improve paper\\\", \\\"\u8bba\u6587\u6da6\u8272\u5faa\u73af\\\", \\\"auto improve\\\", or wants to iteratively polish a generated paper.\"",
+    "description": "Autonomously improve a generated paper via Gemini review through gemini-review MCP \u2192 implement fixes \u2192 recompile, for 2 rounds. Use when user says \\\"\u6539\u8bba\u6587\\\", \\\"improve paper\\\", \\\"\u8bba\u6587\u6da6\u8272\u5faa\u73af\\\", \\\"auto improve\\\", or wants to iteratively polish a generated paper.",
     "path": "category/prompt-llm-engineering/auto-paper-improvement-loop"
   },
   {
@@ -236,7 +276,7 @@
     "name": "auto-review-loop",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Autonomous multi-round research review loop. Repeatedly reviews using Gemini via gemini-review MCP, implements fixes, and re-reviews until positive assessment or max rounds reached. Use when user says \\\"auto review loop\\\", \\\"review until it passes\\\", or wants autonomous iterative improvement.\"",
+    "description": "Autonomous multi-round research review loop. Repeatedly reviews using Gemini via gemini-review MCP, implements fixes, and re-reviews until positive assessment or max rounds reached. Use when user says \\\"auto review loop\\\", \\\"review until it passes\\\", or wants autonomous iterative improvement.",
     "path": "category/prompt-llm-engineering/auto-review-loop"
   },
   {
@@ -244,7 +284,7 @@
     "name": "auto-review-loop-llm",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Autonomous research review loop using any OpenAI-compatible LLM API. Configure via llm-chat MCP server or environment variables. Trigger with \\\"auto review loop llm\\\" or \\\"llm review\\\".\"",
+    "description": "Autonomous research review loop using any OpenAI-compatible LLM API. Configure via llm-chat MCP server or environment variables. Trigger with \\\"auto review loop llm\\\" or \\\"llm review\\\".",
     "path": "category/prompt-llm-engineering/auto-review-loop-llm"
   },
   {
@@ -252,7 +292,7 @@
     "name": "azure-ai-openai-dotnet",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure OpenAI SDK for .NET. Client library for Azure OpenAI and OpenAI services. Use for chat completions, embeddings, image generation, audio transcription, and assistants. Triggers: \"Azure OpenAI\", \"AzureOpenAIClient\", \"ChatClient\", \"chat completions .NET\", \"GPT-4\", \"embeddings\", \"DALL-E\", \"Whisper\", \"OpenAI .NET\".",
     "path": "category/prompt-llm-engineering/azure-ai-openai-dotnet"
   },
   {
@@ -260,15 +300,23 @@
     "name": "azure-ai-projects-py",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Build AI applications using the Azure AI Projects Python SDK (azure-ai-projects). Use when working with Foundry project clients, creating versioned agents with PromptAgentDefinition, running evalua...\"",
+    "description": "Build AI applications using the Azure AI Projects Python SDK (azure-ai-projects). Use when working with Foundry project clients, creating versioned agents with PromptAgentDefinition, running evalua...",
     "path": "category/prompt-llm-engineering/azure-ai-projects-py"
+  },
+  {
+    "id": "azure-identity-py",
+    "name": "azure-identity-py",
+    "category": "prompt-llm-engineering",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure Identity SDK for Python authentication. Use for DefaultAzureCredential, managed identity, service principals, and token caching. Triggers: \"azure-identity\", \"DefaultAzureCredential\", \"authentication\", \"managed identity\", \"service principal\", \"credential\".",
+    "path": "category/prompt-llm-engineering/azure-identity-py"
   },
   {
     "id": "azure-mgmt-arizeaiobservabilityeval-dotnet",
     "name": "azure-mgmt-arizeaiobservabilityeval-dotnet",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure Resource Manager SDK for Arize AI Observability and Evaluation (.NET). Use when managing Arize AI organizations on Azure via Azure Marketplace, creating/updating/deleting Arize resources, or integrating Arize ML observability into .NET applications. Triggers: \"Arize AI\", \"ML observability\", \"ArizeAIObservabilityEval\", \"Arize organization\".",
     "path": "category/prompt-llm-engineering/azure-mgmt-arizeaiobservabilityeval-dotnet"
   },
   {
@@ -276,7 +324,7 @@
     "name": "azure-storage-blob-py",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure Blob Storage SDK for Python. Use for uploading, downloading, listing blobs, managing containers, and blob lifecycle. Triggers: \"blob storage\", \"BlobServiceClient\", \"ContainerClient\", \"BlobClient\", \"upload blob\", \"download blob\".",
     "path": "category/prompt-llm-engineering/azure-storage-blob-py"
   },
   {
@@ -284,7 +332,7 @@
     "name": "azure-storage-blob-ts",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure Blob Storage JavaScript/TypeScript SDK (@azure/storage-blob) for blob operations. Use for uploading, downloading, listing, and managing blobs and containers. Supports block blobs, append blobs, page blobs, SAS tokens, and streaming. Triggers: \"blob storage\", \"@azure/storage-blob\", \"BlobServiceClient\", \"ContainerClient\", \"upload blob\", \"download blob\", \"SAS token\", \"block blob\".",
     "path": "category/prompt-llm-engineering/azure-storage-blob-ts"
   },
   {
@@ -292,7 +340,7 @@
     "name": "azure-storage-file-datalake-py",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure Data Lake Storage Gen2 SDK for Python. Use for hierarchical file systems, big data analytics, and file/directory operations. Triggers: \"data lake\", \"DataLakeServiceClient\", \"FileSystemClient\", \"ADLS Gen2\", \"hierarchical namespace\".",
     "path": "category/prompt-llm-engineering/azure-storage-file-datalake-py"
   },
   {
@@ -300,7 +348,7 @@
     "name": "azure-storage-file-share-py",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure Storage File Share SDK for Python. Use for SMB file shares, directories, and file operations in the cloud. Triggers: \"azure-storage-file-share\", \"ShareServiceClient\", \"ShareClient\", \"file share\", \"SMB\".",
     "path": "category/prompt-llm-engineering/azure-storage-file-share-py"
   },
   {
@@ -308,7 +356,7 @@
     "name": "azure-storage-file-share-ts",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure File Share JavaScript/TypeScript SDK (@azure/storage-file-share) for SMB file share operations. Use for creating shares, managing directories, uploading/downloading files, and handling file metadata. Supports Azure Files SMB protocol scenarios. Triggers: \"file share\", \"@azure/storage-file-share\", \"ShareServiceClient\", \"ShareClient\", \"SMB\", \"Azure Files\".",
     "path": "category/prompt-llm-engineering/azure-storage-file-share-ts"
   },
   {
@@ -316,7 +364,7 @@
     "name": "azure-storage-queue-py",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure Queue Storage SDK for Python. Use for reliable message queuing, task distribution, and asynchronous processing. Triggers: \"queue storage\", \"QueueServiceClient\", \"QueueClient\", \"message queue\", \"dequeue\".",
     "path": "category/prompt-llm-engineering/azure-storage-queue-py"
   },
   {
@@ -324,8 +372,24 @@
     "name": "azure-storage-queue-ts",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"|\"",
+    "description": "Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue) for message queue operations. Use for sending, receiving, peeking, and deleting messages in queues. Supports visibility timeout, message encoding, and batch operations. Triggers: \"queue storage\", \"@azure/storage-queue\", \"QueueServiceClient\", \"QueueClient\", \"send message\", \"receive message\", \"dequeue\", \"visibility timeout\".",
     "path": "category/prompt-llm-engineering/azure-storage-queue-ts"
+  },
+  {
+    "id": "babysit",
+    "name": "babysit",
+    "category": "prompt-llm-engineering",
+    "repository": "michael-denyer-pstack-claude",
+    "description": "Watch an open PR \u2014 fix failing CI, handle the straightforward review comments, and drive it to a mergeable state. Claude Code analog of Cursor's built-in /babysit. Use after opening a PR when the user wants the agent to shepherd it without re-prompting.",
+    "path": "category/prompt-llm-engineering/babysit"
+  },
+  {
+    "id": "baoyu-image-gen",
+    "name": "baoyu-image-gen",
+    "category": "prompt-llm-engineering",
+    "repository": "jimliu-baoyu-skills",
+    "description": "AI image generation with OpenAI GPT Image 2.5, Azure OpenAI, Google, OpenRouter, DashScope, Z.AI GLM-Image, MiniMax, Jimeng, Seedream, Replicate and Agnes APIs. Supports text-to-image, reference images, aspect ratios, and batch generation from saved prompt files. Sequential by default; use batch parallel generation when the user already has multiple prompts or wants stable multi-image throughput. Use when user asks to generate, create, or draw images.",
+    "path": "category/prompt-llm-engineering/baoyu-image-gen"
   },
   {
     "id": "better-prompt",
@@ -336,35 +400,43 @@
     "path": "category/prompt-llm-engineering/better-prompt"
   },
   {
-    "id": "binance-tokenized-securities-info",
-    "name": "binance-tokenized-securities-info",
-    "category": "prompt-llm-engineering",
-    "repository": "binance-binance-skills-hub",
-    "description": "|",
-    "path": "category/prompt-llm-engineering/binance-tokenized-securities-info"
-  },
-  {
     "id": "box-automation",
     "name": "box-automation",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Automate Box cloud storage operations including file upload/download, search, folder management, sharing, collaborations, and metadata queries via Rube MCP (Composio). Always search tools first for...\"",
+    "description": "Automate Box cloud storage operations including file upload/download, search, folder management, sharing, collaborations, and metadata queries via Rube MCP (Composio). Always search tools first for...",
     "path": "category/prompt-llm-engineering/box-automation"
+  },
+  {
+    "id": "brand-answer-monitoring",
+    "name": "brand-answer-monitoring",
+    "category": "prompt-llm-engineering",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Track how AI assistants describe your brand over time and catch wrong, outdated, or damaging claims. Claude builds your monitoring prompt set, compares runs week over week, and drafts the correction plan when answers drift. Platform: AI visibility.",
+    "path": "category/prompt-llm-engineering/brand-answer-monitoring"
   },
   {
     "id": "bug-triage",
     "name": "bug-triage",
     "category": "prompt-llm-engineering",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Re-evaluate open bugs \u2014 priority vs severity, assign to sprints, surface systemic trends. Run when the count grows.\"",
+    "description": "Re-evaluate open bugs \u2014 priority vs severity, assign to sprints, surface systemic trends. Run when the count grows.",
     "path": "category/prompt-llm-engineering/bug-triage"
+  },
+  {
+    "id": "buzz-bd-agent",
+    "name": "buzz-bd-agent",
+    "category": "prompt-llm-engineering",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "description": "Buzz BD Agent operational skill for SolCex Exchange. v9.3 \u2014 Post-Sprint Day 10 (Apr 10, 2026). BuzzShield V2 + Wallet Guard Live + DRI Audition. BuzzShield V2: @stackone/defender prompt injection + OSV.dev supply chain + SBOM. BuzzShield dApp LIVE: plena-38072fcd-8.netlify.app (Noah AI + Netlify). Wallet Guard AION: 12 receipts persisted, end-to-end proven, decision diversity pending. Karpathy LLM Wiki: 43 pages, persistent, wiki-manager.js 550+ lines. autoDream: 13 phases (was 9), hill-climber async fix, 595 ground truth. Moltbook Trust Level 1 live. DRI Sales audition posted (#439, 100K sats/day). Beat Editor auditions posted (#433, both AIBTC Network + Bitcoin Macro). 87 tables. ~200+ endpoints. 47 feature flags. 33 intel sources. CI/CD GREEN. 671+ tokens scored. ~270K sats revenue (~$192). Kite AI: Jamal collab opened. Alchemy $20M fund applied. Server: CPX62 (16 vCPU, 32GB RAM) | API :3000 | MiroFish :5000 | Sentinel :3001.",
+    "path": "category/prompt-llm-engineering/buzz-bd-agent"
   },
   {
     "id": "cactus-cheminformatics-guide",
     "name": "cactus-cheminformatics-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"PNNL cheminformatics LLM agent for molecular analysis\"",
+    "description": "PNNL cheminformatics LLM agent for molecular analysis",
     "path": "category/prompt-llm-engineering/cactus-cheminformatics-guide"
   },
   {
@@ -374,6 +446,14 @@
     "repository": "earthtojake-text-to-cad",
     "description": "Creates and edits parametric CAD parts and assemblies as Python build123d models that cadgen's engine builds and the CAD Viewer shows live; exports STEP, STL, 3MF, GLB and xbf files on request; resolves prompt references, measures geometry, and articulates or animates assemblies. Use for 3D CAD modeling, editing a model script (any change to a part's or assembly's `.py`), organizing a CAD project, exporting or converting CAD files, Quick Edit prompts, mechanisms, and explode or showcase animations. Opens and reviews existing XBF, STEP/STP, STL, 3MF and GLB files in the CAD Viewer.",
     "path": "category/prompt-llm-engineering/cad"
+  },
+  {
+    "id": "chaos-engineer",
+    "name": "chaos-engineer",
+    "category": "prompt-llm-engineering",
+    "repository": "jeffallan-claude-skills",
+    "description": "Designs chaos experiments, creates failure injection frameworks, and facilitates game day exercises for distributed systems \u2014 producing runbooks, experiment manifests, rollback procedures, and post-mortem templates. Use when designing chaos experiments, implementing failure injection frameworks, or conducting game day exercises. Invoke for chaos experiments, resilience testing, blast radius control, game days, antifragile systems, fault injection, Chaos Monkey, Litmus Chaos.",
+    "path": "category/prompt-llm-engineering/chaos-engineer"
   },
   {
     "id": "chinese-ppt",
@@ -388,8 +468,16 @@
     "name": "clarity-gate",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Pre-ingestion verification for epistemic quality in RAG systems with 9-point verification and Two-Round HITL workflow\"",
+    "description": "Pre-ingestion verification for epistemic quality in RAG systems with 9-point verification and Two-Round HITL workflow",
     "path": "category/prompt-llm-engineering/clarity-gate"
+  },
+  {
+    "id": "claude-api",
+    "name": "claude-api",
+    "category": "prompt-llm-engineering",
+    "repository": "anthropics-official-skills",
+    "description": "Reference for the Claude API / Anthropic SDK \u2014 model ids, pricing, params, streaming, tool use, MCP, agents, caching, token counting, model migration. TRIGGER \u2014 read BEFORE opening the target file; don't skip because it \"looks like a one-liner\" \u2014 whenever: the prompt names Claude/Anthropic in any form (Claude, Anthropic, Fable, Opus, Sonnet, Haiku, `anthropic`, `@anthropic-ai`, `claude-*`, `us.anthropic.*`, `[1m]`); the user asks about an LLM (pricing/model choice/limits/caching) \u2014 never answer from memory; OR the task is LLM-shaped with provider unstated (agent/MCP/tool-definition/multi-agent/RAG/LLM-judge/computer-use; generate/summarize/extract/classify/rewrite/converse over NL; debugging refusals/cutoffs/streaming/tool-calls/tokens). SKIP only when another provider is being worked on (overrides all triggers): OpenAI/GPT/Gemini/Llama/Mistral/Cohere/Ollama named in the query; OR `grep -rE 'openai|langchain_openai|google.generativeai|genai|mistralai|cohere|ollama'` over the project hits (run this grep FIRST if no provider named \u2014 don't Read the file).",
+    "path": "category/prompt-llm-engineering/claude-api"
   },
   {
     "id": "claude-coach",
@@ -404,7 +492,7 @@
     "name": "claude-code-guide",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Master guide for using Claude Code effectively. Includes configuration templates, prompting strategies \\\\\\\"Thinking\\\\\\\" keywords, debugging techniques, and best practices for interacting wit...\"",
+    "description": "Master guide for using Claude Code effectively. Includes configuration templates, prompting strategies \\\\\\\"Thinking\\\\\\\" keywords, debugging techniques, and best practices for interacting wit...",
     "path": "category/prompt-llm-engineering/claude-code-guide"
   },
   {
@@ -412,8 +500,16 @@
     "name": "clawrouter",
     "category": "prompt-llm-engineering",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": "\"Smart LLM routing for cost optimization. Routes tasks to the cheapest capable model: free models (OpenRouter Llama 70B, AkashML Qwen 30B) for simple tasks like token scanning and data fetching, MiniMax M2.5 for complex reasoning, scoring, and outreach drafting.\"",
+    "description": "Smart LLM routing for cost optimization. Routes tasks to the cheapest capable model: free models (OpenRouter Llama 70B, AkashML Qwen 30B) for simple tasks like token scanning and data fetching, MiniMax M2.5 for complex reasoning, scoring, and outreach drafting.",
     "path": "category/prompt-llm-engineering/clawrouter"
+  },
+  {
+    "id": "client-report-narratives",
+    "name": "client-report-narratives",
+    "category": "prompt-llm-engineering",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Takes your raw campaign performance data and writes the executive summary paragraph that goes at the top of the report. The plain English explanation of what happened, why it happened, and what's being done about it. The part every client actually reads. Platform: Google and Meta.",
+    "path": "category/prompt-llm-engineering/client-report-narratives"
   },
   {
     "id": "cline-session-search",
@@ -432,19 +528,35 @@
     "path": "category/prompt-llm-engineering/clipcat"
   },
   {
+    "id": "cloud-armor-crs-rule-upgrader",
+    "name": "cloud-armor-crs-rule-upgrader",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Upgrades Google Cloud Armor security policies from OWASP CRS 3.0 and 3.3 to OWASP CRS 4.22. Preserves signature opt-in and opt-out lists, translates evaluatePreconfiguredExpr to native evaluatePreconfiguredWaf dictionary parameters, remaps signature IDs to v042200, drops retired signature IDs, and updates structured preconfiguredWafConfig fine-tuning exclusions. Evaluates operational risk (High Breaking Change, Medium Attention Required, Low Clean Upgrade) including Method Enforcement breaking changes (PUT/PATCH/DELETE blocking) and sensitivity coverage expansions. Supports both in-place rule upgrades and smooth preview mode deployments with priority spacing and a 200-rule quota guardrail. Use when a user or agent needs to audit, upgrade, or transition Cloud Armor WAF rules to CRS 4.22. Don't use for non-WAF Cloud Armor rules (IP rate-limiting, geo-blocking, reCAPTCHA) or AWS/Azure WAF migrations.",
+    "path": "category/prompt-llm-engineering/cloud-armor-crs-rule-upgrader"
+  },
+  {
     "id": "code-llm-papers-guide",
     "name": "code-llm-papers-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Survey and paper collection on LLMs for code generation\"",
+    "description": "Survey and paper collection on LLMs for code generation",
     "path": "category/prompt-llm-engineering/code-llm-papers-guide"
+  },
+  {
+    "id": "codex-gpt-image-2-5-flare",
+    "name": "codex-gpt-image-2-5-flare",
+    "category": "prompt-llm-engineering",
+    "repository": "mengto-skills",
+    "description": "Generate or edit artwork with built-in Codex image gen, especially transparent PNG ornaments, game sprites, emblems, and UI graphics. Use when the user requests GPT 2.5 Flare, /codex-gpt-image-2-5-flare, or this built-in transparent-asset workflow. Includes alpha verification, prompt preservation, and optional project integration.",
+    "path": "category/prompt-llm-engineering/codex-gpt-image-2-5-flare"
   },
   {
     "id": "computer-use-agents",
     "name": "computer-use-agents",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Build AI agents that interact with computers like humans do - viewing screens, moving cursors, clicking buttons, and typing text. Covers Anthropic's Computer Use, OpenAI's Operator/CUA, and open-so...\"",
+    "description": "Build AI agents that interact with computers like humans do - viewing screens, moving cursors, clicking buttons, and typing text. Covers Anthropic's Computer Use, OpenAI's Operator/CUA, and open-so...",
     "path": "category/prompt-llm-engineering/computer-use-agents"
   },
   {
@@ -452,16 +564,24 @@
     "name": "computer-vision-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Apply computer vision research methods, models, and evaluation tools\"",
+    "description": "Apply computer vision research methods, models, and evaluation tools",
     "path": "category/prompt-llm-engineering/computer-vision-guide"
   },
   {
-    "id": "content-eval",
-    "name": "content-eval",
+    "id": "configuring-hsm-for-key-storage",
+    "name": "configuring-hsm-for-key-storage",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Configures Hardware Security Modules for cryptographic key storage",
+    "path": "category/prompt-llm-engineering/configuring-hsm-for-key-storage"
+  },
+  {
+    "id": "content-ops",
+    "name": "content-ops",
     "category": "prompt-llm-engineering",
     "repository": "ericosiu-ai-marketing-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/content-eval"
+    "description": "Score, evaluate, and iteratively improve any content or strategy using an auto-assembled panel of domain experts. Handles copy, sequences, landing pages, strategy docs, titles, charts, recruiting evaluations, or anything else that needs a quality gate. Recursively iterates until all scores hit 90+ (max 3 rounds). Use when asked to: \"expert panel this\", \"score this\", \"rate these variants\", \"quality check this\", \"panel review\", \"which version is better\", \"expert score\", \"evaluate this copy/strategy/page\", or when another skill needs a quality gate on its output. Also triggers on: \"score this landing page\", \"expert panel these email variants\", \"rate this headline\", \"panel these charts\".",
+    "path": "category/prompt-llm-engineering/content-ops"
   },
   {
     "id": "context-budget",
@@ -476,7 +596,7 @@
     "name": "context-compression",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Design and evaluate compression strategies for long-running sessions\"",
+    "description": "Design and evaluate compression strategies for long-running sessions",
     "path": "category/prompt-llm-engineering/context-compression"
   },
   {
@@ -484,7 +604,7 @@
     "name": "context-window-management",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Strategies for managing LLM context windows including summarization, trimming, routing, and avoiding context rot Use when: context window, token limit, context management, context engineering, long...\"",
+    "description": "Strategies for managing LLM context windows including summarization, trimming, routing, and avoiding context rot Use when: context window, token limit, context management, context engineering, long...",
     "path": "category/prompt-llm-engineering/context-window-management"
   },
   {
@@ -492,7 +612,7 @@
     "name": "conversation-memory",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Persistent memory systems for LLM conversations including short-term, long-term, and entity-based memory Use when: conversation memory, remember, memory persistence, long-term memory, chat history.\"",
+    "description": "Persistent memory systems for LLM conversations including short-term, long-term, and entity-based memory Use when: conversation memory, remember, memory persistence, long-term memory, chat history.",
     "path": "category/prompt-llm-engineering/conversation-memory"
   },
   {
@@ -500,7 +620,7 @@
     "name": "convex-design",
     "category": "prompt-llm-engineering",
     "repository": "cline-skills",
-    "description": "\"Design and build reactive, type-safe, production-grade backends on Convex. Covers schema, queries/mutations/actions, indexes, auth, file storage, scheduling, real-time multiplayer, mobile backends, and LLM/agent workflows on Convex's one-platform stack.\"",
+    "description": "Design and build reactive, type-safe, production-grade backends on Convex. Covers schema, queries/mutations/actions, indexes, auth, file storage, scheduling, real-time multiplayer, mobile backends, and LLM/agent workflows on Convex's one-platform stack.",
     "path": "category/prompt-llm-engineering/convex-design"
   },
   {
@@ -508,16 +628,8 @@
     "name": "coverage",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": ">-",
+    "description": "Analyze test coverage gaps. Use when user says \"test coverage\", \"what's not tested\", \"coverage gaps\", \"missing tests\", \"coverage report\", or \"what needs testing\".",
     "path": "category/prompt-llm-engineering/coverage"
-  },
-  {
-    "id": "coverage-analysis",
-    "name": "coverage-analysis",
-    "category": "prompt-llm-engineering",
-    "repository": "dotnet-skills",
-    "description": ">",
-    "path": "category/prompt-llm-engineering/coverage-analysis"
   },
   {
     "id": "create-skill",
@@ -532,7 +644,7 @@
     "name": "cross-eval",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:cross-eval [memo] \u2014 Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom \u2014 e.g. a bet-the-company pivot or fundraise terms.\"",
+    "description": "/c-level-agents:cross-eval [memo] \u2014 Multi-model consensus on a board memo or strategy brief. Claude + Codex + Gemini cross-review with graceful degradation. Use when a high-stakes memo needs an independent sanity check before the boardroom \u2014 e.g. a bet-the-company pivot or fundraise terms.",
     "path": "category/prompt-llm-engineering/cross-eval"
   },
   {
@@ -548,7 +660,7 @@
     "name": "data-cog-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Upload messy CSVs with minimal prompting for deep automated analysis\"",
+    "description": "Upload messy CSVs with minimal prompting for deep automated analysis",
     "path": "category/prompt-llm-engineering/data-cog-guide"
   },
   {
@@ -556,16 +668,64 @@
     "name": "data-failover",
     "category": "prompt-llm-engineering",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": ">",
+    "description": "4-layer token data validation cascade for Buzz BD Agent. Ensures every piece of data touching a business decision is verified by 2+ independent sources. DexScreener primary, with Helius, Bankr, and GeckoTerminal as fallbacks. Valid data = long-term business.",
     "path": "category/prompt-llm-engineering/data-failover"
   },
   {
-    "id": "detection-engineering-coverage-evaluation",
-    "name": "detection-engineering-coverage-evaluation",
+    "id": "data-finder",
+    "name": "data-finder",
     "category": "prompt-llm-engineering",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/detection-engineering-coverage-evaluation"
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Find and assess datasets for a research question. Dispatches Explorer agents to search across data source categories, then Explorer-Critic to stress-test each candidate. Produces a ranked list with feasibility grades. Make sure to use this skill whenever the user wants to identify or evaluate data sources \u2014 not to search for papers or run analysis. Triggers include: \"find data\", \"what data should I use\", \"find a dataset for this\", \"where can I get data on X\", \"assess datasets\", \"what datasets exist for\", \"help me find data\", \"is there data on this\", \"what are my data options\", \"I need data for this project\", or any request to locate empirical data sources for a research question.",
+    "path": "category/prompt-llm-engineering/data-finder"
+  },
+  {
+    "id": "defending-llms-with-guardrails",
+    "name": "defending-llms-with-guardrails",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Deploys Llama Guard 3 safety classification, NeMo Guardrails programmable dialogue rails, and LLM Guard input/output scanner pipelines as complementary runtime defenses that inspect and constrain LLM prompts and responses. Use when adding a production runtime safety layer to an LLM, RAG, or agent application to block jailbreaks, prompt injection (OWASP LLM01), toxic content, or sensitive-data leakage before it reaches or leaves the model.",
+    "path": "category/prompt-llm-engineering/defending-llms-with-guardrails"
+  },
+  {
+    "id": "deploying-honeytokens-and-canarytokens",
+    "name": "deploying-honeytokens-and-canarytokens",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Plants Canarytokens-based decoy artifacts (honey credentials, DNS tokens, web-bug URLs, AWS keys, documents, kubeconfigs) using Thinkst's open-source Canarytokens project and alerts via email or webhook when a token is touched. Use for high-fidelity intrusion detection in low-telemetry areas like file shares or credential stores, or to catch credential dumping and data-theft staging.",
+    "path": "category/prompt-llm-engineering/deploying-honeytokens-and-canarytokens"
+  },
+  {
+    "id": "detecting-ai-model-prompt-injection-attacks",
+    "name": "detecting-ai-model-prompt-injection-attacks",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detects prompt injection using regex signature matching, heuristic scoring for structural anomalies, and DeBERTa-based transformer classification, flagging direct injections (system-prompt overrides, role-play escapes) and indirect injections (encoded payloads, obfuscation) per OWASP LLM Top 10 (LLM01:2025). Use for input validation layers in chatbots/agents/RAG pipelines, or for retrospectively classifying injection attempts in logs or incident investigations.",
+    "path": "category/prompt-llm-engineering/detecting-ai-model-prompt-injection-attacks"
+  },
+  {
+    "id": "detecting-azure-storage-account-misconfigurations",
+    "name": "detecting-azure-storage-account-misconfigurations",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Audit Azure Blob and ADLS storage accounts for public access exposure, weak",
+    "path": "category/prompt-llm-engineering/detecting-azure-storage-account-misconfigurations"
+  },
+  {
+    "id": "detecting-indirect-prompt-injection",
+    "name": "detecting-indirect-prompt-injection",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect and defend against indirect prompt injection hidden in web pages, documents,",
+    "path": "category/prompt-llm-engineering/detecting-indirect-prompt-injection"
+  },
+  {
+    "id": "detecting-privilege-escalation-attempts",
+    "name": "detecting-privilege-escalation-attempts",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect privilege escalation attempts across Windows and Linux, including access token manipulation, UAC bypass, unquoted service path abuse, kernel exploits, and sudo/doas abuse. Use when threat hunting for T1068-style privilege escalation, triaging EDR/SIEM alerts on suspicious privilege changes, scoping compromise during incident response, or validating detection coverage in a purple team exercise.",
+    "path": "category/prompt-llm-engineering/detecting-privilege-escalation-attempts"
   },
   {
     "id": "developing-genkit-go",
@@ -576,11 +736,19 @@
     "path": "category/prompt-llm-engineering/developing-genkit-go"
   },
   {
+    "id": "did-analysis",
+    "name": "did-analysis",
+    "category": "prompt-llm-engineering",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Econometrics skill for Difference-in-Differences (DID) analysis. Activates when the user asks about: \"difference in differences\", \"DID\", \"DiD\", \"diff-in-diff\", \"parallel trends\", \"treatment group\", \"control group\", \"pre-treatment\", \"post-treatment\", \"policy evaluation\", \"natural experiment\", \"staggered DID\", \"event study regression\", \"two-way fixed effects DID\", \"callaway santanna\", \"sun and abraham\", \"\u53cc\u91cd\u5dee\u5206\", \"\u500d\u5dee\u6cd5\", \"\u5e73\u884c\u8d8b\u52bf\", \"\u5904\u7406\u7ec4\", \"\u5bf9\u7167\u7ec4\", \"\u653f\u7b56\u8bc4\u4f30\", \"\u4e8b\u4ef6\u7814\u7a76\", \"\u4ea4\u9519DID\", \"\u6e10\u8fdb\u5904\u7406",
+    "path": "category/prompt-llm-engineering/did-analysis"
+  },
+  {
     "id": "dl-transformer-finetune",
     "name": "dl-transformer-finetune",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Build transformer fine-tuning plans for classification and generation\"",
+    "description": "Build transformer fine-tuning plans for classification and generation",
     "path": "category/prompt-llm-engineering/dl-transformer-finetune"
   },
   {
@@ -588,7 +756,7 @@
     "name": "dual-axis-skill-reviewer",
     "category": "prompt-llm-engineering",
     "repository": "tradermonty-claude-trading-skills",
-    "description": "\"Review skills in any project using a dual-axis method: (1) deterministic code-based checks (structure, scripts, tests, execution safety) and (2) LLM deep review findings. Use when you need reproducible quality scoring for `skills/*/SKILL.md`, want to gate merges with a score threshold (for example 90+), or need concrete improvement items for low-scoring skills. Works across projects via --project-root.\"",
+    "description": "Review skills in any project using a dual-axis method: (1) deterministic code-based checks (structure, scripts, tests, execution safety) and (2) LLM deep review findings. Use when you need reproducible quality scoring for `skills/*/SKILL.md`, want to gate merges with a score threshold (for example 90+), or need concrete improvement items for low-scoring skills. Works across projects via --project-root.",
     "path": "category/prompt-llm-engineering/dual-axis-skill-reviewer"
   },
   {
@@ -598,6 +766,22 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Audit economic analysis outputs (fiscal briefings, macro briefings, market research, longlists, and other quantitative economic documents) against methodology standards, academic literature, and common errors. Runs structured checks across core categories including counterfactual, additionality, discounting, double counting, distributional analysis, Aqua Book RIGOUR, and Flyvbjerg-style strategic misrepresentation detection. Returns a RAG scorecard with issues ranked by severity.",
     "path": "category/prompt-llm-engineering/econ-audit"
+  },
+  {
+    "id": "education-data-query",
+    "name": "education-data-query",
+    "category": "prompt-llm-engineering",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Downloads education datasets from configured mirror sources (parquet/CSV) with local Polars filtering. Use when writing fetch scripts or retrieving CCD, IPEDS, CRDC, SAIPE data. Load after education-data-explorer \u2014 retrieval here, not discovery.",
+    "path": "category/prompt-llm-engineering/education-data-query"
+  },
+  {
+    "id": "education-data-source-pseo",
+    "name": "education-data-source-pseo",
+    "category": "prompt-llm-engineering",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "PSEO \u2014 Census data linking graduates to employment via LEHD wage records. Earnings percentiles at 1/5/10 years post-graduation by institution, degree, CIP. Use for graduate earnings analysis. Coverage: ~29% of graduates from ~31 states.",
+    "path": "category/prompt-llm-engineering/education-data-source-pseo"
   },
   {
     "id": "efficient-fable",
@@ -612,15 +796,23 @@
     "name": "embedding-strategies",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Select and optimize embedding models for semantic search and RAG applications. Use when choosing embedding models, implementing chunking strategies, or optimizing embedding quality for specific dom...\"",
+    "description": "Select and optimize embedding models for semantic search and RAG applications. Use when choosing embedding models, implementing chunking strategies, or optimizing embedding quality for specific dom...",
     "path": "category/prompt-llm-engineering/embedding-strategies"
+  },
+  {
+    "id": "empirical-playbook",
+    "name": "empirical-playbook",
+    "category": "prompt-llm-engineering",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "This skill covers applied microeconomic empirical methods and research design. Use when the user is selecting an identification strategy, comparing estimators, running diagnostics, designing a research study, or evaluating an empirical strategy. Triggers on \"which method\", \"what estimator\", \"how to choose\", \"method comparison\", \"empirical strategy\", \"research design\", \"applied micro\", \"identification strategy\", \"power analysis\", \"design-based\", \"model-based\", \"minimum detectable effect\", \"specification\".",
+    "path": "category/prompt-llm-engineering/empirical-playbook"
   },
   {
     "id": "engineering-advanced-skills",
     "name": "engineering-advanced-skills",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Index of 37 advanced engineering agent skills for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Use when browsing or choosing among the POWERFUL-tier engineering skills: agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, changelog/release automation, reliability (SLO/chaos/flags/operators), platform ops.\"",
+    "description": "Index of 37 advanced engineering agent skills for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Use when browsing or choosing among the POWERFUL-tier engineering skills: agent design, RAG, MCP servers, CI/CD, database design, observability, security auditing, changelog/release automation, reliability (SLO/chaos/flags/operators), platform ops.",
     "path": "category/prompt-llm-engineering/engineering-advanced-skills"
   },
   {
@@ -636,7 +828,7 @@
     "name": "eval",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Evaluate and rank agent results by metric or LLM judge for an AgentHub session. Use when the user runs /hub:eval or asks to score, compare, or pick a winner among completed AgentHub agents.\"",
+    "description": "Evaluate and rank agent results by metric or LLM judge for an AgentHub session. Use when the user runs /hub:eval or asks to score, compare, or pick a winner among completed AgentHub agents.",
     "path": "category/prompt-llm-engineering/eval"
   },
   {
@@ -652,7 +844,7 @@
     "name": "eval-performance",
     "category": "prompt-llm-engineering",
     "repository": "dotnet-skills",
-    "description": "\"Guide for diagnosing and improving MSBuild project evaluation performance. USE FOR: builds slow before any compilation starts, high evaluation time in binlog analysis, expensive glob patterns walking large directories (node_modules, .git, bin/obj), deep import chains (>20 levels), preprocessed output >10K lines indicating heavy evaluation, property functions with file I/O ($([System.IO.File]::ReadAllText(...))), multiple evaluations per project. Covers the 5 MSBuild evaluation phases, glob optimization via DefaultItemExcludes, import chain analysis with /pp preprocessing. DO NOT USE FOR: compilation-time slowness (use build-perf-diagnostics), incremental build issues (use incremental-build), non-MSBuild build systems.\"",
+    "description": "Guide for diagnosing and improving MSBuild project evaluation performance. USE FOR: builds slow before any compilation starts, high evaluation time in binlog analysis, expensive glob patterns walking large directories (node_modules, .git, bin/obj), deep import chains (>20 levels), preprocessed output >10K lines indicating heavy evaluation, property functions with file I/O ($([System.IO.File]::ReadAllText(...))), multiple evaluations per project. Covers the 5 MSBuild evaluation phases, glob optimization via DefaultItemExcludes, import chain analysis with /pp preprocessing. DO NOT USE FOR: compilation-time slowness (use build-perf-diagnostics), incremental build issues (use incremental-build), non-MSBuild build systems.",
     "path": "category/prompt-llm-engineering/eval-performance"
   },
   {
@@ -660,7 +852,7 @@
     "name": "evaluation",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Build evaluation frameworks for agent systems\"",
+    "description": "Build evaluation frameworks for agent systems",
     "path": "category/prompt-llm-engineering/evaluation"
   },
   {
@@ -668,7 +860,7 @@
     "name": "experiment-plan",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Turn a refined research proposal or method idea into a detailed, claim-driven experiment roadmap. Use after `research-refine`, or when the user asks for a detailed experiment plan, ablation matrix, evaluation protocol, run order, compute budget, or paper-ready validation that supports the core problem, novelty, simplicity, and any LLM / VLM / Diffusion / RL-based contribution.\"",
+    "description": "Turn a refined research proposal or method idea into a detailed, claim-driven experiment roadmap. Use after `research-refine`, or when the user asks for a detailed experiment plan, ablation matrix, evaluation protocol, run order, compute budget, or paper-ready validation that supports the core problem, novelty, simplicity, and any LLM / VLM / Diffusion / RL-based contribution.",
     "path": "category/prompt-llm-engineering/experiment-plan"
   },
   {
@@ -684,8 +876,16 @@
     "name": "fable-safe-prompt",
     "category": "prompt-llm-engineering",
     "repository": "davidondrej-skills",
-    "description": "'Make minimal prompt edits to reduce false-positive refusals from Fable. Use only when the user explicitly invokes /fable-safe-prompt.'",
+    "description": "Make minimal prompt edits to reduce false-positive refusals from Fable. Use only when the user explicitly invokes /fable-safe-prompt.",
     "path": "category/prompt-llm-engineering/fable-safe-prompt"
+  },
+  {
+    "id": "filesystem-context",
+    "name": "filesystem-context",
+    "category": "prompt-llm-engineering",
+    "repository": "muratcankoylan-agent-skills-for-context-engineering",
+    "description": "This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.",
+    "path": "category/prompt-llm-engineering/filesystem-context"
   },
   {
     "id": "find-community",
@@ -696,11 +896,19 @@
     "path": "category/prompt-llm-engineering/find-community"
   },
   {
+    "id": "fine-tuning-expert",
+    "name": "fine-tuning-expert",
+    "category": "prompt-llm-engineering",
+    "repository": "jeffallan-claude-skills",
+    "description": "Use when fine-tuning LLMs, training custom models, or adapting foundation models for specific tasks. Invoke for configuring LoRA/QLoRA adapters, preparing JSONL training datasets, setting hyperparameters for fine-tuning runs, adapter training, transfer learning, finetuning with Hugging Face PEFT, OpenAI fine-tuning, instruction tuning, RLHF, DPO, or quantizing and deploying fine-tuned models. Trigger terms include: LoRA, QLoRA, PEFT, finetuning, fine-tuning, adapter tuning, LLM training, model training, custom model.",
+    "path": "category/prompt-llm-engineering/fine-tuning-expert"
+  },
+  {
     "id": "flux-image",
     "name": "flux-image",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with custom style adaptation. Capabilities: text-to-image, image-to-image, LoRA fine-tuning, custom styles. Triggers: flux, flux.2, flux dev, flux schnell, flux pro, black forest labs, flux image, flux ai, flux model, flux lora\"",
+    "description": "Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with custom style adaptation. Capabilities: text-to-image, image-to-image, LoRA fine-tuning, custom styles. Triggers: flux, flux.2, flux dev, flux schnell, flux pro, black forest labs, flux image, flux ai, flux model, flux lora",
     "path": "category/prompt-llm-engineering/flux-image"
   },
   {
@@ -708,7 +916,7 @@
     "name": "gcp-to-aws",
     "category": "prompt-llm-engineering",
     "repository": "cline-skills",
-    "description": "\"Migrate workloads from Google Cloud Platform to AWS \u2014 including AI and agentic workloads regardless of cloud provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, Google Cloud migration, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform files, app code, or billing exports, clarify migration requirements, design AWS architecture, estimate costs, generate migration artifacts, and collect optional feedback. Clarify must finish before Design, Estimate, or Generate. Includes AI provider migration guidance (for example, OpenAI to Amazon Bedrock) by selecting closest-fit Bedrock model families for required modality, latency/quality targets, context windows, and cost constraints. Model mapping is compatibility-guided, not 1:1 parity; validate prompts, tool-calling behavior, and eval metrics before cutover. Do not use for: Azure or on-premises migrations to AWS, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, GCP-to-GCP refactoring, or multi-cloud deployments that do not involve migrating off GCP.\"",
+    "description": "Migrate workloads from Google Cloud Platform to AWS \u2014 including AI and agentic workloads regardless of cloud provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, Google Cloud migration, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform files, app code, or billing exports, clarify migration requirements, design AWS architecture, estimate costs, generate migration artifacts, and collect optional feedback. Clarify must finish before Design, Estimate, or Generate. Includes AI provider migration guidance (for example, OpenAI to Amazon Bedrock) by selecting closest-fit Bedrock model families for required modality, latency/quality targets, context windows, and cost constraints. Model mapping is compatibility-guided, not 1:1 parity; validate prompts, tool-calling behavior, and eval metrics before cutover. Do not use for: Azure or on-premises migrations to AWS, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, GCP-to-GCP refactoring, or multi-cloud deployments that do not involve migrating off GCP.",
     "path": "category/prompt-llm-engineering/gcp-to-aws"
   },
   {
@@ -716,7 +924,7 @@
     "name": "gemini",
     "category": "prompt-llm-engineering",
     "repository": "nowork-studio-notfair-plugin",
-    "description": ">",
+    "description": "Cross-model second opinion from Google Gemini \u2014 a different AI reviewing the same changes, with deep Google ecosystem knowledge. Three modes: review (pass/fail gate for Google Ads campaigns, SEO metadata, or code), challenge (adversarial stress-test that tries to break your changes), and consult (open Q&A with Gemini on Google Ads strategy, SEO best practices, or implementation questions). Use when the user says \"gemini review\", \"ask gemini\", \"gemini challenge\", \"second opinion from gemini\", \"consult gemini\", \"stress test with gemini\", \"what would gemini say\", \"cross-model review\", or \"get another opinion\". Voice aliases: \"gem\", \"gemini check\". Especially useful for Google Ads changes, SEO metadata updates, campaign structure decisions, keyword strategies, and bid/budget changes \u2014 Gemini has native Google ecosystem knowledge that complements Claude's analysis.",
     "path": "category/prompt-llm-engineering/gemini"
   },
   {
@@ -724,7 +932,7 @@
     "name": "gemini-automation",
     "category": "prompt-llm-engineering",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Gemini tasks via Rube MCP (Composio). Always search tools first for current schemas.\"",
+    "description": "Automate Gemini tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/prompt-llm-engineering/gemini-automation"
   },
   {
@@ -732,7 +940,7 @@
     "name": "gemini-carousel",
     "category": "prompt-llm-engineering",
     "repository": "charlie947-social-media-skills",
-    "description": ">",
+    "description": "Generate a branded slide-by-slide LinkedIn carousel using Gemini. Takes source content, builds a design brief, waits for approval, then outputs per-slide image generation prompts. 1080x1350 vertical format. Use this skill whenever the user says \"carousel\", \"build a carousel\", \"turn this into a carousel\", \"gemini carousel\", or wants multi-slide LinkedIn content. Always includes an approval gate between brief and image generation.",
     "path": "category/prompt-llm-engineering/gemini-carousel"
   },
   {
@@ -740,8 +948,32 @@
     "name": "gemini-infographic",
     "category": "prompt-llm-engineering",
     "repository": "charlie947-social-media-skills",
-    "description": ">",
+    "description": "Generate a hand-drawn whiteboard infographic prompt. Takes source content (a post, newsletter, blog, research note) and returns a complete Gemini image generation prompt with a structured brief. Use this skill whenever the user says \"whiteboard infographic\", \"gemini infographic\", \"hand-drawn graphic\", \"turn this into a whiteboard\", or wants an AI-generated infographic for a post.",
     "path": "category/prompt-llm-engineering/gemini-infographic"
+  },
+  {
+    "id": "gemini-live-api",
+    "name": "gemini-live-api",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Generates a Gemini LiveAPI client service class in the user's chosen programming language. Use when the user wants to build, scaffold, or integrate a client that connects to the Gemini Enterprise LiveAPI websocket endpoint, handles session setup/resumption, bearer token refresh, and sending/receiving `ClientMessage`/`ServerMessage` protos. Don't use for general (non-live, non-bidirectional) Gemini API usage such as one-shot `generateContent`, embeddings, image/video generation, or fine-tuning \u2014 use the `gemini-api` skill for those.",
+    "path": "category/prompt-llm-engineering/gemini-live-api"
+  },
+  {
+    "id": "generate-design",
+    "name": "generate-design",
+    "category": "prompt-llm-engineering",
+    "repository": "google-labs-code-stitch-skills",
+    "description": "Generate new screens from text prompts or images, edit existing screens with prompts and design system tokens, and generate design variants using Stitch MCP. Includes prompt enhancement pipeline, design mappings, professional UI/UX terminology, design tokens and theme system capabilities.",
+    "path": "category/prompt-llm-engineering/generate-design"
+  },
+  {
+    "id": "generate-reference-inspired-brand-worlds",
+    "name": "generate-reference-inspired-brand-worlds",
+    "category": "prompt-llm-engineering",
+    "repository": "mengto-skills",
+    "description": "Generate multiple original brand campaign worlds from a supplied visual reference while controlling how close the new work feels without copying protected signature elements. Use when a user provides a brand identity image, poster, editorial campaign, moodboard, or generated concept and asks for inspired alternatives, several distinct brands in one visual family, a closer-to-reference V2, exact wordmarks inside images, or originality-safe image-generation prompts and outputs.",
+    "path": "category/prompt-llm-engineering/generate-reference-inspired-brand-worlds"
   },
   {
     "id": "generate2dmedia",
@@ -756,8 +988,16 @@
     "name": "generative-ai-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Curated guide to generative AI covering LLMs and diffusion models\"",
+    "description": "Curated guide to generative AI covering LLMs and diffusion models",
     "path": "category/prompt-llm-engineering/generative-ai-guide"
+  },
+  {
+    "id": "geo",
+    "name": "geo",
+    "category": "prompt-llm-engineering",
+    "repository": "zubair-trabzada-geo-seo-claude",
+    "description": "GEO-first SEO analysis tool. Optimizes websites for AI-powered search engines (ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews) while maintaining traditional SEO foundations. Performs full GEO audits, citability scoring, AI crawler analysis, llms.txt generation, brand mention scanning, platform-specific optimization, schema markup, technical SEO, content quality (E-E-A-T), and client-ready GEO report generation. Use when user says \"geo\", \"seo\", \"audit\", \"AI search\", \"AI visibility\", \"optimize\", \"citability\", \"llms.txt\", \"schema\", \"brand mentions\", \"GEO report\", or any URL for analysis.",
+    "path": "category/prompt-llm-engineering/geo"
   },
   {
     "id": "geo-citability",
@@ -776,6 +1016,14 @@
     "path": "category/prompt-llm-engineering/geo-llmstxt"
   },
   {
+    "id": "geo-optimizer",
+    "name": "geo-optimizer",
+    "category": "prompt-llm-engineering",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Generative Engine Optimization (GEO) \u2014 make content rank in AI search answers from ChatGPT, Claude, Perplexity, Gemini, and Google AI Overviews. Audits existing content, rewrites for AI citation, and produces per-engine strategy. Use when asked to \"optimize for AI search\", \"rank in ChatGPT\", \"GEO audit\", \"improve AI citations\", \"rank in Perplexity\", \"AI Overview optimization\", \"AI Overview ranking\", \"LLM SEO\", \"answer engine optimization\", \"AEO\", \"get cited by AI\", \"GEO\", \"generative engine optimization\", \"show up in ChatGPT\", \"appear in AI answers\", \"be cited by Perplexity\", \"SGE optimization\", \"Search Generative Experience\", or \"make my content show up in AI answers\". Distinct from regular SEO \u2014 this targets generative engines, not traditional Google rankings.",
+    "path": "category/prompt-llm-engineering/geo-optimizer"
+  },
+  {
     "id": "geo-platform-optimizer",
     "name": "geo-platform-optimizer",
     "category": "prompt-llm-engineering",
@@ -784,100 +1032,52 @@
     "path": "category/prompt-llm-engineering/geo-platform-optimizer"
   },
   {
-    "id": "gke-backup-dr",
-    "name": "gke-backup-dr",
-    "category": "prompt-llm-engineering",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/gke-backup-dr"
-  },
-  {
     "id": "gke-storage",
     "name": "gke-storage",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
+    "description": "Manages GKE storage, including PVCs, PersistentVolumes, and Filestore. Use when configuring GKE storage or creating PVCs. For GCS FUSE mounts, use google-cloud-storage-fuse. For diagnosing storage failures (volume attach/mount errors, disk performance/node storage pressure, or Cloud Storage FUSE OOM), use gke-storage-troubleshooting. Don't use for database administration or replication strategies outside volume provisioning context.",
     "path": "category/prompt-llm-engineering/gke-storage"
-  },
-  {
-    "id": "gke-storage-troubleshooting",
-    "name": "gke-storage-troubleshooting",
-    "category": "prompt-llm-engineering",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/gke-storage-troubleshooting"
   },
   {
     "id": "goal-loop",
     "name": "goal-loop",
     "category": "prompt-llm-engineering",
     "repository": "davidondrej-skills",
-    "description": "'Draft /goal prompts and explain persistent agent loops. Use for goal or Ralph loops, autonomous run setup, monitoring, and troubleshooting.'",
+    "description": "Draft /goal prompts and explain persistent agent loops. Use for goal or Ralph loops, autonomous run setup, monitoring, and troubleshooting.",
     "path": "category/prompt-llm-engineering/goal-loop"
-  },
-  {
-    "id": "google-cloud-filestore-auditing",
-    "name": "google-cloud-filestore-auditing",
-    "category": "prompt-llm-engineering",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/google-cloud-filestore-auditing"
   },
   {
     "id": "google-cloud-filestore-autoscale",
     "name": "google-cloud-filestore-autoscale",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
+    "description": "Inspects Filestore capacity and utilization on Google Cloud, evaluates storage scaling rules, and performs capacity autoscaling (scale UP for low free space or scale DOWN for cost optimization). Use when monitoring Filestore instance headroom, resizing instance shares, configuring automated growth/shrink thresholds (custom thresholds apply globally across projects in session memory), or preventing out-of-space outages. Don't use for Cloud Storage (GCS) buckets, Persistent Disk block storage, or NetApp Volumes.",
     "path": "category/prompt-llm-engineering/google-cloud-filestore-autoscale"
-  },
-  {
-    "id": "google-cloud-filestore-log-troubleshooting",
-    "name": "google-cloud-filestore-log-troubleshooting",
-    "category": "prompt-llm-engineering",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/google-cloud-filestore-log-troubleshooting"
   },
   {
     "id": "google-cloud-filestore-nfs-browser",
     "name": "google-cloud-filestore-nfs-browser",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
+    "description": "Inspects, searches, and reads files and POSIX metadata on Filestore (NFS) instances on Google Cloud without local NFS client packages or root privileges. Use when browsing Filestore shares, searching files, reading remote logs, or inspecting file attributes; don't use for Cloud Storage buckets, Cloud NetApp Volumes, Persistent Disks, or modifying/deleting files.",
     "path": "category/prompt-llm-engineering/google-cloud-filestore-nfs-browser"
   },
   {
-    "id": "google-cloud-solution-rag-enterprise-search-gke-sqldb",
-    "name": "google-cloud-solution-rag-enterprise-search-gke-sqldb",
+    "id": "google-cloud-waf-performance-optimization",
+    "name": "google-cloud-waf-performance-optimization",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/google-cloud-solution-rag-enterprise-search-gke-sqldb"
+    "description": "Generates performance-focused guidance for Google Cloud workloads based on the design principles and recommendations in the Performance Optimization pillar of the Google Cloud Well-Architected Framework (WAF). Use this skill to evaluate a workload, identify performance requirements, and provide actionable recommendations for resource allocation, modular design, and elasticity.",
+    "path": "category/prompt-llm-engineering/google-cloud-waf-performance-optimization"
   },
   {
-    "id": "google-cloud-storage-basics",
-    "name": "google-cloud-storage-basics",
+    "id": "google-cloud-waf-sustainability",
+    "name": "google-cloud-waf-sustainability",
     "category": "prompt-llm-engineering",
     "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/google-cloud-storage-basics"
-  },
-  {
-    "id": "google-cloud-storage-bucket-architect",
-    "name": "google-cloud-storage-bucket-architect",
-    "category": "prompt-llm-engineering",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/google-cloud-storage-bucket-architect"
-  },
-  {
-    "id": "google-cloud-storage-fuse",
-    "name": "google-cloud-storage-fuse",
-    "category": "prompt-llm-engineering",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/prompt-llm-engineering/google-cloud-storage-fuse"
+    "description": "Provides recommendations for environmental sustainability, carbon footprint reduction, and energy efficiency based on the Sustainability pillar of the Google Cloud Well-Architected Framework (WAF). Use when the user asks to assess, design, or optimize Google Cloud workloads for sustainability\u2014including the shared responsibility model, selecting low-carbon regions (CFE%), reducing resource and AI/ML energy waste, designing efficient software and storage lifecycles, or measuring and tracking emissions using Google Cloud Carbon Footprint. Don't use for financial cost reduction (use google-cloud-waf-cost-optimization), latency and throughput tuning (use google-cloud-waf-performance-optimization), or high availability and disaster recovery (use google-cloud-waf-reliability).",
+    "path": "category/prompt-llm-engineering/google-cloud-waf-sustainability"
   },
   {
     "id": "governance",
@@ -892,7 +1092,7 @@
     "name": "gpt-image",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Generate and edit images with OpenAI GPT-Image-2 via inference.sh CLI. Models: GPT-Image-2. Capabilities: text-to-image, image editing, inpainting, mask-based editing, multi-image reference, batch generation. Use for: product mockups, marketing visuals, image editing, concept art, inpainting, photo manipulation. Triggers: gpt image, gpt-image-2, openai image, chatgpt image, dall-e, dalle, openai image generation, gpt image edit, gpt inpainting, openai dall-e, gpt 4o image\"",
+    "description": "Generate and edit images with OpenAI GPT-Image-2 via inference.sh CLI. Models: GPT-Image-2. Capabilities: text-to-image, image editing, inpainting, mask-based editing, multi-image reference, batch generation. Use for: product mockups, marketing visuals, image editing, concept art, inpainting, photo manipulation. Triggers: gpt image, gpt-image-2, openai image, chatgpt image, dall-e, dalle, openai image generation, gpt image edit, gpt inpainting, openai dall-e, gpt 4o image",
     "path": "category/prompt-llm-engineering/gpt-image"
   },
   {
@@ -928,11 +1128,43 @@
     "path": "category/prompt-llm-engineering/hallmark"
   },
   {
+    "id": "harness-engineering",
+    "name": "harness-engineering",
+    "category": "prompt-llm-engineering",
+    "repository": "muratcankoylan-agent-skills-for-context-engineering",
+    "description": "This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.",
+    "path": "category/prompt-llm-engineering/harness-engineering"
+  },
+  {
+    "id": "hig-components-controls",
+    "name": "hig-components-controls",
+    "category": "prompt-llm-engineering",
+    "repository": "antigravity-awesome-skills",
+    "description": "Apple HIG guidance for selection and input controls including pickers, toggles, sliders, steppers, segmented controls, combo boxes, text fields, text views, labels, token fields, virtual keyboards, rating indicators, and gauges. Use this skill when the user says \"picker or segmented control,\" \"how should my form look,\" \"what keyboard type should I use,\" \"toggle vs checkbox,\" or asks about picker design, toggle, switch, slider, stepper, text field, text input, segmented control, combo box, label, token field, virtual keyboard, rating indicator, gauge, form design, input validation, or control state management. Cross-references: hig-components-menus, hig-components-dialogs, hig-components-search.",
+    "path": "category/prompt-llm-engineering/hig-components-controls"
+  },
+  {
+    "id": "higgsfield-product-photoshoot",
+    "name": "higgsfield-product-photoshoot",
+    "category": "prompt-llm-engineering",
+    "repository": "higgsfield-ai-skills",
+    "description": "Generate brand-quality product images through Higgsfield product-photoshoot prompt enhancement on GPT Image 2 / gpt_image_2. Entry point for professional brand/product visuals. Use when: \"product photo\", \"studio shot\", \"lifestyle image\", \"Pinterest pin\", \"hero/banner\", \"carousel\", \"ad creative\", \"Meta ads\", \"virtual try-on\", \"model wearing\", \"person holding product\", \"closeup with hands\", \"levitating/floating/splash product\", \"CGI/surreal product\", \"restyle\", \"seasonal/aesthetic variation\", or any product, brand, or paid-social creative. Modes: product_shot, lifestyle_scene, closeup_product_with_person, moodboard_pin, hero_banner, social_carousel, ad_creative_pack, virtual_model_tryout, conceptual_product, restyle. Backend assembles the final prompt; never freehand it. NOT for: no-product text-to-image (use higgsfield-generate), branded avatar video (use higgsfield-generate Marketing Studio), marketplace listing cards (use higgsfield-marketplace-cards), Soul Character training (use higgsfield-soul-id).",
+    "path": "category/prompt-llm-engineering/higgsfield-product-photoshoot"
+  },
+  {
+    "id": "higgsfield-soul-id",
+    "name": "higgsfield-soul-id",
+    "category": "prompt-llm-engineering",
+    "repository": "higgsfield-ai-skills",
+    "description": "Train a Soul Character \u2014 a personalized model on a person's face that Higgsfield uses for identity-faithful image and video generation. Use when: \"create my Soul\", \"train my face\", \"make my digital twin\", \"build me an avatar\", \"learn my appearance\", \"create a character of me\", \"set up identity for video\", \"I want my face in generated images\". Chain: train Soul (one-time, returns reference_id) \u2192 use in higgsfield-generate via `--soul-id <id>` with models like `text2image_soul_v2` or `soul_cinematic`. NOT for: one-shot face swaps (use higgsfield-generate with --image), named-character / non-photo avatars (use higgsfield-generate with prompt).",
+    "path": "category/prompt-llm-engineering/higgsfield-soul-id"
+  },
+  {
     "id": "hub-init",
     "name": "hub-init",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a multi-agent competition on a task.\"",
+    "description": "Create a new AgentHub collaboration session with task, agent count, and evaluation criteria. Use when the user runs /hub:hub-init or asks to start a multi-agent competition on a task.",
     "path": "category/prompt-llm-engineering/hub-init"
   },
   {
@@ -964,7 +1196,7 @@
     "name": "hunt-brute-force",
     "category": "prompt-llm-engineering",
     "repository": "elementalsouls-claude-bughunter",
-    "description": "\"Hunt Missing/Weak Rate Limiting \u2014 login brute force, OTP/2FA brute force (10^6 keyspace), password-reset-token brute, credential stuffing, username/email enumeration via error-string / status-code / timing differences, weak password policy, missing CAPTCHA (CAPTCHA token replay / single-use / concurrency-window bypass specifics \u2192 hunt-captcha-bypass), IP-based rate-limit bypass via X-Forwarded-For and friends, ReDoS. Distinguishes hard lockout vs soft IP-throttle vs CAPTCHA-injection vs silent shadow-throttling (avoids false-negative 'no rate limit' conclusions). Medium to Critical depending on what the brute reaches (OTP\u2192ATO = Critical).\"",
+    "description": "Hunt Missing/Weak Rate Limiting \u2014 login brute force, OTP/2FA brute force (10^6 keyspace), password-reset-token brute, credential stuffing, username/email enumeration via error-string / status-code / timing differences, weak password policy, missing CAPTCHA (CAPTCHA token replay / single-use / concurrency-window bypass specifics \u2192 hunt-captcha-bypass), IP-based rate-limit bypass via X-Forwarded-For and friends, ReDoS. Distinguishes hard lockout vs soft IP-throttle vs CAPTCHA-injection vs silent shadow-throttling (avoids false-negative 'no rate limit' conclusions). Medium to Critical depending on what the brute reaches (OTP\u2192ATO = Critical).",
     "path": "category/prompt-llm-engineering/hunt-brute-force"
   },
   {
@@ -972,7 +1204,7 @@
     "name": "hunt-llm-ai",
     "category": "prompt-llm-engineering",
     "repository": "elementalsouls-claude-bughunter",
-    "description": "\"Hunt LLM/AI feature bugs \u2014 prompt injection, indirect injection, exfiltration via tool-use/markdown, ASCII smuggling, agentic AI security (OWASP Agentic Apps 2026, ASI01-ASI10). Patterns: direct injection ('ignore previous instructions'), indirect injection via documents/web pages/email the model reads, ASCII smuggling (Unicode Tags block U+E0000-U+E007F, invisible to humans, decoded by the model), tool-use exfiltration (model has fetch/browse tool, attacker injects OOB URL, model exfils chat history/secrets), markdown-image zero-click exfil, system-prompt extraction, IDOR-via-AI (cross-tenant data). Targets: chatbots, RAG, summarizers, agentic copilots, MCP tools. Detection: any LLM-backed endpoint, doc upload triggering AI processing, autonomous agent with tools. Validate: OOB/Collaborator callback for exfil, verbatim-reproducible system-prompt leak (run twice), verifiable cross-tenant leak or RCE. Confabulation is NOT a finding. Use when hunting AI features, chatbots, RAG, agentic systems, MCP.\"",
+    "description": "Hunt LLM/AI feature bugs \u2014 prompt injection, indirect injection, exfiltration via tool-use/markdown, ASCII smuggling, agentic AI security (OWASP Agentic Apps 2026, ASI01-ASI10). Patterns: direct injection ('ignore previous instructions'), indirect injection via documents/web pages/email the model reads, ASCII smuggling (Unicode Tags block U+E0000-U+E007F, invisible to humans, decoded by the model), tool-use exfiltration (model has fetch/browse tool, attacker injects OOB URL, model exfils chat history/secrets), markdown-image zero-click exfil, system-prompt extraction, IDOR-via-AI (cross-tenant data). Targets: chatbots, RAG, summarizers, agentic copilots, MCP tools. Detection: any LLM-backed endpoint, doc upload triggering AI processing, autonomous agent with tools. Validate: OOB/Collaborator callback for exfil, verbatim-reproducible system-prompt leak (run twice), verifiable cross-tenant leak or RCE. Confabulation is NOT a finding. Use when hunting AI features, chatbots, RAG, agentic systems, MCP.",
     "path": "category/prompt-llm-engineering/hunt-llm-ai"
   },
   {
@@ -980,7 +1212,7 @@
     "name": "hunt-rag-vector",
     "category": "prompt-llm-engineering",
     "repository": "elementalsouls-claude-bughunter",
-    "description": "\"Hunt vector-store / embedding-layer weaknesses in RAG pipelines (OWASP LLM08 Vector and Embedding Weaknesses) \u2014 persistent corpus poisoning that survives across sessions and users (distinct from one-shot indirect prompt injection, which is owned by hunt-llm-ai), cross-tenant vector-database IDOR (unauthenticated or unscoped queries against Pinecone/Weaviate/Chroma/Milvus/Qdrant/pgvector), source-text/metadata leakage in similarity-search results, and retrieval-hijack via adversarial embedding proximity ('SEO poisoning' for RAG). Targets: any app with a shared knowledge base, document upload feeding a chatbot, or a directly reachable vector-DB port. Validate: a second, clean session/account must inherit a poisoned result, or a cross-tenant artifact must be independently verifiable \u2014 confabulation is not a finding, same bar as hunt-llm-ai. Use when target is RAG-backed, exposes a vector-DB port, or lets users upload documents that other users' queries later retrieve.\"",
+    "description": "Hunt vector-store / embedding-layer weaknesses in RAG pipelines (OWASP LLM08 Vector and Embedding Weaknesses) \u2014 persistent corpus poisoning that survives across sessions and users (distinct from one-shot indirect prompt injection, which is owned by hunt-llm-ai), cross-tenant vector-database IDOR (unauthenticated or unscoped queries against Pinecone/Weaviate/Chroma/Milvus/Qdrant/pgvector), source-text/metadata leakage in similarity-search results, and retrieval-hijack via adversarial embedding proximity ('SEO poisoning' for RAG). Targets: any app with a shared knowledge base, document upload feeding a chatbot, or a directly reachable vector-DB port. Validate: a second, clean session/account must inherit a poisoned result, or a cross-tenant artifact must be independently verifiable \u2014 confabulation is not a finding, same bar as hunt-llm-ai. Use when target is RAG-backed, exposes a vector-DB port, or lets users upload documents that other users' queries later retrieve.",
     "path": "category/prompt-llm-engineering/hunt-rag-vector"
   },
   {
@@ -988,8 +1220,24 @@
     "name": "hybrid-search-implementation",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Combine vector and keyword search for improved retrieval. Use when implementing RAG systems, building search engines, or when neither approach alone provides sufficient recall.\"",
+    "description": "Combine vector and keyword search for improved retrieval. Use when implementing RAG systems, building search engines, or when neither approach alone provides sufficient recall.",
     "path": "category/prompt-llm-engineering/hybrid-search-implementation"
+  },
+  {
+    "id": "implementing-ebpf-security-monitoring",
+    "name": "implementing-ebpf-security-monitoring",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Implements eBPF-based security monitoring using Cilium Tetragon for",
+    "path": "category/prompt-llm-engineering/implementing-ebpf-security-monitoring"
+  },
+  {
+    "id": "implementing-llm-guardrails-for-security",
+    "name": "implementing-llm-guardrails-for-security",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Implements input/output validation guardrails for LLM applications using",
+    "path": "category/prompt-llm-engineering/implementing-llm-guardrails-for-security"
   },
   {
     "id": "improve-skill-quality",
@@ -1004,7 +1252,7 @@
     "name": "including-generated-files",
     "category": "prompt-llm-engineering",
     "repository": "dotnet-skills",
-    "description": "\"Own MSBuild generated-artifact integration. USE FOR: a target that creates or should create source, Content, None, or another physical file but the artifact is missing from compilation or output; target timing; evaluation-time glob misses; $(IntermediateOutputPath) placement; and FileWrites clean tracking. The prompt may describe the generated artifact without naming the producing task. DO NOT USE when the primary defect is general Include/Remove/Update semantics, item metadata or batching, duplicate/overlapping declarations, or a generated-item identity relationship; use item-management. Exclude Roslyn source-generator internals and non-MSBuild systems.\"",
+    "description": "Own MSBuild generated-artifact integration. USE FOR: a target that creates or should create source, Content, None, or another physical file but the artifact is missing from compilation or output; target timing; evaluation-time glob misses; $(IntermediateOutputPath) placement; and FileWrites clean tracking. The prompt may describe the generated artifact without naming the producing task. DO NOT USE when the primary defect is general Include/Remove/Update semantics, item metadata or batching, duplicate/overlapping declarations, or a generated-item identity relationship; use item-management. Exclude Roslyn source-generator internals and non-MSBuild systems.",
     "path": "category/prompt-llm-engineering/including-generated-files"
   },
   {
@@ -1012,7 +1260,7 @@
     "name": "incremental-build",
     "category": "prompt-llm-engineering",
     "repository": "dotnet-skills",
-    "description": "\"Guide for optimizing MSBuild incremental builds. USE FOR: builds slower than expected on subsequent runs, 'nothing changed but it rebuilds anyway', diagnosing why targets re-execute unnecessarily, fixing broken no-op builds. Covers 8 common causes: missing Inputs/Outputs on custom targets, volatile properties in output paths (timestamps/GUIDs), file writes outside tracked Outputs, missing FileWrites registration, glob changes, Visual Studio Fast Up-to-Date Check (FUTDC) issues. Key diagnostic: look for 'Building target completely' vs 'Skipping target' in binlog. DO NOT USE FOR: first-time build slowness (use build-perf-baseline), parallelism issues (use build-parallelism), evaluation-phase slowness (use eval-performance), non-MSBuild build systems.\"",
+    "description": "Guide for optimizing MSBuild incremental builds. USE FOR: builds slower than expected on subsequent runs, 'nothing changed but it rebuilds anyway', diagnosing why targets re-execute unnecessarily, fixing broken no-op builds. Covers 8 common causes: missing Inputs/Outputs on custom targets, volatile properties in output paths (timestamps/GUIDs), file writes outside tracked Outputs, missing FileWrites registration, glob changes, Visual Studio Fast Up-to-Date Check (FUTDC) issues. Key diagnostic: look for 'Building target completely' vs 'Skipping target' in binlog. DO NOT USE FOR: first-time build slowness (use build-perf-baseline), parallelism issues (use build-parallelism), evaluation-phase slowness (use eval-performance), non-MSBuild build systems.",
     "path": "category/prompt-llm-engineering/incremental-build"
   },
   {
@@ -1020,7 +1268,7 @@
     "name": "infsh-cli",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, OpenRouter, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, openrouter, tavily, exa search, twitter api, grok\"",
+    "description": "Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, OpenRouter, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, openrouter, tavily, exa search, twitter api, grok",
     "path": "category/prompt-llm-engineering/infsh-cli"
   },
   {
@@ -1028,8 +1276,16 @@
     "name": "interrogate",
     "category": "prompt-llm-engineering",
     "repository": "backnotprop-pstack",
-    "description": "\"Use for \\\"interrogate\\\", \\\"adversarial review\\\", \\\"multi-model review\\\", \\\"challenge this\\\", \\\"stress test this code\\\", \\\"find blind spots\\\", or \\\"tear this apart\\\". Multiple LLM reviewers challenge changes from independent angles.\"",
+    "description": "Use for \\\"interrogate\\\", \\\"adversarial review\\\", \\\"multi-model review\\\", \\\"challenge this\\\", \\\"stress test this code\\\", \\\"find blind spots\\\", or \\\"tear this apart\\\". Multiple LLM reviewers challenge changes from independent angles.",
     "path": "category/prompt-llm-engineering/interrogate"
+  },
+  {
+    "id": "iv-estimation",
+    "name": "iv-estimation",
+    "category": "prompt-llm-engineering",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Econometrics skill for instrumental variables and treatment effect estimation. Activates when the user asks about: \"instrumental variables\", \"IV estimation\", \"2SLS\", \"two-stage least squares\", \"endogeneity\", \"weak instruments\", \"first stage\", \"Sargan test\", \"overidentification\", \"propensity score matching\", \"PSM\", \"average treatment effect\", \"ATT\", \"LATE\", \"local average treatment effect\", \"endogenous regressor\", \"instrument validity\", \"\u5de5\u5177\u53d8\u91cf\", \"\u4e24\u9636\u6bb5\u6700\u5c0f\u4e8c\u4e58\", \"\u5185\u751f\u6027\", \"\u5f31\u5de5\u5177\u53d8\u91cf\", \"\u503e\u5411\u5f97\u5206\u5339\u914d\", \"\u5e73\u5747\u5904\u7406\u6548\u5e94\", \"\u5904\u7406\u6548\u5e94\", \"\u5c40\u90e8\u5e73\u5747\u5904\u7406\u6548\u5e94",
+    "path": "category/prompt-llm-engineering/iv-estimation"
   },
   {
     "id": "karpathy-guidelines",
@@ -1044,7 +1300,7 @@
     "name": "knowledge-graph-construction",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Build research knowledge graphs for literature synthesis and RAG systems\"",
+    "description": "Build research knowledge graphs for literature synthesis and RAG systems",
     "path": "category/prompt-llm-engineering/knowledge-graph-construction"
   },
   {
@@ -1052,7 +1308,7 @@
     "name": "langfuse",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, evaluation, datasets, and integration with LangChain, LlamaIndex, and OpenAI. Essential for debug...\"",
+    "description": "Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, evaluation, datasets, and integration with LangChain, LlamaIndex, and OpenAI. Essential for debug...",
     "path": "category/prompt-llm-engineering/langfuse"
   },
   {
@@ -1060,7 +1316,7 @@
     "name": "last30days",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-ready prompts for the user's target tool.\"",
+    "description": "Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-ready prompts for the user's target tool.",
     "path": "category/prompt-llm-engineering/last30days"
   },
   {
@@ -1068,7 +1324,7 @@
     "name": "lean-theorem-proving-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"LLM agent for formal theorem proving in Lean 4\"",
+    "description": "LLM agent for formal theorem proving in Lean 4",
     "path": "category/prompt-llm-engineering/lean-theorem-proving-guide"
   },
   {
@@ -1084,7 +1340,7 @@
     "name": "llm-aiops-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Papers on LLMs for IT operations and AIOps research\"",
+    "description": "Papers on LLMs for IT operations and AIOps research",
     "path": "category/prompt-llm-engineering/llm-aiops-guide"
   },
   {
@@ -1092,7 +1348,7 @@
     "name": "llm-app-patterns",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Production-ready patterns for building LLM applications. Covers RAG pipelines, agent architectures, prompt IDEs, and LLMOps monitoring. Use when designing AI applications, implementing RAG, buildin...\"",
+    "description": "Production-ready patterns for building LLM applications. Covers RAG pipelines, agent architectures, prompt IDEs, and LLMOps monitoring. Use when designing AI applications, implementing RAG, buildin...",
     "path": "category/prompt-llm-engineering/llm-app-patterns"
   },
   {
@@ -1100,7 +1356,7 @@
     "name": "llm-application-dev-ai-assistant",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"You are an AI assistant development expert specializing in creating intelligent conversational interfaces, chatbots, and AI-powered applications. Design comprehensive AI assistant solutions with natur\"",
+    "description": "You are an AI assistant development expert specializing in creating intelligent conversational interfaces, chatbots, and AI-powered applications. Design comprehensive AI assistant solutions with natur",
     "path": "category/prompt-llm-engineering/llm-application-dev-ai-assistant"
   },
   {
@@ -1108,7 +1364,7 @@
     "name": "llm-application-dev-langchain-agent",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"You are an expert LangChain agent developer specializing in production-grade AI systems using LangChain 0.1+ and LangGraph.\"",
+    "description": "You are an expert LangChain agent developer specializing in production-grade AI systems using LangChain 0.1+ and LangGraph.",
     "path": "category/prompt-llm-engineering/llm-application-dev-langchain-agent"
   },
   {
@@ -1116,7 +1372,7 @@
     "name": "llm-application-dev-prompt-optimize",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"You are an expert prompt engineer specializing in crafting effective prompts for LLMs through advanced techniques including constitutional AI, chain-of-thought reasoning, and model-specific optimizati\"",
+    "description": "You are an expert prompt engineer specializing in crafting effective prompts for LLMs through advanced techniques including constitutional AI, chain-of-thought reasoning, and model-specific optimizati",
     "path": "category/prompt-llm-engineering/llm-application-dev-prompt-optimize"
   },
   {
@@ -1124,7 +1380,7 @@
     "name": "llm-cost-optimizer",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use proactively whenever LLM API costs come up -- or should. Triggers include: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching', 'we're about to launch an AI feature', 'build me an AI endpoint'. Don't wait for an explicit cost complaint -- if someone is building an AI feature, designing an LLM endpoint, or choosing between models, cost architecture belongs in the conversation. Apply immediately when any of these are true: a system prompt appears that exceeds a few hundred tokens, all requests are hitting the same model, max_tokens is not set, or no per-feature cost logging exists. NOT for RAG pipeline design (use rag-architect). NOT for improving prompt quality or effectiveness (use senior-prompt-engineer).\"",
+    "description": "Use proactively whenever LLM API costs come up -- or should. Triggers include: 'my AI costs are too high', 'optimize token usage', 'which model should I use', 'LLM spend is out of control', 'implement prompt caching', 'we're about to launch an AI feature', 'build me an AI endpoint'. Don't wait for an explicit cost complaint -- if someone is building an AI feature, designing an LLM endpoint, or choosing between models, cost architecture belongs in the conversation. Apply immediately when any of these are true: a system prompt appears that exceeds a few hundred tokens, all requests are hitting the same model, max_tokens is not set, or no per-feature cost logging exists. NOT for RAG pipeline design (use rag-architect). NOT for improving prompt quality or effectiveness (use senior-prompt-engineer).",
     "path": "category/prompt-llm-engineering/llm-cost-optimizer"
   },
   {
@@ -1132,7 +1388,7 @@
     "name": "llm-evaluation",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Implement comprehensive evaluation strategies for LLM applications using automated metrics, human feedback, and benchmarking. Use when testing LLM performance, measuring AI application quality, or ...\"",
+    "description": "Implement comprehensive evaluation strategies for LLM applications using automated metrics, human feedback, and benchmarking. Use when testing LLM performance, measuring AI application quality, or ...",
     "path": "category/prompt-llm-engineering/llm-evaluation"
   },
   {
@@ -1140,7 +1396,7 @@
     "name": "llm-evaluation-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Evaluate and benchmark large language models for research applications\"",
+    "description": "Evaluate and benchmark large language models for research applications",
     "path": "category/prompt-llm-engineering/llm-evaluation-guide"
   },
   {
@@ -1148,7 +1404,7 @@
     "name": "llm-from-scratch-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Build a ChatGPT-like LLM from scratch using PyTorch step by step\"",
+    "description": "Build a ChatGPT-like LLM from scratch using PyTorch step by step",
     "path": "category/prompt-llm-engineering/llm-from-scratch-guide"
   },
   {
@@ -1156,7 +1412,7 @@
     "name": "llm-models",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Access Claude, Gemini, Kimi, GLM and 100+ LLMs via inference.sh CLI using OpenRouter. Models: Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3 Pro, Kimi K2, GLM-4.6, Intellect 3. One API for all models with automatic fallback and cost optimization. Use for: AI assistants, code generation, reasoning, agents, chat, content generation. Triggers: claude api, openrouter, llm api, claude sonnet, claude opus, gemini api, kimi, language model, gpt alternative, anthropic api, ai model api, llm access, chat api, claude alternative, openai alternative\"",
+    "description": "Access Claude, Gemini, Kimi, GLM and 100+ LLMs via inference.sh CLI using OpenRouter. Models: Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3 Pro, Kimi K2, GLM-4.6, Intellect 3. One API for all models with automatic fallback and cost optimization. Use for: AI assistants, code generation, reasoning, agents, chat, content generation. Triggers: claude api, openrouter, llm api, claude sonnet, claude opus, gemini api, kimi, language model, gpt alternative, anthropic api, ai model api, llm access, chat api, claude alternative, openai alternative",
     "path": "category/prompt-llm-engineering/llm-models"
   },
   {
@@ -1164,7 +1420,7 @@
     "name": "llm-scientific-discovery-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Survey of LLM agents for biomedical scientific discovery\"",
+    "description": "Survey of LLM agents for biomedical scientific discovery",
     "path": "category/prompt-llm-engineering/llm-scientific-discovery-guide"
   },
   {
@@ -1180,23 +1436,31 @@
     "name": "local-deep-research-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Deep research agent searching 10+ sources with local or cloud LLMs\"",
+    "description": "Deep research agent searching 10+ sources with local or cloud LLMs",
     "path": "category/prompt-llm-engineering/local-deep-research-guide"
   },
   {
-    "id": "logo-design",
-    "name": "logo-design",
+    "id": "long-horizon-prompting",
+    "name": "long-horizon-prompting",
     "category": "prompt-llm-engineering",
-    "repository": "kaankiziltug-logo-design-skill",
-    "description": "A comprehensive logo-design skill for Claude, Gemini CLI, Codex and other AI agents: principles, process, SVG craft, testing tools and a 1,400+ logo reference library.",
-    "path": "category/prompt-llm-engineering/logo-design"
+    "repository": "muratcankoylan-agent-skills-for-context-engineering",
+    "description": "This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-counting outcomes, set persistence rules with explicit stop and return conditions and effort floors, manage a diverse portfolio of parallel approaches with an approach registry and blocked-route bookkeeping, and gate the return on adversarial audit. Route agent topology and coordination protocols to multi-agent-patterns, runtime control surfaces and loop governance to harness-engineering, evaluator and quality-gate construction to evaluation, judge design to advanced-evaluation, and compaction or memory mechanics to context-compression and memory-systems.",
+    "path": "category/prompt-llm-engineering/long-horizon-prompting"
+  },
+  {
+    "id": "manage-design-system",
+    "name": "manage-design-system",
+    "category": "prompt-llm-engineering",
+    "repository": "google-labs-code-stitch-skills",
+    "description": "Manage design systems in Stitch using MCP tools. Includes retrieval of assets, creating/updating design systems in Stitch, and applying them to screens.",
+    "path": "category/prompt-llm-engineering/manage-design-system"
   },
   {
     "id": "markdown-unwrap",
     "name": "markdown-unwrap",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "'Unwraps hard-wrapped markdown files so that each sentence ends with a newline instead of mid-sentence line breaks. Joins continuation lines within a paragraph into single lines, then re-breaks at sentence boundaries (period, question mark, exclamation point). Preserves blank lines, headings, fenced code blocks, block quotes, and list items. Use when asked to unwrap text, fix line breaks, reflow sentences, or clean up hard-wrapped markdown or .qmd files.'",
+    "description": "Unwraps hard-wrapped markdown files so that each sentence ends with a newline instead of mid-sentence line breaks. Joins continuation lines within a paragraph into single lines, then re-breaks at sentence boundaries (period, question mark, exclamation point). Preserves blank lines, headings, fenced code blocks, block quotes, and list items. Use when asked to unwrap text, fix line breaks, reflow sentences, or clean up hard-wrapped markdown or .qmd files.",
     "path": "category/prompt-llm-engineering/markdown-unwrap"
   },
   {
@@ -1204,7 +1468,7 @@
     "name": "market-landscape-scan",
     "category": "prompt-llm-engineering",
     "repository": "deanpeters-product-manager-skills",
-    "description": "\"Map a market's segments, players, substitutes, and whitespace with cited evidence. Use when entering or re-evaluating a market before sizing, positioning, or picking competitors to study.\"",
+    "description": "Map a market's segments, players, substitutes, and whitespace with cited evidence. Use when entering or re-evaluating a market before sizing, positioning, or picking competitors to study.",
     "path": "category/prompt-llm-engineering/market-landscape-scan"
   },
   {
@@ -1220,7 +1484,7 @@
     "name": "mcp-builder-ms",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate exte...\"",
+    "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate exte...",
     "path": "category/prompt-llm-engineering/mcp-builder-ms"
   },
   {
@@ -1232,6 +1496,14 @@
     "path": "category/prompt-llm-engineering/meme-coin-audit"
   },
   {
+    "id": "meme-rush",
+    "name": "meme-rush",
+    "category": "prompt-llm-engineering",
+    "repository": "binance-binance-skills-hub",
+    "description": "Live launchpad feed + AI hot topics for meme tokens. (1) meme-rush: real-time lifecycle feed on launchpads across Solana, BSC and Base (Pump.fun, Four.meme, Flap, ...) \u2014 brand-new launches, currently-finalizing / bonding-curve tokens, and just-migrated-to-DEX tokens; filter by dev behavior, age, market cap, and launchpad sub-type (e.g. Open Four Agent ID exclusive launches \u2014 anyone can launch; on the bonding curve only Agent ID holders can buy). (2) topic-rush: AI-detected hot market narratives with the associated tokens ranked by inflow. Use for: \"new pump.fun launches\", \"what just migrated\", \"currently bonding\", \"hot narratives\", \"what topic is pumping right now\", \"live launchpad feed\", \"AI hot topics\", \"Agent ID exclusive launches\", \"Agent ID exclusive bonding curve\", \"Open Four\".",
+    "path": "category/prompt-llm-engineering/meme-rush"
+  },
+  {
     "id": "memory-engineering",
     "name": "memory-engineering",
     "category": "prompt-llm-engineering",
@@ -1240,11 +1512,19 @@
     "path": "category/prompt-llm-engineering/memory-engineering"
   },
   {
+    "id": "metaplex",
+    "name": "metaplex",
+    "category": "prompt-llm-engineering",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Metaplex development on Solana \u2014 NFTs, tokens, compressed NFTs, candy machines, token launches, autonomous agents. Use when working with Token Metadata, Core, Bubblegum, Candy Machine, Genesis, Agent Registry, or the mplx CLI.",
+    "path": "category/prompt-llm-engineering/metaplex"
+  },
+  {
     "id": "mistral-ai-automation",
     "name": "mistral-ai-automation",
     "category": "prompt-llm-engineering",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Mistral AI operations -- manage files and libraries, upload documents for fine-tuning, batch processing, and OCR, track fine-tuning jobs, and build RAG pipelines via the Composio MCP integration.\"",
+    "description": "Automate Mistral AI operations -- manage files and libraries, upload documents for fine-tuning, batch processing, and OCR, track fine-tuning jobs, and build RAG pipelines via the Composio MCP integration.",
     "path": "category/prompt-llm-engineering/mistral-ai-automation"
   },
   {
@@ -1252,15 +1532,23 @@
     "name": "mistral_ai-automation",
     "category": "prompt-llm-engineering",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Mistral AI tasks via Rube MCP (Composio): completions, embeddings, fine-tuning, and model management. Always search tools first for current schemas.\"",
+    "description": "Automate Mistral AI tasks via Rube MCP (Composio): completions, embeddings, fine-tuning, and model management. Always search tools first for current schemas.",
     "path": "category/prompt-llm-engineering/mistral_ai-automation"
+  },
+  {
+    "id": "modlens",
+    "name": "modlens",
+    "category": "prompt-llm-engineering",
+    "repository": "liustack-modlens",
+    "description": "Plug-in vision for text-only models. Hard rule: when a file path or URL with an image extension (.png, .jpg, .jpeg, .webp, .gif, .heic, .heif) appears anywhere in the conversation (typed by the user, injected as a `[Image: source: <path>]` line, or inside a tag) and you cannot see that image's content, run this skill on it before any other approach: no self-built OCR, no PIL, no tesseract. Also triggers on pasted-image placeholders such as `[Image #1]` and `[Unsupported Image]`. If you can actually see the image, do not use this skill. When unsure, run `modlens guard` before the first read of a session: a deny verdict means the active model has native vision and must read the image itself. Runs the modlens CLI to convert the image into structured JSON evidence: every word transcribed, layout regions, semantics, visual clues. Also use when the user asks how to install, configure, or switch modlens providers (Gemini API key, OpenAI-compatible endpoints, Claude API or Claude Code CLI).",
+    "path": "category/prompt-llm-engineering/modlens"
   },
   {
     "id": "nano-banana",
     "name": "nano-banana",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input. Triggers: nano banana, gemini image, gemini 3 pro image, gemini 2.5 flash image, google image generation, native image generation, gemini native image\"",
+    "description": "Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input. Triggers: nano banana, gemini image, gemini 3 pro image, gemini 2.5 flash image, google image generation, native image generation, gemini native image",
     "path": "category/prompt-llm-engineering/nano-banana"
   },
   {
@@ -1268,15 +1556,39 @@
     "name": "nano-banana-2",
     "category": "prompt-llm-engineering",
     "repository": "magentosh-superpowers",
-    "description": "\"Generate images with Google Gemini 3.1 Flash Image Preview (Nano Banana 2) via inference.sh CLI. Capabilities: text-to-image, image editing, multi-image input (up to 14 images), Google Search grounding. Triggers: nano banana 2, nanobanana 2, gemini 3.1 flash image, gemini 3 1 flash image preview, google image generation\"",
+    "description": "Generate images with Google Gemini 3.1 Flash Image Preview (Nano Banana 2) via inference.sh CLI. Capabilities: text-to-image, image editing, multi-image input (up to 14 images), Google Search grounding. Triggers: nano banana 2, nanobanana 2, gemini 3.1 flash image, gemini 3 1 flash image preview, google image generation",
     "path": "category/prompt-llm-engineering/nano-banana-2"
+  },
+  {
+    "id": "nansen-general-search",
+    "name": "nansen-general-search",
+    "category": "prompt-llm-engineering",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Search for tokens or entities by name. Use when you have a token name and need the full address, or want to find an entity.",
+    "path": "category/prompt-llm-engineering/nansen-general-search"
+  },
+  {
+    "id": "nansen-token-research",
+    "name": "nansen-token-research",
+    "category": "prompt-llm-engineering",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Token deep dive \u2014 info, OHLCV, holders, flows, flow intelligence, who bought/sold, DEX trades, PnL, perp trades, perp positions, perp PnL leaderboard. Use when researching a specific token in depth.",
+    "path": "category/prompt-llm-engineering/nansen-token-research"
+  },
+  {
+    "id": "neon-ai-gateway",
+    "name": "neon-ai-gateway",
+    "category": "prompt-llm-engineering",
+    "repository": "neondatabase-agent-skills",
+    "description": "One API and one credential for frontier and open-source LLMs and embedding models, built into your Neon branch and powered by Databricks. Use when a user wants to call an LLM, generate embeddings, add AI/chat/an agent to their app, route between model providers (OpenAI, Anthropic, Google/Gemini, Meta, Alibaba, and more), or avoid juggling separate provider API keys and accounts \u2014 especially when they already use Neon and want AI requests to branch with their project. Works with the OpenAI SDK, Anthropic SDK, google-genai, the Vercel AI SDK, and Mastra by changing only the base URL. Triggers include \"call an LLM\", \"add AI to my app\", \"chat completion\", \"model routing\", \"LLM proxy/gateway\", \"one API for all models\", \"use Claude/GPT/Gemini\", \"AI SDK\", \"Mastra agent\", \"Neon AI Gateway\", \"generate embeddings\", \"generate images\", and \"log/rate-limit AI calls\".",
+    "path": "category/prompt-llm-engineering/neon-ai-gateway"
   },
   {
     "id": "nerdzao-elite-gemini-high",
     "name": "nerdzao-elite-gemini-high",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Modo Elite Coder + UX Pixel-Perfect otimizado especificamente para Gemini 3.1 Pro High. Workflow completo com foco em qualidade m\u00e1xima e efici\u00eancia de tokens.\"",
+    "description": "Modo Elite Coder + UX Pixel-Perfect otimizado especificamente para Gemini 3.1 Pro High. Workflow completo com foco em qualidade m\u00e1xima e efici\u00eancia de tokens.",
     "path": "category/prompt-llm-engineering/nerdzao-elite-gemini-high"
   },
   {
@@ -1294,6 +1606,30 @@
     "repository": "nidhinjs-prompt-master",
     "description": "Generates optimized prompts for AI tools. Activates only when the user explicitly asks to write, fix, improve, or adapt a prompt for a specific AI tool (LLM, Cursor, Midjourney, image AI, video AI, coding agents, etc.). Does not activate for general conversation, coding tasks, document writing, or other non-prompt-engineering work.",
     "path": "category/prompt-llm-engineering/nidhinjs-prompt-master"
+  },
+  {
+    "id": "nla-arbitrate",
+    "name": "nla-arbitrate",
+    "category": "prompt-llm-engineering",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Manually arbitrate NLA escrow fulfillments as an alternative to the automated oracle. Use when the user wants to review pending arbitration requests, evaluate demands against fulfillments, and submit on-chain decisions. Supports both interactive and LLM-auto modes.",
+    "path": "category/prompt-llm-engineering/nla-arbitrate"
+  },
+  {
+    "id": "nla-create",
+    "name": "nla-create",
+    "category": "prompt-llm-engineering",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Create a Natural Language Agreement escrow on-chain. Use when the user wants to lock ERC20 tokens in an escrow with a natural language demand that an AI oracle will arbitrate. Handles demand crafting, parameter gathering, and CLI execution.",
+    "path": "category/prompt-llm-engineering/nla-create"
+  },
+  {
+    "id": "nla-fulfill",
+    "name": "nla-fulfill",
+    "category": "prompt-llm-engineering",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Fulfill an existing NLA escrow and collect tokens. Use when the user wants to submit fulfillment text for an on-chain escrow, check arbitration results, and collect approved funds. Covers the full fulfill-arbitrate-collect lifecycle.",
+    "path": "category/prompt-llm-engineering/nla-fulfill"
   },
   {
     "id": "no-eval-skill",
@@ -1316,8 +1652,16 @@
     "name": "openai-docs",
     "category": "prompt-llm-engineering",
     "repository": "openai-skills",
-    "description": "\"Use when the user asks how to build with OpenAI products or APIs, asks about Codex itself or choosing Codex surfaces, needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade and prompt-upgrade guidance; use OpenAI docs MCP tools for non-Codex docs questions, use the Codex manual helper first for broad Codex self-knowledge, and restrict fallback browsing to official OpenAI domains.\"",
+    "description": "Use when the user asks how to build with OpenAI products or APIs, asks about Codex itself or choosing Codex surfaces, needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade and prompt-upgrade guidance; use OpenAI docs MCP tools for non-Codex docs questions, use the Codex manual helper first for broad Codex self-knowledge, and restrict fallback browsing to official OpenAI domains.",
     "path": "category/prompt-llm-engineering/openai-docs"
+  },
+  {
+    "id": "oversight-team",
+    "name": "oversight-team",
+    "category": "prompt-llm-engineering",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when you are a seat on the oversight pod (a standing monitor-mode rig that keeps OTHER rigs healthy), configuring or running the drift detectors, or choosing whether to intervene vs escalate. Covers the pull-not-poll posture, the v0 detectors (premature-park, process-drift, off-task, token-burn), the intervention ladder (orchestrator-ping -> refocus -> human escalation), and the cheap+deep model economics. NOT for orchestrating your OWN rig (orchestration-team) and NOT the intervention primitive mechanics (watchdog).",
+    "path": "category/prompt-llm-engineering/oversight-team"
   },
   {
     "id": "paid-ads-chatgpt",
@@ -1352,6 +1696,30 @@
     "path": "category/prompt-llm-engineering/paywalls"
   },
   {
+    "id": "performing-ai-driven-osint-correlation",
+    "name": "performing-ai-driven-osint-correlation",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Use AI/LLM-based reasoning with Sherlock, theHarvester, and SpiderFoot",
+    "path": "category/prompt-llm-engineering/performing-ai-driven-osint-correlation"
+  },
+  {
+    "id": "performing-cloud-storage-forensic-acquisition",
+    "name": "performing-cloud-storage-forensic-acquisition",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Perform forensic acquisition of cloud storage services including Google",
+    "path": "category/prompt-llm-engineering/performing-cloud-storage-forensic-acquisition"
+  },
+  {
+    "id": "performing-fuzzing-with-aflplusplus",
+    "name": "performing-fuzzing-with-aflplusplus",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Performs coverage-guided fuzzing of compiled binaries with AFL++, instrumenting",
+    "path": "category/prompt-llm-engineering/performing-fuzzing-with-aflplusplus"
+  },
+  {
     "id": "personal-strategic-signal-intelligence",
     "name": "personal-strategic-signal-intelligence",
     "category": "prompt-llm-engineering",
@@ -1366,6 +1734,14 @@
     "repository": "charlie947-social-media-skills",
     "description": "Write deadpan LinkedIn pinned comments AND matching image generation prompts in the user\u2019s voice. Use when the user asks for a pinned comment, pin comment, or first comment for a LinkedIn post. ALWAYS produce the image prompt FIRST, then caption it with the 4-line comment. Output both together unless told otherwise.",
     "path": "category/prompt-llm-engineering/pinned-comment"
+  },
+  {
+    "id": "plan-review",
+    "name": "plan-review",
+    "category": "prompt-llm-engineering",
+    "repository": "mvschwarz-openrig",
+    "description": "Multi-perspective review of a feature plan or requirements doc before development begins. Evaluates from strategy, design/UX, and engineering angles to catch gaps early.",
+    "path": "category/prompt-llm-engineering/plan-review"
   },
   {
     "id": "pleaseprompto-notebooklm",
@@ -1396,15 +1772,31 @@
     "name": "principle-explain-the-number",
     "category": "prompt-llm-engineering",
     "repository": "backnotprop-pstack",
-    "description": "\"Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think.\"",
+    "description": "Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think.",
     "path": "category/prompt-llm-engineering/principle-explain-the-number"
+  },
+  {
+    "id": "product-proof-saas",
+    "name": "product-proof-saas",
+    "category": "prompt-llm-engineering",
+    "repository": "mengto-skills",
+    "description": "Create or redesign SaaS and AI product landing pages where a real workflow, interface, or deterministic demo is the central proof. Use for pale atmospheric shells, product UI in the hero, prompt-to-output stories, audience tabs, compact feature modules, honest pricing comparisons, and FAQ handoffs.",
+    "path": "category/prompt-llm-engineering/product-proof-saas"
+  },
+  {
+    "id": "project-development",
+    "name": "project-development",
+    "category": "prompt-llm-engineering",
+    "repository": "muratcankoylan-agent-skills-for-context-engineering",
+    "description": "This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, choosing between single-agent and multi-agent at the project level, structured output design for downstream parsing, and structuring agent-assisted iteration. Use this when the unit of work is a whole project or a multi-stage pipeline. Route individual tool design to tool-design and individual skill-loading or context-budget tactics to context-optimization.",
+    "path": "category/prompt-llm-engineering/project-development"
   },
   {
     "id": "prometheus-configuration",
     "name": "prometheus-configuration",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Set up Prometheus for comprehensive metric collection, storage, and monitoring of infrastructure and applications. Use when implementing metrics collection, setting up monitoring infrastructure, or...\"",
+    "description": "Set up Prometheus for comprehensive metric collection, storage, and monitoring of infrastructure and applications. Use when implementing metrics collection, setting up monitoring infrastructure, or...",
     "path": "category/prompt-llm-engineering/prometheus-configuration"
   },
   {
@@ -1412,7 +1804,7 @@
     "name": "prompt-caching",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Cache Augmented Generation) Use when: prompt caching, cache prompt, response cache, cag, cache augm...\"",
+    "description": "Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Cache Augmented Generation) Use when: prompt caching, cache prompt, response cache, cag, cache augm...",
     "path": "category/prompt-llm-engineering/prompt-caching"
   },
   {
@@ -1420,7 +1812,7 @@
     "name": "prompt-engineer",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Transforms user prompts into optimized prompts using frameworks (RTF, RISEN, Chain of Thought, RODES, Chain of Density, RACE, RISE, STAR, SOAP, CLEAR, GROW)\"",
+    "description": "Transforms user prompts into optimized prompts using frameworks (RTF, RISEN, Chain of Thought, RODES, Chain of Density, RACE, RISE, STAR, SOAP, CLEAR, GROW)",
     "path": "category/prompt-llm-engineering/prompt-engineer"
   },
   {
@@ -1428,7 +1820,7 @@
     "name": "prompt-engineer-toolkit",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Turns marketing prompts into tested, versioned production assets: A/B prompt evaluation against structured test cases, immutable prompt version history with diffs, ready-to-use marketing prompt templates (ad copy, email campaigns, social posts, landing pages, SEO meta), and an LLM-governance playbook for marketing teams (claim discipline, disclosure rules, human-review gates). Use when a marketing team relies on AI-generated content and needs prompt quality to be measurable and safe \u2014 or when the user mentions 'prompt engineering,' 'improve my prompts,' 'prompt templates,' 'prompt versioning,' 'AI content workflow,' or 'AI governance for marketing.'\"",
+    "description": "Turns marketing prompts into tested, versioned production assets: A/B prompt evaluation against structured test cases, immutable prompt version history with diffs, ready-to-use marketing prompt templates (ad copy, email campaigns, social posts, landing pages, SEO meta), and an LLM-governance playbook for marketing teams (claim discipline, disclosure rules, human-review gates). Use when a marketing team relies on AI-generated content and needs prompt quality to be measurable and safe \u2014 or when the user mentions 'prompt engineering,' 'improve my prompts,' 'prompt templates,' 'prompt versioning,' 'AI content workflow,' or 'AI governance for marketing.",
     "path": "category/prompt-llm-engineering/prompt-engineer-toolkit"
   },
   {
@@ -1436,7 +1828,7 @@
     "name": "prompt-engineering",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when user wants to improve prompts, learn prompting strategies, or debug agent behavior.\"",
+    "description": "Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when user wants to improve prompts, learn prompting strategies, or debug agent behavior.",
     "path": "category/prompt-llm-engineering/prompt-engineering"
   },
   {
@@ -1444,7 +1836,7 @@
     "name": "prompt-engineering-patterns",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controllability in production. Use when optimizing prompts, improving LLM outputs, or designing productio...\"",
+    "description": "Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controllability in production. Use when optimizing prompts, improving LLM outputs, or designing productio...",
     "path": "category/prompt-llm-engineering/prompt-engineering-patterns"
   },
   {
@@ -1452,7 +1844,7 @@
     "name": "prompt-engineering-research",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Systematic prompt engineering methods for AI-assisted academic research workf...\"",
+    "description": "Systematic prompt engineering methods for AI-assisted academic research workf...",
     "path": "category/prompt-llm-engineering/prompt-engineering-research"
   },
   {
@@ -1460,7 +1852,7 @@
     "name": "prompt-for-others",
     "category": "prompt-llm-engineering",
     "repository": "davidondrej-skills",
-    "description": "'Write a prompt teammates can give their AI agents to apply a fix, upgrade, or setup change. Use only when the user explicitly invokes /prompt-for-others.'",
+    "description": "Write a prompt teammates can give their AI agents to apply a fix, upgrade, or setup change. Use only when the user explicitly invokes /prompt-for-others.",
     "path": "category/prompt-llm-engineering/prompt-for-others"
   },
   {
@@ -1468,7 +1860,7 @@
     "name": "prompt-governance",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when managing prompts in production at scale: versioning prompts, running A/B tests on prompts, building prompt registries, preventing prompt regressions, or creating eval pipelines for production AI features. Triggers: 'manage prompts in production', 'prompt versioning', 'prompt regression', 'prompt A/B test', 'prompt registry', 'eval pipeline'. NOT for writing or improving individual prompts (use senior-prompt-engineer). NOT for RAG pipeline design (use rag-architect). NOT for LLM cost reduction (use llm-cost-optimizer).\"",
+    "description": "Use when managing prompts in production at scale: versioning prompts, running A/B tests on prompts, building prompt registries, preventing prompt regressions, or creating eval pipelines for production AI features. Triggers: 'manage prompts in production', 'prompt versioning', 'prompt regression', 'prompt A/B test', 'prompt registry', 'eval pipeline'. NOT for writing or improving individual prompts (use senior-prompt-engineer). NOT for RAG pipeline design (use rag-architect). NOT for LLM cost reduction (use llm-cost-optimizer).",
     "path": "category/prompt-llm-engineering/prompt-governance"
   },
   {
@@ -1476,7 +1868,7 @@
     "name": "prompt-library",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Curated collection of high-quality prompts for various use cases. Includes role-based prompts, task-specific templates, and prompt refinement techniques. Use when user needs prompt templates, role-...\"",
+    "description": "Curated collection of high-quality prompts for various use cases. Includes role-based prompts, task-specific templates, and prompt refinement techniques. Use when user needs prompt templates, role-...",
     "path": "category/prompt-llm-engineering/prompt-library"
   },
   {
@@ -1508,7 +1900,7 @@
     "name": "query-token-audit",
     "category": "prompt-llm-engineering",
     "repository": "binance-binance-skills-hub",
-    "description": "|",
+    "description": "Query token security audit to detect scams, honeypots, and malicious contracts before trading. Returns comprehensive security analysis including contract risks, trading risks, and scam detection. Use when users ask \"is this token safe?\", \"check token security\", \"audit token\", or before any swap.",
     "path": "category/prompt-llm-engineering/query-token-audit"
   },
   {
@@ -1516,7 +1908,7 @@
     "name": "query-token-info",
     "category": "prompt-llm-engineering",
     "repository": "binance-binance-skills-hub",
-    "description": "|",
+    "description": "Per-token details for a specific token identified by keyword, symbol, or contract address: (1) search \u2014 find tokens by keyword/symbol/contract; (2) meta \u2014 static info: name, symbol, logo, social links, creator, official website; (3) dynamic \u2014 real-time market data: price, 24h change, volume, holder count, liquidity; (4) kline \u2014 OHLCV candlestick data for technical analysis. Use for: \"price of $X\", \"search for token Y\", \"kline chart for $Z\", \"who created $W\", \"social links for $V\", \"holder count of $U\", \"candlestick data\", \"find the contract address of <token>\".",
     "path": "category/prompt-llm-engineering/query-token-info"
   },
   {
@@ -1524,15 +1916,23 @@
     "name": "quillshield",
     "category": "prompt-llm-engineering",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": "\"Smart contract security audit skill for the BD pipeline. Analyzes Solana token contracts for red flags: honeypots, rug pull patterns, authority risks, liquidity locks, and holder concentration. Produces a safety score (0-100) to inform listing decisions.\"",
+    "description": "Smart contract security audit skill for the BD pipeline. Analyzes Solana token contracts for red flags: honeypots, rug pull patterns, authority risks, liquidity locks, and holder concentration. Produces a safety score (0-100) to inform listing decisions.",
     "path": "category/prompt-llm-engineering/quillshield"
+  },
+  {
+    "id": "quote-post",
+    "name": "quote-post",
+    "category": "prompt-llm-engineering",
+    "repository": "charlie947-social-media-skills",
+    "description": "Two-step workflow for creating quote posts on LinkedIn. The assistant drafts original short quotes to accompany a caption, then produces a Gemini prompt that recreates a reference image with the chosen quote baked in. Use this skill whenever the user says \"quote post\", \"quote graphic\", \"motivational post\", \"build me a quote\", or wants a low-effort high-engagement LinkedIn graphic. Optimised for LinkedIn's employee and early-career audience, which skews toward motivational content.",
+    "path": "category/prompt-llm-engineering/quote-post"
   },
   {
     "id": "rag-architect",
     "name": "rag-architect",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when the user asks to design a RAG pipeline, choose a chunking strategy or embedding model, pick a vector database, or evaluate retrieval quality (precision@k, recall@k, NDCG). Examples: 'design a RAG system for our docs', 'what chunk size should I use for this corpus', 'evaluate my retriever against ground truth'. NOT for general LLM cost tuning (use llm-cost-optimizer) or agent loops over retrieval (use agenthub).\"",
+    "description": "Use when the user asks to design a RAG pipeline, choose a chunking strategy or embedding model, pick a vector database, or evaluate retrieval quality (precision@k, recall@k, NDCG). Examples: 'design a RAG system for our docs', 'what chunk size should I use for this corpus', 'evaluate my retriever against ground truth'. NOT for general LLM cost tuning (use llm-cost-optimizer) or agent loops over retrieval (use agenthub).",
     "path": "category/prompt-llm-engineering/rag-architect"
   },
   {
@@ -1540,7 +1940,7 @@
     "name": "rag-engineer",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector databases, chunking strategies, and retrieval optimization for LLM applications. Use when: building RAG, ...\"",
+    "description": "Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector databases, chunking strategies, and retrieval optimization for LLM applications. Use when: building RAG, ...",
     "path": "category/prompt-llm-engineering/rag-engineer"
   },
   {
@@ -1548,7 +1948,7 @@
     "name": "rag-implementation",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases and semantic search. Use when implementing knowledge-grounded AI, building document Q&A systems, or int...\"",
+    "description": "Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases and semantic search. Use when implementing knowledge-grounded AI, building document Q&A systems, or int...",
     "path": "category/prompt-llm-engineering/rag-implementation"
   },
   {
@@ -1556,15 +1956,39 @@
     "name": "rag-methodology-guide",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"RAG architecture for academic knowledge retrieval and synthesis\"",
+    "description": "RAG architecture for academic knowledge retrieval and synthesis",
     "path": "category/prompt-llm-engineering/rag-methodology-guide"
+  },
+  {
+    "id": "recovering-deleted-files-with-photorec",
+    "name": "recovering-deleted-files-with-photorec",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Recovers deleted files from disk images and storage media using PhotoRec's",
+    "path": "category/prompt-llm-engineering/recovering-deleted-files-with-photorec"
+  },
+  {
+    "id": "red-teaming-llms-with-garak",
+    "name": "red-teaming-llms-with-garak",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Runs NVIDIA garak probe suites (jailbreak, prompt injection, data",
+    "path": "category/prompt-llm-engineering/red-teaming-llms-with-garak"
+  },
+  {
+    "id": "reels-scripting",
+    "name": "reels-scripting",
+    "category": "prompt-llm-engineering",
+    "repository": "charlie947-social-media-skills",
+    "description": "Turn a reference Instagram Reel into a script for your own Reel, tuned to your voice and repurposed from your newsletter content. Takes a Reel URL or Notion reference link, uses Apify to scrape the video, sends it to Gemini 2.5 Flash for full transcript + hook + structure analysis, then writes a new script applying the same patterns to your newsletter topic. Use this skill whenever the user says \"script a reel\", \"reels scripting\", \"turn this into a reel\", pastes an Instagram Reel URL, or references their Notion outlier reels database. The URL-to-video-analysis route needs APIFY_API_TOKEN and GOOGLE_AI_API_KEY; supplied input can skip the corresponding stages.",
+    "path": "category/prompt-llm-engineering/reels-scripting"
   },
   {
     "id": "regression-suite",
     "name": "regression-suite",
     "category": "prompt-llm-engineering",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Map test coverage to GDD critical paths, find fixed bugs lacking regression tests, flag drift from new features.\"",
+    "description": "Map test coverage to GDD critical paths, find fixed bugs lacking regression tests, flag drift from new features.",
     "path": "category/prompt-llm-engineering/regression-suite"
   },
   {
@@ -1572,7 +1996,7 @@
     "name": "research-refine",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Turn a vague research direction into a problem-anchored, elegant, frontier-aware, implementation-oriented method plan via iterative Gemini review. Use when the user says \\\"refine my approach\\\", \\\"\u5e2e\u6211\u7ec6\u5316\u65b9\u6848\\\", \\\"decompose this problem\\\", \\\"\u6253\u78e8idea\\\", \\\"refine research plan\\\", \\\"\u7ec6\u5316\u7814\u7a76\u65b9\u6848\\\", or wants a concrete research method that stays simple, focused, and top-venue ready instead of a vague or overbuilt idea.\"",
+    "description": "Turn a vague research direction into a problem-anchored, elegant, frontier-aware, implementation-oriented method plan via iterative Gemini review. Use when the user says \\\"refine my approach\\\", \\\"\u5e2e\u6211\u7ec6\u5316\u65b9\u6848\\\", \\\"decompose this problem\\\", \\\"\u6253\u78e8idea\\\", \\\"refine research plan\\\", \\\"\u7ec6\u5316\u7814\u7a76\u65b9\u6848\\\", or wants a concrete research method that stays simple, focused, and top-venue ready instead of a vague or overbuilt idea.",
     "path": "category/prompt-llm-engineering/research-refine"
   },
   {
@@ -1580,7 +2004,7 @@
     "name": "research-review",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Get a deep critical review of research from Gemini via gemini-review MCP. Use when user says \\\"review my research\\\", \\\"help me review\\\", \\\"get external review\\\", or wants critical feedback on research ideas, papers, or experimental results.\"",
+    "description": "Get a deep critical review of research from Gemini via gemini-review MCP. Use when user says \\\"review my research\\\", \\\"help me review\\\", \\\"get external review\\\", or wants critical feedback on research ideas, papers, or experimental results.",
     "path": "category/prompt-llm-engineering/research-review"
   },
   {
@@ -1604,7 +2028,7 @@
     "name": "score-eval",
     "category": "prompt-llm-engineering",
     "repository": "neondatabase-agent-skills",
-    "description": "",
+    "description": "name: score-eval",
     "path": "category/prompt-llm-engineering/score-eval"
   },
   {
@@ -1616,12 +2040,44 @@
     "path": "category/prompt-llm-engineering/search"
   },
   {
+    "id": "self-improvement-loops",
+    "name": "self-improvement-loops",
+    "category": "prompt-llm-engineering",
+    "repository": "muratcankoylan-agent-skills-for-context-engineering",
+    "description": "This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over agent scaffolds, acceptance gates for self-modifying systems, and agentic context evolution where the mechanism that produces context is versioned and evolved. Route governance of a single autonomous loop (locked surfaces, durable logs, rollback, novelty gates, approval boundaries) to harness-engineering, measurement and quality-gate design to evaluation, judge design to advanced-evaluation, and remote sandbox infrastructure to hosted-agents.",
+    "path": "category/prompt-llm-engineering/self-improvement-loops"
+  },
+  {
     "id": "senior-prompt-engineer",
     "name": "senior-prompt-engineer",
     "category": "prompt-llm-engineering",
     "repository": "alirezarezvani-claude-skills",
     "description": "Use when the user asks to optimize prompts, design prompt templates, evaluate LLM outputs with an eval set, measure RAG retrieval quality, validate agent/tool configurations, analyze token usage, or design structured-output contracts. Covers eval-driven prompt iteration, RAG metrics (relevance, faithfulness, coverage), agent workflow validation, and token/cost budgeting \u2014 all model-agnostic, with three stdlib Python tools.",
     "path": "category/prompt-llm-engineering/senior-prompt-engineer"
+  },
+  {
+    "id": "seo-agentic",
+    "name": "seo-agentic",
+    "category": "prompt-llm-engineering",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Audit and fix agent readiness: the Lighthouse Agentic Browsing fraction, accessibility tree for agents, robots.txt and Content-Signal for AI agents, WAF treatment of agent traffic, llms.txt, Markdown delivery, ai-catalog.json, /.well-known discovery files, and WebMCP tools. Use when the user asks whether AI agents can use or browse the site, or about llms.txt or WebMCP. Exclude AI citability and brand signals (seo-geo) and commerce protocol depth (seo-ecommerce).",
+    "path": "category/prompt-llm-engineering/seo-agentic"
+  },
+  {
+    "id": "seo-dataforseo",
+    "name": "seo-dataforseo",
+    "category": "prompt-llm-engineering",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Live SEO data via DataForSEO MCP server: SERP analysis, keyword research (volume, difficulty, intent, trends), backlink profiles, on-page analysis, competitor and content analysis, business listings, AI visibility (LLM mention tracking), and domain analytics. Requires DataForSEO extension installed. Use when user says \"dataforseo\", \"live SERP\", \"keyword volume\", \"backlink data\", \"AI visibility check\", or \"real search data\".",
+    "path": "category/prompt-llm-engineering/seo-dataforseo"
+  },
+  {
+    "id": "seo-flow",
+    "name": "seo-flow",
+    "category": "prompt-llm-engineering",
+    "repository": "agricidaniel-claude-seo",
+    "description": "FLOW framework integration: evidence-led SEO using the Find \u2192 Leverage \u2192 Optimize \u2192 Win loop. Surfaces stage-specific AI prompts from the FLOW knowledge base (41 prompts, CC BY 4.0). Use when user says \"FLOW\", \"FLOW framework\", \"seo flow\", \"evidence-led SEO\", \"find leverage optimize win\", or wants stage-specific SEO prompts.",
+    "path": "category/prompt-llm-engineering/seo-flow"
   },
   {
     "id": "seo-profound",
@@ -1640,11 +2096,19 @@
     "path": "category/prompt-llm-engineering/seo-seranking"
   },
   {
+    "id": "session-source-fork",
+    "name": "session-source-fork",
+    "category": "prompt-llm-engineering",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when authoring a rig spec member or `rig expand` payload that needs to start a new managed seat from a prior runtime conversation source \u2014 `session_source: { mode: fork, ref: { kind, value } }`. v1 supports `mode: fork` with `ref.kind: native_id` for Claude and Codex. The new seat persists a NEW post-fork token; the parent token is NEVER written onto the new seat. NOT for restoring an existing seat or for artifact-backed mental-model rebuild.",
+    "path": "category/prompt-llm-engineering/session-source-fork"
+  },
+  {
     "id": "setup-engine",
     "name": "setup-engine",
     "category": "prompt-llm-engineering",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Configure engine and version. Pins it in CLAUDE.md; WebSearch fills reference docs when the version is beyond LLM training data.\"",
+    "description": "Configure engine and version. Pins it in CLAUDE.md; WebSearch fills reference docs when the version is beyond LLM training data.",
     "path": "category/prompt-llm-engineering/setup-engine"
   },
   {
@@ -1652,7 +2116,7 @@
     "name": "sharpen",
     "category": "prompt-llm-engineering",
     "repository": "backnotprop-pstack",
-    "description": "\"Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen.\"",
+    "description": "Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen.",
     "path": "category/prompt-llm-engineering/sharpen"
   },
   {
@@ -1684,8 +2148,32 @@
     "name": "skill-review",
     "category": "prompt-llm-engineering",
     "repository": "sanyuan0704-sanyuan-skills",
-    "description": "\"Quality review and audit for Claude Code skills. Analyzes skill structure, description quality, workflow design, token efficiency, and anti-patterns against best practices. Use when user wants to review a skill, audit a skill, check skill quality, evaluate a skill, critique a skill, lint a skill, or validate a skill. Triggers: 'review skill', 'audit skill', 'skill quality', 'check my skill', 'evaluate skill', 'skill lint', 'validate skill', 'skill review', 'is this skill good', 'improve this skill'.\"",
+    "description": "Quality review and audit for Claude Code skills. Analyzes skill structure, description quality, workflow design, token efficiency, and anti-patterns against best practices. Use when user wants to review a skill, audit a skill, check skill quality, evaluate a skill, critique a skill, lint a skill, or validate a skill. Triggers: 'review skill', 'audit skill', 'skill quality', 'check my skill', 'evaluate skill', 'skill lint', 'validate skill', 'skill review', 'is this skill good', 'improve this skill'.",
     "path": "category/prompt-llm-engineering/skill-review"
+  },
+  {
+    "id": "skill-security-auditor",
+    "name": "skill-security-auditor",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Security audit and vulnerability scanner for AI agent skills before installation. Use when: (1) evaluating a skill from an untrusted source, (2) auditing a skill directory or git repo URL for malicious code, (3) pre-install security gate for Claude Code plugins, OpenClaw skills, or Codex skills, (4) scanning Python scripts for dangerous patterns like os.system, eval, subprocess, network exfiltration, (5) detecting prompt injection in SKILL.md files, (6) checking dependency supply chain risks, (7) verifying file system access stays within skill boundaries. Triggers: \"audit this skill\", \"is this skill safe\", \"scan skill for security\", \"check skill before install\", \"skill security check\", \"skill vulnerability scan\".",
+    "path": "category/prompt-llm-engineering/skill-security-auditor"
+  },
+  {
+    "id": "startup-analysis",
+    "name": "startup-analysis",
+    "category": "prompt-llm-engineering",
+    "repository": "himself65-finance-skills",
+    "description": "Analyze a startup from three perspectives \u2014 VC investor, job applicant, and CEO/founder \u2014 covering market, traction, unit economics, team, defensibility, runway, equity value, culture, and competitive position, with a verdict for each. Use this skill whenever the user wants to evaluate a startup or private tech company: due diligence, whether to invest in it or join it, weighing a startup job offer, company health, outlook, or competitive position, or open-ended asks such as \"what do you think of [company]\" or \"research [company] for me\".",
+    "path": "category/prompt-llm-engineering/startup-analysis"
+  },
+  {
+    "id": "stata-skill-contributor",
+    "name": "stata-skill-contributor",
+    "category": "prompt-llm-engineering",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Guide for contributing to the stata-skill project. Use when the user wants to run the eval pipeline, analyze test results, improve reference docs, add new package documentation, or work on roadmap items. Covers the testing infrastructure, multi-agent analysis workflow, cost estimates, and links to prior eval results and improvement history.",
+    "path": "category/prompt-llm-engineering/stata-skill-contributor"
   },
   {
     "id": "stockbee-episodic-pivot-analyzer",
@@ -1700,7 +2188,7 @@
     "name": "technology-selection",
     "category": "prompt-llm-engineering",
     "repository": "dotnet-skills",
-    "description": "\"Guides technology selection and implementation of AI and ML features in .NET 8+ applications using ML.NET, Microsoft.Extensions.AI (MEAI), Microsoft Agent Framework (MAF), GitHub Copilot SDK, ONNX Runtime, and OllamaSharp. Covers the full spectrum from classic ML through modern LLM orchestration to local inference. Use when adding classification, regression, clustering, anomaly detection, recommendation, LLM integration (text generation, summarization, reasoning), RAG pipelines with vector search, agentic workflows with tool calling, Copilot extensions, or custom model inference via ONNX Runtime to a .NET project. DO NOT USE FOR projects targeting .NET Framework (requires .NET 8+), the task is pure data engineering or ETL with no ML/AI component, or the project needs a custom deep learning training loop (use Python with PyTorch/TensorFlow, then export to ONNX for .NET inference).\"",
+    "description": "Guides technology selection and implementation of AI and ML features in .NET 8+ applications using ML.NET, Microsoft.Extensions.AI (MEAI), Microsoft Agent Framework (MAF), GitHub Copilot SDK, ONNX Runtime, and OllamaSharp. Covers the full spectrum from classic ML through modern LLM orchestration to local inference. Use when adding classification, regression, clustering, anomaly detection, recommendation, LLM integration (text generation, summarization, reasoning), RAG pipelines with vector search, agentic workflows with tool calling, Copilot extensions, or custom model inference via ONNX Runtime to a .NET project. DO NOT USE FOR projects targeting .NET Framework (requires .NET 8+), the task is pure data engineering or ETL with no ML/AI component, or the project needs a custom deep learning training loop (use Python with PyTorch/TensorFlow, then export to ONNX for .NET inference).",
     "path": "category/prompt-llm-engineering/technology-selection"
   },
   {
@@ -1708,15 +2196,31 @@
     "name": "test-evidence-review",
     "category": "prompt-llm-engineering",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Quality review of test files and evidence \u2014 goes beyond existence, evaluates assertion coverage. ADEQUATE/INCOMPLETE/MISSING/NOT ASSESSED per story.\"",
+    "description": "Quality review of test files and evidence \u2014 goes beyond existence, evaluates assertion coverage. ADEQUATE/INCOMPLETE/MISSING/NOT ASSESSED per story.",
     "path": "category/prompt-llm-engineering/test-evidence-review"
+  },
+  {
+    "id": "testing-for-system-prompt-leakage",
+    "name": "testing-for-system-prompt-leakage",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Extracts LLM system prompts using direct requests, jailbreak/instruction-override",
+    "path": "category/prompt-llm-engineering/testing-for-system-prompt-leakage"
+  },
+  {
+    "id": "testing-prompt-injection-in-rag-pipelines",
+    "name": "testing-prompt-injection-in-rag-pipelines",
+    "category": "prompt-llm-engineering",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Probes Retrieval-Augmented Generation pipelines for indirect prompt injection",
+    "path": "category/prompt-llm-engineering/testing-prompt-injection-in-rag-pipelines"
   },
   {
     "id": "text-classification",
     "name": "text-classification",
     "category": "prompt-llm-engineering",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"LLM-based text classification: codebook, validation, agreement statistics.\"",
+    "description": "LLM-based text classification: codebook, validation, agreement statistics.",
     "path": "category/prompt-llm-engineering/text-classification"
   },
   {
@@ -1724,7 +2228,7 @@
     "name": "token-metrics-automation",
     "category": "prompt-llm-engineering",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Token Metrics tasks via Rube MCP (Composio). Always search tools first for current schemas.\"",
+    "description": "Automate Token Metrics tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/prompt-llm-engineering/token-metrics-automation"
   },
   {
@@ -1772,7 +2276,7 @@
     "name": "viral-generator-builder",
     "category": "prompt-llm-engineering",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar creators, personality tests, and calculator tools. Covers the psychology of sharing, viral mechanic...\"",
+    "description": "Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar creators, personality tests, and calculator tools. Covers the psychology of sharing, viral mechanic...",
     "path": "category/prompt-llm-engineering/viral-generator-builder"
   },
   {
@@ -1780,23 +2284,39 @@
     "name": "webcrawler-deep-crawl",
     "category": "prompt-llm-engineering",
     "repository": "browser-act-skills",
-    "description": "\"Deep-crawl any website from start URLs, return per-page LLM-ready text/markdown/HTML plus metadata (title, description, author, language, canonical URL, OG) and in-scope outbound links. Use when user mentions deep crawl website, recursive crawl, crawl a whole site, scrape entire website, scrape docs site, scrape documentation, scrape knowledge base, scrape blog, build RAG corpus, build vector database from website, knowledge base for chatbot, GPT knowledge files, llms.txt, sitemap crawl, BFS crawl, scrape with depth or page limit, include exclude URL globs, remove boilerplate, strip navigation header footer, website to markdown, website to text, multi-page extraction, bulk page scraping, clean markdown from URL, docs site to markdown corpus, site to clean corpus. Also applies to building RAG pipelines, indexing a customer site, syncing docs into a vector store, generating training corpora from any docs hub, or expanding a single start URL into a clean corpus of every reachable in-scope page.\"",
+    "description": "Deep-crawl any website from start URLs, return per-page LLM-ready text/markdown/HTML plus metadata (title, description, author, language, canonical URL, OG) and in-scope outbound links. Use when user mentions deep crawl website, recursive crawl, crawl a whole site, scrape entire website, scrape docs site, scrape documentation, scrape knowledge base, scrape blog, build RAG corpus, build vector database from website, knowledge base for chatbot, GPT knowledge files, llms.txt, sitemap crawl, BFS crawl, scrape with depth or page limit, include exclude URL globs, remove boilerplate, strip navigation header footer, website to markdown, website to text, multi-page extraction, bulk page scraping, clean markdown from URL, docs site to markdown corpus, site to clean corpus. Also applies to building RAG pipelines, indexing a customer site, syncing docs into a vector store, generating training corpora from any docs hub, or expanding a single start URL into a clean corpus of every reachable in-scope page.",
     "path": "category/prompt-llm-engineering/webcrawler-deep-crawl"
+  },
+  {
+    "id": "wiki-context-pack",
+    "name": "wiki-context-pack",
+    "category": "prompt-llm-engineering",
+    "repository": "ar9av-obsidian-wiki",
+    "description": "Produce a token-bounded, citation-ready context slice from an existing Obsidian vault for a downstream agent or task. Use for \"/wiki-context-pack\", \"use my vault as context\", \"context slice for X\", \"pack the wiki for my agent\", or \"bounded context for Y\".",
+    "path": "category/prompt-llm-engineering/wiki-context-pack"
   },
   {
     "id": "wiki-retrieve",
     "name": "wiki-retrieve",
     "category": "prompt-llm-engineering",
     "repository": "agricidaniel-claude-obsidian",
-    "description": "\"Build and query a vault-local contextual BM25 retrieval index with optional multilingual Nomic cosine reranking; use for retrieve, hybrid retrieval, BM25, rerank, contextual retrieval, chunk search, vault search, semantic search, find relevant passages, or retrieval diagnostics. Derived caches stay under .vault-meta, remote egress requires explicit consent, and unavailable reranking falls back deterministically.\"",
+    "description": "Build and query a vault-local contextual BM25 retrieval index with optional multilingual Nomic cosine reranking; use for retrieve, hybrid retrieval, BM25, rerank, contextual retrieval, chunk search, vault search, semantic search, find relevant passages, or retrieval diagnostics. Derived caches stay under .vault-meta, remote egress requires explicit consent, and unavailable reranking falls back deterministically.",
     "path": "category/prompt-llm-engineering/wiki-retrieve"
+  },
+  {
+    "id": "write-contract",
+    "name": "write-contract",
+    "category": "prompt-llm-engineering",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Write production-quality GenLayer intelligent contracts. Always pins concrete GenVM runner version hashes and never uses local-only test/latest runner aliases. Covers equivalence principles, storage rules, LLM resilience, and cross-contract interaction.",
+    "path": "category/prompt-llm-engineering/write-contract"
   },
   {
     "id": "writing-fragments",
     "name": "writing-fragments",
     "category": "prompt-llm-engineering",
     "repository": "mattpocock-skills",
-    "description": "\"Writing, explore: mine raw fragments, no structure yet.\"",
+    "description": "Writing, explore: mine raw fragments, no structure yet.",
     "path": "category/prompt-llm-engineering/writing-fragments"
   },
   {
@@ -1804,7 +2324,15 @@
     "name": "writing-shape",
     "category": "prompt-llm-engineering",
     "repository": "mattpocock-skills",
-    "description": "\"Writing, exploit: shape raw material into an article, paragraph by paragraph.\"",
+    "description": "Writing, exploit: shape raw material into an article, paragraph by paragraph.",
     "path": "category/prompt-llm-engineering/writing-shape"
+  },
+  {
+    "id": "youtube-thumbnail",
+    "name": "youtube-thumbnail",
+    "category": "prompt-llm-engineering",
+    "repository": "charlie947-social-media-skills",
+    "description": "Generate a branded YouTube thumbnail from a video title. Uses a reference photo of the creator, high-CTR thumbnail principles, and brand colours to produce a ready-to-generate image prompt for Gemini. Use this skill whenever the user says \"thumbnail\", \"youtube thumbnail\", \"build me a thumbnail\", or wants a video cover image before writing the script. The thumbnail-first workflow mirrors the graphic-first approach for LinkedIn: sells the video before anyone hears a word of the script.",
+    "path": "category/prompt-llm-engineering/youtube-thumbnail"
   }
 ]

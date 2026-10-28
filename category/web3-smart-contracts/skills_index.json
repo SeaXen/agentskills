@@ -1,5 +1,13 @@
 [
   {
+    "id": "academy-skill",
+    "name": "academy-skill",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Retrieve Binance Academy's official educational content (Glossary, Courses, Learn & Earn, Articles) for AI chat. Trigger when the user's message expresses one of these INTENTS (NOT keyword matches): (1) Knowledge Q&A \u2014 \"What is Gas Fee?\", \"Why did I receive less crypto than I sent?\", \"How does staking work?\" (2) Risk Education \u2014 high-risk trading/investment intent: leverage, borrowing to trade, all-in, scams, \"20x long\", \"borrowing to amplify position\" (3) Customized Learning Plan \u2014 \"I want to learn DeFi\", \"Build me a 5-day Bitcoin plan\", \"DeFi learning path for beginners\" (4) Learn & Earn \u2014 \"Which Academy courses have rewards?\", \"\u4e00\u6587\u8bfb\u61c2 X\", \"What is X (TICKER)?\", \"courses that pay crypto\" This skill extracts clean query terms from natural language before calling the API. It NEVER gives investment advice \u2014 educational content only.",
+    "path": "category/web3-smart-contracts/academy-skill"
+  },
+  {
     "id": "aer-rebuttal",
     "name": "aer-rebuttal",
     "category": "web3-smart-contracts",
@@ -20,8 +28,56 @@
     "name": "agent-protocol",
     "category": "web3-smart-contracts",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Inter-agent communication protocol for C-suite agent teams. Defines invocation syntax, loop prevention, isolation rules, and response formats. Use when C-suite agents need to query each other, coordinate cross-functional analysis, or run board meetings with multiple agent roles.\"",
+    "description": "Inter-agent communication protocol for C-suite agent teams. Defines invocation syntax, loop prevention, isolation rules, and response formats. Use when C-suite agents need to query each other, coordinate cross-functional analysis, or run board meetings with multiple agent roles.",
     "path": "category/web3-smart-contracts/agent-protocol"
+  },
+  {
+    "id": "agent-wallet",
+    "name": "agent-wallet",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Give the AI agent its own EVM wallet with admin-controlled policies the agent CANNOT bypass even under prompt injection. Encrypted keystore (AES-256-GCM, scrypt KDF), policy file the agent has no tool to write, deterministic policy gate on every signing operation, optional local HTTP dashboard. Triggers: agent wallet, give the agent a wallet, agent address, fund the agent, agent autonomy, policy gate, kill switch, agent permissions, bounded autonomy, ERC-4337 alternative, session-key alternative.",
+    "path": "category/web3-smart-contracts/agent-wallet"
+  },
+  {
+    "id": "agentic-wallet",
+    "name": "agentic-wallet",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Crypto wallet operations via the awal CLI \u2014 sign in, check balances, send USDC/ETH/POL/SOL, trade tokens, fund the wallet, and use the x402 payment protocol to discover paid services, pay for API calls, monetize an API, or query onchain data. Use whenever the user mentions signing in, login, authentication, wallet status, balance, address, sending money, paying someone, transferring tokens, ENS names, swapping/trading/converting tokens, funding/topping up/onramp, USDC, ETH, POL, SOL, the x402 bazaar, paid APIs, monetizing an endpoint, or querying onchain data on Base.",
+    "path": "category/web3-smart-contracts/agentic-wallet"
+  },
+  {
+    "id": "altllm-portal-payments",
+    "name": "altllm-portal-payments",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Use this skill when the user asks to create a NOWPayments crypto payment link, poll payment status, or execute a supported direct wallet payment through the AltLLM Portal CLI. Do NOT use for wallet login, API key management, billing history, or x402 credit top-ups.",
+    "path": "category/web3-smart-contracts/altllm-portal-payments"
+  },
+  {
+    "id": "analyzing-ethereum-smart-contract-vulnerabilities",
+    "name": "analyzing-ethereum-smart-contract-vulnerabilities",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Perform static and symbolic analysis of Solidity smart contracts using",
+    "path": "category/web3-smart-contracts/analyzing-ethereum-smart-contract-vulnerabilities"
+  },
+  {
+    "id": "analyzing-ransomware-payment-wallets",
+    "name": "analyzing-ransomware-payment-wallets",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Traces ransomware cryptocurrency payment flows using blockchain analysis tools such as Chainalysis Reactor, WalletExplorer, and blockchain.com APIs, identifying wallet clusters and tracking fund movement through mixers and exchanges to support law enforcement attribution. Use when tracing ransomware bitcoin payments, performing cryptocurrency wallet forensics, or gathering blockchain threat intelligence on extortion payments.",
+    "path": "category/web3-smart-contracts/analyzing-ransomware-payment-wallets"
+  },
+  {
+    "id": "auditing-foundry-smart-contract-security",
+    "name": "auditing-foundry-smart-contract-security",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Pre-deployment security audit of Solidity smart contracts in a Foundry project. Combines static analysis (Slither, Aderyn), symbolic execution (Mythril), and property-based testing (forge fuzz + invariant tests with handlers) to catch reentrancy, access-control, oracle/price manipulation, and arithmetic bugs BEFORE deploying to an EVM chain. Also enforces key hygiene (no plaintext private keys, encrypted cast keystore) and a secure deploy workflow. Use when writing, reviewing, testing, or deploying Solidity/Foundry contracts, building a dApp, or working with forge/cast/anvil, MetaMask, or Web3/DeFi code.",
+    "path": "category/web3-smart-contracts/auditing-foundry-smart-contract-security"
   },
   {
     "id": "bankr-partner",
@@ -36,15 +92,55 @@
     "name": "binance-agentic-wallet",
     "category": "web3-smart-contracts",
     "repository": "binance-binance-skills-hub",
-    "description": "|",
+    "description": "Use when the user mentions wallet connect/sign in/sign out, check balance, send/transfer tokens, swap/buy/sell tokens, DEX trade, limit/market order, cancel order, get a quote, transaction history, wallet settings, daily limit, slippage, MEV protection, supported chains, send to ENS domain, send to .eth or .bnb name, resolve domain name to address, domain-based transfer, send to .ai Agent ID name, Agent ID claim status, whether I claimed my .ai space id / Agent ID, get my .ai domain, prediction market, place prediction, redeem winnings, prediction PnL, x402 payment, HTTP 402 Payment Required, check/revoke/manage token approvals, DeFi protocols, staking, liquidity pool, LP, yield farming, deposit, redeem, stake, unstake, claim rewards/fees, health factor, APY, TVL, sign external transaction, contract call, sign message, EIP-712, developer mode, speed up/cancel/replace transaction, pending/stuck transactions, gas price, gas fee, network fee, fee levels, gas tiers, or any on-chain wallet operation.",
     "path": "category/web3-smart-contracts/binance-agentic-wallet"
+  },
+  {
+    "id": "binance-leaderboard",
+    "name": "binance-leaderboard",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "On-chain wallet leaderboard and Gem Hunter analysis on Binance Web3. Query top trader rankings by PnL, win rate, volume, trade count, or token count across BSC/Solana/Base/ETH. Analyze individual wallet addresses with a 6-dimension scoring model (winrate/stability/drawdown/ tags/pnl/follow_friendly) plus AI archetype overlay. Query Gem Hunter to find wallets holding specific tokens. Save and load preset filter conditions and Gem Hunter configs. Trigger whenever the user mentions leaderboard, top traders, wallet analysis, Address Analysis, AddressScore, Gem Hunter, or wants to evaluate a wallet's trading quality \u2014 even if they don't say \"leaderboard\" explicitly.",
+    "path": "category/web3-smart-contracts/binance-leaderboard"
+  },
+  {
+    "id": "binance-onchain-copy-trader",
+    "name": "binance-onchain-copy-trader",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Scaffold for assembling on-chain copy-trading strategies on Binance Agentic Wallet. Wires the existing capabilities \u2014 address monitoring, signal subscription, address scoring, token audit, order placement, on-chain take-profit/stop-loss \u2014 into one runnable pipeline, and exposes every strategy decision as a hook. Ships no strategy of its own. Trigger on: copy trade, copy trading, follow smart money, follow a wallet, mirror trades, copy-trade bot, auto-buy on signal, monitor a wallet and trade, smart money copy trading, signal-driven trading, pick addresses to copy, copy-trade strategy, copy-trade status, copy-trade post-mortem. NOT for: single manual trades (use binance-agentic-wallet), signal queries alone (binance-trading-signal), address analysis alone (binance-wallet-tracker / binance-leaderboard).",
+    "path": "category/web3-smart-contracts/binance-onchain-copy-trader"
+  },
+  {
+    "id": "binance-prediction-updown",
+    "name": "binance-prediction-updown",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Scaffold for assembling prediction-market strategies on Binance Agentic Wallet, for recurring BTC Up/Down rounds. Wires round enumeration, market screening, two-step ordering, fill and settlement confirmation and redemption into one runnable pipeline, and exposes every probability judgement as a hook. Ships no strategy of its own. Trigger on: up down prediction, BTC up or down, prediction market bot, hourly prediction rounds, trade up/down automatically, prediction market strategy, prediction calibration, redeem winnings automatically. NOT for: single manual predictions (use binance-agentic-wallet), on-chain token copy trading (binance-onchain-copy-trader), signal queries (binance-trading-signal).",
+    "path": "category/web3-smart-contracts/binance-prediction-updown"
+  },
+  {
+    "id": "binance-tokenized-securities-info",
+    "name": "binance-tokenized-securities-info",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Query Ondo tokenized US stock data on Binance Web3. Covers: supported stock token list, RWA metadata (company info, attestation reports), market and per-asset trading status (with corporate action codes for earnings, dividends, splits), real-time on-chain data (token price, holders, circulating supply, market cap), US stock fundamentals (P/E, dividend yield, 52-week range), and token K-Line/candlestick charts.",
+    "path": "category/web3-smart-contracts/binance-tokenized-securities-info"
+  },
+  {
+    "id": "binance-trading-signal",
+    "name": "binance-trading-signal",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "On-chain trading signals and custom signal strategy management on Binance Web3. Three signal sources: smart money (wallet buy/sell events), platform strategies, and user-created strategies (meme / fomo). Four scenario domains: (A) Reports \u2014 daily report, monthly backtest review (BSC vs Solana, protocol comparison); (B) Signal discovery \u2014 feed, sort by maxGain or multi-strategy hit, token buyability (\"can I still buy\"); (C) Analysis \u2014 backtest interpretation, strategy comparison by golden/silver/bronze rate, indicator impact (KOL holdings, protocol, liquidity); (D) Management \u2014 create/update/delete strategies, enable/disable strategies, trigger/schedule backtests, query credits, auto-scan, copy strategies from the strategy hall. Trigger whenever the user mentions trading signals, smart money, custom signal strategies, backtesting, strategy management, daily or monthly reports, token buyability, or indicator impact analysis \u2014 even if they don't say \"signal\" or \"strategy\".",
+    "path": "category/web3-smart-contracts/binance-trading-signal"
   },
   {
     "id": "binance-wallet-tracker",
     "name": "binance-wallet-tracker",
     "category": "web3-smart-contracts",
     "repository": "binance-binance-skills-hub",
-    "description": "|",
+    "description": "Wallet tracking and monitoring on Binance Web3. Monitor token/trade activity for private groups or public Smart Money/KOL data. Four domains: (A) Discovery \u2014 consensus, pioneer, leaderboard diff, token buyer lookup, time-window summaries, similar wallets; (B) Evaluation \u2014 token risk (tokenRiskLevel \u2265 3), group rhythm, follow list assessment, token heat; (C) Replay \u2014 4h summary, Accumulation/Distribution, sector rotation, anomaly orders, round-trip, first-mover/leader-follower, wake-up, bot-like; (D) Management \u2014 group create/rename, batch import, label update, link, follow list; (E) Real-time \u2014 WebSocket push for Smart Money, KOL, wallet-level, and address-level trade events. Trigger on: wallet tracker, monitoring, consensus, pioneer, accumulation, Distribution, Sector Rotation, Anomaly Large Order, round-trip, first-mover, wake-up, bot-like, token risk, token heat, group profile, similar wallets, group management, address import, follow list, real-time push, WebSocket \u2014 even without \"tracker\" explicitly.",
     "path": "category/web3-smart-contracts/binance-wallet-tracker"
   },
   {
@@ -56,12 +152,28 @@
     "path": "category/web3-smart-contracts/binance-web3"
   },
   {
+    "id": "birdeye",
+    "name": "birdeye",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Complete Birdeye API integration for real-time DeFi data across Solana and 15 other chains. Use for token prices, OHLCV charts, market discovery, on-chain trader intelligence, holder analysis, wallet portfolio & P&L, and WebSocket streams for live prices and whale alerts.",
+    "path": "category/web3-smart-contracts/birdeye"
+  },
+  {
     "id": "blockchain-developer",
     "name": "blockchain-developer",
     "category": "web3-smart-contracts",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Build production-ready Web3 applications, smart contracts, and\"",
+    "description": "Build production-ready Web3 applications, smart contracts, and",
     "path": "category/web3-smart-contracts/blockchain-developer"
+  },
+  {
+    "id": "bnbchain-mcp",
+    "name": "bnbchain-mcp",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "BNB Chain MCP server connection and tool usage. Covers npx @bnb-chain/mcp@latest, PRIVATE_KEY and RPC, and every MCP tool \u2014 blocks, transactions, contracts, ERC20/NFT transfers, wallet, ERC-8004 agent registration, Greenfield. Use when connecting to bnbchain-mcp, querying or transacting on BNB Chain/opBNB/EVM, registering as ERC-8004 agent, or using Greenfield.",
+    "path": "category/web3-smart-contracts/bnbchain-mcp"
   },
   {
     "id": "buzz-pipeline-scan",
@@ -84,15 +196,23 @@
     "name": "buzzshield",
     "category": "web3-smart-contracts",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": ">",
+    "description": "Crypto-native security scanner for Claude Code agent configurations. Scans for exposed private keys, insecure RPC endpoints, contract addresses in public repos, unprotected wallet operations, and agent config vulnerabilities. Extends AgentShield concept with 47 crypto-specific detection rules. Run via /security-scan command.",
     "path": "category/web3-smart-contracts/buzzshield"
+  },
+  {
+    "id": "chaingpt",
+    "name": "chaingpt",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Build with the ChainGPT Web3 AI developer platform. Full API/SDK reference and project scaffolding for: Web3 AI Chatbot & LLM, AI NFT Generator, Smart Contract Generator, Smart Contract Auditor, AI Crypto News, AgenticOS Twitter agents, and Solidity LLM. Use when building blockchain apps, Web3 chatbots, NFT tools, smart contract tools, crypto news feeds, AI agents, or integrating any ChainGPT API. Triggers: chaingpt, web3 ai, nft generator, smart contract audit, crypto news api, agenticos, solidity llm, cgpt, blockchain ai, token analytics.",
+    "path": "category/web3-smart-contracts/chaingpt"
   },
   {
     "id": "coinbase-automation",
     "name": "coinbase-automation",
     "category": "web3-smart-contracts",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Coinbase Automation: list and manage cryptocurrency wallets, accounts, and portfolio data via Coinbase CDP SDK\"",
+    "description": "Coinbase Automation: list and manage cryptocurrency wallets, accounts, and portfolio data via Coinbase CDP SDK",
     "path": "category/web3-smart-contracts/coinbase-automation"
   },
   {
@@ -108,7 +228,7 @@
     "name": "conductor-setup",
     "category": "web3-smart-contracts",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Initialize project with Conductor artifacts (product definition,\"",
+    "description": "Initialize project with Conductor artifacts (product definition,",
     "path": "category/web3-smart-contracts/conductor-setup"
   },
   {
@@ -116,7 +236,7 @@
     "name": "contract-auditor",
     "category": "web3-smart-contracts",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": ">",
+    "description": "Solidity/EVM smart contract security analyzer for Buzz BD Agent at SolCex Exchange. Performs fast, pattern-based contract safety analysis on token prospects BEFORE scoring. Triggers automatically when: a token prospect has a verified contract address, any user submits a contract for listing review, `/score-token` is called with a verifiable contract, or Buzz's safety sub-agent is invoked. Inspects contract source (via Etherscan/Sourcify), flags critical vulnerabilities, and enriches the BD pipeline with an audit summary. NOT a substitute for a formal audit \u2014 the pre-check Buzz should never skip.",
     "path": "category/web3-smart-contracts/contract-auditor"
   },
   {
@@ -124,7 +244,7 @@
     "name": "crypto-bd-agent",
     "category": "web3-smart-contracts",
     "repository": "antigravity-awesome-skills",
-    "description": "\">\"",
+    "description": "Autonomous crypto business development patterns \u2014 multi-chain token discovery, 100-point scoring with wallet forensics, x402 micropayments, ERC-8004 on-chain identity, LLM cascade routing, and pipeline automation for CEX/DEX listing acquisition. Use when building AI agents for crypto BD, token evaluation, exchange listing outreach, or autonomous commerce with payment protocols.",
     "path": "category/web3-smart-contracts/crypto-bd-agent"
   },
   {
@@ -132,7 +252,7 @@
     "name": "crypto-market-rank",
     "category": "web3-smart-contracts",
     "repository": "binance-binance-skills-hub",
-    "description": "|",
+    "description": "Crypto market leaderboards \u2014 ranked aggregate feeds across the whole market: social-hype/sentiment rank, trending / top-search / Binance Alpha / tokenized-stocks rank, smart-money net-inflow rank (which tokens received the most inflow), top meme tokens by breakout score on Pulse launchpad, top trader PnL leaderboard (ALL / KOL). Use whenever the user wants a ranked list of tokens or addresses by some metric \u2014 phrases like \"trending tokens\", \"top N by hype\", \"leaderboard\", \"rank by X\", \"biggest inflows\", \"top traders this week\".",
     "path": "category/web3-smart-contracts/crypto-market-rank"
   },
   {
@@ -144,11 +264,27 @@
     "path": "category/web3-smart-contracts/ctf-crypto"
   },
   {
+    "id": "ctf-writeup",
+    "name": "ctf-writeup",
+    "category": "web3-smart-contracts",
+    "repository": "ljagiello-ctf-skills",
+    "description": "Generates a single standardized submission-style CTF writeup for competition handoff and organizer review. Use after solving a CTF challenge to document the solution steps, tools used, and lessons learned in a structured format.",
+    "path": "category/web3-smart-contracts/ctf-writeup"
+  },
+  {
+    "id": "debridge",
+    "name": "debridge",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Complete deBridge Protocol SDK for building cross-chain bridges, message passing, and token transfers on Solana. Use when building cross-chain applications, bridging assets between Solana and EVM chains, or implementing trustless external calls.",
+    "path": "category/web3-smart-contracts/debridge"
+  },
+  {
     "id": "defi-protocol-templates",
     "name": "defi-protocol-templates",
     "category": "web3-smart-contracts",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending systems. Use when building decentralized finance applications or smart contract protocols.\"",
+    "description": "Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending systems. Use when building decentralized finance applications or smart contract protocols.",
     "path": "category/web3-smart-contracts/defi-protocol-templates"
   },
   {
@@ -160,12 +296,68 @@
     "path": "category/web3-smart-contracts/define-goal"
   },
   {
+    "id": "dflow-phantom-connect",
+    "name": "dflow-phantom-connect",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Build Solana wallet-connected apps with Phantom Connect SDKs and DFlow spot trading. Use when user asks to connect a Phantom wallet, integrate Phantom in React, React Native, or vanilla JS, sign messages or transactions, build token-gated pages, mint NFTs, accept crypto payments, or swap/stream tokens with DFlow. Covers @phantom/react-sdk, @phantom/react-native-sdk, @phantom/browser-sdk, and DFlow spot trading and market-data streaming. Do NOT use for Ethereum or EVM wallet integrations, or non-DFlow DEX routing.",
+    "path": "category/web3-smart-contracts/dflow-phantom-connect"
+  },
+  {
+    "id": "discord-reader",
+    "name": "discord-reader",
+    "category": "web3-smart-contracts",
+    "repository": "himself65-finance-skills",
+    "description": "Read Discord for financial research through opencli connected to the Discord desktop app: servers, channels, members, recent messages in the active channel, and message search. Use this skill whenever the user wants to check their Discord, list servers or channels, read or search messages in trading, crypto, or market communities, or gauge what a Discord community is saying about a ticker or coin. Read-only: it cannot send, react to, edit, or delete messages.",
+    "path": "category/web3-smart-contracts/discord-reader"
+  },
+  {
+    "id": "dowhy",
+    "name": "dowhy",
+    "category": "web3-smart-contracts",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Causal inference framework for answering \"does X cause Y?\" beyond correlation. DoWhy (Microsoft Research) provides the identify-estimate-refute loop: define a causal graph (DAG), identify the causal effect using backdoor/frontdoor/instrumental variable criteria, estimate treatment effects with multiple estimators, and validate results with automated refutation tests. Use when: distinguishing causation from correlation, estimating treatment effects (ATE, ATT, CATE), designing and analyzing A/B tests with confounders, using instrumental variables, performing counterfactual reasoning (\"what would have happened if...\"), validating causal claims with sensitivity analysis, working with observational data where randomization is impossible, or any analysis where the question is \"what is the CAUSAL effect of X on Y\" rather than just \"how do X and Y relate?",
+    "path": "category/web3-smart-contracts/dowhy"
+  },
+  {
+    "id": "education-data-context",
+    "name": "education-data-context",
+    "category": "web3-smart-contracts",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Interpretation guidance for Urban Institute Portal datasets. Coded values (-1/-2/-3), year definitions, grade encoding, suppression, licensing, cross-source joins. Use when interpreting Portal data before analysis. Routes to source-specific skills.",
+    "path": "category/web3-smart-contracts/education-data-context"
+  },
+  {
+    "id": "egm-resolve",
+    "name": "egm-resolve",
+    "category": "web3-smart-contracts",
+    "repository": "google-elephant-goldfish-model",
+    "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+    "path": "category/web3-smart-contracts/egm-resolve"
+  },
+  {
+    "id": "etf-premium",
+    "name": "etf-premium",
+    "category": "web3-smart-contracts",
+    "repository": "himself65-finance-skills",
+    "description": "Calculate an ETF's premium or discount to NAV from Yahoo Finance data (yfinance), compare or screen ETFs by premium, explain why a gap exists, and decompose a sudden ETF move into NAV-driven vs structural components (dealer gamma exposure, blocked AP arbitrage, sentiment). Use this skill whenever the user asks whether an ETF trades above or below NAV, compares ETF premiums or discounts, screens for the biggest ones, asks about ETF arbitrage or premium convergence, or wants to know why an ETF jumped or diverged from its holdings \u2014 including gamma squeezes, dealer gamma exposure (GEX), and blocked creation/redemption. Especially relevant for leveraged, inverse, international, bond, commodity, and crypto ETFs (IBIT, BITO, HYG, KWEB).",
+    "path": "category/web3-smart-contracts/etf-premium"
+  },
+  {
     "id": "evm-swiss-knife",
     "name": "evm-swiss-knife",
     "category": "web3-smart-contracts",
     "repository": "crypto-skills",
     "description": "Interact with EVM-compatible blockchains using Foundry's cast tool for querying balances, calling contracts, sending transactions, and blockchain exploration. Use when needing to interact with Ethereum Virtual Machine networks via command-line, including reading contract state, sending funds, executing contract functions, or inspecting blockchain data.",
     "path": "category/web3-smart-contracts/evm-swiss-knife"
+  },
+  {
+    "id": "feature-forge",
+    "name": "feature-forge",
+    "category": "web3-smart-contracts",
+    "repository": "jeffallan-claude-skills",
+    "description": "Conducts structured requirements workshops to produce feature specifications, user stories, EARS-format functional requirements, acceptance criteria, and implementation checklists. Use when defining new features, gathering requirements, or writing specifications. Invoke for feature definition, requirements gathering, user stories, EARS format specs, PRDs, acceptance criteria, or requirement matrices.",
+    "path": "category/web3-smart-contracts/feature-forge"
   },
   {
     "id": "fiat",
@@ -176,6 +368,14 @@
     "path": "category/web3-smart-contracts/fiat"
   },
   {
+    "id": "glam",
+    "name": "glam",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Solana vault management via GLAM Protocol. Triggers: glam, glam-cli, glam-sdk, vault create/manage, tokenized vault, share class, DeFi vault, treasury, asset management, access control, delegate permissions, Jupiter swap, Kamino lending/borrow/vaults/farms, staking (Marinade/native/SPL/Sanctum/LST), cross-chain USDC (CCTP), timelock, subscription/redemption, NAV pricing, token transfer. Supports CLI and TypeScript SDK.",
+    "path": "category/web3-smart-contracts/glam"
+  },
+  {
     "id": "helium-mcp",
     "name": "helium-mcp",
     "category": "web3-smart-contracts",
@@ -184,20 +384,20 @@
     "path": "category/web3-smart-contracts/helium-mcp"
   },
   {
+    "id": "heurist-mesh-skill",
+    "name": "heurist-mesh-skill",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Access real-time crypto token data, DeFi analytics, wallet intelligence, project research, and blockchain insights through Heurist Mesh agents. Use when the user asks about token trends, DeFi protocols, wallet holdings, project due diligence, Twitter/X crypto sentiment, or deeper market analysis.",
+    "path": "category/web3-smart-contracts/heurist-mesh-skill"
+  },
+  {
     "id": "hunt-race-condition",
     "name": "hunt-race-condition",
     "category": "web3-smart-contracts",
     "repository": "elementalsouls-claude-bughunter",
     "description": "Hunting skill for race condition vulnerabilities. Built from 12 public bug bounty reports including modern HTTP/2 single-packet attack cases (James Kettle DEF CON 2023 \"Smashing the State Machine\"; RyotaK / Flatt Security 10,000-request first-sequence-sync expansion 2024). Covers coupon double-redemption, gift-card double-spend, MFA-OTP-validate race, account-create race, faucet/crypto token double-mint, email-activation race, vote/upvote inflation, password-reset token race, rate-limit bypass via concurrent requests. Use when hunting race conditions, TOCTOU bugs, MFA-bypass-via-timing.",
     "path": "category/web3-smart-contracts/hunt-race-condition"
-  },
-  {
-    "id": "hyperliquid-reader",
-    "name": "hyperliquid-reader",
-    "category": "web3-smart-contracts",
-    "repository": "himself65-finance-skills",
-    "description": ">",
-    "path": "category/web3-smart-contracts/hyperliquid-reader"
   },
   {
     "id": "internet-court",
@@ -216,6 +416,22 @@
     "path": "category/web3-smart-contracts/internet-court-internet-court"
   },
   {
+    "id": "internet-court-internet-court-skill",
+    "name": "internet-court-internet-court-skill",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Entry point for Internet Court \u2014 the trust layer for agent-to-agent commerce. Use whenever an agent needs to transact with another agent or a paid service, or a user mentions agent payments, paid APIs (HTTP 402/x402), wallet custody or trust concerns, spending mandates, delegated permissions (ERC-7710/7715), escrow, agent identity or reputation (ERC-8004), negotiation between agents (A2A), agent jobs (ERC-8183), machine payments (MPP, AP2), supervision of agent behavior, revocation, verification, or dispute resolution (GenLayer) \u2014 even if they never say \"Internet Court\". Routes to the vendored protocol skills and connector skills in this package.",
+    "path": "category/web3-smart-contracts/internet-court-internet-court-skill"
+  },
+  {
+    "id": "jupiter-lend",
+    "name": "jupiter-lend",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Interact with Jupiter Lend Protocol. Read-only SDK (@jup-ag/lend-read) for querying liquidity pools, lending markets (jlTokens), and vaults. Write SDK (@jup-ag/lend) for lending (deposit/withdraw) and vault operations (deposit collateral, borrow, repay, manage positions).",
+    "path": "category/web3-smart-contracts/jupiter-lend"
+  },
+  {
     "id": "market-sentiment",
     "name": "market-sentiment",
     "category": "web3-smart-contracts",
@@ -232,12 +448,180 @@
     "path": "category/web3-smart-contracts/meme-scout"
   },
   {
+    "id": "monitoring-expert",
+    "name": "monitoring-expert",
+    "category": "web3-smart-contracts",
+    "repository": "jeffallan-claude-skills",
+    "description": "Configures monitoring systems, implements structured logging pipelines, creates Prometheus/Grafana dashboards, defines alerting rules, and instruments distributed tracing. Implements Prometheus/Grafana stacks, conducts load testing, performs application profiling, and plans infrastructure capacity. Use when setting up application monitoring, adding observability to services, debugging production issues with logs/metrics/traces, running load tests with k6 or Artillery, profiling CPU/memory bottlenecks, or forecasting capacity needs.",
+    "path": "category/web3-smart-contracts/monitoring-expert"
+  },
+  {
+    "id": "nansen-holder-analysis",
+    "name": "nansen-holder-analysis",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Is this token held by quality wallets or retail noise? SM holder ratio, flow breakdown by label, and recent buyer quality.",
+    "path": "category/web3-smart-contracts/nansen-holder-analysis"
+  },
+  {
+    "id": "nansen-smart-money-tracker",
+    "name": "nansen-smart-money-tracker",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Smart money tracking \u2014 netflow, trades, holdings, perp trades. Use when finding what smart money wallets are buying/selling or tracking whale activity.",
+    "path": "category/web3-smart-contracts/nansen-smart-money-tracker"
+  },
+  {
+    "id": "nansen-wallet-profiler",
+    "name": "nansen-wallet-profiler",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Wallet profiler \u2014 balance, PnL, labels, transactions, counterparties, related wallets, batch, trace, compare. Use when analysing a specific wallet address or comparing wallets.",
+    "path": "category/web3-smart-contracts/nansen-wallet-profiler"
+  },
+  {
+    "id": "near-api-js",
+    "name": "near-api-js",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Guide for developing with near-api-js v7 - the JavaScript/TypeScript library for NEAR blockchain interaction. Use when: (1) building apps that interact with NEAR blockchain, (2) creating/signing transactions, (3) calling smart contracts, (4) managing accounts and keys, (5) working with NEAR RPC API, (6) handling FT/NFT tokens on NEAR, (7) using NEAR cryptographic operations (KeyPair, signing), (8) converting between NEAR units (yocto, gas), (9) gasless/meta transactions with relayers, (10) NEP-413 message signing for authentication, (11) storage deposit management for FT contracts. Triggers on any NEAR blockchain development tasks.",
+    "path": "category/web3-smart-contracts/near-api-js"
+  },
+  {
+    "id": "near-dapp",
+    "name": "near-dapp",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Build NEAR Protocol dApps. Use for: (1) creating new NEAR dApps with `create-near-app` (Vite+React, Next.js), (2) adding NEAR wallet connection to existing apps with `@hot-labs/near-connect` and `near-connect-hooks`, (3) building frontend UI for NEAR smart contracts, (4) integrating wallet sign-in/sign-out, contract calls, and transaction signing into web applications.",
+    "path": "category/web3-smart-contracts/near-dapp"
+  },
+  {
+    "id": "near-intents",
+    "name": "near-intents",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Cross-chain token swap integration using NEAR Intents 1Click API. Use when building swap widgets, bridge interfaces, or multi-chain transfers across EVM, Solana, NEAR, TON, Stellar, and Tron.",
+    "path": "category/web3-smart-contracts/near-intents"
+  },
+  {
+    "id": "near-kit",
+    "name": "near-kit",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "TypeScript library for NEAR Protocol blockchain interaction. Use this skill when writing code that interacts with NEAR Protocol, including viewing contract data, calling contract methods, sending NEAR tokens, building transactions, creating type-safe contract wrappers, integrating wallets (Wallet Selector, HOT Connect), React hooks and providers (@near-kit/react), managing keys, testing with sandbox, meta-transactions (NEP-366), and message signing (NEP-413).",
+    "path": "category/web3-smart-contracts/near-kit"
+  },
+  {
     "id": "observability-monitoring-slo-implement",
     "name": "observability-monitoring-slo-implement",
     "category": "web3-smart-contracts",
     "repository": "antigravity-awesome-skills",
-    "description": "\"You are an SLO (Service Level Objective) expert specializing in implementing reliability standards and error budget-based practices. Design SLO frameworks, define SLIs, and build monitoring that ba...\"",
+    "description": "You are an SLO (Service Level Objective) expert specializing in implementing reliability standards and error budget-based practices. Design SLO frameworks, define SLIs, and build monitoring that ba...",
     "path": "category/web3-smart-contracts/observability-monitoring-slo-implement"
+  },
+  {
+    "id": "octav-api",
+    "name": "octav-api",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Integrate with Octav API for cryptocurrency portfolio tracking, transaction history, and DeFi analytics across 50+ blockchain networks. Use when building applications that need to: (1) Track wallet balances and net worth across multiple chains, (2) Query transaction history with filtering and search, (3) Monitor DeFi protocol positions (Aave, Uniswap, etc.), (4) Access historical portfolio snapshots, (5) Analyze token distribution and holdings, (6) Pay per request as an autonomous agent via x402. Triggers on: \"Octav API\", \"crypto portfolio API\", \"blockchain portfolio tracking\", \"DeFi analytics API\", \"wallet balance API\", \"transaction history API\", \"multi-chain portfolio\", \"Octav x402\".",
+    "path": "category/web3-smart-contracts/octav-api"
+  },
+  {
+    "id": "okx-agentic-wallet",
+    "name": "okx-agentic-wallet",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "OKX Agentic Wallet \u2014 the single skill for the user's wallet and on-chain execution. Use it whenever the user wants to operate their wallet or execute an on-chain action, including: login & accounts, balance / holdings, wallet address / deposit / receive, send / transfer, contract calls (approve / deposit / withdraw), transaction history & status, message signing, wallet export & policy; pay gas with a stablecoin (Gas Station, Solana); swap / trade / buy / sell / convert, get a quote; cross-chain bridge & track arrival; limit orders (buy dip / take profit / stop loss / buy above) plus cancel / list / resume them; broadcast / gas / simulate / track a transaction; look up any public address's holdings; security scanning (token / honeypot \u871c\u7f50 / \u8c94\u8c85, DApp phishing, tx & signature checks, approvals); audit log. Once matched, follow this skill's Intent Routing to dispatch to the exact action.",
+    "path": "category/web3-smart-contracts/okx-agentic-wallet"
+  },
+  {
+    "id": "okx-dapp-discovery",
+    "name": "okx-dapp-discovery",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Plugin router for 20 third-party DeFi protocols (Polymarket, Aave, Hyperliquid, PancakeSwap, Morpho, Raydium, Curve, Compound, Pendle, Lido, ether.fi, GMX, Kamino, Orca, Meteora, Clanker, pump.fun, Uniswap) and their protocol-native tokens (HYPE, HLP, eETH, weETH, stETH, wstETH, LDO, GHO, CAKE, CRV, COMP, RAY, ETHFI, GLP, kToken, PT-* / YT-*, $CLANKER). Resolves DApp/token \u2192 plugin \u2192 confirm-install \u2192 re-apply request. Routing only \u2014 never signs or broadcasts; every on-chain write needs explicit user approval.",
+    "path": "category/web3-smart-contracts/okx-dapp-discovery"
+  },
+  {
+    "id": "okx-defi",
+    "name": "okx-defi",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "OKX-aggregated DeFi (no specific DApp named) \u2014 product discovery, deposit/withdraw/claim execution, AND positions viewing. **If the user names ANY third-party protocol/DApp (Aave, Lido, PancakeSwap, Uniswap, Curve, Compound, Morpho, Pendle, Kamino, Raydium, Hyperliquid, Polymarket, \u2026), route to okx-dapp-discovery \u2014 NOT here, even for 'show my Aave positions'.** INVEST triggers: 'invest in DeFi', 'earn yield', 'find best APY', 'deposit/stake for yield', 'search DeFi products', 'redeem/withdraw position', 'claim DeFi rewards', 'borrow against asset', 'repay loan', 'add/remove CLMM liquidity', 'APY/TVL history', 'depth chart', yield farming, lending, staking, liquidity pools. PORTFOLIO triggers: 'check my DeFi positions', 'view DeFi holdings/portfolio', 'my staking/lending positions', 'DeFi balance', 'DeFi \u6301\u4ed3', '\u6211\u7684DeFi\u8d44\u4ea7'. Do NOT use for: DEX swaps (okx-agentic-wallet), token prices (okx-dex-market), wallet token balances (okx-agentic-wallet).",
+    "path": "category/web3-smart-contracts/okx-defi"
+  },
+  {
+    "id": "okx-dex-market",
+    "name": "okx-dex-market",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "HARD BLOCK \u2014 never use for prediction-market/Polymarket UpDown queries; route to okx-dapp-discovery when a named DApp (Polymarket/Aave/Hyperliquid/PancakeSwap/Morpho) appears with a timeframe, or \u6da8\u8dcc/updown for BTC/ETH/SOL/XRP/BNB/DOGE/HYPE. Otherwise, read-only on-chain DEX data, 6 groups: TOKEN (search, hot/\u70ed\u95e8, liquidity, holders/whale, risk metadata, cluster/\u6301\u4ed3\u96c6\u4e2d\u5ea6, trade history, top traders); MARKET (price/\u4ef7\u683c, K\u7ebf/OHLC, index price, wallet PnL/\u80dc\u7387, trade history); SIGNAL (smart money/KOL/whale tracking, buy signals/\u4fe1\u53f7, leaderboard/\u725b\u4eba\u699c); SOCIAL (news/\u65b0\u95fb, sentiment/\u60c5\u7eea, token vibe/\u70ed\u5ea6, KOL leaderboard); TRENCHES (pump.fun/meme launches/\u65b0\u76d8/\u626b\u94fe, dev reputation, bundle/sniper detection/\u6346\u7ed1\u72d9\u51fb\u8005, co-investor \u2014 read-only; buy/snipe \u2192 okx-dapp-discovery); WS (onchainos ws CLI, or custom WebSocket script/\u811a\u672c). Also owns Market API payment/x402, quota/\u989d\u5ea6, and MARKET_API_*_OVER_QUOTA/confirming:true for all 6 groups.",
+    "path": "category/web3-smart-contracts/okx-dex-market"
+  },
+  {
+    "id": "okx-growth-competition",
+    "name": "okx-growth-competition",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "List OKX Agentic Wallet exclusive trading competitions, register users for contests, track participation and leaderboard rankings, and claim won rewards. Use when users want to list available trading competitions or trading cups, view competition rules / prize pool / total prizes, register or sign up or enroll or join a contest, check the leaderboard (who is winning) or their own rank (am I in the prize zone, what is my place), ask did I win or query participation / claim status, claim won rewards or prizes from completed competitions, see which wallet account they registered with, or submit Telegram / WeChat / Email / Twitter contact for prize delivery to top-tier winners.",
+    "path": "category/web3-smart-contracts/okx-growth-competition"
+  },
+  {
+    "id": "okx-guide",
+    "name": "okx-guide",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Onchain OS onboarding & guide hub \u2014 the single entry for first-time, 'what is this / how do I use it', OKX.AI, and customer-support intents; classifies the intent and routes to the right sub-flow via its Intent Routing table. Covers: (1) Onchain OS onboarding + welcome banner \u2014 'what is onchainos', 'what is onchain os', 'what can it do', 'what can onchainos do', 'what does onchainos do', 'how do I use this', 'how do I play', 'how to use onchainos', 'how to play onchainos', 'how does onchainos work', 'how do I start', 'getting started', 'tutorial', 'onboarding', 'first time', 'I just installed', 'now what', 'what do I do now', 'where do I start', 'who are you', 'what are you', 'introduce onchainos', 'tell me about onchainos', 'I'm new'; (2) OKX.AI intro & role-registration routing (the Agent economic system \u2014 roles User / ASP / Evaluator) \u2014 'what is OKX.AI', 'OKX.AI \u662f\u4ec0\u4e48', 'how to use OKX.AI', 'OKX.AI \u5feb\u901f\u5f00\u59cb', and any spelling / spacing / casing / typo variant (OKXAI, okx ai, okx-ai, lowercase okx.ai, \u5565\u662fokxai); (3) customer support / Help Center \u2014 'contact support', 'talk to a human', 'customer service', 'file a complaint', 'give feedback', 'report a bug / system error', 'help center', 'FAQ', 'user guide', 'something is broken'. NOT for: direct on-chain actions (swap / wallet / balance / token) or Agent task lifecycle (publish / accept / deliver / dispute) \u2014 those have their own skills.",
+    "path": "category/web3-smart-contracts/okx-guide"
+  },
+  {
+    "id": "onchain-pay",
+    "name": "onchain-pay",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Binance Onchain Pay enables users to buy cryptocurrency with fiat (e.g., EUR, USD) or send existing crypto from their Binance account directly to any external on-chain wallet address in a single flow\u2014no manual withdrawal needed. Enables partners to integrate crypto buying services: - payment-method-list: Get available payment methods (Card, P2P, Google Pay, Apple Pay, etc.) with limits for a fiat/crypto pair - trading-pairs: List all supported fiat currencies and cryptocurrencies - estimated-quote: Get real-time price quote including exchange rate, fees, and estimated crypto amount - pre-order: Create a buy order and get redirect URL to Binance payment flow - order: Query order status and details (processing, completed, failed, etc.) - crypto-network: Get supported blockchain networks with withdraw fees and limits - p2p/trading-pairs: List P2P-specific trading pairs",
+    "path": "category/web3-smart-contracts/onchain-pay"
+  },
+  {
+    "id": "openserv-launch",
+    "name": "openserv-launch",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Launch tokens on Base blockchain via the OpenServ Launch API. Creates ERC-20 tokens with Aerodrome concentrated liquidity pools. Use when launching tokens, deploying memecoins, or building agents that create tokens with locked LP. Read reference.md for the full API reference. Read openserv-agent-sdk and openserv-client for building and running agents. You can launch tokens for your OpenServ agents.",
+    "path": "category/web3-smart-contracts/openserv-launch"
+  },
+  {
+    "id": "payment",
+    "name": "payment",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Binance Pay Assistant - Send and Receive crypto payments. Send: QR code payment from Funding Wallet (C2C + PIX). Use when user wants to buy/purchase/pay/transfer/send, confirm/cancel payment, or query order status. Requires QR code data. PIX QR codes (pix, br.gov.bcb.pix) are auto-detected. Receive: Generate QR codes and payment links to collect crypto. Use when user wants to receive/collect payment (generate receive link, receive QR). Do NOT use for earning, buying/selling crypto, or digital goods.",
+    "path": "category/web3-smart-contracts/payment"
+  },
+  {
+    "id": "performing-cryptographic-audit-of-application",
+    "name": "performing-cryptographic-audit-of-application",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "A cryptographic audit systematically reviews an application's use of",
+    "path": "category/web3-smart-contracts/performing-cryptographic-audit-of-application"
+  },
+  {
+    "id": "performing-soap-web-service-security-testing",
+    "name": "performing-soap-web-service-security-testing",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Performs security testing of SOAP web services by analyzing WSDL definitions",
+    "path": "category/web3-smart-contracts/performing-soap-web-service-security-testing"
+  },
+  {
+    "id": "pnp-solana",
+    "name": "pnp-solana",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Create, trade, and settle permissionless prediction markets on Solana. Use when building prediction market infrastructure, creating social media markets (Twitter/YouTube/DeFiLlama), setting up custom oracle resolution, P2P betting, or autonomous agent-driven forecasting. Supports V2 AMM, P2P (V3), and custom oracle markets with any SPL token collateral (including Token-2022).",
+    "path": "category/web3-smart-contracts/pnp-solana"
   },
   {
     "id": "pol-probe",
@@ -248,12 +632,44 @@
     "path": "category/web3-smart-contracts/pol-probe"
   },
   {
+    "id": "privy",
+    "name": "privy",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Use when building wallet infrastructure, authentication systems, or financial applications. Reach for Privy when you need to create embedded wallets, manage user authentication, control wallet permissions with policies, execute transactions across blockchains, or build treasury/agent wallets with programmable controls.",
+    "path": "category/web3-smart-contracts/privy"
+  },
+  {
     "id": "product-analytics",
     "name": "product-analytics",
     "category": "web3-smart-contracts",
     "repository": "alirezarezvani-claude-skills",
     "description": "Use when defining product KPIs, building metric dashboards, running cohort or retention analysis, or interpreting feature adoption trends across product stages.",
     "path": "category/web3-smart-contracts/product-analytics"
+  },
+  {
+    "id": "pyth",
+    "name": "pyth",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Complete guide for Pyth Network - decentralized oracle providing real-time price feeds for DeFi. Covers price feed integration, confidence intervals, EMA prices, on-chain CPI, off-chain fetching, and streaming updates for Solana applications.",
+    "path": "category/web3-smart-contracts/pyth"
+  },
+  {
+    "id": "query-address-info",
+    "name": "query-address-info",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Snapshot of a single wallet's token holdings on a specific chain \u2014 list of every token currently held with name, symbol, current price, 24h price change, and holding quantity. Use when the user provides an explicit wallet address (or says \"my wallet\") and wants the current portfolio: \"what does 0x... hold\", \"wallet balance breakdown\", \"list positions for this address\", \"what tokens are in this wallet\", \"show me the holdings of <address>\".",
+    "path": "category/web3-smart-contracts/query-address-info"
+  },
+  {
+    "id": "quicknode-skill",
+    "name": "quicknode-skill",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Quicknode blockchain infrastructure for 80+ chains: Core RPC API, Streams, Webhooks, Blazar WSS, Solana gRPC, HyperCore gRPC, SQL Explorer, Metaplex DAS API, Blockbook, Ordinals & Runes API, Swap API, x402, MPP, Agent Subscriptions, CLI, and MCP. Use for any Quicknode product, blockchain data access, or wallet-paid agent access.",
+    "path": "category/web3-smart-contracts/quicknode-skill"
   },
   {
     "id": "react-vite-dashboard",
@@ -264,19 +680,35 @@
     "path": "category/web3-smart-contracts/react-vite-dashboard"
   },
   {
+    "id": "reverse-engineering-ransomware-encryption-routine",
+    "name": "reverse-engineering-ransomware-encryption-routine",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Reverse engineer ransomware encryption routines to identify cryptographic",
+    "path": "category/web3-smart-contracts/reverse-engineering-ransomware-encryption-routine"
+  },
+  {
     "id": "slo-implementation",
     "name": "slo-implementation",
     "category": "web3-smart-contracts",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Define and implement Service Level Indicators (SLIs) and Service Level Objectives (SLOs) with error budgets and alerting. Use when establishing reliability targets, implementing SRE practices, or m...\"",
+    "description": "Define and implement Service Level Indicators (SLIs) and Service Level Objectives (SLOs) with error budgets and alerting. Use when establishing reliability targets, implementing SRE practices, or m...",
     "path": "category/web3-smart-contracts/slo-implementation"
+  },
+  {
+    "id": "solana-dev",
+    "name": "solana-dev",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Use when user asks to \"build a Solana dapp\", \"write an Anchor program\", \"create a token\", \"debug Solana errors\", \"set up wallet connection\", \"test my Solana program\", \"deploy to devnet\", or \"explain Solana concepts\" (rent, accounts, PDAs, CPIs, etc.). Also use for quick on-chain lookups via public RPC + curl \u2014 \"what's the balance of <wallet>\", \"look up transaction <sig>\", \"token balance for <account>\", \"check this address on mainnet/devnet\". End-to-end Solana development playbook covering wallet connection, Anchor/Pinocchio programs, Codama client generation, Surfpool/LiteSVM/Mollusk testing, security checklists, and JSON-RPC curl lookups against public clusters. Prefers @solana/kit v7 plugin clients (createClient + .use()), wallet connection via @solana/kit-plugin-wallet + @solana/react, web3.js v3 (Kit internals, RC) as the migration target for legacy codebases, and Surfpool for local networks and integration testing.",
+    "path": "category/web3-smart-contracts/solana-dev"
   },
   {
     "id": "solidity-security",
     "name": "solidity-security",
     "category": "web3-smart-contracts",
     "repository": "active",
-    "description": "\"Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity patterns. Use when writing smart contracts, auditing existing contracts, or implementin...\"",
+    "description": "Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity patterns. Use when writing smart contracts, auditing existing contracts, or implementin...",
     "path": "category/web3-smart-contracts/solidity-security"
   },
   {
@@ -284,7 +716,7 @@
     "name": "spec-driven-workflow",
     "category": "web3-smart-contracts",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices.\"",
+    "description": "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices.",
     "path": "category/web3-smart-contracts/spec-driven-workflow"
   },
   {
@@ -296,12 +728,68 @@
     "path": "category/web3-smart-contracts/spss-amos-sem"
   },
   {
+    "id": "squads",
+    "name": "squads",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Complete guide for Squads Protocol - Solana's leading smart account and multisig infrastructure. Covers Squads V4 Multisig for team treasury management, Smart Account Program for account abstraction and programmable wallets, and Grid for stablecoin rails and fintech infrastructure.",
+    "path": "category/web3-smart-contracts/squads"
+  },
+  {
+    "id": "sre-engineer",
+    "name": "sre-engineer",
+    "category": "web3-smart-contracts",
+    "repository": "jeffallan-claude-skills",
+    "description": "Defines service level objectives, creates error budget policies, designs incident response procedures, develops capacity models, and produces monitoring configurations and automation scripts for production systems. Use when defining SLIs/SLOs, managing error budgets, building reliable systems at scale, incident management, chaos engineering, toil reduction, or capacity planning.",
+    "path": "category/web3-smart-contracts/sre-engineer"
+  },
+  {
+    "id": "starknet-defi",
+    "name": "starknet-defi",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Execute DeFi operations on Starknet including token swaps via avnu aggregator, DCA recurring buys, STRK staking, and lending/borrowing. Supports gasless transactions.",
+    "path": "category/web3-smart-contracts/starknet-defi"
+  },
+  {
+    "id": "starknet-js",
+    "name": "starknet-js",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Reference for building Starknet applications using starknet.js v9.x SDK, including contract interaction, account management, transaction handling, fee estimation, wallet integration, and paymaster flows.",
+    "path": "category/web3-smart-contracts/starknet-js"
+  },
+  {
+    "id": "starknet-wallet",
+    "name": "starknet-wallet",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Create and manage Starknet wallets for AI agents. Transfer tokens, check balances, manage session keys, deploy accounts, and interact with smart contracts using native Account Abstraction.",
+    "path": "category/web3-smart-contracts/starknet-wallet"
+  },
+  {
     "id": "steering-user-elicitation",
     "name": "steering-user-elicitation",
     "category": "web3-smart-contracts",
     "repository": "cline-skills",
     "description": "Elicit and challenge data-analysis requirements before querying. Use when the user asks ambiguous data questions, requests business/report answers, needs metric definitions clarified, or may be drawing decisions from incomplete data.",
     "path": "category/web3-smart-contracts/steering-user-elicitation"
+  },
+  {
+    "id": "telegram-reader",
+    "name": "telegram-reader",
+    "category": "web3-smart-contracts",
+    "repository": "himself65-finance-skills",
+    "description": "Read Telegram channels and groups for financial news and market research with the tdl CLI: list chats and channels, find a channel by name, and export recent messages or a date or ID range. Use this skill whenever the user wants to check their Telegram, see what's new in their channels, read or export messages from a news, crypto, or trading channel or group, or gather market news and signals posted on Telegram. Read-only: it cannot send messages or join or leave channels.",
+    "path": "category/web3-smart-contracts/telegram-reader"
+  },
+  {
+    "id": "testing-jwt-token-security",
+    "name": "testing-jwt-token-security",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Assessing JSON Web Token implementations for cryptographic weaknesses,",
+    "path": "category/web3-smart-contracts/testing-jwt-token-security"
   },
   {
     "id": "token-minter",
@@ -316,8 +804,24 @@
     "name": "token-scorer",
     "category": "web3-smart-contracts",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": ">",
+    "description": "Score any crypto token using Buzz's 11-rule scoring engine. Zero LLM cost \u2014 pure rule-based analysis across liquidity, volume, security, deployer identity, and market dynamics. Pulls from DexScreener API + on-chain data. Returns 0-100 score with COLD/WARM/HOT classification and actionable breakdown.",
     "path": "category/web3-smart-contracts/token-scorer"
+  },
+  {
+    "id": "trader-risk",
+    "name": "trader-risk",
+    "category": "web3-smart-contracts",
+    "repository": "jakeschincariol-day-trader-skill",
+    "description": "Risk Manager. Checks every trade against your limits and stops anything over them, before it can reach the broker. For a day trade: a stop is required, the loss at the stop must fit your max loss per trade (measured from the higher of the plan's entry and a fresh price), reward:risk must meet your minimum, the day's total risk must fit your daily loss limit, no more than your trades per day, and no new entries outside your entry window or when the market is closed. It also keeps the basics: blocked tickers, order size, position cap, cash buffer, margin, short sales, options and crypto, malformed or bad bracket orders, duplicates and a daily order limit. Getting out is never blocked by a day limit. Prints PASS or BLOCK with the reason and records the verdicts so trader-broker only shows an order that passed. Use when the user says \"check my order\", \"is this safe\", \"risk check\", \"does this break my rules\", \"can I take this trade\", \"how much have I risked today\", or before /trader-broker, always.",
+    "path": "category/web3-smart-contracts/trader-risk"
+  },
+  {
+    "id": "trading-signal",
+    "name": "trading-signal",
+    "category": "web3-smart-contracts",
+    "repository": "binance-binance-skills-hub",
+    "description": "Per-trade smart-money signals \u2014 each result is a discrete buy or sell event from a tracked smart-money wallet, with trigger price, current price, max gain since trigger, and exit rate. BSC and Solana only. Use for: \"smart money buy signal on $X\", \"any whale just bought $Y\", \"alpha signals in the last hour\", \"copy-trade-worthy signals\", \"trigger price and max gain on these trades\", \"on-chain trading signals from smart money\".",
+    "path": "category/web3-smart-contracts/trading-signal"
   },
   {
     "id": "trading-strategist",
@@ -328,6 +832,22 @@
     "path": "category/web3-smart-contracts/trading-strategist"
   },
   {
+    "id": "tradingview-mcp",
+    "name": "tradingview-mcp",
+    "category": "web3-smart-contracts",
+    "repository": "himself65-finance-skills",
+    "description": "Query TradingView market data through the bundled tradingview MCP server without a desktop app or login. Use whenever the user wants a technical analysis readout (RSI, MACD, Bollinger rating, BUY/SELL summary), multi-timeframe alignment (weekly\u2192daily\u21924h\u21921h\u219215m), exchange-wide scans (Bollinger squeeze, volume breakout, consecutive candles, smart volume), top gainers/losers by exchange, futures market data (NQ/ES/CL/GC overview, overnight movers, category snapshots), pre-market / after-hours quotes, a quick options chain or unusual options activity (volume/OI by strike), bulk stock prices, a global market snapshot, strategy backtests (Sharpe, drawdown, win rate), or crypto exchange scans. Triggers include \"TA on X\", \"multi-timeframe read\", \"BB squeeze scan\", \"futures movers\", \"NQ overnight\", \"pre-market price\", \"unusual options activity\", \"backtest RSI on AAPL\", and \"top gainers on NASDAQ\". For options greeks, watchlists, alerts, or chart screenshots use tradingview-reader instead.",
+    "path": "category/web3-smart-contracts/tradingview-mcp"
+  },
+  {
+    "id": "tradingview-reader",
+    "name": "tradingview-reader",
+    "category": "web3-smart-contracts",
+    "repository": "himself65-finance-skills",
+    "description": "Read the user's local TradingView desktop app through opencli: quotes, options chains with greeks and per-strike IV, options expiries, screener results across stocks, crypto, forex, futures, and bonds, gainers and losers, news headlines and full stories, alerts (active, fired, offline fires), watchlists including colored flag lists, symbol search, chart state, and chart screenshots. Use this skill whenever the user asks for any of these from TradingView (\"TV\") \u2014 for example an options chain, puts, or IV skew for a ticker, an oversold-stock screen, their red flag list, which alerts fired, or a screenshot of their chart. For plain quotes, TA readouts, scans, or futures without the desktop app, prefer tradingview-mcp. Read-only: it never places trades or edits watchlists, alerts, or layouts.",
+    "path": "category/web3-smart-contracts/tradingview-reader"
+  },
+  {
     "id": "twitter-poster",
     "name": "twitter-poster",
     "category": "web3-smart-contracts",
@@ -336,11 +856,19 @@
     "path": "category/web3-smart-contracts/twitter-poster"
   },
   {
+    "id": "validating-backup-integrity-for-recovery",
+    "name": "validating-backup-integrity-for-recovery",
+    "category": "web3-smart-contracts",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Validates backup integrity through cryptographic hash verification,",
+    "path": "category/web3-smart-contracts/validating-backup-integrity-for-recovery"
+  },
+  {
     "id": "wallet-guard",
     "name": "wallet-guard",
     "category": "web3-smart-contracts",
     "repository": "buzzbysolcex-buzz-bd-agent",
-    "description": ">",
+    "description": "Transaction governance layer for crypto wallet operations. 3-state evaluation: BLOCK / WARN / ALLOW with receipt. Schema-frozen with AION (Aldo/COD\u00c9). Checks token score, deployer identity, liquidity depth, and contract security before any wallet interaction proceeds.",
     "path": "category/web3-smart-contracts/wallet-guard"
   },
   {
@@ -352,11 +880,19 @@
     "path": "category/web3-smart-contracts/web3-audit"
   },
   {
+    "id": "web3-data",
+    "name": "web3-data",
+    "category": "web3-smart-contracts",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Two services in one skill: (1) Web3 on-chain data via Chainbase CLI \u2014 use when the user asks about blockchain data, token holders, wallet addresses, token prices, ENS domains, transactions, DeFi portfolios, or any on-chain analytics. Triggers: \"top holders of\", \"who holds\", \"wallet address\", \"token price\", \"token transfers\", \"ENS domain\", \"on-chain data\", \"blockchain query\", \"SQL query on-chain\", across Ethereum, BSC, Polygon, Arbitrum, Optimism, Base, Avalanche, zkSync, and other EVM chains. (2) Crypto social intelligence via Tops (chainbase tops) \u2014 use when the user asks about trending crypto narratives, social mentions, Twitter/X crypto discussions, narrative discovery, topic heat, or KOL/community signals. Triggers: \"trending topics\", \"crypto narrative\", \"what's trending in crypto\", \"social mentions\", \"who is talking about\", \"crypto twitter\", \"KOL signals\", \"narrative search\", \"topic posts\".",
+    "path": "category/web3-smart-contracts/web3-data"
+  },
+  {
     "id": "web3-testing",
     "name": "web3-testing",
     "category": "web3-smart-contracts",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Test smart contracts comprehensively using Hardhat and Foundry with unit tests, integration tests, and mainnet forking. Use when testing Solidity contracts, setting up blockchain test suites, or va...\"",
+    "description": "Test smart contracts comprehensively using Hardhat and Foundry with unit tests, integration tests, and mainnet forking. Use when testing Solidity contracts, setting up blockchain test suites, or va...",
     "path": "category/web3-smart-contracts/web3-testing"
   },
   {

@@ -154,7 +154,7 @@
       renderResults();
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
   };
 
   // Initialize Data
@@ -590,10 +590,10 @@
           <div class="card-bottom">
             <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" role="button" tabindex="0" onclick="event.stopPropagation(); setCategory('${item.category}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setCategory('${item.category}');}" aria-label="Filter by category ${escapeHtml(item.cleanCategory || item.category)}">
               <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px" aria-hidden="true"></i>
-              ${escapeHtml(item.cleanCategory || item.category)}
+              <span>${escapeHtml(item.cleanCategory || item.category)}</span>
             </span>
-            <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" style="max-width:140px" title="Copy ${state.installCmdMode.toUpperCase()} command" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
-              <code>${state.installCmdMode.toUpperCase()}</code>
+            <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" title="Click to copy install command (${state.installCmdMode.toUpperCase()})" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
+              <code>${escapeHtml(cmd)}</code>
               <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
             </div>
           </div>
@@ -651,9 +651,9 @@
           <div class="card-bottom">
             <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" role="button" tabindex="0" onclick="event.stopPropagation(); setCategory('${item.category}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();event.stopPropagation();setCategory('${item.category}');}" aria-label="Filter by category ${escapeHtml(item.cleanCategory)}">
               <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px" aria-hidden="true"></i>
-              ${escapeHtml(item.cleanCategory)}
+              <span>${escapeHtml(item.cleanCategory)}</span>
             </span>
-            <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" style="max-width:180px" title="Copy ${state.installCmdMode.toUpperCase()} command" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
+            <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" title="Click to copy install command (${state.installCmdMode.toUpperCase()})" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
               <code>${escapeHtml(cmd)}</code>
               <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
             </div>

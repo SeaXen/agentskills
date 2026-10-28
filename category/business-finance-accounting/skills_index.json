@@ -1,18 +1,10 @@
 [
   {
-    "id": "00-Full-empirical-analysis-skill_StatsPAI",
-    "name": "00-Full-empirical-analysis-skill_StatsPAI",
-    "category": "business-finance-accounting",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Use when the user asks to run a full empirical / causal analysis in Python \u2014 by default in the style of an applied economics paper (AER / QJE / JPE / ReStud / AEJ) with DID / RD / IV / SCM / DML / matching, written-out estimating equation + identifying assumption, Table 1 / Table 2 / event-study figure / robustness gauntlet \u2014 OR in epidemiology / public health style (target-trial emulation, IPTW + g-formula + TMLE triplet, Mendelian randomization, KM/AFT survival, E-value sensitivity, STROBE/TRIPOD reporting) \u2014 OR in ML causal inference style (DML, S/T/X/R/DR meta-learners, causal forest, Dragonnet/TARNet/CEVAE, BCF, CATE distribution, policy learning, conformal causal, fairness audit, causal discovery) \u2014 OR in distributional / gap-decomposition style (Oaxaca\u2013Blinder `sp.oaxaca`, Kitagawa `sp.kitagawa_decompose`, DiNardo\u2013Fortin\u2013Lemieux `sp.dfl_decompose`, Gelbach `sp.gelbach`, Fairlie `sp.fairlie`, RIF / FFL `sp.rif_decomposition`, all reachable through the `sp.decompose` dispatcher). Also covers exporting multi-column regression tables to Word / Excel / LaTeX (Stata outreg2 / esttab / R modelsummary equivalent) and bundling an entire replication appendix into one .docx / .xlsx / .tex file. Triggers on keywords \"StatsPAI\", \"statspai\", \"AER empirical analysis\", \"applied micro pipeline\", \"Table 1 balance\", \"event study\", \"first-stage F\", \"Oster bound\", \"honest_did\", \"spec_curve\", \"callaway_santanna\", \"dragonnet\", \"text as treatment\", \"outreg2 in Python\", \"regression table to Word/Excel\", \"sp.regtable\", \"sp.collect\", \"sp.paper_tables\", \"sp.feols\", \"summary_col\", \"modelsummary\", \"AER style table\", \"QJE style table\", \"epidemiology pipeline\", \"target trial emulation\", \"g-formula\", \"IPTW\", \"TMLE\", \"Mendelian randomization\", \"STROBE\", \"TRIPOD\", \"\u516c\u5171\u5065\u5eb7\", \"\u6d41\u884c\u75c5\u5b66\", \"DML\", \"double machine learning\", \"causal forest\", \"meta-learner\", \"CATE\", \"conformal causal\", \"policy learning\", \"\u56e0\u679c\u673a\u5668\u5b66\u4e60\", \"ML causal\", \"decomposition\", \"Oaxaca-Blinder\", \"Kitagawa\", \"DiNardo-Fortin-Lemieux\", \"DFL\", \"Gelbach\", \"RIF decomposition\", \"wage gap decomposition\", \"sp.decompose\", \"sp.oaxaca\".",
-    "path": "category/business-finance-accounting/00-Full-empirical-analysis-skill_StatsPAI"
-  },
-  {
     "id": "18-jusi-aalto-stata-accounting-research",
     "name": "18-jusi-aalto-stata-accounting-research",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "|",
+    "description": "STATA code pattern library for empirical archival accounting research. Provides tested syntax from 126 peer-reviewed JAR (Journal of Accounting Research) replication files (2017-2025). Use when the user asks procedural questions like \"How do I implement [method]?\" or \"Show me code for [technique]\" \u2014 including: entropy balancing, propensity score matching (PSM), difference-in-differences (DiD), regression discontinuity (RDD), instrumental variables (IV), event studies (CAR/BHAR), survival analysis, Fama-MacBeth regressions, bootstrap, quantile regression, reghdfe/xtreg/areg, clustering standard errors, fixed effects, esttab/outreg2 table formatting, winsorization, leads/lags. Users can specify their variables (e.g., treatment, outcomes, controls) and receive adapted syntax. NOTE: This skill provides code patterns from published papers, not research design advice.",
     "path": "category/business-finance-accounting/18-jusi-aalto-stata-accounting-research"
   },
   {
@@ -36,7 +28,7 @@
     "name": "akshare-finance-data",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Access Chinese and global financial data using the AkShare Python library\"",
+    "description": "Access Chinese and global financial data using the AkShare Python library",
     "path": "category/business-finance-accounting/akshare-finance-data"
   },
   {
@@ -44,15 +36,39 @@
     "name": "analytics-tracking",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Set up, audit, and debug analytics tracking implementation \u2014 GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality. Use when building a tracking plan from scratch, auditing existing analytics for gaps or errors, debugging missing events, or setting up GTM. Trigger keywords: GA4 setup, Google Tag Manager, GTM, event tracking, analytics implementation, conversion tracking, tracking plan, event taxonomy, custom dimensions, UTM tracking, analytics audit, missing events, tracking broken. NOT for analyzing marketing campaign data \u2014 use campaign-analytics for that. NOT for BI dashboards \u2014 use product-analytics for in-product event analysis.\"",
+    "description": "Set up, audit, and debug analytics tracking implementation \u2014 GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality. Use when building a tracking plan from scratch, auditing existing analytics for gaps or errors, debugging missing events, or setting up GTM. Trigger keywords: GA4 setup, Google Tag Manager, GTM, event tracking, analytics implementation, conversion tracking, tracking plan, event taxonomy, custom dimensions, UTM tracking, analytics audit, missing events, tracking broken. NOT for analyzing marketing campaign data \u2014 use campaign-analytics for that. NOT for BI dashboards \u2014 use product-analytics for in-product event analysis.",
     "path": "category/business-finance-accounting/analytics-tracking"
+  },
+  {
+    "id": "ap-processor",
+    "name": "ap-processor",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Works the bill pile end to end: reads bills and vendor statements out of the AP inbox or from uploaded PDFs and phone photos, pulls out vendor, amount, due date, and line detail, codes each one to the right account and job, matches it against the purchase order and the receiving ticket, then stages the entries and a proposed payment run in QuickBooks, Xero, or NetSuite for the owner to approve in one pass. Nothing is entered and nothing is paid without an explicit yes. Reach for this whenever bills, vendor invoices, or paying people comes up \u2014 including \"what do I owe,\" \"the bills are piling up,\" \"pull the invoices out of my email and into QuickBooks,\" \"code these for me,\" \"who needs to get paid this week,\" \"did we get billed twice,\" or when the owner forwards a supplier invoice with no message at all. Use it before cash-flow-snapshot or month-end-prep so those run on real payables instead of a guess.",
+    "path": "category/business-finance-accounting/ap-processor"
+  },
+  {
+    "id": "azure-ai-document-intelligence-dotnet",
+    "name": "azure-ai-document-intelligence-dotnet",
+    "category": "business-finance-accounting",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure AI Document Intelligence SDK for .NET. Extract text, tables, and structured data from documents using prebuilt and custom models. Use for invoice processing, receipt extraction, ID document analysis, and custom document models. Triggers: \"Document Intelligence\", \"DocumentIntelligenceClient\", \"form recognizer\", \"invoice extraction\", \"receipt OCR\", \"document analysis .NET\".",
+    "path": "category/business-finance-accounting/azure-ai-document-intelligence-dotnet"
+  },
+  {
+    "id": "azure-ai-translation-document-py",
+    "name": "azure-ai-translation-document-py",
+    "category": "business-finance-accounting",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure AI Document Translation SDK for batch translation of documents with format preservation. Use for translating Word, PDF, Excel, PowerPoint, and other document formats at scale. Triggers: \"document translation\", \"batch translation\", \"translate documents\", \"DocumentTranslationClient\".",
+    "path": "category/business-finance-accounting/azure-ai-translation-document-py"
   },
   {
     "id": "boardroom",
     "name": "boardroom",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:boardroom [brief] \u2014 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo. Use when a decision spans multiple executive domains \u2014 e.g. a pricing change touching finance, positioning, and product, or a raise-vs-cut runway call.\"",
+    "description": "/c-level-agents:boardroom [brief] \u2014 6-phase multi-role deliberation across the C-suite with Phase 2 isolation, critic pre-screen, and synthesis. Outputs a board memo. Use when a decision spans multiple executive domains \u2014 e.g. a pricing change touching finance, positioning, and product, or a raise-vs-cut runway call.",
     "path": "category/business-finance-accounting/boardroom"
   },
   {
@@ -64,11 +80,19 @@
     "path": "category/business-finance-accounting/budget-planner"
   },
   {
+    "id": "cash-flow-snapshot",
+    "name": "cash-flow-snapshot",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reads AR/AP, historical cash timing, and known fixed costs from the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) or from PayPal, Square, or Stripe \u2014 or a CSV upload \u2014 and produces a 30/60/90-day cash flow forecast with percentage-variance confidence bands and named risk flags. Delivers a chat summary and a downloadable XLSX. Use when the user asks \"forecast my cash flow,\" \"will I make payroll,\" mentions \"runway,\" or says \"cash crunch.\" Falls back to CSV upload when no connector is live.",
+    "path": "category/business-finance-accounting/cash-flow-snapshot"
+  },
+  {
     "id": "churn-prevention",
     "name": "churn-prevention",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Reduce voluntary and involuntary churn through cancel flow design, save offers, exit surveys, and dunning sequences. Use when designing or optimizing a cancel flow, building save offers, setting up dunning emails, or reducing failed-payment churn. Trigger keywords: cancel flow, churn reduction, save offers, dunning, exit survey, payment recovery, win-back, involuntary churn, failed payments, cancel page. NOT for customer health scoring or expansion revenue \u2014 use customer-success-manager for that.\"",
+    "description": "Reduce voluntary and involuntary churn through cancel flow design, save offers, exit surveys, and dunning sequences. Use when designing or optimizing a cancel flow, building save offers, setting up dunning emails, or reducing failed-payment churn. Trigger keywords: cancel flow, churn reduction, save offers, dunning, exit survey, payment recovery, win-back, involuntary churn, failed payments, cancel page. NOT for customer health scoring or expansion revenue \u2014 use customer-success-manager for that.",
     "path": "category/business-finance-accounting/churn-prevention"
   },
   {
@@ -120,6 +144,14 @@
     "path": "category/business-finance-accounting/cost-benefit"
   },
   {
+    "id": "cs-financial-analyst",
+    "name": "cs-financial-analyst",
+    "category": "business-finance-accounting",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../agents/finance/cs-financial-analyst.md",
+    "path": "category/business-finance-accounting/cs-financial-analyst"
+  },
+  {
     "id": "customer-success-manager",
     "name": "customer-success-manager",
     "category": "business-finance-accounting",
@@ -152,6 +184,70 @@
     "path": "category/business-finance-accounting/delivery-tracking"
   },
   {
+    "id": "earnings-preview",
+    "name": "earnings-preview",
+    "category": "business-finance-accounting",
+    "repository": "himself65-finance-skills",
+    "description": "Build a pre-earnings briefing for a stock from Yahoo Finance data (yfinance): the upcoming report date and timing, consensus EPS and revenue estimates with their range, the beat/miss track record, analyst ratings and price targets, and what to watch in the print. Use this skill whenever the user is preparing for an upcoming earnings report or asks what the street expects \u2014 consensus or whisper numbers, EPS expectations, whether a company will beat, an earnings setup, or an earnings-season preview \u2014 and whenever a ticker comes up in the context of upcoming earnings, even without the word \"preview\". For results that are already out, use earnings-recap.",
+    "path": "category/business-finance-accounting/earnings-preview"
+  },
+  {
+    "id": "earnings-recap",
+    "name": "earnings-recap",
+    "category": "business-finance-accounting",
+    "repository": "himself65-finance-skills",
+    "description": "Analyze a company's most recent (or a specified past) earnings report from Yahoo Finance data (yfinance): actual vs estimated EPS, surprise size, revenue and margin trends, and the stock's price reaction. Use this skill whenever the user asks how earnings went \u2014 beat or miss, earnings surprise, quarterly results, the post-earnings move, or an earnings call recap \u2014 including casual references to a past report such as \"AMZN reported last night\" or \"how did they do\". For an upcoming report, use earnings-preview.",
+    "path": "category/business-finance-accounting/earnings-recap"
+  },
+  {
+    "id": "education-data-source-ccd",
+    "name": "education-data-source-ccd",
+    "category": "business-finance-accounting",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "CCD \u2014 federal universe of all U.S. public K-12 schools (~100K) and districts (~18K). Enrollment, staffing, finance, directory data (1986-present). Use for public school analysis by grade/race/sex. Public only; excludes private and postsecondary.",
+    "path": "category/business-finance-accounting/education-data-source-ccd"
+  },
+  {
+    "id": "education-data-source-ipeds",
+    "name": "education-data-source-ipeds",
+    "category": "business-finance-accounting",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "IPEDS \u2014 primary federal postsecondary data (~6,500 institutions, 1980-present): enrollment, completions, graduation rates, finance, aid, admissions, HR. For college/university analysis. Grad rates = first-time full-time; finance needs GASB/FASB care.",
+    "path": "category/business-finance-accounting/education-data-source-ipeds"
+  },
+  {
+    "id": "education-data-source-nacubo",
+    "name": "education-data-source-nacubo",
+    "category": "business-finance-accounting",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "NACUBO endowment data (~650 institutions, 2012-2022). Portal: 7 columns only (total endowment, per-FTE, YoY change). Use for endowment size/trends. Full investment/spending needs direct NACUBO access. For all-institution coverage use IPEDS finance.",
+    "path": "category/business-finance-accounting/education-data-source-nacubo"
+  },
+  {
+    "id": "education-data-source-nccs",
+    "name": "education-data-source-nccs",
+    "category": "business-finance-accounting",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "NCCS \u2014 Form 990 data for private nonprofit colleges (Portal: IPEDS-matched, 1993-2016). Revenue, expenses, assets, endowment, governance beyond IPEDS. Use when IRS financial depth needed. Portal ends 2016; public institutions excluded (no Form 990).",
+    "path": "category/business-finance-accounting/education-data-source-nccs"
+  },
+  {
+    "id": "education-data-source-scorecard",
+    "name": "education-data-source-scorecard",
+    "category": "business-finance-accounting",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "College Scorecard \u2014 post-enrollment outcomes linking aid records to IRS/Treasury earnings. Earnings, loan repayment, debt via six Portal sub-datasets. Use when tax-record-based earnings needed. Tracks only Title IV aid recipients, not all students.",
+    "path": "category/business-finance-accounting/education-data-source-scorecard"
+  },
+  {
+    "id": "estimate-analysis",
+    "name": "estimate-analysis",
+    "category": "business-finance-accounting",
+    "repository": "himself65-finance-skills",
+    "description": "Analyze sell-side analyst estimates and how they are changing, using Yahoo Finance data (yfinance): EPS and revenue consensus by period, estimate ranges and dispersion, revision trends over 7/30/60/90 days and up/down revision breadth, growth estimates vs industry, sector, and the S&P 500, and historical estimate accuracy. Use this skill when the user wants more than a single estimate lookup: estimate revisions or momentum, EPS trend, consensus changes, forward or next-quarter and annual estimates, the bull vs bear estimate spread, or growth projections across periods.",
+    "path": "category/business-finance-accounting/estimate-analysis"
+  },
+  {
     "id": "excel-author",
     "name": "excel-author",
     "category": "business-finance-accounting",
@@ -164,7 +260,7 @@
     "name": "excel-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Excel Automation: create workbooks, manage worksheets, read/write cell data, and format spreadsheets via Microsoft Excel and Google Sheets integration\"",
+    "description": "Excel Automation: create workbooks, manage worksheets, read/write cell data, and format spreadsheets via Microsoft Excel and Google Sheets integration",
     "path": "category/business-finance-accounting/excel-automation"
   },
   {
@@ -188,7 +284,7 @@
     "name": "filter-syntax",
     "category": "business-finance-accounting",
     "repository": "dotnet-skills",
-    "description": "\"Reference-only filter syntax for VSTest and MTP with MSTest, NUnit, xUnit v3, and TUnit. Load only after the platform/framework is known and a consumer needs to create or translate a filter. Do not load for unfiltered runs or platform detection. Used by run-tests and mtp-hot-reload; never invoke directly.\"",
+    "description": "Reference-only filter syntax for VSTest and MTP with MSTest, NUnit, xUnit v3, and TUnit. Load only after the platform/framework is known and a consumer needs to create or translate a filter. Do not load for unfiltered runs or platform detection. Used by run-tests and mtp-hot-reload; never invoke directly.",
     "path": "category/business-finance-accounting/filter-syntax"
   },
   {
@@ -196,7 +292,7 @@
     "name": "finance",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"8 finance skills. Trigger: financial modeling, market data, risk analysis, quantitative finance. Design: data sources, quantitative methods, and regulatory frameworks.\"",
+    "description": "8 finance skills. Trigger: financial modeling, market data, risk analysis, quantitative finance. Design: data sources, quantitative methods, and regulatory frameworks.",
     "path": "category/business-finance-accounting/finance"
   },
   {
@@ -212,7 +308,7 @@
     "name": "finance-lead",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "",
+    "description": "../../../agents/personas/finance-lead.md",
     "path": "category/business-finance-accounting/finance-lead"
   },
   {
@@ -220,23 +316,15 @@
     "name": "finance-ops",
     "category": "business-finance-accounting",
     "repository": "ericosiu-ai-marketing-skills",
-    "description": "\"AI-powered financial analysis suite. Generates executive CFO briefings from QuickBooks exports (P&L, Balance Sheet, General Ledger, Cash Flow, etc.) with anomaly detection, burn rate, runway analysis, and scenario modeling. Also estimates codebase development costs with organizational overhead and AI ROI analysis. Triggers on: 'CFO briefing', 'financial analysis', 'cost briefing', 'expense review', 'runway analysis', 'burn rate', 'cost estimate', 'how much would this cost to build', 'development cost', 'Claude ROI'.\"",
+    "description": "AI-powered financial analysis suite. Generates executive CFO briefings from QuickBooks exports (P&L, Balance Sheet, General Ledger, Cash Flow, etc.) with anomaly detection, burn rate, runway analysis, and scenario modeling. Also estimates codebase development costs with organizational overhead and AI ROI analysis. Triggers on: 'CFO briefing', 'financial analysis', 'cost briefing', 'expense review', 'runway analysis', 'burn rate', 'cost estimate', 'how much would this cost to build', 'development cost', 'Claude ROI'.",
     "path": "category/business-finance-accounting/finance-ops"
-  },
-  {
-    "id": "finance-sentiment",
-    "name": "finance-sentiment",
-    "category": "business-finance-accounting",
-    "repository": "himself65-finance-skills",
-    "description": ">",
-    "path": "category/business-finance-accounting/finance-sentiment"
   },
   {
     "id": "finance-skills",
     "name": "finance-skills",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Router/index for the finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts), saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio) and month-end-close (close calendar, reconciliations, flux review). Use when a finance request doesn't obviously match one skill and you need to pick the right one (e.g., 'analyze these financials', 'how healthy are my SaaS metrics').\"",
+    "description": "Router/index for the finance skills bundled in this plugin: financial-analyst (ratio analysis, DCF valuation, budget variance, rolling forecasts), saas-metrics-coach (ARR/MRR, churn, CAC/LTV, NRR, quick ratio) and month-end-close (close calendar, reconciliations, flux review). Use when a finance request doesn't obviously match one skill and you need to pick the right one (e.g., 'analyze these financials', 'how healthy are my SaaS metrics').",
     "path": "category/business-finance-accounting/finance-skills"
   },
   {
@@ -268,7 +356,7 @@
     "name": "formula-derivation",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Structure and derive research formulas when the user wants to \u63a8\u5bfc\u516c\u5f0f, derive a theory line, build equations from a problem statement, clarify assumptions, separate formal derivation from remarks, or turn messy theory notes into a paper-ready derivation skeleton. Use for research-style formula development, not for fully rigorous theorem proving once the claim is already fixed.\"",
+    "description": "Structure and derive research formulas when the user wants to \u63a8\u5bfc\u516c\u5f0f, derive a theory line, build equations from a problem statement, clarify assumptions, separate formal derivation from remarks, or turn messy theory notes into a paper-ready derivation skeleton. Use for research-style formula development, not for fully rigorous theorem proving once the claim is already fixed.",
     "path": "category/business-finance-accounting/formula-derivation"
   },
   {
@@ -276,16 +364,8 @@
     "name": "freshbooks-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"FreshBooks Automation: manage businesses, projects, time tracking, and billing in FreshBooks cloud accounting\"",
+    "description": "FreshBooks Automation: manage businesses, projects, time tracking, and billing in FreshBooks cloud accounting",
     "path": "category/business-finance-accounting/freshbooks-automation"
-  },
-  {
-    "id": "google-cloud-waf-operational-excellence",
-    "name": "google-cloud-waf-operational-excellence",
-    "category": "business-finance-accounting",
-    "repository": "google-skills",
-    "description": ">-",
-    "path": "category/business-finance-accounting/google-cloud-waf-operational-excellence"
   },
   {
     "id": "instrument-data-to-allotrope",
@@ -300,7 +380,7 @@
     "name": "invoice-chase",
     "category": "business-finance-accounting",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Drafts overdue-invoice reminder emails from the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) plus PayPal, Stripe, and Airwallex data, matched to each customer's payment history and tone (gentle for good customers, firm for repeat late payers). Sends via PayPal with owner approval; everything else queues as a mail draft, with the Airwallex hosted pay link included where one exists. Use when the user asks \"who owes me money,\" mentions overdue invoices, or wants to follow up on unpaid invoices.",
     "path": "category/business-finance-accounting/invoice-chase"
   },
   {
@@ -360,6 +440,14 @@
     "path": "category/business-finance-accounting/lbo-model"
   },
   {
+    "id": "linkedin-reader",
+    "name": "linkedin-reader",
+    "category": "business-finance-accounting",
+    "repository": "himself65-finance-skills",
+    "description": "Read LinkedIn for financial research through opencli: the user's feed, and job search with location, seniority, job type, remote, company, and date filters. Use this skill whenever the user wants to check their LinkedIn feed, see what professionals or analysts are posting about a company, market, or earnings, gauge professional sentiment, or search finance and trading jobs on LinkedIn. Read-only: it cannot post, like, comment, connect, message, or apply.",
+    "path": "category/business-finance-accounting/linkedin-reader"
+  },
+  {
     "id": "longlist",
     "name": "longlist",
     "category": "business-finance-accounting",
@@ -388,7 +476,7 @@
     "name": "n8n-code-python",
     "category": "business-finance-accounting",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Write Python code in n8n Code nodes. Use when writing Python in n8n, using _input/_json/_node syntax, working with standard library, or need to understand Python limitations in n8n Code nodes.\"",
+    "description": "Write Python code in n8n Code nodes. Use when writing Python in n8n, using _input/_json/_node syntax, working with standard library, or need to understand Python limitations in n8n Code nodes.",
     "path": "category/business-finance-accounting/n8n-code-python"
   },
   {
@@ -412,7 +500,7 @@
     "name": "passive-deal-screener",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Screens private investment opportunities from the passive LP (limited-partner) perspective \u2014 equity syndications, preferred equity, hard money / bridge funds, and private credit \u2014 pasted from any source (an investment platform listing, a direct GP email, raw terms). Produces a deal snapshot, stress-tests returns against public benchmarks, deconstructs the fee stack to a gross-to-net drag, surfaces severity-ranked red flags and missing disclosures, assesses GP alignment, and generates prioritized GP questions with bad-answer signals. Use whenever asked to analyze, evaluate, screen, or review a real-estate or private-market deal, syndication, offering, or investment opportunity \u2014 e.g. 'is this deal worth pursuing', 'what should I ask the GP', 'analyze this offering memo'. LP lens only; not operator-side underwriting (acquisition/development/asset-management). For corporate-finance DCF/ratio work use financial-analyst.\"",
+    "description": "Screens private investment opportunities from the passive LP (limited-partner) perspective \u2014 equity syndications, preferred equity, hard money / bridge funds, and private credit \u2014 pasted from any source (an investment platform listing, a direct GP email, raw terms). Produces a deal snapshot, stress-tests returns against public benchmarks, deconstructs the fee stack to a gross-to-net drag, surfaces severity-ranked red flags and missing disclosures, assesses GP alignment, and generates prioritized GP questions with bad-answer signals. Use whenever asked to analyze, evaluate, screen, or review a real-estate or private-market deal, syndication, offering, or investment opportunity \u2014 e.g. 'is this deal worth pursuing', 'what should I ask the GP', 'analyze this offering memo'. LP lens only; not operator-side underwriting (acquisition/development/asset-management). For corporate-finance DCF/ratio work use financial-analyst.",
     "path": "category/business-finance-accounting/passive-deal-screener"
   },
   {
@@ -420,7 +508,7 @@
     "name": "payroll-prep",
     "category": "business-finance-accounting",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Gets payroll ready to run without anyone getting shorted: pulls timesheets from Gusto, QuickBooks Payroll, or an uploaded spreadsheet, totals regular, overtime, and PTO hours by person, flags every anomaly it finds \u2014 missed punches, overtime spikes, rate changes, mid-period hires and terminations, hours off the schedule \u2014 and stages the run for the owner to approve line by line before a dollar moves. Anomalies are always raised, never quietly corrected. Once the owner runs it, the journal posts to the ledger or goes to the bookkeeper. Reach for this whenever payroll comes up at all \u2014 \"run payroll,\" \"payroll is due,\" \"check the timecards,\" \"did everyone clock out,\" \"how many hours did the crew put in,\" \"why is payroll so high this week,\" \"I need to pay the guys Friday\" \u2014 and use it after cash-flow-snapshot when the owner is worried about whether payroll clears.",
     "path": "category/business-finance-accounting/payroll-prep"
   },
   {
@@ -460,7 +548,7 @@
     "name": "pricing-strategy",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Design, optimize, and communicate SaaS pricing \u2014 tier structure, value metrics, pricing pages, and price increase strategy. Use when building a pricing model from scratch, redesigning existing pricing, planning a price increase, or improving a pricing page. Trigger keywords: pricing tiers, pricing page, price increase, packaging, value metric, per seat pricing, usage-based pricing, freemium, good-better-best, pricing strategy, monetization, pricing page conversion, Van Westendorp. NOT for broader product strategy \u2014 use product-strategist for that. NOT for customer success or renewals \u2014 use customer-success-manager for expansion revenue.\"",
+    "description": "Design, optimize, and communicate SaaS pricing \u2014 tier structure, value metrics, pricing pages, and price increase strategy. Use when building a pricing model from scratch, redesigning existing pricing, planning a price increase, or improving a pricing page. Trigger keywords: pricing tiers, pricing page, price increase, packaging, value metric, per seat pricing, usage-based pricing, freemium, good-better-best, pricing strategy, monetization, pricing page conversion, Van Westendorp. NOT for broader product strategy \u2014 use product-strategist for that. NOT for customer success or renewals \u2014 use customer-success-manager for expansion revenue.",
     "path": "category/business-finance-accounting/pricing-strategy"
   },
   {
@@ -472,11 +560,27 @@
     "path": "category/business-finance-accounting/problem-statement"
   },
   {
+    "id": "process-model",
+    "name": "process-model",
+    "category": "business-finance-accounting",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Implement Hayes PROCESS mediation and moderation models transparently via lavaan and bruceR, with bootstrap CIs, index of moderated mediation, Johnson-Neyman regions of significance, and APA-formatted output that matches familiar PROCESS tables. Maps model numbers (1-24) to inspectable lavaan syntax instead of black-box macros. Use when the user says \"PROCESS model,\" \"mediation,\" \"moderated mediation,\" \"conditional indirect effect,\" \"Hayes model,\" \"indirect effect,\" \"moderation,\" or when /analyze encounters a mediation/moderation hypothesis. Triggers on \"PROCESS,\" \"mediation,\" \"moderation,\" \"indirect effect,\" \"Hayes.",
+    "path": "category/business-finance-accounting/process-model"
+  },
+  {
+    "id": "proposal-builder",
+    "name": "proposal-builder",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Turns whatever came out of a discovery conversation \u2014 a call transcript, a voice memo, jobsite photos, an RFP document, a set of drawings, or scrappy notes \u2014 into a branded, costed proposal, estimate, or statement of work built on the owner's own templates and historical pricing. Routes it for signature and triggers the deposit invoice once it's accepted. Works entirely from uploaded files when no connector is available, producing DOCX and PDF the owner can send themselves. Use this whenever a quote, bid, estimate, proposal, or SOW is the deliverable \u2014 including phrasings like \"write this up for them,\" \"put together a quote,\" \"I need to bid this job,\" \"turn my notes into a proposal,\" \"respond to this RFP,\" or \"price this out.\" Reach for it when the owner describes a job they just looked at, even without saying the word quote.",
+    "path": "category/business-finance-accounting/proposal-builder"
+  },
+  {
     "id": "quantitative-finance-guide",
     "name": "quantitative-finance-guide",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Quantitative methods for financial modeling, derivatives pricing, and risk an...\"",
+    "description": "Quantitative methods for financial modeling, derivatives pricing, and risk an...",
     "path": "category/business-finance-accounting/quantitative-finance-guide"
   },
   {
@@ -486,6 +590,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Generate academic referee reports for economics/finance papers, followed by a 150-word letter to the editor with recommendation (Reject / Major Revision) and Kai Wu signature. Two modes (normal / high-level), configurable number of comments; recommendation choice drives evaluation tone (Reject \u2192 negative, Major Revision \u2192 neutral). Trigger when user says \"referee report\" / \"write referee report\" / \"\u5ba1\u7a3f\u62a5\u544a\" / \"\u5199\u5ba1\u7a3f\u610f\u89c1\" / \"generate referee report\" / \"review this paper\".",
     "path": "category/business-finance-accounting/referee-report"
+  },
+  {
+    "id": "report-builder",
+    "name": "report-builder",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Turns a plain-English description of a recurring report into a real, repeatable report \u2014 defines the metrics, pulls them from whatever data sources are connected, delivers a chat summary plus an XLSX workbook, and saves the definition so the same report reruns on demand or on a schedule. Handles anything from \"sales by location versus last year\" to AR aging to labor as a percentage of revenue. Works fully from an uploaded CSV or XLSX when no connector is available. Use this whenever the owner asks for a report, dashboard, KPI pack, metrics summary, or recurring numbers \u2014 including phrasings like \"can you track this every week,\" \"I need to see these numbers monthly,\" \"build me a report on,\" \"same report as last time,\" or \"put together a KPI dashboard.\" Reach for it even when the owner names the metrics without using the word report.",
+    "path": "category/business-finance-accounting/report-builder"
   },
   {
     "id": "report-writing",
@@ -516,7 +628,7 @@
     "name": "revenue-intelligence",
     "category": "business-finance-accounting",
     "repository": "ericosiu-ai-marketing-skills",
-    "description": "",
+    "description": "python3 telemetry/version_check.py 2>/dev/null || true",
     "path": "category/business-finance-accounting/revenue-intelligence"
   },
   {
@@ -588,7 +700,7 @@
     "name": "startup-business-analyst-financial-projections",
     "category": "business-finance-accounting",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Create detailed 3-5 year financial model with revenue, costs, cash\"",
+    "description": "Create detailed 3-5 year financial model with revenue, costs, cash",
     "path": "category/business-finance-accounting/startup-business-analyst-financial-projections"
   },
   {
@@ -596,7 +708,7 @@
     "name": "stata-accounting-guide",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"STATA code for empirical accounting and financial economics research\"",
+    "description": "STATA code for empirical accounting and financial economics research",
     "path": "category/business-finance-accounting/stata-accounting-guide"
   },
   {
@@ -604,7 +716,7 @@
     "name": "stata-accounting-research",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"STATA code patterns for empirical accounting and finance research\"",
+    "description": "STATA code patterns for empirical accounting and finance research",
     "path": "category/business-finance-accounting/stata-accounting-research"
   },
   {
@@ -612,7 +724,7 @@
     "name": "stata-reference-guide",
     "category": "business-finance-accounting",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Comprehensive Stata reference covering syntax, econometrics, and 20+ packages\"",
+    "description": "Comprehensive Stata reference covering syntax, econometrics, and 20+ packages",
     "path": "category/business-finance-accounting/stata-reference-guide"
   },
   {
@@ -622,6 +734,22 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Produce a rigorous, sector-relative, multi-factor fundamental analysis of a publicly listed company \u2014 Indian (NSE/BSE) or US/global. Use when the user asks to analyse, research, evaluate, or value a stock, ticker, or listed company; asks whether a business is fundamentally strong, cheap, or expensive; compares companies or benchmarks one against its sector; or mentions OPM, ROCE, ROE, ROIC, P/E, EV/EBITDA, free cash flow, NIM, GNPA, CASA, promoter holding or pledging. Use it for accounting-quality and forensic questions \u2014 \"is the profit real\", \"why is profit rising but cash isn't\", auditor qualifications, related-party concerns \u2014 which route to the forensic-only mode, and for IPOs and not-yet-listed companies \u2014 \"should I apply to this IPO\", DRHP/RHP or S-1 questions, price band, grey market premium \u2014 which route to the IPO mode. Use it even when the request sounds casual (\"is Infosys any good?\"). Do not use it for personalised investment advice, portfolio allocation, or trading signals.",
     "path": "category/business-finance-accounting/stock-analysis"
+  },
+  {
+    "id": "stock-correlation",
+    "name": "stock-correlation",
+    "category": "business-finance-accounting",
+    "repository": "himself65-finance-skills",
+    "description": "Analyze how stocks move together using Yahoo Finance price history (yfinance): find correlated peers for a ticker, measure correlation, beta, and spread between specific tickers, cluster a group into a correlation matrix, and track rolling or regime-dependent correlation. Use this skill whenever the user asks what moves with a stock, what else drops when it drops, related tickers or sympathy plays, sector or supply-chain peers, pair trading or hedging pairs, beta or relative performance, correlation matrices, co-movement, or rolling/realized correlation \u2014 including well-known pairs like AMD/NVDA, GOOGL/AVGO, or LITE/COHR. With a single ticker, assume the user wants its correlated peers.",
+    "path": "category/business-finance-accounting/stock-correlation"
+  },
+  {
+    "id": "stock-liquidity",
+    "name": "stock-liquidity",
+    "category": "business-finance-accounting",
+    "repository": "himself65-finance-skills",
+    "description": "Analyze how liquid a stock is using Yahoo Finance data (yfinance): bid-ask spreads, volume and dollar volume (ADTV), top-of-book and options depth, square-root market impact and slippage estimates, turnover ratio, and Amihud illiquidity, rolled into a liquidity grade. Use this skill whenever the user asks about liquidity or trading costs \u2014 how easily a position can be entered or exited, what a large order would do to the price, spread or execution-cost estimates, order book depth, volume patterns, or liquidity comparisons \u2014 especially for small caps, penny stocks, and thinly traded names.",
+    "path": "category/business-finance-accounting/stock-liquidity"
   },
   {
     "id": "stocks",
@@ -636,7 +764,7 @@
     "name": "stress-test",
     "category": "business-finance-accounting",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/em:stress-test \u2014 Business assumption stress testing. Use before betting on a plan whose core assumptions are unvalidated \u2014 e.g. stress-testing 'enterprise buyers will tolerate a 6-month pilot' or a hockey-stick revenue model.\"",
+    "description": "/em:stress-test \u2014 Business assumption stress testing. Use before betting on a plan whose core assumptions are unvalidated \u2014 e.g. stress-testing 'enterprise buyers will tolerate a 6-month pilot' or a hockey-stick revenue model.",
     "path": "category/business-finance-accounting/stress-test"
   },
   {
@@ -660,7 +788,7 @@
     "name": "tag-taxonomy",
     "category": "business-finance-accounting",
     "repository": "ar9av-obsidian-wiki",
-    "description": ">",
+    "description": "Apply and maintain the wiki's controlled tag vocabulary. Use for choosing, normalizing, auditing, or extending tags when creating or updating wiki pages; consult the taxonomy before assigning tags.",
     "path": "category/business-finance-accounting/tag-taxonomy"
   },
   {
@@ -668,15 +796,39 @@
     "name": "tax-season-organizer",
     "category": "business-finance-accounting",
     "repository": "anthropics-knowledge-work",
-    "description": ">",
+    "description": "Prepares tax-season materials for the owner's accountant, not tax advice. US federal tax; a non-US business gets its closed-books packet instead. Two modes: (1) quarterly estimated tax from YTD net income in the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books); (2) year-end 1099 prep, scanning the ledger, PayPal, and Stripe for contractors paid over USD 600 into a 1099-NEC list with missing W-9 flags.",
     "path": "category/business-finance-accounting/tax-season-organizer"
+  },
+  {
+    "id": "trader-analyst",
+    "name": "trader-analyst",
+    "category": "business-finance-accounting",
+    "repository": "jakeschincariol-day-trader-skill",
+    "description": "The Earnings Analyst. Reads a company's reported numbers straight from SEC EDGAR (XBRL company facts from its 10-Qs and 10-Ks, plus the latest earnings 8-K and its press release) and sums up what changed: revenue, gross, operating and net margins, net income and diluted EPS, quarter by quarter, each against the same quarter a year earlier, with the trailing twelve months. Reads an earnings call transcript when you paste one. Use when the user says \"how did Tesla's earnings look\", \"analyze the earnings\", \"what changed this quarter\", \"is revenue growing\", \"check the 10-Q\", \"compare margins\", \"sum up the call\", \"does it report this week\", or before trading a stock around its earnings.",
+    "path": "category/business-finance-accounting/trader-analyst"
+  },
+  {
+    "id": "trader-news",
+    "name": "trader-news",
+    "category": "business-finance-accounting",
+    "repository": "jakeschincariol-day-trader-skill",
+    "description": "News Monitor. Tracks breaking news on every stock you watch and flags what moves it: Yahoo Finance headlines per ticker, each company's 8-K filings on SEC EDGAR (earnings, CEO changes, deals, restatements, bankruptcy) and how far each stock is from yesterday's close. Shows only what is new since the last check, newest first, in New York time, tags each item (earnings, analyst, deal, halt, regulatory, macro...) and never repeats one. Use when the user says \"any news on TSLA\", \"why is this moving\", \"what's the news on my watchlist\", \"morning briefing\", \"pre-market news\", \"monitor the news\", \"did anything break\", \"check the 8-Ks\", or after /trader-scanner finds setups.",
+    "path": "category/business-finance-accounting/trader-news"
+  },
+  {
+    "id": "trader-screener",
+    "name": "trader-screener",
+    "category": "business-finance-accounting",
+    "repository": "jakeschincariol-trader-skill",
+    "description": "The Stock Screener. Checks a list of companies against the user's own rules (revenue growth, margins, EPS, P/E, earnings yield, sector, anything in the metrics file), says exactly which rule each company passes or fails and by how much, and ranks the ones that pass into a shortlist. Reads the metrics /trader-analyst writes from SEC filings, or any CSV. Use when the user says \"screen for stocks\", \"find me companies that\", \"filter my watchlist\", \"which of these pass my rules\", \"shortlist candidates\", \"rank these stocks\", or \"growing companies under 30 times earnings\".",
+    "path": "category/business-finance-accounting/trader-screener"
   },
   {
     "id": "trader-tax",
     "name": "trader-tax",
     "category": "business-finance-accounting",
     "repository": "jakeschincariol-trader-skill",
-    "description": ">-",
+    "description": "Tax Optimizer. Tracks cost-basis lots for every position (FIFO, highest cost first, or specific lots), shows unrealized gains and losses by lot with short or long term, works out what a sale would realize before you sell, finds tax-loss harvesting candidates over a loss threshold, checks the wash sale rule (30 days before and after, GOOG and GOOGL as one family), and writes harvest sells only as proposals. Not tax advice. Use when the user says \"what are my gains\", \"cost basis\", \"tax lots\", \"tax-loss harvest\", \"what would selling cost me in tax\", \"short or long term\", \"wash sale\", or before selling anything.",
     "path": "category/business-finance-accounting/trader-tax"
   },
   {
@@ -692,7 +844,7 @@
     "name": "wave-accounting-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Wave Accounting toolkit is not currently available as a native integration. No Wave-specific tools were found in the Composio platform. This skill is a placeholder pending future integration.\"",
+    "description": "Wave Accounting toolkit is not currently available as a native integration. No Wave-specific tools were found in the Composio platform. This skill is a placeholder pending future integration.",
     "path": "category/business-finance-accounting/wave-accounting-automation"
   },
   {
@@ -700,7 +852,7 @@
     "name": "wave_accounting-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Wave Accounting tasks via Rube MCP (Composio): invoices, customers, payments, and small business accounting. Always search tools first for current schemas.\"",
+    "description": "Automate Wave Accounting tasks via Rube MCP (Composio): invoices, customers, payments, and small business accounting. Always search tools first for current schemas.",
     "path": "category/business-finance-accounting/wave_accounting-automation"
   },
   {
@@ -716,7 +868,7 @@
     "name": "yfinance-data",
     "category": "business-finance-accounting",
     "repository": "himself65-finance-skills",
-    "description": ">",
+    "description": "Fetch financial and market data with the yfinance Python library (Yahoo Finance). Use this skill whenever the user wants stock data: current quotes and price history, financial statements (income statement, balance sheet, cash flow), options chains, dividends and splits, earnings and analyst estimates, price targets and ratings, institutional and insider holdings, news, multi-ticker comparisons, stock screens, or sector and industry data. Use it even when the user gives only a ticker symbol (AAPL, MSFT, TSLA) and the intent has to be inferred. For earnings previews or recaps, estimate revisions, valuation, correlation, liquidity, or ETF premium analysis, prefer the dedicated skill.",
     "path": "category/business-finance-accounting/yfinance-data"
   },
   {
@@ -724,7 +876,7 @@
     "name": "zoho-books-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Zoho Books accounting workflows including invoice creation, bill management, contact lookup, payment tracking, and multi-organization support through natural language commands\"",
+    "description": "Automate Zoho Books accounting workflows including invoice creation, bill management, contact lookup, payment tracking, and multi-organization support through natural language commands",
     "path": "category/business-finance-accounting/zoho-books-automation"
   },
   {
@@ -732,7 +884,7 @@
     "name": "zoho-invoice-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Zoho Invoice tasks via Rube MCP (Composio). Always search tools first for current schemas.\"",
+    "description": "Automate Zoho Invoice tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/business-finance-accounting/zoho-invoice-automation"
   },
   {
@@ -740,7 +892,7 @@
     "name": "zoho_books-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Zoho Books tasks via Rube MCP (Composio): invoices, expenses, contacts, payments, and accounting. Always search tools first for current schemas.\"",
+    "description": "Automate Zoho Books tasks via Rube MCP (Composio): invoices, expenses, contacts, payments, and accounting. Always search tools first for current schemas.",
     "path": "category/business-finance-accounting/zoho_books-automation"
   },
   {
@@ -748,7 +900,7 @@
     "name": "zoho_invoice-automation",
     "category": "business-finance-accounting",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Zoho Invoice tasks via Rube MCP (Composio): invoices, estimates, expenses, clients, and payment tracking. Always search tools first for current schemas.\"",
+    "description": "Automate Zoho Invoice tasks via Rube MCP (Composio): invoices, estimates, expenses, clients, and payment tracking. Always search tools first for current schemas.",
     "path": "category/business-finance-accounting/zoho_invoice-automation"
   }
 ]

@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 224 repositories  
-> **Total Skills in Reserve**: 7,488 skills  
+> **Total Skills in Reserve**: 8,775 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -44,7 +44,7 @@
 | `browser-act-skills` | [browser-act/skills](https://github.com/browser-act/skills) | **103** | `python .agents/library/activate_skill.py activate 1688-product-detail` |
 | `browser-use-skills` | [browser-use/browser-use](https://github.com/browser-use/browser-use) | **6** | `python .agents/library/activate_skill.py activate browser-use` |
 | `browserbase-skills` | [browserbase/skills](https://github.com/browserbase/skills) | **18** | `python .agents/library/activate_skill.py activate add-webmcp` |
-| `brycewang-stanford-auto-empirical-research-skills` | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | **1025** | `python .agents/library/activate_skill.py activate 00-Full-empirical-analysis-skill_StatsPAI` |
+| `brycewang-stanford-auto-empirical-research-skills` | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | **1024** | `python .agents/library/activate_skill.py activate 00-Full-empirical-analysis-skill_StatsPAI` |
 | `builderio-skills` | [BuilderIO/skills](https://github.com/BuilderIO/skills) | **25** | `python .agents/library/activate_skill.py activate adding-a-skill` |
 | `buzzbysolcex-buzz-bd-agent` | [buzzbysolcex/buzz-bd-agent](https://github.com/buzzbysolcex/buzz-bd-agent) | **38** | `python .agents/library/activate_skill.py activate agent-contexts` |
 | `charlie947-social-media-skills` | [charlie947/social-media-skills](https://github.com/charlie947/social-media-skills) | **17** | `python .agents/library/activate_skill.py activate analytics-dashboard` |
@@ -116,47 +116,47 @@
 | `jakeschincariol-trader-skill` | [Jakeschincariol/trader-skill](https://github.com/Jakeschincariol/trader-skill) | **11** | `python .agents/library/activate_skill.py activate trader-alerts` |
 | `jakeschincariol-youtube-agent-skill` | [Jakeschincariol/youtube-agent-skill](https://github.com/Jakeschincariol/youtube-agent-skill) | **11** | `python .agents/library/activate_skill.py activate yt-audit` |
 | `jakubkrehel-design-skills` | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | **14** | `python .agents/library/activate_skill.py activate better-accessibility` |
-| `jeffallan-claude-skills` | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | **1** | `python .agents/library/activate_skill.py activate claude` |
+| `jeffallan-claude-skills` | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | **68** | `python .agents/library/activate_skill.py activate angular-architect` |
 | `jetbrains-thinkrail` | [JetBrains/thinkrail](https://github.com/JetBrains/thinkrail) | **12** | `python .agents/library/activate_skill.py activate asking-user-questions` |
-| `jimliu-baoyu-design` | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | **1** | `python .agents/library/activate_skill.py activate release-skills` |
-| `jimliu-baoyu-skills` | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | **1** | `python .agents/library/activate_skill.py activate release-skills` |
+| `jimliu-baoyu-design` | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | **2** | `python .agents/library/activate_skill.py activate baoyu-design` |
+| `jimliu-baoyu-skills` | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | **22** | `python .agents/library/activate_skill.py activate baoyu-article-illustrator` |
 | `juliobsz-skills` | [juliobsz/skills](https://github.com/juliobsz/skills) | **2** | `python .agents/library/activate_skill.py activate awwwards` |
 | `juliusbrussee-caveman` | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | **30** | `python .agents/library/activate_skill.py activate cavecrew` |
 | `kaankiziltug-logo-design-skill` | [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill) | **1** | `python .agents/library/activate_skill.py activate logo-design` |
 | `kdense-scientific-skills` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | **177** | `python .agents/library/activate_skill.py activate 13c-metabolic-flux` |
 | `kepano-obsidian-skills` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | **6** | `python .agents/library/activate_skill.py activate defuddle` |
-| `latent-spaces-brag` | [latent-spaces/brag](https://github.com/latent-spaces/brag) | **1** | `python .agents/library/activate_skill.py activate brag` |
+| `latent-spaces-brag` | [latent-spaces/brag](https://github.com/latent-spaces/brag) | **2** | `python .agents/library/activate_skill.py activate brag` |
 | `lemomo-opuscar` | [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | **1** | `python .agents/library/activate_skill.py activate lemo-opuscar` |
 | `leonxlnx-cinetic` | [Leonxlnx/cinetic](https://github.com/Leonxlnx/cinetic) | **1** | `python .agents/library/activate_skill.py activate cinetic` |
-| `lewislulu-html-ppt-skill` | [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill) | **2** | `python .agents/library/activate_skill.py activate html-ppt` |
+| `lewislulu-html-ppt-skill` | [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill) | **3** | `python .agents/library/activate_skill.py activate html-ppt` |
 | `liustack-modlens` | [liustack/modlens](https://github.com/liustack/modlens) | **1** | `python .agents/library/activate_skill.py activate modlens` |
-| `ljagiello-ctf-skills` | [ljagiello/ctf-skills](https://github.com/ljagiello/ctf-skills) | **7** | `python .agents/library/activate_skill.py activate ctf-ai-ml` |
+| `ljagiello-ctf-skills` | [ljagiello/ctf-skills](https://github.com/ljagiello/ctf-skills) | **12** | `python .agents/library/activate_skill.py activate ctf-ai-ml` |
 | `lobehub-skills` | [lobehub/lobehub](https://github.com/lobehub/lobehub) | **57** | `python .agents/library/activate_skill.py activate acceptance` |
 | `lovisdotio-motion2code` | [lovisdotio/motion2code](https://github.com/lovisdotio/motion2code) | **1** | `python .agents/library/activate_skill.py activate motion2code` |
 | `madxcrazy-antigravity-skills` | [MaDxCRaZY/antigravity-skills](https://github.com/MaDxCRaZY/antigravity-skills) | **4** | `python .agents/library/activate_skill.py activate battle` |
-| `magentosh-superpowers` | [magentosh/superpowers](https://github.com/magentosh/superpowers) | **86** | `python .agents/library/activate_skill.py activate affirmations` |
+| `magentosh-superpowers` | [magentosh/superpowers](https://github.com/magentosh/superpowers) | **87** | `python .agents/library/activate_skill.py activate affirmations` |
 | `mahanaicoach-google-maps-scraper-kit` | [Mahanaicoach/google-maps-scraper-kit](https://github.com/Mahanaicoach/google-maps-scraper-kit) | **1** | `python .agents/library/activate_skill.py activate google-maps-scraper` |
 | `makenotion-notion-cookbook` | [makenotion/notion-cookbook](https://github.com/makenotion/notion-cookbook) | **26** | `python .agents/library/activate_skill.py activate auth-guide` |
 | `markdown-viewer-skills` | [markdown-viewer/skills](https://github.com/markdown-viewer/skills) | **1** | `python .agents/library/activate_skill.py activate documd-visuals` |
 | `master-cai-research-paper-writing-skills` | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | **1** | `python .agents/library/activate_skill.py activate research-paper-writing` |
 | `mattpocock-skills` | [mattpocock/skills](https://github.com/mattpocock/skills) | **38** | `python .agents/library/activate_skill.py activate ask-matt` |
-| `mcncarl-yichen-skills` | [mcncarl/yichen-skills](https://github.com/mcncarl/yichen-skills) | **12** | `python .agents/library/activate_skill.py activate yichen-agent-memory` |
+| `mcncarl-yichen-skills` | [mcncarl/yichen-skills](https://github.com/mcncarl/yichen-skills) | **17** | `python .agents/library/activate_skill.py activate yichen-agent-memory` |
 | `melonjs-melonjs` | [melonjs/melonJS](https://github.com/melonjs/melonJS) | **1** | `python .agents/library/activate_skill.py activate melonjs` |
-| `mengto-skills` | [MengTo/Skills](https://github.com/MengTo/Skills) | **1** | `python .agents/library/activate_skill.py activate skills` |
-| `metalbear-co-mirrord` | [metalbear-co/mirrord](https://github.com/metalbear-co/mirrord) | **1** | `python .agents/library/activate_skill.py activate mirrord` |
-| `michael-denyer-pstack-claude` | [michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude) | **1** | `python .agents/library/activate_skill.py activate pstack-claude` |
+| `mengto-skills` | [MengTo/Skills](https://github.com/MengTo/Skills) | **179** | `python .agents/library/activate_skill.py activate 3d-cloth-material` |
+| `metalbear-co-mirrord` | [metalbear-co/mirrord](https://github.com/metalbear-co/mirrord) | **13** | `python .agents/library/activate_skill.py activate mirrord` |
+| `michael-denyer-pstack-claude` | [michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude) | **68** | `python .agents/library/activate_skill.py activate architect` |
 | `microsoft-playwright-cli` | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | **6** | `python .agents/library/activate_skill.py activate dev` |
-| `minimax-ai-skills` | [MiniMax-AI/skills](https://github.com/MiniMax-AI/skills) | **1** | `python .agents/library/activate_skill.py activate pr-review` |
+| `minimax-ai-skills` | [MiniMax-AI/skills](https://github.com/MiniMax-AI/skills) | **23** | `python .agents/library/activate_skill.py activate android-native-dev` |
 | `miqdadbadjuber-anti-slop` | [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) | **7** | `python .agents/library/activate_skill.py activate anti-slop` |
 | `mrbongoc-ai-iso-skill` | [MrBongoC/ai-iso-skill](https://github.com/MrBongoC/ai-iso-skill) | **1** | `python .agents/library/activate_skill.py activate iso-figure` |
-| `mukul975-anthropic-cybersecurity-skills` | [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | **1** | `python .agents/library/activate_skill.py activate anthropic-cybersecurity` |
+| `mukul975-anthropic-cybersecurity-skills` | [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | **819** | `python .agents/library/activate_skill.py activate abusing-dpapi-for-credential-access` |
 | `multica-ai-andrej-karpathy-skills` | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | **1** | `python .agents/library/activate_skill.py activate karpathy-guidelines` |
-| `muratcankoylan-agent-skills-for-context-engineering` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | **2** | `python .agents/library/activate_skill.py activate agent-skills-for-context-engineering` |
-| `muxuuu-serenity-skill` | [muxuuu/serenity-skill](https://github.com/muxuuu/serenity-skill) | **2** | `python .agents/library/activate_skill.py activate muxuuu-serenity` |
+| `muratcankoylan-agent-skills-for-context-engineering` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | **25** | `python .agents/library/activate_skill.py activate advanced-evaluation` |
+| `muxuuu-serenity-skill` | [muxuuu/serenity-skill](https://github.com/muxuuu/serenity-skill) | **3** | `python .agents/library/activate_skill.py activate muxuuu-serenity` |
 | `mvanhorn-last30days-skill` | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | **1** | `python .agents/library/activate_skill.py activate last30days` |
-| `mvschwarz-openrig` | [mvschwarz/openrig](https://github.com/mvschwarz/openrig) | **1** | `python .agents/library/activate_skill.py activate developing-openrig` |
+| `mvschwarz-openrig` | [mvschwarz/openrig](https://github.com/mvschwarz/openrig) | **55** | `python .agents/library/activate_skill.py activate agent-browser` |
 | `nanako0129-sepia` | [Nanako0129/sepia](https://github.com/Nanako0129/sepia) | **6** | `python .agents/library/activate_skill.py activate sepia` |
-| `nano-muse-nanomuse` | [nano-muse/nanoMuse](https://github.com/nano-muse/nanoMuse) | **1** | `python .agents/library/activate_skill.py activate nanomuse` |
+| `nano-muse-nanomuse` | [nano-muse/nanoMuse](https://github.com/nano-muse/nanoMuse) | **12** | `python .agents/library/activate_skill.py activate amap` |
 | `nateherkai-herk-edit-kit` | [nateherkai/herk-edit-kit](https://github.com/nateherkai/herk-edit-kit) | **15** | `python .agents/library/activate_skill.py activate cut-mistakes` |
 | `nateherkai-scroll-craft` | [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) | **1** | `python .agents/library/activate_skill.py activate scroll-craft` |
 | `neondatabase-agent-skills` | [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills) | **10** | `python .agents/library/activate_skill.py activate neon` |

@@ -1,5 +1,13 @@
 [
   {
+    "id": "a2a-protocol",
+    "name": "a2a-protocol",
+    "category": "multi-agent-orchestration",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Builds Agent-to-Agent (A2A) servers and clients following Google's open protocol for agent interoperability. Use when the user wants to create an A2A-compliant agent, build an Agent Card, implement task management, connect agents across frameworks, set up agent discovery, handle streaming responses, implement push notifications, or orchestrate multi-agent workflows. Trigger words: a2a, agent to agent, agent2agent, a2a protocol, a2a server, a2a client, agent card, agent interoperability, agent collaboration, multi-agent, agent discovery, a2a sdk, a2a task.",
+    "path": "category/multi-agent-orchestration/a2a-protocol"
+  },
+  {
     "id": "agent-browser",
     "name": "agent-browser",
     "category": "multi-agent-orchestration",
@@ -20,15 +28,23 @@
     "name": "agent-orchestration-multi-agent-optimize",
     "category": "multi-agent-orchestration",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orchestration. Use when improving agent performance, throughput, or reliability.\"",
+    "description": "Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orchestration. Use when improving agent performance, throughput, or reliability.",
     "path": "category/multi-agent-orchestration/agent-orchestration-multi-agent-optimize"
+  },
+  {
+    "id": "agent-startup-and-context-ingestion",
+    "name": "agent-startup-and-context-ingestion",
+    "category": "multi-agent-orchestration",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when designing or auditing how an agent becomes useful after launch \u2014 AGENTS.md overlays, role files, skills, rig specs, workflow specs, startup checklists, refocus messages, \"rig context\" surface. Covers the 4 failure modes that make startup context fail (old rig spec misses current operating mode; current agents never told about new guidance; startup file as dumping ground; orchestrator transmits implementation without preserving product intent).",
+    "path": "category/multi-agent-orchestration/agent-startup-and-context-ingestion"
   },
   {
     "id": "ai-agents-architect",
     "name": "ai-agents-architect",
     "category": "multi-agent-orchestration",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning strategies, and multi-agent orchestration. Use when: build agent, AI agent, autonomous agent, tool ...\"",
+    "description": "Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning strategies, and multi-agent orchestration. Use when: build agent, AI agent, autonomous agent, tool ...",
     "path": "category/multi-agent-orchestration/ai-agents-architect"
   },
   {
@@ -44,7 +60,7 @@
     "name": "automation",
     "category": "multi-agent-orchestration",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"10 research automation skills. Trigger: automating experiments, tracking results, reproducible pipelines. Design: ML experiment management, workflow orchestration, and lab automation tools.\"",
+    "description": "10 research automation skills. Trigger: automating experiments, tracking results, reproducible pipelines. Design: ML experiment management, workflow orchestration, and lab automation tools.",
     "path": "category/multi-agent-orchestration/automation"
   },
   {
@@ -60,7 +76,7 @@
     "name": "bug-hunt-swarm",
     "category": "multi-agent-orchestration",
     "repository": "dimillian-skills",
-    "description": "\"Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures. Use when the user asks to investigate a bug, find the root cause, trace a regression, understand why something broke, or wants a ranked diagnosis with the fastest proof path without making code edits.\"",
+    "description": "Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky behavior, or unexplained failures. Use when the user asks to investigate a bug, find the root cause, trace a regression, understand why something broke, or wants a ranked diagnosis with the fastest proof path without making code edits.",
     "path": "category/multi-agent-orchestration/bug-hunt-swarm"
   },
   {
@@ -68,7 +84,7 @@
     "name": "competitive-analysis-process",
     "category": "multi-agent-orchestration",
     "repository": "deanpeters-product-manager-skills",
-    "description": "\"Orchestrate a complete competitive analysis across six steps, from landscape to strategic direction. Use when you need the full picture, not a single scan or card.\"",
+    "description": "Orchestrate a complete competitive analysis across six steps, from landscape to strategic direction. Use when you need the full picture, not a single scan or card.",
     "path": "category/multi-agent-orchestration/competitive-analysis-process"
   },
   {
@@ -76,7 +92,7 @@
     "name": "crewai",
     "category": "multi-agent-orchestration",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies. Covers agent design with roles and goals, task definition, crew orchestration, process types (s...\"",
+    "description": "Research the topic: {topic}",
     "path": "category/multi-agent-orchestration/crewai"
   },
   {
@@ -84,8 +100,16 @@
     "name": "daaf-orchestrator",
     "category": "multi-agent-orchestration",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": ">-",
+    "description": "Operational framework for the DAAF orchestrator. Defines engagement modes, confirmation protocol, subagent dispatch, context budget, and reference-loading. Loaded exclusively by the orchestrator \u2014 not for subagents or user questions.",
     "path": "category/multi-agent-orchestration/daaf-orchestrator"
+  },
+  {
+    "id": "delegating-work",
+    "name": "delegating-work",
+    "category": "multi-agent-orchestration",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when you have a task and must decide WHO does it \u2014 yourself, a spawned subagent, or another agent in the topology that already holds the context \u2014 or how to brief the agent you hand it to, which depends on the model it runs. The rule: how much would a blank slate have to read in to do this correctly? A lot \u2192 route to a context-holding agent; a little \u2192 subagent; unsure \u2192 a real agent or yourself. NOT the mechanics of fanning out (that's dispatching-parallel-agents / subagent-driven-development) \u2014 this is the who/whether decision, and the failure mode that makes teams abandon subagents. Also use it to decide how far to trust a delegated result.",
+    "path": "category/multi-agent-orchestration/delegating-work"
   },
   {
     "id": "design-orchestration",
@@ -104,11 +128,43 @@
     "path": "category/multi-agent-orchestration/dispatching-parallel-agents"
   },
   {
+    "id": "econfin-idea-finder",
+    "name": "econfin-idea-finder",
+    "category": "multi-agent-orchestration",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "\u516c\u53f8\u91d1\u878d\u5b9e\u8bc1\u7814\u7a76\u7684\"\u6f0f\u6597\u5f0f\u9009\u9898\u67e5\u627e\u5668\"\u3002\u4e92\u52a8\u5f00\u573a\u5148\u540e\u8be2\u95ee (1) \u7814\u7a76\u65b9\u5411\u3001(2) \u5019\u9009\u6807\u9898\u6570\u91cf N\uff0c \u518d\u626b\u63cf\u5168\u7403\u6587\u732e\uff08\u5df2\u51fa\u7248\u82f1\u6587\u5b66\u672f\u671f\u520a + SSRN working paper + \u5168\u7403\u9ad8\u6821 department seminar 1 \u5e74\u5185\u65e5\u7a0b\uff09\uff0c\u57fa\u4e8e Edmans (2024) \"1000 Rejections\" \u7ea2\u7ebf\u751f\u6210 N \u4e2a\u5019\u9009\u6807\u9898\uff0c**\u901a\u8fc7\u5e76\u884c subagent\uff08Agent \u5de5\u5177\uff09\u6279\u91cf\u751f\u6210\u8ba1\u5212\u4e66 + \u67e5\u65b0\uff1b\u6bcf\u4e2a subagent \u5fc5\u987b\u5f3a\u5236\u8c03\u7528 Skill \u5de5\u5177\u52a0\u8f7d econfin-proposal \u4e0e novelty-check \u4e24\u4e2a\u9884\u8bbe skill \u5b8c\u6210\u5404\u81ea\u6a21\u5757**\uff0c**\u53ea\u6709\u5f53 novelty score >= 9 \u65f6\uff08\u5373 JF/JFE/RFS \u9876\u520a\u5c42\u6b21\uff09\uff0csubagent \u624d\u628a proposal + \u67e5\u65b0\u62a5\u544a\u5408\u5e76\u7684 md \u5199\u5165 F:\\Dropbox\\CC\\\u9009\u9898\u5927\u5168\\<\u7814\u7a76\u65b9\u5411\u77ed\u540d>\\\uff08\u4ee5\"\u7b80\u77ed\u9009\u9898\u540d\u79f0-\u5206\u6570\"\u547d\u540d\uff0c\u5b50\u6587\u4ef6\u5939\u540d\u7531 Step 0 \u4ece\u7528\u6237\u8f93\u5165\u7684\u7814\u7a76\u65b9\u5411\u6d3e\u751f\uff09\uff1b< 9 \u5206\u7684\u9009\u9898\u5728 subagent \u5185\u90e8\u76f4\u63a5\u4e22\u5f03\uff0c\u7edd\u4e0d\u5199\u76d8\u3001\u7edd\u4e0d\u8f93\u51fa**\u3002\u5f53\u7528\u6237\u8bf4\"\u627e\u9009\u9898\"\u3001\"\u5e2e\u6211\u627e\u9009\u9898\"\u3001\"\u60f3\u505a X \u65b9\u5411\"\u3001 \"empirical CF idea search\"\u3001\"\u6279\u91cf\u751f\u6210\u7814\u7a76\u8ba1\u5212\u4e66\"\u3001\"100 ideas\"\u3001\"econfin-idea-finder\" \u65f6\u89e6\u53d1\u3002",
+    "path": "category/multi-agent-orchestration/econfin-idea-finder"
+  },
+  {
+    "id": "efficient-frontier",
+    "name": "efficient-frontier",
+    "category": "multi-agent-orchestration",
+    "repository": "builderio-skills",
+    "description": "Apply the same orchestration as `/efficient-fable` to any high-cost frontier model: delegate research, coding, and testing to cheaper subagents while keeping planning, synthesis, and final review with the expensive model.",
+    "path": "category/multi-agent-orchestration/efficient-frontier"
+  },
+  {
+    "id": "egm-review",
+    "name": "egm-review",
+    "category": "multi-agent-orchestration",
+    "repository": "google-elephant-goldfish-model",
+    "description": "Orchestrates the EGM Goldfish Review Protocol. Used as part of the EGM process to perform design document reviews. Executes five review phases: Initial Zoom Out Review, Comprehension Review, Design Critique, Intermediate Zoom Out Review, and Implementation Readiness.",
+    "path": "category/multi-agent-orchestration/egm-review"
+  },
+  {
+    "id": "founder-consumer",
+    "name": "founder-consumer",
+    "category": "multi-agent-orchestration",
+    "repository": "jakeschincariol-founder-skill",
+    "description": "The consumer panel. Spins up a swarm of buyer sub-agents (default 100, --quick for 20) trained on the user's target customer, each with a different income, age, buying behaviour and objection, shows every one the same pitch, and runs the business through 100 buyer scenarios to see who buys, who doesn't, and why. Tallies the answers into buy rates by segment, the reasons people pass in their own words, what would flip a no, and price answers for founder-pricing. Use when the user says \"would people buy this\", \"test it on customers\", \"run the consumer panel\", \"simulate buyers\", \"who is my customer\", or \"validate demand\".",
+    "path": "category/multi-agent-orchestration/founder-consumer"
+  },
+  {
     "id": "full-stack-orchestration-full-stack-feature",
     "name": "full-stack-orchestration-full-stack-feature",
     "category": "multi-agent-orchestration",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Use when working with full stack orchestration full stack feature\"",
+    "description": "Use when working with full stack orchestration full stack feature",
     "path": "category/multi-agent-orchestration/full-stack-orchestration-full-stack-feature"
   },
   {
@@ -116,7 +172,7 @@
     "name": "game-development",
     "category": "multi-agent-orchestration",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Game development orchestrator. Routes to platform-specific skills based on project needs.\"",
+    "description": "Game development orchestrator. Routes to platform-specific skills based on project needs.",
     "path": "category/multi-agent-orchestration/game-development"
   },
   {
@@ -144,11 +200,19 @@
     "path": "category/multi-agent-orchestration/hunt-dispatch"
   },
   {
+    "id": "implementing-soar-automation-with-phantom",
+    "name": "implementing-soar-automation-with-phantom",
+    "category": "multi-agent-orchestration",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Implements Security Orchestration, Automation, and Response (SOAR) workflows",
+    "path": "category/multi-agent-orchestration/implementing-soar-automation-with-phantom"
+  },
+  {
     "id": "loki-mode",
     "name": "loki-mode",
     "category": "multi-agent-orchestration",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Multi-agent autonomous startup system for Claude Code. Triggers on \\\"Loki Mode\\\". Orchestrates 100+ specialized agents across engineering, QA, DevOps, security, data/ML, business operations,...\"",
+    "description": "Multi-agent autonomous startup system for Claude Code. Triggers on \\\"Loki Mode\\\". Orchestrates 100+ specialized agents across engineering, QA, DevOps, security, data/ML, business operations,...",
     "path": "category/multi-agent-orchestration/loki-mode"
   },
   {
@@ -156,7 +220,7 @@
     "name": "marketing-ops",
     "category": "multi-agent-orchestration",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when coordinating across content, SEO, CRO, channels, and analytics. Also use when the user mentions 'marketing help,' 'campaign plan,' 'what should I do next,' 'marketing priorities,' or 'coordinate marketing.'\"",
+    "description": "Central router for the marketing skill ecosystem. Use when unsure which marketing skill to use, when orchestrating a multi-skill campaign, or when coordinating across content, SEO, CRO, channels, and analytics. Also use when the user mentions 'marketing help,' 'campaign plan,' 'what should I do next,' 'marketing priorities,' or 'coordinate marketing.",
     "path": "category/multi-agent-orchestration/marketing-ops"
   },
   {
@@ -164,15 +228,23 @@
     "name": "one-skill-to-rule-them-all",
     "category": "multi-agent-orchestration",
     "repository": "rebelytics-one-skill-to-rule-them-all",
-    "description": "\"Monitors task execution for skill improvement opportunities: logs patterns, user corrections and methodology worth preserving to the workspace, turns them into skill updates in a weekly review, and flags repeating work as new skills. Use during ANY multi-step task, agentic workflow, or work session. Also triggers in post-task feedback discussions and when the user mentions skill observations, the observation log, or skill taxonomy. Also known as \\\"One Skill to Rule Them All\\\" \u2014 trigger on this phrase too. IMPORTANT: invoke this skill before the FIRST tool call of any session and before writing or proposing a plan \u2014 any turn that will involve a tool call counts. This sentence is the session-start trigger and the only activation layer that survives an unreachable config file; pair it with a CLAUDE.md instruction or a session-start hook (references/environments.md). A subagent dispatched by a session already running it does not run it: it writes nothing and puts its findings in its report.\"",
+    "description": "Monitors task execution for skill improvement opportunities: logs patterns, user corrections and methodology worth preserving to the workspace, turns them into skill updates in a weekly review, and flags repeating work as new skills. Use during ANY multi-step task, agentic workflow, or work session. Also triggers in post-task feedback discussions and when the user mentions skill observations, the observation log, or skill taxonomy. Also known as \\\"One Skill to Rule Them All\\\" \u2014 trigger on this phrase too. IMPORTANT: invoke this skill before the FIRST tool call of any session and before writing or proposing a plan \u2014 any turn that will involve a tool call counts. This sentence is the session-start trigger and the only activation layer that survives an unreachable config file; pair it with a CLAUDE.md instruction or a session-start hook (references/environments.md). A subagent dispatched by a session already running it does not run it: it writes nothing and puts its findings in its report.",
     "path": "category/multi-agent-orchestration/one-skill-to-rule-them-all"
+  },
+  {
+    "id": "orchestration-team",
+    "name": "orchestration-team",
+    "category": "multi-agent-orchestration",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when coordinating assignments, selected review boundaries, or blocked work across a rig.",
+    "path": "category/multi-agent-orchestration/orchestration-team"
   },
   {
     "id": "orchestrator",
     "name": "orchestrator",
     "category": "multi-agent-orchestration",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "|",
+    "description": "Unified Agent Teams orchestrator for Diverga v12.0.0. Manages Agent Teams creation, VS Arena debate, and subagent dispatch. Single entry point for all parallel/debate workflows. Replaces research-orchestrator and vs-arena skills. Triggers: orchestrator, agent team, create team, parallel agents, debate, competing, collaborate, VS Arena",
     "path": "category/multi-agent-orchestration/orchestrator"
   },
   {
@@ -182,6 +254,14 @@
     "repository": "active",
     "description": "Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domain expertise or when comprehensive analysis requires multiple perspectives.",
     "path": "category/multi-agent-orchestration/parallel-agents"
+  },
+  {
+    "id": "performing-ioc-enrichment-automation",
+    "name": "performing-ioc-enrichment-automation",
+    "category": "multi-agent-orchestration",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Automates Indicator of Compromise (IOC) enrichment by orchestrating",
+    "path": "category/multi-agent-orchestration/performing-ioc-enrichment-automation"
   },
   {
     "id": "poteto-mode",
@@ -196,7 +276,7 @@
     "name": "principle-guard-the-context-window",
     "category": "multi-agent-orchestration",
     "repository": "backnotprop-pstack",
-    "description": "\"Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads.\"",
+    "description": "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads.",
     "path": "category/multi-agent-orchestration/principle-guard-the-context-window"
   },
   {
@@ -204,7 +284,7 @@
     "name": "rebelytics-one-skill-to-rule-them-all",
     "category": "multi-agent-orchestration",
     "repository": "rebelytics-one-skill-to-rule-them-all",
-    "description": "\"Monitors task execution for skill improvement opportunities: logs patterns, user corrections and methodology worth preserving to the workspace, turns them into skill updates in a weekly review, and flags repeating work as new skills. Use during ANY multi-step task, agentic workflow, or work session. Also triggers in post-task feedback discussions and when the user mentions skill observations, the observation log, or skill taxonomy. Also known as \\\"One Skill to Rule Them All\\\" \u2014 trigger on this phrase too. IMPORTANT: invoke this skill before the FIRST tool call of any session and before writing or proposing a plan \u2014 any turn that will involve a tool call counts. This sentence is the session-start trigger and the only activation layer that survives an unreachable config file; pair it with a CLAUDE.md instruction or a session-start hook (references/environments.md). A subagent dispatched by a session already running it does not run it: it writes nothing and puts its findings in its report.\"",
+    "description": "Monitors task execution for skill improvement opportunities: logs patterns, user corrections and methodology worth preserving to the workspace, turns them into skill updates in a weekly review, and flags repeating work as new skills. Use during ANY multi-step task, agentic workflow, or work session. Also triggers in post-task feedback discussions and when the user mentions skill observations, the observation log, or skill taxonomy. Also known as \\\"One Skill to Rule Them All\\\" \u2014 trigger on this phrase too. IMPORTANT: invoke this skill before the FIRST tool call of any session and before writing or proposing a plan \u2014 any turn that will involve a tool call counts. This sentence is the session-start trigger and the only activation layer that survives an unreachable config file; pair it with a CLAUDE.md instruction or a session-start hook (references/environments.md). A subagent dispatched by a session already running it does not run it: it writes nothing and puts its findings in its report.",
     "path": "category/multi-agent-orchestration/rebelytics-one-skill-to-rule-them-all"
   },
   {
@@ -244,7 +324,7 @@
     "name": "team-level",
     "category": "multi-agent-orchestration",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Orchestrate the level team \u2014 level-designer, narrative-director, world-builder, art-director, systems-designer, qa-tester \u2014 for complete area creation.\"",
+    "description": "Orchestrate the level team \u2014 level-designer, narrative-director, world-builder, art-director, systems-designer, qa-tester \u2014 for complete area creation.",
     "path": "category/multi-agent-orchestration/team-level"
   },
   {
@@ -252,7 +332,7 @@
     "name": "team-live-ops",
     "category": "multi-agent-orchestration",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Orchestrate the live-ops team \u2014 live-ops-designer, economy-designer, analytics-engineer, community-manager, writer \u2014 for a season or live event.\"",
+    "description": "Orchestrate the live-ops team \u2014 live-ops-designer, economy-designer, analytics-engineer, community-manager, writer \u2014 for a season or live event.",
     "path": "category/multi-agent-orchestration/team-live-ops"
   },
   {
@@ -260,7 +340,7 @@
     "name": "team-narrative",
     "category": "multi-agent-orchestration",
     "repository": "donchitos-claude-code-game-studios",
-    "description": "\"Orchestrate the narrative team \u2014 narrative-director, writer, world-builder, level-designer \u2014 for story, world lore, narrative-driven levels.\"",
+    "description": "Orchestrate the narrative team \u2014 narrative-director, writer, world-builder, level-designer \u2014 for story, world lore, narrative-driven levels.",
     "path": "category/multi-agent-orchestration/team-narrative"
   },
   {
@@ -268,7 +348,7 @@
     "name": "temporal-python-pro",
     "category": "multi-agent-orchestration",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Master Temporal workflow orchestration with Python SDK. Implements\"",
+    "description": "Master Temporal workflow orchestration with Python SDK. Implements",
     "path": "category/multi-agent-orchestration/temporal-python-pro"
   },
   {

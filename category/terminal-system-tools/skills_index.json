@@ -1,10 +1,18 @@
 [
   {
+    "id": "acquiring-disk-image-with-dd-and-dcfldd",
+    "name": "acquiring-disk-image-with-dd-and-dcfldd",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Create forensically sound bit-for-bit disk images with dd or dcfldd on a Linux forensic workstation, preserving evidence integrity through hash verification (MD5/SHA) during acquisition. Use when imaging a suspect drive, USB device, or memory card for investigation, preserving volatile disk evidence during incident response, or producing a verified copy for legal or law-enforcement proceedings before any destructive analysis.",
+    "path": "category/terminal-system-tools/acquiring-disk-image-with-dd-and-dcfldd"
+  },
+  {
     "id": "agent-experience",
     "name": "agent-experience",
     "category": "terminal-system-tools",
     "repository": "browserbase-skills",
-    "description": "\"Audit the developer experience of a product, SDK, docs site, or SKILL.md by dropping multiple Claude subagents at it with only a tiny task prompt and real tools (WebFetch, Bash, Write). Agents must discover the docs themselves, install deps, ask for credentials if needed, and attempt real execution. The skill captures each agent's trace \u2014 tool calls, retries, wall time, errors \u2014 and scores on Setup Friction, Speed, Efficiency, Error Recovery, and Doc Quality, then emits an HTML report with an A\u2013F grade and concrete fixes. Use when the user asks to audit agent experience, test a skill, audit docs for agents, check if a SDK is agent-friendly, validate a SKILL.md, measure agent DX, or benchmark how painful onboarding is for an AI agent. Triggers: 'audit agent experience', 'test this skill', 'audit docs for agents', 'is my SDK agent-friendly', 'run a DX audit', 'agent experience test', 'test my docs', 'how do agents do with my product'.\"",
+    "description": "Audit the developer experience of a product, SDK, docs site, or SKILL.md by dropping multiple Claude subagents at it with only a tiny task prompt and real tools (WebFetch, Bash, Write). Agents must discover the docs themselves, install deps, ask for credentials if needed, and attempt real execution. The skill captures each agent's trace \u2014 tool calls, retries, wall time, errors \u2014 and scores on Setup Friction, Speed, Efficiency, Error Recovery, and Doc Quality, then emits an HTML report with an A\u2013F grade and concrete fixes. Use when the user asks to audit agent experience, test a skill, audit docs for agents, check if a SDK is agent-friendly, validate a SKILL.md, measure agent DX, or benchmark how painful onboarding is for an AI agent. Triggers: 'audit agent experience', 'test this skill', 'audit docs for agents', 'is my SDK agent-friendly', 'run a DX audit', 'agent experience test', 'test my docs', 'how do agents do with my product'.",
     "path": "category/terminal-system-tools/agent-experience"
   },
   {
@@ -12,23 +20,119 @@
     "name": "ai-automation-workflows",
     "category": "terminal-system-tools",
     "repository": "magentosh-superpowers",
-    "description": "\"Build automated AI workflows combining multiple models and services. Patterns: batch processing, scheduled tasks, event-driven pipelines, agent loops. Tools: inference.sh CLI, bash scripting, Python SDK, webhook integration. Use for: content automation, data processing, monitoring, scheduled generation. Triggers: ai automation, workflow automation, batch processing, ai pipeline, automated content, scheduled ai, ai cron, ai batch job, automated generation, ai workflow, content at scale, automation script, ai orchestration\"",
+    "description": "Build automated AI workflows combining multiple models and services. Patterns: batch processing, scheduled tasks, event-driven pipelines, agent loops. Tools: inference.sh CLI, bash scripting, Python SDK, webhook integration. Use for: content automation, data processing, monitoring, scheduled generation. Triggers: ai automation, workflow automation, batch processing, ai pipeline, automated content, scheduled ai, ai cron, ai batch job, automated generation, ai workflow, content at scale, automation script, ai orchestration",
     "path": "category/terminal-system-tools/ai-automation-workflows"
+  },
+  {
+    "id": "analyzing-command-and-control-communication",
+    "name": "analyzing-command-and-control-communication",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Analyzes malware C2 communication over HTTP, HTTPS, DNS, and custom",
+    "path": "category/terminal-system-tools/analyzing-command-and-control-communication"
+  },
+  {
+    "id": "analyzing-linux-audit-logs-for-intrusion",
+    "name": "analyzing-linux-audit-logs-for-intrusion",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Uses the Linux Audit framework (auditd) with ausearch and aureport utilities",
+    "path": "category/terminal-system-tools/analyzing-linux-audit-logs-for-intrusion"
+  },
+  {
+    "id": "analyzing-linux-elf-malware",
+    "name": "analyzing-linux-elf-malware",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Analyze malicious Linux ELF binaries \u2014 botnets, cryptominers, ransomware,",
+    "path": "category/terminal-system-tools/analyzing-linux-elf-malware"
+  },
+  {
+    "id": "analyzing-linux-kernel-rootkits",
+    "name": "analyzing-linux-kernel-rootkits",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect kernel-level rootkits in Linux memory dumps using Volatility3",
+    "path": "category/terminal-system-tools/analyzing-linux-kernel-rootkits"
+  },
+  {
+    "id": "analyzing-linux-system-artifacts",
+    "name": "analyzing-linux-system-artifacts",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Examine Linux system artifacts (auth logs, cron/systemd persistence,",
+    "path": "category/terminal-system-tools/analyzing-linux-system-artifacts"
+  },
+  {
+    "id": "analyzing-memory-forensics-with-lime-and-volatility",
+    "name": "analyzing-memory-forensics-with-lime-and-volatility",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Performs Linux memory acquisition using LiME (Linux Memory Extractor)",
+    "path": "category/terminal-system-tools/analyzing-memory-forensics-with-lime-and-volatility"
+  },
+  {
+    "id": "analyzing-persistence-mechanisms-in-linux",
+    "name": "analyzing-persistence-mechanisms-in-linux",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Scan Linux systems for persistence mechanisms including crontab/systemd entries, LD_PRELOAD injection, shell profile modifications (.bashrc, .profile), and SSH authorized_keys backdoors, then correlate findings with auditd logs into an installation timeline. Use during incident response or threat hunting to detect or confirm how an adversary maintained access to a compromised Linux host.",
+    "path": "category/terminal-system-tools/analyzing-persistence-mechanisms-in-linux"
+  },
+  {
+    "id": "analyzing-powershell-empire-artifacts",
+    "name": "analyzing-powershell-empire-artifacts",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect PowerShell Empire post-exploitation framework artifacts in Windows Script Block Logging (Event ID 4104) and Module Logging (Event ID 4103), including the default launcher string, Base64-encoded WebClient/FromBase64String payloads, known module invocations (Invoke-Mimikatz, Invoke-Kerberoast), and staging URL patterns. Use when hunting for or confirming Empire C2 activity in Windows event logs.",
+    "path": "category/terminal-system-tools/analyzing-powershell-empire-artifacts"
+  },
+  {
+    "id": "analyzing-powershell-script-block-logging",
+    "name": "analyzing-powershell-script-block-logging",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Parse Windows PowerShell Script Block Logs (Event ID 4104) from EVTX",
+    "path": "category/terminal-system-tools/analyzing-powershell-script-block-logging"
+  },
+  {
+    "id": "analyzing-windows-shellbag-artifacts",
+    "name": "analyzing-windows-shellbag-artifacts",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Analyze Windows Shellbag (BagMRU) registry artifacts with SBECmd and",
+    "path": "category/terminal-system-tools/analyzing-windows-shellbag-artifacts"
+  },
+  {
+    "id": "applying-a-permission-policy",
+    "name": "applying-a-permission-policy",
+    "category": "terminal-system-tools",
+    "repository": "mvschwarz-openrig",
+    "description": "Use before launching a team during agent-guided setup, or when a user asks to configure OpenRig command permissions, reduce repeated native approval prompts, or apply a selected rig/seat permission policy.",
+    "path": "category/terminal-system-tools/applying-a-permission-policy"
   },
   {
     "id": "arxiv-cli-tools",
     "name": "arxiv-cli-tools",
     "category": "terminal-system-tools",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Command-line tools for searching and batch-downloading arXiv papers\"",
+    "description": "Command-line tools for searching and batch-downloading arXiv papers",
     "path": "category/terminal-system-tools/arxiv-cli-tools"
+  },
+  {
+    "id": "auditing-entra-id-with-aadinternals",
+    "name": "auditing-entra-id-with-aadinternals",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Drive the AADInternals PowerShell toolkit to perform Microsoft Entra ID tenant reconnaissance, access-token acquisition across Microsoft APIs, and federation/AD FS backdoor testing (Golden SAML, T1606.002) for defensive validation. Use during an authorized Entra ID/Microsoft 365 red-team assessment to map external attack surface or verify AD FS signing certs resist Golden SAML.",
+    "path": "category/terminal-system-tools/auditing-entra-id-with-aadinternals"
   },
   {
     "id": "bash-defensive-patterns",
     "name": "bash-defensive-patterns",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Master defensive Bash programming techniques for production-grade scripts. Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring fault tolerance and safety.\"",
+    "description": "Master defensive Bash programming techniques for production-grade scripts. Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring fault tolerance and safety.",
     "path": "category/terminal-system-tools/bash-defensive-patterns"
   },
   {
@@ -44,7 +148,7 @@
     "name": "bash-pro",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Master of defensive Bash scripting for production automation, CI/CD\"",
+    "description": "Master of defensive Bash scripting for production automation, CI/CD",
     "path": "category/terminal-system-tools/bash-pro"
   },
   {
@@ -52,7 +156,7 @@
     "name": "bats-testing-patterns",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for shell scripts, CI/CD pipelines, or requiring test-driven development of shell utilities.\"",
+    "description": "Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for shell scripts, CI/CD pipelines, or requiring test-driven development of shell utilities.",
     "path": "category/terminal-system-tools/bats-testing-patterns"
   },
   {
@@ -68,7 +172,7 @@
     "name": "bb-plugins",
     "category": "terminal-system-tools",
     "repository": "davidondrej-skills",
-    "description": "'Build, install, and debug bb plugins. Use when the user wants a bb plugin, a sidebar panel, a bb CLI subcommand, an agent tool, a theme, a provider, or to extend bb itself. For running threads and the core bb CLI, use bb-cli instead.'",
+    "description": "Build, install, and debug bb plugins. Use when the user wants a bb plugin, a sidebar panel, a bb CLI subcommand, an agent tool, a theme, a provider, or to extend bb itself. For running threads and the core bb CLI, use bb-cli instead.",
     "path": "category/terminal-system-tools/bb-plugins"
   },
   {
@@ -76,15 +180,23 @@
     "name": "binlog-generation",
     "category": "terminal-system-tools",
     "repository": "dotnet-skills",
-    "description": "\"Generate MSBuild binary logs (binlogs) for build diagnostics and analysis. USE FOR: adding /bl:{} to any dotnet build, test, pack, publish, or restore command to capture a full build execution trace, prerequisite for binlog-failure-analysis and build-perf-diagnostics skills, enabling post-build investigation of errors or performance. Requires MSBuild 17.8+ / .NET 8 SDK+ for {} placeholder; PowerShell must quote the complete switch as '-bl:{}'. DO NOT USE FOR: non-MSBuild build systems (npm, Maven, CMake), analyzing an existing binlog (use binlog-failure-analysis instead), binlog MCP startup failures (use troubleshoot-binlog-mcp).\"",
+    "description": "Generate MSBuild binary logs (binlogs) for build diagnostics and analysis. USE FOR: adding /bl:{} to any dotnet build, test, pack, publish, or restore command to capture a full build execution trace, prerequisite for binlog-failure-analysis and build-perf-diagnostics skills, enabling post-build investigation of errors or performance. Requires MSBuild 17.8+ / .NET 8 SDK+ for {} placeholder; PowerShell must quote the complete switch as '-bl:{}'. DO NOT USE FOR: non-MSBuild build systems (npm, Maven, CMake), analyzing an existing binlog (use binlog-failure-analysis instead), binlog MCP startup failures (use troubleshoot-binlog-mcp).",
     "path": "category/terminal-system-tools/binlog-generation"
+  },
+  {
+    "id": "blue-laser-clean-glass-layout",
+    "name": "blue-laser-clean-glass-layout",
+    "category": "terminal-system-tools",
+    "repository": "mengto-skills",
+    "description": "Create a clean dark glass layout system with a thin blue laser atmosphere, frosted premium shells, and polished dashboard structure.",
+    "path": "category/terminal-system-tools/blue-laser-clean-glass-layout"
   },
   {
     "id": "book-study",
     "name": "book-study",
     "category": "terminal-system-tools",
     "repository": "sanyuan0704-sanyuan-skills",
-    "description": "\"Reading coach: guides users through books systematically with knowledge compilation, mastery testing, spaced repetition, and knowledge querying. Use when user says 'read this book with me', 'book study', 'start studying X', 'reading plan', 'ingest this chapter', 'review what I read', 'quiz me on the book', 'what did the book say about X', or invokes /book-study. Supports sub-commands: ingest, query, review, compare, status. Triggers: book, study, read, chapter, ingest, review, quiz, reading plan, book notes.\"",
+    "description": "Reading coach: guides users through books systematically with knowledge compilation, mastery testing, spaced repetition, and knowledge querying. Use when user says 'read this book with me', 'book study', 'start studying X', 'reading plan', 'ingest this chapter', 'review what I read', 'quiz me on the book', 'what did the book say about X', or invokes /book-study. Supports sub-commands: ingest, query, review, compare, status. Triggers: book, study, read, chapter, ingest, review, quiz, reading plan, book notes.",
     "path": "category/terminal-system-tools/book-study"
   },
   {
@@ -100,7 +212,7 @@
     "name": "browser-act",
     "category": "terminal-system-tools",
     "repository": "browser-act-skills",
-    "description": "\"Browser automation CLI for AI agents. NEVER run browser-act commands directly via Bash \u2014 always invoke this skill first. Use browser-act when a user mentions it by name, includes or asks to run a browser-act CLI command (e.g., browser-act browser list), or to: fetch, view, or extract rendered content from URLs, access pages requiring JavaScript, handle verification prompts, maintain authenticated sessions, fill forms and click through workflows, type, select, upload, take screenshots, capture XHR/fetch/HAR responses, open multiple URLs in parallel, extract content that loads on scroll or click, visually inspect or verify page layout/styling/rendering, automate browser tasks, account isolation across parallel browser environments, advise which browser type fits a use case, or list/check/manage configured browsers and sessions. Prefer browser-act over built-in fetch or web tools.\"",
+    "description": "Browser automation CLI for AI agents. NEVER run browser-act commands directly via Bash \u2014 always invoke this skill first. Use browser-act when a user mentions it by name, includes or asks to run a browser-act CLI command (e.g., browser-act browser list), or to: fetch, view, or extract rendered content from URLs, access pages requiring JavaScript, handle verification prompts, maintain authenticated sessions, fill forms and click through workflows, type, select, upload, take screenshots, capture XHR/fetch/HAR responses, open multiple URLs in parallel, extract content that loads on scroll or click, visually inspect or verify page layout/styling/rendering, automate browser tasks, account isolation across parallel browser environments, advise which browser type fits a use case, or list/check/manage configured browsers and sessions. Prefer browser-act over built-in fetch or web tools.",
     "path": "category/terminal-system-tools/browser-act"
   },
   {
@@ -108,7 +220,7 @@
     "name": "build-zoom-team-chat-app",
     "category": "terminal-system-tools",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.\"",
+    "description": "Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.",
     "path": "category/terminal-system-tools/build-zoom-team-chat-app"
   },
   {
@@ -116,8 +228,16 @@
     "name": "busybox-on-windows",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.\"",
+    "description": "How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.",
     "path": "category/terminal-system-tools/busybox-on-windows"
+  },
+  {
+    "id": "changelog",
+    "name": "changelog",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/changelog.md",
+    "path": "category/terminal-system-tools/changelog"
   },
   {
     "id": "chaos-engineering",
@@ -126,6 +246,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Use when planning, running, or learning from chaos engineering experiments. Triggers on \"chaos experiment\", \"fault injection\", \"gameday\", \"resilience test\", \"blast radius\", \"steady state\", \"abort criteria\", \"Chaos Toolkit\", \"Chaos Mesh\", \"Litmus\", \"Gremlin\", \"AWS FIS\", or any deliberate failure-injection question. Ships experiment designer, blast-radius calculator, and postmortem generator (all stdlib Python), 4 references on chaos principles + experiment design + attack taxonomy + tooling landscape, and a /chaos-experiment slash command. Composes with feature-flags-architect (kill switches as abort triggers) and kubernetes-operator (common chaos targets).",
     "path": "category/terminal-system-tools/chaos-engineering"
+  },
+  {
+    "id": "chaos-experiment",
+    "name": "chaos-experiment",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/chaos-experiment.md",
+    "path": "category/terminal-system-tools/chaos-experiment"
   },
   {
     "id": "claude-settings-audit",
@@ -144,19 +272,43 @@
     "path": "category/terminal-system-tools/cli-creator"
   },
   {
+    "id": "cli-developer",
+    "name": "cli-developer",
+    "category": "terminal-system-tools",
+    "repository": "jeffallan-claude-skills",
+    "description": "Use when building CLI tools, implementing argument parsing, or adding interactive prompts. Invoke for parsing flags and subcommands, displaying progress bars and spinners, generating bash/zsh/fish completion scripts, CLI design, shell completions, and cross-platform terminal applications using commander, click, typer, or cobra.",
+    "path": "category/terminal-system-tools/cli-developer"
+  },
+  {
     "id": "clockify-automation",
     "name": "clockify-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate time tracking workflows in Clockify -- create and manage time entries, workspaces, and users through natural language commands.\"",
+    "description": "Automate time tracking workflows in Clockify -- create and manage time entries, workspaces, and users through natural language commands.",
     "path": "category/terminal-system-tools/clockify-automation"
+  },
+  {
+    "id": "cloud-claw",
+    "name": "cloud-claw",
+    "category": "terminal-system-tools",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Use this umbrella skill when the request spans multiple Cloud Claw user-facing domains, especially launching a new AltClaw or OpenClaw VM and then managing lifecycle, logs, renewal, or dashboard access through the local altllm cloud-claw-* commands in this repository.",
+    "path": "category/terminal-system-tools/cloud-claw"
+  },
+  {
+    "id": "cloud-claw-launch-agent",
+    "name": "cloud-claw-launch-agent",
+    "category": "terminal-system-tools",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Use this skill when the user wants to launch a new AltClaw, OpenClaw, PicoClaw, or Ottie deployment through Cloud Claw. Covers the same user-facing fields and constraints exposed in the Cloud Claw UI, using the local altllm cloud-claw-* commands. Do NOT use for post-launch lifecycle tasks like start/stop/delete/logs; use cloud-claw-manage-vm.",
+    "path": "category/terminal-system-tools/cloud-claw-launch-agent"
   },
   {
     "id": "cloudinary-automation",
     "name": "cloudinary-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Cloudinary media management including folder organization, upload presets, asset lookup, transformations, and usage monitoring through natural language commands\"",
+    "description": "Automate Cloudinary media management including folder organization, upload presets, asset lookup, transformations, and usage monitoring through natural language commands",
     "path": "category/terminal-system-tools/cloudinary-automation"
   },
   {
@@ -164,7 +316,7 @@
     "name": "cmux",
     "category": "terminal-system-tools",
     "repository": "davidondrej-skills",
-    "description": "'Control the cmux macOS terminal app: workspaces, panes, surfaces, browsers, notifications, settings, and hooks. Use only when the user explicitly names cmux. Read before running any cmux command.'",
+    "description": "Control the cmux macOS terminal app: workspaces, panes, surfaces, browsers, notifications, settings, and hooks. Use only when the user explicitly names cmux. Read before running any cmux command.",
     "path": "category/terminal-system-tools/cmux"
   },
   {
@@ -176,19 +328,67 @@
     "path": "category/terminal-system-tools/command-development"
   },
   {
+    "id": "company-valuation",
+    "name": "company-valuation",
+    "category": "terminal-system-tools",
+    "repository": "himself65-finance-skills",
+    "description": "Estimate a public company's intrinsic value with DCF, relative (peer multiple), and sum-of-the-parts (SOTP) methods, then blend them into an implied share price with upside/downside vs the market price, a WACC and terminal-growth sensitivity grid, and bull/base/bear scenarios. Use this skill whenever the user asks what a company or ticker is worth: fair value, intrinsic value, implied share price, a price target from fundamentals, whether it is overvalued or undervalued, building a DCF (WACC, terminal value, discounted cash flow), EV/EBITDA or P/E based targets, peer comparison valuation, or SOTP and conglomerate discounts. Run the model rather than answering valuation questions from memory.",
+    "path": "category/terminal-system-tools/company-valuation"
+  },
+  {
+    "id": "competitive-matrix",
+    "name": "competitive-matrix",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/competitive-matrix.md",
+    "path": "category/terminal-system-tools/competitive-matrix"
+  },
+  {
     "id": "cqrs-implementation",
     "name": "cqrs-implementation",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Implement Command Query Responsibility Segregation for scalable architectures. Use when separating read and write models, optimizing query performance, or building event-sourced systems.\"",
+    "description": "Implement Command Query Responsibility Segregation for scalable architectures. Use when separating read and write models, optimizing query performance, or building event-sourced systems.",
     "path": "category/terminal-system-tools/cqrs-implementation"
+  },
+  {
+    "id": "cross-host-rig-commands",
+    "name": "cross-host-rig-commands",
+    "category": "terminal-system-tools",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when addressing a registered remote OpenRig host, choosing its transport, or interpreting a cross-host result.",
+    "path": "category/terminal-system-tools/cross-host-rig-commands"
+  },
+  {
+    "id": "cs-engineer-grill",
+    "name": "cs-engineer-grill",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/cs-engineer-grill.md",
+    "path": "category/terminal-system-tools/cs-engineer-grill"
+  },
+  {
+    "id": "cs-frontend-review",
+    "name": "cs-frontend-review",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/cs-frontend-review.md",
+    "path": "category/terminal-system-tools/cs-frontend-review"
+  },
+  {
+    "id": "cs-webinar",
+    "name": "cs-webinar",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/cs-webinar.md",
+    "path": "category/terminal-system-tools/cs-webinar"
   },
   {
     "id": "csharp-scripts",
     "name": "csharp-scripts",
     "category": "terminal-system-tools",
     "repository": "dotnet-skills",
-    "description": "\"Run file-based C# apps with the .NET CLI when the user explicitly wants C#/.NET code without creating a project. Use for C# language/API experiments, one-file C# apps, small multi-file C# apps composed with `#:include`/`#:exclude`, or C# file-based apps linked with `#:ref`. Do not use for language-agnostic throwaway scripts, generic computations, Python/PowerShell-style automation, full projects, or existing app integration.\"",
+    "description": "Run file-based C# apps with the .NET CLI when the user explicitly wants C#/.NET code without creating a project. Use for C# language/API experiments, one-file C# apps, small multi-file C# apps composed with `#:include`/`#:exclude`, or C# file-based apps linked with `#:ref`. Do not use for language-agnostic throwaway scripts, generic computations, Python/PowerShell-style automation, full projects, or existing app integration.",
     "path": "category/terminal-system-tools/csharp-scripts"
   },
   {
@@ -212,8 +412,16 @@
     "name": "cua-driver",
     "category": "terminal-system-tools",
     "repository": "davidondrej-skills",
-    "description": "'Use Cua Driver for desktop or browser tasks that are awkward or unavailable through Bash/APIs, or when the user explicitly wants GUI interaction: app testing, visual bug reproduction, form filling, calendar entry, screenshots, and demo recording. Also covers Cua setup; not OpenAI Codex Computer Use or web research.'",
+    "description": "Use Cua Driver for desktop or browser tasks that are awkward or unavailable through Bash/APIs, or when the user explicitly wants GUI interaction: app testing, visual bug reproduction, form filling, calendar entry, screenshots, and demo recording. Also covers Cua setup; not OpenAI Codex Computer Use or web research.",
     "path": "category/terminal-system-tools/cua-driver"
+  },
+  {
+    "id": "dark-glass-clean-layout",
+    "name": "dark-glass-clean-layout",
+    "category": "terminal-system-tools",
+    "repository": "mengto-skills",
+    "description": "Create a dark glass layout system with frosted premium shells, clean multi-column workspace structure, floating data cards, and restrained atmospheric depth.",
+    "path": "category/terminal-system-tools/dark-glass-clean-layout"
   },
   {
     "id": "datadog-logs",
@@ -224,6 +432,14 @@
     "path": "category/terminal-system-tools/datadog-logs"
   },
   {
+    "id": "deobfuscating-powershell-obfuscated-malware",
+    "name": "deobfuscating-powershell-obfuscated-malware",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Systematically deobfuscates multi-layer PowerShell malware using AST analysis, dynamic tracing, and tools like PSDecode and PowerDecode to reveal hidden payloads and C2 infrastructure. Use during incident response or malware analysis when a PowerShell script is obfuscated with encoding, string manipulation, or invocation tricks and you need to recover the underlying commands, dropped payloads, or C2 endpoints.",
+    "path": "category/terminal-system-tools/deobfuscating-powershell-obfuscated-malware"
+  },
+  {
     "id": "desktop-commander-overview",
     "name": "desktop-commander-overview",
     "category": "terminal-system-tools",
@@ -232,12 +448,60 @@
     "path": "category/terminal-system-tools/desktop-commander-overview"
   },
   {
+    "id": "detecting-command-and-control-over-dns",
+    "name": "detecting-command-and-control-over-dns",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect command-and-control (C2) traffic tunneled over DNS from tools like",
+    "path": "category/terminal-system-tools/detecting-command-and-control-over-dns"
+  },
+  {
+    "id": "detecting-dnp3-protocol-anomalies",
+    "name": "detecting-dnp3-protocol-anomalies",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect anomalies in DNP3 communications used in SCADA/ICS systems by monitoring unauthorized control commands, firmware update attempts, protocol violations, and deviations from baseline traffic using deep packet inspection and machine learning approaches. Use when securing energy-sector or other OT/ICS networks, investigating suspicious DNP3 master/outstation activity, or building an anomaly-based IDS for industrial control traffic.",
+    "path": "category/terminal-system-tools/detecting-dnp3-protocol-anomalies"
+  },
+  {
+    "id": "detecting-misconfigured-azure-storage",
+    "name": "detecting-misconfigured-azure-storage",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Audit Azure Storage accounts for public blob containers, missing encryption, overly permissive SAS tokens, disabled logging, and network access violations using Azure CLI, PowerShell, and Microsoft Defender for Storage. Use for storage security audits across subscriptions, responding to Defender for Storage anonymous-access alerts, verifying compliance controls, or setting security baselines when onboarding a subscription.",
+    "path": "category/terminal-system-tools/detecting-misconfigured-azure-storage"
+  },
+  {
+    "id": "detecting-modbus-command-injection-attacks",
+    "name": "detecting-modbus-command-injection-attacks",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect command injection against Modbus TCP/RTU in ICS/SCADA environments by monitoring unauthorized writes, anomalous function codes, malformed frames, and deviations from communication baselines using ICS-aware IDS and deep packet inspection. Use when deploying IDS for Modbus OT networks, investigating unauthorized PLC register/coil changes, or responding to FrostyGoop-style Modbus attacks.",
+    "path": "category/terminal-system-tools/detecting-modbus-command-injection-attacks"
+  },
+  {
+    "id": "detecting-suspicious-powershell-execution",
+    "name": "detecting-suspicious-powershell-execution",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Hunt for suspicious PowerShell execution (T1059.001) such as encoded commands,",
+    "path": "category/terminal-system-tools/detecting-suspicious-powershell-execution"
+  },
+  {
     "id": "discord-bot-architect",
     "name": "discord-bot-architect",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Specialized skill for building production-ready Discord bots. Covers Discord.js (JavaScript) and Pycord (Python), gateway intents, slash commands, interactive components, rate limiting, and sharding.\"",
+    "description": "Specialized skill for building production-ready Discord bots. Covers Discord.js (JavaScript) and Pycord (Python), gateway intents, slash commands, interactive components, rate limiting, and sharding.",
     "path": "category/terminal-system-tools/discord-bot-architect"
+  },
+  {
+    "id": "dotnet-maui-doctor",
+    "name": "dotnet-maui-doctor",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Diagnoses and fixes .NET MAUI development environment issues. Validates .NET SDK, workloads, Java JDK, Android SDK, Xcode, and Windows SDK. All version requirements discovered dynamically from NuGet WorkloadDependencies.json \u2014 never hardcoded. Use when: setting up MAUI development, build errors mentioning SDK/workload/JDK/Android, \"Android SDK not found\", \"Java version\" errors, \"Xcode not found\", environment verification after updates, or any MAUI toolchain issues. Do not use for: non-MAUI .NET projects, Xamarin.Forms apps, runtime app crashes unrelated to environment setup, or app store publishing issues. Works on macOS, Windows, and Linux.",
+    "path": "category/terminal-system-tools/dotnet-maui-doctor"
   },
   {
     "id": "dotnet-trace-collect",
@@ -252,7 +516,7 @@
     "name": "endor-setup",
     "category": "terminal-system-tools",
     "repository": "cline-skills",
-    "description": "\"Use when user asks to setup endorctl, install endorctl, run endorctl scan, scan for vulnerabilities, run endor scan or run Endor Labs scan or when any endorctl command fails with 'command not found', 'no such file or directory', authentication errors, 'unauthorized', '403', 'tenant not found', EOF error, or namespace/access errors.\"",
+    "description": "Use when user asks to setup endorctl, install endorctl, run endorctl scan, scan for vulnerabilities, run endor scan or run Endor Labs scan or when any endorctl command fails with 'command not found', 'no such file or directory', authentication errors, 'unauthorized', '403', 'tenant not found', EOF error, or namespace/access errors.",
     "path": "category/terminal-system-tools/endor-setup"
   },
   {
@@ -260,7 +524,7 @@
     "name": "eventbrite-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Eventbrite event management, attendee tracking, organization discovery, and category browsing through natural language commands\"",
+    "description": "Automate Eventbrite event management, attendee tracking, organization discovery, and category browsing through natural language commands",
     "path": "category/terminal-system-tools/eventbrite-automation"
   },
   {
@@ -272,12 +536,44 @@
     "path": "category/terminal-system-tools/feature-flags-architect"
   },
   {
+    "id": "feishu",
+    "name": "feishu",
+    "category": "terminal-system-tools",
+    "repository": "nano-muse-nanomuse",
+    "description": "The user's \u98de\u4e66 / Lark through its command-line tool (lark-cli): agenda, people and groups, reading and sending messages, events, tasks, documents, with no app open. Use when the user mentions \u98de\u4e66, Lark, a \u7fa4, a \u65e5\u7a0b or a \u98de\u4e66\u6587\u6863, or wants a colleague told something.",
+    "path": "category/terminal-system-tools/feishu"
+  },
+  {
+    "id": "financial-health",
+    "name": "financial-health",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/financial-health.md",
+    "path": "category/terminal-system-tools/financial-health"
+  },
+  {
+    "id": "flag-cleanup",
+    "name": "flag-cleanup",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/flag-cleanup.md",
+    "path": "category/terminal-system-tools/flag-cleanup"
+  },
+  {
     "id": "founder-mode",
     "name": "founder-mode",
     "category": "terminal-system-tools",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/c-level-agents:founder-mode [question] \u2014 Auto-routes any founder question to the right C-role advisor or to /c-level-agents:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits \u2014 e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO.\"",
+    "description": "/c-level-agents:founder-mode [question] \u2014 Auto-routes any founder question to the right C-role advisor or to /c-level-agents:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits \u2014 e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO.",
     "path": "category/terminal-system-tools/founder-mode"
+  },
+  {
+    "id": "framed-tech-dark-border-gradient",
+    "name": "framed-tech-dark-border-gradient",
+    "category": "terminal-system-tools",
+    "repository": "mengto-skills",
+    "description": "Create a framed dark technical design system with border-gradient shells, asymmetrical grid panels, mono utility labeling, and restrained monochrome atmosphere.",
+    "path": "category/terminal-system-tools/framed-tech-dark-border-gradient"
   },
   {
     "id": "game-automation",
@@ -324,7 +620,7 @@
     "name": "global-agent-guardrails",
     "category": "terminal-system-tools",
     "repository": "davidondrej-skills",
-    "description": "\"Configure the shared guard against catastrophic shell commands in local AI agents. Use when changing block patterns, adding an agent or machine, or investigating why a command was or wasn't blocked.\"",
+    "description": "Configure the shared guard against catastrophic shell commands in local AI agents. Use when changing block patterns, adding an agent or machine, or investigating why a command was or wasn't blocked.",
     "path": "category/terminal-system-tools/global-agent-guardrails"
   },
   {
@@ -332,7 +628,7 @@
     "name": "golang-cli",
     "category": "terminal-system-tools",
     "repository": "samber-cc-skills-golang",
-    "description": "\"Golang CLI application development. Use when building, modifying, or reviewing a Go CLI tool \u2014 especially for command structure, flag handling, configuration layering, version embedding, exit codes, I/O patterns, signal handling, shell completion, argument validation, and CLI unit testing. Also triggers when code uses cobra, viper, or urfave/cli. For cobra-specific APIs \u2192 See `samber/cc-skills-golang@golang-spf13-cobra` skill; for viper configuration layering \u2192 See `samber/cc-skills-golang@golang-spf13-viper` skill.\"",
+    "description": "Golang CLI application development. Use when building, modifying, or reviewing a Go CLI tool \u2014 especially for command structure, flag handling, configuration layering, version embedding, exit codes, I/O patterns, signal handling, shell completion, argument validation, and CLI unit testing. Also triggers when code uses cobra, viper, or urfave/cli. For cobra-specific APIs \u2192 See `samber/cc-skills-golang@golang-spf13-cobra` skill; for viper configuration layering \u2192 See `samber/cc-skills-golang@golang-spf13-viper` skill.",
     "path": "category/terminal-system-tools/golang-cli"
   },
   {
@@ -340,16 +636,40 @@
     "name": "google-agents-cli-onboarding",
     "category": "terminal-system-tools",
     "repository": "google-skills",
-    "description": ">-",
+    "description": "Onboarding entrypoint for agents-cli in Agent Platform. It should be used when the user wants to \"create a new agent\", \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"evaluate an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle.",
     "path": "category/terminal-system-tools/google-agents-cli-onboarding"
+  },
+  {
+    "id": "google-workspace",
+    "name": "google-workspace",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/google-workspace.md",
+    "path": "category/terminal-system-tools/google-workspace"
+  },
+  {
+    "id": "hardening-linux-endpoint-with-cis-benchmark",
+    "name": "hardening-linux-endpoint-with-cis-benchmark",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Hardens Linux endpoints using CIS Benchmark recommendations for Ubuntu,",
+    "path": "category/terminal-system-tools/hardening-linux-endpoint-with-cis-benchmark"
   },
   {
     "id": "harvest-automation",
     "name": "harvest-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate time tracking, project management, and invoicing workflows in Harvest -- log hours, manage projects, clients, and tasks through natural language commands.\"",
+    "description": "Automate time tracking, project management, and invoicing workflows in Harvest -- log hours, manage projects, clients, and tasks through natural language commands.",
     "path": "category/terminal-system-tools/harvest-automation"
+  },
+  {
+    "id": "help",
+    "name": "help",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Diverga help guide - displays all 24 agents across 9 categories, commands, and usage examples. Triggers: help, guide, how to use, \ub3c4\uc6c0\ub9d0",
+    "path": "category/terminal-system-tools/help"
   },
   {
     "id": "herdr",
@@ -364,7 +684,7 @@
     "name": "hf-cli",
     "category": "terminal-system-tools",
     "repository": "huggingface-skills",
-    "description": "\"Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, buckets, repos, papers, jobs, and more on the Hugging Face Hub. Use when: handling authentication; managing local cache; managing Hugging Face Buckets; running or scheduling jobs on Hugging Face infrastructure; managing Hugging Face repos; discussions and pull requests; browsing models, datasets and spaces; reading, searching, or browsing academic papers; managing collections; querying datasets; configuring spaces; setting up webhooks; or deploying and managing HF Inference Endpoints. Make sure to use this skill whenever the user mentions 'hf', 'huggingface', 'Hugging Face', 'huggingface-cli', or 'hugging face cli', or wants to do anything related to the Hugging Face ecosystem and to AI and ML in general. Also use for cloud storage needs like training checkpoints, data pipelines, or agent traces. Use even if the user doesn't explicitly ask for a CLI command. Replaces the deprecated `huggingface-cli`.\"",
+    "description": "Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, buckets, repos, papers, jobs, and more on the Hugging Face Hub. Use when: handling authentication; managing local cache; managing Hugging Face Buckets; running or scheduling jobs on Hugging Face infrastructure; managing Hugging Face repos; discussions and pull requests; browsing models, datasets and spaces; reading, searching, or browsing academic papers; managing collections; querying datasets; configuring spaces; setting up webhooks; or deploying and managing HF Inference Endpoints. Make sure to use this skill whenever the user mentions 'hf', 'huggingface', 'Hugging Face', 'huggingface-cli', or 'hugging face cli', or wants to do anything related to the Hugging Face ecosystem and to AI and ML in general. Also use for cloud storage needs like training checkpoints, data pipelines, or agent traces. Use even if the user doesn't explicitly ask for a CLI command. Replaces the deprecated `huggingface-cli`.",
     "path": "category/terminal-system-tools/hf-cli"
   },
   {
@@ -372,7 +692,7 @@
     "name": "hub-run",
     "category": "terminal-system-tools",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:hub-run or asks to execute a full AgentHub competition end-to-end.\"",
+    "description": "One-shot lifecycle command that chains init \u2192 baseline \u2192 spawn \u2192 eval \u2192 merge in a single invocation. Use when the user runs /hub:hub-run or asks to execute a full AgentHub competition end-to-end.",
     "path": "category/terminal-system-tools/hub-run"
   },
   {
@@ -380,16 +700,88 @@
     "name": "hunt-file-upload",
     "category": "terminal-system-tools",
     "repository": "elementalsouls-claude-bughunter",
-    "description": "\"Hunt file upload bugs \u2014 RCE via webshell, XSS via SVG/HTML, SSRF via XXE in DOCX, path traversal via filename. Bypass tables (10 techniques): double extension (shell.php.jpg if server checks last ext only), magic bytes spoofing (PNG header on PHP), null byte (shell.php\\0.jpg), case (PHP, .Php, .pHP), .htaccess upload to enable execution, SVG with <script>, HTML/SVG XSS, DOCX with embedded XXE, ZIP slip (../../../etc/passwd in archive), polyglot files. Detection: any /upload, /avatar, /profile-picture, /attachment, /import endpoint. Test: upload PHP/JSP/ASPX shells, request via direct URL, check response. Validate: actual code execution (whoami output) for RCE; reflected XSS in profile-photo URL. Use when testing file upload features, avatar/attachment endpoints, import/export functions, XML/DOCX/ZIP processors. Real paid examples.\"",
+    "description": "Hunt file upload bugs \u2014 RCE via webshell, XSS via SVG/HTML, SSRF via XXE in DOCX, path traversal via filename. Bypass tables (10 techniques): double extension (shell.php.jpg if server checks last ext only), magic bytes spoofing (PNG header on PHP), null byte (shell.php\\0.jpg), case (PHP, .Php, .pHP), .htaccess upload to enable execution, SVG with <script>, HTML/SVG XSS, DOCX with embedded XXE, ZIP slip (../../../etc/passwd in archive), polyglot files. Detection: any /upload, /avatar, /profile-picture, /attachment, /import endpoint. Test: upload PHP/JSP/ASPX shells, request via direct URL, check response. Validate: actual code execution (whoami output) for RCE; reflected XSS in profile-photo URL. Use when testing file upload features, avatar/attachment endpoints, import/export functions, XML/DOCX/ZIP processors. Real paid examples.",
     "path": "category/terminal-system-tools/hunt-file-upload"
+  },
+  {
+    "id": "hunting-for-anomalous-powershell-execution",
+    "name": "hunting-for-anomalous-powershell-execution",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Hunt for malicious PowerShell activity by analyzing Script Block Logging",
+    "path": "category/terminal-system-tools/hunting-for-anomalous-powershell-execution"
+  },
+  {
+    "id": "hunting-for-beaconing-with-frequency-analysis",
+    "name": "hunting-for-beaconing-with-frequency-analysis",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Identify command-and-control beaconing patterns in network traffic by",
+    "path": "category/terminal-system-tools/hunting-for-beaconing-with-frequency-analysis"
+  },
+  {
+    "id": "hunting-for-command-and-control-beaconing",
+    "name": "hunting-for-command-and-control-beaconing",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect C2 beaconing patterns in network traffic using frequency analysis,",
+    "path": "category/terminal-system-tools/hunting-for-command-and-control-beaconing"
+  },
+  {
+    "id": "hunting-for-shadow-copy-deletion",
+    "name": "hunting-for-shadow-copy-deletion",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Runs a hypothesis-driven threat hunt for Volume Shadow Copy deletion (T1490) by querying SIEM/EDR telemetry for vssadmin, wmic shadowcopy, and PowerShell shadow-copy-deletion commands. Use when hunting for ransomware preparation or anti-forensics activity, after threat intel flags active campaigns, or when alerts trigger on shadow-copy deletion commands.",
+    "path": "category/terminal-system-tools/hunting-for-shadow-copy-deletion"
+  },
+  {
+    "id": "hunting-for-unusual-network-connections",
+    "name": "hunting-for-unusual-network-connections",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Runs a hypothesis-driven threat hunt for command-and-control activity (T1071) by querying SIEM/EDR network telemetry for anomalous outbound traffic, rare destinations, non-standard ports, and unusual connection frequencies from endpoints. Use when hunting for beaconing/C2 traffic, after threat intel flags suspicious infrastructure, or when alerts fire on anomalous connections.",
+    "path": "category/terminal-system-tools/hunting-for-unusual-network-connections"
+  },
+  {
+    "id": "hunting-for-webshell-activity",
+    "name": "hunting-for-webshell-activity",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Runs a hypothesis-driven threat hunt for web shell deployment (T1505.003) on internet-facing servers by analyzing file creation in web directories, suspicious child-process spawning from web server processes, and anomalous HTTP request patterns. Use when hunting for web shells after a public-facing app compromise, when EDR/SIEM alerts fire on webserver process anomalies, or during incident response on internet-facing infrastructure.",
+    "path": "category/terminal-system-tools/hunting-for-webshell-activity"
+  },
+  {
+    "id": "implementing-data-loss-prevention-with-microsoft-purview",
+    "name": "implementing-data-loss-prevention-with-microsoft-purview",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Implements DLP policies using Microsoft Purview PowerShell cmdlets and",
+    "path": "category/terminal-system-tools/implementing-data-loss-prevention-with-microsoft-purview"
+  },
+  {
+    "id": "implementing-gcp-vpc-firewall-rules",
+    "name": "implementing-gcp-vpc-firewall-rules",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Implements and audits GCP VPC firewall rules using gcloud, covering auditing overly permissive rules, creating restrictive ingress/egress rules, hierarchical firewall policies, and monitoring rule effectiveness with VPC Flow Logs. Use when deploying GCP workloads needing network access controls, auditing firewall configs, or responding to Security Command Center findings; not for Cloud Armor or DNS-based filtering.",
+    "path": "category/terminal-system-tools/implementing-gcp-vpc-firewall-rules"
   },
   {
     "id": "jotform-automation",
     "name": "jotform-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Jotform form listing, user management, activity history, folder organization, and plan inspection through natural language commands\"",
+    "description": "Automate Jotform form listing, user management, activity history, folder organization, and plan inspection through natural language commands",
     "path": "category/terminal-system-tools/jotform-automation"
+  },
+  {
+    "id": "karpathy-check",
+    "name": "karpathy-check",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/karpathy-check.md",
+    "path": "category/terminal-system-tools/karpathy-check"
   },
   {
     "id": "linear-sdk-scripting",
@@ -404,7 +796,7 @@
     "name": "linux",
     "category": "terminal-system-tools",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support\"",
+    "description": "Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support",
     "path": "category/terminal-system-tools/linux"
   },
   {
@@ -412,7 +804,7 @@
     "name": "linux-privilege-escalation",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"This skill should be used when the user asks to \\\"escalate privileges on Linux\\\", \\\"find privesc vectors on Linux systems\\\", \\\"exploit sudo misconfigurations\\\", \\\"abuse SUID binaries\\\", \\\"ex...\"",
+    "description": "This skill should be used when the user asks to \\\"escalate privileges on Linux\\\", \\\"find privesc vectors on Linux systems\\\", \\\"exploit sudo misconfigurations\\\", \\\"abuse SUID binaries\\\", \\\"ex...",
     "path": "category/terminal-system-tools/linux-privilege-escalation"
   },
   {
@@ -420,7 +812,7 @@
     "name": "linux-shell-scripting",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"This skill should be used when the user asks to \\\"create bash scripts\\\", \\\"automate Linux tasks\\\", \\\"monitor system resources\\\", \\\"backup files\\\", \\\"manage users\\\", or \\\"write production she...\"",
+    "description": "This skill should be used when the user asks to \\\"create bash scripts\\\", \\\"automate Linux tasks\\\", \\\"monitor system resources\\\", \\\"backup files\\\", \\\"manage users\\\", or \\\"write production she...",
     "path": "category/terminal-system-tools/linux-shell-scripting"
   },
   {
@@ -432,12 +824,60 @@
     "path": "category/terminal-system-tools/managing-mcp-servers"
   },
   {
+    "id": "maui-app-lifecycle",
+    "name": "maui-app-lifecycle",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": ".NET MAUI app lifecycle guidance \u2014 the four app states, cross-platform Window lifecycle events (Created, Activated, Deactivated, Stopped, Resumed, Destroying), platform-specific lifecycle mapping, backgrounding and resume behavior, and state-preservation patterns. USE FOR: \"app lifecycle\", \"window lifecycle events\", \"save state on background\", \"resume app\", \"OnStopped\", \"OnResumed\", \"backgrounding\", \"deactivated event\", \"ConfigureLifecycleEvents\", \"platform lifecycle hooks\". DO NOT USE FOR: navigation events (use maui-shell-navigation), dependency injection setup (use maui-dependency-injection), platform API invocation (use conditional compilation and partial classes).",
+    "path": "category/terminal-system-tools/maui-app-lifecycle"
+  },
+  {
+    "id": "maui-data-binding",
+    "name": "maui-data-binding",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Guidance for .NET MAUI XAML and C# data bindings \u2014 compiled bindings, INotifyPropertyChanged / ObservableObject, value converters, binding modes, multi-binding, relative bindings, fallbacks, and MVVM best practices. USE FOR: setting up compiled bindings with x:DataType, implementing INotifyPropertyChanged or CommunityToolkit ObservableObject, creating IValueConverter / IMultiValueConverter, choosing binding modes, configuring BindingContext, relative bindings, binding fallbacks, StringFormat, code-behind SetBinding with lambdas, and enforcing XC0022/XC0025 warnings. DO NOT USE FOR: CollectionView item templates and layouts (use maui-collectionview), Shell navigation data passing (use maui-shell-navigation), dependency injection (use maui-dependency-injection), or animations triggered by property changes (use .NET MAUI animation APIs).",
+    "path": "category/terminal-system-tools/maui-data-binding"
+  },
+  {
+    "id": "maui-dependency-injection",
+    "name": "maui-dependency-injection",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Guidance for configuring dependency injection in .NET MAUI apps \u2014 service registration in MauiProgram.cs, lifetime selection (Singleton / Transient / Scoped), constructor injection, Shell navigation auto-resolution, platform-specific registrations, and testability patterns. USE FOR: \"dependency injection\", \"DI setup\", \"AddSingleton\", \"AddTransient\", \"AddScoped\", \"service registration\", \"constructor injection\", \"IServiceProvider\", \"MauiProgram DI\", \"register services\", \"BindingContext injection\". DO NOT USE FOR: data binding (use maui-data-binding), Shell route configuration (use maui-shell-navigation), unit-test mocking frameworks (use standard xUnit and NSubstitute patterns).",
+    "path": "category/terminal-system-tools/maui-dependency-injection"
+  },
+  {
     "id": "maui-shell-navigation",
     "name": "maui-shell-navigation",
     "category": "terminal-system-tools",
     "repository": "dotnet-skills",
-    "description": ">-",
+    "description": "Guide for implementing Shell-based navigation in .NET MAUI apps. Covers AppShell setup, visual hierarchy (FlyoutItem, TabBar, Tab, ShellContent), URI-based navigation with GoToAsync, route registration, query parameters, back navigation, flyout and tab configuration, navigation events, and navigation guards. Use when: setting up Shell navigation, adding tabs or flyout menus, navigating between pages with GoToAsync, passing parameters between pages, registering routes, customizing back button behavior, or guarding navigation with confirmation dialogs. Do not use for: deep linking from external URLs (see .NET MAUI deep linking documentation), data binding on pages (use maui-data-binding), dependency injection setup (use maui-dependency-injection), or NavigationPage-only apps that don't use Shell.",
     "path": "category/terminal-system-tools/maui-shell-navigation"
+  },
+  {
+    "id": "mesh-gradient-dark-blue-clean",
+    "name": "mesh-gradient-dark-blue-clean",
+    "category": "terminal-system-tools",
+    "repository": "mengto-skills",
+    "description": "Create a futuristic, premium, clean dark-blue mesh-gradient design system across background rendering, hero shell, navigation, floating nodes, framed sections, CTAs, and motion. Use when the interface needs a near-black navy foundation, procedural blue mesh atmosphere, disciplined minimal structure, and infrastructural or planetary depth.",
+    "path": "category/terminal-system-tools/mesh-gradient-dark-blue-clean"
+  },
+  {
+    "id": "mirrord-up",
+    "name": "mirrord-up",
+    "category": "terminal-system-tools",
+    "repository": "metalbear-co-mirrord",
+    "description": "Helps users run multiple concurrent mirrord sessions from a single mirrord-up.yaml (compose-style multi-service local debugging). Use when the user mentions mirrord up, mirrord-up.yaml, mirrord up init, debugging several related microservices together, or managing multiple mirrord sessions' lifecycle in one command.",
+    "path": "category/terminal-system-tools/mirrord-up"
+  },
+  {
+    "id": "month-end-prep",
+    "name": "month-end-prep",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reconciles the accounting ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) against PayPal, Shopify, Square, and Stripe settlements, flags transactions that need attention, suspicious duplicates, and missing receipts, then writes a plain-English P&L narrative and exports a close packet (xlsx + one-page PDF). This is the first link of the /close-month command; a request to close the month or the books routes there, and the command runs this skill before refreshing the forecast and distributing the packet. Use this skill directly only when the owner wants the reconciliation alone, with no forecast refresh and no distribution: \"just reconcile, no packet,\" \"what's missing from the books,\" \"flag the duplicates and missing receipts,\" or \"write the P&L narrative for this month.",
+    "path": "category/terminal-system-tools/month-end-prep"
   },
   {
     "id": "ms365-tenant-manager",
@@ -456,6 +896,30 @@
     "path": "category/terminal-system-tools/mt5-robot-tester"
   },
   {
+    "id": "mtp-hot-reload",
+    "name": "mtp-hot-reload",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Set up or recover MTP hot reload for a long-lived console-host edit/re-run loop in a Microsoft Testing Platform project. Use for explicit MTP console requests such as \"enable hot reload\", \"dotnet run to rerun on edit\", or unsupported/rude edits. Covers setup, run/watch, restarts, filters, and the VSTest no-mutation fallback. For one-time runs, exact commands, filter errors, TRX/dumps, or merely a failing test, use run-tests. Do not use when Test Explorer or an IDE should rerun tests without an MTP console host. Excludes editor integration, CI, and writing/debugging tests.",
+    "path": "category/terminal-system-tools/mtp-hot-reload"
+  },
+  {
+    "id": "nested-container-clean-agency",
+    "name": "nested-container-clean-agency",
+    "category": "terminal-system-tools",
+    "repository": "mengto-skills",
+    "description": "Create a clean agency design system built from nested containers, with an outer editorial shell, inset dark feature blocks, rounded premium cards, and restrained accent color.",
+    "path": "category/terminal-system-tools/nested-container-clean-agency"
+  },
+  {
+    "id": "nuget-trusted-publishing",
+    "name": "nuget-trusted-publishing",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Set up NuGet trusted publishing (OIDC) on a GitHub Actions repo \u2014 replaces long-lived API keys with short-lived tokens. USE FOR: trusted publishing, NuGet OIDC, keyless NuGet publish, migrate from NuGet API key, NuGet/login, secure NuGet publishing. DO NOT USE FOR: publishing to private feeds or Azure Artifacts (OIDC is nuget.org only). INVOKES: shell (powershell or bash), edit, create, ask_user for guided repo setup.",
+    "path": "category/terminal-system-tools/nuget-trusted-publishing"
+  },
+  {
     "id": "obsidian-cli",
     "name": "obsidian-cli",
     "category": "terminal-system-tools",
@@ -464,27 +928,59 @@
     "path": "category/terminal-system-tools/obsidian-cli"
   },
   {
+    "id": "okr",
+    "name": "okr",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/okr.md",
+    "path": "category/terminal-system-tools/okr"
+  },
+  {
     "id": "onboard",
     "name": "onboard",
     "category": "terminal-system-tools",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"/cs-onboard \u2014 Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context \u2014 e.g. before a first /c-level-agents:boardroom or after a fundraise changes the numbers.\"",
+    "description": "/cs-onboard \u2014 Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context \u2014 e.g. before a first /c-level-agents:boardroom or after a fundraise changes the numbers.",
     "path": "category/terminal-system-tools/onboard"
   },
   {
-    "id": "opencli-reader",
-    "name": "opencli-reader",
+    "id": "openrig-cmux",
+    "name": "openrig-cmux",
     "category": "terminal-system-tools",
-    "repository": "himself65-finance-skills",
-    "description": ">",
-    "path": "category/terminal-system-tools/opencli-reader"
+    "repository": "mvschwarz-openrig",
+    "description": "Use when opening OpenRig fleet terminals into cmux \u2014 turning a rig, pod, mission, slice, or saved view into live agent tiles via `rig terminal --provider cmux`, or driving cmux on an agent's request. Same OpenRig view semantics as openrig-herdr (the verbs, honest-partial/degrade, read-only cross-rig, scroll/copy, same-size-only duplicates); cmux is the **best-effort** provider (herdr is the default and the proof-gated one). Prefer openrig-herdr unless cmux is specifically wanted.",
+    "path": "category/terminal-system-tools/openrig-cmux"
+  },
+  {
+    "id": "openrig-herdr",
+    "name": "openrig-herdr",
+    "category": "terminal-system-tools",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when opening OpenRig fleet terminals as a herdr wall \u2014 turning a rig, pod, mission, slice, or saved view into live interactive agent tiles via `rig terminal`, watching another rig read-only, or driving herdr on an agent's request (\"open all my rigs + a mission as views\"). Covers the `rig terminal open|views|status` verbs, the honest-partial/degrade reading of the result, the read-only-by-construction rail for cross-rig views, scroll/copy out of the box, and the same-size-only duplicate-pane limit. herdr is the default, proof-gated provider.",
+    "path": "category/terminal-system-tools/openrig-herdr"
+  },
+  {
+    "id": "openrig-user",
+    "name": "openrig-user",
+    "category": "terminal-system-tools",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when a specific `rig` command, subcommand, or flag is already known and you need its exact syntax, JSON shape, defaults, or error meaning. NOT for natural capability discovery, open-ended how-do-I questions, or choosing which OpenRig move applies.",
+    "path": "category/terminal-system-tools/openrig-user"
+  },
+  {
+    "id": "operator-audit",
+    "name": "operator-audit",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/operator-audit.md",
+    "path": "category/terminal-system-tools/operator-audit"
   },
   {
     "id": "overleaf-cli-guide",
     "name": "overleaf-cli-guide",
     "category": "terminal-system-tools",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Sync and manage Overleaf LaTeX projects from the command line\"",
+    "description": "Sync and manage Overleaf LaTeX projects from the command line",
     "path": "category/terminal-system-tools/overleaf-cli-guide"
   },
   {
@@ -492,32 +988,104 @@
     "name": "papis-cli-guide",
     "category": "terminal-system-tools",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "\"Guide to Papis command-line document and bibliography manager for researchers\"",
+    "description": "Guide to Papis command-line document and bibliography manager for researchers",
     "path": "category/terminal-system-tools/papis-cli-guide"
+  },
+  {
+    "id": "parsing-artifacts-with-eric-zimmerman-tools",
+    "name": "parsing-artifacts-with-eric-zimmerman-tools",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Parse Windows forensic artifacts\u2014$MFT/$J (MFTECmd), Prefetch (PECmd), registry hives (RECmd), shellbags, and Amcache\u2014into normalized CSV/JSON with Eric Zimmerman's EZ Tools, then load results into Timeline Explorer for analysis. Use during DFIR/incident-response investigations, after triage collection (e.g. with KAPE), to establish program execution, file/folder access, and persistence evidence from acquired forensic images.",
+    "path": "category/terminal-system-tools/parsing-artifacts-with-eric-zimmerman-tools"
   },
   {
     "id": "pentest-commands",
     "name": "pentest-commands",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"This skill should be used when the user asks to \\\"run pentest commands\\\", \\\"scan with nmap\\\", \\\"use metasploit exploits\\\", \\\"crack passwords with hydra or john\\\", \\\"scan web vulnerabilities ...\"",
+    "description": "This skill should be used when the user asks to \\\"run pentest commands\\\", \\\"scan with nmap\\\", \\\"use metasploit exploits\\\", \\\"crack passwords with hydra or john\\\", \\\"scan web vulnerabilities ...",
     "path": "category/terminal-system-tools/pentest-commands"
+  },
+  {
+    "id": "performing-linux-log-forensics-investigation",
+    "name": "performing-linux-log-forensics-investigation",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Perform forensic investigation of Linux system logs including syslog,",
+    "path": "category/terminal-system-tools/performing-linux-log-forensics-investigation"
+  },
+  {
+    "id": "performing-network-forensics-with-wireshark",
+    "name": "performing-network-forensics-with-wireshark",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Capture and analyze network traffic using Wireshark and tshark to reconstruct network events from PCAP/PCAPNG files, extract transferred files and credentials, and identify command-and-control communications. Use when analyzing captured traffic from a security incident, reconstructing data exfiltration, or finding network indicators of compromise during malware analysis.",
+    "path": "category/terminal-system-tools/performing-network-forensics-with-wireshark"
+  },
+  {
+    "id": "performing-network-packet-capture-analysis",
+    "name": "performing-network-packet-capture-analysis",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Perform forensic analysis of network packet captures (PCAP/PCAPNG) using Wireshark, tshark, and tcpdump to reconstruct network communications, extract transferred files, identify malicious traffic, and establish evidence of data exfiltration or command-and-control activity. Use when a PCAP file from an incident needs to be examined to prove lateral movement, malware delivery, or unauthorized access.",
+    "path": "category/terminal-system-tools/performing-network-packet-capture-analysis"
+  },
+  {
+    "id": "performing-privilege-escalation-assessment",
+    "name": "performing-privilege-escalation-assessment",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Performs privilege escalation assessments on compromised Linux and Windows",
+    "path": "category/terminal-system-tools/performing-privilege-escalation-assessment"
+  },
+  {
+    "id": "performing-privilege-escalation-on-linux",
+    "name": "performing-privilege-escalation-on-linux",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Guides manual enumeration and automated tooling to escalate from a low-privilege",
+    "path": "category/terminal-system-tools/performing-privilege-escalation-on-linux"
   },
   {
     "id": "persistent-localhost",
     "name": "persistent-localhost",
     "category": "terminal-system-tools",
     "repository": "davidondrej-skills",
-    "description": "\"Manage persistent dev servers, APIs, and other local processes on a port using macOS LaunchAgents. Use when starting, stopping, restarting, inspecting, or troubleshooting local servers that should survive shell exit and restart after crashes.\"",
+    "description": "Manage persistent dev servers, APIs, and other local processes on a port using macOS LaunchAgents. Use when starting, stopping, restarting, inspecting, or troubleshooting local servers that should survive shell exit and restart after crashes.",
     "path": "category/terminal-system-tools/persistent-localhost"
+  },
+  {
+    "id": "persona",
+    "name": "persona",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/persona.md",
+    "path": "category/terminal-system-tools/persona"
+  },
+  {
+    "id": "platform-detection",
+    "name": "platform-detection",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Identify a .NET project's test platform, framework, command mode, and SDK-style vs classic project system. Use only for \"which test platform/framework?\", \"VSTest or MTP?\", or \"what runner does this project use?\", including bridge settings, UseVSTest opt-outs, and incompatible or conflicting VSTest/MTP configuration. Resolves global.json, project, packages.config, Directory.Build.props, and Directory.Packages.props precedence for MSTest/xUnit/NUnit/TUnit. DO NOT USE when the user asks to run/filter tests or for commands, flags, TRX/dumps, or test-command/filter errors; use run-tests directly. Do not route hot-reload or migration requests here as the entry skill; mtp-hot-reload may use this skill internally for platform detection.",
+    "path": "category/terminal-system-tools/platform-detection"
   },
   {
     "id": "playwright",
     "name": "playwright",
     "category": "terminal-system-tools",
     "repository": "active",
-    "description": "\"Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.\"",
+    "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
     "path": "category/terminal-system-tools/playwright"
+  },
+  {
+    "id": "plugin-audit",
+    "name": "plugin-audit",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/plugin-audit.md",
+    "path": "category/terminal-system-tools/plugin-audit"
   },
   {
     "id": "pnpm",
@@ -532,8 +1100,16 @@
     "name": "posix-shell-pro",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Expert in strict POSIX sh scripting for maximum portability across\"",
+    "description": "Expert in strict POSIX sh scripting for maximum portability across",
     "path": "category/terminal-system-tools/posix-shell-pro"
+  },
+  {
+    "id": "post-exploiting-microsoft-graph-with-graphrunner",
+    "name": "post-exploiting-microsoft-graph-with-graphrunner",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Runs GraphRunner, a PowerShell post-exploitation toolset built on",
+    "path": "category/terminal-system-tools/post-exploiting-microsoft-graph-with-graphrunner"
   },
   {
     "id": "powershell-windows",
@@ -548,7 +1124,7 @@
     "name": "principle-make-operations-idempotent",
     "category": "terminal-system-tools",
     "repository": "backnotprop-pstack",
-    "description": "\"Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.\"",
+    "description": "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.",
     "path": "category/terminal-system-tools/principle-make-operations-idempotent"
   },
   {
@@ -556,8 +1132,64 @@
     "name": "productboard-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate product management workflows in Productboard -- manage features, notes, objectives, components, and releases through natural language commands.\"",
+    "description": "Automate product management workflows in Productboard -- manage features, notes, objectives, components, and releases through natural language commands.",
     "path": "category/terminal-system-tools/productboard-automation"
+  },
+  {
+    "id": "project-health",
+    "name": "project-health",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/project-health.md",
+    "path": "category/terminal-system-tools/project-health"
+  },
+  {
+    "id": "queue-handoff",
+    "name": "queue-handoff",
+    "category": "terminal-system-tools",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when ending a turn, finishing a slice, blocked on another agent's work, or escalating to a human \u2014 durable work handoff via queue items so the system keeps moving across compactions, missed messages, and interruptions. Covers the hot-potato terminal-turn-rule (active work ends by passing the ball, not by going idle), default-nudge semantics, and when `--no-nudge` is appropriate for intentional cold park or human gate.",
+    "path": "category/terminal-system-tools/queue-handoff"
+  },
+  {
+    "id": "replica-build",
+    "name": "replica-build",
+    "category": "terminal-system-tools",
+    "repository": "jakeschincariol-replica-skill",
+    "description": "Rebuilds an app screen by screen from the recon map: app shell first, then the core flow as a vertical slice, then every screen with all its states, ticking off the feature matrix as it goes. Writes every line fresh, never the original's code, assets or copy. Use when the user says \"build the clone\", \"build screen S07\", \"start building\", \"rebuild this screen\", \"implement the booking page\", or after /replica-design.",
+    "path": "category/terminal-system-tools/replica-build"
+  },
+  {
+    "id": "retro",
+    "name": "retro",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/retro.md",
+    "path": "category/terminal-system-tools/retro"
+  },
+  {
+    "id": "rice",
+    "name": "rice",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/rice.md",
+    "path": "category/terminal-system-tools/rice"
+  },
+  {
+    "id": "rigs",
+    "name": "rigs",
+    "category": "terminal-system-tools",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when a person in their own Claude Code or Codex session mentions OpenRig, rigs or the rig command, or wants a team of coding agents (Claude Code, Codex) on their project. That includes installing, setting up, starting or updating OpenRig, seeing, getting back to or re-attaching to their OpenRig agents (including bringing a stopped team back), TUI or operator, starting or sharing a team, and joining this session to one. Operating a running rig from inside it (fleet recovery, seat handover, watchdog wakes, in-rig upgrades) is the openrig-skills skill.",
+    "path": "category/terminal-system-tools/rigs"
+  },
+  {
+    "id": "run-tests",
+    "name": "run-tests",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "ALWAYS USE before running .NET tests or answering with a test command or flags. Trigger on \"run the tests\", \"exact dotnet test command\", one test/class/category/trait/target framework, combined filters, `--filter-query`, `--no-build`, `--diag`, diagnostic logs, TRX, coverage collection, crash/hang dumps, filter errors, or unrecognized options. Chooses repository-compatible classic, VSTest, bridged MTP, or native MTP syntax for MSTest/xUnit/NUnit/TUnit. DO NOT USE for platform identification alone (platform-detection), writing or debugging test code, interpreting an existing coverage report, CI investigation, migration, or a persistent hot reload/watch loop.",
+    "path": "category/terminal-system-tools/run-tests"
   },
   {
     "id": "runbook",
@@ -566,6 +1198,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Create or update an operational runbook for a recurring task or procedure. Use when documenting a task that on-call or ops needs to run repeatably, turning tribal knowledge into exact step-by-step commands, adding troubleshooting and rollback steps to an existing procedure, or writing escalation paths for when things go wrong.",
     "path": "category/terminal-system-tools/runbook"
+  },
+  {
+    "id": "saas-health",
+    "name": "saas-health",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/saas-health.md",
+    "path": "category/terminal-system-tools/saas-health"
   },
   {
     "id": "safe-browser",
@@ -580,7 +1220,7 @@
     "name": "sentry",
     "category": "terminal-system-tools",
     "repository": "getsentry-skills",
-    "description": "\"Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.\"",
+    "description": "Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry health data via the Sentry CLI; perform read-only queries using the `sentry` command.",
     "path": "category/terminal-system-tools/sentry"
   },
   {
@@ -590,6 +1230,14 @@
     "repository": "cline-skills",
     "description": "Guide for using the Sentry CLI to interact with Sentry from the command line. Use when the user asks about viewing issues, events, projects, organizations, making API calls, or authenticating with Sentry via CLI.",
     "path": "category/terminal-system-tools/sentry-cli"
+  },
+  {
+    "id": "seo-auditor",
+    "name": "seo-auditor",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/seo-auditor.md",
+    "path": "category/terminal-system-tools/seo-auditor"
   },
   {
     "id": "seo-new-keywords-research",
@@ -604,8 +1252,16 @@
     "name": "setup",
     "category": "terminal-system-tools",
     "repository": "alirezarezvani-claude-skills",
-    "description": "\"Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Use when the user runs /ar:setup or asks to start optimizing a file with the autoresearch loop.\"",
+    "description": "Set up a new autoresearch experiment interactively. Collects domain, target file, eval command, metric, direction, and evaluator. Use when the user runs /ar:setup or asks to start optimizing a file with the autoresearch loop.",
     "path": "category/terminal-system-tools/setup"
+  },
+  {
+    "id": "setup-local-sdk",
+    "name": "setup-local-sdk",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Install a .NET SDK locally for safe preview testing, specific-version pinning, or reproducible team setups \u2014 without modifying the system-wide installation. USE FOR: trying .NET previews safely, testing specific SDK versions, installing MAUI or other workloads on a preview, updating or replacing an existing local SDK, creating reproducible team/CI install scripts, configuring global.json paths. DO NOT USE FOR: system-wide SDK installs, .NET hosts older than 10, runtime-only installs, or projects not using SDK-style commands.",
+    "path": "category/terminal-system-tools/setup-local-sdk"
   },
   {
     "id": "shell-conventions",
@@ -620,7 +1276,7 @@
     "name": "shellcheck-configuration",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting up linting infrastructure, fixing code issues, or ensuring script portability.\"",
+    "description": "Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting up linting infrastructure, fixing code issues, or ensuring script portability.",
     "path": "category/terminal-system-tools/shellcheck-configuration"
   },
   {
@@ -628,8 +1284,56 @@
     "name": "shortcut-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate project management workflows in Shortcut -- create stories, manage tasks, track epics, and organize workflows through natural language commands.\"",
+    "description": "Automate project management workflows in Shortcut -- create stories, manage tasks, track epics, and organize workflows through natural language commands.",
     "path": "category/terminal-system-tools/shortcut-automation"
+  },
+  {
+    "id": "simple-english",
+    "name": "simple-english",
+    "category": "terminal-system-tools",
+    "repository": "aminblg-simpleenglish",
+    "description": "Write or rewrite text in plain, layman-readable English in the spirit of ASD-STE100 Simplified Technical English: short sentences, active voice, simple tenses, one word one meaning, condition before command, every technical term defined at first use, no AI slop. Default mode is Plain. Strict mode applies full STE vocabulary compliance when the user names STE, ASD-STE100, or compliance. Use for documentation, READMEs, runbooks, procedures, error messages, release notes, incident reports, API guides, and explanations for readers outside the field. Also use when the user says \"STE\", \"Simplified Technical English\", \"ASD-STE100\", \"plain English\", \"layman's terms\", \"explain it simply\", \"no jargon\", \"de-slop\", \"make this readable\", \"write for non-native readers\", or asks for docs that translate well. The same rules govern the reply: answer first, prose only.",
+    "path": "category/terminal-system-tools/simple-english"
+  },
+  {
+    "id": "slo-design",
+    "name": "slo-design",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/slo-design.md",
+    "path": "category/terminal-system-tools/slo-design"
+  },
+  {
+    "id": "smb-router",
+    "name": "smb-router",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "The front door to the Small Business plugin. Listens to what the owner needs right now \u2014 vague or specific \u2014 and routes them to the best skill or slash command for the moment. Also serves as a guide: explains what's available, suggests what to try next, and adapts recommendations based on stored business context. Trigger whenever the owner asks \"what can you do,\" \"help me with my business,\" \"what should I focus on,\" \"I don't know where to start,\" or any open-ended business request that doesn't clearly match a single skill.",
+    "path": "category/terminal-system-tools/smb-router"
+  },
+  {
+    "id": "sprint-health",
+    "name": "sprint-health",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/sprint-health.md",
+    "path": "category/terminal-system-tools/sprint-health"
+  },
+  {
+    "id": "sprint-plan",
+    "name": "sprint-plan",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/sprint-plan.md",
+    "path": "category/terminal-system-tools/sprint-plan"
+  },
+  {
+    "id": "stata-c-plugins",
+    "name": "stata-c-plugins",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Develop high-performance C/C++ plugins for Stata using the stplugin.h SDK. Use when the user asks to create a Stata plugin, write C/C++ code for Stata, accelerate a Stata command with C, build cross-platform Stata plugins, or translate/port a Python or R package into Stata. Covers the full lifecycle: SDK setup, data flow, memory safety, .ado wrappers with preserve/merge, cross-platform compilation, performance optimization (pthreads, pre-sorted indices, XorShift RNG), debugging, and distribution via net install. Also includes a translation workflow for porting Python/R packages to Stata \u2014 wrapping existing C++ backends when available, or writing C from scratch when not.",
+    "path": "category/terminal-system-tools/stata-c-plugins"
   },
   {
     "id": "stata-help",
@@ -646,6 +1350,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Tail, read, or search a Stata log file from a previous command or background task.",
     "path": "category/terminal-system-tools/stata-log"
+  },
+  {
+    "id": "stata-python-translation",
+    "name": "stata-python-translation",
+    "category": "terminal-system-tools",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Stata-to-Python translation for data analysis. Maps Stata commands (reghdfe, xtreg, ivregress, margins, esttab, svy:) to Python (polars, pyfixest, statsmodels, svy). Use when user has Stata background or requests Stata-equivalent code comments.",
+    "path": "category/terminal-system-tools/stata-python-translation"
   },
   {
     "id": "stata-results",
@@ -668,15 +1380,23 @@
     "name": "survey-monkey-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate SurveyMonkey survey creation, response collection, collector management, and survey discovery through natural language commands\"",
+    "description": "Automate SurveyMonkey survey creation, response collection, collector management, and survey discovery through natural language commands",
     "path": "category/terminal-system-tools/survey-monkey-automation"
+  },
+  {
+    "id": "tc",
+    "name": "tc",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/tc.md",
+    "path": "category/terminal-system-tools/tc"
   },
   {
     "id": "team-chat",
     "name": "team-chat",
     "category": "terminal-system-tools",
     "repository": "anthropics-knowledge-work",
-    "description": "\"Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.\"",
+    "description": "Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.",
     "path": "category/terminal-system-tools/team-chat"
   },
   {
@@ -684,15 +1404,23 @@
     "name": "telegram-automation",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
-    "description": "\"Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents, and handle bot commands. Always search tools first for current schemas.\"",
+    "description": "Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents, and handle bot commands. Always search tools first for current schemas.",
     "path": "category/terminal-system-tools/telegram-automation"
+  },
+  {
+    "id": "template-validation",
+    "name": "template-validation",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": "Validates custom dotnet new templates for correctness before publishing. Catches missing fields, parameter bugs, shortName conflicts, constraint issues, and common authoring mistakes that cause templates to fail silently. USE FOR: checking template.json files for errors before publishing or testing, diagnosing why a template doesn't appear after installation, reviewing template parameter definitions for type mismatches and missing defaults, finding shortName conflicts with dotnet CLI commands, validating post-action and constraint configuration. DO NOT USE FOR: finding or using existing templates (use template-discovery), creating projects from templates (use template-instantiation), creating templates from existing projects (use template-authoring).",
+    "path": "category/terminal-system-tools/template-validation"
   },
   {
     "id": "toggl-automation",
     "name": "toggl-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate time tracking workflows in Toggl Track -- create time entries, manage projects, clients, tags, and workspaces through natural language commands.\"",
+    "description": "Automate time tracking workflows in Toggl Track -- create time entries, manage projects, clients, tags, and workspaces through natural language commands.",
     "path": "category/terminal-system-tools/toggl-automation"
   },
   {
@@ -700,15 +1428,23 @@
     "name": "uploadcare-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Uploadcare file management including listing, storing, inspecting, downloading, and organizing file groups through natural language commands\"",
+    "description": "Automate Uploadcare file management including listing, storing, inspecting, downloading, and organizing file groups through natural language commands",
     "path": "category/terminal-system-tools/uploadcare-automation"
+  },
+  {
+    "id": "user-story",
+    "name": "user-story",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/user-story.md",
+    "path": "category/terminal-system-tools/user-story"
   },
   {
     "id": "webex-automation",
     "name": "webex-automation",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
-    "description": "\"Automate Cisco Webex messaging, rooms, teams, webhooks, and people management through natural language commands\"",
+    "description": "Automate Cisco Webex messaging, rooms, teams, webhooks, and people management through natural language commands",
     "path": "category/terminal-system-tools/webex-automation"
   },
   {
@@ -716,8 +1452,24 @@
     "name": "wiki-cli",
     "category": "terminal-system-tools",
     "repository": "agricidaniel-claude-obsidian",
-    "description": "\"Detect and use the official Obsidian command-line interface for read-only vault access; use for wiki-cli, Obsidian CLI, Obsidian read, Obsidian search, vault transport, which transport, transport detection, backlinks, tags, or Obsidian command line. Mutations always go through the claude-obsidian transaction core.\"",
+    "description": "Detect and use the official Obsidian command-line interface for read-only vault access; use for wiki-cli, Obsidian CLI, Obsidian read, Obsidian search, vault transport, which transport, transport detection, backlinks, tags, or Obsidian command line. Mutations always go through the claude-obsidian transaction core.",
     "path": "category/terminal-system-tools/wiki-cli"
+  },
+  {
+    "id": "wiki-init",
+    "name": "wiki-init",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/wiki-init.md",
+    "path": "category/terminal-system-tools/wiki-init"
+  },
+  {
+    "id": "wiki-log",
+    "name": "wiki-log",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "../../../commands/wiki-log.md",
+    "path": "category/terminal-system-tools/wiki-log"
   },
   {
     "id": "wizard",
