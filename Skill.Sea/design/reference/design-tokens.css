@@ -1,0 +1,88 @@
+/* ExamForge design tokens: extracted EXACTLY from the approved mockups
+   (design-reference-desktop.html and design-reference-mobile.html).
+   Neutral warm-gray surfaces + teal accents. Do not change values. */
+
+:root,
+[data-theme="light"] {
+  --surface-0: #f9f9f7;            /* page background */
+  --surface-1: #fcfcfb;            /* header, metric tiles, tab bar, progress track */
+  --surface-2: #ffffff;            /* app / phone body, panels */
+
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+
+  --border: rgba(11, 11, 11, 0.10);          /* hairline dividers */
+  --border-strong: rgba(11, 11, 11, 0.20);   /* pills, panels, phone frame */
+  --border-stronger: rgba(11, 11, 11, 0.40); /* empty checkbox outline */
+
+  --bg-danger: #fad6d6;   --text-danger: #8e2626;    /* "High" chip */
+  --bg-warning: #f9dca4;  --text-warning: #734500;   /* "Weak" chip */
+  --bg-accent: #cde2fb;   --text-accent: #184f95;    /* "Review" chip, avatar */
+  --text-success: #006300;                           /* positive deltas */
+  --bg-neutral: #fcfcfb;                             /* "MCQ" chip uses surface-1 + text-secondary */
+
+  --teal: #1d9e75;                    /* progress fill, active tab icon, status dot */
+  --teal-strong: #0f6e56;             /* logo tile, checked checkbox */
+  --teal-nav-active: rgba(29, 158, 117, 0.16);  /* active nav pill background */
+  --teal-partial: rgba(29, 158, 117, 0.35);     /* partial (indeterminate) checkbox */
+  --teal-track: rgba(29, 158, 117, 0.18);       /* timer ring track */
+  --heat-0: rgba(29, 158, 117, 0.10);           /* heatmap empty cell; levels use alpha .30 / .55 / .90 */
+  --on-teal: #ffffff;
+
+  --radius: 8px;       /* controls, tiles, pills, nav items */
+  --radius-card: 12px; /* desktop app frame */
+  --radius-phone: 22px;
+  --radius-chip: 6px;
+  --radius-check: 4px;
+  --radius-bar: 3px;
+}
+
+[data-theme="dark"] {
+  --surface-0: #0b0b0b;
+  --surface-1: #151515;
+  --surface-2: #1a1a19;
+
+  --text-primary: #f0efec;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.20);
+  --border-stronger: rgba(255, 255, 255, 0.40);
+
+  --bg-danger: #3c0e0e;   --text-danger: #ec7e7e;
+  --bg-warning: #311a00;  --text-warning: #db9300;
+  --bg-accent: #032042;   --text-accent: #6da7ec;
+  --text-success: #0ca30c;
+  --bg-neutral: #151515;
+  /* teal values are identical in dark mode */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-0: #0b0b0b; --surface-1: #151515; --surface-2: #1a1a19;
+    --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #898781;
+    --border: rgba(255,255,255,.10); --border-strong: rgba(255,255,255,.20); --border-stronger: rgba(255,255,255,.40);
+    --bg-danger: #3c0e0e; --text-danger: #ec7e7e;
+    --bg-warning: #311a00; --text-warning: #db9300;
+    --bg-accent: #032042; --text-accent: #6da7ec;
+    --text-success: #0ca30c; --bg-neutral: #151515;
+  }
+}
+
+/* Component measurements from the mockups (px):
+   base font 13 (phones 12) / nav 12.5 / chips 11 / tile label 11.5 / tile value 18 / headings 14
+   font weights: 400 regular, 500 medium only (no bold 600/700)
+   borders are 0.5px hairlines (use 1px on 1x screens)
+   header height 48 (phone header 40), gap 6, padding 0 12
+   nav item padding 5 8, radius 8; pill padding 4 10, radius 8
+   tile padding 8 10, radius 8; list row padding 7 0 with hairline divider
+   checkbox 15 (phone 14), radius 4, border 1.5; progress bar height 5, radius 3
+   chip padding 1 6, radius 6; avatar 26 circle; logo tile 24 radius 6
+   phone frame radius 22, tab bar icons 19; timer ring r=52, stroke 8, round cap
+   heatmap 12 columns x 7 rows, gap 3, cell radius 2
+   Icons: Tabler outline in the mockups; use lucide-react equivalents in the app:
+   heartbeat->HeartPulse, calendar-event->CalendarDays, list-tree->ListTree, player-play->Play,
+   cards->Layers, chart-bar->BarChart3, search->Search, moon->Moon, chevron-down->ChevronDown,
+   chevron-right->ChevronRight, check->Check, headphones->Headphones */
