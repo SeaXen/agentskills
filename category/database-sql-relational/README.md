@@ -1,7 +1,7 @@
 # 🗄️ SQL Databases, ORMs & Indexing
 
 > **Category**: `database-sql-relational`  
-> **Total Skills in Category**: 786 real modular skills  
+> **Total Skills in Category**: 792 real modular skills  
 > **Directory**: [`.agents/category/database-sql-relational`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (786 Skills)
+## 📑 Complete Skill Catalog (792 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -181,6 +181,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`coassemble-automation`](./coassemble-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Coassemble tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`coda-automation`](./coda-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permissions, and publishing. Al |
 | **[`codacy-automation`](./codacy-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Codacy tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`code-review-graph`](./code-review-graph/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Token-efficient code review using Tree-sitter AST graphs and MCP. Cuts AI token usage on large codebases by computing th |
 | **[`codeinterpreter-automation`](./codeinterpreter-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Codeinterpreter tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`coinmarketcal-automation`](./coinmarketcal-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Coinmarketcal tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`coinmarketcap-automation`](./coinmarketcap-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Coinmarketcap tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -371,7 +372,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`gosquared-automation`](./gosquared-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Gosquared tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`grafbase-automation`](./grafbase-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Grafbase tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`graphhopper-automation`](./graphhopper-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Graphhopper tasks via Rube MCP (Composio). Always search tools first for current schemas. |
-| **[`gravitas`](./gravitas/SKILL.md)** | 📦 Library | `#specialized-community-skills` | Use for software implementation, debugging, refactoring, review, migration, |
+| **[`gravitas`](./gravitas/SKILL.md)** | 🟢 Active | `active-skills` | Use for software implementation, debugging, refactoring, review, migration, |
+| **[`gravitas-highstakes`](./gravitas-highstakes/SKILL.md)** | 📦 Library | `udaysharmadev-gravitas` | Mandatory checkpoint skill for irreversible/high-stakes changes (schema |
 | **[`griptape-automation`](./griptape-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Griptape tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`grist-automation`](./grist-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Grist tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`habitica-automation`](./habitica-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Habitica tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -487,6 +489,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`microsoft-teams-automation`](./microsoft-teams-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create meetings, handle chats, a |
 | **[`microsoft-tenant-automation`](./microsoft-tenant-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Microsoft Tenant tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`microsoft_clarity-automation`](./microsoft_clarity-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Microsoft Clarity tasks via Rube MCP (Composio): session recordings, heatmaps, and user behavior analytics. Alw |
+| **[`migration`](./migration/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Implement reversible compatibility-safe transitions. Use for schema, data, API, protocol, configuration, or dependency m |
 | **[`minerstat-automation`](./minerstat-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Minerstat tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`miro-automation`](./miro-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Miro tasks via Rube MCP (Composio): boards, items, sticky notes, frames, sharing, connectors. Always search too |
 | **[`missive-automation`](./missive-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Missive tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -514,6 +517,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`needle-automation`](./needle-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Needle tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`neon-automation`](./neon-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Neon serverless Postgres operations -- manage projects, branches, databases, roles, and connection URIs via the |
 | **[`neon-postgres`](./neon-postgres/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert patterns for Neon serverless Postgres, branching, connection pooling, and Prisma/Drizzle integration Use when: ne |
+| **[`neon-postgres-branches`](./neon-postgres-branches/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
+| **[`neon-postgres-egress-optimizer`](./neon-postgres-egress-optimizer/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
 | **[`neuronwriter-automation`](./neuronwriter-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Neuronwriter tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`neutrino-automation`](./neutrino-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Neutrino tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`neverbounce-automation`](./neverbounce-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Neverbounce tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -562,6 +567,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`placekey-automation`](./placekey-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Placekey tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`placid-automation`](./placid-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Placid tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`plain-automation`](./plain-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Plain tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`plan-validation`](./plan-validation/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Quality gate for implementation plans. Validates schema compliance, cross-cutting concerns, and completeness scoring bef |
 | **[`plasmic-automation`](./plasmic-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Plasmic tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`platerecognizer-automation`](./platerecognizer-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Platerecognizer tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`plisio-automation`](./plisio-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Plisio tasks via Rube MCP (Composio). Always search tools first for current schemas. |

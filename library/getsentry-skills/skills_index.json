@@ -1,0 +1,329 @@
+[
+  {
+    "id": "agents-md",
+    "name": "agents-md",
+    "repository": "getsentry-skills",
+    "category": "agent-orchestration",
+    "description": "Creates and maintains concise AGENTS.md and CLAUDE.md project instruction files. Use when asked to create AGENTS.md, update AGENTS.md, maintain agent docs, set up CLAUDE.md, document repository agent conventions, or keep coding-agent instructions minimal and reference-backed.",
+    "path": "library/getsentry-skills/skills/agents-md",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agents-md",
+    "link_cmd": "python .agents/library/activate_skill.py link agents-md"
+  },
+  {
+    "id": "blog-writing-guide",
+    "name": "blog-writing-guide",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Write, review, and improve blog posts for the Sentry engineering blog following Sentry's specific writing standards, voice, and quality bar. Use this skill whenever someone asks to write a blog post, draft a technical article, review blog content, improve a draft, write a product announcement, create an engineering deep-dive, or produce any written content destined for the Sentry blog or developer audience. Also trigger when the user mentions \"blog post,\" \"blog draft,\" \"write-up,\" \"announcement post,\" \"engineering post,\" \"deep dive,\" \"postmortem,\" or asks for help with technical writing for Sentry. Even if the user just says \"help me write about [feature/topic]\" \u2014 if it sounds like it could become a Sentry blog post, use this skill.",
+    "path": "library/getsentry-skills/skills/blog-writing-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate blog-writing-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link blog-writing-guide"
+  },
+  {
+    "id": "brand-guidelines",
+    "name": "brand-guidelines",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Write copy following Sentry brand guidelines. Use when writing UI text, error messages, empty states, onboarding flows, 404 pages, documentation, marketing copy, or any user-facing content. Covers both Plain Speech (default) and Sentry Voice tones.",
+    "path": "library/getsentry-skills/skills/brand-guidelines",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brand-guidelines",
+    "link_cmd": "python .agents/library/activate_skill.py link brand-guidelines"
+  },
+  {
+    "id": "claude-settings-audit",
+    "name": "claude-settings-audit",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Analyze a repository to generate recommended Claude Code settings.json permissions. Use when setting up a new project, auditing existing settings, or determining which read-only bash commands to allow. Detects tech stack, build tools, and monorepo structure.",
+    "path": "library/getsentry-skills/skills/claude-settings-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude-settings-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link claude-settings-audit"
+  },
+  {
+    "id": "code-review",
+    "name": "code-review",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Perform code reviews following Sentry engineering practices. Use when reviewing pull requests, examining code changes, or providing feedback on code quality. Covers security, performance, testing, and design review.",
+    "path": "library/getsentry-skills/skills/code-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review"
+  },
+  {
+    "id": "code-simplifier",
+    "name": "code-simplifier",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when asked to \"simplify code\", \"clean up code\", \"refactor for clarity\", \"improve readability\", or review recently modified code for elegance. Focuses on project-specific best practices.",
+    "path": "library/getsentry-skills/skills/code-simplifier",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-simplifier",
+    "link_cmd": "python .agents/library/activate_skill.py link code-simplifier"
+  },
+  {
+    "id": "commit",
+    "name": "commit",
+    "repository": "getsentry-skills",
+    "category": "general-development",
+    "description": "Use for every request to commit changes or draft a commit message. Creates Sentry-style conventional commits with issue references.",
+    "path": "library/getsentry-skills/skills/commit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate commit",
+    "link_cmd": "python .agents/library/activate_skill.py link commit"
+  },
+  {
+    "id": "create-branch",
+    "name": "create-branch",
+    "repository": "getsentry-skills",
+    "category": "general-development",
+    "description": "Create a git branch following Sentry naming conventions. Use when asked to \"create a branch\", \"new branch\", \"start a branch\", \"make a branch\", \"switch to a new branch\", or when starting new work on the default branch.",
+    "path": "library/getsentry-skills/skills/create-branch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-branch",
+    "link_cmd": "python .agents/library/activate_skill.py link create-branch"
+  },
+  {
+    "id": "django-access-review",
+    "name": "django-access-review",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "'Django access control and IDOR security review. Use when reviewing Django views, DRF viewsets, ORM queries, or any Python/Django code handling user authorization. Trigger keywords: \"IDOR\", \"access control\", \"authorization\", \"Django permissions\", \"object permissions\", \"tenant isolation\", \"broken access\".'",
+    "path": "library/getsentry-skills/skills/django-access-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate django-access-review",
+    "link_cmd": "python .agents/library/activate_skill.py link django-access-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "django-perf-review",
+    "name": "django-perf-review",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Django performance code review. Use when asked to \"review Django performance\", \"find N+1 queries\", \"optimize Django\", \"check queryset performance\", \"database performance\", \"Django ORM issues\", or audit Django code for performance problems.",
+    "path": "library/getsentry-skills/skills/django-perf-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate django-perf-review",
+    "link_cmd": "python .agents/library/activate_skill.py link django-perf-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "doc-coauthoring",
+    "name": "doc-coauthoring",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+    "path": "library/getsentry-skills/skills/doc-coauthoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate doc-coauthoring",
+    "link_cmd": "python .agents/library/activate_skill.py link doc-coauthoring"
+  },
+  {
+    "id": "document-api-endpoint",
+    "name": "document-api-endpoint",
+    "repository": "getsentry-skills",
+    "category": "animation-craft",
+    "description": "Document and type a Sentry API endpoint. Write or fix @extend_schema decorators, specify response TypedDicts, type request parameters, correct type drift between the declared schema and the runtime response, and validate the generated spec. Use when asked to \"document an endpoint\", \"add OpenAPI docs\", \"add/fix @extend_schema\", \"type an endpoint response\", \"fix the response type\", \"fix type drift\", \"reuse a response type\", \"split an overloaded endpoint\", \"specify the response schema\", \"add a TypedDict response\", \"migrate a legacy api-docs path\", \"fix a parameter type\", or \"make an endpoint public\" / \"promote an endpoint\" (promotion is one section here).",
+    "path": "library/getsentry-skills/skills/document-api-endpoint",
+    "activation_cmd": "python .agents/library/activate_skill.py activate document-api-endpoint",
+    "link_cmd": "python .agents/library/activate_skill.py link document-api-endpoint"
+  },
+  {
+    "id": "find-bugs",
+    "name": "find-bugs",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked to review changes, find bugs, security review, or audit code on the current branch.",
+    "path": "library/getsentry-skills/skills/find-bugs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate find-bugs",
+    "link_cmd": "python .agents/library/activate_skill.py link find-bugs"
+  },
+  {
+    "id": "gh-review-requests",
+    "name": "gh-review-requests",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Fetch unread GitHub notifications for open PRs where review is requested from a specified team or opened by a team member. Use when asked to \"find PRs I need to review\", \"show my review requests\", \"what needs my review\", \"fetch GitHub review requests\", or \"check team review queue\".",
+    "path": "library/getsentry-skills/skills/gh-review-requests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gh-review-requests",
+    "link_cmd": "python .agents/library/activate_skill.py link gh-review-requests",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "gha-security-review",
+    "name": "gha-security-review",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "'GitHub Actions security review for workflow exploitation vulnerabilities. Use when asked to \"review GitHub Actions\", \"audit workflows\", \"check CI security\", \"GHA security\", \"workflow security review\", or review .github/workflows/ for pwn requests, expression injection, credential theft, and supply chain attacks. Exploitation-focused with concrete PoC scenarios.'",
+    "path": "library/getsentry-skills/skills/gha-security-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gha-security-review",
+    "link_cmd": "python .agents/library/activate_skill.py link gha-security-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "iterate-pr",
+    "name": "iterate-pr",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Iterate on a PR until actionable CI passes and high/medium review feedback is addressed. Use for PR CI failures, review feedback, or green-check loops; do not wait for human approval, draft status, or merge gates.",
+    "path": "library/getsentry-skills/skills/iterate-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate iterate-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link iterate-pr"
+  },
+  {
+    "id": "pr-link-issue",
+    "name": "pr-link-issue",
+    "repository": "getsentry-skills",
+    "category": "general-development",
+    "description": "Append a GitHub issue link and its Linear ticket to the current PR's description. Use when asked to \"link issue to pr\", \"fill in issue and linear in pr\", \"add issue refs to pr\", or when given a GitHub issue URL and asked to attach it to the current PR. Resolves the Linear ticket automatically from the issue's linear-linkback comment.",
+    "path": "library/getsentry-skills/skills/pr-link-issue",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-link-issue",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-link-issue"
+  },
+  {
+    "id": "pr-screenshots",
+    "name": "pr-screenshots",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Capture screenshots of the Sentry UI in a web browser, lay them out in a pull request description as before/after tables, and upload them with `gh --attach`.",
+    "path": "library/getsentry-skills/skills/pr-screenshots",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-screenshots",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-screenshots"
+  },
+  {
+    "id": "pr-writer",
+    "name": "pr-writer",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Create or refresh reviewer-facing PR titles and descriptions. Use when opening a PR, updating its title or body, or preparing branch changes for review.",
+    "path": "library/getsentry-skills/skills/pr-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-writer"
+  },
+  {
+    "id": "presentation-creator",
+    "name": "presentation-creator",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Create data-driven presentation slides using React, Vite, and Recharts with Sentry branding. Use when asked to \"create a presentation\", \"build slides\", \"make a deck\", \"create a data presentation\", \"build a Sentry presentation\". Scaffolds a complete slide-based app with charts, animations, and single-file HTML output.",
+    "path": "library/getsentry-skills/skills/presentation-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate presentation-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link presentation-creator"
+  },
+  {
+    "id": "prompt-optimizer",
+    "name": "prompt-optimizer",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Creates, optimizes, and iteratively refines agent prompts, system prompts, developer prompts, and reusable prompt templates. Use when asked to improve a prompt, optimize a system prompt, rewrite an agent prompt, tune prompt wording, make a prompt more reliable, port prompts between OpenAI, Claude, or Gemini, or build prompt evals.",
+    "path": "library/getsentry-skills/skills/prompt-optimizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prompt-optimizer",
+    "link_cmd": "python .agents/library/activate_skill.py link prompt-optimizer"
+  },
+  {
+    "id": "secret-serialization",
+    "name": "secret-serialization",
+    "repository": "getsentry-skills",
+    "category": "backend-api",
+    "description": "'Finds secrets, tokens, passwords, and API keys that can leak through generated serialization: Python dataclass repr and asdict, attrs, pydantic model_dump, NamedTuple, JavaScript JSON.stringify and util.inspect, structured logs, tracing spans, and error reports. Use when asked to \"check for secret serialization\", \"credential in repr\", \"repr=False audit\", \"secret in spans\", \"token in logs\", or when a change adds a credential field to a dataclass, model, or config object, or adds code that stringifies whole objects or every kwarg into telemetry.'",
+    "path": "library/getsentry-skills/skills/secret-serialization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate secret-serialization",
+    "link_cmd": "python .agents/library/activate_skill.py link secret-serialization",
+    "allowed_tools": [
+      "Read Grep Glob"
+    ]
+  },
+  {
+    "id": "security-model",
+    "name": "security-model",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Define, review, or update SECURITY_MODEL.md files that tell security review tools a repository's threat model, trust boundaries, invariants, reportable finding classes, and exclusions. Use when asked to \"write a security model\", \"threat model this repo for scanners\", \"define security review scope\", \"what counts as a vulnerability here\", \"update SECURITY_MODEL.md\", \"why did the scanner flag or miss this\", or to check whether existing security guidance still matches the code. Not for running a security review or editing the SECURITY.md disclosure policy.",
+    "path": "library/getsentry-skills/skills/security-model",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-model",
+    "link_cmd": "python .agents/library/activate_skill.py link security-model",
+    "allowed_tools": [
+      "Read Grep Glob Bash Edit Write"
+    ]
+  },
+  {
+    "id": "security-review",
+    "name": "security-review",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Security code review for vulnerabilities. Use when asked to \"security review\", \"find vulnerabilities\", \"check for security issues\", \"audit security\", \"OWASP review\", or review code for injection, XSS, authentication, authorization, cryptography issues. Provides systematic review with confidence-based reporting.",
+    "path": "library/getsentry-skills/skills/security-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-review",
+    "link_cmd": "python .agents/library/activate_skill.py link security-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "skill-scanner",
+    "name": "skill-scanner",
+    "repository": "getsentry-skills",
+    "category": "frontend",
+    "description": "Scan agent skills for security issues. Use when asked to \"scan a skill\", \"audit a skill\", \"review skill security\", \"check skill for injection\", \"validate SKILL.md\", or assess whether an agent skill is safe to install. Checks for prompt injection, malicious scripts, excessive permissions, secret exposure, and supply chain risks.",
+    "path": "library/getsentry-skills/skills/skill-scanner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-scanner",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-scanner",
+    "allowed_tools": [
+      "Read Grep Glob Bash"
+    ]
+  },
+  {
+    "id": "skill-writer",
+    "name": "skill-writer",
+    "repository": "getsentry-skills",
+    "category": "agent-orchestration",
+    "description": "Create, synthesize, and iteratively improve agent skills following the Agent Skills specification. Use when asked to \"create a skill\", \"write a skill\", \"synthesize sources into a skill\", \"improve a skill from positive/negative examples\", \"update a skill\", or \"maintain skill docs and registration\". Handles source capture, precision passes, authoring, registration, and validation.",
+    "path": "library/getsentry-skills/skills/skill-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-writer"
+  },
+  {
+    "id": "sred-project-organizer",
+    "name": "sred-project-organizer",
+    "repository": "getsentry-skills",
+    "category": "general-development",
+    "description": "Take a list of projects and their related documentation, and organize them into the SRED format for submission.",
+    "path": "library/getsentry-skills/skills/sred-project-organizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sred-project-organizer",
+    "link_cmd": "python .agents/library/activate_skill.py link sred-project-organizer"
+  },
+  {
+    "id": "sred-work-summary",
+    "name": "sred-work-summary",
+    "repository": "getsentry-skills",
+    "category": "general-development",
+    "description": "Go back through the previous year of work and create a Notion doc that groups relevant links into projects that can then be documented as SRED projects.",
+    "path": "library/getsentry-skills/skills/sred-work-summary",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sred-work-summary",
+    "link_cmd": "python .agents/library/activate_skill.py link sred-work-summary"
+  },
+  {
+    "id": "triage-frontend-issues",
+    "name": "triage-frontend-issues",
+    "repository": "getsentry-skills",
+    "category": "general-development",
+    "description": "Triage new issues in the Sentry `javascript` project by archiving non-actionable noise. Use when asked to \"triage issues\", \"triage the javascript project\", \"archive non-actionable issues\", \"triage new frontend issues\", or \"clean up the sentry/javascript queue\". Operates only on the sentry/javascript project, only archives (never resolves), and always archives with `untilEscalating`.",
+    "path": "library/getsentry-skills/skills/triage-frontend-issues",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage-frontend-issues",
+    "link_cmd": "python .agents/library/activate_skill.py link triage-frontend-issues",
+    "allowed_tools": [
+      "Read mcp__sentry__search_issues mcp__sentry__get_sentry_resource mcp__sentry__update_issue"
+    ]
+  },
+  {
+    "id": "typing-exclusion-worker",
+    "name": "typing-exclusion-worker",
+    "repository": "getsentry-skills",
+    "category": "backend-api",
+    "description": "\"Python typing exclusion worker: remove assigned mypy exclusion modules in small scoped batches, fix typing issues, run validation, and produce a structured completion summary. Use when running parallel typing-debt workers or when asked to remove modules from pyproject mypy exclusion overrides.\"",
+    "path": "library/getsentry-skills/skills/typing-exclusion-worker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate typing-exclusion-worker",
+    "link_cmd": "python .agents/library/activate_skill.py link typing-exclusion-worker"
+  }
+]

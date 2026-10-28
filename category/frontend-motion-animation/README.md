@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Skills in Category**: 55 real modular skills  
+> **Total Skills in Category**: 56 real modular skills  
 > **Directory**: [`.agents/category/frontend-motion-animation`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (55 Skills)
+## 📑 Complete Skill Catalog (56 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -73,6 +73,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`storyboard-creation`](./storyboard-creation/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Film and video storyboarding with shot vocabulary, continuity rules, and panel layout. Covers shot types, camera angles, |
 | **[`threejs-animation`](./threejs-animation/SKILL.md)** | 📦 Library | `cloudai-x-threejs-skills` | Keyframe, skeletal and morph-target animation, procedural motion and clip blending, on WebGL or with WebGPU and TSL. Use |
 | **[`trader-memory-core`](./trader-memory-core/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Track investment theses across their lifecycle — from screening idea to closed position with postmortem. Register theses |
+| **[`vibeship-spawner`](./vibeship-spawner/SKILL.md)** | 📦 Library | `vibeforge1111-vibeship-spawner-skills` | Specialist Spawner Skills: 3D web experience, scroll experience, Plaid fintech, etc. |
 | **[`video-storytelling`](./video-storytelling/SKILL.md)** | 📦 Library | `nateherkai-herk-edit-kit` | Design and build the visual layer of a long-form talking-head video as one persistent world the camera moves through, in |
 | **[`write-swift`](./write-swift/SKILL.md)** | 📦 Library | `emilkowalski-skills` | How to write modern Swift well — modeling with value types, Swift 6 data-race safety and approachable concurrency (@conc |
 

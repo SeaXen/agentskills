@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Skills in Category**: 66 real modular skills  
+> **Total Skills in Category**: 67 real modular skills  
 > **Directory**: [`.agents/category/audio-voice-sound`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (66 Skills)
+## 📑 Complete Skill Catalog (67 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -33,6 +33,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`azure-ai-voicelive-py`](./azure-ai-voicelive-py/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build real-time voice AI applications using Azure AI Voice Live SDK (azure-ai-voicelive). Use this skill when creating P |
 | **[`azure-ai-voicelive-ts`](./azure-ai-voicelive-ts/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`better-writing`](./better-writing/SKILL.md)** | 📦 Library | `jakubkrehel-design-skills` | Writes and reviews interface copy, from labels and errors to empty states and confirmations, so it matches the product's |
+| **[`blog-writing-guide`](./blog-writing-guide/SKILL.md)** | 📦 Library | `getsentry-skills` | Write, review, and improve blog posts for the Sentry engineering blog following Sentry's specific writing standards, voi |
 | **[`brand-review`](./brand-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Review content against your brand voice, style guide, and messaging pillars, flagging deviations by severity with specif |
 | **[`brand-voice-enforcement`](./brand-voice-enforcement/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | This skill applies brand guidelines to content creation. It should be used when |
 | **[`claudemy`](./claudemy/SKILL.md)** | 📦 Library | `assafkip-claudemy` | Turn any topic into a short audio course. Researches the topic on the web, works out what most good sources agree on and |

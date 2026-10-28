@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Skills in Category**: 546 real modular skills  
+> **Total Skills in Category**: 598 real modular skills  
 > **Directory**: [`.agents/category/code-quality-refactoring`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (546 Skills)
+## 📑 Complete Skill Catalog (598 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -28,8 +28,10 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`adding-a-skill`](./adding-a-skill/SKILL.md)** | 📦 Library | `builderio-skills` | - |
 | **[`affirmations`](./affirmations/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Reset your own trajectory when you're stuck, looping, or demoralized — read these affirmations, then re-ground and take  |
 | **[`agent-manager-skill`](./agent-manager-skill/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly scheduling. |
+| **[`agents-md`](./agents-md/SKILL.md)** | 📦 Library | `getsentry-skills` | Creates and maintains concise AGENTS.md and CLAUDE.md project instruction files. Use when asked to create AGENTS.md, upd |
 | **[`ahrefs-automation`](./ahrefs-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate SEO research with Ahrefs -- analyze backlink profiles, research keywords, track domain metrics history, audit o |
 | **[`ai-debt-detector`](./ai-debt-detector/SKILL.md)** | 📦 Library | `wshobson-agents` | - |
+| **[`alpha-buzz-master-ops`](./alpha-buzz-master-ops/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | System Operations Manual for Alpha Buzz at SolCex Exchange. |
 | **[`analytics-tracking`](./analytics-tracking/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`animal-pharmacy-search`](./animal-pharmacy-search/SKILL.md)** | 📦 Library | `nomadamas-k-skill` | 홍익메디케어 공개 MCP 서버로 지역별 동물약국 목록, 동물용의약품 검색, 최근 6개월 구매 이력 기반 취급 약국을 조회한다. 조회 전용. |
 | **[`anysearch`](./anysearch/SKILL.md)** | 📦 Library | `anysearch-ai-anysearch-skill` | Real-time search engine supporting web search, vertical domain search, parallel batch search, and URL content extraction |
@@ -41,6 +43,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`asking-user-questions`](./asking-user-questions/SKILL.md)** | 📦 Library | `jetbrains-thinkrail` | Use when composing an ask_user_question round inside a workflow, or when a workflow skill names it at a question step. S |
 | **[`aso`](./aso/SKILL.md)** | 📦 Library | `coreyhaines31-marketingskills` | When the user wants to audit or optimize an App Store or Google Play listing. Also use when the user mentions 'ASO audit |
 | **[`aspnet-core`](./aspnet-core/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Build, review, refactor, or architect ASP.NET Core web applications using current official guidance for .NET web develop |
+| **[`atv-batch-skill`](./atv-batch-skill/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`autoharness`](./autoharness/SKILL.md)** | 📦 Library | `tigerless-labs-autoharness` | Distills real-time session lessons, corrected approaches, and user preferences into a reusable skill library for AI agen |
 | **[`automate-me`](./automate-me/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Use for \"automate me\", \"create/update/refresh my -mode skill\", \"turn/capture my preferences or working style into a |
 | **[`azure-ai-agents-persistent-dotnet`](./azure-ai-agents-persistent-dotnet/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
@@ -79,17 +82,35 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`azure-servicebus-py`](./azure-servicebus-py/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`background-removal`](./background-removal/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). U |
 | **[`backlink-audit`](./backlink-audit/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Backlink / off-page SEO audit. Works WITHOUT a paid tool by default — it uses the |
+| **[`bankr`](./bankr/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
+| **[`bankr-signals`](./bankr-signals/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | On-chain verified trading signals for Buzz BD Agent. |
 | **[`better-colors`](./better-colors/SKILL.md)** | 📦 Library | `jakubkrehel-design-skills` | Builds and checks color systems by generating palettes, naming semantic tokens, converting between formats and measuring |
 | **[`better-layout`](./better-layout/SKILL.md)** | 📦 Library | `jakubkrehel-design-skills` | Sets grouping, alignment, reading order, responsive structure and room for translated text, so a layout holds up when it |
 | **[`biz-health-check`](./biz-health-check/SKILL.md)** | 📦 Library | `nomadamas-k-skill` | 사업자등록번호 하나로 "이 사업자, 실제 문제 없나"를 확인한다 — 국세청 사업자등록 상태·국민연금 가입 사업장·국세 체납 명단·금융위 법인개요·조달청 부정당제재·지방행정 인허가 영업상태를 무료 공공 데이터로 교차  |
+| **[`bnb-chain-mcp`](./bnb-chain-mcp/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`brand-style`](./brand-style/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every |
 | **[`brevo-automation`](./brevo-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Brevo (Sendinblue) tasks via Rube MCP (Composio): manage email campaigns, create/edit templates, track senders, |
 | **[`broken-link-checker`](./broken-link-checker/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Scans a website to find broken links (404s, 500s). Crawls internal pages, |
+| **[`browser-research`](./browser-research/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`browser-trace`](./browser-trace/SKILL.md)** | 📦 Library | `browserbase-skills` | Capture a full DevTools-protocol trace of any browser automation — CDP firehose, screenshots, and DOM dumps — then bisec |
 | **[`business-analyst`](./business-analyst/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master modern business analysis with AI-powered analytics, |
 | **[`business-pulse`](./business-pulse/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Produces a one-page cross-functional business snapshot for SMB owners — |
+| **[`buzz-bd-agent`](./buzz-bd-agent/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Buzz BD Agent operational skill for SolCex Exchange. |
+| **[`buzz-jvr`](./buzz-jvr/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`c-pro`](./c-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Write efficient C code with proper memory management, pointer |
+| **[`caveman`](./caveman/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Terse caveman voice: answer first, fluff gone, every technical fact kept. |
+| **[`caveman-commit`](./caveman-commit/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Write a Conventional Commits message compressed to intent only. Use for |
+| **[`caveman-compress`](./caveman-compress/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Compress a memory file such as CLAUDE.md or a todo list into caveman format |
+| **[`caveman-discover`](./caveman-discover/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Find and label every LLM workflow in the repository so Caveman Cloud groups |
+| **[`caveman-evidence-review`](./caveman-evidence-review/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Read-only review of Caveman Cloud evidence: cost, Cave Score, workflows, |
+| **[`caveman-explore`](./caveman-explore/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Read-only repository explorer for cold-start orientation, broad cross-file localization, or when a direct search failed. |
+| **[`caveman-help`](./caveman-help/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Quick-reference card for the three caveman skills and their commands. |
+| **[`caveman-learn`](./caveman-learn/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Act on a Caveman learn report - review the ranked token sinks, apply cost-lowering fixes with per-edit consent, and repo |
+| **[`caveman-manage`](./caveman-manage/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Inspect Caveman Cloud's experiment lifecycle and block unsafe execution. Use |
+| **[`caveman-optimize`](./caveman-optimize/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Turn a Caveman optimization observation into an operator-chosen candidate |
 | **[`caveman-review`](./caveman-review/SKILL.md)** | 🟢 Active | `active-skills` | Compressed code review - one line per finding with location, problem and fix. |
+| **[`caveman-setup`](./caveman-setup/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Wire a repository through the Caveman Cloud gateway so every LLM request is |
+| **[`caveman-stats`](./caveman-stats/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Show recorded output and cache-read token usage and mode attribution for |
 | **[`cc-skill-continuous-learning`](./cc-skill-continuous-learning/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Development skill from everything-claude-code |
 | **[`cc-skill-strategic-compact`](./cc-skill-strategic-compact/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Development skill from everything-claude-code |
 | **[`changelog`](./changelog/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
@@ -112,6 +133,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`code-review-expert`](./code-review-expert/SKILL.md)** | 📦 Library | `sanyuan0704-sanyuan-skills` | Expert code review of current git changes with a senior engineer lens. Detects SOLID violations, security risks, and pro |
 | **[`code-reviewer`](./code-reviewer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Elite code review expert specializing in modern AI-powered code |
 | **[`code-simplification`](./code-simplification/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is |
+| **[`code-simplifier`](./code-simplifier/SKILL.md)** | 📦 Library | `getsentry-skills` | Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when a |
 | **[`codebase-cleanup-refactor-clean`](./codebase-cleanup-refactor-clean/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and modern software engi |
 | **[`codebase-cleanup-tech-debt`](./codebase-cleanup-tech-debt/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a technical debt expert specializing in identifying, quantifying, and prioritizing technical debt in software pr |
 | **[`codex-ppt`](./codex-ppt/SKILL.md)** | 📦 Library | `ningzimu-codex-ppt-skill` | Generates image-based PPTX presentations from articles, reports, and outlines for use in AI agents. |
@@ -131,6 +153,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`conductor-status`](./conductor-status/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Display project status, active tracks, and next actions |
 | **[`conductor-validator`](./conductor-validator/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Validates Conductor project artifacts for completeness, |
 | **[`content-creation`](./content-creation/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Draft marketing content across channels — blog posts, social media, email newsletters, landing pages, press releases, an |
+| **[`content-filter`](./content-filter/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Content safety filter for Buzz auto-posts on Twitter. |
 | **[`content-marketer`](./content-marketer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Elite content marketing strategist specializing in AI-powered |
 | **[`content-ops`](./content-ops/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | - |
 | **[`content-strategist`](./content-strategist/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
@@ -144,10 +167,12 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`copywriting`](./copywriting/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`corporate-registration-consulting`](./corporate-registration-consulting/SKILL.md)** | 📦 Library | `nomadamas-k-skill` | 법인등기소/인터넷등기소 상업등기 신청을 처음 하는 사용자를 위해 일반 영리 주식회사 발기설립 절차, 정관·첨부서류 실제 HWP 양식 작성, 등록면허세·과밀억제권역 중과 체크, rhwp 기반 순차 검토 흐름을 참고용으 |
 | **[`correct`](./correct/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Find the mistakes agents keep repeating in this repo and make each one impossible. Try architecture first, then types, t |
+| **[`cost-guard`](./cost-guard/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`cost-optimization`](./cost-optimization/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Optimize cloud costs through resource rightsizing, tagging strategies, reserved instances, and spending analysis. Use wh |
 | **[`court-auction-notice-search`](./court-auction-notice-search/SKILL.md)** | 📦 Library | `nomadamas-k-skill` | Browse 대법원경매정보(courtauction.go.kr) 부동산 매각공고 by 매각기일·법원·기일/기간 입찰, expand each notice into 사건번호·용도·주소·감정평가액·최저매각가, search  |
 | **[`court-payment-order-assistant`](./court-payment-order-assistant/SKILL.md)** | 📦 Library | `nomadamas-k-skill` | 법원 전자소송 지급명령 신청을 위해 채권자·채무자·청구금액·청구원인·증빙 정보를 인터뷰하고, 신청서 초안과 공식 전자소송 브라우저 입력 handoff를 준비한다. 돌쇠에서는 가능한 가장 가까운 합법적 공식 단계까지  |
 | **[`cowork-plugin-customizer`](./cowork-plugin-customizer/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Customize a Claude Code plugin for a specific organization's tools and workflows. |
+| **[`create-branch`](./create-branch/SKILL.md)** | 📦 Library | `getsentry-skills` | Create a git branch following Sentry naming conventions. Use when asked to "create a branch", "new branch", "start a bra |
 | **[`create-custom-agent`](./create-custom-agent/SKILL.md)** | 📦 Library | `dotnet-skills` | Creates VS Code custom agent files (.agent.md) for specialized AI personas with tools, instructions, and handoffs. Use w |
 | **[`create-pr`](./create-pr/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create pull requests following Sentry conventions. Use when opening PRs, writing PR descriptions, or preparing changes f |
 | **[`cs-aeo`](./cs-aeo/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
@@ -194,7 +219,9 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`digest`](./digest/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate a daily or weekly digest of activity across all connected sources. Use when catching up after time away, starti |
 | **[`discernment-nudge`](./discernment-nudge/SKILL.md)** | 📦 Library | `anthropics-official-skills` | After you give a substantive answer or draft that the user may act on |
 | **[`distributed-debugging-debug-trace`](./distributed-debugging-debug-trace/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a debugging expert specializing in setting up comprehensive debugging environments, distributed tracing, and dia |
+| **[`django-perf-review`](./django-perf-review/SKILL.md)** | 📦 Library | `getsentry-skills` | Django performance code review. Use when asked to "review Django performance", "find N+1 queries", "optimize Django", "c |
 | **[`django-pro`](./django-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Django 5.x with async views, DRF, Celery, and Django |
+| **[`docs`](./docs/SKILL.md)** | 📦 Library | `vercel-labs-skills` | Modular agent skill module |
 | **[`docs-architect`](./docs-architect/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Creates comprehensive technical documentation from existing |
 | **[`docx`](./docx/SKILL.md)** | 📦 Library | `anthropics-official-skills` | Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templat |
 | **[`docx-official`](./docx-official/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservati |
@@ -211,6 +238,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`egm-review`](./egm-review/SKILL.md)** | 📦 Library | `google-elephant-goldfish-model` | - |
 | **[`egm-review-loop`](./egm-review-loop/SKILL.md)** | 📦 Library | `google-elephant-goldfish-model` | - |
 | **[`email-systems`](./email-systems/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Email has the highest ROI of any marketing channel. $36 for every $1 spent. Yet most startups treat it as an afterthough |
+| **[`engine`](./engine/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Modular agent skill module |
 | **[`error-debugging-error-analysis`](./error-debugging-error-analysis/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are an expert error analysis specialist with deep expertise in debugging distributed systems, analyzing production i |
 | **[`error-debugging-error-trace`](./error-debugging-error-trace/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are an error tracking and observability expert specializing in implementing comprehensive error monitoring solutions |
 | **[`error-debugging-multi-agent-review`](./error-debugging-multi-agent-review/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when working with error debugging multi agent review |
@@ -219,6 +247,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`error-diagnostics-smart-debug`](./error-diagnostics-smart-debug/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when working with error diagnostics smart debug |
 | **[`eugeniughelbur-obsidian-second-brain`](./eugeniughelbur-obsidian-second-brain/SKILL.md)** | 📦 Library | `eugeniughelbur-obsidian-second-brain` | Operate any Obsidian vault as a living, self-rewriting second brain (an evolution |
 | **[`executing-plans`](./executing-plans/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when you have a written implementation plan to execute in a separate session with review checkpoints |
+| **[`extension`](./extension/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Modular agent skill module |
 | **[`fal-image-edit`](./fal-image-edit/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | AI-powered image editing with style transfer and object removal |
 | **[`fal-workflow`](./fal-workflow/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generate workflow JSON files for chaining AI models |
 | **[`ffuf-claude-skill`](./ffuf-claude-skill/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Web fuzzing with ffuf |
@@ -238,6 +267,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`founder-offer`](./founder-offer/SKILL.md)** | 📦 Library | `jakeschincariol-founder-skill` | - |
 | **[`founder-ops`](./founder-ops/SKILL.md)** | 📦 Library | `jakeschincariol-founder-skill` | - |
 | **[`founder-plan`](./founder-plan/SKILL.md)** | 📦 Library | `jakeschincariol-founder-skill` | - |
+| **[`generated`](./generated/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Compressed code review: One line per finding with location, problem, and fix |
 | **[`genoffice`](./genoffice/SKILL.md)** | 📦 Library | `genspark-ai-genoffice` | Generates brand taglines, selling points, and brand stories from product and audience information. |
 | **[`geo`](./geo/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | GEO-first SEO analysis tool. Optimizes websites for AI-powered search engines |
 | **[`geo-compare`](./geo-compare/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | Monthly delta tracking and progress reporting for GEO clients. Compares two |
@@ -249,11 +279,13 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`google-ads-audit`](./google-ads-audit/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Google Ads account audit and business context setup. Use for account-health audits and business-context setup. Trigger o |
 | **[`google-workspace`](./google-workspace/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`googlesheets-automation`](./googlesheets-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Google Sheets operations (read, write, format, filter, manage spreadsheets) via Rube MCP (Composio). Read/write |
+| **[`gravitas-python`](./gravitas-python/SKILL.md)** | 📦 Library | `udaysharmadev-gravitas` | GRAVITAS extension for Python projects. Adds Python-specific recon, |
 | **[`growth-engine`](./growth-engine/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | Modular agent skill module |
 | **[`growth-marketer`](./growth-marketer/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`growth-pulse`](./growth-pulse/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Answers one question for an SMB owner — is the growth engine actually working? |
 | **[`handoff`](./handoff/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Compact the current conversation into a handoff document for another agent to pick up. |
 | **[`haskell-pro`](./haskell-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert Haskell engineer specializing in advanced type systems, pure |
+| **[`helius-mcp`](./helius-mcp/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`hig-inputs`](./hig-inputs/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`hig-platforms`](./hig-platforms/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`hig-project-context`](./hig-project-context/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | >- |
@@ -263,6 +295,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`higgsfield-soul-id`](./higgsfield-soul-id/SKILL.md)** | 📦 Library | `higgsfield-ai-skills` | Train a Soul Character — a personalized model on a person's face that |
 | **[`hormuz-strait`](./hormuz-strait/SKILL.md)** | 📦 Library | `himself65-finance-skills` | Check the live status of the Strait of Hormuz from the Hormuz Strait Monitor |
 | **[`hreflang-international`](./hreflang-international/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | International / multilingual SEO audit focused on hreflang correctness: missing or |
+| **[`hsaas-go-to-market`](./hsaas-go-to-market/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`huggingface-best`](./huggingface-best/SKILL.md)** | 📦 Library | `huggingface-skills` | - |
 | **[`humanize-redo`](./humanize-redo/SKILL.md)** | 📦 Library | `epoko77-ai-im-not-ai` | 가장 최근 윤문 결과를 2차로 다시 다듬는다 — 특정 카테고리·문단·강도 조정도 가능. humanize-korean strict 윤문(Phase B)을 기존 run_id에 재실행해 잔존 finding을 처리한다. 트 |
 | **[`humanize-skills`](./humanize-skills/SKILL.md)** | 📦 Library | `humanize-skills` | - |
@@ -293,6 +326,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`internal-comms-anthropic`](./internal-comms-anthropic/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use |
 | **[`internal-comms-community`](./internal-comms-community/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use |
 | **[`inventory-planner`](./inventory-planner/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Works out what to reorder and when, from what is actually selling: pulls |
+| **[`investigate-first`](./investigate-first/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Diagnose ambiguous failures before editing. Use for unknown causes, intermittent behavior, performance regressions, or i |
 | **[`invisible_dots`](./invisible_dots/SKILL.md)** | 📦 Library | `feder-cr-invisible_dots` | Provides undetectable Firefox browser identities with persistent profiles and fingerprints for AI-driven web automation. |
 | **[`iterate-pr`](./iterate-pr/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Iterate on a PR until CI passes. Use when you need to fix CI failures, address review feedback, or continuously push fix |
 | **[`julia-pro`](./julia-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Julia 1.10+ with modern features, performance optimization, |
@@ -319,6 +353,11 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`market-environment-analysis`](./market-environment-analysis/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Comprehensive market environment analysis and reporting tool. Analyzes global markets including US, European, Asian mark |
 | **[`market-sizing-analysis`](./market-sizing-analysis/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \\\"calculate TAM\\\", |
 | **[`marketing-ideas`](./marketing-ideas/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasi |
+| **[`master-ops`](./master-ops/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Master operations reference for Buzz BD Agent at SolCex Exchange. |
+| **[`mcp`](./mcp/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Modular agent skill module |
+| **[`megacave`](./megacave/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Caveman in Classical Chinese: 文言文 register, far fewer characters, technical |
+| **[`mem`](./mem/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Modular agent skill module |
+| **[`memory-system`](./memory-system/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Persistent cross-session memory management. Enables agents to remember user preferences, project conventions, and past d |
 | **[`meta-ads`](./meta-ads/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Manage Meta Ads (Facebook + Instagram) — performance, ROAS, CPM, frequency, audience overlap, learning phase, creative f |
 | **[`meta-ads-audit`](./meta-ads-audit/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Meta Ads (Facebook + Instagram) account audit and business context setup. Use for account-health audits and business-con |
 | **[`meta-tags-optimizer`](./meta-tags-optimizer/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Optimize title tags, meta descriptions, Open Graph, and Twitter cards for |
@@ -326,14 +365,17 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`migrate-to-codex`](./migrate-to-codex/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files. |
 | **[`minecraft-bukkit-pro`](./minecraft-bukkit-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Minecraft server plugin development with Bukkit, Spigot, and |
 | **[`minimalist-review`](./minimalist-review/SKILL.md)** | 📦 Library | `slavingia-skills` | Review any business decision, plan, or strategy through the minimalist entrepreneur lens. Use when someone wants a gut-c |
+| **[`mirofish-simulation`](./mirofish-simulation/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`modlens`](./modlens/SKILL.md)** | 📦 Library | `liustack-modlens` | Converts images into structured JSON evidence containing OCR, layout, and semantics for text-only AI models. |
 | **[`muxuuu-serenity`](./muxuuu-serenity/SKILL.md)** | 📦 Library | `muxuuu-serenity-skill` | Research technology and advanced-manufacturing investments using Serenity-inspired supply-chain bottleneck analysis. Use |
 | **[`nanobanana-ppt-skills`](./nanobanana-ppt-skills/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | AI-powered PPT generation with document analysis and styled images |
 | **[`nanomuse`](./nanomuse/SKILL.md)** | 📦 Library | `nano-muse-nanomuse` | Specialized trending agent skill. |
+| **[`native`](./native/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Compressed code review: One line per finding with location, problem, and fix |
 | **[`network-engineer`](./network-engineer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert network engineer specializing in modern cloud networking, |
 | **[`new-relic-automation`](./new-relic-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate New Relic observability workflows -- manage alert policies, notification channels, alert conditions, and monito |
 | **[`newsletter-curation`](./newsletter-curation/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formattin |
 | **[`no-comments`](./no-comments/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Spawn Comment Sicko, fix accepted findings, and offer encodings for claimed constraints. |
+| **[`notification-filter`](./notification-filter/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`observability-monitoring-monitor-setup`](./observability-monitoring-monitor-setup/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a monitoring and observability expert specializing in implementing comprehensive monitoring solutions. Set up me |
 | **[`observe`](./observe/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Show whether the agent followed the kit''s rules in recent sessions: pages edited and measured, Stop hook blocks, findin |
 | **[`obsidian-second-brain`](./obsidian-second-brain/SKILL.md)** | 📦 Library | `eugeniughelbur-obsidian-second-brain` | Operate any Obsidian vault as a living, self-rewriting second brain (an evolution |
@@ -386,9 +428,11 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`product-changelog`](./product-changelog/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Product changelog and release notes that users actually read. Covers categorization, user-facing language, visuals, and  |
 | **[`product-hunt-launch`](./product-hunt-launch/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Product Hunt launch optimization with specific specs, timing, and gallery strategy. Covers taglines, gallery images, mak |
 | **[`product-manager`](./product-manager/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
+| **[`production-readiness`](./production-readiness/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Production readiness audit domains, weighted scoring criteria, and check specifications for the /preflight workflow. |
 | **[`programmatic-seo`](./programmatic-seo/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`project-health`](./project-health/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`protocol-reverse-engineering`](./protocol-reverse-engineering/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master network protocol reverse engineering including packet analysis, protocol dissection, and custom protocol document |
+| **[`proxy`](./proxy/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Modular agent skill module |
 | **[`publish-mod`](./publish-mod/SKILL.md)** | 📦 Library | `rehan-remade-universal-modder` | Package and release a finished game mod. Covers the pre-release lint (no game files, decompiled code or leaked keys), RE |
 | **[`python-packaging`](./python-packaging/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create distributable Python packages with proper project structure, setup.py/pyproject.toml, and publishing to PyPI. Use |
 | **[`python-performance-optimization`](./python-performance-optimization/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Profile and optimize Python code using cProfile, memory profilers, and performance best practices. Use when debugging sl |
@@ -418,10 +462,12 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`ring-central-automation`](./ring-central-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | RingCentral automation via Rube MCP -- toolkit not currently available in Composio; no RING_CENTRAL_ tools found |
 | **[`risk-manager`](./risk-manager/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Monitor portfolio risk, R-multiples, and position limits. Creates |
 | **[`saas-health`](./saas-health/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
+| **[`safe-refactor`](./safe-refactor/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Restructure code while preserving behavior. Use for extraction, consolidation, ownership moves, or cleanup where verific |
 | **[`scaffold-exercises`](./scaffold-exercises/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user |
 | **[`screenshot`](./screenshot/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel re |
 | **[`search-specialist`](./search-specialist/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert web researcher using advanced search techniques and |
 | **[`searching-sourcegraph`](./searching-sourcegraph/SKILL.md)** | 📦 Library | `cline-skills` | Use when the user needs to search or navigate code with Sourcegraph MCP tools. Provides disciplined search workflows for |
+| **[`security-review`](./security-review/SKILL.md)** | 📦 Library | `getsentry-skills` | Security code review for vulnerabilities. Use when asked to "security review", "find vulnerabilities", "check for securi |
 | **[`security-threat-model`](./security-threat-model/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mi |
 | **[`semrush-automation`](./semrush-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate SEO analysis with SEMrush -- research keywords, analyze domain organic rankings, audit backlinks, assess keywor |
 | **[`sendgrid-automation`](./sendgrid-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate SendGrid email operations including sending emails, managing contacts/lists, sender identities, templates, and  |
@@ -457,12 +503,15 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`setup-zoom-webhooks`](./setup-zoom-webhooks/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Reference skill for Zoom webhooks. Use after routing to an event-driven workflow when implementing subscriptions, signat |
 | **[`share-point-automation`](./share-point-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | SharePoint Automation: manage sites, lists, documents, folders, pages, and search content across SharePoint and OneDrive |
 | **[`shopify-development`](./shopify-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
+| **[`shrink`](./shrink/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Modular agent skill module |
 | **[`sidebar-prioritizer`](./sidebar-prioritizer/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | Reset and prioritize the Codex task sidebar with work categories, P0–P4 priorities, and B7 labels for tasks inactive bey |
+| **[`signal-filing`](./signal-filing/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`signup-flow-cro`](./signup-flow-cro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the use |
 | **[`simple-english`](./simple-english/SKILL.md)** | 📦 Library | `aminblg-simpleenglish` | Write or rewrite text in plain, layman-readable English in the spirit of |
 | **[`skill-forge`](./skill-forge/SKILL.md)** | 📦 Library | `sanyuan0704-sanyuan-skills` | Create high-quality, production-grade skills for Claude Code. Expert guidance on skill architecture, workflow design, pr |
 | **[`skill-integration-tester`](./skill-integration-tester/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Validate multi-skill workflows defined in CLAUDE.md by checking skill existence, inter-skill data contracts (JSON schema |
 | **[`skill-rails-upgrade`](./skill-rails-upgrade/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Analyze Rails apps and provide upgrade assessments |
+| **[`skillify`](./skillify/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Auto-create new skills from repetitive workflows. When you notice yourself doing the same multi-step process repeatedly, |
 | **[`slo-design`](./slo-design/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`smb-onboard`](./smb-onboard/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Claude as the trainer. Walks an SMB owner through connecting their first two |
 | **[`smb-router`](./smb-router/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | The front door to the Small Business plugin. Listens to what the owner needs |
@@ -473,6 +522,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`solo-founder`](./solo-founder/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`sprint-health`](./sprint-health/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`sprint-plan`](./sprint-plan/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
+| **[`sred-project-organizer`](./sred-project-organizer/SKILL.md)** | 📦 Library | `getsentry-skills` | Take a list of projects and their related documentation, and organize them into the SRED format for submission. |
 | **[`standup`](./standup/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate a standup update from recent activity. Use when preparing for daily standup, summarizing yesterday's commits an |
 | **[`start`](./start/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Initialize the productivity system and open the dashboard. Use when setting up the plugin for the first time, bootstrapp |
 | **[`starting-a-new-project`](./starting-a-new-project/SKILL.md)** | 📦 Library | `jetbrains-thinkrail` | Use when the workspace is empty, has no code, and the user brings a raw project idea. Normally reached via setting-up-a- |
@@ -522,7 +572,9 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`tradingview-reader`](./tradingview-reader/SKILL.md)** | 📦 Library | `himself65-finance-skills` | Read the user's local TradingView desktop app through opencli: quotes, options |
 | **[`trello-automation`](./trello-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Trello boards, cards, and workflows via Rube MCP (Composio). Create cards, manage lists, assign members, and se |
 | **[`tutorial-engineer`](./tutorial-engineer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Creates step-by-step tutorials and educational content from code. |
+| **[`tweet-visuals`](./tweet-visuals/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`twitter-thread-creation`](./twitter-thread-creation/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Twitter/X thread writing with hook tweets, thread structure, and engagement optimization. Covers tweet formatting, chara |
+| **[`ultracave`](./ultracave/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Caveman at maximum compression: fragments, one word when one word is enough, |
 | **[`understand-anything`](./understand-anything/SKILL.md)** | 📦 Library | `egonex-ai-understand-anything` | Understand Anything - code exploration and explanation skill |
 | **[`unslop`](./unslop/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Cut AI tells from any writing. |
 | **[`update`](./update/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Sync tasks and refresh memory from your current activity. Use when pulling new assignments from your project tracker int |
@@ -530,7 +582,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`using-agent-skills`](./using-agent-skills/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Discovers and invokes agent skills. Use when starting a session, or when you need to decide which skill or workflow appl |
 | **[`uv-package-manager`](./uv-package-manager/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master the uv package manager for fast Python dependency management, virtual environments, and modern Python project wor |
 | **[`ux-copy`](./ux-copy/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Write or review UX copy — microcopy, error messages, empty states, CTAs. Trigger with "write copy for", "what should thi |
-| **[`verification-loop`](./verification-loop/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Modular agent skill module |
+| **[`verification-loop`](./verification-loop/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Comprehensive verification running all quality gates |
 | **[`view-pdf`](./view-pdf/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Interactive PDF viewer. Use when the user wants to open, show, or view a PDF and collaborate on it visually — annotate,  |
 | **[`wait-what`](./wait-what/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Stop. That last message did not land: re-pitch it. |
 | **[`wayfinder`](./wayfinder/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue track |

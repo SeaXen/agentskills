@@ -27,7 +27,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`infinite-gratitude`](./infinite-gratitude/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real case studies). |
 | **[`owl`](./owl/SKILL.md)** | 🟢 Active | `active-skills` | - |
 | **[`owl-protocol-automation`](./owl-protocol-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Owl Protocol tasks via Rube MCP (Composio). Always search tools first for current schemas. |
-| **[`strategic-compact`](./strategic-compact/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Suggests manual context compaction at logical intervals to preserve context through task phases rather than arbitrary au |
+| **[`strategic-compact`](./strategic-compact/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Context window management with strategic compaction |
 
 ---
 

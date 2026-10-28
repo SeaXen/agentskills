@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Skills in Category**: 68 real modular skills  
+> **Total Skills in Category**: 76 real modular skills  
 > **Directory**: [`.agents/category/git-version-control`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (68 Skills)
+## 📑 Complete Skill Catalog (76 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -43,12 +43,15 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`game-research-websearch`](./game-research-websearch/SKILL.md)** | 📦 Library | `rehan-remade-universal-modder` | Research a game, engine or modding technique on the open web with archive-aware, rate-limit-safe searches — Wayback Mach |
 | **[`gh-address-comments`](./gh-address-comments/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and p |
 | **[`gh-fix-ci`](./gh-fix-ci/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and |
+| **[`gh-review-requests`](./gh-review-requests/SKILL.md)** | 📦 Library | `getsentry-skills` | Fetch unread GitHub notifications for open PRs where review is requested from a specified team or opened by a team membe |
+| **[`gha-security-review`](./gha-security-review/SKILL.md)** | 📦 Library | `getsentry-skills` | GitHub Actions security review for workflow exploitation vulnerabilities. Use when asked to "review GitHub Actions", "au |
 | **[`git-advanced-workflows`](./git-advanced-workflows/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master advanced Git workflows including rebasing, cherry-picking, bisect, worktrees, and reflog to maintain clean histor |
 | **[`git-guardrails-claude-code`](./git-guardrails-claude-code/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execut |
 | **[`git-pr-workflows-git-workflow`](./git-pr-workflows-git-workflow/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Orchestrate a comprehensive git workflow from code review through PR creation, leveraging specialized agents for quality |
 | **[`git-pr-workflows-onboard`](./git-pr-workflows-onboard/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are an **expert onboarding specialist and knowledge transfer architect** with deep experience in remote-first organi |
 | **[`git-pr-workflows-pr-enhance`](./git-pr-workflows-pr-enhance/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a PR optimization expert specializing in creating high-quality pull requests that facilitate efficient code revi |
 | **[`git-pushing`](./git-pushing/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Stage, commit, and push git changes with conventional commit messages. Use when user wants to commit and push changes, m |
+| **[`git-workflow`](./git-workflow/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Git workflow patterns and best practices |
 | **[`git-workflow-and-versioning`](./git-workflow-and-versioning/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, |
 | **[`git-workflow-pro`](./git-workflow-pro/SKILL.md)** | 🟢 Active | `active-skills` | Advanced Git operations, conventional commits, interactive rebase, bisect, worktrees, and release branch management. Use |
 | **[`github`](./github/SKILL.md)** | 📦 Library | `dimillian-skills` | Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and a |
@@ -63,8 +66,13 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`langgraph`](./langgraph/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applications. Covers graph co |
 | **[`new-term-radar`](./new-term-radar/SKILL.md)** | 📦 Library | `zhuyansen-new-term-radar` | One run from signal to decision. Finds the names of new AI models, products and repositories seen in the last 24 hours ( |
 | **[`pay-the-bills`](./pay-the-bills/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Works the bill pile from the AP inbox all the way to a staged payment run — reads and codes every bill, then checks the  |
+| **[`pr-labeling`](./pr-labeling/SKILL.md)** | 📦 Library | `vercel-labs-skills` | Classify a skills CLI pull request from its description and patch, while respecting existing labels. |
+| **[`pr-link-issue`](./pr-link-issue/SKILL.md)** | 📦 Library | `getsentry-skills` | Append a GitHub issue link and its Linear ticket to the current PR's description. Use when asked to "link issue to pr",  |
 | **[`pr-review`](./pr-review/SKILL.md)** | 📦 Library | `minimax-ai-skills` | Review pull requests for the MiniMax Skills repository. Use when reviewing PRs, |
 | **[`pr-review-specialist`](./pr-review-specialist/SKILL.md)** | 📦 Library | `#core-antigravity-library` | High-impact Pull Request (PR) reviews, automated diff analysis, severity calibration, and security flagging. Use when re |
+| **[`pr-screenshots`](./pr-screenshots/SKILL.md)** | 📦 Library | `getsentry-skills` | Capture screenshots of the Sentry UI in a web browser, lay them out in a pull request description as before/after tables |
+| **[`pr-toolkit`](./pr-toolkit/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Pull request lifecycle domain knowledge — branch strategy detection, PR size classification, confidence-scored review, g |
+| **[`pr-writer`](./pr-writer/SKILL.md)** | 📦 Library | `getsentry-skills` | Create or refresh reviewer-facing PR titles and descriptions. Use when opening a PR, updating its title or body, or prep |
 | **[`principle-exhaust-the-design-space`](./principle-exhaust-the-design-space/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competin |
 | **[`principle-separate-before-serializing-shared-state`](./principle-separate-before-serializing-shared-state/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; se |
 | **[`principle-sequence-verifiable-units`](./principle-sequence-verifiable-units/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work in |

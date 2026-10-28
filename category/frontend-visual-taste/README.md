@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Skills in Category**: 24 real modular skills  
+> **Total Skills in Category**: 25 real modular skills  
 > **Directory**: [`.agents/category/frontend-visual-taste`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (24 Skills)
+## 📑 Complete Skill Catalog (25 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -29,6 +29,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`brand-guidelines-anthropic`](./brand-guidelines-anthropic/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic' |
 | **[`brand-guidelines-community`](./brand-guidelines-community/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic' |
 | **[`data-visualization`](./data-visualization/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, sca |
+| **[`design-spec`](./design-spec/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | How to author a DESIGN.md file — the machine-readable design-token + human-rationale format that must exist before any U |
 | **[`design-taste-frontend`](./design-taste-frontend/SKILL.md)** | 📦 Library | `#specialized-community-skills` | - |
 | **[`design-tokens`](./design-tokens/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Generate, extend, or audit design tokens in DTCG format with the 3-tier architecture (primitive → semantic → component). |
 | **[`frontend-design`](./frontend-design/SKILL.md)** | 🟢 Active | `active-skills` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthe |

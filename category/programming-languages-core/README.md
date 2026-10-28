@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Skills in Category**: 95 real modular skills  
+> **Total Skills in Category**: 98 real modular skills  
 > **Directory**: [`.agents/category/programming-languages-core`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (95 Skills)
+## 📑 Complete Skill Catalog (98 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -83,6 +83,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`golang-data-structures`](./golang-data-structures/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Golang data structures — slices (internals, capacity growth, preallocation, slices package), maps (internals, hash bucke |
 | **[`golang-dependency-management`](./golang-dependency-management/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Dependency management for Golang projects — go.mod and go.sum, `go get` install and upgrade flows, Minimal Version Selec |
 | **[`golang-pro`](./golang-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Go 1.21+ with modern patterns, advanced concurrency, |
+| **[`gravitas-typescript`](./gravitas-typescript/SKILL.md)** | 📦 Library | `udaysharmadev-gravitas` | GRAVITAS extension for TypeScript projects. Adds TypeScript-specific recon, |
+| **[`gsd-browser`](./gsd-browser/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Native Rust browser automation CLI for AI agents. Use when the user needs to |
 | **[`huggingface-local-models`](./huggingface-local-models/SKILL.md)** | 📦 Library | `huggingface-skills` | Use to select models to run locally with llama.cpp and GGUF on CPU, Mac Metal, CUDA, or ROCm. Covers finding GGUFs, quan |
 | **[`incident-runbook-templates`](./incident-runbook-templates/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create structured incident response runbooks with step-by-step procedures, escalation paths, and recovery actions. Use w |
 | **[`javascript-sdk`](./javascript-sdk/SKILL.md)** | 📦 Library | `magentosh-superpowers` | JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate with all models. Package: @inferencesh |
@@ -106,6 +108,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`scala-pro`](./scala-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master enterprise-grade Scala development with functional |
 | **[`security-best-practices`](./security-best-practices/SKILL.md)** | 🟢 Active | `active-skills` | Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the u |
 | **[`setup-ts-deep-modules`](./setup-ts-deep-modules/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder |
+| **[`triage-frontend-issues`](./triage-frontend-issues/SKILL.md)** | 📦 Library | `getsentry-skills` | Triage new issues in the Sentry `javascript` project by archiving non-actionable noise. Use when asked to "triage issues |
 | **[`trigger-dev`](./trigger-dev/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent developer experience a |
 | **[`typescript-advanced-types`](./typescript-advanced-types/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript's advanced type system including generics, conditional types, mapped types, template literals, and uti |
 | **[`typescript-best-practices`](./typescript-best-practices/SKILL.md)** | 📦 Library | `backnotprop-pstack` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |

@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Skills in Category**: 39 real modular skills  
+> **Total Skills in Category**: 41 real modular skills  
 > **Directory**: [`.agents/category/cloudflare-edge`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (39 Skills)
+## 📑 Complete Skill Catalog (41 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -27,6 +27,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`cloudflare-browser-rendering-automation`](./cloudflare-browser-rendering-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Cloudflare Browser Rendering tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`cloudflare-deploy`](./cloudflare-deploy/SKILL.md)** | 🟢 Active | `active-skills` | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the u |
 | **[`code-review`](./code-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, "review this before I mer |
+| **[`coordinator-mode`](./coordinator-mode/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Advanced multi-agent orchestration with parallel workers, synthesis protocols, and coordinator lifecycle. Use when compl |
 | **[`danyuchn-asd-ste100`](./danyuchn-asd-ste100/SKILL.md)** | 📦 Library | `danyuchn-asd-ste100-skill` | Use when English text must be parsed without a human to resolve ambiguity — tool descriptions, error messages, inter-age |
 | **[`data-context-extractor`](./data-context-extractor/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate or improve a company-specific data analysis skill by extracting tribal knowledge from analysts. |
 | **[`edge-candidate-agent`](./edge-candidate-agent/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Generate and prioritize US equity long-side edge research tickets from EOD observations, then export pipeline-ready cand |
@@ -55,6 +56,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`swarm`](./swarm/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races |
 | **[`tdd-workflows-tdd-red`](./tdd-workflows-tdd-red/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generate failing tests for the TDD red phase to define expected behavior and edge cases. |
 | **[`to-tickets`](./to-tickets/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges,  |
+| **[`typing-exclusion-worker`](./typing-exclusion-worker/SKILL.md)** | 📦 Library | `getsentry-skills` | Python typing exclusion worker: remove assigned mypy exclusion modules in small scoped batches, fix typing issues, run v |
 | **[`unit-testing-test-generate`](./unit-testing-test-generate/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case focus. |
 | **[`workday-automation`](./workday-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate HR operations in Workday -- manage workers, time off requests, absence balances, and employee data through natu |
 | **[`workers-best-practices`](./workers-best-practices/SKILL.md)** | 🟢 Active | `active-skills` | Cloudflare Workers best practices for production applications. Use when writing, reviewing, or configuring Workers. |

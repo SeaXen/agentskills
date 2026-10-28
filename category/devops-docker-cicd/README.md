@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Skills in Category**: 68 real modular skills  
+> **Total Skills in Category**: 70 real modular skills  
 > **Directory**: [`.agents/category/devops-docker-cicd`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (68 Skills)
+## 📑 Complete Skill Catalog (70 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -28,6 +28,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`azd-deployment`](./azd-deployment/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Deploy containerized applications to Azure Container Apps using Azure Developer CLI (azd). Use when setting up azd proje |
 | **[`azure-containerregistry-py`](./azure-containerregistry-py/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`azure-microsoft-playwright-testing-ts`](./azure-microsoft-playwright-testing-ts/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Run Playwright tests at scale using Azure Playwright Workspaces (formerly Microsoft Playwright Testing). Use when scalin |
+| **[`bankrdeploy`](./bankrdeploy/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`bionemo-boltz2-nim`](./bionemo-boltz2-nim/SKILL.md)** | 📦 Library | `nvidia-skills` | Use Boltz2 NIM for biomolecular structure prediction and binding affinity. Invoke for Boltz2, protein structures, protei |
 | **[`building-inferencesh-apps`](./building-inferencesh-apps/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Build and deploy applications on inference.sh. Use when getting started, understanding the platform, creating apps, conf |
 | **[`change-request`](./change-request/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Create a change management request with impact analysis and rollback plan. Use when proposing a system or process change |
@@ -42,6 +43,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`deployment-procedures`](./deployment-procedures/SKILL.md)** | 🟢 Active | `active-skills` | Production deployment principles and decision-making. Safe deployment workflows, rollback strategies, and verification.  |
 | **[`docker-expert`](./docker-expert/SKILL.md)** | 🟢 Active | `active-skills` | Docker containerization and Compose architecture. Use when creating Dockerfiles, optimizing multi-stage builds, managing |
 | **[`docker-hub-automation`](./docker-hub-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Docker Hub operations -- manage organizations, repositories, teams, members, and webhooks via the Composio MCP  |
+| **[`docker-patterns`](./docker-patterns/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Docker and containerization best practices |
 | **[`docker_hub-automation`](./docker_hub-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Docker Hub tasks via Rube MCP (Composio): repositories, images, tags, and container registry management. Always |
 | **[`expo-deployment`](./expo-deployment/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Deploy Expo apps to production |
 | **[`gcp-cloud-run`](./gcp-cloud-run/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run services (containerized |

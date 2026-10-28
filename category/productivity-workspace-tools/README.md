@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Skills in Category**: 44 real modular skills  
+> **Total Skills in Category**: 45 real modular skills  
 > **Directory**: [`.agents/category/productivity-workspace-tools`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (44 Skills)
+## 📑 Complete Skill Catalog (45 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -57,6 +57,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`slack-automation`](./slack-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Composio). Send messages, sea |
 | **[`slack-messaging`](./slack-messaging/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax |
 | **[`slack-search`](./slack-search/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Guidance for effectively searching Slack to find messages, files, channels, and people |
+| **[`sred-work-summary`](./sred-work-summary/SKILL.md)** | 📦 Library | `getsentry-skills` | Go back through the previous year of work and create a Notion doc that groups relevant links into projects that can then |
 | **[`task-management`](./task-management/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Simple task management using a shared TASKS.md file. Reference this when the user asks about their tasks, wants to add/c |
 | **[`triage-issue-reports`](./triage-issue-reports/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Triage Slack issue reports with one thread-only verdict, evidence review, cause-aware routing, tracker dedupe, and fail- |
 | **[`upstash-qstash`](./upstash-qstash/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task delivery without manag |

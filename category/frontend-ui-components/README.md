@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Skills in Category**: 148 real modular skills  
+> **Total Skills in Category**: 152 real modular skills  
 > **Directory**: [`.agents/category/frontend-ui-components`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (148 Skills)
+## 📑 Complete Skill Catalog (152 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -46,6 +46,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`build-connector`](./build-connector/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Gets Claude talking to a tool nobody built an official connector for. Works |
 | **[`build-dashboard`](./build-dashboard/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an executive overview with KPI c |
 | **[`build-zoom-contact-center-app`](./build-zoom-contact-center-app/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Reference skill for Zoom Contact Center. Use after routing to a contact-center workflow when implementing app, web, or n |
+| **[`cavecrew`](./cavecrew/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | When to delegate to `cavecrew-investigator` (locate code), `cavecrew-builder` |
 | **[`cc-skill-project-guidelines-example`](./cc-skill-project-guidelines-example/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Project Guidelines Skill (Example) |
 | **[`chat-ui`](./chat-ui/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Chat UI building blocks for React/Next.js from ui.inference.sh. Components: container, messages, input, typing indicator |
 | **[`claude`](./claude/SKILL.md)** | 📦 Library | `jeffallan-claude-skills` | Generates Angular 17+ standalone components and configures NgRx state management, RxJS patterns, and advanced routing fo |
@@ -99,12 +100,14 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`huggingface-gradio`](./huggingface-gradio/SKILL.md)** | 📦 Library | `huggingface-skills` | Build Gradio web UIs and demos in Python. Use when creating or editing Gradio apps, components, event listeners, layouts |
 | **[`humanize-scan`](./humanize-scan/SKILL.md)** | 📦 Library | `epoko77-ai-im-not-ai` | 한글 글에 AI 티가 얼마나 있는지 재고, 실제로 고치면 어떻게 되는지 표본으로 보여주는 정찰 스킬. 실측 판별력 상위 6개만 본다. 워크스페이스·진단·게이트·서브에이전트 없이 이 대화 안에서 끝낸다(파일 0개, 서 |
 | **[`intelligent-routing`](./intelligent-routing/SKILL.md)** | 🟢 Active | `active-skills` | Automatic agent selection and intelligent task routing. Analyzes user requests and automatically selects the best specia |
+| **[`lean-build`](./lean-build/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Build feature work with high overbuilding risk. Use for new behavior, product slices, or integrations where repository r |
 | **[`lewislulu-html-ppt`](./lewislulu-html-ppt/SKILL.md)** | 📦 Library | `lewislulu-html-ppt-skill` | HTML PPT Studio — author professional static HTML presentations in many styles, layouts, and animations, all driven by t |
 | **[`loop-me`](./loop-me/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Grill me about specs for the workflows I want to build, within this workspace. |
 | **[`make-bot-ui`](./make-bot-ui/SKILL.md)** | 📦 Library | `backnotprop-pstack` | - |
 | **[`market-news-analyst`](./market-news-analyst/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | This skill should be used when analyzing recent market-moving news events and their impact on equity markets and commodi |
 | **[`memory-forensics`](./memory-forensics/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master memory forensics techniques including memory acquisition, process analysis, and artifact extraction using Volatil |
 | **[`migrate-design-system`](./migrate-design-system/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Map this token system to or from any external design system (Material Design 3, Apple HIG, Fluent, Carbon, Ant, shadcn/u |
+| **[`migrate-radix-to-base`](./migrate-radix-to-base/SKILL.md)** | 📦 Library | `shadcn-ui-ui` | Migrates React projects and components from Radix UI to Base UI. Use when asked to migrate from radix, move to base-ui,  |
 | **[`multi-agent-brainstorming`](./multi-agent-brainstorming/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use this skill when a design or idea requires higher confidence, |
 | **[`mvp`](./mvp/SKILL.md)** | 📦 Library | `slavingia-skills` | Guide building a minimum viable product the minimalist entrepreneur way — manual first, then processized, then productiz |
 | **[`n8n-mcp-tools-expert`](./n8n-mcp-tools-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for using n8n-mcp MCP tools effectively. Use when searching for nodes, validating configurations, accessing |
@@ -119,6 +122,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`planning-with-files`](./planning-with-files/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and progress.md. Use wh |
 | **[`playground`](./playground/SKILL.md)** | 📦 Library | `cline-skills` | Creates interactive HTML playgrounds — self-contained single-file explorers that let users configure something visually  |
 | **[`poteto-help`](./poteto-help/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task. Type /poteto- |
+| **[`presentation-creator`](./presentation-creator/SKILL.md)** | 📦 Library | `getsentry-skills` | Create data-driven presentation slides using React, Vite, and Recharts with Sentry branding. Use when asked to "create a |
 | **[`principle-redesign-from-first-principles`](./principle-redesign-from-first-principles/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Apply when integrating a new requirement into an existing design. |
 | **[`product-photography`](./product-photography/SKILL.md)** | 📦 Library | `magentosh-superpowers` | AI product photography with studio lighting, lifestyle shots, and packshot conventions. Covers angles, backgrounds, shad |
 | **[`project-guidelines-example`](./project-guidelines-example/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Modular agent skill module |

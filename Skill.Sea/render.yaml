@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: skill-sea
+    env: node
+    plan: free
+    buildCommand: node scripts/build-catalog.js
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    autoDeploy: true

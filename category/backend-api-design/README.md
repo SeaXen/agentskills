@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Skills in Category**: 181 real modular skills  
+> **Total Skills in Category**: 184 real modular skills  
 > **Directory**: [`.agents/category/backend-api-design`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (181 Skills)
+## 📑 Complete Skill Catalog (184 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -67,6 +67,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`backend-patterns`](./backend-patterns/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, a |
 | **[`backend-security-coder`](./backend-security-coder/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in secure backend coding practices specializing in input |
 | **[`backendless-automation`](./backendless-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Backendless tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`bankr-error-handling`](./bankr-error-handling/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Self-healing diagnostics for Bankr API errors. |
 | **[`bccard-eatpl-search`](./bccard-eatpl-search/SKILL.md)** | 📦 Library | `nomadamas-k-skill` | 대한민국 맛집, 음식점, 식당, 밥집, 카페, 커피, 디저트, 고깃집, 회식 장소를 지역·역·동네 기준으로 찾아 준다. Use when the user asks for 맛집, 음식점, 좋은 식당, 근처 카페, 밥 먹 |
 | **[`bok-ecos-stats`](./bok-ecos-stats/SKILL.md)** | 📦 Library | `nomadamas-k-skill` | 한국은행 ECOS Open API로 기준금리, 환율, 소비자물가지수, 통화량 등 중앙은행 경제통계 시계열과 100대 핵심지표를 조회한다. Use when the user asks 기준금리, 환율 추이, 물가지수, M |
 | **[`bro`](./bro/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Restate the last message in plain human language, with no jargon. |
@@ -101,6 +102,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`design-mcp-workflow`](./design-mcp-workflow/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Design a Zoom MCP workflow for Claude. Use when deciding whether Zoom MCP fits a task, when planning tool-based AI workf |
 | **[`devops-troubleshooter`](./devops-troubleshooter/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert DevOps troubleshooter specializing in rapid incident |
 | **[`dictionary-api-automation`](./dictionary-api-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Dictionary API tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`document-api-endpoint`](./document-api-endpoint/SKILL.md)** | 📦 Library | `getsentry-skills` | Document and type a Sentry API endpoint. Write or fix @extend_schema decorators, specify response TypedDicts, type reque |
 | **[`documentation-templates`](./documentation-templates/SKILL.md)** | 🟢 Active | `active-skills` | Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation. |
 | **[`dotnet-architect`](./dotnet-architect/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert .NET backend architect specializing in C#, ASP.NET Core, |
 | **[`dotnet-backend`](./dotnet-backend/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patterns. |
@@ -146,6 +148,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`news-api-automation`](./news-api-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate News API tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`news-reaction-failure-analyzer`](./news-reaction-failure-analyzer/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Judge whether a market FAILED to react to news favorable to a crowded speculative position — step 2 of Jason Shapiro's C |
 | **[`nodejs-backend-patterns`](./nodejs-backend-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build production-ready Node.js backend services with Express/Fastify, implementing middleware patterns, error handling,  |
+| **[`nodejs-patterns`](./nodejs-patterns/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Node.js and backend framework best practices |
 | **[`observe-whatsapp`](./observe-whatsapp/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Observe and troubleshoot WhatsApp in Kapso: debug message delivery, inspect webhook deliveries/retries, triage API error |
 | **[`onesignal-rest-api-automation`](./onesignal-rest-api-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate OneSignal tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`onesignal_rest_api-automation`](./onesignal_rest_api-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate OneSignal tasks via Rube MCP (Composio): push notifications, segments, templates, and messaging. Always search  |
@@ -169,8 +172,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`scrapecreators-api`](./scrapecreators-api/SKILL.md)** | 📦 Library | `scrapecreators-social-media-research-skills` | - |
 | **[`scrapingant-automation`](./scrapingant-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Scrapingant tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`scrapingbee-automation`](./scrapingbee-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Scrapingbee tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| **[`secret-serialization`](./secret-serialization/SKILL.md)** | 📦 Library | `getsentry-skills` | Finds secrets, tokens, passwords, and API keys that can leak through generated serialization: Python dataclass repr and  |
 | **[`sector-analyst`](./sector-analyst/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | This skill should be used when analyzing sector rotation patterns and market cycle positioning. It fetches sector uptren |
-| **[`security-review`](./security-review/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or impleme |
 | **[`senior-architect`](./senior-architect/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Comprehensive software architecture skill for designing scalable, maintainable systems using ReactJS, NextJS, NodeJS, Ex |
 | **[`seo-analysis`](./seo-analysis/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Full SEO audit combining Google Search Console, URL Inspection API, PageSpeed |
 | **[`serpapi-automation`](./serpapi-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Serpapi tasks via Rube MCP (Composio). Always search tools first for current schemas. |

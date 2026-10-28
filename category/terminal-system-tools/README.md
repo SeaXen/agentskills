@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Skills in Category**: 53 real modular skills  
+> **Total Skills in Category**: 55 real modular skills  
 > **Directory**: [`.agents/category/terminal-system-tools`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (53 Skills)
+## 📑 Complete Skill Catalog (55 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -30,6 +30,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`browser`](./browser/SKILL.md)** | 📦 Library | `browserbase-skills` | Automate web browser interactions using natural language via CLI commands. Use when the user asks to browse websites, na |
 | **[`build-zoom-team-chat-app`](./build-zoom-team-chat-app/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integration |
 | **[`busybox-on-windows`](./busybox-on-windows/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows. |
+| **[`claude-settings-audit`](./claude-settings-audit/SKILL.md)** | 📦 Library | `getsentry-skills` | Analyze a repository to generate recommended Claude Code settings.json permissions. Use when setting up a new project, a |
 | **[`cli-creator`](./cli-creator/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin too |
 | **[`clockify-automation`](./clockify-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate time tracking workflows in Clockify -- create and manage time entries, workspaces, and users through natural la |
 | **[`cloudinary-automation`](./cloudinary-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Cloudinary media management including folder organization, upload presets, asset lookup, transformations, and u |
@@ -65,6 +66,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`sentry`](./sentry/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Use when the user asks to inspect Sentry issues or events, summarize recent production errors, or pull basic Sentry heal |
 | **[`sentry-cli`](./sentry-cli/SKILL.md)** | 📦 Library | `cline-skills` | Guide for using the Sentry CLI to interact with Sentry from the command line. Use when the user asks about viewing issue |
 | **[`seo-new-keywords-research`](./seo-new-keywords-research/SKILL.md)** | 📦 Library | `zhuyansen-new-term-radar` | Turn new AI names or unstructured AI market signals into a keyword priority table. For each name it finds the generic se |
+| **[`shell-conventions`](./shell-conventions/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | PowerShell shell conventions for Windows. Avoid bash-isms. Reference before running terminal commands. |
 | **[`shellcheck-configuration`](./shellcheck-configuration/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master ShellCheck static analysis configuration and usage for shell script quality. Use when setting up linting infrastr |
 | **[`shortcut-automation`](./shortcut-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate project management workflows in Shortcut -- create stories, manage tasks, track epics, and organize workflows t |
 | **[`survey-monkey-automation`](./survey-monkey-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate SurveyMonkey survey creation, response collection, collector management, and survey discovery through natural l |

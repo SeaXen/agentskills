@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Skill.Sea — Agent Skills Vault & Leaderboard</title>
+  <meta name="description" content="An independent directory, leaderboard, and one-click activation suite for 3,560+ AI Agent Skills across 38 functional categories from open GitHub repositories.">
+  <meta name="keywords" content="AI Agent Skills, Antigravity, Claude Code, Agent Leaderboard, Tool Calling, MCP, Skills Vault, GitHub">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Skill.Sea — Agent Skills Vault & Leaderboard">
+  <meta property="og:description" content="Discover, inspect, and install 3,560+ agent skills across 38 categories from 208 open repositories.">
+  <meta property="og:type" content="website">
+
+  <!-- Tabler Icons Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.42.0/dist/tabler-icons.min.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230f6e56'><rect width='24' height='24' rx='6'/><path d='M8 12l3 3 5-5' stroke='%23ffffff' stroke-width='2' fill='none'/></svg>">
+
+  <!-- ExamForge Design Tokens & Main Styles -->
+  <link rel="stylesheet" href="styles/design-tokens.css?v=2.1">
+  <link rel="stylesheet" href="styles/main.css?v=2.1">
+</head>
+<body>
+
+  <div class="app-container">
+    <main class="ef-frame">
+
+      <!-- 1. Header Navigation Bar (Full Edge-to-Edge) -->
+      <header class="hd">
+        <a href="#" class="hd-brand" onclick="switchView('skill-hub')">
+          <div class="brand-icon">
+            <i class="ti ti-waves"></i>
+          </div>
+          <span class="brand-title">Skill.Sea</span>
+          <span class="brand-tag">v2.0</span>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="nv-group" aria-label="Main Navigation">
+          <button class="nv on" id="tab-skill-hub" onclick="switchView('skill-hub')">
+            <i class="ti ti-apps"></i>
+            <span>Skill Hub</span>
+          </button>
+          <button class="nv" id="tab-hotset" onclick="switchView('hotset')">
+            <i class="ti ti-flame"></i>
+            <span>Hot-Set (130)</span>
+          </button>
+          <button class="nv" id="tab-categories" onclick="switchView('categories')">
+            <i class="ti ti-layout-grid"></i>
+            <span>38 Categories</span>
+          </button>
+          <button class="nv" id="tab-library" onclick="switchView('library')">
+            <i class="ti ti-books"></i>
+            <span>Library & Git Repos (208)</span>
+          </button>
+          <button class="nv" id="tab-guide" onclick="switchView('guide')">
+            <i class="ti ti-terminal-2"></i>
+            <span>Install Guide</span>
+          </button>
+        </nav>
+
+        <div class="spacer"></div>
+
+        <!-- Sync Indicator -->
+        <div class="pill" id="sync-btn" title="Cloudflare R2 / Local Vault sync status">
+          <span class="status-dot"></span>
+          <span>Vault Synced</span>
+        </div>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button class="btn-icon" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme (Press T)">
+          <i class="ti ti-moon" id="theme-icon"></i>
+        </button>
+
+        <!-- Upstream GitHub Link -->
+        <a href="https://github.com/SeaXen/agentskills" target="_blank" rel="noopener noreferrer" class="avatar-badge" title="SeaXen AgentSkills GitHub Vault">
+          <i class="ti ti-brand-github" style="font-size:14px"></i>
+        </a>
+      </header>
+
+      <!-- 2. Global Telemetry Metrics Row (Edge-to-Edge) -->
+      <section class="metrics-row" aria-label="Vault Statistics">
+        <div class="mc" onclick="switchView('skill-hub')">
+          <div class="mc-text">
+            <span>Total Skills Tracked</span>
+            <div class="mc-sub">✓ Complete offline index</div>
+          </div>
+          <b id="stat-total-skills">3,560</b>
+        </div>
+        <div class="mc" onclick="switchView('categories')">
+          <div class="mc-text">
+            <span>Functional Categories</span>
+            <div class="mc-sub">Explore all 38 domains</div>
+          </div>
+          <b id="stat-total-cats">38</b>
+        </div>
+        <div class="mc" onclick="switchView('library')">
+          <div class="mc-text">
+            <span>Git Origin Repositories</span>
+            <div class="mc-sub">Original GitHub links & clones</div>
+          </div>
+          <b id="stat-total-repos">208</b>
+        </div>
+        <div class="mc" onclick="switchView('hotset')">
+          <div class="mc-text">
+            <span>Active Hot-Set Skills</span>
+            <div class="mc-sub">⚡ Instant agent execution</div>
+          </div>
+          <b id="stat-active-hot">130</b>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           PAGE 1: SKILL HUB (All Skills Directory & Leaderboard)
+           ================================================================== -->
+      <div id="view-skill-hub" class="page-view active" style="padding:0;gap:0">
+        
+        <!-- Category Horizontal Scroll Rail -->
+        <section class="rail-container" aria-label="Category Rail">
+          <div class="category-rail" id="category-rail">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </section>
+
+        <!-- Search & Filter Toolbar -->
+        <section class="toolbar" aria-label="Skill Hub Controls">
+          <div class="search-box">
+            <i class="ti ti-search"></i>
+            <input type="text" id="search-input" placeholder="Search 3,560 skills, commands, repos (Press /)" autocomplete="off">
+            <span class="kbd-shortcut">/</span>
+          </div>
+
+          <div class="toolbar-actions">
+            <!-- Filter by Category -->
+            <select id="category-filter-select" class="filter-select" aria-label="Filter by Category">
+              <option value="all">Category: All (38)</option>
+            </select>
+
+            <!-- Filter by Library / Repository -->
+            <select id="library-filter-select" class="filter-select" aria-label="Filter by Library / Repo">
+              <option value="all">Library: All (208)</option>
+            </select>
+
+            <!-- Filter by Tier -->
+            <select id="tier-select" class="filter-select" aria-label="Filter by Tier">
+              <option value="all">Tier: All Skills</option>
+              <option value="hot">Tier: Hot-Set Only</option>
+              <option value="vault">Tier: Vault Reserve Only</option>
+            </select>
+
+            <!-- Sort By Options -->
+            <select id="sort-select" class="filter-select" aria-label="Sort skills">
+              <option value="rank">Sort: Most Starred / Rank</option>
+              <option value="name-asc">Sort: Name (A–Z)</option>
+              <option value="name-desc">Sort: Name (Z–A)</option>
+              <option value="category">Sort: Category</option>
+              <option value="repo">Sort: Library / Repo</option>
+              <option value="hot-first">Sort: Hot-Set First</option>
+            </select>
+
+            <div class="view-toggle" role="group" aria-label="View Toggle">
+              <button class="view-btn active" id="view-table-btn" title="Table View" aria-label="Table View">
+                <i class="ti ti-table"></i>
+              </button>
+              <button class="view-btn" id="view-grid-btn" title="Grid View" aria-label="Grid View">
+                <i class="ti ti-layout-grid"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Active Filters Indicator Bar -->
+        <div class="active-filters-bar" id="active-filters-bar" style="display:none">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Table View Container -->
+        <div class="table-scroll" id="table-container">
+          <table class="rank-table" aria-label="Skills Leaderboard">
+            <thead>
+              <tr>
+                <th class="col-rank">Rank</th>
+                <th>Skill & Upstream Repository</th>
+                <th>Category</th>
+                <th>Tier</th>
+                <th class="col-cmd">1-Click Install Command</th>
+                <th style="text-align:right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Populated dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Grid Cards Container -->
+        <div class="card-grid" id="grid-container" style="display:none">
+          <div id="grid-body" style="display:contents">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Pagination Bar -->
+        <footer class="pagination-bar">
+          <div id="item-count">Loading skills...</div>
+          <div class="pagination-controls">
+            <button class="page-btn" id="prev-page-btn" disabled>
+              <i class="ti ti-chevron-left"></i> Previous
+            </button>
+            <span id="page-indicator" style="font-family:var(--font-mono);font-size:11.5px">Page 1</span>
+            <button class="page-btn" id="next-page-btn">
+              Next <i class="ti ti-chevron-right"></i>
+            </button>
+          </div>
+        </footer>
+      </div>
+
+      <!-- ==================================================================
+           PAGE 2: HOT-SET VIEW (Active 130 Skills)
+           ================================================================== -->
+      <div id="view-hotset" class="page-view">
+        <div class="page-hero">
+          <h2><i class="ti ti-flame" style="color:var(--text-danger)"></i> Active Hot-Set Skills (130 Curated)</h2>
+          <p>These 130 essential skills are pre-linked and cached in your active workspace for zero-latency AI agent execution without token bloat.</p>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div class="search-box" style="width:300px">
+            <i class="ti ti-search"></i>
+            <input type="text" id="hotset-search-input" placeholder="Search hot-set skills..." autocomplete="off">
+          </div>
+          <div style="font-size:12px;color:var(--text-secondary)">
+            Located in: <code style="font-family:var(--font-mono);background:var(--surface-1);padding:2px 6px;border-radius:4px">.agent/skills/</code> and <code style="font-family:var(--font-mono);background:var(--surface-1);padding:2px 6px;border-radius:4px">.agents/skills/</code>
+          </div>
+        </div>
+
+        <div class="card-grid" id="hotset-grid" style="padding:0">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           PAGE 3: 38 FUNCTIONAL CATEGORIES VIEW
+           ================================================================== -->
+      <div id="view-categories" class="page-view">
+        <div class="page-hero">
+          <h2><i class="ti ti-layout-grid" style="color:var(--teal)"></i> 38 Functional Skill Categories</h2>
+          <p>Explore the complete ecosystem of 3,560+ specialized skills organized into 38 distinct engineering and operational disciplines.</p>
+        </div>
+
+        <div class="search-box" style="width:340px;margin-bottom:8px">
+          <i class="ti ti-search"></i>
+          <input type="text" id="category-search-input" placeholder="Search 38 categories..." autocomplete="off">
+        </div>
+
+        <div class="category-directory-grid" id="category-directory-grid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           PAGE 4: LIBRARY & GIT ORIGIN REPOSITORIES VIEW (208 Repos)
+           ================================================================== -->
+      <div id="view-library" class="page-view">
+        <div class="page-hero">
+          <h2><i class="ti ti-books" style="color:var(--teal)"></i> Library & Git Origin Repositories (208 Vaults)</h2>
+          <p>Every skill is mapped to its original upstream GitHub repository. Inspect origins, copy clone commands, and browse repository contents.</p>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div class="search-box" style="width:360px">
+            <i class="ti ti-search"></i>
+            <input type="text" id="repo-search-input" placeholder="Search 208 repositories by name or author..." autocomplete="off">
+          </div>
+          <div id="repo-count-badge" class="pill">
+            <span>208 Repositories</span>
+          </div>
+        </div>
+
+        <div class="repo-grid" id="repo-grid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           PAGE 5: INSTALLATION GUIDE & CHEATSHEET
+           ================================================================== -->
+      <div id="view-guide" class="page-view">
+        <div class="page-hero">
+          <h2><i class="ti ti-terminal-2" style="color:var(--teal)"></i> How to Install & Use Skills Anywhere</h2>
+          <p>Complete guide for integrating these 3,560+ skills with Google Antigravity, Claude Code, Cursor, Windsurf, or custom agent setups.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:16px">
+          
+          <div class="mc" style="cursor:default">
+            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+              <i class="ti ti-terminal" style="color:var(--teal)"></i> Method 1: Local AgentSkills CLI
+            </h3>
+            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
+              Activate any skill into your active workspace using the universal Python activator:
+            </p>
+            <div class="code-snippet-box">
+              <span class="copy-pill" onclick="copyCommand('python .agents/library/activate_skill.py activate <name>')">Copy</span>
+              <code>python .agents/library/activate_skill.py activate &lt;name&gt;</code>
+            </div>
+            <p style="font-size:11px;color:var(--text-muted)">Copies the skill definition and instructions directly into <code>.agent/skills/&lt;name&gt;</code>.</p>
+          </div>
+
+          <div class="mc" style="cursor:default">
+            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+              <i class="ti ti-link" style="color:var(--teal)"></i> Method 2: Zero-Disk Symlink / Junction
+            </h3>
+            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
+              Link skills without duplicating disk space using native Windows NTFS Junction or Linux symlink:
+            </p>
+            <div class="code-snippet-box">
+              <span class="copy-pill" onclick="copyCommand('python .agents/library/activate_skill.py link <name>')">Copy</span>
+              <code>python .agents/library/activate_skill.py link &lt;name&gt;</code>
+            </div>
+            <p style="font-size:11px;color:var(--text-muted)">Uses 0 duplicate disk space. Edits to upstream automatically reflect.</p>
+          </div>
+
+          <div class="mc" style="cursor:default">
+            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+              <i class="ti ti-cloud-download" style="color:var(--teal)"></i> Method 3: Remote cURL Quick-Launch
+            </h3>
+            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
+              Install and activate directly in GitHub Codespaces, Linux VMs, or CI pipelines:
+            </p>
+            <div class="code-snippet-box">
+              <span class="copy-pill" onclick="copyCommand('curl -sSL https://raw.githubusercontent.com/SeaXen/agentskills/main/install.sh | bash -s -- activate <name>')">Copy</span>
+              <code>curl -sSL https://raw.githubusercontent.com/SeaXen/agentskills/main/install.sh | bash -s -- activate &lt;name&gt;</code>
+            </div>
+            <p style="font-size:11px;color:var(--text-muted)">Automatically clones or pulls the vault and configures your environment.</p>
+          </div>
+
+          <div class="mc" style="cursor:default">
+            <h3 style="font-size:14px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+              <i class="ti ti-device-floppy" style="color:var(--teal)"></i> Cloudflare R2 Sync Integration
+            </h3>
+            <p style="font-size:12px;color:var(--text-secondary);margin-bottom:10px">
+              Back up and sync your entire catalog to Cloudflare R2 object storage:
+            </p>
+            <div class="code-snippet-box">
+              <span class="copy-pill" onclick="copyCommand('npm run sync:r2')">Copy</span>
+              <code>npm run sync:r2</code>
+            </div>
+            <p style="font-size:11px;color:var(--text-muted)">Uploads <code>catalog.json</code>, <code>categories.json</code>, and <code>repositories.json</code> using S3 API.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ==================================================================
+       Mobile Bottom Navigation Tab Bar (ExamForge Reference Spec)
+       ================================================================== -->
+  <nav class="mobile-tab-bar" aria-label="Mobile Navigation">
+    <button class="mob-tab-btn on" id="mob-tab-skill-hub" onclick="switchView('skill-hub')">
+      <i class="ti ti-apps"></i>
+      <span>Skill Hub</span>
+    </button>
+    <button class="mob-tab-btn" id="mob-tab-hotset" onclick="switchView('hotset')">
+      <i class="ti ti-flame"></i>
+      <span>Hot-Set</span>
+    </button>
+    <button class="mob-tab-btn" id="mob-tab-categories" onclick="switchView('categories')">
+      <i class="ti ti-layout-grid"></i>
+      <span>Categories</span>
+    </button>
+    <button class="mob-tab-btn" id="mob-tab-library" onclick="switchView('library')">
+      <i class="ti ti-books"></i>
+      <span>Library</span>
+    </button>
+    <button class="mob-tab-btn" id="mob-tab-guide" onclick="switchView('guide')">
+      <i class="ti ti-terminal-2"></i>
+      <span>Guide</span>
+    </button>
+  </nav>
+
+  <!-- Slide-Over Skill Detail Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop" role="dialog" aria-modal="true">
+    <div class="drawer-panel">
+      <div class="drawer-hd">
+        <div class="drawer-title-group">
+          <h2 id="drawer-title">Skill Title</h2>
+          <div class="sub" id="drawer-subtitle">Repository upstream</div>
+        </div>
+        <button class="btn-icon" id="drawer-close-btn" aria-label="Close drawer (Escape)">
+          <i class="ti ti-x" style="font-size:18px"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body" id="drawer-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <i class="ti ti-check" style="font-size:16px"></i>
+    <span id="toast-message">Command copied to clipboard</span>
+  </div>
+
+  <!-- App Script -->
+  <script src="src/app.js?v=2.1"></script>
+</body>
+</html>

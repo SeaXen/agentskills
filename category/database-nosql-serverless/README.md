@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Skills in Category**: 15 real modular skills  
+> **Total Skills in Category**: 20 real modular skills  
 > **Directory**: [`.agents/category/database-nosql-serverless`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (15 Skills)
+## 📑 Complete Skill Catalog (20 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -30,6 +30,11 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`cosmosdb-best-practices`](./cosmosdb-best-practices/SKILL.md)** | 📦 Library | `cline-skills` | Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, |
 | **[`firestore-data`](./firestore-data/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides  |
 | **[`neon`](./neon/SKILL.md)** | 🟢 Active | `active-skills` | - |
+| **[`neon-ai-gateway`](./neon-ai-gateway/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
+| **[`neon-auth`](./neon-auth/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
+| **[`neon-functions`](./neon-functions/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
+| **[`neon-object-storage`](./neon-object-storage/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
+| **[`neon-realtime`](./neon-realtime/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
 | **[`nosql-expert`](./nosql-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, query-first modeling, s |
 | **[`similarity-search-patterns`](./similarity-search-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement efficient similarity search with vector databases. Use when building semantic search, implementing nearest nei |
 | **[`vector-database-engineer`](./vector-database-engineer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in vector databases, embedding strategies, and semantic search implementation. Masters Pinecone, Weaviate, Qdrant |

@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Skills in Category**: 72 real modular skills  
+> **Total Skills in Category**: 76 real modular skills  
 > **Directory**: [`.agents/category/testing-unit-tdd`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (72 Skills)
+## 📑 Complete Skill Catalog (76 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -42,6 +42,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`evosearch`](./evosearch/SKILL.md)** | 📦 Library | `nvlabs-aspire` | Run the CaP Fix Loop + Evolutionary Search experiment on a user-supplied list of low-performing benchmark tasks: iterati |
 | **[`file-path-traversal`](./file-path-traversal/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"test for directory traversal\", \"exploit path traversal vulnerabiliti |
 | **[`fix-review`](./fix-review/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Verify fix commits address audit findings without new bugs |
+| **[`gravitas-perf`](./gravitas-perf/SKILL.md)** | 📦 Library | `udaysharmadev-gravitas` | Performance analysis mode for GRAVITAS. Adds profiling patterns, benchmark |
 | **[`grilling`](./grilling/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or u |
 | **[`hunter-automation`](./hunter-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Hunter.io email intelligence -- search domains for email addresses, find specific contacts, verify email delive |
 | **[`idor-testing`](./idor-testing/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"test for insecure direct object references,\" \"find IDOR vulnerabilit |
@@ -75,6 +76,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`source-driven-development`](./source-driven-development/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Grounds every implementation decision in official documentation. Use when you want to verify an approach against the off |
 | **[`statistical-analysis`](./statistical-analysis/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Apply statistical methods including descriptive stats, trend analysis, outlier detection, and hypothesis testing. Use wh |
 | **[`strategy-pivot-designer`](./strategy-pivot-designer/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Detect backtest iteration stagnation and generate structurally different strategy pivot proposals when parameter tuning  |
+| **[`surgical-patch`](./surgical-patch/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Fix bugs and small behavior changes at the narrowest responsible layer. Use when regression proof, preserved surrounding |
 | **[`systematic-debugging`](./systematic-debugging/SKILL.md)** | 🟢 Active | `active-skills` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
 | **[`tdd`](./tdd/SKILL.md)** | 🟢 Active | `active-skills` | Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor" |
 | **[`tdd-workflow`](./tdd-workflow/SKILL.md)** | 🟢 Active | `active-skills` | Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle. |
@@ -88,6 +90,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`ui-visual-validator`](./ui-visual-validator/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Rigorous visual validation expert specializing in UI testing, |
 | **[`upgrade`](./upgrade/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Upgrade the NotFair plugin to the latest version. Updates the marketplace repo, |
 | **[`validate-idea`](./validate-idea/SKILL.md)** | 📦 Library | `slavingia-skills` | Validate a business idea using the minimalist entrepreneur framework. Use when someone has a business idea and wants to  |
+| **[`verify-and-stop`](./verify-and-stop/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion check |
+| **[`verify-changes`](./verify-changes/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Prove code works by running it, not just checking it exists. Verification through execution rather than inspection. Use  |
 | **[`vitest`](./vitest/SKILL.md)** | 📦 Library | `antfu-skills` | Vitest fast unit testing framework powered by Vite with Jest-compatible API. Use when writing tests, mocking, configurin |
 | **[`waza`](./waza/SKILL.md)** | 📦 Library | `tw93-waza` | Performs code reviews, PR triage, and project-wide quality audits to verify release readiness. |
 | **[`workflow-patterns`](./workflow-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use this skill when implementing tasks according to Conductor's TDD |

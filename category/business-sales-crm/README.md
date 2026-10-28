@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Skills in Category**: 121 real modular skills  
+> **Total Skills in Category**: 123 real modular skills  
 > **Directory**: [`.agents/category/business-sales-crm`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (121 Skills)
+## 📑 Complete Skill Catalog (123 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -26,6 +26,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`apollo-automation`](./apollo-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Apollo.io lead generation -- search organizations, discover contacts, enrich prospect data, manage contact stag |
 | **[`attio-automation`](./attio-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Attio CRM operations -- search records, query contacts and companies with advanced filters, manage notes, list  |
 | **[`attribution`](./attribution/SKILL.md)** | 📦 Library | `coreyhaines31-marketingskills` | When the user wants to figure out which marketing actually drives conversions and revenue, choose or interpret an attrib |
+| **[`bd-screening`](./bd-screening/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | 7-phase BD screening pipeline for crypto exchange listing. |
 | **[`braintree-automation`](./braintree-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Braintree Automation: manage payment processing via Stripe-compatible tools for customers, subscriptions, payment method |
 | **[`call-list`](./call-list/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Builds today's call list. Runs lead-triage to rank the top-5 leads most worth calling, supplies talking points from emai |
 | **[`call-summary`](./call-summary/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Turn a call transcript or call notes into a customer follow-up email draft, an internal chat summary, and proposed CRM u |
@@ -75,6 +76,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`fxmacrodata-calendar`](./fxmacrodata-calendar/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Fetch official FXMacroData macro release-calendar events for trade planning, macro regime checks, and event-risk filters |
 | **[`geo-proposal`](./geo-proposal/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | Auto-generate a professional, client-ready GEO service proposal from audit data. |
 | **[`geo-prospect`](./geo-prospect/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | CRM-lite for managing GEO agency prospects and clients. Track leads through |
+| **[`gmail-outreach`](./gmail-outreach/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`gohighlevel`](./gohighlevel/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Operate connected GoHighLevel CRM accounts through the NotFair MCP. Use for GoHighLevel, HighLevel, GHL contacts, conver |
 | **[`gorgias-automation`](./gorgias-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate e-commerce customer support workflows in Gorgias -- manage tickets, customers, tags, and teams through natural  |
 | **[`grow-pipeline`](./grow-pipeline/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Fills the funnel end to end without the owner babysitting it — reads the market and the competition for context, builds  |

@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Skills in Category**: 123 real modular skills  
+> **Total Skills in Category**: 126 real modular skills  
 > **Directory**: [`.agents/category/architecture-system-design`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (123 Skills)
+## 📑 Complete Skill Catalog (126 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -40,6 +40,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`azure-identity-java`](./azure-identity-java/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Azure Identity Java SDK for authentication with Azure services. Use when implementing DefaultAzureCredential, managed id |
 | **[`azure-mgmt-mongodbatlas-dotnet`](./azure-mgmt-mongodbatlas-dotnet/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Manage MongoDB Atlas Organizations as Azure ARM resources using Azure.ResourceManager.MongoDBAtlas SDK. Use when creatin |
 | **[`backend-dev-guidelines`](./backend-dev-guidelines/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Opinionated backend development standards for Node.js + Express + TypeScript microservices. Covers layered architecture, |
+| **[`batch-operations`](./batch-operations/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Apply operations across multiple files simultaneously. Pattern-based bulk modifications, search-and-replace across codeb |
 | **[`binary-analysis-patterns`](./binary-analysis-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master binary analysis patterns including disassembly, decompilation, control flow analysis, and code pattern recognitio |
 | **[`browser-extension-builder`](./browser-extension-builder/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser extensions. Covers e |
 | **[`building-pydantic-ai-agents`](./building-pydantic-ai-agents/SKILL.md)** | 📦 Library | `cline-skills` | Build AI agents with Pydantic AI — tools, capabilities (including on-demand loading), structured output, streaming, test |
@@ -54,7 +55,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`code-documentation-doc-generate`](./code-documentation-doc-generate/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a documentation expert specializing in creating comprehensive, maintainable documentation from code. Generate AP |
 | **[`codereadr-automation`](./codereadr-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Codereadr tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`context-degradation`](./context-degradation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Recognize patterns of context failure: lost-in-middle, poisoning, distraction, and clash |
-| **[`continuous-learning`](./continuous-learning/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Automatically extract reusable patterns from Claude Code sessions and save them as learned skills for future use. |
+| **[`continuous-learning`](./continuous-learning/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Extract reusable patterns from sessions and save them as knowledge |
 | **[`csharp-pro`](./csharp-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Write modern C# code with advanced features like records, pattern |
 | **[`data-engineering-data-pipeline`](./data-engineering-data-pipeline/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a data pipeline architecture expert specializing in scalable, reliable, and cost-effective data pipelines for ba |
 | **[`ddd-context-mapping`](./ddd-context-mapping/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Map relationships between bounded contexts and define integration contracts using DDD context mapping patterns. |
@@ -73,9 +74,10 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`event-store-design`](./event-store-design/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Design and implement event stores for event-sourced systems. Use when building event sourcing infrastructure, choosing e |
 | **[`explore-data`](./explore-data/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Profile and explore a dataset to understand its shape, quality, and patterns. Use when encountering a new table or file, |
 | **[`framework-migration-legacy-modernize`](./framework-migration-legacy-modernize/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Orchestrate a comprehensive legacy system modernization using the strangler fig pattern, enabling gradual replacement of |
+| **[`frontend-architecture`](./frontend-architecture/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | How to organize frontend code — separation of concerns (UI / logic / data / type), file responsibility, state tiers, API |
 | **[`frontend-dev-guidelines`](./frontend-dev-guidelines/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Opinionated frontend development standards for modern React + TypeScript applications. Covers Suspense-first data fetchi |
 | **[`frontend-mobile-development-component-scaffold`](./frontend-mobile-development-component-scaffold/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a React component architecture expert specializing in scaffolding production-ready, accessible, and performant c |
-| **[`frontend-patterns`](./frontend-patterns/SKILL.md)** | 📦 Library | `worldflowai-everything-claude-code` | Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices. |
+| **[`frontend-patterns`](./frontend-patterns/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Frontend development patterns for React and modern frameworks |
 | **[`go-concurrency-patterns`](./go-concurrency-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Go concurrency with goroutines, channels, sync primitives, and context. Use when building concurrent Go applicati |
 | **[`go-rod-master`](./go-rod-master/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) including stealth ant |
 | **[`godot-gdscript-patterns`](./godot-gdscript-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use when building Godot ga |
@@ -95,6 +97,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`langsmith-fetch`](./langsmith-fetch/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use when debugging agent behavi |
 | **[`laravel-expert`](./laravel-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Senior Laravel Engineer role for production-grade, maintainable, and idiomatic Laravel solutions. Focuses on clean archi |
 | **[`linkerd-patterns`](./linkerd-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement Linkerd service mesh patterns for lightweight, security-focused service mesh deployments. Use when setting up  |
+| **[`mcp-integration`](./mcp-integration/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Model Context Protocol (MCP) integration patterns for extending AI capabilities with external tools and data sources. |
 | **[`memory-systems`](./memory-systems/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Design short-term, long-term, and graph-based memory architectures |
 | **[`microservices-patterns`](./microservices-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Design microservices architectures with service boundaries, event-driven communication, and resilience patterns. Use whe |
 | **[`modern-javascript-patterns`](./modern-javascript-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master ES6+ features including async/await, destructuring, spread operators, arrow functions, promises, modules, iterato |

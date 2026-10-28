@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Skills in Category**: 63 real modular skills  
+> **Total Skills in Category**: 64 real modular skills  
 > **Directory**: [`.agents/category/business-strategy-legal`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (63 Skills)
+## 📑 Complete Skill Catalog (64 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -71,6 +71,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`roadmap-update`](./roadmap-update/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deciding what moves to make r |
 | **[`setup`](./setup/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | First-run setup - checks which tools are connected, shows what's connected and what each one unlocks, learns how you wri |
 | **[`signature-request`](./signature-request/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Prepare and route a document for e-signature — run a pre-signature checklist, configure signing order, and send for exec |
+| **[`solana-contracts`](./solana-contracts/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
 | **[`spec-driven-development`](./spec-driven-development/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists |
 | **[`spec-graph`](./spec-graph/SKILL.md)** | 📦 Library | `jetbrains-thinkrail` | Use when locating, reading, creating, updating, or validating project specs, or when work is governed by or may alter a  |
 | **[`stockbee-momentum-burst-screener`](./stockbee-momentum-burst-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Screen US stocks for Stockbee-style short-term Momentum Burst setups using 4% breakout, dollar breakout, range expansion |

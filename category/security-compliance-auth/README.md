@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Skills in Category**: 49 real modular skills  
+> **Total Skills in Category**: 52 real modular skills  
 > **Directory**: [`.agents/category/security-compliance-auth`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (49 Skills)
+## 📑 Complete Skill Catalog (52 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -34,6 +34,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`compliance-tracking`](./compliance-tracking/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Track compliance requirements and audit readiness. Trigger with "compliance", "audit prep", "SOC 2", "ISO 27001", "GDPR" |
 | **[`cookie-sync`](./cookie-sync/SKILL.md)** | 📦 Library | `browserbase-skills` | Sync cookies from local Chrome to a Browserbase persistent context so the browse CLI can access authenticated sites. Use |
 | **[`debug-zoom-integration`](./debug-zoom-integration/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflo |
+| **[`django-access-review`](./django-access-review/SKILL.md)** | 📦 Library | `getsentry-skills` | Django access control and IDOR security review. Use when reviewing Django views, DRF viewsets, ORM queries, or any Pytho |
 | **[`dr-bedrock`](./dr-bedrock/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users  |
 | **[`ftd-detector`](./ftd-detector/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Detects Follow-Through Day (FTD) signals for market bottom confirmation using William O'Neil's methodology. Dual-index t |
 | **[`gdpr-data-handling`](./gdpr-data-handling/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement GDPR-compliant data handling with consent management, data subject rights, and privacy by design. Use when bui |
@@ -54,10 +55,12 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`security-and-hardening`](./security-and-hardening/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input,  |
 | **[`security-compliance-compliance-check`](./security-compliance-compliance-check/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a compliance expert specializing in regulatory requirements for software systems including GDPR, HIPAA, SOC2, PC |
 | **[`security-hardened-api`](./security-hardened-api/SKILL.md)** | 🟢 Active | `active-skills` | OWASP API Security Top 10 hardening, rate limiting, JWT validation, and input sanitization. Use when securing API endpoi |
+| **[`security-practices`](./security-practices/SKILL.md)** | 📦 Library | `besync-labs-antigravity-ai-kit` | Application security best practices including Zero Trust principles, OAuth 2.0 / OpenID Connect flows, API security, sup |
 | **[`security-scanning-security-hardening`](./security-scanning-security-hardening/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Coordinate multi-layer security scanning and hardening across application, infrastructure, and compliance controls. |
 | **[`seo-authority-builder`](./seo-authority-builder/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Analyzes content for E-E-A-T signals and suggests improvements to |
 | **[`setup-zoom-oauth`](./setup-zoom-oauth/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes |
 | **[`skill-authoring`](./skill-authoring/SKILL.md)** | 📦 Library | `davidondrej-skills` | Tools for managing BB services via CLI and developing custom plugins, agent tools, and provider extensions. |
+| **[`skill-writer`](./skill-writer/SKILL.md)** | 📦 Library | `getsentry-skills` | Create, synthesize, and iteratively improve agent skills following the Agent Skills specification. Use when asked to "cr |
 | **[`slack-bot-builder`](./slack-bot-builder/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for rich UIs, interactiv |
 | **[`sox-testing`](./sox-testing/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 4 |
 | **[`supabase`](./supabase/SKILL.md)** | 📦 Library | `#specialized-community-skills` | Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Stora |

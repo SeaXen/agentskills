@@ -1,0 +1,25 @@
+[
+  {
+    "id": "dev",
+    "name": "dev",
+    "repository": "microsoft-playwright-cli",
+    "category": "testing-qa",
+    "description": "Development workflows for the playwright-cli repository. Use when the user asks about rolling dependencies, releasing, or other repo maintenance tasks.",
+    "path": "library/microsoft-playwright-cli/skills/dev",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dev",
+    "link_cmd": "python .agents/library/activate_skill.py link dev"
+  },
+  {
+    "id": "playwright-cli",
+    "name": "playwright-cli",
+    "repository": "microsoft-playwright-cli",
+    "category": "frontend",
+    "description": "Automate browser interactions, test web pages and work with Playwright tests.",
+    "path": "library/microsoft-playwright-cli/skills/playwright-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate playwright-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link playwright-cli",
+    "allowed_tools": [
+      "Bash(playwright-cli:*) Bash(npx playwright:*) Bash(npx --no-install playwright:*)"
+    ]
+  }
+]

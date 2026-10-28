@@ -15692,6 +15692,414 @@
     "link_cmd": "python .agents/library/activate_skill.py link sound-effects"
   },
   {
+    "id": "api-patterns",
+    "name": "api-patterns",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "backend-api-design",
+    "description": "RESTful API design patterns and best practices",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/api-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate api-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link api-patterns"
+  },
+  {
+    "id": "app-builder",
+    "name": "app-builder",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "fullstack-web-frameworks",
+    "description": "Application scaffolding orchestrator. Creates full-stack applications from requirements, selects tech stack, coordinates agents.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/app-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate app-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link app-builder",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash",
+      "Agent"
+    ]
+  },
+  {
+    "id": "architecture",
+    "name": "architecture",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "architecture-system-design",
+    "description": "\"System design patterns, DDD, 12-Factor App, SOLID principles, event-driven architecture, and architectural decision frameworks\"",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link architecture"
+  },
+  {
+    "id": "behavioral-modes",
+    "name": "behavioral-modes",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "multi-agent-orchestration",
+    "description": "AI operational modes (brainstorm, implement, debug, review, teach, ship). Adapts behavior based on task type for Trust-Grade execution.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/behavioral-modes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate behavioral-modes",
+    "link_cmd": "python .agents/library/activate_skill.py link behavioral-modes",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "brainstorming",
+    "name": "brainstorming",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "frontend-ui-components",
+    "description": "Socratic questioning and discovery protocol. Ensures requirements clarity before implementation.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/brainstorming",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brainstorming",
+    "link_cmd": "python .agents/library/activate_skill.py link brainstorming",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "clean-code",
+    "name": "clean-code",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "code-quality-refactoring",
+    "description": "Code quality principles and best practices",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/clean-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clean-code",
+    "link_cmd": "python .agents/library/activate_skill.py link clean-code"
+  },
+  {
+    "id": "context-budget",
+    "name": "context-budget",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "prompt-llm-engineering",
+    "description": "Context window budget management and selective capability loading for LLM token optimization.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/context-budget",
+    "activation_cmd": "python .agents/library/activate_skill.py activate context-budget",
+    "link_cmd": "python .agents/library/activate_skill.py link context-budget"
+  },
+  {
+    "id": "continuous-learning",
+    "name": "continuous-learning",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "architecture-system-design",
+    "description": "Extract reusable patterns from sessions and save them as knowledge",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/continuous-learning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate continuous-learning",
+    "link_cmd": "python .agents/library/activate_skill.py link continuous-learning"
+  },
+  {
+    "id": "database-design",
+    "name": "database-design",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "database-sql-relational",
+    "description": "Database schema design, optimization patterns, distributed system consistency models, and zero-downtime migration strategies",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/database-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-design",
+    "link_cmd": "python .agents/library/activate_skill.py link database-design"
+  },
+  {
+    "id": "debugging-strategies",
+    "name": "debugging-strategies",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "code-quality-refactoring",
+    "description": "Systematic debugging approaches for complex problems",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/debugging-strategies",
+    "activation_cmd": "python .agents/library/activate_skill.py activate debugging-strategies",
+    "link_cmd": "python .agents/library/activate_skill.py link debugging-strategies"
+  },
+  {
+    "id": "deployment-procedures",
+    "name": "deployment-procedures",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "devops-docker-cicd",
+    "description": "Production deployment workflows, rollback strategies, and CI/CD best practices.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/deployment-procedures",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deployment-procedures",
+    "link_cmd": "python .agents/library/activate_skill.py link deployment-procedures",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "docker-patterns",
+    "name": "docker-patterns",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "devops-docker-cicd",
+    "description": "Docker and containerization best practices",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/docker-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate docker-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link docker-patterns"
+  },
+  {
+    "id": "eval-harness",
+    "name": "eval-harness",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "prompt-llm-engineering",
+    "description": "Evaluation framework for measuring agent performance",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/eval-harness",
+    "activation_cmd": "python .agents/library/activate_skill.py activate eval-harness",
+    "link_cmd": "python .agents/library/activate_skill.py link eval-harness"
+  },
+  {
+    "id": "frontend-patterns",
+    "name": "frontend-patterns",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "architecture-system-design",
+    "description": "Frontend development patterns for React and modern frameworks",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/frontend-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frontend-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link frontend-patterns"
+  },
+  {
+    "id": "git-workflow",
+    "name": "git-workflow",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "git-version-control",
+    "description": "Git workflow patterns and best practices",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/git-workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate git-workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link git-workflow"
+  },
+  {
+    "id": "i18n-localization",
+    "name": "i18n-localization",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "architecture-system-design",
+    "description": "Internationalization and localization patterns for multi-language applications",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/i18n-localization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate i18n-localization",
+    "link_cmd": "python .agents/library/activate_skill.py link i18n-localization"
+  },
+  {
+    "id": "intelligent-routing",
+    "name": "intelligent-routing",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "frontend-ui-components",
+    "description": "Automatic agent selection and intelligent task routing. Analyzes user requests and selects the best specialist agent(s) for Trust-Grade execution.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/intelligent-routing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate intelligent-routing",
+    "link_cmd": "python .agents/library/activate_skill.py link intelligent-routing"
+  },
+  {
+    "id": "mcp-integration",
+    "name": "mcp-integration",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "architecture-system-design",
+    "description": "Model Context Protocol (MCP) integration patterns for extending AI capabilities with external tools and data sources.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/mcp-integration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mcp-integration",
+    "link_cmd": "python .agents/library/activate_skill.py link mcp-integration"
+  },
+  {
+    "id": "mobile-design",
+    "name": "mobile-design",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "mobile-ios-android",
+    "description": "Mobile UI/UX patterns for iOS and Android. Touch-first, platform-respectful design with React Native/Expo focus.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/mobile-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mobile-design",
+    "link_cmd": "python .agents/library/activate_skill.py link mobile-design",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "nodejs-patterns",
+    "name": "nodejs-patterns",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "backend-api-design",
+    "description": "Node.js and backend framework best practices",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/nodejs-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nodejs-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link nodejs-patterns"
+  },
+  {
+    "id": "parallel-agents",
+    "name": "parallel-agents",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "multi-agent-orchestration",
+    "description": "Multi-agent orchestration patterns for complex tasks requiring multiple domain expertise or comprehensive analysis.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/parallel-agents",
+    "activation_cmd": "python .agents/library/activate_skill.py activate parallel-agents",
+    "link_cmd": "python .agents/library/activate_skill.py link parallel-agents",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "performance-profiling",
+    "name": "performance-profiling",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "code-quality-refactoring",
+    "description": "Performance profiling principles. Core Web Vitals, measurement, analysis, and optimization.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/performance-profiling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate performance-profiling",
+    "link_cmd": "python .agents/library/activate_skill.py link performance-profiling",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "plan-validation",
+    "name": "plan-validation",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "database-sql-relational",
+    "description": "Quality gate for implementation plans. Validates schema compliance, cross-cutting concerns, and completeness scoring before user presentation.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/plan-validation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-validation",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-validation",
+    "allowed_tools": [
+      "Read",
+      "Grep"
+    ]
+  },
+  {
+    "id": "plan-writing",
+    "name": "plan-writing",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "code-quality-refactoring",
+    "description": "Structured task planning with clear breakdowns, dependencies, and verification criteria.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/plan-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-writing",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "pr-toolkit",
+    "name": "pr-toolkit",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "git-version-control",
+    "description": "Pull request lifecycle domain knowledge — branch strategy detection, PR size classification, confidence-scored review, git-aware context, PR analytics, dependency management, and split/merge/describe operations.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/pr-toolkit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-toolkit",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-toolkit",
+    "allowed_tools": [
+      "Read",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "production-readiness",
+    "name": "production-readiness",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "code-quality-refactoring",
+    "description": "Production readiness audit domains, weighted scoring criteria, and check specifications for the /preflight workflow.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/production-readiness",
+    "activation_cmd": "python .agents/library/activate_skill.py activate production-readiness",
+    "link_cmd": "python .agents/library/activate_skill.py link production-readiness",
+    "allowed_tools": [
+      "Read",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "security-practices",
+    "name": "security-practices",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "security-compliance-auth",
+    "description": "Application security best practices including Zero Trust principles, OAuth 2.0 / OpenID Connect flows, API security, supply chain security, and vulnerability prevention",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/security-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link security-practices"
+  },
+  {
+    "id": "shell-conventions",
+    "name": "shell-conventions",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "terminal-system-tools",
+    "description": "PowerShell shell conventions for Windows. Avoid bash-isms. Reference before running terminal commands.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/shell-conventions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shell-conventions",
+    "link_cmd": "python .agents/library/activate_skill.py link shell-conventions"
+  },
+  {
+    "id": "strategic-compact",
+    "name": "strategic-compact",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "core-antigravity-protocols",
+    "description": "Context window management with strategic compaction",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/strategic-compact",
+    "activation_cmd": "python .agents/library/activate_skill.py activate strategic-compact",
+    "link_cmd": "python .agents/library/activate_skill.py link strategic-compact"
+  },
+  {
+    "id": "testing-patterns",
+    "name": "testing-patterns",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "architecture-system-design",
+    "description": "Testing strategies and patterns for quality assurance",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/testing-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate testing-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link testing-patterns"
+  },
+  {
+    "id": "typescript-expert",
+    "name": "typescript-expert",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "architecture-system-design",
+    "description": "Advanced TypeScript patterns and best practices",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/typescript-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate typescript-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link typescript-expert"
+  },
+  {
+    "id": "ui-ux-pro-max",
+    "name": "ui-ux-pro-max",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "frontend-visual-taste",
+    "description": "UI/UX design intelligence with anti-AI-slop philosophy. 50+ styles, 21 palettes, 50 font pairings, 20 charts, 9 stacks.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/ui-ux-pro-max",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui-ux-pro-max",
+    "link_cmd": "python .agents/library/activate_skill.py link ui-ux-pro-max"
+  },
+  {
+    "id": "verification-loop",
+    "name": "verification-loop",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "code-quality-refactoring",
+    "description": "Comprehensive verification running all quality gates",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/verification-loop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate verification-loop",
+    "link_cmd": "python .agents/library/activate_skill.py link verification-loop"
+  },
+  {
+    "id": "webapp-testing",
+    "name": "webapp-testing",
+    "repository": "besync-labs-antigravity-ai-kit",
+    "category": "testing-playwright-e2e",
+    "description": "Web application testing principles. E2E, Playwright, component testing, and deep audit strategies.",
+    "path": "library/besync-labs-antigravity-ai-kit/skills/webapp-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate webapp-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link webapp-testing",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
     "id": "binance",
     "name": "binance",
     "repository": "binance-binance-skills-hub",
@@ -16075,6 +16483,380 @@
     "path": "library/builderio-skills/skills/adding-a-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate adding-a-skill",
     "link_cmd": "python .agents/library/activate_skill.py link adding-a-skill"
+  },
+  {
+    "id": "agent-contexts",
+    "name": "agent-contexts",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "Web3 / Crypto Business Development & ecosystem partnership intelligence",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/agent-contexts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-contexts",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-contexts"
+  },
+  {
+    "id": "alpha-buzz-master-ops",
+    "name": "alpha-buzz-master-ops",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "> System Operations Manual for Alpha Buzz at SolCex Exchange. v9.3 — Post-Sprint Day 10 (Apr 10, 2026). BuzzShield V2 + Wallet Guard Live Demo + DRI Audition. Opus 4.6 brain, Pro Max, 24/7 Hetzner CPX62. 12 agents, 10 reactive modules. 87 tables. ~200+ endpoints. 27 services. 47 feature flags. 18 rules. BuzzShield V2: @stackone/defender prompt injection + OSV.dev supply chain + CycloneDX SBOM. Wallet Guard LIVE demo with AION (end-to-end receipts + War Room mirror). BuzzShield dApp on Netlify (plena-38072fcd-8.netlify.app) via Noah AI. Karpathy LLM Wiki: 43 pages, persistent, self-maintaining. autoDream hill-climber: 595 ground truth rows, async fix shipped. Scoring: 11 rules. PULSE+autoDream live (Phases 1-13). DRI Sales audition posted (#439, 100K sats/day). Beat Editor auditions posted (#433, both beats). Frontier May 11. Kite AI May 6. CI/CD GREEN. Server: CPX62 (16 vCPU, 32GB RAM) | API :3000 | MiroFish :5000 | Sentinel :3001.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/alpha-buzz-master-ops",
+    "activation_cmd": "python .agents/library/activate_skill.py activate alpha-buzz-master-ops",
+    "link_cmd": "python .agents/library/activate_skill.py link alpha-buzz-master-ops"
+  },
+  {
+    "id": "atv-batch-skill",
+    "name": "atv-batch-skill",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "**Version:** 2.0 (Complete Rewrite)",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/atv-batch-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate atv-batch-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link atv-batch-skill"
+  },
+  {
+    "id": "bankr",
+    "name": "bankr",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "AI-powered crypto operations and LLM gateway funded by Buzz's own wallet.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/bankr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bankr",
+    "link_cmd": "python .agents/library/activate_skill.py link bankr"
+  },
+  {
+    "id": "bankr-error-handling",
+    "name": "bankr-error-handling",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "backend-api-design",
+    "description": "> Self-healing diagnostics for Bankr API errors. Handles 401s, timeouts, rate limits, and configuration issues. Source: https://github.com/BankrBot/claude-plugins NOTE: Replace this placeholder with actual skill from BankrBot repo.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/bankr-error-handling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bankr-error-handling",
+    "link_cmd": "python .agents/library/activate_skill.py link bankr-error-handling"
+  },
+  {
+    "id": "bankr-partner",
+    "name": "bankr-partner",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "Web3 / Crypto Business Development & ecosystem partnership intelligence",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/bankr-partner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bankr-partner",
+    "link_cmd": "python .agents/library/activate_skill.py link bankr-partner"
+  },
+  {
+    "id": "bankr-signals",
+    "name": "bankr-signals",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "> On-chain verified trading signals for Buzz BD Agent. Publish scan results with TX hash proof for credibility. Source: https://github.com/BankrBot/openclaw-skills/tree/main/bankr/bankr-signals NOTE: Replace this placeholder with actual skill from BankrBot repo.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/bankr-signals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bankr-signals",
+    "link_cmd": "python .agents/library/activate_skill.py link bankr-signals"
+  },
+  {
+    "id": "bankrdeploy",
+    "name": "bankrdeploy",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "devops-docker-cicd",
+    "description": "> Deploy tokens on Base via Bankr Partner API. Earn ~18% of 1.2% swap fee per trade.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/bankrdeploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bankrdeploy",
+    "link_cmd": "python .agents/library/activate_skill.py link bankrdeploy"
+  },
+  {
+    "id": "bd-screening",
+    "name": "bd-screening",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "business-sales-crm",
+    "description": "> 7-phase BD screening pipeline for crypto exchange listing. From HOT token detection through verified lead to outreach execution. Dual-source verification (DexScreener + DexTools), security deep dive, contact discovery, email-first outreach with trust-gated automation. Permanent process for every token scoring 85+.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/bd-screening",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bd-screening",
+    "link_cmd": "python .agents/library/activate_skill.py link bd-screening"
+  },
+  {
+    "id": "bnb-chain-mcp",
+    "name": "bnb-chain-mcp",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "- scanner-agent (L1): BSC token discovery",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/bnb-chain-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bnb-chain-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link bnb-chain-mcp"
+  },
+  {
+    "id": "browser-research",
+    "name": "browser-research",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "- gsd-browser = EXTRACTION + AUTOMATION (63 commands, Rust native, fastest, JSON output)",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/browser-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate browser-research",
+    "link_cmd": "python .agents/library/activate_skill.py link browser-research"
+  },
+  {
+    "id": "buzz-bd-agent",
+    "name": "buzz-bd-agent",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "> Buzz BD Agent operational skill for SolCex Exchange. v9.3 — Post-Sprint Day 10 (Apr 10, 2026). BuzzShield V2 + Wallet Guard Live + DRI Audition. BuzzShield V2: @stackone/defender prompt injection + OSV.dev supply chain + SBOM. BuzzShield dApp LIVE: plena-38072fcd-8.netlify.app (Noah AI + Netlify). Wallet Guard AION: 12 receipts persisted, end-to-end proven, decision diversity pending. Karpathy LLM Wiki: 43 pages, persistent, wiki-manager.js 550+ lines. autoDream: 13 phases (was 9), hill-climber async fix, 595 ground truth. Moltbook Trust Level 1 live. DRI Sales audition posted (#439, 100K sats/day). Beat Editor auditions posted (#433, both AIBTC Network + Bitcoin Macro). 87 tables. ~200+ endpoints. 47 feature flags. 33 intel sources. CI/CD GREEN. 671+ tokens scored. ~270K sats revenue (~$192). Kite AI: Jamal collab opened. Alchemy $20M fund applied. Server: CPX62 (16 vCPU, 32GB RAM) | API :3000 | MiroFish :5000 | Sentinel :3001.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/buzz-bd-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate buzz-bd-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link buzz-bd-agent"
+  },
+  {
+    "id": "buzz-jvr",
+    "name": "buzz-jvr",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "Universal job receipt system for every Buzz operation. Produces tamper-proof verification receipts with unique codes (AAB-XXXXXX-XXXXX), SHA-256 hashes, and Telegram notifications.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/buzz-jvr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate buzz-jvr",
+    "link_cmd": "python .agents/library/activate_skill.py link buzz-jvr"
+  },
+  {
+    "id": "buzz-pipeline-scan",
+    "name": "buzz-pipeline-scan",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "Web3 / Crypto Business Development & ecosystem partnership intelligence",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/buzz-pipeline-scan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate buzz-pipeline-scan",
+    "link_cmd": "python .agents/library/activate_skill.py link buzz-pipeline-scan"
+  },
+  {
+    "id": "buzz-scan-formatter",
+    "name": "buzz-scan-formatter",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "Web3 / Crypto Business Development & ecosystem partnership intelligence",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/buzz-scan-formatter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate buzz-scan-formatter",
+    "link_cmd": "python .agents/library/activate_skill.py link buzz-scan-formatter"
+  },
+  {
+    "id": "buzzshield",
+    "name": "buzzshield",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "> Crypto-native security scanner for Claude Code agent configurations. Scans for exposed private keys, insecure RPC endpoints, contract addresses in public repos, unprotected wallet operations, and agent config vulnerabilities. Extends AgentShield concept with 47 crypto-specific detection rules. Run via /security-scan command.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/buzzshield",
+    "activation_cmd": "python .agents/library/activate_skill.py activate buzzshield",
+    "link_cmd": "python .agents/library/activate_skill.py link buzzshield"
+  },
+  {
+    "id": "clawrouter",
+    "name": "clawrouter",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "prompt-llm-engineering",
+    "description": "\"Smart LLM routing for cost optimization. Routes tasks to the cheapest capable model: free models (OpenRouter Llama 70B, AkashML Qwen 30B) for simple tasks like token scanning and data fetching, MiniMax M2.5 for complex reasoning, scoring, and outreach drafting.\"",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/clawrouter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clawrouter",
+    "link_cmd": "python .agents/library/activate_skill.py link clawrouter"
+  },
+  {
+    "id": "content-filter",
+    "name": "content-filter",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "> Content safety filter for Buzz auto-posts on Twitter. Checks all outgoing tweets against blocked words, patterns, and compliance rules before posting. Prevents price predictions, financial advice, urgency language, and profanity.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/content-filter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-filter",
+    "link_cmd": "python .agents/library/activate_skill.py link content-filter"
+  },
+  {
+    "id": "contract-auditor",
+    "name": "contract-auditor",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "> Solidity/EVM smart contract security analyzer for Buzz BD Agent at SolCex Exchange. Performs fast, pattern-based contract safety analysis on token prospects BEFORE scoring. Triggers automatically when: a token prospect has a verified contract address, any user submits a contract for listing review, `/score-token` is called with a verifiable contract, or Buzz's safety sub-agent is invoked. Inspects contract source (via Etherscan/Sourcify), flags critical vulnerabilities, and enriches the BD pipeline with an audit summary. NOT a substitute for a formal audit — the pre-check Buzz should never skip.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/contract-auditor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate contract-auditor",
+    "link_cmd": "python .agents/library/activate_skill.py link contract-auditor"
+  },
+  {
+    "id": "cost-guard",
+    "name": "cost-guard",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "---",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/cost-guard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cost-guard",
+    "link_cmd": "python .agents/library/activate_skill.py link cost-guard"
+  },
+  {
+    "id": "data-failover",
+    "name": "data-failover",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "prompt-llm-engineering",
+    "description": "> 4-layer token data validation cascade for Buzz BD Agent. Ensures every piece of data touching a business decision is verified by 2+ independent sources. DexScreener primary, with Helius, Bankr, and GeckoTerminal as fallbacks. Valid data = long-term business.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/data-failover",
+    "activation_cmd": "python .agents/library/activate_skill.py activate data-failover",
+    "link_cmd": "python .agents/library/activate_skill.py link data-failover"
+  },
+  {
+    "id": "deploy-checklist",
+    "name": "deploy-checklist",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "devops-docker-cicd",
+    "description": "1. git status — working tree must be clean",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/deploy-checklist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deploy-checklist",
+    "link_cmd": "python .agents/library/activate_skill.py link deploy-checklist"
+  },
+  {
+    "id": "gmail-outreach",
+    "name": "gmail-outreach",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "business-sales-crm",
+    "description": "1. **EVERY outreach email** sent via Gmail API MUST include the HTML signature below",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/gmail-outreach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gmail-outreach",
+    "link_cmd": "python .agents/library/activate_skill.py link gmail-outreach"
+  },
+  {
+    "id": "gsd-browser",
+    "name": "gsd-browser",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "programming-languages-core",
+    "description": "> Native Rust browser automation CLI for AI agents. Use when the user needs to interact with websites, navigate pages, fill forms, click buttons, take screenshots, extract structured data, run assertions, test web apps, mock network requests, or automate any browser task. Triggers include \"open a website\", \"fill out a form\", \"take a screenshot\", \"scrape data\", \"test this web app\", \"login to a site\", \"visual regression test\", or any task requiring programmatic web interaction.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/gsd-browser",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gsd-browser",
+    "link_cmd": "python .agents/library/activate_skill.py link gsd-browser",
+    "allowed_tools": [
+      "Bash(gsd-browser:*)",
+      "Bash(gsd-browser *)"
+    ]
+  },
+  {
+    "id": "helius-mcp",
+    "name": "helius-mcp",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "- wallet-agent (L2): wallet forensics",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/helius-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate helius-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link helius-mcp"
+  },
+  {
+    "id": "hsaas-go-to-market",
+    "name": "hsaas-go-to-market",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "---",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/hsaas-go-to-market",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hsaas-go-to-market",
+    "link_cmd": "python .agents/library/activate_skill.py link hsaas-go-to-market"
+  },
+  {
+    "id": "master-ops",
+    "name": "master-ops",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "> Master operations reference for Buzz BD Agent at SolCex Exchange. Full standalone directive — everything Buzz needs to operate autonomously. v6.0.4 — Indonesia Sprint Day 2 Edition (Feb 26, 2026). Buzz v6.0.4 | OpenClaw 2026.2.24 | ClawRouter + BlockRun x402 36 cron jobs | 15/16 intelligence sources | MiniMax M2.5 primary Bankr Partner API integrated | 48 Telegram commands registered ATV Web3 Identity FIXED (api.web3identity.com) | 3x daily ATV batch passes Standard dev workflow: Mac laptop → Docker → GHCR → Akash (never install on Akash)",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/master-ops",
+    "activation_cmd": "python .agents/library/activate_skill.py activate master-ops",
+    "link_cmd": "python .agents/library/activate_skill.py link master-ops"
+  },
+  {
+    "id": "mirofish-simulation",
+    "name": "mirofish-simulation",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "> 50-1000 agent OASIS simulation. Dual-Brain: 90% Opus / 10% Ollama.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/mirofish-simulation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mirofish-simulation",
+    "link_cmd": "python .agents/library/activate_skill.py link mirofish-simulation"
+  },
+  {
+    "id": "notification-filter",
+    "name": "notification-filter",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "---",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/notification-filter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate notification-filter",
+    "link_cmd": "python .agents/library/activate_skill.py link notification-filter"
+  },
+  {
+    "id": "quillshield",
+    "name": "quillshield",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "prompt-llm-engineering",
+    "description": "\"Smart contract security audit skill for the BD pipeline. Analyzes Solana token contracts for red flags: honeypots, rug pull patterns, authority risks, liquidity locks, and holder concentration. Produces a safety score (0-100) to inform listing decisions.\"",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/quillshield",
+    "activation_cmd": "python .agents/library/activate_skill.py activate quillshield",
+    "link_cmd": "python .agents/library/activate_skill.py link quillshield"
+  },
+  {
+    "id": "signal-filing",
+    "name": "signal-filing",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "1. ARIA v2 sweep — pull discoveries, DexScreener, CoinGecko, Colosseum",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/signal-filing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate signal-filing",
+    "link_cmd": "python .agents/library/activate_skill.py link signal-filing"
+  },
+  {
+    "id": "solana-contracts",
+    "name": "solana-contracts",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "business-strategy-legal",
+    "description": "> Anchor framework (Rust) on Solana mainnet. Dual-chain proof: Base + Solana.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/solana-contracts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate solana-contracts",
+    "link_cmd": "python .agents/library/activate_skill.py link solana-contracts"
+  },
+  {
+    "id": "token-scorer",
+    "name": "token-scorer",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "> Score any crypto token using Buzz's 11-rule scoring engine. Zero LLM cost — pure rule-based analysis across liquidity, volume, security, deployer identity, and market dynamics. Pulls from DexScreener API + on-chain data. Returns 0-100 score with COLD/WARM/HOT classification and actionable breakdown.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/token-scorer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate token-scorer",
+    "link_cmd": "python .agents/library/activate_skill.py link token-scorer"
+  },
+  {
+    "id": "token-scoring",
+    "name": "token-scoring",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "prompt-llm-engineering",
+    "description": "4-category composite token scoring engine (11 factors, max 100) for exchange listing intelligence — evaluates market metrics, safety audits, social signals, and quality indicators with dual-gate verification. Supports Solana, Base, BSC, and Stacks (SIP-010).",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/token-scoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate token-scoring",
+    "link_cmd": "python .agents/library/activate_skill.py link token-scoring"
+  },
+  {
+    "id": "tweet-visuals",
+    "name": "tweet-visuals",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "code-quality-refactoring",
+    "description": "Use dev-browser to render HTML templates as PNG images for tweets.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/tweet-visuals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tweet-visuals",
+    "link_cmd": "python .agents/library/activate_skill.py link tweet-visuals"
+  },
+  {
+    "id": "twitter-poster",
+    "name": "twitter-poster",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "Web3 / Crypto Business Development & ecosystem partnership intelligence",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/twitter-poster",
+    "activation_cmd": "python .agents/library/activate_skill.py activate twitter-poster",
+    "link_cmd": "python .agents/library/activate_skill.py link twitter-poster"
+  },
+  {
+    "id": "wallet-guard",
+    "name": "wallet-guard",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "category": "web3-smart-contracts",
+    "description": "> Transaction governance layer for crypto wallet operations. 3-state evaluation: BLOCK / WARN / ALLOW with receipt. Schema-frozen with AION (Aldo/CODÉ). Checks token score, deployer identity, liquidity depth, and contract security before any wallet interaction proceeds.",
+    "path": "library/buzzbysolcex-buzz-bd-agent/skills/wallet-guard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wallet-guard",
+    "link_cmd": "python .agents/library/activate_skill.py link wallet-guard"
   },
   {
     "id": "analytics-dashboard",
@@ -26567,6 +27349,333 @@
     "link_cmd": "python .agents/library/activate_skill.py link genoffice"
   },
   {
+    "id": "agents-md",
+    "name": "agents-md",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Creates and maintains concise AGENTS.md and CLAUDE.md project instruction files. Use when asked to create AGENTS.md, update AGENTS.md, maintain agent docs, set up CLAUDE.md, document repository agent conventions, or keep coding-agent instructions minimal and reference-backed.",
+    "path": "library/getsentry-skills/skills/agents-md",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agents-md",
+    "link_cmd": "python .agents/library/activate_skill.py link agents-md"
+  },
+  {
+    "id": "blog-writing-guide",
+    "name": "blog-writing-guide",
+    "repository": "getsentry-skills",
+    "category": "audio-voice-sound",
+    "description": "Write, review, and improve blog posts for the Sentry engineering blog following Sentry's specific writing standards, voice, and quality bar. Use this skill whenever someone asks to write a blog post, draft a technical article, review blog content, improve a draft, write a product announcement, create an engineering deep-dive, or produce any written content destined for the Sentry blog or developer audience. Also trigger when the user mentions \"blog post,\" \"blog draft,\" \"write-up,\" \"announcement post,\" \"engineering post,\" \"deep dive,\" \"postmortem,\" or asks for help with technical writing for Sentry. Even if the user just says \"help me write about [feature/topic]\" — if it sounds like it could become a Sentry blog post, use this skill.",
+    "path": "library/getsentry-skills/skills/blog-writing-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate blog-writing-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link blog-writing-guide"
+  },
+  {
+    "id": "brand-guidelines",
+    "name": "brand-guidelines",
+    "repository": "getsentry-skills",
+    "category": "frontend-visual-taste",
+    "description": "Write copy following Sentry brand guidelines. Use when writing UI text, error messages, empty states, onboarding flows, 404 pages, documentation, marketing copy, or any user-facing content. Covers both Plain Speech (default) and Sentry Voice tones.",
+    "path": "library/getsentry-skills/skills/brand-guidelines",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brand-guidelines",
+    "link_cmd": "python .agents/library/activate_skill.py link brand-guidelines"
+  },
+  {
+    "id": "claude-settings-audit",
+    "name": "claude-settings-audit",
+    "repository": "getsentry-skills",
+    "category": "terminal-system-tools",
+    "description": "Analyze a repository to generate recommended Claude Code settings.json permissions. Use when setting up a new project, auditing existing settings, or determining which read-only bash commands to allow. Detects tech stack, build tools, and monorepo structure.",
+    "path": "library/getsentry-skills/skills/claude-settings-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude-settings-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link claude-settings-audit"
+  },
+  {
+    "id": "code-review",
+    "name": "code-review",
+    "repository": "getsentry-skills",
+    "category": "cloudflare-edge",
+    "description": "Perform code reviews following Sentry engineering practices. Use when reviewing pull requests, examining code changes, or providing feedback on code quality. Covers security, performance, testing, and design review.",
+    "path": "library/getsentry-skills/skills/code-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review"
+  },
+  {
+    "id": "code-simplifier",
+    "name": "code-simplifier",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when asked to \"simplify code\", \"clean up code\", \"refactor for clarity\", \"improve readability\", or review recently modified code for elegance. Focuses on project-specific best practices.",
+    "path": "library/getsentry-skills/skills/code-simplifier",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-simplifier",
+    "link_cmd": "python .agents/library/activate_skill.py link code-simplifier"
+  },
+  {
+    "id": "commit",
+    "name": "commit",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Use for every request to commit changes or draft a commit message. Creates Sentry-style conventional commits with issue references.",
+    "path": "library/getsentry-skills/skills/commit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate commit",
+    "link_cmd": "python .agents/library/activate_skill.py link commit"
+  },
+  {
+    "id": "create-branch",
+    "name": "create-branch",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Create a git branch following Sentry naming conventions. Use when asked to \"create a branch\", \"new branch\", \"start a branch\", \"make a branch\", \"switch to a new branch\", or when starting new work on the default branch.",
+    "path": "library/getsentry-skills/skills/create-branch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-branch",
+    "link_cmd": "python .agents/library/activate_skill.py link create-branch"
+  },
+  {
+    "id": "django-access-review",
+    "name": "django-access-review",
+    "repository": "getsentry-skills",
+    "category": "security-compliance-auth",
+    "description": "'Django access control and IDOR security review. Use when reviewing Django views, DRF viewsets, ORM queries, or any Python/Django code handling user authorization. Trigger keywords: \"IDOR\", \"access control\", \"authorization\", \"Django permissions\", \"object permissions\", \"tenant isolation\", \"broken access\".'",
+    "path": "library/getsentry-skills/skills/django-access-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate django-access-review",
+    "link_cmd": "python .agents/library/activate_skill.py link django-access-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "django-perf-review",
+    "name": "django-perf-review",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Django performance code review. Use when asked to \"review Django performance\", \"find N+1 queries\", \"optimize Django\", \"check queryset performance\", \"database performance\", \"Django ORM issues\", or audit Django code for performance problems.",
+    "path": "library/getsentry-skills/skills/django-perf-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate django-perf-review",
+    "link_cmd": "python .agents/library/activate_skill.py link django-perf-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "doc-coauthoring",
+    "name": "doc-coauthoring",
+    "repository": "getsentry-skills",
+    "category": "testing-unit-tdd",
+    "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+    "path": "library/getsentry-skills/skills/doc-coauthoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate doc-coauthoring",
+    "link_cmd": "python .agents/library/activate_skill.py link doc-coauthoring"
+  },
+  {
+    "id": "document-api-endpoint",
+    "name": "document-api-endpoint",
+    "repository": "getsentry-skills",
+    "category": "backend-api-design",
+    "description": "Document and type a Sentry API endpoint. Write or fix @extend_schema decorators, specify response TypedDicts, type request parameters, correct type drift between the declared schema and the runtime response, and validate the generated spec. Use when asked to \"document an endpoint\", \"add OpenAPI docs\", \"add/fix @extend_schema\", \"type an endpoint response\", \"fix the response type\", \"fix type drift\", \"reuse a response type\", \"split an overloaded endpoint\", \"specify the response schema\", \"add a TypedDict response\", \"migrate a legacy api-docs path\", \"fix a parameter type\", or \"make an endpoint public\" / \"promote an endpoint\" (promotion is one section here).",
+    "path": "library/getsentry-skills/skills/document-api-endpoint",
+    "activation_cmd": "python .agents/library/activate_skill.py activate document-api-endpoint",
+    "link_cmd": "python .agents/library/activate_skill.py link document-api-endpoint"
+  },
+  {
+    "id": "find-bugs",
+    "name": "find-bugs",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked to review changes, find bugs, security review, or audit code on the current branch.",
+    "path": "library/getsentry-skills/skills/find-bugs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate find-bugs",
+    "link_cmd": "python .agents/library/activate_skill.py link find-bugs"
+  },
+  {
+    "id": "gh-review-requests",
+    "name": "gh-review-requests",
+    "repository": "getsentry-skills",
+    "category": "git-version-control",
+    "description": "Fetch unread GitHub notifications for open PRs where review is requested from a specified team or opened by a team member. Use when asked to \"find PRs I need to review\", \"show my review requests\", \"what needs my review\", \"fetch GitHub review requests\", or \"check team review queue\".",
+    "path": "library/getsentry-skills/skills/gh-review-requests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gh-review-requests",
+    "link_cmd": "python .agents/library/activate_skill.py link gh-review-requests",
+    "allowed_tools": [
+      "Bash"
+    ]
+  },
+  {
+    "id": "gha-security-review",
+    "name": "gha-security-review",
+    "repository": "getsentry-skills",
+    "category": "git-version-control",
+    "description": "'GitHub Actions security review for workflow exploitation vulnerabilities. Use when asked to \"review GitHub Actions\", \"audit workflows\", \"check CI security\", \"GHA security\", \"workflow security review\", or review .github/workflows/ for pwn requests, expression injection, credential theft, and supply chain attacks. Exploitation-focused with concrete PoC scenarios.'",
+    "path": "library/getsentry-skills/skills/gha-security-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gha-security-review",
+    "link_cmd": "python .agents/library/activate_skill.py link gha-security-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "iterate-pr",
+    "name": "iterate-pr",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Iterate on a PR until actionable CI passes and high/medium review feedback is addressed. Use for PR CI failures, review feedback, or green-check loops; do not wait for human approval, draft status, or merge gates.",
+    "path": "library/getsentry-skills/skills/iterate-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate iterate-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link iterate-pr"
+  },
+  {
+    "id": "pr-link-issue",
+    "name": "pr-link-issue",
+    "repository": "getsentry-skills",
+    "category": "git-version-control",
+    "description": "Append a GitHub issue link and its Linear ticket to the current PR's description. Use when asked to \"link issue to pr\", \"fill in issue and linear in pr\", \"add issue refs to pr\", or when given a GitHub issue URL and asked to attach it to the current PR. Resolves the Linear ticket automatically from the issue's linear-linkback comment.",
+    "path": "library/getsentry-skills/skills/pr-link-issue",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-link-issue",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-link-issue"
+  },
+  {
+    "id": "pr-screenshots",
+    "name": "pr-screenshots",
+    "repository": "getsentry-skills",
+    "category": "git-version-control",
+    "description": "Capture screenshots of the Sentry UI in a web browser, lay them out in a pull request description as before/after tables, and upload them with `gh --attach`.",
+    "path": "library/getsentry-skills/skills/pr-screenshots",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-screenshots",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-screenshots"
+  },
+  {
+    "id": "pr-writer",
+    "name": "pr-writer",
+    "repository": "getsentry-skills",
+    "category": "git-version-control",
+    "description": "Create or refresh reviewer-facing PR titles and descriptions. Use when opening a PR, updating its title or body, or preparing branch changes for review.",
+    "path": "library/getsentry-skills/skills/pr-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-writer"
+  },
+  {
+    "id": "presentation-creator",
+    "name": "presentation-creator",
+    "repository": "getsentry-skills",
+    "category": "frontend-ui-components",
+    "description": "Create data-driven presentation slides using React, Vite, and Recharts with Sentry branding. Use when asked to \"create a presentation\", \"build slides\", \"make a deck\", \"create a data presentation\", \"build a Sentry presentation\". Scaffolds a complete slide-based app with charts, animations, and single-file HTML output.",
+    "path": "library/getsentry-skills/skills/presentation-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate presentation-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link presentation-creator"
+  },
+  {
+    "id": "prompt-optimizer",
+    "name": "prompt-optimizer",
+    "repository": "getsentry-skills",
+    "category": "prompt-llm-engineering",
+    "description": "Creates, optimizes, and iteratively refines agent prompts, system prompts, developer prompts, and reusable prompt templates. Use when asked to improve a prompt, optimize a system prompt, rewrite an agent prompt, tune prompt wording, make a prompt more reliable, port prompts between OpenAI, Claude, or Gemini, or build prompt evals.",
+    "path": "library/getsentry-skills/skills/prompt-optimizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prompt-optimizer",
+    "link_cmd": "python .agents/library/activate_skill.py link prompt-optimizer"
+  },
+  {
+    "id": "secret-serialization",
+    "name": "secret-serialization",
+    "repository": "getsentry-skills",
+    "category": "backend-api-design",
+    "description": "'Finds secrets, tokens, passwords, and API keys that can leak through generated serialization: Python dataclass repr and asdict, attrs, pydantic model_dump, NamedTuple, JavaScript JSON.stringify and util.inspect, structured logs, tracing spans, and error reports. Use when asked to \"check for secret serialization\", \"credential in repr\", \"repr=False audit\", \"secret in spans\", \"token in logs\", or when a change adds a credential field to a dataclass, model, or config object, or adds code that stringifies whole objects or every kwarg into telemetry.'",
+    "path": "library/getsentry-skills/skills/secret-serialization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate secret-serialization",
+    "link_cmd": "python .agents/library/activate_skill.py link secret-serialization",
+    "allowed_tools": [
+      "Read Grep Glob"
+    ]
+  },
+  {
+    "id": "security-model",
+    "name": "security-model",
+    "repository": "getsentry-skills",
+    "category": "security-vulnerability-audit",
+    "description": "Define, review, or update SECURITY_MODEL.md files that tell security review tools a repository's threat model, trust boundaries, invariants, reportable finding classes, and exclusions. Use when asked to \"write a security model\", \"threat model this repo for scanners\", \"define security review scope\", \"what counts as a vulnerability here\", \"update SECURITY_MODEL.md\", \"why did the scanner flag or miss this\", or to check whether existing security guidance still matches the code. Not for running a security review or editing the SECURITY.md disclosure policy.",
+    "path": "library/getsentry-skills/skills/security-model",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-model",
+    "link_cmd": "python .agents/library/activate_skill.py link security-model",
+    "allowed_tools": [
+      "Read Grep Glob Bash Edit Write"
+    ]
+  },
+  {
+    "id": "security-review",
+    "name": "security-review",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Security code review for vulnerabilities. Use when asked to \"security review\", \"find vulnerabilities\", \"check for security issues\", \"audit security\", \"OWASP review\", or review code for injection, XSS, authentication, authorization, cryptography issues. Provides systematic review with confidence-based reporting.",
+    "path": "library/getsentry-skills/skills/security-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-review",
+    "link_cmd": "python .agents/library/activate_skill.py link security-review",
+    "allowed_tools": [
+      "Read Grep Glob Bash Task"
+    ]
+  },
+  {
+    "id": "skill-scanner",
+    "name": "skill-scanner",
+    "repository": "getsentry-skills",
+    "category": "security-vulnerability-audit",
+    "description": "Scan agent skills for security issues. Use when asked to \"scan a skill\", \"audit a skill\", \"review skill security\", \"check skill for injection\", \"validate SKILL.md\", or assess whether an agent skill is safe to install. Checks for prompt injection, malicious scripts, excessive permissions, secret exposure, and supply chain risks.",
+    "path": "library/getsentry-skills/skills/skill-scanner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-scanner",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-scanner",
+    "allowed_tools": [
+      "Read Grep Glob Bash"
+    ]
+  },
+  {
+    "id": "skill-writer",
+    "name": "skill-writer",
+    "repository": "getsentry-skills",
+    "category": "security-compliance-auth",
+    "description": "Create, synthesize, and iteratively improve agent skills following the Agent Skills specification. Use when asked to \"create a skill\", \"write a skill\", \"synthesize sources into a skill\", \"improve a skill from positive/negative examples\", \"update a skill\", or \"maintain skill docs and registration\". Handles source capture, precision passes, authoring, registration, and validation.",
+    "path": "library/getsentry-skills/skills/skill-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-writer"
+  },
+  {
+    "id": "sred-project-organizer",
+    "name": "sred-project-organizer",
+    "repository": "getsentry-skills",
+    "category": "code-quality-refactoring",
+    "description": "Take a list of projects and their related documentation, and organize them into the SRED format for submission.",
+    "path": "library/getsentry-skills/skills/sred-project-organizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sred-project-organizer",
+    "link_cmd": "python .agents/library/activate_skill.py link sred-project-organizer"
+  },
+  {
+    "id": "sred-work-summary",
+    "name": "sred-work-summary",
+    "repository": "getsentry-skills",
+    "category": "productivity-workspace-tools",
+    "description": "Go back through the previous year of work and create a Notion doc that groups relevant links into projects that can then be documented as SRED projects.",
+    "path": "library/getsentry-skills/skills/sred-work-summary",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sred-work-summary",
+    "link_cmd": "python .agents/library/activate_skill.py link sred-work-summary"
+  },
+  {
+    "id": "triage-frontend-issues",
+    "name": "triage-frontend-issues",
+    "repository": "getsentry-skills",
+    "category": "programming-languages-core",
+    "description": "Triage new issues in the Sentry `javascript` project by archiving non-actionable noise. Use when asked to \"triage issues\", \"triage the javascript project\", \"archive non-actionable issues\", \"triage new frontend issues\", or \"clean up the sentry/javascript queue\". Operates only on the sentry/javascript project, only archives (never resolves), and always archives with `untilEscalating`.",
+    "path": "library/getsentry-skills/skills/triage-frontend-issues",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage-frontend-issues",
+    "link_cmd": "python .agents/library/activate_skill.py link triage-frontend-issues",
+    "allowed_tools": [
+      "Read mcp__sentry__search_issues mcp__sentry__get_sentry_resource mcp__sentry__update_issue"
+    ]
+  },
+  {
+    "id": "typing-exclusion-worker",
+    "name": "typing-exclusion-worker",
+    "repository": "getsentry-skills",
+    "category": "cloudflare-edge",
+    "description": "\"Python typing exclusion worker: remove assigned mypy exclusion modules in small scoped batches, fix typing issues, run validation, and produce a structured completion summary. Use when running parallel typing-debt workers or when asked to remove modules from pyproject mypy exclusion overrides.\"",
+    "path": "library/getsentry-skills/skills/typing-exclusion-worker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate typing-exclusion-worker",
+    "link_cmd": "python .agents/library/activate_skill.py link typing-exclusion-worker"
+  },
+  {
     "id": "agentic-workflows",
     "name": "agentic-workflows",
     "repository": "github-awesome-copilot",
@@ -28586,6 +29695,306 @@
     "path": "library/juliobsz-skills/skills/jury",
     "activation_cmd": "python .agents/library/activate_skill.py activate jury",
     "link_cmd": "python .agents/library/activate_skill.py link jury"
+  },
+  {
+    "id": "cavecrew",
+    "name": "cavecrew",
+    "repository": "juliusbrussee-caveman",
+    "category": "frontend-ui-components",
+    "description": "> When to delegate to `cavecrew-investigator` (locate code), `cavecrew-builder` (1-2 file edit) or `cavecrew-reviewer` (diff review) instead of working inline or using `Explore`. Their output is compressed, so main context lasts longer.",
+    "path": "library/juliusbrussee-caveman/skills/cavecrew",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cavecrew",
+    "link_cmd": "python .agents/library/activate_skill.py link cavecrew"
+  },
+  {
+    "id": "caveman",
+    "name": "caveman",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Terse caveman voice: answer first, fluff gone, every technical fact kept. Use for /caveman, \"caveman mode\", \"talk like caveman\", \"be brief\", \"less tokens\". Stays on until \"stop caveman\" or \"normal mode\".",
+    "path": "library/juliusbrussee-caveman/skills/caveman",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman"
+  },
+  {
+    "id": "caveman-commit",
+    "name": "caveman-commit",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Write a Conventional Commits message compressed to intent only. Use for \"write a commit\", \"commit message\", /commit or /caveman-commit.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-commit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-commit",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-commit"
+  },
+  {
+    "id": "caveman-compress",
+    "name": "caveman-compress",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Compress a memory file such as CLAUDE.md or a todo list into caveman format to save input tokens, keeping a readable backup. Sends the file's text to the configured model provider. Trigger: /caveman-compress.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-compress",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-compress",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-compress"
+  },
+  {
+    "id": "caveman-discover",
+    "name": "caveman-discover",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Find and label every LLM workflow in the repository so Caveman Cloud groups spend by workflow instead of one bucket. Use for \"discover workflows\" or breaking LLM spend down by workflow.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-discover",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-discover",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-discover"
+  },
+  {
+    "id": "caveman-evidence-review",
+    "name": "caveman-evidence-review",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Read-only review of Caveman Cloud evidence: cost, Cave Score, workflows, traces, latency, errors, routing, savings. Use when asked what Caveman found or where LLM spend goes.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-evidence-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-evidence-review",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-evidence-review"
+  },
+  {
+    "id": "caveman-explore",
+    "name": "caveman-explore",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Read-only repository explorer for cold-start orientation, broad cross-file localization, or when a direct search failed. Skip it when the exact file or symbol is already named. Returns path:line citations only; its reads stay out of main context.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-explore",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-explore",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-explore"
+  },
+  {
+    "id": "caveman-help",
+    "name": "caveman-help",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Quick-reference card for the three caveman skills and their commands. Trigger: /caveman-help or \"caveman help\".",
+    "path": "library/juliusbrussee-caveman/skills/caveman-help",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-help",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-help"
+  },
+  {
+    "id": "caveman-learn",
+    "name": "caveman-learn",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Act on a Caveman learn report - review the ranked token sinks, apply cost-lowering fixes with per-edit consent, and report what those fixes returned. Use when asked to lower an agent's token cost, what caveman has saved, to trim a heavy CLAUDE.md, or to offload re-pasted context into cavemem.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-learn",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-learn",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-learn"
+  },
+  {
+    "id": "caveman-manage",
+    "name": "caveman-manage",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Inspect Caveman Cloud's experiment lifecycle and block unsafe execution. Use when asked to start, approve, cancel, promote or roll back a Caveman experiment.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-manage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-manage",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-manage"
+  },
+  {
+    "id": "caveman-optimize",
+    "name": "caveman-optimize",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Turn a Caveman optimization observation into an operator-chosen candidate with a paired baseline evaluation. Use when asked to inspect or evaluate a Caveman optimization report. Needs explicit approval.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-optimize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-optimize",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-optimize"
+  },
+  {
+    "id": "caveman-review",
+    "name": "caveman-review",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Compressed code review - one line per finding with location, problem and fix. Use for /caveman-review, \"review this PR\", or \"review the diff\".",
+    "path": "library/juliusbrussee-caveman/skills/caveman-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-review",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-review"
+  },
+  {
+    "id": "caveman-setup",
+    "name": "caveman-setup",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Wire a repository through the Caveman Cloud gateway so every LLM request is measured, with no behavior change. Use for \"set up caveman\" or adding LLM spend observability.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-setup"
+  },
+  {
+    "id": "caveman-stats",
+    "name": "caveman-stats",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Show recorded output and cache-read token usage and mode attribution for the current Claude Code session, or locate the host's native usage report. Trigger: /caveman-stats.",
+    "path": "library/juliusbrussee-caveman/skills/caveman-stats",
+    "activation_cmd": "python .agents/library/activate_skill.py activate caveman-stats",
+    "link_cmd": "python .agents/library/activate_skill.py link caveman-stats"
+  },
+  {
+    "id": "engine",
+    "name": "engine",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Detect a payload's type → route to a safety-classed compressor → count the token reduction",
+    "path": "library/juliusbrussee-caveman/skills/engine",
+    "activation_cmd": "python .agents/library/activate_skill.py activate engine",
+    "link_cmd": "python .agents/library/activate_skill.py link engine"
+  },
+  {
+    "id": "extension",
+    "name": "extension",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "The consumer top-of-funnel: a toggle that, on ChatGPT / Claude / Gemini, prepends the **caveman",
+    "path": "library/juliusbrussee-caveman/skills/extension",
+    "activation_cmd": "python .agents/library/activate_skill.py activate extension",
+    "link_cmd": "python .agents/library/activate_skill.py link extension"
+  },
+  {
+    "id": "generated",
+    "name": "generated",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Compressed code review: One line per finding with location, problem, and fix",
+    "path": "library/juliusbrussee-caveman/skills/generated",
+    "activation_cmd": "python .agents/library/activate_skill.py activate generated",
+    "link_cmd": "python .agents/library/activate_skill.py link generated"
+  },
+  {
+    "id": "investigate-first",
+    "name": "investigate-first",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Diagnose ambiguous failures before editing. Use for unknown causes, intermittent behavior, performance regressions, or investigations needing evidence-ranked hypotheses.",
+    "path": "library/juliusbrussee-caveman/skills/investigate-first",
+    "activation_cmd": "python .agents/library/activate_skill.py activate investigate-first",
+    "link_cmd": "python .agents/library/activate_skill.py link investigate-first"
+  },
+  {
+    "id": "lean-build",
+    "name": "lean-build",
+    "repository": "juliusbrussee-caveman",
+    "category": "frontend-ui-components",
+    "description": "Build feature work with high overbuilding risk. Use for new behavior, product slices, or integrations where repository reuse, strict scope, and an explicit stop condition matter.",
+    "path": "library/juliusbrussee-caveman/skills/lean-build",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lean-build",
+    "link_cmd": "python .agents/library/activate_skill.py link lean-build"
+  },
+  {
+    "id": "mcp",
+    "name": "mcp",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "A thin **stdio JSON-RPC** adapter exposing the compression [engine](../engine/CLAUDE.md) as",
+    "path": "library/juliusbrussee-caveman/skills/mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link mcp"
+  },
+  {
+    "id": "megacave",
+    "name": "megacave",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Caveman in Classical Chinese: 文言文 register, far fewer characters, technical terms verbatim. Invoke only with /megacave or /caveman wenyan. Stays on until \"stop caveman\" or \"normal mode\".",
+    "path": "library/juliusbrussee-caveman/skills/megacave",
+    "activation_cmd": "python .agents/library/activate_skill.py activate megacave",
+    "link_cmd": "python .agents/library/activate_skill.py link megacave"
+  },
+  {
+    "id": "mem",
+    "name": "mem",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Durable, cross-session memory: `remember` / `recall` / `supersede` / `history` / `forget`. A local SQLite store holds the",
+    "path": "library/juliusbrussee-caveman/skills/mem",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mem",
+    "link_cmd": "python .agents/library/activate_skill.py link mem"
+  },
+  {
+    "id": "migration",
+    "name": "migration",
+    "repository": "juliusbrussee-caveman",
+    "category": "database-sql-relational",
+    "description": "Implement reversible compatibility-safe transitions. Use for schema, data, API, protocol, configuration, or dependency migrations requiring rollback and preservation proof.",
+    "path": "library/juliusbrussee-caveman/skills/migration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migration",
+    "link_cmd": "python .agents/library/activate_skill.py link migration"
+  },
+  {
+    "id": "native",
+    "name": "native",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Compressed code review: One line per finding with location, problem, and fix",
+    "path": "library/juliusbrussee-caveman/skills/native",
+    "activation_cmd": "python .agents/library/activate_skill.py activate native",
+    "link_cmd": "python .agents/library/activate_skill.py link native"
+  },
+  {
+    "id": "proxy",
+    "name": "proxy",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "A base-URL-swap reverse proxy: match → authenticate → inspect → byte-safe transform → upstream",
+    "path": "library/juliusbrussee-caveman/skills/proxy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate proxy",
+    "link_cmd": "python .agents/library/activate_skill.py link proxy"
+  },
+  {
+    "id": "safe-refactor",
+    "name": "safe-refactor",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Restructure code while preserving behavior. Use for extraction, consolidation, ownership moves, or cleanup where verification must bracket structural edits.",
+    "path": "library/juliusbrussee-caveman/skills/safe-refactor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate safe-refactor",
+    "link_cmd": "python .agents/library/activate_skill.py link safe-refactor"
+  },
+  {
+    "id": "shrink",
+    "name": "shrink",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "Compress MCP/OpenAI **tool definitions** before they fill the context window. A thin Go wrapper",
+    "path": "library/juliusbrussee-caveman/skills/shrink",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shrink",
+    "link_cmd": "python .agents/library/activate_skill.py link shrink"
+  },
+  {
+    "id": "surgical-patch",
+    "name": "surgical-patch",
+    "repository": "juliusbrussee-caveman",
+    "category": "testing-unit-tdd",
+    "description": "Fix bugs and small behavior changes at the narrowest responsible layer. Use when regression proof, preserved surrounding behavior, and task-relevant tests matter.",
+    "path": "library/juliusbrussee-caveman/skills/surgical-patch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate surgical-patch",
+    "link_cmd": "python .agents/library/activate_skill.py link surgical-patch"
+  },
+  {
+    "id": "ultracave",
+    "name": "ultracave",
+    "repository": "juliusbrussee-caveman",
+    "category": "code-quality-refactoring",
+    "description": "> Caveman at maximum compression: fragments, one word when one word is enough, each fact once. Invoke only with /ultracave or /caveman ultra. Stays on until \"stop caveman\" or \"normal mode\".",
+    "path": "library/juliusbrussee-caveman/skills/ultracave",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ultracave",
+    "link_cmd": "python .agents/library/activate_skill.py link ultracave"
+  },
+  {
+    "id": "verify-and-stop",
+    "name": "verify-and-stop",
+    "repository": "juliusbrussee-caveman",
+    "category": "testing-unit-tdd",
+    "description": "Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, focused gate runs, and last-mile proof.",
+    "path": "library/juliusbrussee-caveman/skills/verify-and-stop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate verify-and-stop",
+    "link_cmd": "python .agents/library/activate_skill.py link verify-and-stop"
   },
   {
     "id": "logo-design",
@@ -31456,6 +32865,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link motion2code"
   },
   {
+    "id": "battle",
+    "name": "battle",
+    "repository": "madxcrazy-antigravity-skills",
+    "category": "core-antigravity-protocols",
+    "description": "Activates Antigravity's Colosseum Battle Mode. Pits two rival subagents in isolated branched workspaces against each other, stress-tests competing implementations with an adversarial referee, and merges the winning solution.",
+    "path": "library/madxcrazy-antigravity-skills/skills/battle",
+    "activation_cmd": "python .agents/library/activate_skill.py activate battle",
+    "link_cmd": "python .agents/library/activate_skill.py link battle"
+  },
+  {
+    "id": "benchmark",
+    "name": "benchmark",
+    "repository": "madxcrazy-antigravity-skills",
+    "category": "testing-unit-tdd",
+    "description": "Replaces guesswork with empirical hardware telemetry: synthesizes ad-hoc stress-test harnesses on the fly, executes them headlessly, and proves performance gains with hard numbers.",
+    "path": "library/madxcrazy-antigravity-skills/skills/benchmark",
+    "activation_cmd": "python .agents/library/activate_skill.py activate benchmark",
+    "link_cmd": "python .agents/library/activate_skill.py link benchmark"
+  },
+  {
+    "id": "compaction",
+    "name": "compaction",
+    "repository": "madxcrazy-antigravity-skills",
+    "category": "core-antigravity-protocols",
+    "description": "Triggers on-demand context compaction: persists critical state into durable artifacts, flushes obsolete transient turn history, and signals the runtime to compact context.",
+    "path": "library/madxcrazy-antigravity-skills/skills/compaction",
+    "activation_cmd": "python .agents/library/activate_skill.py activate compaction",
+    "link_cmd": "python .agents/library/activate_skill.py link compaction"
+  },
+  {
+    "id": "owl",
+    "name": "owl",
+    "repository": "madxcrazy-antigravity-skills",
+    "category": "core-antigravity-protocols",
+    "description": "Activates the OWL (Optimized Workforce Learning) decoupled multi-agent pipeline: uses DeepInvestigator for root-cause analysis and edge-case attacks, and DeepCoder for verified code synthesis and iterative improvement.",
+    "path": "library/madxcrazy-antigravity-skills/skills/owl",
+    "activation_cmd": "python .agents/library/activate_skill.py activate owl",
+    "link_cmd": "python .agents/library/activate_skill.py link owl"
+  },
+  {
     "id": "affirmations",
     "name": "affirmations",
     "repository": "magentosh-superpowers",
@@ -33136,6 +34585,29 @@
     "link_cmd": "python .agents/library/activate_skill.py link pstack-claude"
   },
   {
+    "id": "dev",
+    "name": "dev",
+    "repository": "microsoft-playwright-cli",
+    "category": "testing-playwright-e2e",
+    "description": "Development workflows for the playwright-cli repository. Use when the user asks about rolling dependencies, releasing, or other repo maintenance tasks.",
+    "path": "library/microsoft-playwright-cli/skills/dev",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dev",
+    "link_cmd": "python .agents/library/activate_skill.py link dev"
+  },
+  {
+    "id": "playwright-cli",
+    "name": "playwright-cli",
+    "repository": "microsoft-playwright-cli",
+    "category": "testing-playwright-e2e",
+    "description": "Automate browser interactions, test web pages and work with Playwright tests.",
+    "path": "library/microsoft-playwright-cli/skills/playwright-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate playwright-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link playwright-cli",
+    "allowed_tools": [
+      "Bash(playwright-cli:*) Bash(npx playwright:*) Bash(npx --no-install playwright:*)"
+    ]
+  },
+  {
     "id": "pr-review",
     "name": "pr-review",
     "repository": "minimax-ai-skills",
@@ -33474,6 +34946,106 @@
     "path": "library/nateherkai-scroll-craft/skills/scroll-craft",
     "activation_cmd": "python .agents/library/activate_skill.py activate scroll-craft",
     "link_cmd": "python .agents/library/activate_skill.py link scroll-craft"
+  },
+  {
+    "id": "neon",
+    "name": "neon",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-nosql-serverless",
+    "description": "Overview of Neon, a complete set of cloud backend primitives around Lakebase Postgres: Auth, Object Storage, Functions, the AI Gateway, and Realtime. Start here to choose Neon for undecided login, files, APIs, and LLM calls, set up the CLI or MCP server, and follow the branch-first workflow. Use when building an app or backend on Neon, or when \"Neon\" or \"Lakebase Postgres\" is mentioned. Child skill neon-postgres wins for an existing DATABASE_URL, SQL, schema, inspect, or search. Child skill neon-auth wins for login, users, sessions, identity routing, and Managed Better Auth setup. Child skill neon-realtime wins for live queries in reactive apps and agents. Also use for object storage, S3, buckets, serverless functions, function triggers, cron, AI gateway, LLM calls, realtime, logs, Loki, Grafana, observability, postgres, database, backend, Claimable Neon, neon.new, or a no-signup database.",
+    "path": "library/neondatabase-agent-skills/skills/neon",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon",
+    "link_cmd": "python .agents/library/activate_skill.py link neon"
+  },
+  {
+    "id": "neon-ai-gateway",
+    "name": "neon-ai-gateway",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-nosql-serverless",
+    "description": "One API and one credential for frontier and open-source LLMs and embedding models, built into your Neon branch and powered by Databricks. Use when a user wants to call an LLM, generate embeddings, add AI/chat/an agent to their app, route between model providers (OpenAI, Anthropic, Google/Gemini, Meta, Alibaba, and more), or avoid juggling separate provider API keys and accounts — especially when they already use Neon and want AI requests to branch with their project. Works with the OpenAI SDK, Anthropic SDK, google-genai, the Vercel AI SDK, and Mastra by changing only the base URL. Triggers include \"call an LLM\", \"add AI to my app\", \"chat completion\", \"model routing\", \"LLM proxy/gateway\", \"one API for all models\", \"use Claude/GPT/Gemini\", \"AI SDK\", \"Mastra agent\", \"Neon AI Gateway\", \"generate embeddings\", \"generate images\", and \"log/rate-limit AI calls\".",
+    "path": "library/neondatabase-agent-skills/skills/neon-ai-gateway",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-ai-gateway",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-ai-gateway"
+  },
+  {
+    "id": "neon-auth",
+    "name": "neon-auth",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-nosql-serverless",
+    "description": "Add authentication to a new app. Use for \"add auth\", \"add login\", Neon Auth (Managed Better Auth), identity routing, sign-up, sign-in, password reset, email OTP, magic links, organizations, phone OTP, OAuth, passkeys, MFA, trusted domains, invalid domain, and @neondatabase/auth. No existing identity: default to Managed Better Auth. Keep working Better Auth, Clerk, Supabase Auth, or another IdP. User asked to migrate from Supabase Auth: Managed Better Auth. A required plugin outside Managed support: self-managed Better Auth on a Neon Function or the existing app host. Also use for auth APIs in @neondatabase/neon-js.",
+    "path": "library/neondatabase-agent-skills/skills/neon-auth",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-auth",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-auth"
+  },
+  {
+    "id": "neon-functions",
+    "name": "neon-functions",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-nosql-serverless",
+    "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE) server, a webhook handler, a Discord bot, an MCP server, or any request/response workload that risks timing out on short, lambda-style serverless functions — and wants it to branch with their database. Also use for Function Triggers: a cron or an object-storage event that POSTs to a function. Triggers include \"serverless function\", \"deploy an API\", \"long-running function\", \"streaming agent\", \"SSE server\", \"WebSocket server\", \"webhook handler\", \"MCP server\", \"cron\", \"scheduled function\", \"object storage trigger\", \"on upload\", \"function that won't time out\", \"function logs\", \"Neon Functions\", \"Neon Compute\", \"DDoS protection\", \"rate limiting\", and \"production hardening\". For live UIs over database rows, use neon-realtime.",
+    "path": "library/neondatabase-agent-skills/skills/neon-functions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-functions",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-functions"
+  },
+  {
+    "id": "neon-object-storage",
+    "name": "neon-object-storage",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-nosql-serverless",
+    "description": "S3-compatible object storage that branches with your database, so each branch gets its own copy of the files and the rows that point at them. Use when a user wants object storage, a bucket, blob/file storage, or somewhere to put uploads, images, documents, avatars, or user-generated files for their app or agent — especially when they already use (or are setting up) Lakebase Postgres and don't want to add a separate storage provider like AWS S3, Cloudflare R2, or Supabase Storage. Triggers include \"object storage\", \"bucket\", \"blob storage\", \"file storage\", \"store uploads/images/files\", \"S3-compatible storage\", \"presigned URL\", \"where do I put files\", \"storage logs\", \"bucket logs\", \"CDN in front of object storage\", \"Neon Object Storage\", \"Neon Storage\", and \"storage that branches with my database\".",
+    "path": "library/neondatabase-agent-skills/skills/neon-object-storage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-object-storage",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-object-storage"
+  },
+  {
+    "id": "neon-postgres",
+    "name": "neon-postgres",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-sql-relational",
+    "description": "Guides and best practices for working with Lakebase Postgres on Neon: connections, pooled vs direct, schema migrations, branching, autoscaling, scale-to-zero, instant restore, read replicas, IP allow lists, logical replication, and Lakebase Search. Use when the work is an existing DATABASE_URL, SQL, schema, inspect, or search. New backends, Auth, files, Functions, and LLM calls go to the parent `neon` skill. Live queries, reactive UIs, and realtime data go to `neon-realtime`. Also use for \"@neondatabase/serverless\", \"@neondatabase/neon-js\", \"neon inspect db\", \"semantic search\", \"vector search\", \"full-text search\", \"BM25\", or \"hybrid search\".",
+    "path": "library/neondatabase-agent-skills/skills/neon-postgres",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-postgres",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-postgres"
+  },
+  {
+    "id": "neon-postgres-branches",
+    "name": "neon-postgres-branches",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-sql-relational",
+    "description": "Choose and create the right Neon branch type for testing and development. Use when users ask about Neon branching, migration testing with real data, isolated test environments, schema-only branch workflows for sensitive data, resetting a branch from its parent, branch expiration and CI/CD branch lifecycles, or branch creation via Neon CLI or Neon MCP. Triggers include \"Neon branch\", \"test migrations safely\", \"branch production data\", \"schema-only branch\", \"reset branch\", \"branch per PR\" and \"sensitive data testing\".",
+    "path": "library/neondatabase-agent-skills/skills/neon-postgres-branches",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-postgres-branches",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-postgres-branches"
+  },
+  {
+    "id": "neon-postgres-egress-optimizer",
+    "name": "neon-postgres-egress-optimizer",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-sql-relational",
+    "description": "Diagnose and fix excessive Postgres egress (network data transfer) in a codebase. Use when a user mentions high database bills, unexpected data transfer costs, network transfer charges, egress spikes, \"why is my Neon bill so high\", \"database costs jumped\", SELECT * optimization, query overfetching, reduce Neon costs, optimize database usage, or wants to reduce data sent from their database to their application. Also use when reviewing query patterns for cost efficiency, even if the user doesn't explicitly mention egress or data transfer.",
+    "path": "library/neondatabase-agent-skills/skills/neon-postgres-egress-optimizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-postgres-egress-optimizer",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-postgres-egress-optimizer"
+  },
+  {
+    "id": "neon-realtime",
+    "name": "neon-realtime",
+    "repository": "neondatabase-agent-skills",
+    "category": "database-nosql-serverless",
+    "description": "Neon Realtime makes any SQL query live. Build realtime, reactive apps and agents on Lakebase Postgres with live SQL queries and reactivity primitives. Use when app UI or agent state must update live from database rows (dashboards, feeds, collaboration, multi-user or multi-device sync), for optimistic mutations, or to replace polling or other realtime sync systems. Triggers include \"live query\", \"subscribe\", \"sync engine\", \"useLiveQuery\", \"TanStack DB\", \"optimistic updates\", \"@neon/realtime\". For push that doesn't come from database rows (presence, typing, LLM streams), use neon-functions.",
+    "path": "library/neondatabase-agent-skills/skills/neon-realtime",
+    "activation_cmd": "python .agents/library/activate_skill.py activate neon-realtime",
+    "link_cmd": "python .agents/library/activate_skill.py link neon-realtime"
+  },
+  {
+    "id": "score-eval",
+    "name": "score-eval",
+    "repository": "neondatabase-agent-skills",
+    "category": "prompt-llm-engineering",
+    "description": "Specialized agent intelligence skill.",
+    "path": "library/neondatabase-agent-skills/skills/score-eval",
+    "activation_cmd": "python .agents/library/activate_skill.py activate score-eval",
+    "link_cmd": "python .agents/library/activate_skill.py link score-eval"
   },
   {
     "id": "visual-explainer",
@@ -37776,6 +39348,31 @@
     "link_cmd": "python .agents/library/activate_skill.py link linkedin"
   },
   {
+    "id": "migrate-radix-to-base",
+    "name": "migrate-radix-to-base",
+    "repository": "shadcn-ui-ui",
+    "category": "frontend-ui-components",
+    "description": "Migrates React projects and components from Radix UI to Base UI. Use when asked to migrate from radix, move to base-ui, convert radix primitives, or switch a shadcn project's base library. Handles single components (\"migrate accordion\") and whole projects.",
+    "path": "library/shadcn-ui-ui/skills/migrate-radix-to-base",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-radix-to-base",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-radix-to-base"
+  },
+  {
+    "id": "shadcn",
+    "name": "shadcn",
+    "repository": "shadcn-ui-ui",
+    "category": "frontend-ui-components",
+    "description": "Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and composing UI, including chat interfaces. Provides project context, component docs, and usage examples. Applies when working with shadcn/ui, component registries, presets, --preset codes, or any project with a components.json file. Also triggers for \"shadcn init\", \"create an app with --preset\", \"switch to --preset\", and for building a design system or applying a DESIGN.md or brand spec to shadcn/ui.",
+    "path": "library/shadcn-ui-ui/skills/shadcn",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shadcn",
+    "link_cmd": "python .agents/library/activate_skill.py link shadcn",
+    "allowed_tools": [
+      "Bash(npx shadcn@latest *)",
+      "Bash(pnpm dlx shadcn@latest *)",
+      "Bash(bunx --bun shadcn@latest *)"
+    ]
+  },
+  {
     "id": "android-reverse-engineering",
     "name": "android-reverse-engineering",
     "repository": "simoneavogadro-android-reverse-engineering-skill",
@@ -37884,6 +39481,36 @@
     "path": "library/slavingia-skills/skills/validate-idea",
     "activation_cmd": "python .agents/library/activate_skill.py activate validate-idea",
     "link_cmd": "python .agents/library/activate_skill.py link validate-idea"
+  },
+  {
+    "id": "design-mobile-apps",
+    "name": "design-mobile-apps",
+    "repository": "sleekdotdesign-agent-skills",
+    "category": "frontend-ui-components",
+    "description": "Design mobile app screens with Sleek, edit Sleek projects, and implement their designs in React Native or HTML.",
+    "path": "library/sleekdotdesign-agent-skills/skills/design-mobile-apps",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-mobile-apps",
+    "link_cmd": "python .agents/library/activate_skill.py link design-mobile-apps"
+  },
+  {
+    "id": "supabase",
+    "name": "supabase",
+    "repository": "supabase-agent-skills",
+    "category": "security-compliance-auth",
+    "description": "\"Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, declarative schemas, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector); debugging and troubleshooting errors or unexpected behavior on Supabase projects (HTTP errors, Postgres errors, RLS surprises, permission denied, schema cache issues, timeouts, Edge Function crashes, Realtime drops, Storage failures) and reading or querying logs (Logs Explorer, ClickHouse).\"",
+    "path": "library/supabase-agent-skills/skills/supabase",
+    "activation_cmd": "python .agents/library/activate_skill.py activate supabase",
+    "link_cmd": "python .agents/library/activate_skill.py link supabase"
+  },
+  {
+    "id": "supabase-postgres-best-practices",
+    "name": "supabase-postgres-best-practices",
+    "repository": "supabase-agent-skills",
+    "category": "database-sql-relational",
+    "description": "\"Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files, RLS policies and the tests that verify them, indexes, triggers, database functions, queues and scheduled jobs (pg_cron, pgmq), vector/semantic search (pgvector), and restoring dumps (pg_restore) or importing data. Also load it when diagnosing slow queries, high CPU, timeouts, EXPLAIN plans, connection exhaustion, locking, bloat, or rows visible to the wrong user or tenant. This is not just a performance guide — schema, migration, security, and SQL authoring tasks need these rules too, even for a one-column change or a single query.\"",
+    "path": "library/supabase-agent-skills/skills/supabase-postgres-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate supabase-postgres-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link supabase-postgres-best-practices"
   },
   {
     "id": "taste-skill",
@@ -38741,6 +40368,66 @@
     "link_cmd": "python .agents/library/activate_skill.py link swiftui-pro"
   },
   {
+    "id": "gravitas",
+    "name": "gravitas",
+    "repository": "udaysharmadev-gravitas",
+    "category": "database-sql-relational",
+    "description": "> Use for software implementation, debugging, refactoring, review, migration, and other repository-changing engineering work where correctness must be verified. Enforces scoped reconnaissance, adaptive planning, evidence-backed verification, requirement tracking, failure recovery, and budget-aware delegation. Model-agnostic reliability runtime for coding agents -- measured, not claimed.",
+    "path": "library/udaysharmadev-gravitas/skills/gravitas",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gravitas",
+    "link_cmd": "python .agents/library/activate_skill.py link gravitas"
+  },
+  {
+    "id": "gravitas-highstakes",
+    "name": "gravitas-highstakes",
+    "repository": "udaysharmadev-gravitas",
+    "category": "database-sql-relational",
+    "description": "> Mandatory checkpoint skill for irreversible/high-stakes changes (schema migrations, file deletion, auth/security changes, production config, force-pushes). Use when a task risks hard-to-reverse damage.",
+    "path": "library/udaysharmadev-gravitas/skills/gravitas-highstakes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gravitas-highstakes",
+    "link_cmd": "python .agents/library/activate_skill.py link gravitas-highstakes"
+  },
+  {
+    "id": "gravitas-perf",
+    "name": "gravitas-perf",
+    "repository": "udaysharmadev-gravitas",
+    "category": "testing-unit-tdd",
+    "description": "> Performance analysis mode for GRAVITAS. Adds profiling patterns, benchmark requirements, algorithmic complexity analysis, and before/after measurement protocol. Load for any performance optimization work.",
+    "path": "library/udaysharmadev-gravitas/skills/gravitas-perf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gravitas-perf",
+    "link_cmd": "python .agents/library/activate_skill.py link gravitas-perf"
+  },
+  {
+    "id": "gravitas-python",
+    "name": "gravitas-python",
+    "repository": "udaysharmadev-gravitas",
+    "category": "code-quality-refactoring",
+    "description": "> GRAVITAS extension for Python projects. Adds Python-specific recon, type checking with mypy/pyright, ruff/flake8 lint, pytest patterns, and common Python failure modes. Load in addition to the base GRAVITAS skill.",
+    "path": "library/udaysharmadev-gravitas/skills/gravitas-python",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gravitas-python",
+    "link_cmd": "python .agents/library/activate_skill.py link gravitas-python"
+  },
+  {
+    "id": "gravitas-security",
+    "name": "gravitas-security",
+    "repository": "udaysharmadev-gravitas",
+    "category": "security-vulnerability-audit",
+    "description": "> Deep security review mode for GRAVITAS. Adds threat modeling, OWASP Top 10 checks, injection prevention patterns, auth/session security, and security-specific test requirements. Load for any auth, input handling, database, or API work.",
+    "path": "library/udaysharmadev-gravitas/skills/gravitas-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gravitas-security",
+    "link_cmd": "python .agents/library/activate_skill.py link gravitas-security"
+  },
+  {
+    "id": "gravitas-typescript",
+    "name": "gravitas-typescript",
+    "repository": "udaysharmadev-gravitas",
+    "category": "programming-languages-core",
+    "description": "> GRAVITAS extension for TypeScript projects. Adds TypeScript-specific recon, strict mode patterns, Vitest/Jest integration, and common TS failure modes. Load in addition to the base GRAVITAS skill.",
+    "path": "library/udaysharmadev-gravitas/skills/gravitas-typescript",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gravitas-typescript",
+    "link_cmd": "python .agents/library/activate_skill.py link gravitas-typescript"
+  },
+  {
     "id": "adhd",
     "name": "adhd",
     "repository": "uditakhourii-adhd",
@@ -38921,6 +40608,56 @@
     "link_cmd": "python .agents/library/activate_skill.py link writing-guidelines"
   },
   {
+    "id": "docs",
+    "name": "docs",
+    "repository": "vercel-labs-skills",
+    "category": "code-quality-refactoring",
+    "description": "[Back to the README](../README.md)",
+    "path": "library/vercel-labs-skills/skills/docs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate docs",
+    "link_cmd": "python .agents/library/activate_skill.py link docs"
+  },
+  {
+    "id": "find-skills",
+    "name": "find-skills",
+    "repository": "vercel-labs-skills",
+    "category": "backend-api-design",
+    "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+    "path": "library/vercel-labs-skills/skills/find-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate find-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link find-skills"
+  },
+  {
+    "id": "pr-labeling",
+    "name": "pr-labeling",
+    "repository": "vercel-labs-skills",
+    "category": "git-version-control",
+    "description": "Classify a skills CLI pull request from its description and patch, while respecting existing labels.",
+    "path": "library/vercel-labs-skills/skills/pr-labeling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-labeling",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-labeling"
+  },
+  {
+    "id": "triage",
+    "name": "triage",
+    "repository": "vercel-labs-skills",
+    "category": "testing-unit-tdd",
+    "description": "Identify focused, evidence-backed skills CLI bug fixes worth quuu's attention.",
+    "path": "library/vercel-labs-skills/skills/triage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage",
+    "link_cmd": "python .agents/library/activate_skill.py link triage"
+  },
+  {
+    "id": "vibeship-spawner",
+    "name": "vibeship-spawner",
+    "repository": "vibeforge1111-vibeship-spawner-skills",
+    "category": "frontend-motion-animation",
+    "description": "Specialist Spawner Skills: 3D web experience, scroll experience, Plaid fintech, etc.",
+    "path": "library/vibeforge1111-vibeship-spawner-skills/skills/vibeship-spawner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vibeship-spawner",
+    "link_cmd": "python .agents/library/activate_skill.py link vibeship-spawner"
+  },
+  {
     "id": "book-to-skill",
     "name": "book-to-skill",
     "repository": "virgiliojr94-book-to-skill",
@@ -38939,6 +40676,780 @@
     "path": "library/virgiliojr94-book-to-skill/skills/virgiliojr94-book-to",
     "activation_cmd": "python .agents/library/activate_skill.py activate virgiliojr94-book-to",
     "link_cmd": "python .agents/library/activate_skill.py link virgiliojr94-book-to"
+  },
+  {
+    "id": "api-patterns",
+    "name": "api-patterns",
+    "repository": "vudovn-antigravity-kit",
+    "category": "backend-api-design",
+    "description": "API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination.",
+    "path": "library/vudovn-antigravity-kit/skills/api-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate api-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link api-patterns",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "app-builder",
+    "name": "app-builder",
+    "repository": "vudovn-antigravity-kit",
+    "category": "fullstack-web-frameworks",
+    "description": "Main application building orchestrator. Creates full-stack applications from natural language requests. Determines project type, selects tech stack, coordinates agents.",
+    "path": "library/vudovn-antigravity-kit/skills/app-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate app-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link app-builder",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash",
+      "Agent"
+    ]
+  },
+  {
+    "id": "architecture",
+    "name": "architecture",
+    "repository": "vudovn-antigravity-kit",
+    "category": "architecture-system-design",
+    "description": "Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.",
+    "path": "library/vudovn-antigravity-kit/skills/architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link architecture",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "bash-linux",
+    "name": "bash-linux",
+    "repository": "vudovn-antigravity-kit",
+    "category": "terminal-system-tools",
+    "description": "Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working on macOS or Linux systems.",
+    "path": "library/vudovn-antigravity-kit/skills/bash-linux",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bash-linux",
+    "link_cmd": "python .agents/library/activate_skill.py link bash-linux",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "batch-operations",
+    "name": "batch-operations",
+    "repository": "vudovn-antigravity-kit",
+    "category": "architecture-system-design",
+    "description": "Apply operations across multiple files simultaneously. Pattern-based bulk modifications, search-and-replace across codebases, consistent changes to many files at once.",
+    "path": "library/vudovn-antigravity-kit/skills/batch-operations",
+    "activation_cmd": "python .agents/library/activate_skill.py activate batch-operations",
+    "link_cmd": "python .agents/library/activate_skill.py link batch-operations",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob",
+      "Bash"
+    ]
+  },
+  {
+    "id": "behavioral-modes",
+    "name": "behavioral-modes",
+    "repository": "vudovn-antigravity-kit",
+    "category": "multi-agent-orchestration",
+    "description": "AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt behavior based on task type.",
+    "path": "library/vudovn-antigravity-kit/skills/behavioral-modes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate behavioral-modes",
+    "link_cmd": "python .agents/library/activate_skill.py link behavioral-modes",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "brainstorming",
+    "name": "brainstorming",
+    "repository": "vudovn-antigravity-kit",
+    "category": "frontend-ui-components",
+    "description": "Socratic questioning protocol + user communication. MANDATORY for complex requests, new features, or unclear requirements. Includes progress reporting and error handling.",
+    "path": "library/vudovn-antigravity-kit/skills/brainstorming",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brainstorming",
+    "link_cmd": "python .agents/library/activate_skill.py link brainstorming",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "clean-code",
+    "name": "clean-code",
+    "repository": "vudovn-antigravity-kit",
+    "category": "code-quality-refactoring",
+    "description": "Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments",
+    "path": "library/vudovn-antigravity-kit/skills/clean-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clean-code",
+    "link_cmd": "python .agents/library/activate_skill.py link clean-code",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit"
+    ]
+  },
+  {
+    "id": "code-review-checklist",
+    "name": "code-review-checklist",
+    "repository": "vudovn-antigravity-kit",
+    "category": "code-quality-refactoring",
+    "description": "Code review guidelines covering code quality, security, and best practices.",
+    "path": "library/vudovn-antigravity-kit/skills/code-review-checklist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review-checklist",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review-checklist",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "code-review-graph",
+    "name": "code-review-graph",
+    "repository": "vudovn-antigravity-kit",
+    "category": "database-sql-relational",
+    "description": "Token-efficient code review using Tree-sitter AST graphs and MCP. Cuts AI token usage on large codebases by computing the blast radius of changes instead of reading entire codebases. Uses a SQLite graph database for structural analysis.",
+    "path": "library/vudovn-antigravity-kit/skills/code-review-graph",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review-graph",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review-graph",
+    "allowed_tools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash"
+    ]
+  },
+  {
+    "id": "context-compression",
+    "name": "context-compression",
+    "repository": "vudovn-antigravity-kit",
+    "category": "prompt-llm-engineering",
+    "description": "Manage and compress conversation context in long sessions. Detect when context is growing large, summarize completed work phases, archive old findings while preserving key decisions. Prevents context degradation.",
+    "path": "library/vudovn-antigravity-kit/skills/context-compression",
+    "activation_cmd": "python .agents/library/activate_skill.py activate context-compression",
+    "link_cmd": "python .agents/library/activate_skill.py link context-compression",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Grep"
+    ]
+  },
+  {
+    "id": "coordinator-mode",
+    "name": "coordinator-mode",
+    "repository": "vudovn-antigravity-kit",
+    "category": "cloudflare-edge",
+    "description": "Advanced multi-agent orchestration with parallel workers, synthesis protocols, and coordinator lifecycle. Use when complex tasks require multiple agents working in parallel with intelligent result synthesis.",
+    "path": "library/vudovn-antigravity-kit/skills/coordinator-mode",
+    "activation_cmd": "python .agents/library/activate_skill.py activate coordinator-mode",
+    "link_cmd": "python .agents/library/activate_skill.py link coordinator-mode",
+    "allowed_tools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash",
+      "Write",
+      "Edit",
+      "Agent"
+    ]
+  },
+  {
+    "id": "database-design",
+    "name": "database-design",
+    "repository": "vudovn-antigravity-kit",
+    "category": "database-sql-relational",
+    "description": "Database design principles and decision-making. Schema design, indexing strategy, ORM selection, serverless databases.",
+    "path": "library/vudovn-antigravity-kit/skills/database-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-design",
+    "link_cmd": "python .agents/library/activate_skill.py link database-design",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "deployment-procedures",
+    "name": "deployment-procedures",
+    "repository": "vudovn-antigravity-kit",
+    "category": "devops-docker-cicd",
+    "description": "Production deployment principles and decision-making. Safe deployment workflows, rollback strategies, and verification. Teaches thinking, not scripts.",
+    "path": "library/vudovn-antigravity-kit/skills/deployment-procedures",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deployment-procedures",
+    "link_cmd": "python .agents/library/activate_skill.py link deployment-procedures",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "design-spec",
+    "name": "design-spec",
+    "repository": "vudovn-antigravity-kit",
+    "category": "frontend-visual-taste",
+    "description": "How to author a DESIGN.md file — the machine-readable design-token + human-rationale format that must exist before any UI is built. YAML front-matter token schema (colors, typography, spacing, rounded, components), type system, token references, and canonical section order.",
+    "path": "library/vudovn-antigravity-kit/skills/design-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link design-spec",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "documentation-templates",
+    "name": "documentation-templates",
+    "repository": "vudovn-antigravity-kit",
+    "category": "backend-api-design",
+    "description": "Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation.",
+    "path": "library/vudovn-antigravity-kit/skills/documentation-templates",
+    "activation_cmd": "python .agents/library/activate_skill.py activate documentation-templates",
+    "link_cmd": "python .agents/library/activate_skill.py link documentation-templates",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "frontend-architecture",
+    "name": "frontend-architecture",
+    "repository": "vudovn-antigravity-kit",
+    "category": "architecture-system-design",
+    "description": "How to organize frontend code — separation of concerns (UI / logic / data / type), file responsibility, state tiers, API services, schema validation, and framework conventions for React/Next and Vue. Structural rules, not visual design.",
+    "path": "library/vudovn-antigravity-kit/skills/frontend-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frontend-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link frontend-architecture",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "frontend-design",
+    "name": "frontend-design",
+    "repository": "vudovn-antigravity-kit",
+    "category": "frontend-visual-taste",
+    "description": "Anti-slop frontend design for web UI — landing pages, portfolios, marketing/product sites, and redesigns. Reads the brief, infers the right direction, and ships interfaces that don't look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check. NOT for mobile apps.",
+    "path": "library/vudovn-antigravity-kit/skills/frontend-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frontend-design",
+    "link_cmd": "python .agents/library/activate_skill.py link frontend-design",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "game-development",
+    "name": "game-development",
+    "repository": "vudovn-antigravity-kit",
+    "category": "multi-agent-orchestration",
+    "description": "Game development orchestrator. Routes to platform-specific skills based on project needs.",
+    "path": "library/vudovn-antigravity-kit/skills/game-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate game-development",
+    "link_cmd": "python .agents/library/activate_skill.py link game-development",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "geo-fundamentals",
+    "name": "geo-fundamentals",
+    "repository": "vudovn-antigravity-kit",
+    "category": "business-strategy-legal",
+    "description": "Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity).",
+    "path": "library/vudovn-antigravity-kit/skills/geo-fundamentals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate geo-fundamentals",
+    "link_cmd": "python .agents/library/activate_skill.py link geo-fundamentals",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "i18n-localization",
+    "name": "i18n-localization",
+    "repository": "vudovn-antigravity-kit",
+    "category": "architecture-system-design",
+    "description": "Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL support.",
+    "path": "library/vudovn-antigravity-kit/skills/i18n-localization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate i18n-localization",
+    "link_cmd": "python .agents/library/activate_skill.py link i18n-localization",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "intelligent-routing",
+    "name": "intelligent-routing",
+    "repository": "vudovn-antigravity-kit",
+    "category": "frontend-ui-components",
+    "description": "Automatic agent selection and intelligent task routing. Analyzes user requests and automatically selects the best specialist agent(s) without requiring explicit user mentions.",
+    "path": "library/vudovn-antigravity-kit/skills/intelligent-routing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate intelligent-routing",
+    "link_cmd": "python .agents/library/activate_skill.py link intelligent-routing",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "lint-and-validate",
+    "name": "lint-and-validate",
+    "repository": "vudovn-antigravity-kit",
+    "category": "code-quality-refactoring",
+    "description": "\"Automatic quality control, linting, and static analysis procedures. Use after every code modification to ensure syntax correctness and project standards. Triggers on keywords: lint, format, check, validate, types, static analysis.\"",
+    "path": "library/vudovn-antigravity-kit/skills/lint-and-validate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lint-and-validate",
+    "link_cmd": "python .agents/library/activate_skill.py link lint-and-validate",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "mcp-builder",
+    "name": "mcp-builder",
+    "repository": "vudovn-antigravity-kit",
+    "category": "programming-languages-core",
+    "description": "MCP (Model Context Protocol) server and client engineering. Protocol design, schemas, transports, extensions, security, and migration.",
+    "path": "library/vudovn-antigravity-kit/skills/mcp-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mcp-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link mcp-builder",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "memory-system",
+    "name": "memory-system",
+    "repository": "vudovn-antigravity-kit",
+    "category": "code-quality-refactoring",
+    "description": "Persistent cross-session memory management. Enables agents to remember user preferences, project conventions, and past decisions across different sessions using a structured MEMORY.md index and topic files.",
+    "path": "library/vudovn-antigravity-kit/skills/memory-system",
+    "activation_cmd": "python .agents/library/activate_skill.py activate memory-system",
+    "link_cmd": "python .agents/library/activate_skill.py link memory-system",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Grep",
+      "Glob"
+    ]
+  },
+  {
+    "id": "mobile-design",
+    "name": "mobile-design",
+    "repository": "vudovn-antigravity-kit",
+    "category": "mobile-ios-android",
+    "description": "Mobile-first design thinking and decision-making for iOS and Android apps. Touch interaction, performance patterns, platform conventions. Teaches principles, not fixed values. Use when building React Native, Flutter, or native mobile apps.",
+    "path": "library/vudovn-antigravity-kit/skills/mobile-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mobile-design",
+    "link_cmd": "python .agents/library/activate_skill.py link mobile-design",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "nextjs-react-expert",
+    "name": "nextjs-react-expert",
+    "repository": "vudovn-antigravity-kit",
+    "category": "fullstack-web-frameworks",
+    "description": "React and Next.js performance optimization from Vercel Engineering. Use when building React components, optimizing performance, eliminating waterfalls, reducing bundle size, reviewing code for performance issues, or implementing server/client-side optimizations.",
+    "path": "library/vudovn-antigravity-kit/skills/nextjs-react-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nextjs-react-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link nextjs-react-expert",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "nodejs-best-practices",
+    "name": "nodejs-best-practices",
+    "repository": "vudovn-antigravity-kit",
+    "category": "architecture-system-design",
+    "description": "Node.js development principles and decision-making. Framework selection, async patterns, security, and architecture. Teaches thinking, not copying.",
+    "path": "library/vudovn-antigravity-kit/skills/nodejs-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nodejs-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link nodejs-best-practices",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "parallel-agents",
+    "name": "parallel-agents",
+    "repository": "vudovn-antigravity-kit",
+    "category": "multi-agent-orchestration",
+    "description": "Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domain expertise or when comprehensive analysis requires multiple perspectives.",
+    "path": "library/vudovn-antigravity-kit/skills/parallel-agents",
+    "activation_cmd": "python .agents/library/activate_skill.py activate parallel-agents",
+    "link_cmd": "python .agents/library/activate_skill.py link parallel-agents",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "performance-profiling",
+    "name": "performance-profiling",
+    "repository": "vudovn-antigravity-kit",
+    "category": "code-quality-refactoring",
+    "description": "Performance profiling principles. Measurement, analysis, and optimization techniques.",
+    "path": "library/vudovn-antigravity-kit/skills/performance-profiling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate performance-profiling",
+    "link_cmd": "python .agents/library/activate_skill.py link performance-profiling",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "plan-writing",
+    "name": "plan-writing",
+    "repository": "vudovn-antigravity-kit",
+    "category": "code-quality-refactoring",
+    "description": "Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work.",
+    "path": "library/vudovn-antigravity-kit/skills/plan-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-writing",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "powershell-windows",
+    "name": "powershell-windows",
+    "repository": "vudovn-antigravity-kit",
+    "category": "terminal-system-tools",
+    "description": "PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling.",
+    "path": "library/vudovn-antigravity-kit/skills/powershell-windows",
+    "activation_cmd": "python .agents/library/activate_skill.py activate powershell-windows",
+    "link_cmd": "python .agents/library/activate_skill.py link powershell-windows",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "python-patterns",
+    "name": "python-patterns",
+    "repository": "vudovn-antigravity-kit",
+    "category": "programming-languages-core",
+    "description": "Python development principles and decision-making. Framework selection, async patterns, type hints, project structure. Teaches thinking, not copying.",
+    "path": "library/vudovn-antigravity-kit/skills/python-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate python-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link python-patterns",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "red-team-tactics",
+    "name": "red-team-tactics",
+    "repository": "vudovn-antigravity-kit",
+    "category": "security-vulnerability-audit",
+    "description": "Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting.",
+    "path": "library/vudovn-antigravity-kit/skills/red-team-tactics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate red-team-tactics",
+    "link_cmd": "python .agents/library/activate_skill.py link red-team-tactics",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "rust-pro",
+    "name": "rust-pro",
+    "repository": "vudovn-antigravity-kit",
+    "category": "programming-languages-core",
+    "description": "Master modern Rust (2024 edition) with async patterns, advanced type system features, and production-ready systems programming. Expert in the current Rust ecosystem including Tokio, axum, and modern crates. Use PROACTIVELY for Rust development, performance optimization, or systems programming.",
+    "path": "library/vudovn-antigravity-kit/skills/rust-pro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rust-pro",
+    "link_cmd": "python .agents/library/activate_skill.py link rust-pro",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "seo-fundamentals",
+    "name": "seo-fundamentals",
+    "repository": "vudovn-antigravity-kit",
+    "category": "algorithms-logic",
+    "description": "SEO fundamentals, E-E-A-T, Core Web Vitals, and Google algorithm principles.",
+    "path": "library/vudovn-antigravity-kit/skills/seo-fundamentals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate seo-fundamentals",
+    "link_cmd": "python .agents/library/activate_skill.py link seo-fundamentals",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "server-management",
+    "name": "server-management",
+    "repository": "vudovn-antigravity-kit",
+    "category": "backend-api-design",
+    "description": "Server management principles and decision-making. Process management, monitoring strategy, and scaling decisions. Teaches thinking, not commands.",
+    "path": "library/vudovn-antigravity-kit/skills/server-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate server-management",
+    "link_cmd": "python .agents/library/activate_skill.py link server-management",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "simplify-code",
+    "name": "simplify-code",
+    "repository": "vudovn-antigravity-kit",
+    "category": "autonomous-agents-hermes",
+    "description": "Reduce complexity of over-engineered code. Identify unnecessary abstractions, remove dead code, flatten deep nesting, and simplify logic while preserving behavior.",
+    "path": "library/vudovn-antigravity-kit/skills/simplify-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate simplify-code",
+    "link_cmd": "python .agents/library/activate_skill.py link simplify-code",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Grep",
+      "Glob"
+    ]
+  },
+  {
+    "id": "skillify",
+    "name": "skillify",
+    "repository": "vudovn-antigravity-kit",
+    "category": "code-quality-refactoring",
+    "description": "Auto-create new skills from repetitive workflows. When you notice yourself doing the same multi-step process repeatedly, extract it into a reusable SKILL.md that any agent can use.",
+    "path": "library/vudovn-antigravity-kit/skills/skillify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skillify",
+    "link_cmd": "python .agents/library/activate_skill.py link skillify",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "systematic-debugging",
+    "name": "systematic-debugging",
+    "repository": "vudovn-antigravity-kit",
+    "category": "testing-unit-tdd",
+    "description": "4-phase systematic debugging methodology with root cause analysis and evidence-based verification. Use when debugging complex issues.",
+    "path": "library/vudovn-antigravity-kit/skills/systematic-debugging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate systematic-debugging",
+    "link_cmd": "python .agents/library/activate_skill.py link systematic-debugging",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "tailwind-patterns",
+    "name": "tailwind-patterns",
+    "repository": "vudovn-antigravity-kit",
+    "category": "frontend-ui-components",
+    "description": "Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design token architecture.",
+    "path": "library/vudovn-antigravity-kit/skills/tailwind-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tailwind-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link tailwind-patterns",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "tdd-workflow",
+    "name": "tdd-workflow",
+    "repository": "vudovn-antigravity-kit",
+    "category": "testing-unit-tdd",
+    "description": "Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle.",
+    "path": "library/vudovn-antigravity-kit/skills/tdd-workflow",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tdd-workflow",
+    "link_cmd": "python .agents/library/activate_skill.py link tdd-workflow",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "testing-patterns",
+    "name": "testing-patterns",
+    "repository": "vudovn-antigravity-kit",
+    "category": "architecture-system-design",
+    "description": "Testing patterns and principles. Unit, integration, mocking strategies.",
+    "path": "library/vudovn-antigravity-kit/skills/testing-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate testing-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link testing-patterns",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "verify-changes",
+    "name": "verify-changes",
+    "repository": "vudovn-antigravity-kit",
+    "category": "testing-unit-tdd",
+    "description": "Prove code works by running it, not just checking it exists. Verification through execution rather than inspection. Use after writing or modifying code to ensure it actually functions correctly.",
+    "path": "library/vudovn-antigravity-kit/skills/verify-changes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate verify-changes",
+    "link_cmd": "python .agents/library/activate_skill.py link verify-changes",
+    "allowed_tools": [
+      "Read",
+      "Bash",
+      "Grep",
+      "Glob"
+    ]
+  },
+  {
+    "id": "vulnerability-scanner",
+    "name": "vulnerability-scanner",
+    "repository": "vudovn-antigravity-kit",
+    "category": "security-vulnerability-audit",
+    "description": "Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mapping, risk prioritization.",
+    "path": "library/vudovn-antigravity-kit/skills/vulnerability-scanner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vulnerability-scanner",
+    "link_cmd": "python .agents/library/activate_skill.py link vulnerability-scanner",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "web-design-guidelines",
+    "name": "web-design-guidelines",
+    "repository": "vudovn-antigravity-kit",
+    "category": "security-compliance-auth",
+    "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+    "path": "library/vudovn-antigravity-kit/skills/web-design-guidelines",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web-design-guidelines",
+    "link_cmd": "python .agents/library/activate_skill.py link web-design-guidelines",
+    "allowed_tools": [
+      "Read",
+      "Grep",
+      "Glob",
+      "WebFetch"
+    ]
+  },
+  {
+    "id": "webapp-testing",
+    "name": "webapp-testing",
+    "repository": "vudovn-antigravity-kit",
+    "category": "testing-playwright-e2e",
+    "description": "Web application testing principles. E2E, Playwright, deep audit strategies.",
+    "path": "library/vudovn-antigravity-kit/skills/webapp-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate webapp-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link webapp-testing",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
   },
   {
     "id": "auto-claude-code-research-in-sleep",
@@ -39044,7 +41555,7 @@
     "id": "security-review",
     "name": "security-review",
     "repository": "worldflowai-everything-claude-code",
-    "category": "backend-api-design",
+    "category": "code-quality-refactoring",
     "description": "Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns.",
     "path": "library/worldflowai-everything-claude-code/skills/security-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate security-review",
