@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Skills in Category**: 25 real modular skills  
+> **Total Skills in Category**: 26 real modular skills  
 > **Directory**: [`.agents/category/frontend-visual-taste`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (25 Skills)
+## 📑 Complete Skill Catalog (26 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -30,13 +30,14 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`brand-guidelines-community`](./brand-guidelines-community/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic' |
 | **[`data-visualization`](./data-visualization/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, sca |
 | **[`design-spec`](./design-spec/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | How to author a DESIGN.md file — the machine-readable design-token + human-rationale format that must exist before any U |
-| **[`design-taste-frontend`](./design-taste-frontend/SKILL.md)** | 📦 Library | `#specialized-community-skills` | - |
+| **[`design-taste-frontend`](./design-taste-frontend/SKILL.md)** | 📦 Library | `taste-skill` | - |
 | **[`design-tokens`](./design-tokens/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Generate, extend, or audit design tokens in DTCG format with the 3-tier architecture (primitive → semantic → component). |
 | **[`frontend-design`](./frontend-design/SKILL.md)** | 🟢 Active | `active-skills` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthe |
 | **[`gathered-scenes-zine`](./gathered-scenes-zine/SKILL.md)** | 📦 Library | `zeejay0-gathered-scenes-zine-skill` | A tool for turning personal photos into Morandi-style cinematic posters using professional typography, selective subject |
 | **[`geo-report-pdf`](./geo-report-pdf/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | Generate a professional PDF report from a GEO audit using pandoc + Chrome headless. Converts GEO-AUDIT-REPORT.md into a  |
 | **[`impeccable`](./impeccable/SKILL.md)** | 🟢 Active | `active-skills` | Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, animate, or otherwise imp |
 | **[`install-anti-slop`](./install-anti-slop/SKILL.md)** | 📦 Library | `dmmulroy-anti-slop` | Install, configure, update, or upgrade vendored anti-slop Oxlint plugins. Use when adding anti-slop, picking up upstream |
+| **[`ios-design`](./ios-design/SKILL.md)** | 📦 Library | `pbakaus-impeccable` | Design and review iOS UI/UX for iPhone apps in SwiftUI, UIKit, or React Native. Use for mobile app design, screen redesi |
 | **[`landing-page-design`](./landing-page-design/SKILL.md)** | 📦 Library | `elayadesign-ai-design-skills` | Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversi |
 | **[`redesign`](./redesign/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Upgrade an existing website or app to premium quality without breaking functionality. Audit the current design, identify |
 | **[`s1dashu-ip-as-logo`](./s1dashu-ip-as-logo/SKILL.md)** | 📦 Library | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, two purposeful character  |

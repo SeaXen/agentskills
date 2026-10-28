@@ -1,5 +1,22 @@
 [
   {
+    "id": "antigravity-expert",
+    "name": "antigravity-expert",
+    "repository": "vudovn-antigravity-kit",
+    "category": "agent-orchestration",
+    "description": "Complete mastery of Google Antigravity platform architecture. Use when authoring or debugging Antigravity skills, hierarchical rules (GEMINI.md, AGENTS.md), slash command workflows, subagent orchestration, lifecycle hooks, and Model Context Protocol (MCP) integrations.",
+    "path": "library/vudovn-antigravity-kit/skills/antigravity-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate antigravity-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link antigravity-expert",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
     "id": "api-patterns",
     "name": "api-patterns",
     "repository": "vudovn-antigravity-kit",
@@ -48,6 +65,21 @@
       "Read",
       "Glob",
       "Grep"
+    ]
+  },
+  {
+    "id": "auto",
+    "name": "auto",
+    "repository": "vudovn-antigravity-kit",
+    "category": "agent-orchestration",
+    "description": "Auto-generated project-specific knowledge repository containing learned conventions, project gotchas, bug fixes, and configuration patterns for the Managment workspace.",
+    "path": "library/vudovn-antigravity-kit/skills/auto",
+    "activation_cmd": "python .agents/library/activate_skill.py activate auto",
+    "link_cmd": "python .agents/library/activate_skill.py link auto",
+    "allowed_tools": [
+      "Read",
+      "Grep",
+      "Glob"
     ]
   },
   {
@@ -506,6 +538,16 @@
     ]
   },
   {
+    "id": "plugin-creator",
+    "name": "plugin-creator",
+    "repository": "vudovn-antigravity-kit",
+    "category": "frontend",
+    "description": "Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, and baseline placeholders you can edit before publishing or testing. Use when Codex needs to create a new local plugin, add optional plugin structure, or generate or update repo-root `.agents/plugins/marketplace.json` entries for plugin ordering and availability metadata.",
+    "path": "library/vudovn-antigravity-kit/skills/plugin-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plugin-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link plugin-creator"
+  },
+  {
     "id": "powershell-windows",
     "name": "powershell-windows",
     "repository": "vudovn-antigravity-kit",
@@ -622,6 +664,16 @@
       "Grep",
       "Glob"
     ]
+  },
+  {
+    "id": "skill-installer",
+    "name": "skill-installer",
+    "repository": "vudovn-antigravity-kit",
+    "category": "general-development",
+    "description": "Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).",
+    "path": "library/vudovn-antigravity-kit/skills/skill-installer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-installer",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-installer"
   },
   {
     "id": "skillify",

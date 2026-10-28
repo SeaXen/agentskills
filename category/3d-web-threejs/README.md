@@ -20,7 +20,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
-| **[`3d-web-experience`](./3d-web-experience/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Expert in building 3D experiences for the web - Three.js, React Three Fiber, Spline, WebGL, and interactive 3D scenes. C |
+| **[`3d-web-experience`](./3d-web-experience/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in building 3D experiences for the web - Three.js, React Three Fiber, Spline, WebGL, and interactive 3D scenes. C |
 | **[`melonjs`](./melonjs/SKILL.md)** | 📦 Library | `melonjs-melonjs` | Provides migration guidance for melonJS 20.x, covering async initialization, WebGL 2/WebGPU backends, and the replacemen |
 | **[`threejs-asset-pipeline`](./threejs-asset-pipeline/SKILL.md)** | 📦 Library | `cloudai-x-threejs-skills` | Shrinking glTF assets for three.js with gltf-transform: inspect, validate and optimize commands, Draco, meshopt and quan |
 | **[`threejs-fundamentals`](./threejs-fundamentals/SKILL.md)** | 📦 Library | `cloudai-x-threejs-skills` | Three.js scene setup: scenes and fog, cameras, the renderer and tone mapping, the animation loop, object hierarchies, tr |

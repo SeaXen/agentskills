@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Skills in Category**: 98 real modular skills  
+> **Total Skills in Category**: 99 real modular skills  
 > **Directory**: [`.agents/category/programming-languages-core`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (98 Skills)
+## 📑 Complete Skill Catalog (99 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -93,7 +93,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`manifoldbt-backtester`](./manifoldbt-backtester/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Runs a declarative strategy spec over OHLCV bars with the manifoldbt Rust engine, pairs the fill log into round trips, a |
 | **[`mcp-builder`](./mcp-builder/SKILL.md)** | 📦 Library | `anthropics-official-skills` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services |
 | **[`memory-safety-patterns`](./memory-safety-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement memory-safe programming with RAII, ownership, smart pointers, and resource management across Rust, C++, and C. |
-| **[`migrate-to-shoehorn`](./migrate-to-shoehorn/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to re |
+| **[`migrate-to-shoehorn`](./migrate-to-shoehorn/SKILL.md)** | 📦 Library | `mattpocock-skills` | Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to re |
 | **[`monorepo-management`](./monorepo-management/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master monorepo management with Turborepo, Nx, and pnpm workspaces to build efficient, scalable multi-package repositori |
 | **[`mtls-configuration`](./mtls-configuration/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing zero-trust networking |
 | **[`pagerduty-automation`](./pagerduty-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation policies, and on-cal |
@@ -104,16 +104,17 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`react-patterns`](./react-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. |
 | **[`reverse-engineering`](./reverse-engineering/SKILL.md)** | 📦 Library | `rehan-remade-universal-modder` | Read how a game actually works so a mod can hook it. Decompile .NET/Mono (ILSpy), IL2CPP (Cpp2IL, Il2CppDumper), Java (V |
 | **[`rust-async-patterns`](./rust-async-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns. Use when building async |
-| **[`rust-pro`](./rust-pro/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Master Rust 1.75+ with modern async patterns, advanced type system |
+| **[`rust-pro`](./rust-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Rust 1.75+ with modern async patterns, advanced type system |
 | **[`scala-pro`](./scala-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master enterprise-grade Scala development with functional |
 | **[`security-best-practices`](./security-best-practices/SKILL.md)** | 🟢 Active | `active-skills` | Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the u |
-| **[`setup-ts-deep-modules`](./setup-ts-deep-modules/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder |
+| **[`setup-ts-deep-modules`](./setup-ts-deep-modules/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder |
 | **[`triage-frontend-issues`](./triage-frontend-issues/SKILL.md)** | 📦 Library | `getsentry-skills` | Triage new issues in the Sentry `javascript` project by archiving non-actionable noise. Use when asked to "triage issues |
 | **[`trigger-dev`](./trigger-dev/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent developer experience a |
 | **[`typescript-advanced-types`](./typescript-advanced-types/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript's advanced type system including generics, conditional types, mapped types, template literals, and uti |
 | **[`typescript-best-practices`](./typescript-best-practices/SKILL.md)** | 📦 Library | `backnotprop-pstack` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |
+| **[`typescript-expert`](./typescript-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | >- |
 | **[`typescript-pro`](./typescript-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript with advanced types, generics, and strict type |
-| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `#core-antigravity-library` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
+| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
 | **[`unreal-engine-cpp-pro`](./unreal-engine-cpp-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices. |
 | **[`virustotal-automation`](./virustotal-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Virustotal tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`windows-privilege-escalation`](./windows-privilege-escalation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"escalate privileges on Windows,\" \"find Windows privesc vectors,\" \" |

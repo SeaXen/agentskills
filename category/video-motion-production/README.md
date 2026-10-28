@@ -67,7 +67,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`packaging-youtube-thumbnails`](./packaging-youtube-thumbnails/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | Use when a user supplies new video content or a channel and wants on-brand YouTube titles, thumbnail concepts, rendered  |
 | **[`probe-sdk`](./probe-sdk/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing browser compatibility, media  |
 | **[`product-demand-research`](./product-demand-research/SKILL.md)** | 📦 Library | `scrapecreators-social-media-research-skills` | Use when the user wants to validate a product idea, find pain points, mine demand signals, discover objections, or gathe |
-| **[`remotion-best-practices`](./remotion-best-practices/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Best practices for Remotion - Video creation in React |
+| **[`remotion-best-practices`](./remotion-best-practices/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Best practices for Remotion - Video creation in React |
 | **[`remotion-captions`](./remotion-captions/SKILL.md)** | 📦 Library | `remotion-dev-skills` | Transcribing, displaying and animating captions |
 | **[`remotion-create`](./remotion-create/SKILL.md)** | 📦 Library | `remotion-dev-skills` | Create a new Remotion video |
 | **[`remotion-docs`](./remotion-docs/SKILL.md)** | 📦 Library | `remotion-dev-skills` | Search Remotion documentation |
@@ -87,7 +87,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`sound-effects`](./sound-effects/SKILL.md)** | 📦 Library | `barty-bart-motion-graphics` | Add a measured sound pass to a motion-graphics video made with Claude Code (HyperFrames, Remotion, GSAP, Claude Motion o |
 | **[`style-library`](./style-library/SKILL.md)** | 📦 Library | `nateherkai-herk-edit-kit` | Select, customize, or extend the project's reusable motion-graphics card library and style templates. Use for choosing a |
 | **[`transcript-intelligence`](./transcript-intelligence/SKILL.md)** | 📦 Library | `scrapecreators-social-media-research-skills` | Use when the user wants to summarize, analyze, or repurpose transcripts from TikTok, Instagram, YouTube, Facebook, X/Twi |
-| **[`ui-toolkit-web`](./ui-toolkit-web/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when you want prebuilt React UI |
+| **[`ui-toolkit-web`](./ui-toolkit-web/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when you want prebuilt React UI |
 | **[`video-ad-specs`](./video-ad-specs/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Video ad creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, LinkedIn. Covers dimensio |
 | **[`video-analysis`](./video-analysis/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | Analyze YouTube videos or local footage using transcripts first, with silent video checks for demonstrations, delivery,  |
 | **[`video-caption-generator`](./video-caption-generator/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | Transcribe short videos from a Google Drive folder, deduplicate by content, |

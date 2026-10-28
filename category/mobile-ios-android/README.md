@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Skills in Category**: 38 real modular skills  
+> **Total Skills in Category**: 37 real modular skills  
 > **Directory**: [`.agents/category/mobile-ios-android`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (38 Skills)
+## 📑 Complete Skill Catalog (37 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -33,7 +33,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`exposure-coach`](./exposure-coach/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Generate a one-page Market Posture summary with net exposure ceiling, growth-vs-value bias, participation breadth, and n |
 | **[`interactive-portfolio`](./interactive-portfolio/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in building portfolios that actually land jobs and clients - not just showing work, but creating memorable experi |
 | **[`ios-debugger-agent`](./ios-debugger-agent/SKILL.md)** | 📦 Library | `dimillian-skills` | Use XcodeBuildMCP to build, run, launch, and debug the current iOS project on a booted simulator. Trigger when asked to  |
-| **[`ios-design`](./ios-design/SKILL.md)** | 📦 Library | `#specialized-community-skills` | Design and review iOS UI/UX for iPhone apps in SwiftUI, UIKit, or React Native. Use for mobile app design, screen redesi |
 | **[`ios-developer`](./ios-developer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, |
 | **[`kanchi-dividend-review-monitor`](./kanchi-dividend-review-monitor/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Monitor dividend portfolios with Kanchi-style forced-review triggers (T1-T5) and convert anomalies into OK/WARN/REVIEW s |
 | **[`macos-spm-app-packaging`](./macos-spm-app-packaging/SKILL.md)** | 📦 Library | `dimillian-skills` | Scaffold, build, and package SwiftPM-based macOS apps without an Xcode project. Use when you need a from-scratch macOS a |
@@ -46,7 +45,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`post-formatter`](./post-formatter/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Turn a topic into a ready-to-publish LinkedIn post using PAS, AIDA, BAB, STAR, or SLAY frameworks. Up to 20 nonblank lin |
 | **[`react-native-architecture`](./react-native-architecture/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build production React Native apps with Expo, navigation, native modules, offline sync, and cross-platform patterns. Use |
 | **[`scenario-analyzer`](./scenario-analyzer/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Skill that analyzes 18-month scenarios from a news headline. |
-| **[`security-ownership-map`](./security-ownership-map/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code  |
+| **[`security-ownership-map`](./security-ownership-map/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code  |
 | **[`shodan-reconnaissance`](./shodan-reconnaissance/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"search for exposed devices on the internet,\" \"perform Shodan reconna |
 | **[`skills`](./skills/SKILL.md)** | 📦 Library | `android-skills` | Migrates Android projects to Android Gradle Plugin 9 and updates the AGP DSL. |
 | **[`stitch-ui-design`](./stitch-ui-design/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for creating effective prompts for Google Stitch AI UI design tool. Use when user wants to design UI/UX in  |

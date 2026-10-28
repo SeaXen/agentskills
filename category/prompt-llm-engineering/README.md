@@ -65,7 +65,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`evaluation`](./evaluation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build evaluation frameworks for agent systems |
 | **[`find-community`](./find-community/SKILL.md)** | 📦 Library | `slavingia-skills` | Help identify and evaluate communities to build a minimalist business around. Use when someone is looking for a business |
 | **[`flux-image`](./flux-image/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with |
-| **[`gcp-to-aws`](./gcp-to-aws/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Migrate workloads from Google Cloud Platform to AWS — including AI and agentic workloads regardless of cloud provider. T |
+| **[`gcp-to-aws`](./gcp-to-aws/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Migrate workloads from Google Cloud Platform to AWS — including AI and agentic workloads regardless of cloud provider. T |
 | **[`gemini`](./gemini/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Cross-model second opinion from Google Gemini — a different AI reviewing the |
 | **[`gemini-automation`](./gemini-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Gemini tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`gemini-carousel`](./gemini-carousel/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Generate a branded slide-by-slide LinkedIn carousel using Gemini. Takes source content, builds a design brief, waits for |
@@ -101,7 +101,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`nano-banana-2`](./nano-banana-2/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Generate images with Google Gemini 3.1 Flash Image Preview (Nano Banana 2) via inference.sh CLI. Capabilities: text-to-i |
 | **[`nerdzao-elite-gemini-high`](./nerdzao-elite-gemini-high/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Modo Elite Coder + UX Pixel-Perfect otimizado especificamente para Gemini 3.1 Pro High. Workflow completo com foco em qu |
 | **[`nidhinjs-prompt-master`](./nidhinjs-prompt-master/SKILL.md)** | 📦 Library | `nidhinjs-prompt-master` | Generates optimized prompts for AI tools. Activates only when the user explicitly asks to write, fix, improve, or adapt  |
-| **[`openai-docs`](./openai-docs/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Use when the user asks how to build with OpenAI products or APIs, asks about Codex itself or choosing Codex surfaces, ne |
+| **[`openai-docs`](./openai-docs/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when the user asks how to build with OpenAI products or APIs, asks about Codex itself or choosing Codex surfaces, ne |
 | **[`paid-ads-chatgpt`](./paid-ads-chatgpt/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Plan and review ChatGPT Ads experiments without assuming ad inventory, account access, or platform capabilities. Use for |
 | **[`pair-trade-screener`](./pair-trade-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Statistical arbitrage tool for identifying and analyzing pair trading opportunities. Detects cointegrated stock pairs wi |
 | **[`personal-strategic-signal-intelligence`](./personal-strategic-signal-intelligence/SKILL.md)** | 📦 Library | `ericosiu-ai-marketing-skills` | Turn an executive or operator's private reading, highlights, notes, social bookmarks, and applied work into source-groun |
@@ -138,8 +138,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`us-market-bubble-detector`](./us-market-bubble-detector/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Evaluates market bubble risk through quantitative data-driven analysis using the revised Minsky/Kindleberger framework v |
 | **[`us-undervalued-growth-screener`](./us-undervalued-growth-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Autonomously screen NYSE, Nasdaq, and NYSE American operating-company stocks for undervalued-growth/GARP opportunities u |
 | **[`viral-generator-builder`](./viral-generator-builder/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar creators, personality  |
-| **[`writing-fragments`](./writing-fragments/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Writing, explore: mine raw fragments, no structure yet. |
-| **[`writing-shape`](./writing-shape/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Writing, exploit: shape raw material into an article, paragraph by paragraph. |
+| **[`writing-fragments`](./writing-fragments/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Writing, explore: mine raw fragments, no structure yet. |
+| **[`writing-shape`](./writing-shape/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Writing, exploit: shape raw material into an article, paragraph by paragraph. |
 | **[`youtube-thumbnail`](./youtube-thumbnail/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Generate a branded YouTube thumbnail from a video title. Uses a reference photo of the creator, high-CTR thumbnail princ |
 
 ---

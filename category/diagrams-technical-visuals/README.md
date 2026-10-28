@@ -24,7 +24,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`archify`](./archify/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Validated interactive HTML diagrams, upstream-maintained. |
 | **[`architecture-diagram`](./architecture-diagram/SKILL.md)** | 📦 Library | `cocoon-ai-architecture-diagram-generator` | Create polished dark-themed architecture diagrams as self-contained HTML+SVG files. Use when the user asks for system, i |
 | **[`breadth-chart-analyst`](./breadth-chart-analyst/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | This skill should be used when analyzing market breadth charts, specifically the S&P 500 Breadth Index (200-Day MA based |
-| **[`claude-d3js-skill`](./claude-d3js-skill/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Creating interactive data visualisations using d3.js. This skill should be used when creating custom charts, graphs, net |
+| **[`claude-d3js-skill`](./claude-d3js-skill/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Creating interactive data visualisations using d3.js. This skill should be used when creating custom charts, graphs, net |
 | **[`code-documentation-code-explain`](./code-documentation-code-explain/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a code education expert specializing in explaining complex code through clear narratives, visual diagrams, and s |
 | **[`code-wiki`](./code-wiki/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Generate wiki docs + Mermaid diagrams for any codebase. |
 | **[`coleam00-excalidraw-diagram`](./coleam00-excalidraw-diagram/SKILL.md)** | 📦 Library | `coleam00-excalidraw-diagram-skill` | Create Excalidraw diagram JSON files that make visual arguments. Use when the user wants to visualize workflows, archite |
@@ -42,7 +42,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`p5js`](./p5js/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | p5.js sketches: gen art, shaders, interactive, 3D. |
 | **[`pitch-deck-visuals`](./pitch-deck-visuals/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data presentation. Covers the 12-s |
 | **[`pr-lens`](./pr-lens/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Draw code changes as animated architecture/data-flow SVGs. |
-| **[`sap-fiori-add-visual-filter`](./sap-fiori-add-visual-filter/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP RAP. |
+| **[`sap-fiori-add-visual-filter`](./sap-fiori-add-visual-filter/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP RAP. |
 | **[`sketch`](./sketch/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Throwaway HTML mockups: 2-3 design variants to compare. |
 | **[`statechart`](./statechart/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it  |
 | **[`system-atlas`](./system-atlas/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Build explorable isometric architecture atlases as HTML. |

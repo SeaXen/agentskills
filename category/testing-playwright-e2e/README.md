@@ -28,7 +28,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`browser-use-to-stagehand`](./browser-use-to-stagehand/SKILL.md)** | 📦 Library | `browserbase-skills` | Migrate browser-use (Python) browser-automation scripts to Stagehand v3 (TypeScript) on Browserbase. Use when the user w |
 | **[`cloud`](./cloud/SKILL.md)** | 📦 Library | `browser-use-skills` | Documentation reference for using Browser Use Cloud — the hosted API |
 | **[`contentful-automation`](./contentful-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate headless CMS operations in Contentful -- list spaces, retrieve space metadata, and update space configurations  |
-| **[`dev`](./dev/SKILL.md)** | 📦 Library | `#specialized-community-skills` | Development workflows for the playwright-cli repository. Use when the user asks about rolling dependencies, releasing, o |
+| **[`dev`](./dev/SKILL.md)** | 📦 Library | `microsoft-playwright-cli` | Development workflows for the playwright-cli repository. Use when the user asks about rolling dependencies, releasing, o |
 | **[`e2e-testing-patterns`](./e2e-testing-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master end-to-end testing with Playwright and Cypress to build reliable test suites that catch bugs, improve confidence, |
 | **[`geo-crawlers`](./geo-crawlers/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | AI crawler access analysis. Checks robots.txt, meta tags, and HTTP headers to determine which AI crawlers can access the |
 | **[`geo-technical`](./geo-technical/SKILL.md)** | 📦 Library | `zubair-trabzada-geo-seo-claude` | Technical SEO audit with GEO-specific checks — crawlability, indexability, security, performance, SSR, and AI crawler ac |
@@ -41,7 +41,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`prismic-automation`](./prismic-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate headless CMS operations in Prismic -- query documents, search content, retrieve custom types, and manage reposi |
 | **[`qa`](./qa/SKILL.md)** | 📦 Library | `browser-use-skills` | QA-test a website or web app and return a 1-5 quality score (5 = flawless, 1 = broken) with evidence. Use when the user  |
 | **[`remote-browser`](./remote-browser/SKILL.md)** | 📦 Library | `browser-use-skills` | Controls an isolated Browser Use Cloud browser from a sandboxed machine with the current Browser Use CLI. |
-| **[`screenshots`](./screenshots/SKILL.md)** | 📦 Library | `#specialized-community-skills` | Generate marketing screenshots of your app using Playwright. Use when the user wants to create screenshots for Product H |
+| **[`screenshots`](./screenshots/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generate marketing screenshots of your app using Playwright. Use when the user wants to create screenshots for Product H |
 | **[`webapp-testing`](./webapp-testing/SKILL.md)** | 🟢 Active | `active-skills` | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functional |
 | **[`x402`](./x402/SKILL.md)** | 📦 Library | `browser-use-skills` | Set up Browser Use Cloud payments with x402 — pay per request from a crypto wallet (USDC on Base mainnet), no signup or  |
 

@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Skills in Category**: 64 real modular skills  
+> **Total Skills in Category**: 65 real modular skills  
 > **Directory**: [`.agents/category/business-strategy-legal`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (64 Skills)
+## 📑 Complete Skill Catalog (65 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -36,8 +36,8 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`fal-platform`](./fal-platform/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Platform APIs for model management, pricing, and usage tracking |
 | **[`finviz-screener`](./finviz-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Build and open FinViz screener URLs from natural language requests. Use when user wants to screen stocks, find stocks ma |
 | **[`founder-pricing`](./founder-pricing/SKILL.md)** | 📦 Library | `jakeschincariol-founder-skill` | - |
-| **[`geo-fundamentals`](./geo-fundamentals/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
-| **[`grill-me`](./grill-me/SKILL.md)** | 📦 Library | `#core-antigravity-library` | A relentless interview to sharpen a plan or design. |
+| **[`geo-fundamentals`](./geo-fundamentals/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
+| **[`grill-me`](./grill-me/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A relentless interview to sharpen a plan or design. |
 | **[`grow-sustainably`](./grow-sustainably/SKILL.md)** | 📦 Library | `slavingia-skills` | Evaluate business decisions through the lens of sustainable, profitable growth. Use when someone is making decisions abo |
 | **[`hig-foundations`](./hig-foundations/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`hiring-screener`](./hiring-screener/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Takes a pile of applications and turns it into a ranked shortlist, scored |
@@ -69,6 +69,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`research-synthesis`](./research-synthesis/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey res |
 | **[`review-contract`](./review-contract/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Review a contract against your organization's negotiation playbook — flag deviations, generate redlines, provide busines |
 | **[`roadmap-update`](./roadmap-update/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deciding what moves to make r |
+| **[`seo-fundamentals`](./seo-fundamentals/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`setup`](./setup/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | First-run setup - checks which tools are connected, shows what's connected and what each one unlocks, learns how you wri |
 | **[`signature-request`](./signature-request/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Prepare and route a document for e-signature — run a pre-signature checklist, configure signing order, and send for exec |
 | **[`solana-contracts`](./solana-contracts/SKILL.md)** | 📦 Library | `buzzbysolcex-buzz-bd-agent` | Modular agent skill module |
@@ -77,7 +78,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`stockbee-momentum-burst-screener`](./stockbee-momentum-burst-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Screen US stocks for Stockbee-style short-term Momentum Burst setups using 4% breakout, dollar breakout, range expansion |
 | **[`synthesize-research`](./synthesize-research/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of in |
 | **[`tailored-resume-generator`](./tailored-resume-generator/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills, and achievements to |
-| **[`to-spec`](./to-spec/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of w |
+| **[`to-spec`](./to-spec/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of w |
 | **[`triage-nda`](./triage-nda/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YELLOW (counsel review), or RED (full legal |
 | **[`user-research`](./user-research/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Plan, conduct, and synthesize user research. Trigger with "user research plan", "interview guide", "usability test", "su |
 | **[`vendor-review`](./vendor-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, decidi |

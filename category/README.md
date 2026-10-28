@@ -17,16 +17,16 @@
 | **[`scientific-bio-data`](./scientific-bio-data)** | 🔬 Scientific Bio-Informatics & Laboratory | **180** | [Open Catalog](./scientific-bio-data/README.md) |
 | **[`autonomous-agents-hermes`](./autonomous-agents-hermes)** | 🧠 NousResearch Hermes Agent Skills | **170** | [Open Catalog](./autonomous-agents-hermes/README.md) |
 | **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **152** | [Open Catalog](./frontend-ui-components/README.md) |
-| **[`architecture-system-design`](./architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **126** | [Open Catalog](./architecture-system-design/README.md) |
+| **[`architecture-system-design`](./architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **125** | [Open Catalog](./architecture-system-design/README.md) |
 | **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **123** | [Open Catalog](./business-sales-crm/README.md) |
 | **[`prompt-llm-engineering`](./prompt-llm-engineering)** | 💬 Prompt Engineering, LLMs & RAG | **121** | [Open Catalog](./prompt-llm-engineering/README.md) |
-| **[`programming-languages-core`](./programming-languages-core)** | 📐 Programming Languages & Type Systems | **98** | [Open Catalog](./programming-languages-core/README.md) |
+| **[`programming-languages-core`](./programming-languages-core)** | 📐 Programming Languages & Type Systems | **99** | [Open Catalog](./programming-languages-core/README.md) |
 | **[`video-motion-production`](./video-motion-production)** | 🎬 Video Creation & Generative Motion | **77** | [Open Catalog](./video-motion-production/README.md) |
 | **[`git-version-control`](./git-version-control)** | 🐙 Git, Worktrees & PR Workflows | **76** | [Open Catalog](./git-version-control/README.md) |
 | **[`testing-unit-tdd`](./testing-unit-tdd)** | 🧪 Unit Testing, TDD & Verification | **76** | [Open Catalog](./testing-unit-tdd/README.md) |
 | **[`devops-docker-cicd`](./devops-docker-cicd)** | 🚀 DevOps, Containers & Deployment | **70** | [Open Catalog](./devops-docker-cicd/README.md) |
 | **[`audio-voice-sound`](./audio-voice-sound)** | 🎙️ Audio, Voice Cloning & Sound Design | **67** | [Open Catalog](./audio-voice-sound/README.md) |
-| **[`business-strategy-legal`](./business-strategy-legal)** | 📋 Business Strategy, Legal & HR | **64** | [Open Catalog](./business-strategy-legal/README.md) |
+| **[`business-strategy-legal`](./business-strategy-legal)** | 📋 Business Strategy, Legal & HR | **65** | [Open Catalog](./business-strategy-legal/README.md) |
 | **[`frontend-motion-animation`](./frontend-motion-animation)** | ✨ UI Motion, Animations & Polish | **56** | [Open Catalog](./frontend-motion-animation/README.md) |
 | **[`terminal-system-tools`](./terminal-system-tools)** | 💻 Terminal, Shell & System Automation | **55** | [Open Catalog](./terminal-system-tools/README.md) |
 | **[`lobehub-ecosystem`](./lobehub-ecosystem)** | 🌐 LobeHub Agent Skills Suite | **54** | [Open Catalog](./lobehub-ecosystem/README.md) |
@@ -34,16 +34,16 @@
 | **[`productivity-workspace-tools`](./productivity-workspace-tools)** | 🚀 Productivity, Slack, Notion & Linear | **45** | [Open Catalog](./productivity-workspace-tools/README.md) |
 | **[`business-finance-accounting`](./business-finance-accounting)** | 💰 Financial Modeling, Tax & Accounting | **43** | [Open Catalog](./business-finance-accounting/README.md) |
 | **[`cloudflare-edge`](./cloudflare-edge)** | ☁️ Cloudflare Workers, Pages & Edge | **41** | [Open Catalog](./cloudflare-edge/README.md) |
-| **[`mobile-ios-android`](./mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **38** | [Open Catalog](./mobile-ios-android/README.md) |
 | **[`security-vulnerability-audit`](./security-vulnerability-audit)** | 🛡️ Vulnerability Auditing & Pentesting | **37** | [Open Catalog](./security-vulnerability-audit/README.md) |
+| **[`mobile-ios-android`](./mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **37** | [Open Catalog](./mobile-ios-android/README.md) |
 | **[`data-engineering-ml`](./data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **33** | [Open Catalog](./data-engineering-ml/README.md) |
 | **[`web3-smart-contracts`](./web3-smart-contracts)** | 🪙 Web3, Solidity & DeFi Architecture | **33** | [Open Catalog](./web3-smart-contracts/README.md) |
 | **[`diagrams-technical-visuals`](./diagrams-technical-visuals)** | 📊 Technical Diagrams & Isometric SVG | **31** | [Open Catalog](./diagrams-technical-visuals/README.md) |
 | **[`graphics-branding-design`](./graphics-branding-design)** | 🎨 Visual Design, Branding & Graphics | **29** | [Open Catalog](./graphics-branding-design/README.md) |
-| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **25** | [Open Catalog](./frontend-visual-taste/README.md) |
+| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **26** | [Open Catalog](./frontend-visual-taste/README.md) |
 | **[`testing-playwright-e2e`](./testing-playwright-e2e)** | 🎭 Playwright & Browser Automation | **24** | [Open Catalog](./testing-playwright-e2e/README.md) |
 | **[`multi-agent-orchestration`](./multi-agent-orchestration)** | 🤖 Multi-Agent Systems & Swarms | **24** | [Open Catalog](./multi-agent-orchestration/README.md) |
-| **[`algorithms-logic`](./algorithms-logic)** | 🧮 Algorithms, Logic & Math | **21** | [Open Catalog](./algorithms-logic/README.md) |
+| **[`algorithms-logic`](./algorithms-logic)** | 🧮 Algorithms, Logic & Math | **20** | [Open Catalog](./algorithms-logic/README.md) |
 | **[`database-nosql-serverless`](./database-nosql-serverless)** | ⚡ NoSQL, Serverless & Vector DBs | **20** | [Open Catalog](./database-nosql-serverless/README.md) |
 | **[`academic-writing-publishing`](./academic-writing-publishing)** | 📚 Academic Writing, Research & Literature | **17** | [Open Catalog](./academic-writing-publishing/README.md) |
 | **[`3d-web-threejs`](./3d-web-threejs)** | 🧊 3D Web Experiences & Three.js | **14** | [Open Catalog](./3d-web-threejs/README.md) |

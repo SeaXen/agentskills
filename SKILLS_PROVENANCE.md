@@ -3,12 +3,12 @@
 > **Workspace**: `D:\Repo\.agents`  
 > **Active Installed Skills**: 87 curated engineering skills in `.agents/skills`  
 > **Category Directories**: 38 granular functional domains in `.agents/category`  
-> **Offline Reserve Library**: 3,990 skills across 221 repositories in `.agents/library`  
+> **Offline Reserve Library**: 3,920 skills across 219 repositories in `.agents/library`  
 > **Specialist Personas**: 20 domain agents  
 > **Autonomous Workflows**: 17 slash commands  
-> **Total Origin Repositories**: 221 upstream sources cataloged  
+> **Total Origin Repositories**: 219 100% upstream GitHub repositories cataloged  
 > **Last Synced**: 2026-10-28  
-> **Purpose**: Complete tracking of every skill's upstream origin, author, repository URL, and exact CLI commands to activate or update.
+> **Structure**: **Pure 1:1 Upstream GitHub Repositories** (Zero ambiguous `#` composite collections).
 
 ---
 
@@ -18,7 +18,7 @@
    ```bash
    python .agents/update.py --find <keyword>
    ```
-2. **Activate Any Skill from the 221 Offline Repositories**:
+2. **Activate Any Skill from the 219 Offline Repositories**:
    ```bash
    python .agents/library/activate_skill.py link <skill-name>
    ```
@@ -29,22 +29,12 @@
 
 ---
 
-> [!TIP]
-> **Folder Naming Convention (`#` Prefix for Local Collections)**:  
-> Folders prefixed with **`#`** (e.g. [`#specialized-community-skills`](./library/%23specialized-community-skills) and [`#core-antigravity-library`](./library/%23core-antigravity-library)) contain author-custom skills (like your custom `app-production-readiness`) or local fallback bundles.  
-> All upstream community skills have now been mapped and imported directly from their respective GitHub repositories.
+## 📚 Complete Offline Reserve Library Repositories (219 Repositories, 3,920 Skills)
 
----
-
-## 📚 Complete Offline Reserve Library Repositories (221 Repositories, 3,990 Skills)
-
-Every repository below is fully preserved on disk in `.agents/library/`, ready for zero-latency instant activation into your active workspace without incurring active prompt token overhead:
+Every repository below is a true, cataloged GitHub repository preserved on disk in `.agents/library/`, ready for zero-latency instant activation into your active workspace without incurring active prompt token overhead:
 
 | Repository Folder | Category | Skills | Upstream Source | Activation / Link Command |
 | :--- | :--- | :---: | :--- | :--- |
-| **[`#antigravity-elite-protocols`](./library/%23antigravity-elite-protocols)** | 🏛️ Core Standards & Author-Custom Skills | 4 | `#antigravity-elite-protocols` (Local / Author Custom) | `python .agents/library/activate_skill.py link battle` |
-| **[`#core-antigravity-library`](./library/%23core-antigravity-library)** | 🏛️ Core Standards & Author-Custom Skills | 162 | `#core-antigravity-library` (Local / Author Custom) | `python .agents/library/activate_skill.py link 3d-web-experience` |
-| **[`#specialized-community-skills`](./library/%23specialized-community-skills)** | 🏛️ Core Standards & Author-Custom Skills | 20 | `#specialized-community-skills` (Local / Author Custom) | `python .agents/library/activate_skill.py link app-production-readiness` |
 | **[`0x0funky-agent-sprite-forge`](./library/0x0funky-agent-sprite-forge)** | Specialized Developer & AI Capabilities | 1 | [0x0funky/agent-sprite-forge](https://github.com/0x0funky/agent-sprite-forge) | `python .agents/library/activate_skill.py link codeart2d` |
 | **[`academic-research-skills`](./library/academic-research-skills)** | Specialized Developer & AI Capabilities | 5 | [imbad0202/academic-research-skills](https://github.com/imbad0202/academic-research-skills) | `python .agents/library/activate_skill.py link academic-paper` |
 | **[`addyosmani-agent-skills`](./library/addyosmani-agent-skills)** | Specialized Developer & AI Capabilities | 25 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | `python .agents/library/activate_skill.py link api-and-interface-design` |
@@ -63,7 +53,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`antfu-skills`](./library/antfu-skills)** | Specialized Developer & AI Capabilities | 12 | [antfu/skills](https://github.com/antfu/skills) | `python .agents/library/activate_skill.py link antfu` |
 | **[`anthropics-knowledge-work`](./library/anthropics-knowledge-work)** | Specialized Developer & AI Capabilities | 216 | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | `python .agents/library/activate_skill.py link accessibility-review` |
 | **[`anthropics-official-skills`](./library/anthropics-official-skills)** | Specialized Developer & AI Capabilities | 20 | [anthropics/skills](https://github.com/anthropics/skills) | `python .agents/library/activate_skill.py link academy-guide` |
-| **[`antigravity-awesome-skills`](./library/antigravity-awesome-skills)** | Specialized Developer & AI Capabilities | 876 | [benjaminasterA/antigravity-awesome-skills](https://github.com/benjaminasterA/antigravity-awesome-skills) | `python .agents/library/activate_skill.py link 3d-web-experience` |
+| **[`antigravity-awesome-skills`](./library/antigravity-awesome-skills)** | Specialized Developer & AI Capabilities | 975 | [benjaminasterA/antigravity-awesome-skills](https://github.com/benjaminasterA/antigravity-awesome-skills) | `python .agents/library/activate_skill.py link 3d-web-experience` |
 | **[`anysearch-ai-anysearch-skill`](./library/anysearch-ai-anysearch-skill)** | Specialized Developer & AI Capabilities | 2 | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | `python .agents/library/activate_skill.py link anysearch` |
 | **[`ar9av-obsidian-wiki`](./library/ar9av-obsidian-wiki)** | Specialized Developer & AI Capabilities | 1 | [Ar9av/obsidian-wiki](https://github.com/Ar9av/obsidian-wiki) | `python .agents/library/activate_skill.py link obsidian-wiki` |
 | **[`assafkip-claudemy`](./library/assafkip-claudemy)** | Specialized Developer & AI Capabilities | 1 | [assafkip/claudemy](https://github.com/assafkip/claudemy) | `python .agents/library/activate_skill.py link claudemy` |
@@ -79,7 +69,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`browserbase-skills`](./library/browserbase-skills)** | Specialized Developer & AI Capabilities | 18 | [browserbase/skills](https://github.com/browserbase/skills) | `python .agents/library/activate_skill.py link add-webmcp` |
 | **[`brycewang-stanford-auto-empirical-research-skills`](./library/brycewang-stanford-auto-empirical-research-skills)** | Specialized Developer & AI Capabilities | 2 | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | `python .agents/library/activate_skill.py link auto-empirical-research` |
 | **[`builderio-skills`](./library/builderio-skills)** | Specialized Developer & AI Capabilities | 1 | [BuilderIO/skills](https://github.com/BuilderIO/skills) | `python .agents/library/activate_skill.py link adding-a-skill` |
-| **[`buzzbysolcex-buzz-bd-agent`](./library/buzzbysolcex-buzz-bd-agent)** | Specialized Developer & AI Capabilities | 37 | [buzzbysolcex/buzz-bd-agent](https://github.com/buzzbysolcex/buzz-bd-agent) | `python .agents/library/activate_skill.py link agent-contexts` |
+| **[`buzzbysolcex-buzz-bd-agent`](./library/buzzbysolcex-buzz-bd-agent)** | Specialized Developer & AI Capabilities | 38 | [buzzbysolcex/buzz-bd-agent](https://github.com/buzzbysolcex/buzz-bd-agent) | `python .agents/library/activate_skill.py link agent-contexts` |
 | **[`charlie947-social-media-skills`](./library/charlie947-social-media-skills)** | Specialized Developer & AI Capabilities | 17 | [charlie947/social-media-skills](https://github.com/charlie947/social-media-skills) | `python .agents/library/activate_skill.py link analytics-dashboard` |
 | **[`chezou-productivity-skills`](./library/chezou-productivity-skills)** | Specialized Developer & AI Capabilities | 3 | [chezou/skills](https://github.com/chezou/skills) | `python .agents/library/activate_skill.py link company-research` |
 | **[`claude-vibe-skills`](./library/claude-vibe-skills)** | Specialized Developer & AI Capabilities | 1 | [darthrater78/claude-vibe-skills](https://github.com/darthrater78/claude-vibe-skills) | `python .agents/library/activate_skill.py link dev-skills` |
@@ -87,7 +77,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`clipcat-ai-clipcat-skill`](./library/clipcat-ai-clipcat-skill)** | Specialized Developer & AI Capabilities | 1 | [Clipcat-ai/clipcat-skill](https://github.com/Clipcat-ai/clipcat-skill) | `python .agents/library/activate_skill.py link clipcat` |
 | **[`cloudai-x-threejs-skills`](./library/cloudai-x-threejs-skills)** | Specialized Developer & AI Capabilities | 13 | [CloudAI-X/threejs-skills](https://github.com/CloudAI-X/threejs-skills) | `python .agents/library/activate_skill.py link threejs-animation` |
 | **[`cloudflare-security-audit`](./library/cloudflare-security-audit)** | Specialized Developer & AI Capabilities | 1 | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `python .agents/library/activate_skill.py link security-audit` |
-| **[`cloudflare-skills`](./library/cloudflare-skills)** | Specialized Developer & AI Capabilities | 4 | [cloudflare/skills](https://github.com/cloudflare/skills) | `python .agents/library/activate_skill.py link cloudflare` |
+| **[`cloudflare-skills`](./library/cloudflare-skills)** | Specialized Developer & AI Capabilities | 5 | [cloudflare/skills](https://github.com/cloudflare/skills) | `python .agents/library/activate_skill.py link cloudflare` |
 | **[`cocoon-ai-architecture-diagram-generator`](./library/cocoon-ai-architecture-diagram-generator)** | Specialized Developer & AI Capabilities | 1 | [Cocoon-AI/architecture-diagram-generator](https://github.com/Cocoon-AI/architecture-diagram-generator) | `python .agents/library/activate_skill.py link architecture-diagram` |
 | **[`coleam00-excalidraw-diagram-skill`](./library/coleam00-excalidraw-diagram-skill)** | Specialized Developer & AI Capabilities | 2 | [coleam00/excalidraw-diagram-skill](https://github.com/coleam00/excalidraw-diagram-skill) | `python .agents/library/activate_skill.py link coleam00-excalidraw-diagram` |
 | **[`composio-community-awesome-codex-skills`](./library/composio-community-awesome-codex-skills)** | Specialized Developer & AI Capabilities | 3 | [composio-community/awesome-codex-skills](https://github.com/composio-community/awesome-codex-skills) | `python .agents/library/activate_skill.py link agent-deep-links` |
@@ -119,7 +109,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`feitangyuan-onetake`](./library/feitangyuan-onetake)** | Specialized Developer & AI Capabilities | 1 | [feitangyuan/onetake](https://github.com/feitangyuan/onetake) | `python .agents/library/activate_skill.py link onetake` |
 | **[`fengzhenfei-carrel`](./library/fengzhenfei-carrel)** | Specialized Developer & AI Capabilities | 1 | [FengZhenfei/carrel](https://github.com/FengZhenfei/carrel) | `python .agents/library/activate_skill.py link carrel-search` |
 | **[`genspark-ai-genoffice`](./library/genspark-ai-genoffice)** | Specialized Developer & AI Capabilities | 1 | [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) | `python .agents/library/activate_skill.py link genoffice` |
-| **[`getsentry-skills`](./library/getsentry-skills)** | Specialized Developer & AI Capabilities | 30 | [getsentry/sentry-for-ai](https://github.com/getsentry/sentry-for-ai) | `python .agents/library/activate_skill.py link agents-md` |
+| **[`getsentry-skills`](./library/getsentry-skills)** | Specialized Developer & AI Capabilities | 31 | [getsentry/sentry-for-ai](https://github.com/getsentry/sentry-for-ai) | `python .agents/library/activate_skill.py link agents-md` |
 | **[`github-awesome-copilot`](./library/github-awesome-copilot)** | Specialized Developer & AI Capabilities | 3 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | `python .agents/library/activate_skill.py link agentic-workflows` |
 | **[`google-elephant-goldfish-model`](./library/google-elephant-goldfish-model)** | Specialized Developer & AI Capabilities | 7 | [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) | `python .agents/library/activate_skill.py link egm-bootstrap` |
 | **[`google-gemini-gemini-skills`](./library/google-gemini-gemini-skills)** | Specialized Developer & AI Capabilities | 3 | [google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills) | `python .agents/library/activate_skill.py link gemini-api-dev` |
@@ -135,7 +125,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`howseen-ai-claude-motion-design`](./library/howseen-ai-claude-motion-design)** | Specialized Developer & AI Capabilities | 1 | [howseen-ai/claude-motion-design](https://github.com/howseen-ai/claude-motion-design) | `python .agents/library/activate_skill.py link claude-motion-design` |
 | **[`huggingface-skills`](./library/huggingface-skills)** | Specialized Developer & AI Capabilities | 24 | [huggingface/skills](https://github.com/huggingface/skills) | `python .agents/library/activate_skill.py link hf-cli` |
 | **[`humanize-skills`](./library/humanize-skills)** | Specialized Developer & AI Capabilities | 1 | [gencharitaci/humanize-skills](https://github.com/gencharitaci/humanize-skills) | `python .agents/library/activate_skill.py link humanize-skills` |
-| **[`humanlayer-skills`](./library/humanlayer-skills)** | Specialized Developer & AI Capabilities | 1 | [humanlayer/skills](https://github.com/humanlayer/skills) | `python .agents/library/activate_skill.py link build-iterated-agentic-loop` |
+| **[`humanlayer-skills`](./library/humanlayer-skills)** | Specialized Developer & AI Capabilities | 2 | [humanlayer/skills](https://github.com/humanlayer/skills) | `python .agents/library/activate_skill.py link build-iterated-agentic-loop` |
 | **[`ibelick-ui-skills`](./library/ibelick-ui-skills)** | Specialized Developer & AI Capabilities | 1 | [ibelick/ui-skills](https://github.com/ibelick/ui-skills) | `python .agents/library/activate_skill.py link ui` |
 | **[`imbad0202-academic-research-skills-codex`](./library/imbad0202-academic-research-skills-codex)** | Specialized Developer & AI Capabilities | 1 | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) | `python .agents/library/activate_skill.py link academic-research-suite` |
 | **[`internet-court-internet-court-skill`](./library/internet-court-internet-court-skill)** | Specialized Developer & AI Capabilities | 2 | [internet-court/internet-court-skill](https://github.com/internet-court/internet-court-skill) | `python .agents/library/activate_skill.py link internet-court` |
@@ -176,7 +166,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`mengto-skills`](./library/mengto-skills)** | Specialized Developer & AI Capabilities | 1 | [MengTo/Skills](https://github.com/MengTo/Skills) | `python .agents/library/activate_skill.py link skills` |
 | **[`metalbear-co-mirrord`](./library/metalbear-co-mirrord)** | Specialized Developer & AI Capabilities | 1 | [metalbear-co/mirrord](https://github.com/metalbear-co/mirrord) | `python .agents/library/activate_skill.py link mirrord` |
 | **[`michael-denyer-pstack-claude`](./library/michael-denyer-pstack-claude)** | Specialized Developer & AI Capabilities | 1 | [michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude) | `python .agents/library/activate_skill.py link pstack-claude` |
-| **[`microsoft-playwright-cli`](./library/microsoft-playwright-cli)** | Specialized Developer & AI Capabilities | 2 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | `python .agents/library/activate_skill.py link dev` |
+| **[`microsoft-playwright-cli`](./library/microsoft-playwright-cli)** | Specialized Developer & AI Capabilities | 3 | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) | `python .agents/library/activate_skill.py link dev` |
 | **[`minimax-ai-skills`](./library/minimax-ai-skills)** | Specialized Developer & AI Capabilities | 1 | [MiniMax-AI/skills](https://github.com/MiniMax-AI/skills) | `python .agents/library/activate_skill.py link pr-review` |
 | **[`miqdadbadjuber-anti-slop`](./library/miqdadbadjuber-anti-slop)** | Specialized Developer & AI Capabilities | 1 | [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) | `python .agents/library/activate_skill.py link anti-slop` |
 | **[`mrbongoc-ai-iso-skill`](./library/mrbongoc-ai-iso-skill)** | Specialized Developer & AI Capabilities | 1 | [MrBongoC/ai-iso-skill](https://github.com/MrBongoC/ai-iso-skill) | `python .agents/library/activate_skill.py link iso-figure` |
@@ -207,7 +197,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`opensensenova-sensenova-skills`](./library/opensensenova-sensenova-skills)** | Specialized Developer & AI Capabilities | 1 | [OpenSenseNova/SenseNova-Skills](https://github.com/OpenSenseNova/SenseNova-Skills) | `python .agents/library/activate_skill.py link sensenova` |
 | **[`orchestra-research-ai-research-skills`](./library/orchestra-research-ai-research-skills)** | Specialized Developer & AI Capabilities | 1 | [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs) | `python .agents/library/activate_skill.py link 0-autoresearch-skill` |
 | **[`othmanadi-planning-with-files`](./library/othmanadi-planning-with-files)** | Specialized Developer & AI Capabilities | 1 | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | `python .agents/library/activate_skill.py link planning-with-files` |
-| **[`pbakaus-impeccable`](./library/pbakaus-impeccable)** | Specialized Developer & AI Capabilities | 1 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | `python .agents/library/activate_skill.py link impeccable` |
+| **[`pbakaus-impeccable`](./library/pbakaus-impeccable)** | Specialized Developer & AI Capabilities | 3 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | `python .agents/library/activate_skill.py link impeccable` |
 | **[`phuryn-pm-skills`](./library/phuryn-pm-skills)** | Specialized Developer & AI Capabilities | 1 | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | `python .agents/library/activate_skill.py link pm` |
 | **[`plannotator-effective-html`](./library/plannotator-effective-html)** | Specialized Developer & AI Capabilities | 1 | [plannotator/effective-html](https://github.com/plannotator/effective-html) | `python .agents/library/activate_skill.py link effective-html` |
 | **[`pleaseprompto-notebooklm-skill`](./library/pleaseprompto-notebooklm-skill)** | Specialized Developer & AI Capabilities | 2 | [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) | `python .agents/library/activate_skill.py link notebooklm` |
@@ -224,6 +214,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`sanyuan0704-sanyuan-skills`](./library/sanyuan0704-sanyuan-skills)** | Specialized Developer & AI Capabilities | 6 | [sanyuan0704/sanyuan-skills](https://github.com/sanyuan0704/sanyuan-skills) | `python .agents/library/activate_skill.py link book-study` |
 | **[`sawyerhood-dev-browser`](./library/sawyerhood-dev-browser)** | Specialized Developer & AI Capabilities | 1 | [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | `python .agents/library/activate_skill.py link dev-browser` |
 | **[`scrapecreators-social-media-research-skills`](./library/scrapecreators-social-media-research-skills)** | Specialized Developer & AI Capabilities | 13 | [ScrapeCreators/social-media-research-skills](https://github.com/ScrapeCreators/social-media-research-skills) | `python .agents/library/activate_skill.py link ad-library-teardown` |
+| **[`seaxen-app-production-readiness`](./library/seaxen-app-production-readiness)** | Specialized Developer & AI Capabilities | 2 | [SeaXen/app-production-readiness](https://github.com/SeaXen/app-production-readiness) | `python .agents/library/activate_skill.py link app-production-readiness` |
 | **[`sergebulaev-linkedin-skills`](./library/sergebulaev-linkedin-skills)** | Specialized Developer & AI Capabilities | 1 | [sergebulaev/linkedin-skills](https://github.com/sergebulaev/linkedin-skills) | `python .agents/library/activate_skill.py link linkedin` |
 | **[`shadcn-ui-ui`](./library/shadcn-ui-ui)** | Specialized Developer & AI Capabilities | 2 | [shadcn/ui-ui](https://github.com/shadcn/ui-ui) | `python .agents/library/activate_skill.py link migrate-radix-to-base` |
 | **[`simoneavogadro-android-reverse-engineering-skill`](./library/simoneavogadro-android-reverse-engineering-skill)** | Specialized Developer & AI Capabilities | 1 | [SimoneAvogadro/android-reverse-engineering-skill](https://github.com/SimoneAvogadro/android-reverse-engineering-skill) | `python .agents/library/activate_skill.py link android-reverse-engineering` |
@@ -231,7 +222,7 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`sleekdotdesign-agent-skills`](./library/sleekdotdesign-agent-skills)** | Specialized Developer & AI Capabilities | 1 | [sleekdotdesign/agent-skills](https://github.com/sleekdotdesign/agent-skills) | `python .agents/library/activate_skill.py link design-mobile-apps` |
 | **[`snailsploit-claude-red`](./library/snailsploit-claude-red)** | Specialized Developer & AI Capabilities | 0 | [SnailSploit/Claude-Red](https://github.com/SnailSploit/Claude-Red) | `python .agents/library/activate_skill.py link skill-name` |
 | **[`supabase-agent-skills`](./library/supabase-agent-skills)** | Specialized Developer & AI Capabilities | 2 | [supabase/agent-skills](https://github.com/supabase/agent-skills) | `python .agents/library/activate_skill.py link supabase` |
-| **[`taste-skill`](./library/taste-skill)** | Specialized Developer & AI Capabilities | 1 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `python .agents/library/activate_skill.py link taste-skill` |
+| **[`taste-skill`](./library/taste-skill)** | Specialized Developer & AI Capabilities | 2 | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | `python .agents/library/activate_skill.py link design-taste-frontend` |
 | **[`tejashmakwana-motionmaxxing`](./library/tejashmakwana-motionmaxxing)** | Specialized Developer & AI Capabilities | 1 | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) | `python .agents/library/activate_skill.py link motionmaxxing` |
 | **[`tigerless-labs-autoharness`](./library/tigerless-labs-autoharness)** | Specialized Developer & AI Capabilities | 1 | [tigerless-labs/autoharness](https://github.com/tigerless-labs/autoharness) | `python .agents/library/activate_skill.py link autoharness` |
 | **[`tigerless-labs-seo-ops`](./library/tigerless-labs-seo-ops)** | Specialized Developer & AI Capabilities | 1 | [tigerless-labs/seo-ops](https://github.com/tigerless-labs/seo-ops) | `python .agents/library/activate_skill.py link seo-ops` |
@@ -248,9 +239,9 @@ Every repository below is fully preserved on disk in `.agents/library/`, ready f
 | **[`underleveledbuilder-awesome-short-drama-skills`](./library/underleveledbuilder-awesome-short-drama-skills)** | Specialized Developer & AI Capabilities | 1 | [UnderleveledBuilder/awesome-short-drama-skills](https://github.com/UnderleveledBuilder/awesome-short-drama-skills) | `python .agents/library/activate_skill.py link short-drama-skill-finder` |
 | **[`vercel-agent-skills`](./library/vercel-agent-skills)** | Specialized Developer & AI Capabilities | 9 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | `python .agents/library/activate_skill.py link deploy-to-vercel` |
 | **[`vercel-labs-skills`](./library/vercel-labs-skills)** | Specialized Developer & AI Capabilities | 4 | [vercel-labs/skills](https://github.com/vercel-labs/skills) | `python .agents/library/activate_skill.py link docs` |
-| **[`vibeforge1111-vibeship-spawner-skills`](./library/vibeforge1111-vibeship-spawner-skills)** | Specialized Developer & AI Capabilities | 1 | [vibeforge1111/vibeship-spaw](https://github.com/vibeforge1111/vibeship-spaw) | `python .agents/library/activate_skill.py link vibeship-spawner` |
+| **[`vibeforge1111-vibeship-spawner-skills`](./library/vibeforge1111-vibeship-spawner-skills)** | Specialized Developer & AI Capabilities | 4 | [vibeforge1111/vibeship-spaw](https://github.com/vibeforge1111/vibeship-spaw) | `python .agents/library/activate_skill.py link 3d-web-experience` |
 | **[`virgiliojr94-book-to-skill`](./library/virgiliojr94-book-to-skill)** | Specialized Developer & AI Capabilities | 2 | [virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill) | `python .agents/library/activate_skill.py link book-to-skill` |
-| **[`vudovn-antigravity-kit`](./library/vudovn-antigravity-kit)** | Specialized Developer & AI Capabilities | 47 | [vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit) | `python .agents/library/activate_skill.py link api-patterns` |
+| **[`vudovn-antigravity-kit`](./library/vudovn-antigravity-kit)** | Specialized Developer & AI Capabilities | 51 | [vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit) | `python .agents/library/activate_skill.py link antigravity-expert` |
 | **[`wanshuiyin-auto-claude-code-research-in-sleep`](./library/wanshuiyin-auto-claude-code-research-in-sleep)** | Specialized Developer & AI Capabilities | 1 | [wanshuiyin/Auto-claude-code-research-in-sleep](https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep) | `python .agents/library/activate_skill.py link auto-claude-code-research-in-sleep` |
 | **[`wiltodelta-remove-ai-watermarks`](./library/wiltodelta-remove-ai-watermarks)** | Specialized Developer & AI Capabilities | 2 | [wiltodelta/remove-ai-watermarks](https://github.com/wiltodelta/remove-ai-watermarks) | `python .agents/library/activate_skill.py link provider-oracles` |
 | **[`worldflowai-everything-claude-code`](./library/worldflowai-everything-claude-code)** | Specialized Developer & AI Capabilities | 11 | [WorldFlowAI/everything-claude-code](https://github.com/WorldFlowAI/everything-claude-code) | `python .agents/library/activate_skill.py link backend-patterns` |

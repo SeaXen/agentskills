@@ -62,10 +62,10 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`k8s-security-policies`](./k8s-security-policies/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement Kubernetes security policies including NetworkPolicy, PodSecurityPolicy, and RBAC for production-grade securit |
 | **[`knap`](./knap/SKILL.md)** | 📦 Library | `kepano-obsidian-skills` | Render Markdown from templates and structured data using Knap CLI. Use when the user asks to apply a Knap template, turn |
 | **[`kubernetes-architect`](./kubernetes-architect/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert Kubernetes architect specializing in cloud-native |
-| **[`kubernetes-operator`](./kubernetes-operator/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Kubernetes orchestration, Helm chart authoring, production manifest design, and cluster debugging. Use when writing k8s  |
-| **[`netlify-deploy`](./netlify-deploy/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, o |
+| **[`kubernetes-operator`](./kubernetes-operator/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Kubernetes orchestration, Helm chart authoring, production manifest design, and cluster debugging. Use when writing k8s  |
+| **[`netlify-deploy`](./netlify-deploy/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, o |
 | **[`nitro`](./nitro/SKILL.md)** | 📦 Library | `antfu-skills` | Nitro is the framework-agnostic server toolkit (powering Nuxt) for building and deploying web servers anywhere. Use when |
-| **[`portable-deploy-qa`](./portable-deploy-qa/SKILL.md)** | 📦 Library | `#specialized-community-skills` | (Legacy alias for app-production-readiness) Build portable apps (any stack - TypeScript, Python, Go, Rust) for localhost |
+| **[`portable-deploy-qa`](./portable-deploy-qa/SKILL.md)** | 📦 Library | `seaxen-app-production-readiness` | (Legacy alias for app-production-readiness) Build portable apps (any stack - TypeScript, Python, Go, Rust) for localhost |
 | **[`qwen-image-2`](./qwen-image-2/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Generate and edit images with Alibaba Qwen-Image-2.0 models via inference.sh CLI. Models: Qwen-Image-2.0 (fast), Qwen-Im |
 | **[`qwen-image-2-pro`](./qwen-image-2-pro/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Generate images with Alibaba Qwen-Image-2.0-Pro via inference.sh CLI. Professional text rendering, fine-grained realism, |
 | **[`react-best-practices`](./react-best-practices/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, r |
@@ -75,12 +75,12 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`secrets-management`](./secrets-management/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement secure secrets management for CI/CD pipelines using Vault, AWS Secrets Manager, or native platform solutions.  |
 | **[`ship`](./ship/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Pre-release gate. Run the full gate, responsive + render checks, then produce the release checklist (README badge/curren |
 | **[`shipping-and-launch`](./shipping-and-launch/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Prepares production launches. Use when preparing to deploy to production, or when asking what needs to be in place befor |
-| **[`teamcity-cli`](./teamcity-cli/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL — drives the `teamcity` CLI for builds |
+| **[`teamcity-cli`](./teamcity-cli/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL — drives the `teamcity` CLI for builds |
 | **[`terraform-module-library`](./terraform-module-library/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build reusable Terraform modules for AWS, Azure, and GCP infrastructure following infrastructure-as-code best practices. |
 | **[`terraform-skill`](./terraform-skill/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Terraform infrastructure as code best practices |
 | **[`terraform-specialist`](./terraform-specialist/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert Terraform/OpenTofu specialist mastering advanced IaC |
 | **[`unity-developer`](./unity-developer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build Unity games with optimized C# scripts, efficient rendering, |
-| **[`use-railway`](./use-railway/SKILL.md)** | 📦 Library | `#core-antigravity-library` | Operate Railway infrastructure: sign up for or sign in to a Railway account, |
+| **[`use-railway`](./use-railway/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Operate Railway infrastructure: sign up for or sign in to a Railway account, |
 | **[`vercel-automation`](./vercel-automation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Automate Vercel tasks via Rube MCP (Composio): manage deployments, domains, DNS, env vars, projects, and teams. Always s |
 | **[`vercel-cli-with-tokens`](./vercel-cli-with-tokens/SKILL.md)** | 📦 Library | `vercel-agent-skills` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tok |
 | **[`vercel-composition-patterns`](./vercel-composition-patterns/SKILL.md)** | 📦 Library | `vercel-agent-skills` | React composition patterns that scale. Use when refactoring components with |
