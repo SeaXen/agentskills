@@ -2,7 +2,6 @@
 name: sepia-review
 description: Use when a user explicitly requests Sepia review to diagnose prose without editing.
 license: MIT
-category: code-quality-refactoring
 ---
 
 # Sepia review

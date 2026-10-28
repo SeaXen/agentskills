@@ -2,7 +2,6 @@
 name: sepia-write
 description: Use when a user explicitly requests Sepia write to create new prose.
 license: MIT
-category: code-quality-refactoring
 ---
 
 # Sepia write

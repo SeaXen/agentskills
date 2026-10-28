@@ -2,7 +2,6 @@
 name: sepia-refactor
 description: Use when a user explicitly requests Sepia refactor for minimal in-place prose revision.
 license: MIT
-category: code-quality-refactoring
 ---
 
 # Sepia refactor

@@ -2,7 +2,6 @@
 name: sepia-recreate
 description: Use when a user explicitly requests Sepia recreate for a full rewrite.
 license: MIT
-category: code-quality-refactoring
 ---
 
 # Sepia recreate

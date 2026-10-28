@@ -1,7 +1,6 @@
 ---
 name: developing-openrig
 description: "Use when changing OpenRig's own source in a clone of the openrig repository: finding which package or file owns a behaviour, choosing which tests to run, testing a change without disturbing the OpenRig daemon your own session runs on, judging whether a diff touches a high-risk area, or preparing a pull request. Not for operating rigs (openrig-skills) or designing rig topologies."
-category: git-version-control
 ---
 
 # Developing OpenRig

@@ -2,7 +2,6 @@
 name: sepia-hemingway
 description: Use when a user asks to write or revise fiction in the Hemingway manner, or asks for strong de-AI on a story; applies Sepia's built-in Hemingway voice profile.
 license: MIT
-category: audio-voice-sound
 ---
 
 # Sepia with the Hemingway voice
