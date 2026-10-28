@@ -49,6 +49,7 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 - **Constraints**:
   - Absolute zero external runtime JavaScript or CSS dependencies (no React, no Vue, no Tailwind, no external CDN trackers). Only Tabler icons are pulled via CDN with local SVG fallbacks.
   - Strict preservation of offline capability for all local development and activation workflows.
+  - **Full Repository File Retention**: When skills or repositories are downloaded or updated from upstreams, all files of that repo (docs, scripts, examples, assets) stay intact in the files. Files are never deleted automatically; they are deleted only when the user explicitly instructs to delete them.
 
 ## Brand Commitments
 

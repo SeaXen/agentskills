@@ -4,7 +4,7 @@ Antigravity Agent Skills Vault - Unified Upstream Sync & Maintenance Engine
 Automates:
   1. Multi-repository remote upstream sync across all 224 libraries
   2. Automatic detection and ingestion of NEW skills added to upstream repos
-  3. Strict 3-item standard enforcement (['skills', 'README.md', 'skills_index.json'], 0 .git)
+  3. Full repository file retention (keep all upstream files, docs, and assets intact; zero auto-deletion)
   4. Active skills synchronization (.agents/skills)
   5. Dual skills-lock.json synchronization (Repo and Workspace)
   6. Automated 38-category taxonomy rebuild (.agents/category)
@@ -238,39 +238,58 @@ def sync_all_upstreams(force=False):
                 continue
 
             target_repo_dir = os.path.join(library_dir, repo_id)
+            os.makedirs(target_repo_dir, exist_ok=True)
+
+            # Copy all files and directories of the repo into target_repo_dir (retain all files!)
+            for item in os.listdir(c_temp):
+                if item == '.git':
+                    continue
+                s_item = os.path.join(c_temp, item)
+                d_item = os.path.join(target_repo_dir, item)
+                if os.path.isdir(s_item):
+                    if item == 'skills':
+                        os.makedirs(d_item, exist_ok=True)
+                        for sk in os.listdir(s_item):
+                            sk_src = os.path.join(s_item, sk)
+                            sk_dst = os.path.join(d_item, sk)
+                            if os.path.exists(sk_dst):
+                                shutil.rmtree(sk_dst, onerror=remove_readonly)
+                            if os.path.isdir(sk_src):
+                                shutil.copytree(sk_src, sk_dst)
+                    else:
+                        if os.path.exists(d_item):
+                            shutil.rmtree(d_item, onerror=remove_readonly)
+                        shutil.copytree(s_item, d_item)
+                else:
+                    shutil.copy2(s_item, d_item)
+
+            # Ensure any SKILL.md found in subdirectories are organized under target_repo_dir/skills/
             target_skills_dir = os.path.join(target_repo_dir, 'skills')
             os.makedirs(target_skills_dir, exist_ok=True)
-
             for root, dirs, files in os.walk(c_temp):
                 if 'SKILL.md' in files:
                     s_name = os.path.basename(root)
                     if s_name in ['skills', 'plugins', '.curated', '.system']:
                         continue
                     s_dst = os.path.join(target_skills_dir, s_name)
-                    if os.path.exists(s_dst):
-                        shutil.rmtree(s_dst, onerror=remove_readonly)
-                    shutil.copytree(root, s_dst)
+                    if not os.path.exists(s_dst):
+                        shutil.copytree(root, s_dst)
 
             if remote_commit:
                 commit_file = os.path.join(target_repo_dir, '.upstream_commit')
                 with open(commit_file, 'w', encoding='utf-8') as cf:
                     cf.write(remote_commit)
 
+            # Clean only nested .git to avoid Git submodule conflicts
             for root, dirs, files in os.walk(target_repo_dir):
                 if '.git' in dirs:
                     shutil.rmtree(os.path.join(root, '.git'), onerror=remove_readonly)
-            for item in os.listdir(target_repo_dir):
-                if item in ['skills', 'README.md', 'skills_index.json', '.upstream_commit']:
-                    continue
-                p = os.path.join(target_repo_dir, item)
-                if os.path.isdir(p):
-                    shutil.rmtree(p, onerror=remove_readonly)
-                else:
-                    os.chmod(p, stat.S_IWRITE)
-                    os.remove(p)
+
+            # USER POLICY: All repo files are intentionally retained in place (zero auto-deletion).
+            # Files are deleted ONLY when the user explicitly instructs to delete them.
 
             shutil.rmtree(c_temp, onerror=remove_readonly)
-            print(f"  ✓ {repo_id:32}: updated to {remote_commit[:8]}", flush=True)
+            print(f"  ✓ {repo_id:32}: updated to {remote_commit[:8]} (all repo files retained)", flush=True)
         except Exception as e:
             print(f"  ⚠️ Error syncing {repo_id}: {e}", flush=True)
 
