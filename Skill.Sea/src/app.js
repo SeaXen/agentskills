@@ -14,9 +14,9 @@
     categories: [],
     repositories: [],
     stats: {
-      totalSkills: 3560,
+      totalSkills: 6063,
       totalCategories: 38,
-      totalRepositories: 208,
+      totalRepositories: 225,
       activeHotSetCount: 130
     },
     currentViewName: 'skill-hub', // 'skill-hub', 'hotset', 'categories', 'library', 'guide'
@@ -209,7 +209,7 @@
   function renderStats() {
     if (el.statTotalSkills) el.statTotalSkills.textContent = Number(state.stats.totalSkills || state.catalog.length).toLocaleString();
     if (el.statTotalCats) el.statTotalCats.textContent = state.stats.totalCategories || state.categories.length;
-    if (el.statTotalRepos) el.statTotalRepos.textContent = state.stats.totalRepositories || state.repositories.length || '208';
+    if (el.statTotalRepos) el.statTotalRepos.textContent = state.stats.totalRepositories || state.repositories.length || '225';
     if (el.statActiveHot) el.statActiveHot.textContent = state.stats.activeHotSetCount || '130';
   }
 
@@ -981,7 +981,7 @@
     // Sync button
     if (el.syncBtn) {
       el.syncBtn.addEventListener('click', () => {
-        showToast('Vault in sync. Total 3,560 skills loaded from local cache.');
+        showToast(`Vault in sync. Total ${Number(state.stats.totalSkills || 6063).toLocaleString()} skills loaded from local cache.`);
       });
     }
 

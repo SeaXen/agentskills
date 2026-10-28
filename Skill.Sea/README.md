@@ -1,6 +1,6 @@
 # 🌊 Skill.Sea — Autonomous Agent Skills Vault & Leaderboard
 
-> **An independent directory, leaderboard, and one-click activation suite for 3,560+ AI Agent Skills across 38 functional categories.**  
+> **An independent directory, leaderboard, and one-click activation suite for 6,063+ AI Agent Skills across 38 functional categories.**  
 > Inspired by [skillleaderboard.com](https://www.skillleaderboard.com/) and powered by the **ExamForge Design System** (neutral warm-gray surfaces, hairline borders, and deep teal accents).
 
 ---
@@ -9,9 +9,9 @@
 
 **Skill.Sea** provides an ultra-fast, aesthetically refined web interface and CLI workflow to discover, inspect, and install agent skills.
 
-- **3,560+ Skills Tracked**: Ingested directly from official and community AI agent repositories.
+- **6,063+ Skills Tracked**: Ingested directly from official and community AI agent repositories.
 - **38 Functional Categories**: From `Code Quality` and `Architecture` to `Cloudflare Edge`, `Web3`, `DevOps`, and `Multi-Agent Orchestration`.
-- **207 Upstream Repositories**: Transparent GitHub attribution, stars estimate, and original licenses.
+- **225 Upstream Repositories**: Transparent GitHub attribution, stars estimate, and original licenses.
 - **130 Hot-Set Skills**: Curated daily-driver skills pre-linked for instantaneous zero-latency agent execution.
 - **Universal Multi-Platform Deployment**: Runs out-of-the-box on **Localhost**, **Docker**, **Vercel**, **Netlify**, **Railway**, **Render**, **Fly.io**, or **Cloudflare Pages/Workers (Free Plan)** with optional **Cloudflare R2 Object Storage**.
 
