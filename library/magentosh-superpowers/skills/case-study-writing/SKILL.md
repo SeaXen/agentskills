@@ -2,7 +2,6 @@
 name: case-study-writing
 description: "B2B case study writing with STAR framework, data visualization, and research. Covers structure, customer quotes, metrics presentation, and distribution formats. Use for: customer success stories, portfolio pieces, sales enablement, marketing content. Triggers: case study, customer story, success story, b2b case study, client testimonial, customer case study, portfolio case study, use case, customer win, results story"
 allowed-tools: Bash(belt *)
-category: business-sales-crm
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

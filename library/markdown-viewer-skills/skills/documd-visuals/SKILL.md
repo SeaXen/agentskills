@@ -17,7 +17,6 @@ description: >
   (comparison, SWOT, memo, policy, catalogue, case study). Use when a document needs a diagram, chart or
   card. Figures render live. Not for slide decks or math notation. Not recommended: mermaid / canvas /
   drawio / dot.
-category: architecture-system-design
 ---
 
 # documd visuals

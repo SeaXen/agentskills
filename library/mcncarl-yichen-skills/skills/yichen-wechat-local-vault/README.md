@@ -54,6 +54,8 @@ python3 scripts/export_chat.py --chat-id "contact_username" --since "2025-01-01"
 
 Windows 本机采集使用 `python scripts/vault_cli.py windows discover/capture`，详见 [Windows 本机采集](references/windows-live.md)。它只读明确授权的账号和签名通过的微信进程，在私密应用数据区生成带逐页认证、WAL 提交事务处理及完整性校验的聊天快照；不会操作微信界面。当前已在 Windows 11 ARM64、AMD64 微信 4.1.15.56 环境完成真实采集、解密、新消息刷新及导出回读；版本与权限范围见该参考文档。
 
+明确要求全量本地数据库时，使用 `windows capture --scope all --source-id SOURCE_ID`。它生成包含收藏、朋友圈和媒体数据库的完整核心快照；已知搜索索引的 SQLite 校验缺口会通过 `complete_with_index_gaps` 和 `integrity_gaps` 明确返回，逐页认证仍须全部通过。媒体库解密不等于媒体文件还原，尚未同步到电脑的历史也不在本地解析范围内。
+
 Windows 来源使用同一个 CLI 的 `snapshot` 子命令，不读取 Mac 配置、不刷新或解密任何数据库：
 
 ```bash

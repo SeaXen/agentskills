@@ -2,7 +2,6 @@
 name: writing-fragments
 description: "Writing, explore: mine raw fragments, no structure yet."
 disable-model-invocation: true
-category: prompt-llm-engineering
 ---
 
 <what-to-do>

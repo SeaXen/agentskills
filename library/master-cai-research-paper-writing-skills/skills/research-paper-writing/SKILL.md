@@ -1,7 +1,6 @@
 ---
 name: research-paper-writing
 description: Improve academic paper writing quality for ML/CV/NLP-style papers with clear section structure, paragraph flow, and reviewer-facing presentation. Use when drafting or revising Abstract, Introduction, Related Work, Method, Experiments, or Conclusion; polishing figures/tables; checking claim-support alignment; or performing self-review before submission.
-category: academic-writing-publishing
 ---
 # Research Paper Writing
 

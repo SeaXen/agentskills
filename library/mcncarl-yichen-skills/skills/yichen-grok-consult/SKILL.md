@@ -1,7 +1,6 @@
 ---
 name: yichen-grok-consult
 description: Consult or search with xAI Grok from a GPT-led Codex conversation without switching the main model. Use when the user asks Grok to answer, review, challenge, compare, provide a second opinion, search the web, search X/Twitter, find recent or fixed-date posts, decode timestamps embedded in X status IDs, research current topics, or invoke Grok while staying in the current GPT conversation.
-category: code-quality-refactoring
 ---
 
 # Grok Consult

@@ -2,7 +2,6 @@
 name: speech-to-text
 description: "Transcribe audio to text with ElevenLabs Scribe and Whisper models via inference.sh CLI. Models: ElevenLabs Scribe v2 (98%+ accuracy, diarization), Fast Whisper Large V3, Whisper V3 Large. Capabilities: transcription, translation, multi-language, timestamps, speaker diarization, audio event tagging. Use for: meeting transcription, subtitles, podcast transcripts, voice notes. Triggers: speech to text, transcription, whisper, audio to text, transcribe audio, voice to text, stt, automatic transcription, subtitles generation, transcribe meeting, audio transcription, whisper ai, elevenlabs stt, scribe, eleven labs transcribe"
 allowed-tools: Bash(belt *)
-category: audio-voice-sound
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

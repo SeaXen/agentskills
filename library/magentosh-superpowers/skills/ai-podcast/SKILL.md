@@ -2,7 +2,6 @@
 name: ai-podcast
 description: "Generate multi-person talking head podcast videos from scratch using AI — character creation, TTS, avatar animation, and video stitching. Use when the user wants to create a podcast, talking head video, or multi-speaker conversation video."
 allowed-tools: Bash, Read, Write, Agent, Glob, Grep
-category: audio-voice-sound
 ---
 
 ## AI Podcast Generator

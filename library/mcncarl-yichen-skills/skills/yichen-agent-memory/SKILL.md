@@ -1,7 +1,6 @@
 ---
 name: yichen-agent-memory
 description: "安装、升级、检索或维护 Agent Memory Vault 共享记忆系统；用于明确的记忆系统任务。普通业务的历史回忆按 Vault 入口读取，不启动安装或维护流程。"
-category: code-quality-refactoring
 ---
 
 # Agent Memory Vault

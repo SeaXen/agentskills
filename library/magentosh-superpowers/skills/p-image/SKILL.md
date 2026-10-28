@@ -2,7 +2,6 @@
 name: p-image
 description: "Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA styles, multi-image compositing, fast inference. Pruna optimizes models for speed without quality loss. Triggers: pruna, p-image, pruna image, fast image generation, optimized flux, pruna ai, p image, fast ai image, economic image generation, cheap image generation"
 allowed-tools: Bash(belt *)
-category: code-quality-refactoring
 ---
 
 > **Install the belt CLI skill:** `npx skills add belt-sh/cli`

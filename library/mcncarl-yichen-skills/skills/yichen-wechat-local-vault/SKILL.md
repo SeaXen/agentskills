@@ -1,8 +1,7 @@
 ---
 name: yichen-wechat-local-vault
 description: |
-  微信本地数字资产库：Mac 4.x 全量/增量解析，实验性 Windows 本机聊天采集与解密，以及 Windows 离线明文快照查询。Mac 默认微信1；微信2须明确指定。Windows 本机采集使用 windows 子命令，离线查询使用 snapshot，不触发 Mac 流程。用于聊天记录、联系人、群聊的本地读取、搜索、导出和关系复盘；Mac 另支持朋友圈、收藏和漏看/待回复检查。依赖最新聊天时必须先刷新相应来源，不能拿旧记录代替目标。
-category: code-quality-refactoring
+  微信本地数字资产库：Mac 4.x 全量/增量解析，实验性 Windows 本机聊天/全库采集与解密，以及 Windows 离线明文快照查询。Mac 默认微信1；微信2须明确指定。Windows 本机采集使用 windows 子命令，离线查询使用 snapshot，不触发 Mac 流程。用于聊天记录、联系人、群聊的本地读取、搜索、导出和关系复盘；Mac 另支持朋友圈、收藏和漏看/待回复检查。依赖最新聊天时必须先刷新相应来源，不能拿旧记录代替目标。
 ---
 
 # 微信本地解析 Vault
@@ -29,7 +28,7 @@ category: code-quality-refactoring
 - **Mac 本机聊天 / 增量刷新**：先按下方账号选择规则确定微信1或微信2，再沿用 Mac 工作流和现有 `vault_cli.py` 命令；不能把“当前登录账号”当作默认账号。
 - **用户提供的 Windows 离线明文快照**：阅读 [Windows 快照模式](references/windows-snapshot.md)，使用 `vault_cli.py snapshot --snapshot <目录> ...`。先 `validate`，再 `chats` 选出精确 `chat_id`，最后查询或导出。不要求另装独立 Windows Skill。
 - **Windows 本机已登录账号，且明确授权采集与解密**：阅读 [Windows 本机采集](references/windows-live.md)，使用 `vault_cli.py windows discover/capture`，再把成功生成的快照交给 `snapshot` 查询。只读目标账号的聊天库与签名通过、同属该 Windows 用户的 `Weixin.exe` 内存；密钥仅驻内存。此路径仍为实验性，已验证环境及未完成的验收见该参考文档，不扩展为所有 Windows 版本和功能兼容。
-- Windows 查询支持 `validate`、`chats`、`history`、`search` 和 Markdown `export`；本机采集目前覆盖聊天消息，不含朋友圈/收藏正文或媒体解密。最新消息必须重新 `windows capture`；这会生成新快照，旧快照的 chat_id 不可复用。缺少快照、Schema 不兼容或有 WAL/SHM 时停止并说明缺口，不尝试 Mac 流程、不删除 sidecar、不伪造缺失数据库。
+- Windows 查询支持 `validate`、`chats`、`history`、`search` 和 Markdown `export`。采集默认只选聊天必需库；明确要求全量本地库时使用 `windows capture --scope all --source-id ...`，包括账号根目录中的收藏、朋友圈、媒体等数据库。`complete_with_index_gaps` 明确表示搜索索引校验仍有缺口，不能说所有库完整性均通过。朋友圈/收藏正文已通过任务级纯函数解析验证，但尚无专用 Windows 查询子命令；媒体库解密不等于图片、音视频文件已还原。最新消息必须重新采集；新快照须重新选择 chat_id。缺库、Schema 不兼容或快照内有 WAL/SHM 时报告缺口，不尝试 Mac 流程、不删除 sidecar、不伪造缺失库。细节见 Windows 本机采集参考。
 - 快照源系统由用户提供的信息确定，不根据当前运行的是 Mac 还是 Windows 猜测。可以在 Mac 上分析已授权的 Windows 明文快照，但真实 Windows 微信版本兼容性仍为实验性。
 
 ## Mac 模式：账号选择规则

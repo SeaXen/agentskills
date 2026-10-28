@@ -7,7 +7,6 @@ allowed-tools: Bash Read Write Edit Glob Grep Task WebFetch WebSearch
 metadata:
   user-invocable: "false"
   author: Lukasz Jagiello
-category: web3-smart-contracts
 ---
 
 # CTF Cryptography

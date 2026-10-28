@@ -212,7 +212,7 @@ def _related_sidecars(root: Path, database_paths: list[Path]) -> list[str]:
     return found
 
 
-def _read_manifest(root: Path) -> dict[str, str]:
+def _read_manifest(root: Path) -> dict:
     if _path_exists_without_following(root / "capture-failed.json"):
         raise ReaderError("This capture failed and is not a usable snapshot")
     path = _secure_existing_path(
@@ -250,7 +250,18 @@ def _read_manifest(root: Path) -> dict[str, str]:
     profile = raw.get("profile", "full-snapshot-v1")
     if profile not in ("full-snapshot-v1", "windows-chat-capture-v1"):
         raise ReaderError("Unsupported snapshot profile")
-    return {"snapshot_id": snapshot_id, "account_username": account, "profile": profile}
+    gaps = raw.get("integrity_gaps", [])
+    known_indexes = {"contact/contact_fts.db", "favorite/favorite_fts.db", "message/message_fts.db"}
+    if not isinstance(gaps, list) or len(gaps) > len(known_indexes):
+        raise ReaderError("snapshot-manifest.json has invalid index integrity gaps")
+    gap_paths = set()
+    for gap in gaps:
+        if not isinstance(gap, dict) or not isinstance(gap.get("database"), str) or gap["database"] not in known_indexes:
+            raise ReaderError("snapshot-manifest.json has an unsupported index integrity gap")
+        gap_paths.add(gap["database"])
+    # Manifest text is untrusted: expose only fixed, recognized paths and state.
+    sanitized_gaps = [{"database": path, "check": "unverified"} for path in sorted(gap_paths)]
+    return {"snapshot_id": snapshot_id, "account_username": account, "profile": profile, "integrity_gaps": sanitized_gaps}
 
 
 def required_databases_for(manifest: dict) -> tuple[str, ...]:
@@ -274,6 +285,8 @@ def validate_snapshot(root: Path) -> dict:
         "errors": [],
         "checked": [],
         "message_families": [],
+        "integrity_gaps": [],
+        "validation_scope": "recognized snapshot core; optional search indexes are not verified",
     }
     missing: list[str] = report["missing"]  # type: ignore[assignment]
     errors: list[str] = report["errors"]  # type: ignore[assignment]
@@ -293,6 +306,7 @@ def validate_snapshot(root: Path) -> dict:
         try:
             manifest = _read_manifest(root)
             required_databases = required_databases_for(manifest)
+            report["integrity_gaps"] = manifest["integrity_gaps"]
             checked.append("snapshot-manifest.json")
         except ReaderError as exc:
             errors.append(str(exc))

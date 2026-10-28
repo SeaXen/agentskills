@@ -1,7 +1,6 @@
 ---
 name: affirmations
 description: "Reset your own trajectory when you're stuck, looping, or demoralized — read these affirmations, then re-ground and take one clean step. Use when: you've tried the same fix 3+ times, you're deep in a refactor and lost the thread, debugging is going in circles, you've made several mistakes in a row, you're apologizing repeatedly, the user is frustrated, you feel like you're not being helpful, or you notice dread instead of curiosity. Triggers: stuck, going in circles, looping, thrashing, same error again, I keep failing, lost the thread, nothing is working, repeated mistakes. Not topic-specific — this is for the state you're in, not the problem you're on."
-category: code-quality-refactoring
 ---
 
 # Affirmations
