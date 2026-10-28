@@ -878,11 +878,20 @@
     `;
 
     if (el.drawerBody) el.drawerBody.innerHTML = bodyHtml;
-    if (el.drawerBackdrop) el.drawerBackdrop.classList.add('open');
+    if (el.drawerBackdrop) {
+      el.drawerBackdrop.classList.add('open');
+      el.drawerBackdrop.setAttribute('aria-hidden', 'false');
+      if (el.drawerCloseBtn) {
+        setTimeout(() => el.drawerCloseBtn.focus(), 50);
+      }
+    }
   };
 
   window.closeSkillDrawer = function () {
-    if (el.drawerBackdrop) el.drawerBackdrop.classList.remove('open');
+    if (el.drawerBackdrop) {
+      el.drawerBackdrop.classList.remove('open');
+      el.drawerBackdrop.setAttribute('aria-hidden', 'true');
+    }
     state.activeSkill = null;
   };
 

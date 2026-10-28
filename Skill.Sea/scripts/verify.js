@@ -1,6 +1,7 @@
 /**
- * Skill.Sea — Verification & Validation Suite
- * Runs automated checks on catalog, tokens, files, and server integrity.
+ * Skill.Sea — Comprehensive Verification & Validation Suite
+ * Runs automated checks on catalog schema integrity, design tokens,
+ * HTTP server functionality, SPA routing, and security confinement boundaries.
  */
 
 const fs = require('fs');
@@ -54,15 +55,24 @@ requiredFiles.forEach(f => {
   assert(fs.existsSync(p), `File exists: ${f}`);
 });
 
-// 2. Validate Catalog JSON
-console.log('\n2. Validating Catalog Data Integrity');
+// 2. Validate Catalog JSON & Schema Uniformity
+console.log('\n2. Validating Catalog Data Integrity & Schema');
 try {
   const catalog = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/catalog.json'), 'utf8'));
-  assert(Array.isArray(catalog) && catalog.length > 3000, `Catalog contains ${catalog.length} items (> 3000)`);
-  
+  assert(Array.isArray(catalog) && catalog.length >= 6000, `Catalog contains ${catalog.length} items (>= 6000)`);
+
+  let invalidSchemaCount = 0;
+  for (let i = 0; i < catalog.length; i++) {
+    const item = catalog[i];
+    if (!item.id || !item.name || !item.category || !item.activationCmd || !item.npxCmd || !item.myRepoNpxCmd) {
+      invalidSchemaCount++;
+    }
+  }
+  assert(invalidSchemaCount === 0, `All ${catalog.length} items satisfy required schema (id, name, category, activationCmd, npxCmd)`);
+
   const sample = catalog[0];
-  assert(sample.id && sample.name && sample.category && sample.activationCmd, `Sample item has id, name, category, activationCmd`);
   assert(sample.activationCmd.startsWith('python'), `Activation command format valid: ${sample.activationCmd}`);
+  assert(sample.npxCmd.startsWith('npx skills add'), `NPX command format valid: ${sample.npxCmd}`);
 } catch (e) {
   assert(false, `Catalog JSON is valid and parseable: ${e.message}`);
 }
@@ -79,33 +89,67 @@ try {
   assert(false, `Tokens file valid: ${e.message}`);
 }
 
-// 4. Test Server Spawn
-console.log('\n4. Testing Local HTTP Server');
+// 4. Test Server Spawn, Routing, Caching & Security Confinement
+console.log('\n4. Testing Local HTTP Server & Security Confinement');
+const TEST_PORT = 8998;
 const serverProc = require('child_process').spawn('node', ['server.js'], {
   cwd: ROOT,
-  env: { ...process.env, PORT: '8999' }
+  env: { ...process.env, PORT: String(TEST_PORT), NODE_ENV: 'production' }
 });
 
-setTimeout(() => {
-  http.get('http://localhost:8999', (res) => {
-    assert(res.statusCode === 200, `HTTP server returns status 200 (Got ${res.statusCode})`);
-    assert(res.headers['content-type'].includes('text/html'), 'Content-Type is text/html');
-    
-    // Test data endpoint
-    http.get('http://localhost:8999/data/stats.json', (statsRes) => {
-      assert(statsRes.statusCode === 200, `Data endpoint returns 200 for stats.json`);
-      serverProc.kill();
-      report();
-    }).on('error', () => {
-      assert(false, 'Data endpoint reachable');
-      serverProc.kill();
-      report();
+function httpGet(reqPath) {
+  return new Promise((resolve, reject) => {
+    const req = http.request({
+      hostname: '127.0.0.1',
+      port: TEST_PORT,
+      path: reqPath,
+      method: 'GET'
+    }, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => resolve({ status: res.statusCode, headers: res.headers, body: data }));
     });
-  }).on('error', (err) => {
-    assert(false, `Server reachable: ${err.message}`);
+    req.on('error', reject);
+    req.end();
+  });
+}
+
+setTimeout(async () => {
+  try {
+    // 4.1 Root HTML request
+    const rootRes = await httpGet('/');
+    assert(rootRes.status === 200, `Root returns status 200 (Got ${rootRes.status})`);
+    assert(rootRes.headers['content-type'].includes('text/html'), 'Content-Type is text/html');
+
+    // 4.2 Data JSON request & Cache-Control
+    const dataRes = await httpGet('/data/stats.json');
+    assert(dataRes.status === 200, `Data endpoint returns 200 for /data/stats.json`);
+    assert(dataRes.headers['content-type'].includes('application/json'), 'Stats Content-Type is application/json');
+    assert(dataRes.headers['cache-control'].includes('public'), 'Production Cache-Control active for static data');
+
+    // 4.3 SPA Client Route Fallback
+    const spaRes = await httpGet('/skill-hub');
+    assert(spaRes.status === 200, `Clean SPA route /skill-hub resolves to 200 index.html`);
+    assert(spaRes.headers['content-type'].includes('text/html'), 'SPA route serves text/html');
+
+    // 4.4 Missing Asset 404
+    const notFoundRes = await httpGet('/data/nonexistent-file.json');
+    assert(notFoundRes.status === 404, `Missing asset /data/nonexistent-file.json correctly returns 404`);
+
+    // 4.5 Security: Directory Traversal Confinement
+    const traversalRes = await httpGet('/scripts/%2e%2e/%2e%2e/package.json');
+    assert(traversalRes.status === 403, `Directory traversal attempt correctly blocked with 403 Forbidden`);
+
+    // 4.6 Security: Hidden Dotfile Confinement
+    const dotfileRes = await httpGet('/.env');
+    assert(dotfileRes.status === 403, `Hidden dotfile access attempt correctly blocked with 403 Forbidden`);
+
+  } catch (err) {
+    assert(false, `Server integration test error: ${err.message}`);
+  } finally {
     serverProc.kill();
     report();
-  });
+  }
 }, 800);
 
 function report() {
