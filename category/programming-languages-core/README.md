@@ -107,14 +107,14 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`rust-pro`](./rust-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Rust 1.75+ with modern async patterns, advanced type system |
 | **[`scala-pro`](./scala-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master enterprise-grade Scala development with functional |
 | **[`security-best-practices`](./security-best-practices/SKILL.md)** | 🟢 Active | `active-skills` | Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the u |
-| **[`setup-ts-deep-modules`](./setup-ts-deep-modules/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder |
+| **[`setup-ts-deep-modules`](./setup-ts-deep-modules/SKILL.md)** | 📦 Library | `mattpocock-skills` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolder |
 | **[`triage-frontend-issues`](./triage-frontend-issues/SKILL.md)** | 📦 Library | `getsentry-skills` | Triage new issues in the Sentry `javascript` project by archiving non-actionable noise. Use when asked to "triage issues |
 | **[`trigger-dev`](./trigger-dev/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent developer experience a |
 | **[`typescript-advanced-types`](./typescript-advanced-types/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript's advanced type system including generics, conditional types, mapped types, template literals, and uti |
 | **[`typescript-best-practices`](./typescript-best-practices/SKILL.md)** | 📦 Library | `backnotprop-pstack` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |
 | **[`typescript-expert`](./typescript-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | >- |
 | **[`typescript-pro`](./typescript-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master TypeScript with advanced types, generics, and strict type |
-| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
+| **[`ui5-typescript-conversion`](./ui5-typescript-conversion/SKILL.md)** | 📦 Library | `sap-open-ux-tools` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
 | **[`unreal-engine-cpp-pro`](./unreal-engine-cpp-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices. |
 | **[`virustotal-automation`](./virustotal-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Virustotal tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`windows-privilege-escalation`](./windows-privilege-escalation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"escalate privileges on Windows,\" \"find Windows privesc vectors,\" \" |

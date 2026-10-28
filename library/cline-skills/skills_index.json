@@ -90,6 +90,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link knowledge-catalog-discovery"
   },
   {
+    "id": "linear",
+    "name": "linear",
+    "repository": "cline-skills",
+    "category": "agent-orchestration",
+    "description": "Manage issues, projects & team workflows in Linear. Use when the user wants to read, create or updates tickets in Linear.",
+    "path": "library/cline-skills/skills/linear",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linear",
+    "link_cmd": "python .agents/library/activate_skill.py link linear"
+  },
+  {
+    "id": "linear-sdk-scripting",
+    "name": "linear-sdk-scripting",
+    "repository": "cline-skills",
+    "category": "backend-api",
+    "description": "Perform actions in Linear (read, create, update, search issues, projects, comments, teams, cycles, labels, etc.) by writing and running small Node scripts against the official @linear/sdk TypeScript SDK with a personal API key. Use this when the user wants to do Linear work from the terminal without the Linear MCP server, or asks to list/open/create/update/close Linear issues, leave comments, or query teams, projects, users, or workflow states.",
+    "path": "library/cline-skills/skills/linear-sdk-scripting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linear-sdk-scripting",
+    "link_cmd": "python .agents/library/activate_skill.py link linear-sdk-scripting"
+  },
+  {
     "id": "math-olympiad",
     "name": "math-olympiad",
     "repository": "cline-skills",

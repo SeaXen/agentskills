@@ -45,7 +45,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`post-formatter`](./post-formatter/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Turn a topic into a ready-to-publish LinkedIn post using PAS, AIDA, BAB, STAR, or SLAY frameworks. Up to 20 nonblank lin |
 | **[`react-native-architecture`](./react-native-architecture/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build production React Native apps with Expo, navigation, native modules, offline sync, and cross-platform patterns. Use |
 | **[`scenario-analyzer`](./scenario-analyzer/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Skill that analyzes 18-month scenarios from a news headline. |
-| **[`security-ownership-map`](./security-ownership-map/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code  |
+| **[`security-ownership-map`](./security-ownership-map/SKILL.md)** | 📦 Library | `openai-skills` | Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code  |
 | **[`shodan-reconnaissance`](./shodan-reconnaissance/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"search for exposed devices on the internet,\" \"perform Shodan reconna |
 | **[`skills`](./skills/SKILL.md)** | 📦 Library | `android-skills` | Migrates Android projects to Android Gradle Plugin 9 and updates the AGP DSL. |
 | **[`stitch-ui-design`](./stitch-ui-design/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert guide for creating effective prompts for Google Stitch AI UI design tool. Use when user wants to design UI/UX in  |

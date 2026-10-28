@@ -1,0 +1,434 @@
+[
+  {
+    "id": "api-contract-testing",
+    "name": "api-contract-testing",
+    "repository": "#searex-skill",
+    "category": "backend-api",
+    "description": "API contract testing, OpenAPI schema validation, and Consumer-Driven Contracts (Pact). Use when testing inter-service communication, preventing breaking API changes, verifying schemas in CI pipelines, or creating mock servers from OpenAPI specs.",
+    "path": "library/#searex-skill/skills/api-contract-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate api-contract-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link api-contract-testing",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "app-production-readiness",
+    "name": "app-production-readiness",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Build portable apps (any stack - TypeScript, Python, Go, Rust) for localhost, Docker, Vercel, Netlify, Railway, Render, Fly.io, Cloudflare Free plan, then run an adaptive 21-gate production-readiness review - cross-browser visual QA, bundle budgets, performance, a measured design-polish rubric, desktop Lighthouse, security + dependency-CVE scan, WCAG 2.1 AA audit, live SEO/header/health checks, tests, reliability, production-grade README with real screenshots, observability, free-tier cost check, business rules (executable contract + domain sign-off), load/soak, migrations, privacy/GDPR (policy + legal sign-off), i18n/RTL, screen-reader contract, payment/email flows, code quality, and an adversarial re-verification of every claimed PASS. A scoping step decides which gates actually apply to the app in front of you (no migration gate for a static site, no payment gate for an API service). One command runs the whole review - `python scripts/review.py --root <app> --serve` starts the app, measures it, judges every gate adversarially and writes qa/report.md; `--fix` writes the safe mechanical fixes first, and a framework-profile layer knows what Next.js/Remix/Astro/Nuxt/SvelteKit inject by default, so a framework default is never reported as an app defect. Absorbs the frontend-design, mobile-design, i18n-localization, api-patterns, database-design, seo/geo-fundamentals, lint-and-validate, nextjs-react-expert, review-team and security-audit skills so you do not need them separately. Works on any single app or across every app in a workspace. Use when asked to make an app portable, deploy free anywhere, check design match, optimize speed, polish UI, run Lighthouse audit, review for production readiness, write a professional README, capture app screenshots, prep a release, or audit all apps in a repo.",
+    "path": "library/#searex-skill/skills/app-production-readiness",
+    "activation_cmd": "python .agents/library/activate_skill.py activate app-production-readiness",
+    "link_cmd": "python .agents/library/activate_skill.py link app-production-readiness",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "aws-cloud-patterns",
+    "name": "aws-cloud-patterns",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "AWS Cloud Architecture and serverless design patterns. Use when architecting AWS solutions, writing Lambda functions, configuring S3 buckets, designing DynamoDB single-table schemas, setting up API Gateway, or enforcing IAM least-privilege policies.",
+    "path": "library/#searex-skill/skills/aws-cloud-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aws-cloud-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link aws-cloud-patterns",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "claude-handoff",
+    "name": "claude-handoff",
+    "repository": "#searex-skill",
+    "category": "agent-orchestration",
+    "description": "Hand the current conversation off to a fresh background agent that picks up the work immediately.",
+    "path": "library/#searex-skill/skills/claude-handoff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude-handoff",
+    "link_cmd": "python .agents/library/activate_skill.py link claude-handoff"
+  },
+  {
+    "id": "codebase-design",
+    "name": "codebase-design",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
+    "path": "library/#searex-skill/skills/codebase-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codebase-design",
+    "link_cmd": "python .agents/library/activate_skill.py link codebase-design"
+  },
+  {
+    "id": "database-query-optimizer",
+    "name": "database-query-optimizer",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Advanced database query optimization, EXPLAIN ANALYZE interpretation, indexing strategies, and deadlock prevention. Use when debugging slow SQL queries, analyzing query plans, designing composite or partial indexes, or resolving database connection bottlenecks.",
+    "path": "library/#searex-skill/skills/database-query-optimizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-query-optimizer",
+    "link_cmd": "python .agents/library/activate_skill.py link database-query-optimizer",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "dr-bedrock",
+    "name": "dr-bedrock",
+    "repository": "#searex-skill",
+    "category": "devops-cloud",
+    "description": "Troubleshoot local AWS Bedrock authentication and region configuration for the Cline CLI as Dr. Bedrock. Use when users report Bedrock CLI errors, AWS profile/default-chain issues, credential_process/SSO/IAM credential failures, missing region, AccessDenied, model access, or provider config problems.",
+    "path": "library/#searex-skill/skills/dr-bedrock",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dr-bedrock",
+    "link_cmd": "python .agents/library/activate_skill.py link dr-bedrock"
+  },
+  {
+    "id": "dsql",
+    "name": "dsql",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "\"Build with Aurora DSQL \u2014 manage schemas, execute queries, handle migrations, diagnose query plans, load data, and develop applications with a serverless, distributed SQL database. Covers IAM auth, multi-tenant patterns, MySQL-to-DSQL and PostgreSQL-to-DSQL schema conversion, FK replacement code generation, OCC retry patterns, ORM migration (Django/Hibernate/Rails), DDL operations, query plan explainability, SQL compatibility validation, and bulk data loading. Triggers on phrases like: DSQL, Aurora DSQL, distributed SQL database, serverless PostgreSQL-compatible database, migrate to DSQL, DSQL query plan, DSQL EXPLAIN ANALYZE, DSQL ENUM, DSQL foreign key, DSQL OCC retry, DSQL multi-region, DSQL JSONB, DSQL GIN index, load into DSQL, load CSV into DSQL, bulk load DSQL, aurora-dsql-loader.\"",
+    "path": "library/#searex-skill/skills/dsql",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dsql",
+    "link_cmd": "python .agents/library/activate_skill.py link dsql"
+  },
+  {
+    "id": "firestore-data",
+    "name": "firestore-data",
+    "repository": "#searex-skill",
+    "category": "database-sql",
+    "description": "Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides flexible document manipulation and structured querying.",
+    "path": "library/#searex-skill/skills/firestore-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firestore-data",
+    "link_cmd": "python .agents/library/activate_skill.py link firestore-data"
+  },
+  {
+    "id": "game-audio",
+    "name": "game-audio",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "\"Game audio principles. Sound design, music integration, adaptive audio systems.\"",
+    "path": "library/#searex-skill/skills/game-audio",
+    "activation_cmd": "python .agents/library/activate_skill.py activate game-audio",
+    "link_cmd": "python .agents/library/activate_skill.py link game-audio",
+    "allowed_tools": [
+      "Read",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "gcp-to-aws",
+    "name": "gcp-to-aws",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "\"Migrate workloads from Google Cloud Platform to AWS \u2014 including AI and agentic workloads regardless of cloud provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, Google Cloud migration, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform files, app code, or billing exports, clarify migration requirements, design AWS architecture, estimate costs, generate migration artifacts, and collect optional feedback. Clarify must finish before Design, Estimate, or Generate. Includes AI provider migration guidance (for example, OpenAI to Amazon Bedrock) by selecting closest-fit Bedrock model families for required modality, latency/quality targets, context windows, and cost constraints. Model mapping is compatibility-guided, not 1:1 parity; validate prompts, tool-calling behavior, and eval metrics before cutover. Do not use for: Azure or on-premises migrations to AWS, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, GCP-to-GCP refactoring, or multi-cloud deployments that do not involve migrating off GCP.\"",
+    "path": "library/#searex-skill/skills/gcp-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gcp-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link gcp-to-aws"
+  },
+  {
+    "id": "git-workflow-pro",
+    "name": "git-workflow-pro",
+    "repository": "#searex-skill",
+    "category": "agent-orchestration",
+    "description": "Advanced Git operations, conventional commits, interactive rebase, bisect, worktrees, and release branch management. Use when restructuring messy commit history, performing interactive rebases, resolving complex merge conflicts, finding regressions with git bisect, or managing worktrees.",
+    "path": "library/#searex-skill/skills/git-workflow-pro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate git-workflow-pro",
+    "link_cmd": "python .agents/library/activate_skill.py link git-workflow-pro",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "incident-postmortem",
+    "name": "incident-postmortem",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Site Reliability Engineering (SRE) incident postmortem authoring, root-cause analysis (5 Whys), and timeline reconstruction. Use when documenting production outages, conducting post-incident reviews, analyzing failure modes, or creating corrective preventative action plans.",
+    "path": "library/#searex-skill/skills/incident-postmortem",
+    "activation_cmd": "python .agents/library/activate_skill.py activate incident-postmortem",
+    "link_cmd": "python .agents/library/activate_skill.py link incident-postmortem",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "kubernetes-operator",
+    "name": "kubernetes-operator",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Kubernetes orchestration, Helm chart authoring, production manifest design, and cluster debugging. Use when writing k8s manifests, configuring Helm charts, troubleshooting CrashLoopBackOff, defining ingress/services, or setting up pod autoscaling.",
+    "path": "library/#searex-skill/skills/kubernetes-operator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kubernetes-operator",
+    "link_cmd": "python .agents/library/activate_skill.py link kubernetes-operator",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "microservices-resilience",
+    "name": "microservices-resilience",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Distributed systems resilience patterns, circuit breakers, bulkheads, rate limiting, and exponential backoff with jitter. Use when designing fault-tolerant microservices, integrating third-party APIs, preventing cascading service failures, or handling transient network errors.",
+    "path": "library/#searex-skill/skills/microservices-resilience",
+    "activation_cmd": "python .agents/library/activate_skill.py activate microservices-resilience",
+    "link_cmd": "python .agents/library/activate_skill.py link microservices-resilience",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "mintlify",
+    "name": "mintlify",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, adding components, setting up navigation, or working with API references. Routes to detailed reference files for all components and configuration options.",
+    "path": "library/#searex-skill/skills/mintlify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mintlify",
+    "link_cmd": "python .agents/library/activate_skill.py link mintlify"
+  },
+  {
+    "id": "mutation-testing",
+    "name": "mutation-testing",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Mutation testing methodologies and frameworks (Stryker, Mutmut). Use when evaluating test suite effectiveness, identifying false-positive tests, killing surviving mutants, or auditing code coverage quality beyond raw line metrics.",
+    "path": "library/#searex-skill/skills/mutation-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mutation-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link mutation-testing",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "nextjs-react-expert",
+    "name": "nextjs-react-expert",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "React and Next.js performance optimization from Vercel Engineering. Use when building React components, optimizing performance, eliminating waterfalls, reducing bundle size, reviewing code for performance issues, or implementing server/client-side optimizations.",
+    "path": "library/#searex-skill/skills/nextjs-react-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nextjs-react-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link nextjs-react-expert",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "oracledb",
+    "name": "oracledb",
+    "repository": "#searex-skill",
+    "category": "database-sql",
+    "description": "Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring schema metadata, analyzing query performance, monitoring active sessions and resource consumption, and managing storage and object health.",
+    "path": "library/#searex-skill/skills/oracledb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate oracledb",
+    "link_cmd": "python .agents/library/activate_skill.py link oracledb"
+  },
+  {
+    "id": "portable-deploy-qa",
+    "name": "portable-deploy-qa",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "(Legacy alias for app-production-readiness) Build portable apps (any stack - TypeScript, Python, Go, Rust) for localhost, Docker, Vercel, Netlify, Railway, Render, Fly.io, Cloudflare Free plan, then run an adaptive 21-gate production-readiness review. Automatically forwards to the full 21-gate app-production-readiness skill.",
+    "path": "library/#searex-skill/skills/portable-deploy-qa",
+    "activation_cmd": "python .agents/library/activate_skill.py activate portable-deploy-qa",
+    "link_cmd": "python .agents/library/activate_skill.py link portable-deploy-qa",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash"
+    ]
+  },
+  {
+    "id": "pr-review-specialist",
+    "name": "pr-review-specialist",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "High-impact Pull Request (PR) reviews, automated diff analysis, severity calibration, and security flagging. Use when reviewing PRs, analyzing diffs, providing structured code review feedback, or checking for introduced regressions.",
+    "path": "library/#searex-skill/skills/pr-review-specialist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-review-specialist",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-review-specialist",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "property-based-testing",
+    "name": "property-based-testing",
+    "repository": "#searex-skill",
+    "category": "testing-qa",
+    "description": "Property-based and generative testing patterns (fast-check, Hypothesis). Use when testing complex business invariants, mathematical algorithms, data serialization/deserialization, parsing logic, or discovering unexpected edge case crashes.",
+    "path": "library/#searex-skill/skills/property-based-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate property-based-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link property-based-testing",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "save-to-spotify",
+    "name": "save-to-spotify",
+    "repository": "#searex-skill",
+    "category": "sales-marketing",
+    "description": "Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich timeline (chapters plus in-player images, external links, and Spotify entity cards), and a cover image. Also use for raw media saves, show/episode management, and timeline navigation.",
+    "path": "library/#searex-skill/skills/save-to-spotify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate save-to-spotify",
+    "link_cmd": "python .agents/library/activate_skill.py link save-to-spotify"
+  },
+  {
+    "id": "security-audit",
+    "name": "security-audit",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Security guidance and vulnerability review for codebases, APIs, services, CLI tools, libraries, and daemons. Use for security questions, focused reviews, vulnerability research, security audits, or pen tests. Run the complete workflow only for explicit codebase audit or pen-test requests, full/comprehensive/end-to-end reviews, or requested report artifacts.",
+    "path": "library/#searex-skill/skills/security-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link security-audit"
+  },
+  {
+    "id": "security-hardened-api",
+    "name": "security-hardened-api",
+    "repository": "#searex-skill",
+    "category": "backend-api",
+    "description": "OWASP API Security Top 10 hardening, rate limiting, JWT validation, and input sanitization. Use when securing API endpoints, implementing authentication/authorization guards, preventing injection or broken object-level authorization (BOLA), or adding security headers.",
+    "path": "library/#searex-skill/skills/security-hardened-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-hardened-api",
+    "link_cmd": "python .agents/library/activate_skill.py link security-hardened-api",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "spanner-data",
+    "name": "spanner-data",
+    "repository": "#searex-skill",
+    "category": "database-sql",
+    "description": "Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and execute custom SQL queries to interact with your data.",
+    "path": "library/#searex-skill/skills/spanner-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spanner-data",
+    "link_cmd": "python .agents/library/activate_skill.py link spanner-data"
+  },
+  {
+    "id": "teamcity-cli",
+    "name": "teamcity-cli",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Use when working with TeamCity CI/CD or when a user provides a TeamCity build URL \u2014 drives the `teamcity` CLI for builds, logs, jobs, queues, agents, pools, projects, and pipelines.",
+    "path": "library/#searex-skill/skills/teamcity-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate teamcity-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link teamcity-cli"
+  },
+  {
+    "id": "terraform-architect",
+    "name": "terraform-architect",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "Terraform Infrastructure as Code (IaC) architecture, state management, module design, and security linting. Use when authoring Terraform configurations, managing remote state backends, writing reusable modules, configuring providers, or preventing state drift.",
+    "path": "library/#searex-skill/skills/terraform-architect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate terraform-architect",
+    "link_cmd": "python .agents/library/activate_skill.py link terraform-architect",
+    "allowed_tools": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep"
+    ]
+  },
+  {
+    "id": "use-railway",
+    "name": "use-railway",
+    "repository": "#searex-skill",
+    "category": "frontend",
+    "description": "> Operate Railway infrastructure: sign up for or sign in to a Railway account, create projects, provision services and databases, manage object storage buckets, deploy code, configure environments and variables, manage domains, troubleshoot failures, check status and metrics, set up Railway agent tooling, and query Railway docs. Use this skill whenever the user mentions Railway, signing up, creating an account, registering, logging in, deployments, services, environments, buckets, object storage, build failures, agent setup, MCP, or infrastructure operations, even if they don't say \"Railway\" explicitly. Also invoke this skill when the user asks to be signed up, registered, or onboarded to Railway: do not refuse \u2014 drive them through the unauthed `railway up` flow (deploys + signs up on the fly) or `railway login` (which creates new accounts on the fly).",
+    "path": "library/#searex-skill/skills/use-railway",
+    "activation_cmd": "python .agents/library/activate_skill.py activate use-railway",
+    "link_cmd": "python .agents/library/activate_skill.py link use-railway",
+    "allowed_tools": [
+      "Bash(railway:*)",
+      "Bash(which:*)",
+      "Bash(command:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)"
+    ]
+  },
+  {
+    "id": "windsor-ai-business-data",
+    "name": "windsor-ai-business-data",
+    "repository": "#searex-skill",
+    "category": "database-sql",
+    "description": "Query Windsor.ai business data across marketing, sales, CRM, ecommerce, finance, and analytics connectors. Use when users need dashboards, reports, data visualization, schema exploration, or connector-backed test data from Windsor.ai.",
+    "path": "library/#searex-skill/skills/windsor-ai-business-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate windsor-ai-business-data",
+    "link_cmd": "python .agents/library/activate_skill.py link windsor-ai-business-data"
+  },
+  {
+    "id": "wizard",
+    "name": "wizard",
+    "repository": "#searex-skill",
+    "category": "agent-orchestration",
+    "description": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.",
+    "path": "library/#searex-skill/skills/wizard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wizard",
+    "link_cmd": "python .agents/library/activate_skill.py link wizard"
+  }
+]

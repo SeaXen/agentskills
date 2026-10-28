@@ -42,7 +42,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`p5js`](./p5js/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | p5.js sketches: gen art, shaders, interactive, 3D. |
 | **[`pitch-deck-visuals`](./pitch-deck-visuals/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data presentation. Covers the 12-s |
 | **[`pr-lens`](./pr-lens/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Draw code changes as animated architecture/data-flow SVGs. |
-| **[`sap-fiori-add-visual-filter`](./sap-fiori-add-visual-filter/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP RAP. |
+| **[`sap-fiori-add-visual-filter`](./sap-fiori-add-visual-filter/SKILL.md)** | 📦 Library | `sap-open-ux-tools` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP RAP. |
 | **[`sketch`](./sketch/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Throwaway HTML mockups: 2-3 design variants to compare. |
 | **[`statechart`](./statechart/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it  |
 | **[`system-atlas`](./system-atlas/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Build explorable isometric architecture atlases as HTML. |

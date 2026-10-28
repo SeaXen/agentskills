@@ -15,9 +15,9 @@
 | **[`code-quality-refactoring`](./code-quality-refactoring)** | 🧹 Code Quality, Refactoring & Clean Code | **598** | [Open Catalog](./code-quality-refactoring/README.md) |
 | **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **184** | [Open Catalog](./backend-api-design/README.md) |
 | **[`scientific-bio-data`](./scientific-bio-data)** | 🔬 Scientific Bio-Informatics & Laboratory | **180** | [Open Catalog](./scientific-bio-data/README.md) |
-| **[`autonomous-agents-hermes`](./autonomous-agents-hermes)** | 🧠 NousResearch Hermes Agent Skills | **170** | [Open Catalog](./autonomous-agents-hermes/README.md) |
-| **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **152** | [Open Catalog](./frontend-ui-components/README.md) |
-| **[`architecture-system-design`](./architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **125** | [Open Catalog](./architecture-system-design/README.md) |
+| **[`autonomous-agents-hermes`](./autonomous-agents-hermes)** | 🧠 NousResearch Hermes Agent Skills | **171** | [Open Catalog](./autonomous-agents-hermes/README.md) |
+| **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **151** | [Open Catalog](./frontend-ui-components/README.md) |
+| **[`architecture-system-design`](./architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **126** | [Open Catalog](./architecture-system-design/README.md) |
 | **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **123** | [Open Catalog](./business-sales-crm/README.md) |
 | **[`prompt-llm-engineering`](./prompt-llm-engineering)** | 💬 Prompt Engineering, LLMs & RAG | **121** | [Open Catalog](./prompt-llm-engineering/README.md) |
 | **[`programming-languages-core`](./programming-languages-core)** | 📐 Programming Languages & Type Systems | **99** | [Open Catalog](./programming-languages-core/README.md) |
@@ -36,8 +36,8 @@
 | **[`cloudflare-edge`](./cloudflare-edge)** | ☁️ Cloudflare Workers, Pages & Edge | **41** | [Open Catalog](./cloudflare-edge/README.md) |
 | **[`security-vulnerability-audit`](./security-vulnerability-audit)** | 🛡️ Vulnerability Auditing & Pentesting | **37** | [Open Catalog](./security-vulnerability-audit/README.md) |
 | **[`mobile-ios-android`](./mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **37** | [Open Catalog](./mobile-ios-android/README.md) |
-| **[`data-engineering-ml`](./data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **33** | [Open Catalog](./data-engineering-ml/README.md) |
 | **[`web3-smart-contracts`](./web3-smart-contracts)** | 🪙 Web3, Solidity & DeFi Architecture | **33** | [Open Catalog](./web3-smart-contracts/README.md) |
+| **[`data-engineering-ml`](./data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **32** | [Open Catalog](./data-engineering-ml/README.md) |
 | **[`diagrams-technical-visuals`](./diagrams-technical-visuals)** | 📊 Technical Diagrams & Isometric SVG | **31** | [Open Catalog](./diagrams-technical-visuals/README.md) |
 | **[`graphics-branding-design`](./graphics-branding-design)** | 🎨 Visual Design, Branding & Graphics | **29** | [Open Catalog](./graphics-branding-design/README.md) |
 | **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **26** | [Open Catalog](./frontend-visual-taste/README.md) |

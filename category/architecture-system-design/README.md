@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Skills in Category**: 125 real modular skills  
+> **Total Skills in Category**: 126 real modular skills  
 > **Directory**: [`.agents/category/architecture-system-design`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (125 Skills)
+## 📑 Complete Skill Catalog (126 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -34,7 +34,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`atlassian-automation`](./atlassian-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Atlassian tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`auto`](./auto/SKILL.md)** | 📦 Library | `vudovn-antigravity-kit` | Auto-generated project-specific knowledge repository containing learned conventions, project gotchas, bug fixes, and con |
 | **[`avalonia-viewmodels-zafiro`](./avalonia-viewmodels-zafiro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI. |
-| **[`aws-cloud-patterns`](./aws-cloud-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | AWS Cloud Architecture and serverless design patterns. Use when architecting AWS solutions, writing Lambda functions, co |
+| **[`aws-cloud-patterns`](./aws-cloud-patterns/SKILL.md)** | 📦 Library | `#searex-skill` | AWS Cloud Architecture and serverless design patterns. Use when architecting AWS solutions, writing Lambda functions, co |
 | **[`aws-skills`](./aws-skills/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | AWS development with infrastructure automation and cloud architecture patterns |
 | **[`azure-functions`](./azure-functions/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert patterns for Azure Functions development including isolated worker model, Durable Functions orchestration, cold s |
 | **[`azure-identity-java`](./azure-identity-java/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Azure Identity Java SDK for authentication with Azure services. Use when implementing DefaultAzureCredential, managed id |
@@ -82,13 +82,14 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`go-rod-master`](./go-rod-master/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) including stealth ant |
 | **[`godot-gdscript-patterns`](./godot-gdscript-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use when building Godot ga |
 | **[`golang-dependency-injection`](./golang-dependency-injection/SKILL.md)** | 📦 Library | `samber-cc-skills-golang` | Comprehensive guide for dependency injection (DI) in Golang. Covers why DI matters (testability, loose coupling, separat |
-| **[`grill-with-docs`](./grill-with-docs/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go. |
-| **[`hatch-pet`](./hatch-pet/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create, repair, validate, visually QA, and package Codex-compatible animated pets and pet spritesheets from character ar |
+| **[`graphify`](./graphify/SKILL.md)** | 📦 Library | `graphify-labs` | Use for any question about a codebase, its architecture, file relationships, or project content — especially when graphi |
+| **[`grill-with-docs`](./grill-with-docs/SKILL.md)** | 📦 Library | `mattpocock-skills` | A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go. |
+| **[`hatch-pet`](./hatch-pet/SKILL.md)** | 📦 Library | `openai-skills` | Create, repair, validate, visually QA, and package Codex-compatible animated pets and pet spritesheets from character ar |
 | **[`hig-patterns`](./hig-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`how`](./how/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Use for \"how does X work\", code walkthroughs before changing something, and placement / ownership / layering questions |
 | **[`hybrid-cloud-networking`](./hybrid-cloud-networking/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Configure secure, high-performance connectivity between on-premises infrastructure and cloud platforms using VPN and ded |
 | **[`i18n-localization`](./i18n-localization/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL su |
-| **[`improve-codebase-architecture`](./improve-codebase-architecture/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you  |
+| **[`improve-codebase-architecture`](./improve-codebase-architecture/SKILL.md)** | 📦 Library | `mattpocock-skills` | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you  |
 | **[`java-pro`](./java-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Java 21+ with modern features like virtual threads, pattern |
 | **[`javascript-mastery`](./javascript-mastery/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Comprehensive JavaScript reference covering 33+ essential concepts every developer should know. From fundamentals like p |
 | **[`javascript-pro`](./javascript-pro/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master modern JavaScript with ES6+, async patterns, and Node.js |
@@ -132,7 +133,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`system-design`](./system-design/SKILL.md)** | 🟢 Active | `active-skills` | Design systems, services, and architectures. Trigger with "design a system for", "how should we architect", "system desi |
 | **[`systems-programming-rust-project`](./systems-programming-rust-project/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | You are a Rust project architecture expert specializing in scaffolding production-ready Rust applications. Generate comp |
 | **[`telegram-bot-builder`](./telegram-bot-builder/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert in building Telegram bots that solve real problems - from simple automation to complex AI-powered bots. Covers bo |
-| **[`terraform-architect`](./terraform-architect/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Terraform Infrastructure as Code (IaC) architecture, state management, module design, and security linting. Use when aut |
+| **[`terraform-architect`](./terraform-architect/SKILL.md)** | 📦 Library | `#searex-skill` | Terraform Infrastructure as Code (IaC) architecture, state management, module design, and security linting. Use when aut |
 | **[`testing-patterns`](./testing-patterns/SKILL.md)** | 🟢 Active | `active-skills` | Testing patterns and principles. Unit, integration, mocking strategies. |
 | **[`testing-strategy`](./testing-strategy/SKILL.md)** | 🟢 Active | `active-skills` | Design test strategies and test plans. Trigger with "how should we test", "test strategy for", "write tests for", "test  |
 | **[`threat-modeling-expert`](./threat-modeling-expert/SKILL.md)** | 🟢 Active | `active-skills` | Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attac |

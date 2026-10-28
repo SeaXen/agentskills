@@ -8,5 +8,205 @@
     "path": "library/openai-skills/skills/.curated",
     "activation_cmd": "python .agents/library/activate_skill.py activate .curated",
     "link_cmd": "python .agents/library/activate_skill.py link .curated"
+  },
+  {
+    "id": "aspnet-core",
+    "name": "aspnet-core",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Build, review, refactor, or architect ASP.NET Core web applications using current official guidance for .NET web development. Use when working on Blazor Web Apps, Razor Pages, MVC, Minimal APIs, controller-based Web APIs, SignalR, gRPC, middleware, dependency injection, configuration, authentication, authorization, testing, performance, deployment, or ASP.NET Core upgrades.",
+    "path": "library/openai-skills/skills/aspnet-core",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aspnet-core",
+    "link_cmd": "python .agents/library/activate_skill.py link aspnet-core"
+  },
+  {
+    "id": "chatgpt-apps",
+    "name": "chatgpt-apps",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Build, scaffold, refactor, and troubleshoot ChatGPT Apps SDK applications that combine an MCP server and widget UI. Use when Codex needs to design tools, register UI resources, wire the MCP Apps bridge or ChatGPT compatibility APIs, apply Apps SDK metadata or CSP or domain settings, or produce a docs-aligned project scaffold. Prefer a docs-first workflow by invoking the openai-docs skill or OpenAI developer docs MCP tools before generating code.",
+    "path": "library/openai-skills/skills/chatgpt-apps",
+    "activation_cmd": "python .agents/library/activate_skill.py activate chatgpt-apps",
+    "link_cmd": "python .agents/library/activate_skill.py link chatgpt-apps"
+  },
+  {
+    "id": "cli-creator",
+    "name": "cli-creator",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin tool, or a local script. Use when the user wants Codex to create a command-line tool that can run from any repo, expose composable read/write commands, return stable JSON, manage auth, and pair with a companion skill.",
+    "path": "library/openai-skills/skills/cli-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cli-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link cli-creator"
+  },
+  {
+    "id": "define-goal",
+    "name": "define-goal",
+    "repository": "openai-skills",
+    "category": "finance-crypto",
+    "description": "Help the user define a concrete, measurable goal before starting work, especially when they ask to use the goal tool, create a goal, set an objective, clarify success criteria, or turn a fuzzy intention into a quantitative outcome. Use this skill for goal creation and goal refinement only; it does not manage durable snapshots, decision logs, or long-running execution artifacts.",
+    "path": "library/openai-skills/skills/define-goal",
+    "activation_cmd": "python .agents/library/activate_skill.py activate define-goal",
+    "link_cmd": "python .agents/library/activate_skill.py link define-goal"
+  },
+  {
+    "id": "gh-address-comments",
+    "name": "gh-address-comments",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; verify gh auth first and prompt the user to authenticate if not logged in.",
+    "path": "library/openai-skills/skills/gh-address-comments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gh-address-comments",
+    "link_cmd": "python .agents/library/activate_skill.py link gh-address-comments"
+  },
+  {
+    "id": "gh-fix-ci",
+    "name": "gh-fix-ci",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Use when a user asks to debug or fix failing GitHub PR checks that run in GitHub Actions; use `gh` to inspect checks and logs, summarize failure context, draft a fix plan, and implement only after explicit approval. Treat external providers (for example Buildkite) as out of scope and report only the details URL.\"",
+    "path": "library/openai-skills/skills/gh-fix-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gh-fix-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link gh-fix-ci"
+  },
+  {
+    "id": "hatch-pet",
+    "name": "hatch-pet",
+    "repository": "openai-skills",
+    "category": "animation-craft",
+    "description": "Create, repair, validate, visually QA, and package Codex-compatible animated pets and pet spritesheets from character art, generated images, company or prospect brand cues, or visual references. Use when a user wants a lightweight-worker Codex pet workflow, a non-pixel custom pet style, a prospect or company mascot pet, or a full 8x9 animated pet atlas with transparent unused cells, QA contact sheets, and pet.json packaging. This skill composes the installed $imagegen system skill for visual generation and uses bundled scripts for deterministic spritesheet assembly.",
+    "path": "library/openai-skills/skills/hatch-pet",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hatch-pet",
+    "link_cmd": "python .agents/library/activate_skill.py link hatch-pet"
+  },
+  {
+    "id": "imagegen",
+    "name": "imagegen",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better handled by editing existing SVG/vector/code-native assets, extending an established icon or logo system, or building the visual directly in HTML/CSS/canvas.\"",
+    "path": "library/openai-skills/skills/imagegen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate imagegen",
+    "link_cmd": "python .agents/library/activate_skill.py link imagegen"
+  },
+  {
+    "id": "jupyter-notebook",
+    "name": "jupyter-notebook",
+    "repository": "openai-skills",
+    "category": "general-development",
+    "description": "\"Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates and run the helper script `new_notebook.py` to generate a clean starting notebook.\"",
+    "path": "library/openai-skills/skills/jupyter-notebook",
+    "activation_cmd": "python .agents/library/activate_skill.py activate jupyter-notebook",
+    "link_cmd": "python .agents/library/activate_skill.py link jupyter-notebook"
+  },
+  {
+    "id": "migrate-to-codex",
+    "name": "migrate-to-codex",
+    "repository": "openai-skills",
+    "category": "agent-orchestration",
+    "description": "Migrate supported instruction files, skills, agents, and MCP config into Codex project and global files.",
+    "path": "library/openai-skills/skills/migrate-to-codex",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-to-codex",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-to-codex"
+  },
+  {
+    "id": "netlify-deploy",
+    "name": "netlify-deploy",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks to deploy, host, publish, or link a site/repo on Netlify, including preview and production deploys.",
+    "path": "library/openai-skills/skills/netlify-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate netlify-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link netlify-deploy"
+  },
+  {
+    "id": "openai-docs",
+    "name": "openai-docs",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Use when the user asks how to build with OpenAI products or APIs, asks about Codex itself or choosing Codex surfaces, needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade and prompt-upgrade guidance; use OpenAI docs MCP tools for non-Codex docs questions, use the Codex manual helper first for broad Codex self-knowledge, and restrict fallback browsing to official OpenAI domains.\"",
+    "path": "library/openai-skills/skills/openai-docs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate openai-docs",
+    "link_cmd": "python .agents/library/activate_skill.py link openai-docs"
+  },
+  {
+    "id": "render-deploy",
+    "name": "render-deploy",
+    "repository": "openai-skills",
+    "category": "devops-cloud",
+    "description": "Deploy applications to Render by analyzing codebases, generating render.yaml Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy, host, publish, or set up their application on Render's cloud platform.",
+    "path": "library/openai-skills/skills/render-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate render-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link render-deploy"
+  },
+  {
+    "id": "security-best-practices",
+    "name": "security-best-practices",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.\"",
+    "path": "library/openai-skills/skills/security-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link security-best-practices"
+  },
+  {
+    "id": "security-ownership-map",
+    "name": "security-ownership-map",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Analyze git repositories to build a security ownership topology (people-to-file), compute bus factor and sensitive-code ownership, and export CSV/JSON for graph databases and visualization. Trigger only when the user explicitly wants a security-oriented ownership or bus-factor analysis grounded in git history (for example: orphaned sensitive code, security maintainers, CODEOWNERS reality checks for risk, sensitive hotspots, or ownership clusters). Do not trigger for general maintainer lists or non-security ownership questions.\"",
+    "path": "library/openai-skills/skills/security-ownership-map",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-ownership-map",
+    "link_cmd": "python .agents/library/activate_skill.py link security-ownership-map"
+  },
+  {
+    "id": "security-threat-model",
+    "name": "security-threat-model",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Repository-grounded threat modeling that enumerates trust boundaries, assets, attacker capabilities, abuse paths, and mitigations, and writes a concise Markdown threat model. Trigger only when the user explicitly asks to threat model a codebase or path, enumerate threats/abuse paths, or perform AppSec threat modeling. Do not trigger for general architecture summaries, code review, or non-security design work.\"",
+    "path": "library/openai-skills/skills/security-threat-model",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-threat-model",
+    "link_cmd": "python .agents/library/activate_skill.py link security-threat-model"
+  },
+  {
+    "id": "speech",
+    "name": "speech",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Use when the user asks for text-to-speech narration or voiceover, accessibility reads, audio prompts, or batch speech generation via the OpenAI Audio API; run the bundled CLI (`scripts/text_to_speech.py`) with built-in voices and require `OPENAI_API_KEY` for live calls. Custom voice creation is out of scope.\"",
+    "path": "library/openai-skills/skills/speech",
+    "activation_cmd": "python .agents/library/activate_skill.py activate speech",
+    "link_cmd": "python .agents/library/activate_skill.py link speech"
+  },
+  {
+    "id": "transcribe",
+    "name": "transcribe",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "\"Transcribe audio files to text with optional diarization and known-speaker hints. Use when a user asks to transcribe speech from audio/video, extract text from recordings, or label speakers in interviews or meetings.\"",
+    "path": "library/openai-skills/skills/transcribe",
+    "activation_cmd": "python .agents/library/activate_skill.py activate transcribe",
+    "link_cmd": "python .agents/library/activate_skill.py link transcribe"
+  },
+  {
+    "id": "winui-app",
+    "name": "winui-app",
+    "repository": "openai-skills",
+    "category": "frontend",
+    "description": "Bootstrap, develop, and design modern WinUI 3 desktop applications with C# and the Windows App SDK using official Microsoft guidance, WinUI Gallery patterns, Windows App SDK samples, and CommunityToolkit components. Use when creating a brand new app, preparing a machine for WinUI, reviewing, refactoring, planning, troubleshooting, environment-checking, or setting up WinUI 3 XAML, controls, navigation, windowing, theming, accessibility, responsiveness, performance, deployment, or related Windows app design and development work.",
+    "path": "library/openai-skills/skills/winui-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate winui-app",
+    "link_cmd": "python .agents/library/activate_skill.py link winui-app"
+  },
+  {
+    "id": "yeet",
+    "name": "yeet",
+    "repository": "openai-skills",
+    "category": "general-development",
+    "description": "\"Use only when the user explicitly asks to stage, commit, push, and open a GitHub pull request in one flow using the GitHub CLI (`gh`).\"",
+    "path": "library/openai-skills/skills/yeet",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yeet",
+    "link_cmd": "python .agents/library/activate_skill.py link yeet"
   }
 ]

@@ -37,7 +37,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`finviz-screener`](./finviz-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Build and open FinViz screener URLs from natural language requests. Use when user wants to screen stocks, find stocks ma |
 | **[`founder-pricing`](./founder-pricing/SKILL.md)** | 📦 Library | `jakeschincariol-founder-skill` | - |
 | **[`geo-fundamentals`](./geo-fundamentals/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). |
-| **[`grill-me`](./grill-me/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | A relentless interview to sharpen a plan or design. |
+| **[`grill-me`](./grill-me/SKILL.md)** | 📦 Library | `mattpocock-skills` | A relentless interview to sharpen a plan or design. |
 | **[`grow-sustainably`](./grow-sustainably/SKILL.md)** | 📦 Library | `slavingia-skills` | Evaluate business decisions through the lens of sustainable, profitable growth. Use when someone is making decisions abo |
 | **[`hig-foundations`](./hig-foundations/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`hiring-screener`](./hiring-screener/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Takes a pile of applications and turns it into a ranked shortlist, scored |
@@ -78,7 +78,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`stockbee-momentum-burst-screener`](./stockbee-momentum-burst-screener/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Screen US stocks for Stockbee-style short-term Momentum Burst setups using 4% breakout, dollar breakout, range expansion |
 | **[`synthesize-research`](./synthesize-research/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Synthesize user research from interviews, surveys, and feedback into structured insights. Use when you have a pile of in |
 | **[`tailored-resume-generator`](./tailored-resume-generator/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills, and achievements to |
-| **[`to-spec`](./to-spec/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of w |
+| **[`to-spec`](./to-spec/SKILL.md)** | 📦 Library | `mattpocock-skills` | Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of w |
 | **[`triage-nda`](./triage-nda/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Rapidly triage an incoming NDA and classify it as GREEN (standard approval), YELLOW (counsel review), or RED (full legal |
 | **[`user-research`](./user-research/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Plan, conduct, and synthesize user research. Trigger with "user research plan", "interview guide", "usability test", "su |
 | **[`vendor-review`](./vendor-review/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Evaluate a vendor — cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, decidi |

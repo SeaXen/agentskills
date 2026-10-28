@@ -35,7 +35,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`crypto-bd-agent`](./crypto-bd-agent/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`ctf-crypto`](./ctf-crypto/SKILL.md)** | 📦 Library | `ljagiello-ctf-skills` | Provides cryptography attack techniques for CTF challenges. Use when attacking encryption, hashing, signatures, ZKP, PRN |
 | **[`defi-protocol-templates`](./defi-protocol-templates/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending systems. Use when bu |
-| **[`define-goal`](./define-goal/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Help the user define a concrete, measurable goal before starting work, especially when they ask to use the goal tool, cr |
+| **[`define-goal`](./define-goal/SKILL.md)** | 📦 Library | `openai-skills` | Help the user define a concrete, measurable goal before starting work, especially when they ask to use the goal tool, cr |
 | **[`evm-swiss-knife`](./evm-swiss-knife/SKILL.md)** | 📦 Library | `crypto-skills` | Interact with EVM-compatible blockchains using Foundry's cast tool for querying balances, calling contracts, sending tra |
 | **[`hyperliquid-reader`](./hyperliquid-reader/SKILL.md)** | 📦 Library | `himself65-finance-skills` | Read Hyperliquid (app.hyperliquid.xyz) perp and spot market data through opencli and |
 | **[`internet-court`](./internet-court/SKILL.md)** | 📦 Library | `internet-court-internet-court-skill` | Entry point for Internet Court — the trust layer for agent-to-agent commerce. Use whenever an agent needs to transact wi |

@@ -25,7 +25,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`cs-fullstack-review`](./cs-fullstack-review/SKILL.md)** | 📦 Library | `alirezarezvani-claude-skills` | Modular agent skill module |
 | **[`nextjs-app-router-patterns`](./nextjs-app-router-patterns/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced data fetching. Use when b |
 | **[`nextjs-best-practices`](./nextjs-best-practices/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
-| **[`nextjs-react-expert`](./nextjs-react-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | React and Next.js performance optimization from Vercel Engineering. Use when building React components, optimizing perfo |
+| **[`nextjs-react-expert`](./nextjs-react-expert/SKILL.md)** | 📦 Library | `#searex-skill` | React and Next.js performance optimization from Vercel Engineering. Use when building React components, optimizing perfo |
 | **[`nextjs-supabase-auth`](./nextjs-supabase-auth/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authentication next.js, login  |
 
 ---

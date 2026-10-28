@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Skills in Category**: 33 real modular skills  
+> **Total Skills in Category**: 32 real modular skills  
 > **Directory**: [`.agents/category/data-engineering-ml`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (33 Skills)
+## 📑 Complete Skill Catalog (32 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -39,7 +39,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`firecrawl-automation`](./firecrawl-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate web crawling and data extraction with Firecrawl -- scrape pages, crawl sites, extract structured data, batch sc |
 | **[`gong-automation`](./gong-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Gong conversation intelligence -- retrieve call recordings, transcripts, detailed analytics, speaker stats, and |
 | **[`hugging-face-cli`](./hugging-face-cli/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Execute Hugging Face Hub operations using the `hf` CLI. Use when the user needs to download models/datasets/spaces, uplo |
-| **[`jupyter-notebook`](./jupyter-notebook/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutor |
 | **[`machine-learning-ops-ml-pipeline`](./machine-learning-ops-ml-pipeline/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Design and implement a complete ML pipeline for: $ARGUMENTS |
 | **[`ml-engineer`](./ml-engineer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build production ML systems with PyTorch 2.x, TensorFlow, and |
 | **[`ml-pipeline-workflow`](./ml-pipeline-workflow/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build end-to-end MLOps pipelines from data preparation through model training, validation, and production deployment. Us |

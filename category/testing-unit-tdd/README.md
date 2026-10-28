@@ -28,7 +28,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`benchmark-email-automation`](./benchmark-email-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Benchmark Email tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | **[`browser-testing-with-devtools`](./browser-testing-with-devtools/SKILL.md)** | 📦 Library | `addyosmani-agent-skills` | Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when |
 | **[`capacity-plan`](./capacity-plan/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Plan resource capacity — workload analysis and utilization forecasting. Use when heading into quarterly planning, the te |
-| **[`codebase-design`](./codebase-design/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find de |
+| **[`codebase-design`](./codebase-design/SKILL.md)** | 📦 Library | `#searex-skill` | Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find de |
 | **[`comp-analysis`](./comp-analysis/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Analyze compensation — benchmarking, band placement, and equity modeling. Trigger with "what should we pay a [role]", "i |
 | **[`conductor-implement`](./conductor-implement/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Execute tasks from a track's implementation plan following TDD workflow |
 | **[`create-formal-verification-skill`](./create-formal-verification-skill/SKILL.md)** | 📦 Library | `backnotprop-pstack` | Generate a project-local skill that formally verifies the code where a bug costs the most and tests reach the least, in  |
@@ -43,7 +43,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`file-path-traversal`](./file-path-traversal/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"test for directory traversal\", \"exploit path traversal vulnerabiliti |
 | **[`fix-review`](./fix-review/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Verify fix commits address audit findings without new bugs |
 | **[`gravitas-perf`](./gravitas-perf/SKILL.md)** | 📦 Library | `udaysharmadev-gravitas` | Performance analysis mode for GRAVITAS. Adds profiling patterns, benchmark |
-| **[`grilling`](./grilling/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or u |
+| **[`grilling`](./grilling/SKILL.md)** | 📦 Library | `mattpocock-skills` | Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or u |
 | **[`hunter-automation`](./hunter-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Hunter.io email intelligence -- search domains for email addresses, find specific contacts, verify email delive |
 | **[`idor-testing`](./idor-testing/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"test for insecure direct object references,\" \"find IDOR vulnerabilit |
 | **[`image-to-code`](./image-to-code/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Turn a reference image, screenshot, or mockup into token-driven, accessible code. Infer the design system from the refer |
@@ -86,7 +86,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`test-automator`](./test-automator/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master AI-powered test automation with modern frameworks, |
 | **[`test-driven-development`](./test-driven-development/SKILL.md)** | 🟢 Active | `active-skills` | Use when implementing any feature or bugfix, before writing implementation code |
 | **[`test-fixing`](./test-fixing/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Run tests and systematically fix all failing tests using smart error grouping. Use when user asks to fix failing tests,  |
-| **[`triage`](./triage/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write age |
+| **[`triage`](./triage/SKILL.md)** | 📦 Library | `mattpocock-skills` | Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write age |
 | **[`ui-visual-validator`](./ui-visual-validator/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Rigorous visual validation expert specializing in UI testing, |
 | **[`upgrade`](./upgrade/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Upgrade the NotFair plugin to the latest version. Updates the marketplace repo, |
 | **[`validate-idea`](./validate-idea/SKILL.md)** | 📦 Library | `slavingia-skills` | Validate a business idea using the minimalist entrepreneur framework. Use when someone has a business idea and wants to  |

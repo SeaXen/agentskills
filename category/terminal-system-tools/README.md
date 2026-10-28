@@ -31,7 +31,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`build-zoom-team-chat-app`](./build-zoom-team-chat-app/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integration |
 | **[`busybox-on-windows`](./busybox-on-windows/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows. |
 | **[`claude-settings-audit`](./claude-settings-audit/SKILL.md)** | 📦 Library | `getsentry-skills` | Analyze a repository to generate recommended Claude Code settings.json permissions. Use when setting up a new project, a |
-| **[`cli-creator`](./cli-creator/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin too |
+| **[`cli-creator`](./cli-creator/SKILL.md)** | 📦 Library | `openai-skills` | Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK, a web app, an admin too |
 | **[`clockify-automation`](./clockify-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate time tracking workflows in Clockify -- create and manage time entries, workspaces, and users through natural la |
 | **[`cloudinary-automation`](./cloudinary-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Cloudinary media management including folder organization, upload presets, asset lookup, transformations, and u |
 | **[`cqrs-implementation`](./cqrs-implementation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Implement Command Query Responsibility Segregation for scalable architectures. Use when separating read and write models |
@@ -48,7 +48,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`harvest-automation`](./harvest-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate time tracking, project management, and invoicing workflows in Harvest -- log hours, manage projects, clients, a |
 | **[`hf-cli`](./hf-cli/SKILL.md)** | 📦 Library | `huggingface-skills` | Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, buckets, repos, papers, j |
 | **[`jotform-automation`](./jotform-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Jotform form listing, user management, activity history, folder organization, and plan inspection through natur |
-| **[`linear-sdk-scripting`](./linear-sdk-scripting/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Perform actions in Linear (read, create, update, search issues, projects, comments, teams, cycles, labels, etc.) by writ |
+| **[`linear-sdk-scripting`](./linear-sdk-scripting/SKILL.md)** | 📦 Library | `cline-skills` | Perform actions in Linear (read, create, update, search issues, projects, comments, teams, cycles, labels, etc.) by writ |
 | **[`linux-privilege-escalation`](./linux-privilege-escalation/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"escalate privileges on Linux\", \"find privesc vectors on Linux system |
 | **[`linux-shell-scripting`](./linux-shell-scripting/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | This skill should be used when the user asks to \"create bash scripts\", \"automate Linux tasks\", \"monitor system reso |
 | **[`managing-mcp-servers`](./managing-mcp-servers/SKILL.md)** | 📦 Library | `jetbrains-thinkrail` | Use when the user asks to add, change, remove, enable or disable an MCP server, or when an MCP tool is missing, needs si |
@@ -74,7 +74,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`toggl-automation`](./toggl-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate time tracking workflows in Toggl Track -- create time entries, manage projects, clients, tags, and workspaces t |
 | **[`uploadcare-automation`](./uploadcare-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Uploadcare file management including listing, storing, inspecting, downloading, and organizing file groups thro |
 | **[`webex-automation`](./webex-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate Cisco Webex messaging, rooms, teams, webhooks, and people management through natural language commands |
-| **[`wizard`](./wizard/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infras |
+| **[`wizard`](./wizard/SKILL.md)** | 📦 Library | `#searex-skill` | Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infras |
 
 ---
 

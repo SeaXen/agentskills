@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Skills in Category**: 152 real modular skills  
+> **Total Skills in Category**: 151 real modular skills  
 > **Directory**: [`.agents/category/frontend-ui-components`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (152 Skills)
+## 📑 Complete Skill Catalog (151 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -71,7 +71,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`effective-html`](./effective-html/SKILL.md)** | 📦 Library | `plannotator-effective-html` | A set of design-focused skills for creating structured HTML plans, interactive prototypes, and visual reports with a foc |
 | **[`environment-setup-guide`](./environment-setup-guide/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Guide developers through setting up development environments with proper tools, dependencies, and configurations |
 | **[`fetch`](./fetch/SKILL.md)** | 📦 Library | `browserbase-skills` | Use this skill when the user wants to retrieve a URL without a full browser session: fetch HTML or JSON from static page |
-| **[`figma-generate-library`](./figma-generate-library/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables |
+| **[`figma-generate-library`](./figma-generate-library/SKILL.md)** | 📦 Library | `figma-mcp-server-guide` | Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables |
 | **[`figma-integration`](./figma-integration/SKILL.md)** | 📦 Library | `plugin87-ux-ui-agent-skills` | Keep Figma and code in sync. Map the 3-tier DTCG tokens to Figma Variables (collections + modes), sync in either directi |
 | **[`flutter-expert`](./flutter-expert/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master Flutter development with Dart 3, advanced widgets, and |
 | **[`frontend-developer`](./frontend-developer/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build React components, implement responsive layouts, and handle |
@@ -83,7 +83,6 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`google-analytics`](./google-analytics/SKILL.md)** | 📦 Library | `nowork-studio-notfair-plugin` | Analyze connected Google Analytics 4 traffic, acquisition, engagement, landing pages, ecommerce, events, and conversions |
 | **[`grafana-dashboards`](./grafana-dashboards/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create and manage production Grafana dashboards for real-time visualization of system and application metrics. Use when  |
 | **[`graphic-designer`](./graphic-designer/SKILL.md)** | 📦 Library | `charlie947-social-media-skills` | Create LinkedIn post graphics. Decides between an HTML/CSS structured graphic or an AI-generated infographic based on th |
-| **[`graphify`](./graphify/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | any input (code, docs, papers, images) - knowledge graph - clustered communities - HTML + JSON + audit report |
 | **[`hf-mem`](./hf-mem/SKILL.md)** | 📦 Library | `huggingface-skills` | Hugging Face CLI to estimate the required memory to load Safetensors or GGUF model weights for inference from the Huggin |
 | **[`hig-components-content`](./hig-components-content/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | > |
 | **[`hig-components-controls`](./hig-components-controls/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | >- |
@@ -102,7 +101,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`intelligent-routing`](./intelligent-routing/SKILL.md)** | 🟢 Active | `active-skills` | Automatic agent selection and intelligent task routing. Analyzes user requests and automatically selects the best specia |
 | **[`lean-build`](./lean-build/SKILL.md)** | 📦 Library | `juliusbrussee-caveman` | Build feature work with high overbuilding risk. Use for new behavior, product slices, or integrations where repository r |
 | **[`lewislulu-html-ppt`](./lewislulu-html-ppt/SKILL.md)** | 📦 Library | `lewislulu-html-ppt-skill` | HTML PPT Studio — author professional static HTML presentations in many styles, layouts, and animations, all driven by t |
-| **[`loop-me`](./loop-me/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Grill me about specs for the workflows I want to build, within this workspace. |
+| **[`loop-me`](./loop-me/SKILL.md)** | 📦 Library | `mattpocock-skills` | Grill me about specs for the workflows I want to build, within this workspace. |
 | **[`make-bot-ui`](./make-bot-ui/SKILL.md)** | 📦 Library | `backnotprop-pstack` | - |
 | **[`market-news-analyst`](./market-news-analyst/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | This skill should be used when analyzing recent market-moving news events and their impact on equity markets and commodi |
 | **[`memory-forensics`](./memory-forensics/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Master memory forensics techniques including memory acquisition, process analysis, and artifact extraction using Volatil |

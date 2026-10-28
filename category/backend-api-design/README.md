@@ -142,7 +142,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`manifest`](./manifest/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Install and configure the Manifest observability plugin for your agents. Use when setting up telemetry, configuring API  |
 | **[`market-breadth-analyzer`](./market-breadth-analyzer/SKILL.md)** | 📦 Library | `tradermonty-claude-trading-skills` | Quantifies market breadth health using TraderMonty's public CSV data. Generates a 0-100 composite score across 6 compone |
 | **[`microservices-resilience`](./microservices-resilience/SKILL.md)** | 🟢 Active | `active-skills` | Distributed systems resilience patterns, circuit breakers, bulkheads, rate limiting, and exponential backoff with jitter |
-| **[`mintlify`](./mintlify/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, addin |
+| **[`mintlify`](./mintlify/SKILL.md)** | 📦 Library | `#searex-skill` | Comprehensive reference for building Mintlify documentation sites. Use when creating pages, configuring docs.json, addin |
 | **[`moodle-external-api-development`](./moodle-external-api-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Create custom external web service APIs for Moodle LMS. Use when implementing web services for course management, user t |
 | **[`nestjs-expert`](./nestjs-expert/SKILL.md)** | 🟢 Active | `active-skills` | Enterprise NestJS backend architecture, dependency injection, modular systems, guards, interceptors, pipes, microservice |
 | **[`news-api-automation`](./news-api-automation/SKILL.md)** | 📦 Library | `composiohq-awesome-claude-skills` | Automate News API tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -166,7 +166,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`python-sdk`](./python-sdk/SKILL.md)** | 📦 Library | `magentosh-superpowers` | Python SDK for inference.sh - run AI apps, build agents, and integrate with all models. Package: inferencesh (pip instal |
 | **[`reference-builder`](./reference-builder/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Creates exhaustive technical references and API documentation. |
 | **[`replica-backend`](./replica-backend/SKILL.md)** | 📦 Library | `jakeschincariol-replica-skill` | - |
-| **[`research`](./research/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use w |
+| **[`research`](./research/SKILL.md)** | 📦 Library | `mattpocock-skills` | Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use w |
 | **[`rivet-sdk`](./rivet-sdk/SKILL.md)** | 📦 Library | `anthropics-knowledge-work` | Reference skill for Zoom Rivet SDK. Use after routing to a Rivet-based server workflow when implementing auth handling,  |
 | **[`salesforce-development`](./salesforce-development/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex triggers and classes, |
 | **[`scrapecreators-api`](./scrapecreators-api/SKILL.md)** | 📦 Library | `scrapecreators-social-media-research-skills` | - |

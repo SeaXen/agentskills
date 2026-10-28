@@ -28,7 +28,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`azure-resource-manager-redis-dotnet`](./azure-resource-manager-redis-dotnet/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | \| |
 | **[`azure-search-documents-ts`](./azure-search-documents-ts/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Build search applications using Azure AI Search SDK for JavaScript (@azure/search-documents). Use when creating/managing |
 | **[`cosmosdb-best-practices`](./cosmosdb-best-practices/SKILL.md)** | 📦 Library | `cline-skills` | Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, |
-| **[`firestore-data`](./firestore-data/SKILL.md)** | 📦 Library | `antigravity-awesome-skills` | Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides  |
+| **[`firestore-data`](./firestore-data/SKILL.md)** | 📦 Library | `#searex-skill` | Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and data retrieval. Provides  |
 | **[`neon`](./neon/SKILL.md)** | 🟢 Active | `active-skills` | - |
 | **[`neon-ai-gateway`](./neon-ai-gateway/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |
 | **[`neon-auth`](./neon-auth/SKILL.md)** | 📦 Library | `neondatabase-agent-skills` | - |

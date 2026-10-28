@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Skills in Category**: 170 real modular skills  
+> **Total Skills in Category**: 171 real modular skills  
 > **Directory**: [`.agents/category/autonomous-agents-hermes`](./)  
 > **Format**: **100% Real standalone skill folders** (no symlinks, fully portable, offline ready).
 
@@ -16,7 +16,7 @@ python .agents/library/activate_skill.py link <skill-name>
 
 ---
 
-## 📑 Complete Skill Catalog (170 Skills)
+## 📑 Complete Skill Catalog (171 Skills)
 
 | Skill Folder | Status | Upstream Source | Description |
 | :--- | :---: | :--- | :--- |
@@ -101,6 +101,7 @@ python .agents/library/activate_skill.py link <skill-name>
 | **[`inspecting-hermes-desktop-dom`](./inspecting-hermes-desktop-dom/SKILL.md)** | 📦 Library | `nousresearch-hermes-skills` | Read the live Hermes desktop DOM/CSS over CDP. |
 | **[`instructor`](./instructor/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Structured LLM outputs validated with Pydantic. |
 | **[`ip-as-logo`](./ip-as-logo/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Design minimal cute IP mascot marks readable at 32px. |
+| **[`jupyter-notebook`](./jupyter-notebook/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Iterative Python via live Jupyter kernel (hamelnb). |
 | **[`kanban-video-orchestrator`](./kanban-video-orchestrator/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Plan and run multi-agent video production pipelines. |
 | **[`lambda-labs`](./lambda-labs/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | On-demand GPU cloud instances for ML training. |
 | **[`live-dashboard`](./live-dashboard/SKILL.md)** | 📦 Library | `nousresearch-hermes-optional-skills` | Build self-updating dashboards from live sources. |
