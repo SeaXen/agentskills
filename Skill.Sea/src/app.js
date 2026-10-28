@@ -29,6 +29,7 @@
     repoSearchQuery: '',
     sortBy: 'rank',
     currentView: 'table',
+    installCmdMode: 'npx', // 'npx', 'python', 'myrepo'
     currentPage: 1,
     pageSize: 50,
     theme: localStorage.getItem('skill-sea-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -40,6 +41,7 @@
     themeToggle: document.getElementById('theme-toggle'),
     themeIcon: document.getElementById('theme-icon'),
     categoryRail: document.getElementById('category-rail'),
+    cmdTypeToggle: document.getElementById('cmd-type-toggle'),
     searchInput: document.getElementById('search-input'),
     hotsetSearchInput: document.getElementById('hotset-search-input'),
     categorySearchInput: document.getElementById('category-search-input'),
@@ -158,7 +160,7 @@
   // Initialize Data
   async function init() {
     applyTheme(state.theme);
-    const dataVersion = '2.2';
+    const dataVersion = '2.3';
 
     try {
       const statsRes = await fetch(`./data/stats.json?v=${dataVersion}`);
@@ -210,7 +212,7 @@
   function renderStats() {
     if (el.statTotalSkills) el.statTotalSkills.textContent = Number(state.stats.totalSkills || state.catalog.length).toLocaleString();
     if (el.statTotalCats) el.statTotalCats.textContent = state.stats.totalCategories || state.categories.length;
-    if (el.statTotalRepos) el.statTotalRepos.textContent = state.stats.totalRepositories || state.repositories.length || '225';
+    if (el.statTotalRepos) el.statTotalRepos.textContent = state.stats.totalRepositories || state.repositories.length || '210';
     if (el.statActiveHot) el.statActiveHot.textContent = state.stats.activeHotSetCount || '130';
   }
 
@@ -227,7 +229,7 @@
     for (const cat of state.categories) {
       const isActive = state.selectedCategory === cat.slug;
       html += `
-        <button class="cat-pill ${isActive ? 'active' : ''}" data-cat="${cat.slug}">
+        <button class="cat-pill cat-color-${cat.colorTheme || 'blue'} ${isActive ? 'active' : ''}" data-cat="${cat.slug}">
           <i class="ti ti-${cat.icon || 'folder'}" style="font-size:13px"></i>
           <span>${cat.cleanTitle || cat.title}</span>
           <span class="cat-count">${cat.count}</span>
@@ -472,6 +474,19 @@
         ? `<span class="tg tg-hot"><i class="ti ti-flame" style="font-size:11px"></i> Hot-Set</span>`
         : `<span class="tg tg-vault">Vault</span>`;
 
+      // Active status shown as a dedicated TAG, NOT as a git repository!
+      const activeTag = item.isActive
+        ? `<span class="tag-active-pill" title="Currently activated in your workspace .agents/skills"><i class="ti ti-flame" style="font-size:9.5px"></i> Active</span>`
+        : '';
+
+      // Determine active 1-click command based on state.installCmdMode
+      let cmd = item.npxCmd || `npx skills add ${item.githubUrl}`;
+      if (state.installCmdMode === 'python') {
+        cmd = item.activationCmd;
+      } else if (state.installCmdMode === 'myrepo') {
+        cmd = item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills';
+      }
+
       rows += `
         <tr onclick="openSkillDrawer('${item.id}')">
           <td class="col-rank">
@@ -485,10 +500,11 @@
               <div class="skill-info">
                 <div class="skill-title-row">
                   <span class="skill-title">${escapeHtml(item.name)}</span>
+                  ${activeTag}
                   <span class="skill-repo" onclick="event.stopPropagation(); setLibrary('${item.repository}')" title="Filter by library: ${escapeHtml(item.repository)}">
                     <i class="ti ti-books"></i>${escapeHtml(item.repository)}
                   </span>
-                  <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="skill-repo" onclick="event.stopPropagation()" title="Open upstream GitHub repository">
+                  <a href="${escapeHtml(item.githubUrl)}" target="_blank" rel="noopener noreferrer" class="skill-repo" onclick="event.stopPropagation()" title="Open upstream GitHub repository (${escapeHtml(item.repository)})">
                     <i class="ti ti-brand-github"></i>
                   </a>
                 </div>
@@ -497,7 +513,7 @@
             </div>
           </td>
           <td>
-            <span class="tg tg-cat" onclick="event.stopPropagation(); setCategory('${item.category}')" title="Filter by category">
+            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" onclick="event.stopPropagation(); setCategory('${item.category}')" title="Filter by category: ${escapeHtml(item.cleanCategory || item.category)}">
               <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px"></i>
               ${escapeHtml(item.cleanCategory || item.category)}
             </span>
@@ -506,8 +522,8 @@
             ${tierBadge}
           </td>
           <td class="col-cmd">
-            <div class="cmd-box" onclick="copyCommand('${escapeHtml(item.activationCmd)}', event)" title="Click to copy activation command">
-              <code>${escapeHtml(item.activationCmd)}</code>
+            <div class="cmd-box" onclick="copyCommand('${escapeHtml(cmd)}', event)" title="Click to copy 1-click install command (${state.installCmdMode.toUpperCase()})">
+              <code>${escapeHtml(cmd)}</code>
               <i class="ti ti-copy cmd-copy-icon"></i>
             </div>
           </td>
@@ -544,13 +560,25 @@
         ? `<span class="tg tg-hot"><i class="ti ti-flame" style="font-size:10px"></i> Hot-Set</span>`
         : `<span class="tg tg-vault">Vault</span>`;
 
+      const activeTag = item.isActive
+        ? `<span class="tag-active-pill" style="font-size:9px;padding:1px 5px"><i class="ti ti-flame" style="font-size:8.5px"></i> Active</span>`
+        : '';
+
+      let cmd = item.npxCmd || `npx skills add ${item.githubUrl}`;
+      if (state.installCmdMode === 'python') {
+        cmd = item.activationCmd;
+      } else if (state.installCmdMode === 'myrepo') {
+        cmd = item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills';
+      }
+
       cards += `
         <div class="skill-card" onclick="openSkillDrawer('${item.id}')">
           <div class="card-top">
             <div>
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap">
                 <span class="rank-pill ${item.rank <= 3 ? 'rank-top-' + item.rank : ''}" style="font-size:10px;width:20px;height:20px">${item.rank}</span>
                 <span class="card-title">${escapeHtml(item.name)}</span>
+                ${activeTag}
               </div>
               <span class="card-repo" onclick="event.stopPropagation(); setLibrary('${item.repository}')" style="cursor:pointer">
                 <i class="ti ti-books"></i> ${escapeHtml(item.repository)}
@@ -560,12 +588,12 @@
           </div>
           <div class="card-desc">${escapeHtml(item.description || 'Specialized skill ready for instant agent activation.')}</div>
           <div class="card-bottom">
-            <span class="tg tg-cat" onclick="event.stopPropagation(); setCategory('${item.category}')">
+            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" onclick="event.stopPropagation(); setCategory('${item.category}')">
               <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px"></i>
               ${escapeHtml(item.cleanCategory || item.category)}
             </span>
-            <div class="cmd-box" onclick="copyCommand('${escapeHtml(item.activationCmd)}', event)" style="max-width:140px">
-              <code>activate</code>
+            <div class="cmd-box" onclick="copyCommand('${escapeHtml(cmd)}', event)" style="max-width:140px" title="Copy ${state.installCmdMode.toUpperCase()} command">
+              <code>${state.installCmdMode.toUpperCase()}</code>
               <i class="ti ti-copy cmd-copy-icon"></i>
             </div>
           </div>
@@ -600,26 +628,33 @@
 
     let cards = '';
     for (const item of hotItems) {
+      let cmd = item.npxCmd || `npx skills add ${item.githubUrl}`;
+      if (state.installCmdMode === 'python') cmd = item.activationCmd;
+      else if (state.installCmdMode === 'myrepo') cmd = item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills';
+
       cards += `
         <div class="skill-card" onclick="openSkillDrawer('${item.id}')">
           <div class="card-top">
             <div>
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap">
                 <span class="rank-pill rank-top-1" style="font-size:10px;width:20px;height:20px">⚡</span>
                 <span class="card-title">${escapeHtml(item.name)}</span>
+                <span class="tag-active-pill" style="font-size:9px;padding:1px 5px"><i class="ti ti-flame" style="font-size:8.5px"></i> Active</span>
               </div>
-              <span class="card-repo"><i class="ti ti-brand-github"></i> ${escapeHtml(item.repository)}</span>
+              <span class="card-repo" onclick="event.stopPropagation(); setLibrary('${item.repository}')" style="cursor:pointer">
+                <i class="ti ti-books"></i> ${escapeHtml(item.repository)}
+              </span>
             </div>
-            <span class="tg tg-hot"><i class="ti ti-flame" style="font-size:10px"></i> Active</span>
+            <span class="tg tg-hot"><i class="ti ti-flame" style="font-size:10px"></i> Hot-Set</span>
           </div>
           <div class="card-desc">${escapeHtml(item.description || 'Pre-linked active skill ready for instantaneous invocation.')}</div>
           <div class="card-bottom">
-            <span class="tg tg-cat" onclick="event.stopPropagation(); setCategory('${item.category}')">
+            <span class="tg tg-cat cat-color-${item.colorTheme || 'blue'}" onclick="event.stopPropagation(); setCategory('${item.category}')">
               <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px"></i>
               ${escapeHtml(item.cleanCategory)}
             </span>
-            <div class="cmd-box" onclick="copyCommand('${escapeHtml(item.activationCmd)}', event)" style="max-width:180px">
-              <code>activate</code>
+            <div class="cmd-box" onclick="copyCommand('${escapeHtml(cmd)}', event)" style="max-width:180px" title="Copy ${state.installCmdMode.toUpperCase()} command">
+              <code>${escapeHtml(cmd)}</code>
               <i class="ti ti-copy cmd-copy-icon"></i>
             </div>
           </div>
@@ -645,9 +680,9 @@
     let cards = '';
     for (const cat of filteredCats) {
       cards += `
-        <div class="cat-dir-card" onclick="setCategory('${cat.slug}')">
+        <div class="cat-dir-card cat-color-${cat.colorTheme || 'blue'}" onclick="setCategory('${cat.slug}')">
           <div class="cat-dir-header">
-            <div class="cat-dir-icon">
+            <div class="cat-dir-icon" style="background:var(--cat-bg);border:0.5px solid var(--cat-border);color:var(--cat-text)">
               <i class="ti ti-${cat.icon || 'folder'}"></i>
             </div>
             <div>
@@ -656,8 +691,8 @@
             </div>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:0.5px solid var(--border);padding-top:8px">
-            <span style="font-size:11.5px;color:var(--teal)">Browse Skills →</span>
-            <span class="pill" style="padding:2px 8px;font-size:11px">Filter</span>
+            <span style="font-size:11.5px;color:var(--cat-text, var(--teal))">Browse Skills →</span>
+            <span class="tg tg-cat cat-color-${cat.colorTheme || 'blue'}" style="padding:2px 8px;font-size:10.5px">Select</span>
           </div>
         </div>
       `;
@@ -776,21 +811,33 @@
       </div>
 
       <div class="doc-section">
-        <h3><i class="ti ti-terminal-2" style="color:var(--teal)"></i> One-Click Activation Commands</h3>
+        <h3><i class="ti ti-terminal-2" style="color:var(--teal)"></i> One-Click Activation & Install Commands</h3>
         
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">1. AgentSkills Universal CLI (Local Workspace):</p>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">1. Universal NPX Install (Upstream Origin Repo):</p>
+        <div class="code-snippet-box">
+          <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.npxCmd || ('npx skills add ' + item.githubUrl))}')">Copy</span>
+          <code>${escapeHtml(item.npxCmd || ('npx skills add ' + item.githubUrl))}</code>
+        </div>
+
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">2. Universal NPX Install (My Repo Vault):</p>
+        <div class="code-snippet-box">
+          <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills')}')">Copy</span>
+          <code>${escapeHtml(item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills')}</code>
+        </div>
+
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">3. AgentSkills Python CLI (Local Workspace Activation):</p>
         <div class="code-snippet-box">
           <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.activationCmd)}')">Copy</span>
           <code>${escapeHtml(item.activationCmd)}</code>
         </div>
 
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">2. Zero-Disk Symlink / Junction (Instant Link):</p>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">4. Zero-Disk Symlink / Junction (Instant Link):</p>
         <div class="code-snippet-box">
           <span class="copy-pill" onclick="copyCommand('${escapeHtml(item.linkCmd)}')">Copy</span>
           <code>${escapeHtml(item.linkCmd)}</code>
         </div>
 
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">3. Remote cURL Quick-Launch (Linux/macOS/Codespaces):</p>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">5. Remote cURL Quick-Launch (Linux/macOS/Codespaces):</p>
         <div class="code-snippet-box">
           <span class="copy-pill" onclick="copyCommand('${escapeHtml(curlCommand)}')">Copy</span>
           <code>${escapeHtml(curlCommand)}</code>
@@ -838,6 +885,26 @@
     if (el.themeToggle) {
       el.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+      });
+    }
+
+    // 1-Click Install Command Type Switcher (NPX / Python / My Repo)
+    const cmdTypeToggle = document.getElementById('cmd-type-toggle');
+    if (cmdTypeToggle) {
+      cmdTypeToggle.addEventListener('click', (e) => {
+        const btn = e.target.closest('.cmd-type-btn');
+        if (btn && btn.dataset.mode) {
+          state.installCmdMode = btn.dataset.mode;
+          cmdTypeToggle.querySelectorAll('.cmd-type-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderResults();
+          const modeLabels = {
+            npx: 'Universal NPX (Origin Upstream)',
+            python: 'Python Local Activation',
+            myrepo: 'My Repo Vault NPX'
+          };
+          showToast(`Install Mode: ${modeLabels[state.installCmdMode]}`);
+        }
       });
     }
 

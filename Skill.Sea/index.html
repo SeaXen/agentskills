@@ -183,7 +183,16 @@
                 <th>Skill & Upstream Repository</th>
                 <th>Category</th>
                 <th>Tier</th>
-                <th class="col-cmd">1-Click Install Command</th>
+                <th class="col-cmd">
+                  <div class="col-cmd-header">
+                    <span>1-Click Install</span>
+                    <div class="cmd-type-toggle" id="cmd-type-toggle">
+                      <button type="button" class="cmd-type-btn active" data-mode="npx" title="npx skills add <origin_repo>">NPX</button>
+                      <button type="button" class="cmd-type-btn" data-mode="python" title="python .agents/library/activate_skill.py activate <skill>">Python</button>
+                      <button type="button" class="cmd-type-btn" data-mode="myrepo" title="npx skills add https://github.com/SeaXen/agentskills">My Repo</button>
+                    </div>
+                  </div>
+                </th>
                 <th style="text-align:right">Action</th>
               </tr>
             </thead>

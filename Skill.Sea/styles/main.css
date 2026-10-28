@@ -320,21 +320,45 @@ html, body {
   flex-shrink: 0;
 }
 
+.cat-pill.cat-color-emerald { --cat-accent: #10b981; }
+.cat-pill.cat-color-blue { --cat-accent: #3b82f6; }
+.cat-pill.cat-color-sky { --cat-accent: #0284c7; }
+.cat-pill.cat-color-cyan { --cat-accent: #06b6d4; }
+.cat-pill.cat-color-teal { --cat-accent: #14b8a6; }
+.cat-pill.cat-color-amber { --cat-accent: #f59e0b; }
+.cat-pill.cat-color-orange { --cat-accent: #ea580c; }
+.cat-pill.cat-color-rose { --cat-accent: #f43f5e; }
+.cat-pill.cat-color-crimson { --cat-accent: #e11d48; }
+.cat-pill.cat-color-indigo { --cat-accent: #6366f1; }
+.cat-pill.cat-color-lime { --cat-accent: #84cc16; }
+.cat-pill.cat-color-pink { --cat-accent: #ec4899; }
+.cat-pill.cat-color-slate { --cat-accent: #64748b; }
+
+.cat-pill i {
+  color: var(--cat-accent, var(--teal));
+  transition: color 0.15s ease;
+}
+
 .cat-pill:hover {
-  border-color: var(--border-strong);
+  border-color: var(--cat-accent, var(--border-strong));
+  background: var(--cat-bg, var(--surface-2));
   color: var(--text-primary);
 }
 
 .cat-pill.active {
-  background: var(--teal-strong);
-  border-color: var(--teal-strong);
+  background: var(--cat-accent, var(--teal-strong));
+  border-color: var(--cat-accent, var(--teal-strong));
   color: #ffffff;
   font-weight: 500;
 }
 
+.cat-pill.active i {
+  color: #ffffff;
+}
+
 .cat-pill .cat-count {
   font-size: 10.5px;
-  opacity: 0.75;
+  opacity: 0.8;
   font-family: var(--font-mono);
 }
 
@@ -644,16 +668,161 @@ html, body {
   max-width: 700px;
 }
 
+/* Category Color Palette System (Rich Harmonics) */
+.cat-color-emerald {
+  --cat-bg: rgba(16, 185, 129, 0.10);
+  --cat-border: rgba(16, 185, 129, 0.28);
+  --cat-text: #059669;
+}
+[data-theme="dark"] .cat-color-emerald {
+  --cat-bg: rgba(16, 185, 129, 0.16);
+  --cat-border: rgba(16, 185, 129, 0.35);
+  --cat-text: #34d399;
+}
+
+.cat-color-blue {
+  --cat-bg: rgba(59, 130, 246, 0.10);
+  --cat-border: rgba(59, 130, 246, 0.28);
+  --cat-text: #2563eb;
+}
+[data-theme="dark"] .cat-color-blue {
+  --cat-bg: rgba(59, 130, 246, 0.16);
+  --cat-border: rgba(59, 130, 246, 0.35);
+  --cat-text: #60a5fa;
+}
+
+.cat-color-sky {
+  --cat-bg: rgba(2, 132, 199, 0.10);
+  --cat-border: rgba(2, 132, 199, 0.28);
+  --cat-text: #0284c7;
+}
+[data-theme="dark"] .cat-color-sky {
+  --cat-bg: rgba(2, 132, 199, 0.16);
+  --cat-border: rgba(2, 132, 199, 0.35);
+  --cat-text: #38bdf8;
+}
+
+.cat-color-cyan {
+  --cat-bg: rgba(6, 182, 212, 0.10);
+  --cat-border: rgba(6, 182, 212, 0.28);
+  --cat-text: #0891b2;
+}
+[data-theme="dark"] .cat-color-cyan {
+  --cat-bg: rgba(6, 182, 212, 0.16);
+  --cat-border: rgba(6, 182, 212, 0.35);
+  --cat-text: #22d3ee;
+}
+
+.cat-color-teal {
+  --cat-bg: rgba(20, 184, 166, 0.10);
+  --cat-border: rgba(20, 184, 166, 0.28);
+  --cat-text: #0d9488;
+}
+[data-theme="dark"] .cat-color-teal {
+  --cat-bg: rgba(20, 184, 166, 0.16);
+  --cat-border: rgba(20, 184, 166, 0.35);
+  --cat-text: #2dd4bf;
+}
+
+.cat-color-amber {
+  --cat-bg: rgba(245, 158, 11, 0.10);
+  --cat-border: rgba(245, 158, 11, 0.28);
+  --cat-text: #b45309;
+}
+[data-theme="dark"] .cat-color-amber {
+  --cat-bg: rgba(245, 158, 11, 0.16);
+  --cat-border: rgba(245, 158, 11, 0.35);
+  --cat-text: #fbbf24;
+}
+
+.cat-color-orange {
+  --cat-bg: rgba(234, 88, 12, 0.10);
+  --cat-border: rgba(234, 88, 12, 0.28);
+  --cat-text: #c2410c;
+}
+[data-theme="dark"] .cat-color-orange {
+  --cat-bg: rgba(234, 88, 12, 0.16);
+  --cat-border: rgba(234, 88, 12, 0.35);
+  --cat-text: #fb923c;
+}
+
+.cat-color-rose {
+  --cat-bg: rgba(244, 63, 94, 0.10);
+  --cat-border: rgba(244, 63, 94, 0.28);
+  --cat-text: #e11d48;
+}
+[data-theme="dark"] .cat-color-rose {
+  --cat-bg: rgba(244, 63, 94, 0.16);
+  --cat-border: rgba(244, 63, 94, 0.35);
+  --cat-text: #fb7185;
+}
+
+.cat-color-crimson {
+  --cat-bg: rgba(225, 29, 72, 0.10);
+  --cat-border: rgba(225, 29, 72, 0.28);
+  --cat-text: #be123c;
+}
+[data-theme="dark"] .cat-color-crimson {
+  --cat-bg: rgba(225, 29, 72, 0.16);
+  --cat-border: rgba(225, 29, 72, 0.35);
+  --cat-text: #fda4af;
+}
+
+.cat-color-indigo {
+  --cat-bg: rgba(99, 102, 241, 0.10);
+  --cat-border: rgba(99, 102, 241, 0.28);
+  --cat-text: #4f46e5;
+}
+[data-theme="dark"] .cat-color-indigo {
+  --cat-bg: rgba(99, 102, 241, 0.16);
+  --cat-border: rgba(99, 102, 241, 0.35);
+  --cat-text: #818cf8;
+}
+
+.cat-color-lime {
+  --cat-bg: rgba(132, 204, 22, 0.10);
+  --cat-border: rgba(132, 204, 22, 0.28);
+  --cat-text: #4d7c0f;
+}
+[data-theme="dark"] .cat-color-lime {
+  --cat-bg: rgba(132, 204, 22, 0.16);
+  --cat-border: rgba(132, 204, 22, 0.35);
+  --cat-text: #a3e635;
+}
+
+.cat-color-pink {
+  --cat-bg: rgba(236, 72, 153, 0.10);
+  --cat-border: rgba(236, 72, 153, 0.28);
+  --cat-text: #be185d;
+}
+[data-theme="dark"] .cat-color-pink {
+  --cat-bg: rgba(236, 72, 153, 0.16);
+  --cat-border: rgba(236, 72, 153, 0.35);
+  --cat-text: #f472b6;
+}
+
+.cat-color-slate {
+  --cat-bg: rgba(100, 116, 139, 0.10);
+  --cat-border: rgba(100, 116, 139, 0.25);
+  --cat-text: #475569;
+}
+[data-theme="dark"] .cat-color-slate {
+  --cat-bg: rgba(100, 116, 139, 0.16);
+  --cat-border: rgba(100, 116, 139, 0.32);
+  --cat-text: #94a3b8;
+}
+
 /* Category & Tags */
 .tg {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   font-size: 11px;
-  padding: 2px 8px;
+  padding: 2.5px 8.5px;
   border-radius: var(--radius-chip);
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 500;
+  transition: all 0.15s ease;
 }
 
 .tg-hot {
@@ -668,9 +837,82 @@ html, body {
 }
 
 .tg-cat {
-  background: var(--surface-1);
+  background: var(--cat-bg, var(--surface-1));
+  border: 0.5px solid var(--cat-border, var(--border-strong));
+  color: var(--cat-text, var(--text-secondary));
+  cursor: pointer;
+}
+
+.tg-cat:hover {
+  filter: brightness(1.15);
+  border-color: var(--cat-text, var(--border-strong));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Dedicated Active Tag Pill */
+.tag-active-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5px;
+  padding: 1.5px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.14);
+  border: 0.5px solid rgba(16, 185, 129, 0.38);
+  color: #059669;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+[data-theme="dark"] .tag-active-pill {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(16, 185, 129, 0.45);
+  color: #34d399;
+}
+
+/* 1-Click Install Command Switcher Header */
+.col-cmd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cmd-type-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface-2);
   border: 0.5px solid var(--border-strong);
-  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 2px;
+  gap: 2px;
+  user-select: none;
+}
+
+.cmd-type-btn {
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 7px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  line-height: 1.2;
+}
+
+.cmd-type-btn:hover {
+  color: var(--text-primary);
+}
+
+.cmd-type-btn.active {
+  background: var(--surface-1);
+  color: var(--teal);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
 }
 
 /* Command Box */
