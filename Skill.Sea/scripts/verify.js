@@ -112,6 +112,12 @@ try {
   assert(mainCss.includes('overscroll-behavior-y: none'), 'Overscroll-behavior containment enabled to prevent pull-to-refresh hijacking');
   assert(mainCss.includes('100dvh'), 'Dynamic viewport height (100dvh) configured for mobile browsers');
   assert(appJs.includes('filter-chip-remove') && appJs.includes('button type="button" class="filter-chip-remove"'), 'Dynamic filter chips use accessible button elements');
+  assert(indexHtml.includes('id="agent-stack-tray"'), 'Floating Agent Stack Tray present in DOM');
+  assert(indexHtml.includes('id="comparator-backdrop"'), 'Skill Comparator Modal present in DOM');
+  assert(indexHtml.includes('id="tab-drawer-prompts"'), 'Prompt Simulator Drawer Tab present in DOM');
+  assert(appJs.includes('levenshteinDistance') && appJs.includes('fuzzyScore'), 'Vanilla Fuzzy Search engine integrated in app.js');
+  assert(appJs.includes('syncUrlHash') && appJs.includes('handleRoute'), 'URL Hash State Engine integrated in app.js');
+  assert(appJs.includes('startTelemetryPolling'), 'Live Telemetry Watcher integrated in app.js');
 } catch (e) {
   assert(false, `WIG/Mobile compliance check failed: ${e.message}`);
 }

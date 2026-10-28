@@ -310,10 +310,159 @@ def run_tests():
         page.screenshot(path=mobile_path, full_page=False)
         record("Captured Mobile Viewport Screenshot", os.path.exists(mobile_path), f"Saved to {mobile_path}")
 
+        # Switch back to desktop viewport for new feature tests
+        page.set_viewport_size({'width': 1280, 'height': 800})
+        page.wait_for_timeout(200)
+
         # -----------------------------------------------------------------
-        # TEST 13: Console & Runtime Errors
+        # TEST 14: URL Hash State & Deep-Linking Router
         # -----------------------------------------------------------------
-        print("\n[Suite 13] Browser Runtime Errors")
+        print("\n[Suite 14] URL Hash State & Deep-Linking Router")
+        # Direct deep-link to a skill drawer
+        page.goto(f"{BASE_URL}/#skill/lint-and-validate", wait_until='networkidle')
+        page.wait_for_timeout(300)
+        drawer_visible = page.locator('#drawer-backdrop.open').is_visible()
+        record("Deep-Link #/skill/:id Opens Drawer Automatically", drawer_visible)
+        drawer_title = page.locator('#drawer-title').text_content()
+        record("Drawer Title Matches Deep-Linked Skill", "lint-and-validate" in drawer_title, f"Title: {drawer_title}")
+        page.keyboard.press('Escape')
+        page.wait_for_timeout(200)
+
+        # Hash navigation to categories
+        page.goto(f"{BASE_URL}/#/categories", wait_until='networkidle')
+        page.wait_for_timeout(200)
+        cat_view_active = page.locator('#view-categories.active').is_visible()
+        record("Hash #/categories Activates Categories View", cat_view_active)
+
+        # -----------------------------------------------------------------
+        # TEST 15: Vanilla Fuzzy Search & Typo-Tolerance
+        # -----------------------------------------------------------------
+        print("\n[Suite 15] Vanilla Fuzzy Search & Typo-Tolerance")
+        page.goto(f"{BASE_URL}/#/hub", wait_until='networkidle')
+        page.wait_for_timeout(200)
+        search_input = page.locator('#search-input')
+        
+        # Test typo: "dokcer" -> should find docker-expert
+        search_input.fill('dokcer')
+        page.wait_for_timeout(300)
+        first_row_text = page.locator('#table-body tr:first-child').text_content()
+        record("Typo 'dokcer' matches docker-expert", "docker" in first_row_text.lower(), f"Matched: {first_row_text[:40]}")
+
+        # Test typo: "palywright" -> should find playwright
+        search_input.fill('palywright')
+        page.wait_for_timeout(300)
+        first_row_text = page.locator('#table-body tr:first-child').text_content()
+        record("Typo 'palywright' matches playwright", "playwright" in first_row_text.lower(), f"Matched: {first_row_text[:40]}")
+
+        # Clear search
+        page.locator('.filter-reset-btn').click()
+        page.wait_for_timeout(200)
+
+        # -----------------------------------------------------------------
+        # TEST 16: Agent Stack Builder & Cart Exporter
+        # -----------------------------------------------------------------
+        print("\n[Suite 16] Agent Stack Builder & Cart Exporter")
+        # Click + Stack on first table row
+        stack_btn = page.locator('#table-body tr:first-child .btn-stack-toggle')
+        stack_btn.click()
+        page.wait_for_timeout(200)
+        
+        badge_count = page.locator('#stack-count-badge').text_content()
+        record("Stack Badge Incremented to 1", badge_count == "1", f"Badge: {badge_count}")
+
+        # Expand stack tray
+        page.locator('#stack-tray-dock').click()
+        page.wait_for_timeout(200)
+        tray_expanded = page.locator('#agent-stack-tray.expanded').is_visible()
+        record("Agent Stack Tray Expands on Click", tray_expanded)
+
+        # Check export button presence
+        link_btn = page.locator('#btn-stack-link')
+        record("Zero-Disk Symlink Batch Export Button Present", link_btn.is_visible())
+        link_btn.click()
+        page.wait_for_timeout(100)
+        toast_text = page.locator('#toast-message').text_content()
+        record("Batch Symlink Command Copied with Toast", "activate_skill.py link" in toast_text, f"Toast: {toast_text}")
+
+        # Clear stack
+        page.locator('.stack-panel-actions button').click()
+        page.wait_for_timeout(200)
+        cleared_count = page.locator('#stack-count-badge').text_content()
+        record("Stack Cleared Successfully", cleared_count == "0", f"Badge: {cleared_count}")
+        page.locator('#stack-tray-dock').click()
+        page.wait_for_timeout(200)
+
+        # -----------------------------------------------------------------
+        # TEST 17: Detail Drawer Prompt & Trigger Simulator
+        # -----------------------------------------------------------------
+        print("\n[Suite 17] Detail Drawer Prompt Simulator")
+        page.locator('#table-body tr:first-child .btn-action').click()
+        page.wait_for_timeout(200)
+        
+        # Switch to Prompt Simulator tab
+        page.locator('#tab-drawer-prompts').click()
+        page.wait_for_timeout(200)
+        prompt_cards = page.locator('.prompt-template-card')
+        record("Prompt Simulator Cards Rendered", prompt_cards.count() >= 3, f"Cards: {prompt_cards.count()}")
+        
+        # Check Universal System Prompt Directive presence
+        first_prompt_text = page.locator('.prompt-code-box').first.text_content()
+        record("Universal System Prompt Rule Rendered as Default", "You are equipped with" in first_prompt_text)
+
+        # Test live simulator input
+        prompt_input = page.locator('#prompt-goal-input')
+        prompt_input.fill('Audit security vulnerabilities')
+        page.wait_for_timeout(200)
+        updated_prompt = page.locator('.prompt-code-box').first.text_content()
+        record("Live Simulator Updates Goal Dynamically", "Audit security vulnerabilities" in updated_prompt)
+        page.keyboard.press('Escape')
+        page.wait_for_timeout(200)
+
+        # -----------------------------------------------------------------
+        # TEST 18: Side-by-Side Skill Comparator
+        # -----------------------------------------------------------------
+        print("\n[Suite 18] Side-by-Side Skill Comparator")
+        # Switch to grid view to click Compare buttons
+        page.locator('#view-grid-btn').click()
+        page.wait_for_timeout(200)
+        
+        # Click compare on first 2 cards
+        page.locator('.skill-card:nth-child(1) button[aria-label^="Compare"]').click()
+        page.wait_for_timeout(200)
+        page.locator('.skill-card:nth-child(2) button[aria-label^="Compare"]').click()
+        page.wait_for_timeout(300)
+
+        comparator_open = page.locator('#comparator-backdrop.open').is_visible()
+        record("Comparator Modal Opens Automatically on 2 Skills", comparator_open)
+        matrix_cols = page.locator('.comparator-matrix-table th').count()
+        record("Comparator Matrix Table Has 3 Columns (Property + 2 Skills)", matrix_cols == 3, f"Columns: {matrix_cols}")
+        page.keyboard.press('Escape')
+        page.wait_for_timeout(200)
+        page.locator('#view-table-btn').click()
+        page.wait_for_timeout(200)
+
+        # -----------------------------------------------------------------
+        # TEST 19: Category Quick Actions
+        # -----------------------------------------------------------------
+        print("\n[Suite 19] Category Quick Actions")
+        page.locator('#tab-categories').click()
+        page.wait_for_timeout(200)
+        first_cat_actions = page.locator('.cat-dir-card:first-child .cat-quick-actions')
+        record("Category Quick Actions Container Present", first_cat_actions.is_visible())
+        
+        link_all_btn = page.locator('.cat-dir-card:first-child .cat-quick-btn-primary')
+        record("Category Link All Button Present", link_all_btn.is_visible())
+        link_all_btn.click()
+        page.wait_for_timeout(100)
+        cat_toast = page.locator('#toast-message').text_content()
+        record("Category Link All Command Copied", "link-category" in cat_toast, f"Toast: {cat_toast}")
+        page.locator('#tab-skill-hub').click()
+        page.wait_for_timeout(200)
+
+        # -----------------------------------------------------------------
+        # TEST 20: Console & Runtime Errors
+        # -----------------------------------------------------------------
+        print("\n[Suite 20] Browser Runtime Errors")
         record("Zero Browser Uncaught Exceptions", len(page_errors) == 0, f"Errors: {page_errors}")
         severe_errors = [e for e in console_errors if '[error]' in e]
         record("Zero Browser Console Severe Errors", len(severe_errors) == 0, f"Console Errors: {severe_errors}")

@@ -46,6 +46,13 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
     3. My Repo Vault installation (`git clone https://github.com/SeaXen/agentskills.git .agents`)
   - Detail slide-over drawer showing full markdown documentation, parameter lists, example prompts, and source repository links.
   - Tab navigation across Skill Hub, Hot-Set, 38 Categories, 212 Git Repositories, and Install Guide.
+  - **URL Hash State Engine & Deep-Linking**: Full browser back/forward support and shareable URL routes (`#/hub`, `#/hotset`, `#/categories`, `#/library`, `#/guide`, `#/skill/:id`, and `#/stack=:ids`).
+  - **Vanilla Typo-Tolerant Fuzzy Search**: Zero-dependency bounded Levenshtein matcher with 120ms debouncing, allowing fuzzy hits for misspellings like "dokcer" -> "docker-expert" or "palywright" -> "playwright".
+  - **Agent Stack Builder & Cart Exporter**: Persistent skill collection dock with 1-click batch activation command export (Zero-Disk Symlink `python .agents/library/activate_skill.py link ...`, JSON bundle, and shareable hash URL).
+  - **Interactive Prompt & Trigger Simulator**: Detail drawer tab simulating agent system prompt rules (`You are equipped with the '{name}' skill...`), user trigger keywords, and live goal input customization.
+  - **Side-by-Side Skill Comparator**: Interactive matrix modal comparing 2-3 skills across category, token overhead, runtime scripts, dependencies, and install commands.
+  - **Category Quick Actions**: 1-click batch operations on all 38 category cards (`⚡ Link All`, `📋 Names`, `📦 + Stack`).
+  - **Live Workspace Telemetry**: Non-blocking 6s background polling watcher detecting changes to `data/stats.json` with visual badge notifications and automatic counter synchronization.
 - **Constraints**:
   - Absolute zero external runtime JavaScript or CSS dependencies (no React, no Vue, no Tailwind, no external CDN trackers). Only Tabler icons are pulled via CDN with local SVG fallbacks.
   - Strict preservation of offline capability for all local development and activation workflows.

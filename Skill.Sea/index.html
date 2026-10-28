@@ -670,7 +670,87 @@
         </button>
       </div>
 
+      <!-- Drawer Tabs: Documentation vs Prompt Simulator -->
+      <div class="drawer-tabs-bar" role="tablist" aria-label="Skill Detail Tabs">
+        <button type="button" class="drawer-tab-btn active" id="tab-drawer-docs" role="tab" aria-selected="true" onclick="switchDrawerTab('docs')">
+          <i class="ti ti-file-text" aria-hidden="true"></i> Documentation & Install
+        </button>
+        <button type="button" class="drawer-tab-btn" id="tab-drawer-prompts" role="tab" aria-selected="false" onclick="switchDrawerTab('prompts')">
+          <i class="ti ti-prompt" aria-hidden="true"></i> Prompt & Trigger Simulator
+        </button>
+      </div>
+
       <div class="drawer-body" id="drawer-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Agent Stack Tray Dock & Modal Panel -->
+  <aside id="agent-stack-tray" class="agent-stack-tray" aria-label="Agent Stack Builder" aria-expanded="false">
+    <div class="stack-tray-dock" id="stack-tray-dock" role="button" tabindex="0" onclick="toggleStackTray()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleStackTray();}">
+      <div class="stack-tray-left">
+        <span class="stack-icon-pill"><i class="ti ti-stack-2" aria-hidden="true"></i></span>
+        <div class="stack-tray-text">
+          <span class="stack-tray-title">Agent Stack Builder</span>
+          <span class="stack-tray-sub" id="stack-tray-sub">0 skills selected</span>
+        </div>
+      </div>
+      <div class="stack-tray-right">
+        <span class="stack-count-badge" id="stack-count-badge">0</span>
+        <i class="ti ti-chevron-up stack-tray-chevron" id="stack-tray-chevron" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="stack-tray-panel" id="stack-tray-panel" aria-hidden="true">
+      <div class="stack-panel-hd">
+        <div class="stack-panel-title">
+          <span>Active Skill Bundle</span>
+          <span class="stack-panel-sub" id="stack-panel-sub">Stored locally for instant batch activation</span>
+        </div>
+        <div class="stack-panel-actions">
+          <button type="button" class="pill pill-danger" onclick="clearStack()" aria-label="Clear active stack">
+            <i class="ti ti-trash" aria-hidden="true"></i> Clear
+          </button>
+        </div>
+      </div>
+      <div class="stack-items-list" id="stack-items-list">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="stack-panel-footer">
+        <div class="stack-export-actions">
+          <button type="button" class="stack-btn stack-btn-primary" id="btn-stack-link" onclick="exportStackCli('link')">
+            <i class="ti ti-link" aria-hidden="true"></i> Copy Zero-Disk Symlink CLI
+          </button>
+          <button type="button" class="stack-btn" id="btn-stack-activate" onclick="exportStackCli('activate')">
+            <i class="ti ti-copy" aria-hidden="true"></i> Copy Local Activate CLI
+          </button>
+          <button type="button" class="stack-btn" id="btn-stack-npx" onclick="exportStackCli('npx')">
+            <i class="ti ti-terminal-2" aria-hidden="true"></i> Copy NPX Command
+          </button>
+          <button type="button" class="stack-btn" id="btn-stack-json" onclick="exportStackJson()">
+            <i class="ti ti-download" aria-hidden="true"></i> Download JSON
+          </button>
+          <button type="button" class="stack-btn" id="btn-stack-share" onclick="shareStackUrl()">
+            <i class="ti ti-share" aria-hidden="true"></i> Share Hash URL
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Side-by-Side Skill Comparator Modal -->
+  <div class="comparator-backdrop" id="comparator-backdrop" role="dialog" aria-modal="true" aria-labelledby="comparator-title" aria-hidden="true">
+    <div class="comparator-panel">
+      <div class="comparator-hd">
+        <div class="comparator-title-group">
+          <h2 id="comparator-title"><i class="ti ti-arrows-diff" style="color:var(--teal)"></i> Side-by-Side Skill Comparator</h2>
+          <div class="sub" id="comparator-subtitle">Evaluate token weight, scripts, and capabilities side-by-side</div>
+        </div>
+        <button type="button" class="btn-icon" id="comparator-close-btn" onclick="closeComparatorModal()" aria-label="Close comparator (Escape)">
+          <i class="ti ti-x" style="font-size:18px" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="comparator-body" id="comparator-body">
         <!-- Rendered dynamically -->
       </div>
     </div>

@@ -33,7 +33,13 @@
     currentPage: 1,
     pageSize: 50,
     theme: localStorage.getItem('skill-sea-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
-    activeSkill: null
+    activeSkill: null,
+    stack: new Set(),
+    compareList: [],
+    drawerTab: 'docs',
+    promptCustomGoal: '',
+    suppressHashSync: false,
+    pendingSkillDrawerId: null
   };
 
   // DOM Elements
@@ -117,8 +123,111 @@
     });
   };
 
+  // =========================================================================
+  // FEATURE 1: URL Hash State & Deep-Linking Router
+  // =========================================================================
+  function syncUrlHash() {
+    if (state.suppressHashSync) return;
+    let hash = '';
+    if (state.activeSkill) {
+      hash = `#/skill/${encodeURIComponent(state.activeSkill.id)}`;
+    } else if (state.currentViewName === 'skill-hub') {
+      const params = new URLSearchParams();
+      if (state.searchQuery) params.set('q', state.searchQuery);
+      if (state.selectedCategory !== 'all') params.set('cat', state.selectedCategory);
+      if (state.selectedLibrary !== 'all') params.set('lib', state.selectedLibrary);
+      if (state.filterTier !== 'all') params.set('tier', state.filterTier);
+      if (state.sortBy !== 'rank') params.set('sort', state.sortBy);
+      const str = params.toString();
+      hash = str ? `#/hub?${str}` : `#/hub`;
+    } else {
+      hash = `#/${state.currentViewName}`;
+    }
+
+    if (window.location.hash !== hash) {
+      history.replaceState(null, '', hash);
+    }
+  }
+
+  function handleRoute(hashStr) {
+    if (!hashStr) hashStr = window.location.hash;
+    if (!hashStr || hashStr === '#') return;
+
+    state.suppressHashSync = true;
+    try {
+      const raw = hashStr.replace(/^#\/?/, '');
+
+      // Route: skill/:id
+      if (raw.startsWith('skill/')) {
+        const skillId = decodeURIComponent(raw.replace(/^skill\//, ''));
+        if (state.catalog.length > 0) {
+          openSkillDrawer(skillId);
+        } else {
+          state.pendingSkillDrawerId = skillId;
+        }
+        return;
+      }
+
+      // Route: stack=:id1,:id2
+      if (raw.startsWith('stack=')) {
+        const ids = raw.replace(/^stack=/, '').split(',').map(s => s.trim()).filter(Boolean);
+        ids.forEach(id => state.stack.add(id));
+        saveStack();
+        renderStackTray();
+        openStackTray();
+        return;
+      }
+
+      // Route: hub?...
+      if (raw.startsWith('hub')) {
+        const queryIdx = raw.indexOf('?');
+        if (queryIdx !== -1) {
+          const qs = raw.substring(queryIdx + 1);
+          const params = new URLSearchParams(qs);
+          if (params.has('q')) {
+            state.searchQuery = params.get('q');
+            if (el.searchInput) el.searchInput.value = state.searchQuery;
+          }
+          if (params.has('cat')) {
+            state.selectedCategory = params.get('cat');
+            if (el.categoryFilterSelect) el.categoryFilterSelect.value = state.selectedCategory;
+          }
+          if (params.has('lib')) {
+            state.selectedLibrary = params.get('lib');
+            if (el.libraryFilterSelect) el.libraryFilterSelect.value = state.selectedLibrary;
+          }
+          if (params.has('tier')) {
+            state.filterTier = params.get('tier');
+            if (el.tierSelect) el.tierSelect.value = state.filterTier;
+          }
+          if (params.has('sort')) {
+            state.sortBy = params.get('sort');
+            if (el.sortSelect) el.sortSelect.value = state.sortBy;
+          }
+          applyFilter();
+        }
+        switchView('skill-hub', false);
+        return;
+      }
+
+      // Route: simple view names
+      const viewMap = {
+        'skill-hub': 'skill-hub',
+        'hotset': 'hotset',
+        'categories': 'categories',
+        'library': 'library',
+        'guide': 'guide'
+      };
+      if (viewMap[raw]) {
+        switchView(viewMap[raw], false);
+      }
+    } finally {
+      state.suppressHashSync = false;
+    }
+  }
+
   // Switch Active Page View (Skill Hub, Hotset, Categories, Library, Guide)
-  window.switchView = function (viewName) {
+  window.switchView = function (viewName, updateHash = true) {
     if (viewName === 'leaderboard' || viewName === 'home') viewName = 'skill-hub';
     state.currentViewName = viewName;
 
@@ -152,6 +261,10 @@
       renderRepositories();
     } else if (viewName === 'skill-hub') {
       renderResults();
+    }
+
+    if (updateHash) {
+      syncUrlHash();
     }
 
     window.scrollTo(0, 0);
@@ -206,7 +319,15 @@
       showToast('Could not fetch catalog.json');
     }
 
+    loadStack();
+    renderStackTray();
+    startTelemetryPolling();
     setupEventListeners();
+    handleRoute(window.location.hash);
+    if (state.pendingSkillDrawerId) {
+      openSkillDrawer(state.pendingSkillDrawerId);
+      state.pendingSkillDrawerId = null;
+    }
   }
 
   function renderStats() {
@@ -284,6 +405,78 @@
     }
   }
 
+  // =========================================================================
+  // FEATURE 2: Vanilla Fuzzy Search & Typo-Tolerance Engine
+  // =========================================================================
+  function levenshteinDistance(s1, s2) {
+    if (s1 === s2) return 0;
+    const l1 = s1.length;
+    const l2 = s2.length;
+    if (Math.abs(l1 - l2) > 2) return 99; // Bounded for high-speed sub-millisecond execution
+    if (l1 === 0) return l2;
+    if (l2 === 0) return l1;
+
+    let prevRow = new Array(l2 + 1);
+    let currRow = new Array(l2 + 1);
+
+    for (let j = 0; j <= l2; j++) prevRow[j] = j;
+
+    for (let i = 1; i <= l1; i++) {
+      currRow[0] = i;
+      const c1 = s1.charCodeAt(i - 1);
+      for (let j = 1; j <= l2; j++) {
+        const cost = c1 === s2.charCodeAt(j - 1) ? 0 : 1;
+        currRow[j] = Math.min(
+          currRow[j - 1] + 1,
+          prevRow[j] + 1,
+          prevRow[j - 1] + cost
+        );
+      }
+      for (let j = 0; j <= l2; j++) prevRow[j] = currRow[j];
+    }
+    return currRow[l2];
+  }
+
+  function fuzzyScore(query, item) {
+    const q = query.toLowerCase().trim();
+    if (!q) return 100;
+    const name = item.name.toLowerCase();
+    const cat = (item.cleanCategory || item.category || '').toLowerCase();
+    const desc = (item.description || '').toLowerCase();
+    const repo = (item.repository || '').toLowerCase();
+
+    // 1. Exact name match
+    if (name === q) return 200;
+    // 2. Name starts with query
+    if (name.startsWith(q)) return 160;
+    // 3. Substring match
+    if (name.includes(q)) return 130;
+    if (cat.includes(q)) return 110;
+    if (desc.includes(q)) return 90;
+    if (repo.includes(q)) return 80;
+
+    // 4. Word-token transposition / typo match (for terms >= 4 chars)
+    if (q.length >= 4) {
+      const tokens = name.split(/[-_\s]+/);
+      for (const tok of tokens) {
+        if (Math.abs(tok.length - q.length) <= 2) {
+          const dist = levenshteinDistance(q, tok);
+          if (dist <= 2) {
+            return 70 - dist * 10;
+          }
+        }
+      }
+      // Check full name distance
+      if (Math.abs(name.length - q.length) <= 2) {
+        const fullDist = levenshteinDistance(q, name);
+        if (fullDist <= 2) {
+          return 65 - fullDist * 10;
+        }
+      }
+    }
+    return 0;
+  }
+
   // Filter and Sort Engine
   function applyFilter() {
     const q = state.searchQuery.toLowerCase().trim();
@@ -299,19 +492,26 @@
       // Tier filter
       if (tier === 'hot' && !item.isActive) return false;
       if (tier === 'vault' && item.isActive) return false;
-      // Query filter
+
+      // Query filter with typo-tolerance
       if (q) {
-        const matchesName = item.name.toLowerCase().includes(q);
-        const matchesDesc = (item.description || '').toLowerCase().includes(q);
-        const matchesRepo = (item.repository || '').toLowerCase().includes(q);
-        const matchesCat = (item.cleanCategory || '').toLowerCase().includes(q);
-        return matchesName || matchesDesc || matchesRepo || matchesCat;
+        const score = fuzzyScore(q, item);
+        if (score <= 0) return false;
+        item._searchScore = score;
+        return true;
       }
+      item._searchScore = 0;
       return true;
     });
 
     // Sorting Logic
     state.filteredCatalog.sort((a, b) => {
+      if (q && state.sortBy === 'rank') {
+        // When searching, sort primarily by relevance score, then rank
+        const diff = (b._searchScore || 0) - (a._searchScore || 0);
+        if (diff !== 0) return diff;
+        return (a.rank || 9999) - (b.rank || 9999);
+      }
       if (state.sortBy === 'rank') {
         return (a.rank || 9999) - (b.rank || 9999);
       }
@@ -338,6 +538,7 @@
     state.currentPage = 1;
     renderActiveFilterChips();
     renderResults();
+    syncUrlHash();
   }
 
   // Render Active Filter Chips
@@ -548,7 +749,11 @@
               <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
             </div>
           </td>
-          <td style="text-align:right">
+          <td style="text-align:right;white-space:nowrap">
+            <button type="button" class="btn-stack-toggle ${state.stack.has(item.id) ? 'in-stack' : ''}" onclick="toggleStackSkill('${escapeHtml(item.id)}', event)" aria-label="Toggle ${escapeHtml(item.name)} in stack" style="margin-right:6px">
+              <i class="ti ti-${state.stack.has(item.id) ? 'check' : 'plus'}"></i>
+              <span>${state.stack.has(item.id) ? 'Stacked' : 'Stack'}</span>
+            </button>
             <button type="button" class="btn-action" onclick="event.stopPropagation(); openSkillDrawer('${item.id}')" aria-label="Inspect ${escapeHtml(item.name)}">
               <span>Inspect</span>
               <i class="ti ti-chevron-right" style="font-size:12px" aria-hidden="true"></i>
@@ -613,6 +818,18 @@
               <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px" aria-hidden="true"></i>
               <span>${escapeHtml(item.cleanCategory || item.category)}</span>
             </span>
+            <div style="display:flex;align-items:center;gap:4px">
+              <button type="button" class="btn-stack-toggle ${state.stack.has(item.id) ? 'in-stack' : ''}" onclick="toggleStackSkill('${escapeHtml(item.id)}', event)" aria-label="Toggle ${escapeHtml(item.name)} in stack">
+                <i class="ti ti-${state.stack.has(item.id) ? 'check' : 'plus'}"></i>
+                <span>${state.stack.has(item.id) ? 'Stacked' : 'Stack'}</span>
+              </button>
+              <button type="button" class="btn-stack-toggle" onclick="toggleCompareSkill('${escapeHtml(item.id)}', event)" aria-label="Compare ${escapeHtml(item.name)}">
+                <i class="ti ti-arrows-diff"></i>
+                <span>Compare</span>
+              </button>
+            </div>
+          </div>
+          <div style="margin-top:8px">
             <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" title="Click to copy install command (${state.installCmdMode.toUpperCase()})" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
               <code>${escapeHtml(cmd)}</code>
               <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
@@ -674,6 +891,12 @@
               <i class="ti ti-${item.categoryIcon || 'folder'}" style="font-size:10px" aria-hidden="true"></i>
               <span>${escapeHtml(item.cleanCategory)}</span>
             </span>
+            <button type="button" class="btn-stack-toggle ${state.stack.has(item.id) ? 'in-stack' : ''}" onclick="toggleStackSkill('${escapeHtml(item.id)}', event)" aria-label="Toggle ${escapeHtml(item.name)} in stack">
+              <i class="ti ti-${state.stack.has(item.id) ? 'check' : 'plus'}"></i>
+              <span>${state.stack.has(item.id) ? 'Stacked' : 'Stack'}</span>
+            </button>
+          </div>
+          <div style="margin-top:8px">
             <div class="cmd-box" role="button" tabindex="0" onclick="copyCommand('${escapeHtml(cmd)}', event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copyCommand('${escapeHtml(cmd)}', event);}" title="Click to copy install command (${state.installCmdMode.toUpperCase()})" aria-label="Copy ${state.installCmdMode.toUpperCase()} command for ${escapeHtml(item.name)}">
               <code>${escapeHtml(cmd)}</code>
               <i class="ti ti-copy cmd-copy-icon" aria-hidden="true"></i>
@@ -711,11 +934,19 @@
               <div class="cat-dir-count">${cat.count} total skills available</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:0.5px solid var(--border);padding-top:8px;gap:6px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:0.5px solid var(--border);padding-top:8px;gap:6px;flex-wrap:wrap">
             <span style="font-size:11.5px;color:var(--cat-text, var(--teal));font-weight:500">Browse Skills →</span>
-            <button type="button" class="btn-copy-cat" onclick="event.stopPropagation(); copyCommand('python .agents/library/activate_skill.py link-category ${cat.slug}', event)" title="Copy 1-click command to link all skills in ${cat.slug}" aria-label="Copy 1-click command to link all skills in ${cat.slug}">
-              <i class="ti ti-terminal" aria-hidden="true"></i> Copy Activate Cmd
-            </button>
+            <div class="cat-quick-actions" onclick="event.stopPropagation()">
+              <button type="button" class="cat-quick-btn cat-quick-btn-primary" onclick="copyCategoryLinkCmd('${cat.slug}', event)" title="Copy CLI batch symlink command for all ${cat.count} skills" aria-label="Link all ${cat.count} skills in ${cat.slug}">
+                <i class="ti ti-link" aria-hidden="true"></i> Link All (${cat.count})
+              </button>
+              <button type="button" class="cat-quick-btn" onclick="copyCategorySkillNames('${cat.slug}', event)" title="Copy comma-separated skill names" aria-label="Copy skill names for ${cat.slug}">
+                <i class="ti ti-copy" aria-hidden="true"></i> Names
+              </button>
+              <button type="button" class="cat-quick-btn" onclick="addCategoryToStack('${cat.slug}', event)" title="Add all ${cat.count} skills to stack" aria-label="Add all ${cat.count} skills in ${cat.slug} to stack">
+                <i class="ti ti-stack-2" aria-hidden="true"></i> + Stack
+              </button>
+            </div>
           </div>
         </div>
       `;
@@ -798,20 +1029,238 @@
     el.repoGrid.innerHTML = cards;
   }
 
-  // Open Skill Detail Slide-Over Drawer
-  window.openSkillDrawer = function (skillId) {
-    const item = state.catalog.find(s => s.id === skillId);
-    if (!item) return;
-    state.activeSkill = item;
-    state.lastActiveElement = document.activeElement;
+  // =========================================================================
+  // FEATURE 3: Agent Stack Builder Functions
+  // =========================================================================
+  function loadStack() {
+    try {
+      const saved = localStorage.getItem('skillsea_stack');
+      if (saved) {
+        const arr = JSON.parse(saved);
+        if (Array.isArray(arr)) state.stack = new Set(arr);
+      }
+    } catch (e) {
+      state.stack = new Set();
+    }
+  }
 
-    if (el.drawerTitle) el.drawerTitle.textContent = item.name;
-    if (el.drawerSubtitle) el.drawerSubtitle.textContent = `${item.repository} · Category: ${item.cleanCategory}`;
+  function saveStack() {
+    try {
+      localStorage.setItem('skillsea_stack', JSON.stringify(Array.from(state.stack)));
+    } catch (e) {}
+  }
 
+  window.toggleStackSkill = function (skillId, event) {
+    if (event) event.stopPropagation();
+    if (state.stack.has(skillId)) {
+      state.stack.delete(skillId);
+      showToast(`Removed from stack: ${skillId}`);
+    } else {
+      state.stack.add(skillId);
+      showToast(`Added to stack: ${skillId}`);
+    }
+    saveStack();
+    renderStackTray();
+    renderResults();
+    if (state.currentViewName === 'hotset') renderHotSet();
+    if (state.activeSkill && state.activeSkill.id === skillId) {
+      renderDrawerContent();
+    }
+  };
+
+  window.toggleStackTray = function () {
+    const tray = document.getElementById('agent-stack-tray');
+    if (!tray) return;
+    const isExpanded = tray.classList.toggle('expanded');
+    tray.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    const panel = document.getElementById('stack-tray-panel');
+    if (panel) panel.setAttribute('aria-hidden', isExpanded ? 'false' : 'true');
+  };
+
+  window.openStackTray = function () {
+    const tray = document.getElementById('agent-stack-tray');
+    if (!tray) return;
+    tray.classList.add('expanded');
+    tray.setAttribute('aria-expanded', 'true');
+    const panel = document.getElementById('stack-tray-panel');
+    if (panel) panel.setAttribute('aria-hidden', 'false');
+  };
+
+  window.clearStack = function () {
+    state.stack.clear();
+    saveStack();
+    renderStackTray();
+    renderResults();
+    if (state.currentViewName === 'hotset') renderHotSet();
+    if (state.activeSkill) renderDrawerContent();
+    showToast('Agent stack cleared');
+  };
+
+  function renderStackTray() {
+    const countBadge = document.getElementById('stack-count-badge');
+    const subText = document.getElementById('stack-tray-sub');
+    const listEl = document.getElementById('stack-items-list');
+    const count = state.stack.size;
+
+    if (countBadge) countBadge.textContent = count;
+    if (subText) subText.textContent = `${count} ${count === 1 ? 'skill' : 'skills'} selected`;
+
+    if (!listEl) return;
+    if (count === 0) {
+      listEl.innerHTML = `
+        <div style="text-align:center;padding:24px 12px;color:var(--text-muted);font-size:11.5px">
+          No skills in your stack.<br>Click <strong>+ Stack</strong> on any skill to add.
+        </div>
+      `;
+      return;
+    }
+
+    let html = '';
+    for (const skillId of state.stack) {
+      const item = state.catalog.find(s => s.id === skillId) || { name: skillId, cleanCategory: 'Skill', id: skillId };
+      html += `
+        <div class="stack-item-row">
+          <div class="stack-item-info">
+            <span class="stack-item-name">${escapeHtml(item.name)}</span>
+            <span class="stack-item-cat">${escapeHtml(item.cleanCategory || item.category || 'Skill')}</span>
+          </div>
+          <button type="button" class="stack-item-del" onclick="toggleStackSkill('${escapeHtml(item.id)}', event)" aria-label="Remove ${escapeHtml(item.name)} from stack">
+            <i class="ti ti-x" aria-hidden="true"></i>
+          </button>
+        </div>
+      `;
+    }
+    listEl.innerHTML = html;
+  }
+
+  window.exportStackCli = function (mode) {
+    if (state.stack.size === 0) {
+      showToast('Stack is empty! Add skills first.');
+      return;
+    }
+    const skillNames = Array.from(state.stack).map(id => {
+      const item = state.catalog.find(s => s.id === id);
+      return item ? item.name : id;
+    });
+
+    let cmd = '';
+    if (mode === 'link') {
+      cmd = `python .agents/library/activate_skill.py link ${skillNames.join(' ')}`;
+    } else if (mode === 'activate') {
+      cmd = `python .agents/library/activate_skill.py activate ${skillNames.join(' ')}`;
+    } else if (mode === 'npx') {
+      const urls = Array.from(state.stack).map(id => {
+        const item = state.catalog.find(s => s.id === id);
+        return item && item.githubUrl ? item.githubUrl : 'https://github.com/SeaXen/agentskills';
+      });
+      cmd = urls.map(u => `npx skills add ${u}`).join(' && ');
+    }
+    copyCommand(cmd);
+  };
+
+  window.exportStackJson = function () {
+    if (state.stack.size === 0) {
+      showToast('Stack is empty! Add skills first.');
+      return;
+    }
+    const stackItems = Array.from(state.stack).map(id => {
+      const item = state.catalog.find(s => s.id === id);
+      return item || { id, name: id };
+    });
+    const manifest = {
+      name: "Skill.Sea Agent Stack",
+      created: new Date().toISOString(),
+      skillsCount: stackItems.length,
+      skills: stackItems.map(s => ({
+        id: s.id,
+        name: s.name,
+        category: s.cleanCategory || s.category,
+        repository: s.repository,
+        githubUrl: s.githubUrl
+      }))
+    };
+    const blob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'skills-stack.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('skills-stack.json downloaded');
+  };
+
+  window.shareStackUrl = function () {
+    if (state.stack.size === 0) {
+      showToast('Stack is empty! Add skills first.');
+      return;
+    }
+    const ids = Array.from(state.stack).join(',');
+    const url = `${window.location.origin}${window.location.pathname}#/stack=${ids}`;
+    copyCommand(url);
+  };
+
+  // =========================================================================
+  // FEATURE 4: Detail Drawer & Prompt Simulator
+  // =========================================================================
+  window.switchDrawerTab = function (tabName) {
+    state.drawerTab = tabName;
+    const tabDocs = document.getElementById('tab-drawer-docs');
+    const tabPrompts = document.getElementById('tab-drawer-prompts');
+    if (tabDocs) {
+      tabDocs.classList.toggle('active', tabName === 'docs');
+      tabDocs.setAttribute('aria-selected', tabName === 'docs' ? 'true' : 'false');
+    }
+    if (tabPrompts) {
+      tabPrompts.classList.toggle('active', tabName === 'prompts');
+      tabPrompts.setAttribute('aria-selected', tabName === 'prompts' ? 'true' : 'false');
+    }
+    renderDrawerContent();
+  };
+
+  window.updatePromptCustomGoal = function (val) {
+    state.promptCustomGoal = val;
+    const item = state.activeSkill;
+    if (item && state.drawerTab === 'prompts') {
+      renderPromptSimulator(item);
+      const input = document.getElementById('prompt-goal-input');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    }
+  };
+
+  function renderDrawerContent() {
+    const item = state.activeSkill;
+    if (!item || !el.drawerBody) return;
+    if (state.drawerTab === 'prompts') {
+      renderPromptSimulator(item);
+    } else {
+      renderDrawerDocs(item);
+    }
+  }
+
+  function renderDrawerDocs(item) {
     const githubRepoUrl = item.githubUrl || `https://github.com/SeaXen/agentskills`;
     const curlCommand = `curl -sSL https://raw.githubusercontent.com/SeaXen/agentskills/main/install.sh | bash -s -- activate ${item.name}`;
 
-    let bodyHtml = `
+    el.drawerBody.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;background:var(--surface-1);border:0.5px solid var(--border);border-radius:8px;padding:8px 12px;gap:8px;flex-wrap:wrap">
+        <span style="font-size:12px;color:var(--text-secondary)">Quick Actions:</span>
+        <div style="display:flex;align-items:center;gap:6px">
+          <button type="button" class="btn-stack-toggle ${state.stack.has(item.id) ? 'in-stack' : ''}" onclick="toggleStackSkill('${escapeHtml(item.id)}', event)">
+            <i class="ti ti-${state.stack.has(item.id) ? 'check' : 'plus'}"></i>
+            <span>${state.stack.has(item.id) ? 'In Stack' : '+ Add to Stack'}</span>
+          </button>
+          <button type="button" class="btn-stack-toggle" onclick="toggleCompareSkill('${escapeHtml(item.id)}', event)">
+            <i class="ti ti-arrows-diff"></i>
+            <span>Compare</span>
+          </button>
+        </div>
+      </div>
+
       <div class="metadata-grid">
         <div class="meta-box">
           <span class="lbl">Category</span>
@@ -898,8 +1347,73 @@
         </div>
       </div>
     `;
+  }
 
-    if (el.drawerBody) el.drawerBody.innerHTML = bodyHtml;
+  function renderPromptSimulator(item) {
+    const goal = state.promptCustomGoal || '';
+    const universalDirective = `You are equipped with the '${item.name}' skill. Read and adhere strictly to its rules in .agents/skills/${item.name}/SKILL.md.\nObjective: ${goal || 'Execute task with domain excellence and zero regressions.'}`;
+    const antigravityDirective = `🤖 Use @skill/${item.name} to ${goal || 'analyze, test, and implement this solution'}`;
+    const claudeCommand = `/${item.name} ${goal || ''}`;
+
+    el.drawerBody.innerHTML = `
+      <div class="prompt-sim-wrap">
+        <div class="prompt-input-row">
+          <label for="prompt-goal-input"><i class="ti ti-target" style="color:var(--teal)"></i> Custom Task Goal or Context (Live Simulator)</label>
+          <input type="text" id="prompt-goal-input" class="prompt-input-box" placeholder="e.g. Audit all database queries and index foreign keys" value="${escapeHtml(goal)}" oninput="updatePromptCustomGoal(this.value)">
+        </div>
+
+        <div class="prompt-template-card">
+          <div class="prompt-template-hd">
+            <span class="prompt-template-title"><i class="ti ti-shield-check" style="color:var(--teal)"></i> 1. Universal System Prompt Directive (Recommended)</span>
+            <button type="button" class="copy-pill" onclick="copyCommand('${escapeHtml(universalDirective.replace(/\n/g, '\\n'))}')">Copy</button>
+          </div>
+          <div class="prompt-code-box">${escapeHtml(universalDirective)}</div>
+        </div>
+
+        <div class="prompt-template-card">
+          <div class="prompt-template-hd">
+            <span class="prompt-template-title"><i class="ti ti-robot" style="color:var(--teal)"></i> 2. Google Antigravity Directive</span>
+            <button type="button" class="copy-pill" onclick="copyCommand('${escapeHtml(antigravityDirective)}')">Copy</button>
+          </div>
+          <div class="prompt-code-box">${escapeHtml(antigravityDirective)}</div>
+        </div>
+
+        <div class="prompt-template-card">
+          <div class="prompt-template-hd">
+            <span class="prompt-template-title"><i class="ti ti-terminal" style="color:var(--teal)"></i> 3. Claude Code / Windsurf Slash Command</span>
+            <button type="button" class="copy-pill" onclick="copyCommand('${escapeHtml(claudeCommand)}')">Copy</button>
+          </div>
+          <div class="prompt-code-box">${escapeHtml(claudeCommand)}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Open Skill Detail Slide-Over Drawer
+  window.openSkillDrawer = function (skillId) {
+    const item = state.catalog.find(s => s.id === skillId);
+    if (!item) return;
+    state.activeSkill = item;
+    state.drawerTab = 'docs';
+    state.lastActiveElement = document.activeElement;
+
+    if (el.drawerTitle) el.drawerTitle.textContent = item.name;
+    if (el.drawerSubtitle) el.drawerSubtitle.textContent = `${item.repository} · Category: ${item.cleanCategory}`;
+
+    // Reset tabs
+    const tabDocs = document.getElementById('tab-drawer-docs');
+    const tabPrompts = document.getElementById('tab-drawer-prompts');
+    if (tabDocs) {
+      tabDocs.classList.add('active');
+      tabDocs.setAttribute('aria-selected', 'true');
+    }
+    if (tabPrompts) {
+      tabPrompts.classList.remove('active');
+      tabPrompts.setAttribute('aria-selected', 'false');
+    }
+
+    renderDrawerContent();
+
     if (el.drawerBackdrop) {
       el.drawerBackdrop.classList.add('open');
       el.drawerBackdrop.setAttribute('aria-hidden', 'false');
@@ -907,6 +1421,8 @@
         setTimeout(() => el.drawerCloseBtn.focus(), 50);
       }
     }
+
+    syncUrlHash();
   };
 
   window.closeSkillDrawer = function () {
@@ -919,7 +1435,157 @@
       state.lastActiveElement.focus();
     }
     state.lastActiveElement = null;
+    syncUrlHash();
   };
+
+  // =========================================================================
+  // FEATURE 5: Side-by-Side Skill Comparator
+  // =========================================================================
+  window.toggleCompareSkill = function (skillId, event) {
+    if (event) event.stopPropagation();
+    const idx = state.compareList.indexOf(skillId);
+    if (idx !== -1) {
+      state.compareList.splice(idx, 1);
+      showToast(`Removed from comparator: ${skillId}`);
+    } else {
+      if (state.compareList.length >= 3) {
+        showToast('Max 3 skills in comparator. Removing oldest.');
+        state.compareList.shift();
+      }
+      state.compareList.push(skillId);
+      showToast(`Added to comparator: ${skillId}`);
+    }
+    if (state.compareList.length >= 2) {
+      openComparatorModal();
+    }
+  };
+
+  window.openComparatorModal = function () {
+    const backdrop = document.getElementById('comparator-backdrop');
+    if (!backdrop) return;
+    renderComparatorModal();
+    backdrop.classList.add('open');
+    backdrop.setAttribute('aria-hidden', 'false');
+  };
+
+  window.closeComparatorModal = function () {
+    const backdrop = document.getElementById('comparator-backdrop');
+    if (!backdrop) return;
+    backdrop.classList.remove('open');
+    backdrop.setAttribute('aria-hidden', 'true');
+  };
+
+  function renderComparatorModal() {
+    const bodyEl = document.getElementById('comparator-body');
+    if (!bodyEl) return;
+    if (state.compareList.length === 0) {
+      bodyEl.innerHTML = `<div style="text-align:center;padding:32px;color:var(--text-muted)">Select 2 or 3 skills to compare side-by-side.</div>`;
+      return;
+    }
+    const items = state.compareList.map(id => state.catalog.find(s => s.id === id) || { id, name: id });
+
+    let tableHtml = `
+      <table class="comparator-matrix-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            ${items.map(s => `<th>${escapeHtml(s.name)}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tier Status</td>
+            ${items.map(s => `<td>${s.isActive ? '<span class="tg tg-hot"><i class="ti ti-flame"></i> Hot-Set</span>' : '<span class="tg tg-vault">Vault</span>'}</td>`).join('')}
+          </tr>
+          <tr>
+            <td>Leaderboard Rank</td>
+            ${items.map(s => `<td><strong>#${s.rank || 'N/A'}</strong></td>`).join('')}
+          </tr>
+          <tr>
+            <td>Category</td>
+            ${items.map(s => `<td><span class="tg tg-cat cat-color-${s.colorTheme || 'blue'}">${escapeHtml(s.cleanCategory || s.category || '')}</span></td>`).join('')}
+          </tr>
+          <tr>
+            <td>Repository</td>
+            ${items.map(s => `<td>${escapeHtml(s.repository || 'Origin')}</td>`).join('')}
+          </tr>
+          <tr>
+            <td>Token Weight (Est.)</td>
+            ${items.map(s => `<td>~${((s.description || '').length * 3 + 240)} tokens</td>`).join('')}
+          </tr>
+          <tr>
+            <td>CLI Symlink Command</td>
+            ${items.map(s => `<td><div class="cmd-box" onclick="copyCommand('${escapeHtml(s.linkCmd || '')}')"><code>${escapeHtml(s.linkCmd || '')}</code></div></td>`).join('')}
+          </tr>
+          <tr>
+            <td>Agent Stack</td>
+            ${items.map(s => `
+              <td>
+                <button type="button" class="btn-stack-toggle ${state.stack.has(s.id) ? 'in-stack' : ''}" onclick="toggleStackSkill('${escapeHtml(s.id)}', event)">
+                  <i class="ti ti-${state.stack.has(s.id) ? 'check' : 'plus'}"></i>
+                  ${state.stack.has(s.id) ? 'In Stack' : 'Add to Stack'}
+                </button>
+              </td>
+            `).join('')}
+          </tr>
+        </tbody>
+      </table>
+    `;
+    bodyEl.innerHTML = tableHtml;
+  }
+
+  // =========================================================================
+  // FEATURE 6: Category Quick Action Handlers
+  // =========================================================================
+  window.copyCategoryLinkCmd = function (catSlug, event) {
+    if (event) event.stopPropagation();
+    copyCommand(`python .agents/library/activate_skill.py link-category ${catSlug}`);
+  };
+
+  window.copyCategorySkillNames = function (catSlug, event) {
+    if (event) event.stopPropagation();
+    const skills = state.catalog.filter(s => s.category === catSlug).map(s => s.name);
+    copyCommand(skills.join(', '));
+  };
+
+  window.addCategoryToStack = function (catSlug, event) {
+    if (event) event.stopPropagation();
+    const skills = state.catalog.filter(s => s.category === catSlug);
+    skills.forEach(s => state.stack.add(s.id));
+    saveStack();
+    renderStackTray();
+    renderResults();
+    showToast(`Added ${skills.length} skills from '${catSlug}' to stack`);
+  };
+
+  // =========================================================================
+  // FEATURE 7: Live Telemetry Polling Watcher
+  // =========================================================================
+  let telemetryPollTimer = null;
+  function startTelemetryPolling() {
+    if (telemetryPollTimer) clearInterval(telemetryPollTimer);
+    telemetryPollTimer = setInterval(async () => {
+      if (document.hidden) return; // Save resources when tab is inactive
+      try {
+        const res = await fetch(`./data/stats.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (res.ok) {
+          const freshStats = await res.json();
+          if (
+            Number(freshStats.totalSkills) !== Number(state.stats.totalSkills) ||
+            Number(freshStats.activeHotSetCount) !== Number(state.stats.activeHotSetCount) ||
+            Number(freshStats.totalCategories) !== Number(state.stats.totalCategories) ||
+            Number(freshStats.totalRepositories) !== Number(state.stats.totalRepositories)
+          ) {
+            state.stats = freshStats;
+            renderStats();
+            showToast('⚡ Workspace Updated: Skills telemetry synchronized');
+          }
+        }
+      } catch (e) {
+        // Silent fail when server unreachable
+      }
+    }, 6000);
+  }
 
   // Event Listeners
   function setupEventListeners() {
@@ -1087,6 +1753,19 @@
       });
     }
 
+    // Comparator modal close backdrop click
+    const compBackdrop = document.getElementById('comparator-backdrop');
+    if (compBackdrop) {
+      compBackdrop.addEventListener('click', (e) => {
+        if (e.target === compBackdrop) closeComparatorModal();
+      });
+    }
+
+    // Hash navigation listener
+    window.addEventListener('hashchange', () => {
+      handleRoute(window.location.hash);
+    });
+
     // Sync button
     if (el.syncBtn) {
       el.syncBtn.addEventListener('click', () => {
@@ -1106,6 +1785,9 @@
       }
       if (e.key === 'Escape') {
         closeSkillDrawer();
+        closeComparatorModal();
+        const tray = document.getElementById('agent-stack-tray');
+        if (tray && tray.classList.contains('expanded')) toggleStackTray();
       }
       if ((e.key === 't' || e.key === 'T') && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
