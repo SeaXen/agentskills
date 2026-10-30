@@ -562,6 +562,7 @@ def main():
     parser.add_argument('--check', action='store_true', help='Audit vault against skills.sh (default mode)')
     parser.add_argument('--markdown', nargs='?', const=True, default=False, help='Generate markdown report')
     parser.add_argument('--sync', '--ingest', action='store_true', help='Download missing repositories & reindex')
+    parser.add_argument('--update', action='store_true', help='Check and pull updates for existing repositories')
     parser.add_argument('--push', action='store_true', help='Commit and push changes to GitHub after sync')
     parser.add_argument('--min-installs', default='100k', help='Minimum installs threshold (default: 100k)')
     parser.add_argument('--max-installs', default=None, help='Optional maximum installs threshold')
