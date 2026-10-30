@@ -344,7 +344,8 @@ def main():
     parser.add_argument('--limit', type=int, default=None, help="Override number of top skills to check")
     parser.add_argument('--json', action='store_true', help="Output results in JSON format")
     parser.add_argument('--ingest', '--sync', action='store_true', dest='ingest', help="Automatically ingest any missing skills into the library")
-    parser.add_argument('--push', action='store_true', help="Git commit and push after ingestion")
+    parser.add_argument('--update', action='store_true', help="Check and pull latest updates for existing repositories on leaderboard")
+    parser.add_argument('--push', action='store_true', help="Git commit and push after ingestion or update")
 
     args = parser.parse_args()
 
@@ -378,8 +379,26 @@ def main():
     else:
         print_report(analysis)
 
-    # Ingestion flow
-    if args.ingest and analysis['missing']:
+    # Ingestion or update flow
+    if args.update and analysis['in_vault']:
+        print(f"\n🔄 UPDATE MODE ACTIVATED ({len(analysis['in_vault'])} existing repositories)")
+        upstreams, _, _ = load_local_knowledge()
+        updated_count = 0
+        try:
+            for item in analysis['in_vault']:
+                if ingest_repository(item, upstreams):
+                    updated_count += 1
+
+            if updated_count > 0:
+                with open(upstreams_file, 'w', encoding='utf-8') as f:
+                    json.dump(upstreams, f, indent=2)
+
+                run_vault_rebuild(push=args.push)
+                print(f"\n🎉 Successfully updated {updated_count} repositories in your vault!")
+        finally:
+            if os.path.exists(temp_clone_dir):
+                shutil.rmtree(temp_clone_dir, onerror=remove_readonly)
+    elif args.ingest and analysis['missing']:
         print(f"\n📦 INGESTION MODE ACTIVATED ({len(analysis['missing'])} missing repositories)")
         upstreams, _, _ = load_local_knowledge()
         ingested_count = 0

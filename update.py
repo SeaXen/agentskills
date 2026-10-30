@@ -487,10 +487,17 @@ if __name__ == '__main__':
         leaderboard_script = os.path.join(agents_dir, 'skillleaderboard', 'skillleaderboard.py')
         sys.exit(subprocess.run([sys.executable, leaderboard_script] + args).returncode)
 
+    if any(arg.startswith(('--skillssh', '--skills-sh')) for arg in args):
+        clean_args = [a for a in args if not a.startswith(('--skillssh', '--skills-sh'))]
+        ssh_script = os.path.join(agents_dir, 'skillssh', 'skillssh.py')
+        sys.exit(subprocess.run([sys.executable, ssh_script] + clean_args).returncode)
+
     if '--index' in args or '--reindex' in args:
         rebuild_all_indexes()
         rebuild_categories_and_provenance()
         sync_lockfiles()
+        if '--push' in args:
+            git_commit_and_push()
         sys.exit(0)
     elif '--about' in args:
         show_about()

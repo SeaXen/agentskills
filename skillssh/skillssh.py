@@ -527,6 +527,67 @@ def sync_missing(missing_repos):
 
     return ingested_count
 
+def update_existing(in_vault_repos):
+    if not in_vault_repos:
+        print("🎉 No existing repositories to update.")
+        return 0
+
+    print(f"\n🔄 Checking and pulling updates for {len(in_vault_repos)} existing repositories...", flush=True)
+    _, _, upstreams = load_local_knowledge()
+    os.makedirs(temp_clone_dir, exist_ok=True)
+
+    updated_count = 0
+    for idx, r in enumerate(in_vault_repos, 1):
+        repo_slug = r['repo']
+        folder_slug = sanitize_repo_folder(repo_slug)
+        target_dir = os.path.join(lib_dir, folder_slug)
+        commit_file = os.path.join(target_dir, '.upstream_commit')
+        local_commit = ''
+        if os.path.exists(commit_file):
+            try:
+                with open(commit_file, 'r', encoding='utf-8') as cf:
+                    local_commit = cf.read().strip()
+            except Exception:
+                pass
+
+        print(f"[{idx}/{len(in_vault_repos)}] Checking {repo_slug}...", flush=True)
+        ok = ingest_repository(r, upstreams)
+        if ok:
+            new_commit = ''
+            if os.path.exists(commit_file):
+                try:
+                    with open(commit_file, 'r', encoding='utf-8') as cf:
+                        new_commit = cf.read().strip()
+                except Exception:
+                    pass
+            if new_commit and new_commit != local_commit:
+                updated_count += 1
+                print(f"  ✓ Updated {repo_slug} ({local_commit[:7]} -> {new_commit[:7]}).", flush=True)
+
+    try:
+        with open(upstreams_file, 'w', encoding='utf-8') as f:
+            json.dump(upstreams, f, indent=2)
+    except Exception as e:
+        print(f"Error saving upstreams.json: {e}", file=sys.stderr)
+
+    if os.path.exists(temp_clone_dir):
+        shutil.rmtree(temp_clone_dir, onerror=remove_readonly)
+
+    print(f"\n✓ Completed updates: {updated_count} repositories had new commits.", flush=True)
+
+    if os.path.exists(update_py):
+        print("\n🔄 Re-indexing skills and 38 categories via update.py --reindex...", flush=True)
+        try:
+            res = subprocess.run([sys.executable, update_py, '--reindex'], cwd=agents_dir, env=GIT_ENV, text=True)
+            if res.returncode == 0:
+                print("✓ Successfully rebuilt taxonomy categories, Master index, and Skill.Sea web catalog.")
+            else:
+                print(f"⚠️ Re-indexing exited with code {res.returncode}")
+        except Exception as e:
+            print(f"Error running update.py: {e}", file=sys.stderr)
+
+    return updated_count
+
 def git_push_vault():
     print("\n📦 Staging, committing, and pushing vault updates to GitHub...", flush=True)
     try:
@@ -557,6 +618,7 @@ def main():
   skillssh --check --min-installs 500k # Audit repos with >=500K installs
   skillssh --markdown                  # Generate markdown report
   skillssh --sync                      # Ingest missing >=100K repos & reindex categories
+  skillssh --update                    # Check and pull updates for existing repositories
   skillssh --sync --push               # Ingest, reindex, and push to GitHub
   skillssh --sync --repo owner/repo    # Ingest a single repository
         """
@@ -589,7 +651,7 @@ def main():
             'url': f"https://www.skills.sh/{slug}",
             'desc': f"Skills bundle for {slug}"
         }
-        if args.sync:
+        if args.sync or args.update:
             _, _, upstreams = load_local_knowledge()
             ok = ingest_repository(r, upstreams)
             if ok and os.path.exists(update_py):
@@ -628,7 +690,11 @@ def main():
         out_p = args.markdown if isinstance(args.markdown, str) else None
         generate_markdown_report(total_repos, in_vault, missing, min_inst, max_inst, output_path=out_p)
 
-    if args.sync:
+    if args.update:
+        updated = update_existing(in_vault)
+        if args.push:
+            git_push_vault()
+    elif args.sync:
         ingested = sync_missing(missing)
         if args.push:
             git_push_vault()
