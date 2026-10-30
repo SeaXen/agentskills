@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Starchild · GPT-Live Voice Demo</title>
+<style>
+:root{--bg:#0b1512;--panel:#101d19;--line:#1d332c;--tx:#d7e8e1;--dim:#6b8a80;--acc:#4ade80;--err:#f87171;--warn:#fbbf24}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:14px/1.5 -apple-system,"PingFang SC",sans-serif;padding:16px;max-width:760px;margin:0 auto}
+h1{font-size:17px;margin-bottom:4px}
+.sub{color:var(--dim);font-size:12px;margin-bottom:12px}
+#status{font-size:12px;color:var(--dim);min-height:18px;margin-bottom:8px}
+#status.err{color:var(--err)}
+button{background:#152822;color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:8px 16px;font-size:13px;cursor:pointer}
+#connect{background:var(--acc);color:#052e2b;font-weight:600;border-color:var(--acc)}
+button:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:8px;margin-bottom:12px}
+#chat{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.bubble{max-width:82%;padding:8px 12px;border-radius:12px;font-size:13px}
+.bubble.user{align-self:flex-end;background:#1b3a2f}
+.bubble.agent{align-self:flex-start;background:var(--panel);border:1px solid var(--line)}
+#log{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;height:300px;overflow-y:auto;font:11px/1.6 ui-monospace,monospace}
+.ev{margin-bottom:2px;white-space:pre-wrap;word-break:break-all}
+.ev.sys{color:var(--dim)}.ev.deleg{color:var(--warn)}.ev.tool{color:#7dd3fc}
+.ev.result{color:var(--acc)}.ev.err{color:var(--err)}.ev.raw{color:#a78bfa}
+footer{display:flex;align-items:center;gap:6px;color:var(--dim);font-size:12px;margin-top:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:#3a4f48}
+.dot.live{background:var(--acc)}
+details.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:12px 0}
+details.panel summary{cursor:pointer;font-size:13px;color:var(--acc)}
+#promptTools pre{white-space:pre-wrap;font:11px/1.6 ui-monospace,monospace;background:#0d1714;border:1px solid var(--line);border-radius:8px;padding:10px;margin:8px 0}
+#promptTools h3{font-size:12px;margin:10px 0 4px;color:var(--dim)}
+#promptTools li{font-size:12px;margin:4px 0 4px 18px}
+#promptTools code{color:#7dd3fc}
+</style>
+</head>
+<body>
+<h1>🐶 Starchild Voice</h1>
+<div class="sub">GPT-Live voice layer · Starchild brain · five-tool routing (memory_lookup / ask_starchild / check_task / cancel_task / list_tasks)</div>
+<div id="status">Not connected</div>
+<div class="row">
+  <button id="connect">Start Call</button>
+  <button id="close" disabled>Hang Up</button>
+</div>
+<div id="chat"></div>
+<details class="panel" id="promptPanel"><summary>System Prompt &amp; Tools</summary><div id="promptTools">Loading…</div></details>
+<div id="log"></div>
+<footer><span class="dot" id="micdot"></span><span id="mic">Microphone off</span></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const chat=$("chat"),log=$("log"),status=$("status");
+let pc,dc,stream,connected=false;
+let liveSessionId=null,utterBuf="";
+const base=location.pathname.replace(/\/?$/,"/");
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+async function api(path,body){
+  const r=await fetch(base+path,{method:body?"POST":"GET",headers:body?{"Content-Type":"application/json"}:{},body:body?JSON.stringify(body):undefined});
+  if(!r.ok){const e=await r.json().catch(()=>({error:"HTTP "+r.status}));throw new Error(e.error||("HTTP "+r.status));}
+  return r.json();
+}
+const ts=()=>new Date().toLocaleTimeString("en-US",{hour12:false});
+// ---- System Prompt & Tools panel ----
+(async()=>{
+  try{
+    const cfg=await api("api/config");
+    const tools=cfg.tools.map(t=>`<li><code>${esc(t.name)}</code> — ${esc(t.desc)}</li>`).join("");
+    $("promptTools").innerHTML=
+      `<h3>System Prompt (English — replies in the user's spoken language)</h3><pre>${esc(cfg.system_prompt)}</pre>`+
+      `<h3>Tools (${cfg.tools.length})</h3><ul>${tools}</ul>`;
+  }catch(e){$("promptTools").textContent="Failed to load: "+e.message;}
+})();
+function addEv(cls,tag,body){
+  const d=document.createElement("div");d.className="ev "+cls;
+  d.textContent=`[${ts()}] ${tag}: ${body}`;log.appendChild(d);log.scrollTop=log.scrollHeight;
+}
+function addBubble(role,text){
+  const d=document.createElement("div");d.className="bubble "+role;d.textContent=text;
+  chat.appendChild(d);chat.scrollTop=chat.scrollHeight;
+}
+function setStatus(t,err){status.textContent=t;status.classList.toggle("err",!!err);}
+
+// ---- tool dispatch: route delegation to the right executor ----
+// Client delegation has no tools field in session config, so the model names
+// the tool inside its delegation request; we route on the request text.
+function routeTool(text){
+  const t=(text||"").trim();
+  if(/^(查询|查看|列出|显示)?\s*(当前)?(所有|全部)?\s*(后台)?任务列表?$|list[_ ]?tasks/i.test(t)&&t.length<30)return{name:"list_tasks",fn:doListTasks};
+  if(/^(取消|终止|停止|别查了)\b|cancel[_ ]?task/i.test(t))return{name:"cancel_task",fn:doCancelTask};
+  if(/^(怎么样了|好了吗|进度|进展|查.*进度|任务状态)|check[_ ]?task/i.test(t)&&t.length<40)return{name:"check_task",fn:doCheckTask};
+  if(/(之前|上次|记得|我们说过|历史|记忆)|memory[_ ]?lookup/i.test(t)&&t.length<60)return{name:"memory_lookup",fn:doMemoryLookup};
+  return{name:"ask_starchild",fn:doAskStarchild}; // default: the brain
+}
+
+// ---- tool implementations ----
+async function doMemoryLookup(text,taskId){
+  const q=text.replace(/^(查(询|一下)?|看看?|帮我?查|记忆|之前|我们)?(说过|聊过)?(什么)?[?？。！!]*/g,"").trim()||text;
+  const out=await api("api/memory?q="+encodeURIComponent(q.slice(0,80)));
+  const items=out.results||[];
+  const summary=items.length
+    ?`Found ${items.length} matching memories:\n`+items.slice(0,5).map(m=>`[${m.source||"history"}] ${String(m.text).slice(0,120)}`).join("\n")
+    :"No matching memories found.";
+  addEv("result","memory_lookup",summary);
+  returnCommentary(taskId,summary);
+}
+async function doListTasks(_text,taskId){
+  const out=await api("api/tasks");
+  const ts=out.tasks||[];
+  const summary=ts.length?`Currently ${ts.length} task(s):\n`+ts.map(t=>`${t.id.slice(-6)} [${t.status}] ${t.userText.slice(0,40)}`).join("\n"):"No background tasks.";
+  addEv("result","list_tasks",summary);
+  returnCommentary(taskId,summary);
+}
+async function doCheckTask(text,taskId){
+  // check latest running/done task
+  const out=await api("api/tasks");
+  const running=(out.tasks||[]).filter(t=>t.status==="running");
+  const target=running[0]||(out.tasks||[]).sort((a,b)=>b.createdAt-a.createdAt)[0];
+  if(!target){returnCommentary(taskId,"No background tasks.");return;}
+  const prog=(target.progress||[]).slice(-2).map(p=>p.detail).join("; ")||"Waiting";
+  const summary=target.status==="running"?`Task "${target.userText.slice(0,40)}" in progress: ${prog}`:
+    target.status==="done"?`Task done: ${target.reply.slice(0,150)}`:`Task ${target.status}${target.error?": "+target.error:""}`;
+  addEv("result","check_task",summary);
+  returnCommentary(taskId,summary);
+}
+async function doCancelTask(text,taskId){
+  const out=await api("api/tasks");
+  const running=(out.tasks||[]).filter(t=>t.status==="running");
+  if(!running.length){returnCommentary(taskId,"No running tasks.");return;}
+  for(const t of running){await api("api/tasks/"+t.id+"/cancel",{});}
+  addEv("result","cancel_task",`Cancelled ${running.length} task(s)`);
+  returnCommentary(taskId,`Cancelled ${running.length} background task(s).`);
+}
+let lastTaskId=null; // most recent brain task, for progress polling
+async function doAskStarchild(text,taskId){
+  addEv("tool","Starchild",`Calling brain → session=${liveSessionId||"?"} text: ${text.slice(0,120)}`);
+  addBubble("user",text);
+  const sub=await api("api/agent",{session_id:liveSessionId,text});
+  lastTaskId=sub.task_id;
+  let reply=null,errMsg=null,tries=0,seenProg=0;
+  for(;;){
+    await new Promise(r=>setTimeout(r,2000));
+    const st=await api("api/agent/"+sub.task_id);
+    if(st.progress&&st.progress.length>seenProg){
+      for(const p of st.progress.slice(seenProg)){
+        addEv("tool","Progress",p.detail);
+        dc.send(JSON.stringify({type:"session.thinking.append",event_id:"prog_"+Date.now(),
+          delegation_id:taskId||null,content:p.detail}));
+      }
+      seenProg=st.progress.length;
+    }
+    if(st.status==="done"){reply=st.reply;break;}
+    if(st.status==="error"){errMsg=st.error;break;}
+    if(st.status==="cancelled"){errMsg="Task cancelled";break;}
+    if(++tries%15===0)addEv("tool","Starchild",`Brain thinking…(${(tries*2)|0}s)`);
+    if(tries>150){errMsg="Timed out waiting for the brain (5 min)";break;}
+  }
+  if(errMsg)throw new Error(errMsg);
+  reply=(reply||"").trim();
+  if(!reply)throw new Error("Brain returned empty");
+  addEv("result","Starchild",`Brain returned → ${reply.slice(0,300)}`);
+  returnCommentary(taskId,reply.slice(0,2000));
+  addBubble("agent",reply);
+}
+function returnCommentary(delegationId,content){
+  dc.send(JSON.stringify({
+    type:"session.commentary.append",event_id:"starchild_"+Date.now(),
+    delegation_id:delegationId||null,content:String(content).slice(0,2000)
+  }));
+  addEv("raw","Return","Result sent to voice playback");
+}
+
+function renderEvent(ev){
+  const t=ev.type||"(unknown)";
+  if(t==="session.delegation.created"){
+    const d=ev.delegation||{};
+    const did=d.id||ev.delegation_id||"";
+    addEv("deleg","Delegation",`Request → delegation_id=${did} target=${d.target||"client"}`);
+    const text=(utterBuf||"").trim();
+    utterBuf="";
+    if(!text){addEv("deleg","Delegation","No user text captured, skipping");return;}
+    const route=routeTool(text);
+    addEv("deleg","Routing",`Tool: ${route.name}`);
+    route.fn(text,did).catch(err=>{addEv("err","Tool failed",esc(err.message));});
+    return;
+  }
+  if(t==="session.started"){
+    if(ev.session_id)liveSessionId=ev.session_id;
+    addEv("result","Session",`session.started — voice link established${liveSessionId?(" ("+liveSessionId+")"):""}`);
+    return;
+  }
+  if(t==="session.closed"){
+    const u=ev.usage?` Usage: ${JSON.stringify(ev.usage)}`:"";
+    addEv("result","Session","session.closed — session ended."+u);return;
+  }
+  if(/input.*(transcript|transcription)/.test(t)){
+    if(ev.delta){utterBuf+=ev.delta;addEv("sys","Transcript",`You: ${ev.delta}`);}
+    return;
+  }
+  if(/output.*(transcript|transcription)/.test(t)){
+    if(ev.delta)addEv("speech","Speech",`Starchild said: ${ev.delta}`);
+    return;
+  }
+  if(/error|failed/i.test(t)){
+    addEv("err","Event",JSON.stringify(ev).slice(0,300));return;
+  }
+  addEv("raw",t,JSON.stringify(ev).slice(0,150));
+}
+
+$("connect").onclick=async()=>{
+  $("connect").disabled=true;chat.textContent="";log.textContent="";
+  try{
+    setStatus("Requesting microphone…");
+    stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}});
+    $("mic").textContent="Microphone on";$("micdot").classList.add("live");
+    setStatus("Establishing connection…");
+    pc=new RTCPeerConnection();
+    stream.getTracks().forEach(t=>pc.addTrack(t,stream));
+    pc.ontrack=e=>{$("audio")?.remove();const a=document.createElement("audio");a.id="audio";a.srcObject=e.streams[0];a.play();};
+    dc=pc.createDataChannel("oai-events");
+    dc.onmessage=e=>{try{renderEvent(JSON.parse(e.data));}catch(_){}};
+    await pc.setLocalDescription(await pc.createOffer());
+    setStatus("Creating session…");
+    const data=await api("api/session",{sdp:pc.localDescription.sdp});
+    await pc.setRemoteDescription(data.transport?.sdp?{type:"answer",sdp:data.transport.sdp}:data.answer??data);
+    connected=true;$("close").disabled=false;
+    setStatus("Connected, start talking");
+  }catch(err){
+    setStatus("Failed: "+err.message,true);addEv("deleg","Failed",esc(err.message));
+    $("connect").disabled=false;
+  }
+};
+// ---- teardown: stop the OpenAI live session + cancel running brain tasks ----
+// Connection loss makes OpenAI end the billed session, so closing the page
+// without hanging up must kill the WebRTC link immediately.
+function teardownAll(keepMic,cancelTasks){
+  try{if(dc){dc.onmessage=null;dc.close();}}catch(_){}
+  try{pc&&pc.close();}catch(_){}
+  dc=null;pc=null;connected=false;
+  // design doc §6: hang-up keeps background tasks running (results stored);
+  // only closing/refreshing the page cancels them, so they stop burning credits
+  if(cancelTasks){try{fetch("api/tasks/all/cancel",{method:"POST",keepalive:true});}catch(_){}}
+  lastTaskId=null;
+  if(!keepMic&&stream){stream.getTracks().forEach(t=>t.stop());$("mic").textContent="Microphone off";$("micdot").classList.remove("live");}
+}
+$("close").onclick=()=>{
+  teardownAll(false,false);
+  $("close").disabled=true;$("connect").disabled=false;
+  setStatus("Hung up (background tasks keep running)");
+};
+// closing/refreshing the page without hanging up: kill session + tasks
+window.addEventListener("pagehide",()=>{if(connected||pc||dc)teardownAll(true,true);});
+window.addEventListener("beforeunload",()=>{if(connected||pc||dc)teardownAll(true,true);});
+</script>
+</body>
+</html>

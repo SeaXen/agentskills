@@ -1,0 +1,858 @@
+{
+  "skill_name": "event-vendor-sourcing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're running DeployConf Lisbon at Instituto Nova Tecnologia's main auditorium on 14 March, about 260 people, one lunch and two coffee breaks. I've got three caterers lined up - Casa Verde, Tramontana and Bica Catering - and I want to send them all a note this week to get prices back. Budget line for food is 4,200 EUR. What should I put in the note, and how do I pick between them?",
+      "expected_output": "A run that halts the three-way caterer comparison until the venue's exclusivity and inclusion answer is in writing, marks the category bundled or open, and only then specifies one identical brief covering serving times, dietary counts, service style, who serves and equipment return - with no per-plate figure invented.",
+      "files": [],
+      "expectations": [
+        "Response stops the comparison of the three named caterers and first asks whether the venue supplies catering itself, mandates its own supplier, permits an outside one, or charges a fee to permit one.",
+        "Response requires that exclusivity answer in writing, not verbally.",
+        "Response names university venues as the category of venue most likely to mandate its own catering service.",
+        "Response states that comparing outside caterers before that answer arrives is effort spent on suppliers the organizer may not be allowed to hire.",
+        "Response states that if the venue mandates its caterer there is no price comparison, no separate supplier contract and no separate certificate of insurance to chase.",
+        "Response states that a venue-mandated caterer's deadline is set by them and is typically earlier than an outside supplier's.",
+        "Response instructs that all candidates in the category receive one identical brief, because two suppliers cannot be compared on two different questions.",
+        "The brief specifies the serving time for each meal rather than the delivery time, leaving the supplier to work back to a delivery time.",
+        "The brief carries dietary requirements as counts per category rather than as a free-text note.",
+        "Response instructs collecting those dietary counts from everyone who will be fed - including mentors, volunteers, speakers and organizers - not only registered attendees.",
+        "Response asks who serves the food and warns that some suppliers, university catering especially, require their own staff, before any volunteer serving rota is planned around it.",
+        "Response treats service style (plated or individual meals versus family-style shared platters) as a required brief field rather than a presentation preference.",
+        "Response does not state, estimate or derive a per-plate or per-head price for this event or this market."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Three quotes back for lunch at StackSummit - one day, 240 attendees, 8 June, community-run, and the venue is happy for us to bring anyone in. Northgate Kitchen came in at 14.50 per head, Brightline Catering at 17.20 per head, and Fenwick & Co at 21 per head 'all inclusive'. Northgate is the obvious pick on price, though their quote is a single page and Fenwick's runs to six. Am I missing something? Registration is still open and we're expecting somewhere between 210 and 260 on the day.",
+      "expected_output": "A run that refuses the headline-price comparison, rebuilds all three quotes as an all-in grid with both cost components and contract terms per row, computes a second total at the headcount's likely direction of travel, and treats the thin quote's omissions as incompleteness rather than cheapness.",
+      "files": [],
+      "expectations": [
+        "Response builds a single comparison grid with one row per supplier and one column per cost component, rather than ranking the three per-head figures.",
+        "Cost components forced onto every row include at minimum unit price and unit, minimum order, delivery or travel, serving staff, service charge or gratuity, equipment rental, setup and teardown, overtime beyond the window, taxes, and the cost of anything expected to be returned.",
+        "Response asks whether each supplier's service charge applies to the whole invoice or to labour only.",
+        "Response computes an all-in total at the planned headcount and a second all-in total at the headcount moved in the direction it is likely to move.",
+        "Response states that a supplier who is cheapest at the planned number and most expensive at the likely number is not the cheapest supplier.",
+        "Response treats a quote missing a component as incomplete rather than as cheaper, and instructs going back to that supplier to ask.",
+        "Response flags that Northgate's single-page quote probably excludes components Fenwick's six pages price, and that normalizing can reverse the ranking.",
+        "Terms forced onto every row include deposit amount, due date and refundability; the headcount-change deadline with permitted direction and cost; the cancellation schedule; the remedy for late or short delivery; substitution rights; proof of insurance; and a reference contact.",
+        "Response asks for the cancellation schedule itself rather than accepting that a cancellation clause exists.",
+        "Response notes that most supplier contracts offered to small events state no remedy for failure at all, and that the absence is itself the finding.",
+        "Response ties the moving 210-260 registration number to each supplier's headcount-lock date, permitted range, and whether downward moves are credited.",
+        "Response does not assert what a fair or normal per-head price is for this event, this city or this year.",
+        "Response recommends a reference check on the leading candidate where the failure remedy is missing or weak, and frames the call as asking what actually happened rather than whether the supplier was good."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "MergeFest is seven weeks out, 300 registered, and I still haven't ordered t-shirts. I want a tri-blend, one design, and I'd rather not blow the budget. For sizes I was going to order 300 split evenly - 75 S, 75 M, 75 L, 75 XL - since that's a fair spread. Ridgeline Apparel say they can ship in 12 business days. Are we fine on time?",
+      "expected_output": "A run that identifies backorder risk rather than shipping as the binding constraint, demands written stock confirmation per item and size, rejects the even size split in favour of a real distribution, extends the range past 2XL as a supplier-selection criterion, and applies late-order padding without blending it with the early-order logic.",
+      "files": [],
+      "expectations": [
+        "Response identifies stock availability and backorder risk - not shipping time or print turnaround - as the real lead-time driver for apparel.",
+        "Response requires written confirmation of current stock and lead time for the specific items and the specific sizes before any commitment.",
+        "Response treats the quoted 12-business-day ship time as meaningless without that stock confirmation.",
+        "Response converts the requirement into a hard in-hand date rather than a ship date.",
+        "Response rejects the proposed even 75/75/75/75 size split.",
+        "Response supplies a size distribution to sanity-check the order against, with unisex M the largest share at roughly 43% and unisex L next at roughly 29%.",
+        "Response includes the remaining unisex shares at roughly S 13%, XL 10%, 2XL 3% and XS 1%, and separate women's-cut shares at roughly M 7%, S 6%, L 3%, XS 2%, XL 1% and 2XL under 1%.",
+        "Response states that the distribution stops at 2XL only because historical orders stopped at 2XL, and that real demand exists at 3XL to 5XL.",
+        "Response makes covering the 3XL-5XL range a supplier-selection criterion a supplier can fail, not a size-chart footnote.",
+        "Because the order is being placed late, response applies padding of up to 30% per size and style rather than a single flat uplift on the total.",
+        "Response keeps the late-order padding (a stockout hedge) distinct from ordering early (a backorder hedge) and does not blend the two logics.",
+        "Response recommends collecting real sizes at registration as both more accurate than any distribution and better for inclusion.",
+        "Response asks whether the supplier will hold or ship to the venue, and whether the venue accepts shipments, from what date, at what receiving fee, and whether anything can be stored securely beforehand.",
+        "Response instructs keeping every receipt, and states unopened surplus can be returned, raffled or carried into the next edition rather than written off."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "We're recording all 18 talks at ForgeCon - single track, 400 seats, two days, October. A friend recommended an AV company called Halcyon Stage, and they've offered to come do a site visit and put a package together for us. I'd like to sign them this month so it's off my plate. What should the contract say?",
+      "expected_output": "A run that refuses to contract AV before a written technical specification exists, routes the spec to the production sibling, and replaces the single-supplier package with a shortlist-then-two-finalist RFP that states a budget range and selects on recording-failure remedy and checkable credentials.",
+      "files": [],
+      "expectations": [
+        "Response refuses to contract the AV supplier before a written technical specification exists, and states that a supplier chosen before the spec exists ends up writing the spec.",
+        "Response states that once the supplier owns the specification, every later change becomes a variation they price.",
+        "Response routes authorship of the specification itself - signal path, camera positions, recording and streaming requirements, redundancy, bandwidth - to the production sibling skill rather than drafting it here.",
+        "Response instructs attaching that specification to the supplier brief unchanged.",
+        "Response describes a shortlist-before-RFP process: identify up to five candidates through referral and reputation, then narrow to two finalists and send the full RFP only to those two, against an identical scope.",
+        "Response says the candidate interviews should involve the people who will actually work with the supplier on the day, not only whoever handles procurement.",
+        "Response recommends stating a budget range inside the RFP rather than withholding the number.",
+        "Response gives the reason for disclosing the budget: withholding it widens the spread between bids and filters capable suppliers out on guesswork rather than on fit.",
+        "Response asks the venue what it already provides - in-house AV equipment, an in-house AV team, whether an outside supplier is permitted, and what it charges to permit one.",
+        "Response requires equipment, crew, crew overtime, transport, rehearsal time and post-event deliverables such as edited recordings to be priced separately rather than bundled.",
+        "Response asks whether crew hours are quoted against a stated window with a named overtime rate rather than priced 'for the day'.",
+        "Response makes the remedy for a failed recording a selection criterion, noting this is the category where failure stays invisible until after the event is over.",
+        "Response asks whether the crew hold CTS (Certified Technology Specialist) credentials or the equivalent from the AV trade association covering the event's country, as a checkable qualification rather than a claimed one."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Putting together the first budget for Kernelcamp - 350 people, two days, Krakow, next spring. I need working numbers for the supplier lines before I take this to the two people funding it: catering per head per meal, what an AV crew costs per day for something this size, security per guard-hour, and roughly what event liability insurance runs. Just ballparks, I'll refine them later.",
+      "expected_output": "A run that declines every requested figure, states plainly that no reachable public benchmark exists for these supplier prices, explains the credibility cost of anchoring on an invented number, and redirects the user to producing three all-in quotes on one identical brief per category.",
+      "files": [],
+      "expectations": [
+        "Response declines to supply a per-head catering figure, an AV day rate, a security hourly rate, or an insurance premium for this event.",
+        "Response states plainly that no reachable public source benchmarks these supplier prices, rather than hedging a wide range.",
+        "Response states that three all-in quotes on one identical brief are the only benchmark true for this city, this size and this year.",
+        "Response gives the credibility reason: an invented figure is one the supplier can immediately disprove, and the credibility lost is the leverage the rest of the conversation runs on.",
+        "If any published insurance floor figure is mentioned, response presents it as evidence that a floor exists and explicitly not as a number to budget Kernelcamp against or to quote at a broker.",
+        "If any published per-person hackathon figures are mentioned, response states they are true only for that country, that audience and that year.",
+        "Response does not convert any published figure into a Krakow, Polish or European estimate by adjustment, inflation or currency conversion.",
+        "Response notes that published AV-production price ranges that do exist cover weddings, hotel ballrooms and generic corporate events rather than a standalone mid-size tech conference.",
+        "Response flags that each category's price question only exists once the venue's bundled-or-open answer is known, because a bundled category has no separate price to source.",
+        "Response offers to produce the per-category briefs that generate real quotes instead of the ballparks requested.",
+        "Response notes that the number will be shown to funders, and treats that as a reason to source defensible quotes rather than estimates."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Hackathon, 220 participants, 36 hours, community-run, money is tight. Two ideas to save cash: our own volunteers cook Saturday dinner in the venue's kitchen (one of our organizers is a genuinely good cook), and we put four volunteers on the doors overnight instead of paying a security firm. We have 30 volunteers signed up and they're keen. Anything I should watch for?",
+      "expected_output": "A run that removes volunteer substitution outright for both the overnight door coverage and the hot food preparation on obligation grounds rather than reliability grounds, names what volunteers may still legitimately do, and routes the staffing itself elsewhere.",
+      "files": [],
+      "expectations": [
+        "Response removes volunteer substitution entirely for the overnight door coverage rather than listing it as a cheaper but riskier option.",
+        "Response removes volunteer substitution entirely for hot food prepared rather than delivered.",
+        "Response gives the reason as the licensing, food-safety and crowd-safety obligation attached to those categories, not as volunteers being unreliable.",
+        "Response states that no amount of goodwill or briefing transfers a legal obligation.",
+        "Response states that a volunteer cannot be indemnified the way a supplier can.",
+        "Response states that the exposure a supplier's own insurance and licensing would have carried lands on the organizing entity instead.",
+        "Response states that this exposure is not reversible once someone is ill or hurt.",
+        "Response names what volunteers may still legitimately do - snacks, drinks, laying out food that was delivered, and front-of-house posts.",
+        "Response distinguishes staffing a door, directing people and watching a room (permitted) from carrying a licensed guard's obligation (not permitted).",
+        "Response asks the venue whether it provides security itself, mandates its own firm, or permits an outside one, before any firm is sourced.",
+        "Response routes the volunteer rostering, shifts and briefing to the volunteers sibling skill rather than designing a rota here.",
+        "Response states that this skill decides only whether a category may be substituted at all, not who staffs it."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We run a 60-person monthly meetup in a co-working space that hosts us for free. I found a supplier agreement template online and it requires the caterer to carry 2 million in general liability, name us as additional insured, and produce the certificate 30 days before move-in. I'm about to send that to Marta, who runs a two-person sandwich place near the office and has done our food for a year. Does this look right?",
+      "expected_output": "A run that gates the certificate-of-insurance ask on scale, tells the user not to send an enterprise-shaped requirement to a two-person supplier at this size, separates what the supplier carries from what the venue requires of the organizer, and still insists on a written brief for the familiar supplier.",
+      "files": [],
+      "expectations": [
+        "Response tells the user not to send the enterprise-shaped insurance requirement to a two-person supplier at this event size.",
+        "Response states the rule as gating the certificate requirement on scale rather than applying it uniformly.",
+        "Response states that requiring an enterprise-shaped certificate from a small supplier for a small event mostly costs you the supplier.",
+        "Response states that small community events and hackathons frequently require no supplier-carried cover at all, because the venue's or organizer's own policy covers the space.",
+        "Response names the opposite pole - exhibitor-hall and convention-centre norms - as where a defined liability minimum, additional-insured naming and a certificate due before move-in genuinely apply.",
+        "Response separates the two directions that get confused: what the supplier carries, versus what the venue requires of the organizer.",
+        "Response instructs extracting the co-working space's own requirement of the organizer verbatim rather than assuming it from a template.",
+        "Response notes that what the venue requires of the organizer flows down into what is asked of suppliers and sponsors alike.",
+        "Response recommends keeping the supplier-side insurance ask consistent with the sponsor-side ask rather than setting them independently.",
+        "Response routes the question of which cover the event itself buys to the risk-management sibling rather than deciding it here.",
+        "Response does not assert which policy, limit or certificate is legally required in the user's jurisdiction.",
+        "Response still requires a written brief for Marta, rather than treating a year-long familiar supplier as exempt from one."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "CodeHarbour, 180 people, one day, in a converted warehouse we've rented for the day. Lunch is family-style - big shared platters down six long tables, it suits the room. The caterer says they'll bring chafing dishes to keep everything hot and can be there an hour before we eat at 12:30. We have the space from 08:00. Sounds workable?",
+      "expected_output": "A run that sends the user back to the venue for a chafing-dish permission check before the service style is locked, corrects the one-hour buffer to the family-style 60-90 minute window with the plated contrast stated, and converts the arrival into an agreed window with an exact location, named contact, backup number and equipment pickup time.",
+      "files": [],
+      "expectations": [
+        "Response instructs confirming with the venue, before the service style is locked, whether chafing dishes are permitted.",
+        "Response gives the reason: chafing dishes burn fuel, and some venues restrict them for exactly that reason.",
+        "Response states that the entire family-style delivery-buffer and staffing plan assumes chafing dishes are permitted.",
+        "Response classes this as a venue-imposed restriction that is invisible unless asked and expensive because it surfaces after the service style has been chosen and priced.",
+        "Response rejects the proposed one-hour buffer as insufficient for family-style service.",
+        "Response sets the family-style delivery buffer at 60-90 minutes before serving.",
+        "Response gives the plated or individual-meal buffer of 30-60 minutes before serving as the contrast.",
+        "Response explains the mechanism: family-style needs more setup time while the chafing dishes hold temperature, so the cold-food risk falls and the setup risk rises.",
+        "Response treats service style as a brief field that changes delivery buffer, equipment, staffing and fire-code exposure, not as a presentation choice.",
+        "Response converts the 12:30 serving time into an arrival window agreed with the supplier rather than an assumed one.",
+        "Response requires an exact delivery location - building, entrance, dock or room - rather than the event's marketing address.",
+        "Response requires a named primary on-site contact plus a backup phone number, and notes the backup number is the field most often left empty."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "First edition of PipelineDays, 300 people, one day, November. Five things to buy: catering, AV, security, insurance and shirts. I'm the only organizer with time for this - maybe six hours a week - and the venue contract says we have to confirm our supplier list by 30 September, which is six weeks away. My plan is to get three quotes for each of the five so we can prove we got value for money. Sensible?",
+      "expected_output": "A run that refuses multi-quote sourcing across all five categories, sets referred single-source on a written brief as the default rung, promotes multi-quote only where the budget concentrates or no referral exists, and treats sourcing without a written brief as unavailable rather than merely last.",
+      "files": [],
+      "expectations": [
+        "Response rejects running multi-quote sourcing on all five categories at once.",
+        "Response gives the reason: the coordination cost of multi-quoting everything is what makes organizers skip the written brief entirely.",
+        "Response sets the default posture as referred single-source on a written brief for every open category.",
+        "Response promotes multi-quote only for the one or two categories that dominate this event's budget, or for a category where no referral exists.",
+        "Response names the 30 September commitment date as a reason to demote multi-quote sourcing.",
+        "Response names the six-hours-a-week ceiling as a reason to demote anything requiring three separate supplier conversations.",
+        "Response notes that a first edition with no referral network in a category is itself a reason to promote multi-quote for that category.",
+        "Response states that sourcing without a written brief is not the cheapest rung but not a rung at all.",
+        "Response gives the reasons a brief is non-optional: nothing to compare a second quote against, nothing to hold the supplier to, no way to tell a late delivery from an on-time one, and no shared understanding of who serves, who sets up and who collects.",
+        "Response states that a referred supplier still receives a written brief.",
+        "Response asks whether any category already has an asset that outranks the default - a supplier used by a peer organizer, an organizer who works in the trade, or a sponsor offering the category in kind.",
+        "Response asks whether these supplier numbers will be quoted onward to a sponsor or a board and therefore have to be defensible, and promotes multi-quote where they must."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Right, supplier plan for Bytecamp - 400 people, two days, 6-7 May. I'm going to tackle the categories in order of spend so the big money gets the most attention: catering is by far the largest at around 40% of the budget, then AV, then security, then shirts, then insurance last since it's the smallest cheque. Starting with caterers this week. Fair approach?",
+      "expected_output": "A run that rejects spend-ordered sourcing, reorders the categories by their own deadlines with apparel and print moved ahead of catering, refuses to invent lead times where none exist, and builds a last-safe-date commitment schedule handed to the planning-timeline sibling.",
+      "files": [],
+      "expectations": [
+        "Response rejects ordering the categories by spend.",
+        "Response instructs working back from the event date and ordering the categories by their own deadlines.",
+        "Response states that the largest budget line is rarely the earliest deadline.",
+        "Response moves the shirt and print order ahead of catering in the commitment order, on backorder grounds.",
+        "Response gives catering order placement as 2-4 weeks before the event, and notes a venue-mandated caterer commonly requires finalizing sooner than that.",
+        "Response gives security as roughly a week while telling the user to confirm with the venue and the firm, since a building requiring approved firms has its own notice period.",
+        "Response states that AV, security and insurance have no standard lead time rather than inventing one.",
+        "Response states that for AV what matters more than a lead time is rehearsal with the actual setup, with a named person assigned to run the stream live if the event streams.",
+        "Response treats that rehearsal as both a date on the commitment schedule and a line in the supplier's quote.",
+        "Response places the insurance binding date on the commitment schedule, noting some cover must be bound well ahead and some cover is unavailable once a known circumstance exists.",
+        "Response builds one commitment schedule with a row per category whose date is the last date the decision can still be made.",
+        "Response hands that schedule to the planning-timeline sibling rather than leaving the deadlines inside this conversation."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "The venue for NullConf - 800 attendees, one day, a city convention hall - says security is on us. How many guards do I need, what should I be paying them, and what licence do they have to hold? I want to brief a firm this week.",
+      "expected_output": "A run that declines to name a guard count, a rate or a licence, sends the user to the venue and the firm for each, and converts the request into a vetting checklist built around a written post order, baseline guard qualifications and incident-report practice.",
+      "files": [],
+      "expectations": [
+        "Response declines to state a guard headcount for 800 attendees.",
+        "Response cites the published event-security standard (ANSI ES1.40-2023, Event Safety - Event Security) and states the standard itself says there is no one correct number of guards and no single best practice for staffing a given event.",
+        "Response declines to state a security hourly rate or day rate.",
+        "Response declines to assert which licence a guard must hold, and states that licensing is jurisdiction-specific.",
+        "Response instructs asking the firm what licences and insurance it and its staff hold, and asking the venue what it requires, rather than asserting a standard.",
+        "Response notes that whether a licence is required at all can turn on whether the guards are the firm's own employees or subcontracted, and instructs asking which.",
+        "Response instructs asking the venue first whether it includes security, mandates its own, or will only permit firms it already works with, and notes the category closes if no outside firm is permitted.",
+        "Response instructs asking the venue what the building actually requires - guard posts, hours, and whether a fire marshal is a separately paid role - instead of the organizer deciding a coverage level.",
+        "Response requires a written post order before the event: a map or table naming each post, how many guards staff it, and their hours.",
+        "Response states that a firm which cannot produce a post order has priced a headcount rather than planned a deployment.",
+        "Response mentions the 1:250 trained-crowd-manager-to-occupant ratio as a floor for that specific credential, and frames a lower total security number as grounds for a direct question rather than for rejecting the quote outright.",
+        "Response lists baseline guard qualifications: at least 18 years old, no other duties that interfere with the security role, identifiable by uniform or visible credential, and trained for the specific tasks the event needs such as crowd management, de-escalation or evacuation direction.",
+        "Response asks about the firm's incident-report practice - what a report captures, who writes it, and how long records are kept."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Our venue contract for DataForge says we need public liability cover in place before they'll let us load in. I know nothing about this. Which policy should I buy, and how do I find someone to sell it to me? Event is in 11 weeks, 500 people, and one of our organizers says his cousin is an insurance agent and could sort us out.",
+      "expected_output": "A run that routes the coverage decision to the risk-management sibling, extracts the venue's requirement verbatim, and vets the cousin against licensing-lookup, event-specific experience, carrier-quality and E&O criteria while insisting on at least two comparisons and putting the binding date on the schedule.",
+      "files": [],
+      "expectations": [
+        "Response routes the question of which cover the event needs to the risk-management sibling rather than choosing a policy here.",
+        "Response states that the coverage decision precedes the broker conversation, and that arriving without it lets the broker decide it for you.",
+        "Response instructs extracting the venue contract's insurance requirement verbatim rather than paraphrasing it.",
+        "Response names the second contract-derived requirement: what the organizer must in turn require of its own sponsors and suppliers.",
+        "Response instructs confirming the cousin's licence is active in the state or country where the event happens, through the regulator's own public lookup rather than the broker's own claim.",
+        "Response makes experience placing event coverage specifically - not general home or auto lines - a selection criterion, at a comparable event size and scope.",
+        "Response makes carrier quality a criterion: a broker who places with A-rated (AM Best) carriers rather than routing to the cheapest underwriter regardless of rating.",
+        "Response checks the broker's own standing: current errors-and-omissions cover, and no unresolved solvency or disciplinary flags on the regulator's public record.",
+        "Response states that claims-handling reputation is checked at the carrier level, because brokers themselves are not carrier-rated - only the underwriters they place with are.",
+        "Response instructs comparing at least two options, direct-to-carrier or through a broker, rather than accepting the cousin as a single source.",
+        "Response does not benchmark, estimate or quote a premium for a 500-person event.",
+        "Response places the binding date on the commitment schedule, noting some cover must be bound well ahead and some cover is unavailable once a known circumstance exists."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Day before StackSummit. The caterer delivers lunch for 240 at 11:30 to the main entrance and I've given them my mobile. Plan is one long table at the back of the main room, I'll announce lunch from the stage when the morning track ends, and the six vegan and four gluten-free boxes go on the same table so people can find them. Drinks are all arriving in one delivery from the beverage supplier that morning. Anything else to do?",
+      "expected_output": "A run that replaces the single table and blanket announcement with multiple stations and a staggered release, moves restricted-diet meals to a separate checked-off table, fixes the delivery plan (exact location, backup number, named receiver), and checks the beverage supplier's per-delivery cap before the single drop is assumed.",
+      "files": [],
+      "expectations": [
+        "Response replaces the single serving table with multiple stations so more people are served at once, giving long waits and an overwhelmed serving team as the reason.",
+        "Response states the multiple-station rule holds even at a small event.",
+        "Response replaces the single stage announcement with a staggered release of one to three tables or rooms at a time, followed by a final call.",
+        "Response states that one blanket announcement sends everyone at once and produces a line of twenty minutes or more.",
+        "Response moves the vegan and gluten-free meals to a separate table rather than the main serving line.",
+        "Response requires checking names off a printed list as restricted-diet meals are handed out, so they are not taken by someone else.",
+        "Response requires the menu with allergen detail to be posted where people queue, so attendees can plan before reaching the front.",
+        "Response requires an exact delivery location - building, entrance, dock or room - rather than the event's main or marketing address.",
+        "Response requires a backup phone number in addition to the organizer's own mobile.",
+        "Response names a person who is physically present to receive the delivery and count what arrived.",
+        "Response asks the beverage supplier what its per-delivery cap is before the event's whole drinks quantity is planned around a single drop.",
+        "Response notes that an unchecked per-delivery cap forces either several separate orders or a manual collection run, and is invisible until the order is placed.",
+        "Response builds a per-supplier day-of row covering at minimum the arrival window, exact delivery location, primary contact and number, backup number, who receives and checks, setup responsibility, ready-by time, and teardown or pickup with a named responsible person.",
+        "Response hands the agreed delivery windows to the run-of-show sibling, which owns what happens live when a supplier misses one."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "How do I find a caterer for our 300-person conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "The university venue says we have to use their catering service - what does that change about how I plan food?",
+      "should_trigger": true
+    },
+    {
+      "query": "I have three catering quotes and they look nothing alike. How do I compare them?",
+      "should_trigger": true
+    },
+    {
+      "query": "We need shirts for 300 people and the event is in seven weeks. Is that enough time?",
+      "should_trigger": true
+    },
+    {
+      "query": "The venue doesn't provide security. How do I go about hiring a firm?",
+      "should_trigger": true
+    },
+    {
+      "query": "What should be in the contract before I pay a deposit to an AV company?",
+      "should_trigger": true
+    },
+    {
+      "query": "Help me write a brief to send to event caterers",
+      "should_trigger": true
+    },
+    {
+      "query": "Our shirts might not arrive in time - what do I ask the supplier?",
+      "should_trigger": true
+    },
+    {
+      "query": "Who do I talk to about insurance for our conference, and how do I pick between them?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it cheaper to have volunteers do the food instead of paying a caterer?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can our volunteers cover the doors overnight instead of paying guards?",
+      "should_trigger": true
+    },
+    {
+      "query": "The caterer's quote doesn't mention delivery. Should I assume it's included?",
+      "should_trigger": true
+    },
+    {
+      "query": "The venue's in-house AV quote is three times what the outside company quoted",
+      "should_trigger": true
+    },
+    {
+      "query": "What size breakdown should I order event t-shirts in?",
+      "should_trigger": true
+    },
+    {
+      "query": "How far ahead do I need to order stickers and swag for a conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can you look over this agreement before we sign with a production company?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I negotiate down a catering quote that came in over budget?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do I need to make our caterer carry insurance for a 60-person meetup?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's a certificate of insurance and do we need one from our suppliers?",
+      "should_trigger": true
+    },
+    {
+      "query": "Caterer wants the final headcount 14 days out but registration is still open",
+      "should_trigger": true
+    },
+    {
+      "query": "We're doing family style lunch - when should the food actually arrive?",
+      "should_trigger": true
+    },
+    {
+      "query": "The print shop quoted me a ship date. Is that the same as when I'll have them in hand?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many quotes should I get for each thing we need to buy in?",
+      "should_trigger": true
+    },
+    {
+      "query": "Making a list of everything we have to buy that the venue doesn't include",
+      "should_trigger": true
+    },
+    {
+      "query": "Who's supposed to be standing at the loading dock when the food turns up?",
+      "should_trigger": true
+    },
+    {
+      "query": "We never agreed who takes the chafing dishes back afterwards",
+      "should_trigger": true
+    },
+    {
+      "query": "The drinks supplier says they can only bring so much in one go",
+      "should_trigger": true
+    },
+    {
+      "query": "What do I ask a security company before hiring them for an event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is there a checklist of clauses for a supplier agreement at an event?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I run an RFP for AV at a two-day conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should I tell the AV companies our budget or keep it to myself?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our hackathon needs food for 220 people over 36 hours - where do I even start?",
+      "should_trigger": true
+    },
+    {
+      "query": "Ordering merch for the conference - what do I need to nail down with the printer?",
+      "should_trigger": true
+    },
+    {
+      "query": "The venue charges a fee if we bring an outside caterer. Is that normal and what do I do?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do I need a written brief if I'm using the same caterer as last year?",
+      "should_trigger": true
+    },
+    {
+      "query": "They've sent over a supplier agreement and I don't know what I'm looking for",
+      "should_trigger": true
+    },
+    {
+      "query": "What's a fair price per plate for conference lunch?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can you give me ballpark AV crew costs for a 400-person conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Roughly what should event liability insurance cost us?",
+      "should_trigger": true
+    },
+    {
+      "query": "A community organizing guide names a t-shirt supplier. Should I just use them?",
+      "should_trigger": true
+    },
+    {
+      "query": "We need someone to print badges and signage - how do I choose?",
+      "should_trigger": true
+    },
+    {
+      "query": "Getting quotes for guards at our convention hall event",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I set up the lunch line so 240 people aren't queueing for half an hour?",
+      "should_trigger": true
+    },
+    {
+      "query": "How should the vegan and gluten-free meals be handed out at lunch?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're a first edition with no supplier contacts at all. What's the plan?",
+      "should_trigger": true
+    },
+    {
+      "query": "Recurring conference - stick with last year's caterer or shop around?",
+      "should_trigger": true
+    },
+    {
+      "query": "Which of the things we're buying do I need to lock in first?",
+      "should_trigger": true
+    },
+    {
+      "query": "Working backwards from the event date for all of the ordering deadlines",
+      "should_trigger": true
+    },
+    {
+      "query": "Do I need dietary requirements from volunteers and speakers too, or just attendees?",
+      "should_trigger": true
+    },
+    {
+      "query": "The caterer says their own staff have to serve. Is that a problem for us?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our AV people offered to write the spec themselves. Is that fine?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I check a security firm is actually licensed?",
+      "should_trigger": true
+    },
+    {
+      "query": "A colleague's cousin is an insurance agent and says he can sort our event cover",
+      "should_trigger": true
+    },
+    {
+      "query": "What happens if the caterer turns up an hour late - is there anything in the contract about it?",
+      "should_trigger": true
+    },
+    {
+      "query": "One supplier sent a one-page quote and another sent six pages",
+      "should_trigger": true
+    },
+    {
+      "query": "What questions do I ask when I call a supplier's reference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Food budget is fixed and the quote came back over it. What now?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do venues normally let you bring in your own food supplier?",
+      "should_trigger": true
+    },
+    {
+      "query": "Ordering shirts late - how many extra should I get?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want 3XL and up available. Do apparel suppliers actually do that?",
+      "should_trigger": true
+    },
+    {
+      "query": "What do I need ready for the morning everything gets delivered?",
+      "should_trigger": true
+    },
+    {
+      "query": "We've got five things to buy and six weeks. How do I not screw this up?",
+      "should_trigger": true
+    },
+    {
+      "query": "A sponsor wants to provide the coffee cart in kind - does that replace sourcing one?",
+      "should_trigger": true
+    },
+    {
+      "query": "We over-ordered on swag. Anything we can do with the surplus?",
+      "should_trigger": true
+    },
+    {
+      "query": "The security firm sent me a number of guards and nothing else",
+      "should_trigger": true
+    },
+    {
+      "query": "The evening drinks thing is at a different bar - do I have to source that separately?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our production spec is finished. Now I need someone to actually execute it",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we require suppliers to name us as additional insured?",
+      "should_trigger": true
+    },
+    {
+      "query": "The caterer has a minimum order and we're under it",
+      "should_trigger": true
+    },
+    {
+      "query": "Which of these two quotes is actually cheaper once you add everything up?",
+      "should_trigger": true
+    },
+    {
+      "query": "Nobody agreed a pickup time for the rented staging and cases",
+      "should_trigger": true
+    },
+    {
+      "query": "The venue gave us a list of approved vendors. Do we have to use them?",
+      "should_trigger": true
+    },
+    {
+      "query": "I have to buy in a load of stuff for the conference and I've never done this before",
+      "should_trigger": true
+    },
+    {
+      "query": "Find me a venue for a 300-person conference in Berlin",
+      "should_trigger": false
+    },
+    {
+      "query": "Negotiate the venue contract's food and beverage minimum down",
+      "should_trigger": false
+    },
+    {
+      "query": "What should be in the written space program we send to venues?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the signal path and camera positions for recording our two-day conference",
+      "should_trigger": false
+    },
+    {
+      "query": "What capture tier do we need - one smartphone or a multi-camera vision mix?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build redundancy against recorded-audio failure in our AV setup",
+      "should_trigger": false
+    },
+    {
+      "query": "Which insurance policies should our event actually buy?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the risk register for our hackathon",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we add the communicable-disease buy-back to our cover?",
+      "should_trigger": false
+    },
+    {
+      "query": "Decide whether we serve alcohol at the conference",
+      "should_trigger": false
+    },
+    {
+      "query": "What should a scheduled break actually contain?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run one social occasion or two on separate slots?",
+      "should_trigger": false
+    },
+    {
+      "query": "Which accessibility provisions should we commit to and publish?",
+      "should_trigger": false
+    },
+    {
+      "query": "Which dietary accommodations should the event commit to meeting?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the volunteer shift plan and the briefing they get",
+      "should_trigger": false
+    },
+    {
+      "query": "How many volunteers do we need per post across the day?",
+      "should_trigger": false
+    },
+    {
+      "query": "What do we do live when the caterer is late on the day?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the minute-by-minute run of show for day one",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the six-month work-back plan for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the event P&L with fixed and per-head cost lines",
+      "should_trigger": false
+    },
+    {
+      "query": "Size the contingency in our event budget",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn our signed sponsorship into a term sheet counsel can review",
+      "should_trigger": false
+    },
+    {
+      "query": "Manage the sponsor's booth shipping and their setup window",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the expo floor layout and traffic pattern",
+      "should_trigger": false
+    },
+    {
+      "query": "What table size, power and signage does a Gold booth get?",
+      "should_trigger": false
+    },
+    {
+      "query": "Price our sponsorship tiers for next year",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the sponsorship prospectus",
+      "should_trigger": false
+    },
+    {
+      "query": "Set ticket prices for a community conference",
+      "should_trigger": false
+    },
+    {
+      "query": "What overbooking ratio should we use against the room's real capacity?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the badge and check-in desk flow",
+      "should_trigger": false
+    },
+    {
+      "query": "Where do we put the quiet room and how do we sign it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the code of conduct and the reporting process behind it",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the CFP form and the review criteria",
+      "should_trigger": false
+    },
+    {
+      "query": "Score and select talks from the CFP submissions we collected",
+      "should_trigger": false
+    },
+    {
+      "query": "Lay the selected talks into a published session grid",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the cold invitation to a keynote speaker we've shortlisted",
+      "should_trigger": false
+    },
+    {
+      "query": "Collect speaker bios, headshots and travel details against a deadline ladder",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the attendee email arc from announcement to post-event follow-up",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick the date for next year's conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Hackathon, unconference or single-day conference - which format?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should our company run a user conference or a multi-city roadshow?",
+      "should_trigger": false
+    },
+    {
+      "query": "What is our company's event programme actually funded to accomplish?",
+      "should_trigger": false
+    },
+    {
+      "query": "Define what our conference stands for against the alternatives",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the attendee acquisition marketing plan",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the event's social posts across the campaign phases",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a newsletter swap with another local developer event",
+      "should_trigger": false
+    },
+    {
+      "query": "Accredit journalists and independent bloggers for our event",
+      "should_trigger": false
+    },
+    {
+      "query": "Run the organizing team's internal retrospective after the event",
+      "should_trigger": false
+    },
+    {
+      "query": "Spot recurring themes across three editions of our debrief logs",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the post-event feedback survey",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the event's landing page and its CTA states",
+      "should_trigger": false
+    },
+    {
+      "query": "Decide the register and lived culture of the event",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the 1:1 business meeting programme between sponsors and buyers",
+      "should_trigger": false
+    },
+    {
+      "query": "Approve a third-party side event running around our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Escort and protocol plan for a visiting government minister",
+      "should_trigger": false
+    },
+    {
+      "query": "Structure the standing organizing team and its decision rights",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the job description and interview loop for an event producer",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I break into event production as a career?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the hackathon challenge brief and the published rules",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn our conference talk recordings into blog posts and clips",
+      "should_trigger": false
+    },
+    {
+      "query": "Grow the conference from 400 to 700 next edition",
+      "should_trigger": false
+    },
+    {
+      "query": "Work out which of our event properties feed each other",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a vendor management process for our SaaS procurement",
+      "should_trigger": false
+    },
+    {
+      "query": "Review this software licensing agreement for red flags",
+      "should_trigger": false
+    },
+    {
+      "query": "Run a supplier RFP for manufacturing components",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a procurement approval workflow in our ERP",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I start a catering business?",
+      "should_trigger": false
+    },
+    {
+      "query": "Negotiate a better rate with our cloud hosting provider",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a print-on-demand merch store for my newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "Choose a wedding caterer for 120 guests",
+      "should_trigger": false
+    },
+    {
+      "query": "Source suppliers for our retail dropshipping store",
+      "should_trigger": false
+    },
+    {
+      "query": "Vet a recruitment agency before signing their MSA",
+      "should_trigger": false
+    },
+    {
+      "query": "Compare freight forwarders for our e-commerce shipping",
+      "should_trigger": false
+    }
+  ]
+}

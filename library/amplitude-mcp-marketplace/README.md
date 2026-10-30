@@ -1,0 +1,232 @@
+# Amplitude AI Plugin
+
+Official Amplitude plugin for AI coding tools. Turn your AI assistant into a product analyst — instrument analytics, analyze charts, run experiments, and understand users directly from your editor.
+
+Works with **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, and **Claude**.
+
+---
+
+## Installation
+
+### Claude Code
+
+```
+claude plugin install amplitude
+```
+
+Or from inside Claude Code:
+
+```
+/plugin install amplitude
+/reload-plugins
+```
+
+Then authenticate when prompted.
+
+### Cursor
+
+Install from the [Cursor Marketplace](https://cursor.com/marketplace) or add manually in Cursor Settings > Plugins.
+
+### Codex
+
+1. Add the marketplace:
+    ```bash
+    codex plugin marketplace add amplitude/mcp-marketplace
+    ```
+
+2. Install the plugin from inside Codex:
+    ```
+    codex
+    # Then run /plugins, select Amplitude, and install
+    /plugins
+    ```
+
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/amplitude/mcp-marketplace
+```
+
+---
+
+## Local development
+
+To work on the plugin from a local checkout in Claude Code:
+
+```bash
+git clone https://github.com/amplitude/mcp-marketplace
+claude --plugin-dir ./mcp-marketplace/plugins/amplitude
+```
+
+Then run `/mcp` from inside Claude Code, select `plugin:amplitude:amplitude`, and follow the browser prompts to authenticate.
+
+---
+
+## What's Inside
+
+| Plugin | Description |
+| --- | --- |
+| [amplitude](./plugins/amplitude/) | Reusable analysis and instrumentation skills covering charts, dashboards, experiments, session replays, reliability, AI agent analytics, and analytics tracking workflows |
+
+---
+
+## Amplitude Plugin
+
+The amplitude plugin turns your AI assistant into an expert product analyst and instrumentation partner. Skills are organized into six areas:
+
+### Core Analytics
+
+| Skill | What it does |
+| --- | --- |
+| `create-chart` | Creates Amplitude charts from natural language descriptions |
+| `create-dashboard` | Builds dashboards from requirements, organizing charts into logical sections |
+| `analyze-chart` | Deep-dives a chart to explain trends, anomalies, and likely drivers |
+| `analyze-dashboard` | Reviews a dashboard end-to-end, surfacing key takeaways and areas of concern |
+
+### Product Insights
+
+| Skill | What it does |
+| --- | --- |
+| `analyze-experiment` | Designs A/B tests, monitors running experiments, and interprets results |
+| `monitor-experiments` | Triages all active and recently completed experiments by importance |
+| `analyze-feedback` | Synthesizes customer feedback into themes — feature requests, bugs, pain points, praise |
+| `analyze-account-health` | Summarizes B2B account health with usage patterns, risk signals, and expansion opportunities |
+| `discover-opportunities` | Finds product opportunities by cross-referencing analytics, experiments, replays, and feedback |
+| `compare-user-journeys` | Compares two user groups side-by-side to surface behavioral differences |
+
+### Session Replay & Debugging
+
+| Skill | What it does |
+| --- | --- |
+| `debug-replay` | Turns bug reports into numbered reproduction steps by extracting the interaction timeline from Session Replay |
+| `replay-ux-audit` | Watches multiple session replays for a flow and synthesizes a ranked friction map |
+| `diagnose-errors` | Triages product issues across network failures, JS errors, and error clicks |
+| `monitor-reliability` | Proactive reliability report from auto-captured error data so issues surface before users complain |
+
+### AI Agent Analytics
+
+| Skill | What it does |
+| --- | --- |
+| `analyze-ai-topics` | Analyzes what users ask AI agents about and how well each topic is served |
+| `investigate-ai-session` | Deep-dives specific AI agent sessions or failure patterns for root-cause analysis |
+| `monitor-ai-quality` | Delivers a proactive health report on AI agents covering quality, cost, performance, and errors |
+| `review-agent-insights` | Synthesizes recent results from Amplitude's AI agents into a unified, impact-ranked narrative |
+
+### Analytics Instrumentation
+
+| Skill | What it does |
+| --- | --- |
+| `diff-intake` | Reads a PR or branch diff and outputs a structured `change_brief` YAML for downstream skills |
+| `discover-event-surfaces` | From a change brief, lists candidate analytics events for PM prioritization |
+| `discover-analytics-patterns` | Maps how analytics is already implemented in the repo (SDK calls, naming, imports) |
+| `instrument-events` | From prioritized event candidates, builds a concrete instrumentation plan and JSON tracking plan |
+| `add-analytics-instrumentation` | End-to-end workflow — reads code, decides what to track, and produces a full instrumentation plan in one pass |
+| `taxonomy` | Source of truth for event taxonomy generation, data auditing, and governance best practices |
+| `tracking-plan-audit` | Audits telemetry, source code, ownership, dependencies, and tracking-plan branches for safe event and event-property deletion candidates |
+
+A typical flow: `diff-intake` → `discover-event-surfaces` → `instrument-events`, with `discover-analytics-patterns` ensuring new tracking matches existing conventions.
+
+For deletion cleanup, ask: “Audit this project for stale events and properties; the emitting source roots are `path/to/web` and `path/to/service`.” The `tracking-plan-audit` skill requires complete source coverage before recommending deletions and asks for explicit confirmation before every destructive mutation.
+
+### Briefings
+
+| Skill | What it does |
+| --- | --- |
+| `daily-brief` | Morning briefing of the most important changes across your Amplitude instance |
+| `weekly-brief` | Weekly recap of trends, wins, and risks to share with your team or leadership |
+
+---
+
+## Grok Bot
+
+Amplitude is exploring a **Grok marketplace data-partner bot** for existing customers (not published). See [`docs/grok-bot-amplitude.md`](docs/grok-bot-amplitude.md) and [`plugins/amplitude-grok/`](plugins/amplitude-grok/). Setup-first promotion is later work — not this package.
+
+---
+
+## Repository Structure
+
+```text
+.grok-plugin/
+  marketplace.json            # Grok catalog (data-partner bot — eng review only)
+.agents/plugins/
+  marketplace.json            # Marketplace catalog (Codex)
+.claude-plugin/
+  marketplace.json            # Marketplace catalog (Claude Code)
+.cursor-plugin/
+  marketplace.json            # Marketplace catalog (Cursor) — kept in sync with .claude-plugin
+plugins/
+  amplitude/
+    .codex-plugin/
+      plugin.json             # Plugin manifest (Codex)
+    .claude-plugin/
+      plugin.json             # Plugin manifest (Claude Code)
+    .cursor-plugin/
+      plugin.json             # Plugin manifest (Cursor) — kept in sync with .claude-plugin
+    .mcp.json                 # MCP server config shared by Codex and other clients
+    skills/
+      add-analytics-instrumentation/
+      analyze-account-health/
+      analyze-ai-topics/
+      analyze-chart/
+      analyze-dashboard/
+      analyze-experiment/
+      analyze-feedback/
+      compare-user-journeys/
+      create-chart/
+      create-dashboard/
+      daily-brief/
+      debug-replay/
+      diagnose-errors/
+      diff-intake/
+      discover-analytics-patterns/
+      discover-event-surfaces/
+      discover-opportunities/
+      instrument-events/
+      investigate-ai-session/
+      monitor-ai-quality/
+      monitor-experiments/
+      monitor-reliability/
+      replay-ux-audit/
+      review-agent-insights/
+      taxonomy/
+      tracking-plan-audit/
+      weekly-brief/
+```
+
+---
+
+## Requirements
+
+- **MCP-compatible client** – Claude Code, Cursor, Codex, or Claude
+- **Amplitude account** with API access
+
+---
+
+## Contributing
+
+We welcome contributions! Whether it's a new skill or improvement:
+
+1. Fork this repo
+2. Create a new branch for your feature
+3. Follow the existing patterns in `plugins/` for structure
+4. Submit a PR with a clear description
+
+---
+
+## Resources
+
+- [Amplitude Docs](https://amplitude.com/docs)
+- [MCP Protocol](https://modelcontextprotocol.io/)
+
+---
+
+## License
+
+MIT
+
+---
+
+## Support
+
+- **Issues**: [GitHub Issues](https://github.com/amplitude/mcp-marketplace/issues)
+- **Amplitude**: [amplitude.com](https://amplitude.com)

@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Curated Skills**: 167 skills  
+> **Total Curated Skills**: 163 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,14 +19,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
-| [`1password`](../../library/nousresearch-hermes-optional-skills/skills/1password) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Set up op CLI, sign in, and read or inject secrets. |
 | [`accelerate`](../../library/nousresearch-hermes-optional-skills/skills/accelerate) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Run PyTorch training across GPUs with minimal changes. |
 | [`actual-setup`](../../library/nousresearch-hermes-optional-skills/skills/actual-setup) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Set up Actual Computer (actual.inc) inference in Hermes. |
 | [`adversarial-ux-test`](../../library/nousresearch-hermes-optional-skills/skills/adversarial-ux-test) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Roleplay a hostile user to find and triage UX pain points. |
 | [`agent-merge-conflict-arbiter`](../../library/nousresearch-hermes-optional-skills/skills/agent-merge-conflict-arbiter) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Neutral arbiter for merge conflicts between two agents. |
 | [`agentmail`](../../library/nousresearch-hermes-optional-skills/skills/agentmail) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Use when an agent needs AgentMail CLI email inboxes. |
 | [`ai-presenter-video`](../../library/nousresearch-hermes-optional-skills/skills/ai-presenter-video) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Make a verified AI presenter video from script + image. |
-| [`airtable`](../../library/nousresearch-hermes-skills/skills/airtable) | ⚪ Reserve | `nousresearch-hermes-skills` | Airtable REST API via curl. Records CRUD, filters, upserts. |
 | [`antigravity-cli`](../../library/nousresearch-hermes-optional-skills/skills/antigravity-cli) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Operate the Antigravity CLI (agy): plugins, auth, sandbox. |
 | [`apple-notes`](../../library/nousresearch-hermes-skills/skills/apple-notes) | ⚪ Reserve | `nousresearch-hermes-skills` | Manage Apple Notes via memo CLI: create, search, edit. |
 | [`apple-reminders`](../../library/nousresearch-hermes-skills/skills/apple-reminders) | ⚪ Reserve | `nousresearch-hermes-skills` | Apple Reminders via remindctl: add, list, complete. |
@@ -36,19 +34,16 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`audiocraft-audio-generation`](../../library/nousresearch-hermes-optional-skills/skills/audiocraft-audio-generation) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | AudioCraft: MusicGen text-to-music, AudioGen text-to-sound. |
 | [`auteur`](../../library/nousresearch-hermes-optional-skills/skills/auteur) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Design and build cinematic, award-level web pages. |
 | [`autonomous-agent-harness`](../../library/affaan-m-ecc/skills/autonomous-agent-harness) | ⚪ Reserve | `affaan-m-ecc` | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled op... |
+| [`awesome-hermes-agent`](../../library/reason-machines-trending-skills/skills/awesome-hermes-agent) | ⚪ Reserve | `reason-machines-trending-skills` | name: awesome-hermes-agent |
 | [`axolotl`](../../library/nousresearch-hermes-optional-skills/skills/axolotl) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
 | [`bioinformatics`](../../library/nousresearch-hermes-optional-skills/skills/bioinformatics) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Gateway to 400+ genomics and computational biology skills. |
 | [`blackbox`](../../library/nousresearch-hermes-optional-skills/skills/blackbox) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Delegate coding tasks to the Blackbox AI multi-model CLI. |
 | [`blocked-page-recovery`](../../library/nousresearch-hermes-skills/skills/blocked-page-recovery) | ⚪ Reserve | `nousresearch-hermes-skills` | Use when a fetch fails: 403/429, paywall, WAF, bot wall. |
 | [`blogwatcher`](../../library/nousresearch-hermes-optional-skills/skills/blogwatcher) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
-| [`box`](../../library/nousresearch-hermes-skills/skills/box) | ⚪ Reserve | `nousresearch-hermes-skills` | Box manages cloud files, sharing, search, and metadata. |
 | [`chroma`](../../library/nousresearch-hermes-optional-skills/skills/chroma) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Embedding database for RAG and semantic search. |
-| [`claude-code`](../../library/nousresearch-hermes-skills/skills/claude-code) | ⚪ Reserve | `nousresearch-hermes-skills` | Delegate coding to Claude Code CLI (features, PRs). |
 | [`claude-design`](../../library/nousresearch-hermes-skills/skills/claude-design) | ⚪ Reserve | `nousresearch-hermes-skills` | Design one-off HTML artifacts (landing, deck, prototype). |
-| [`clip`](../../library/nousresearch-hermes-optional-skills/skills/clip) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Zero-shot image classification and image-text search. |
 | [`cloudflare-temporary-deploy`](../../library/nousresearch-hermes-optional-skills/skills/cloudflare-temporary-deploy) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Deploy a Worker live, no account, via wrangler --temporary. |
 | [`codebase-inspection`](../../library/nousresearch-hermes-skills/skills/codebase-inspection) | ⚪ Reserve | `nousresearch-hermes-skills` | Inspect codebases w/ pygount: LOC, languages, ratios. |
-| [`codex`](../../library/nousresearch-hermes-skills/skills/codex) | ⚪ Reserve | `nousresearch-hermes-skills` | Delegate coding to OpenAI Codex CLI (features, PRs). |
 | [`comfyui`](../../library/nousresearch-hermes-optional-skills/skills/comfyui) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Generate images, video, and audio via diffusion workflows. |
 | [`competitor-news-monitor`](../../library/nousresearch-hermes-skills/skills/competitor-news-monitor) | ⚪ Reserve | `nousresearch-hermes-skills` | Watch named companies for material news; cited digests. |
 | [`computer-use`](../../library/nousresearch-hermes-skills/skills/computer-use) | ⚪ Reserve | `nousresearch-hermes-skills` | Drive the desktop background-first; escalate on signal. |
@@ -83,10 +78,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`heartmula`](../../library/nousresearch-hermes-optional-skills/skills/heartmula) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | HeartMuLa: Suno-like song generation from lyrics + tags. |
 | [`here-now`](../../library/nousresearch-hermes-optional-skills/skills/here-now) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Publish sites to {slug}.here.now and store files in Drives. |
 | [`hermes-agent`](../../library/nousresearch-hermes-skills/skills/hermes-agent) | ⚪ Reserve | `nousresearch-hermes-skills` | Use, configure, theme, extend, and orchestrate Hermes Agent. |
+| [`hermes-agent-nous-research`](../../library/reason-machines-trending-skills/skills/hermes-agent-nous-research) | ⚪ Reserve | `reason-machines-trending-skills` | name: hermes-agent-nous-research |
 | [`hermes-agent-skill-authoring`](../../library/nousresearch-hermes-skills/skills/hermes-agent-skill-authoring) | ⚪ Reserve | `nousresearch-hermes-skills` | Author in-repo SKILL.md files: frontmatter and structure. |
+| [`hermes-desktop-macos`](../../library/reason-machines-trending-skills/skills/hermes-desktop-macos) | ⚪ Reserve | `reason-machines-trending-skills` | name: hermes-desktop-macos |
 | [`hermes-history-ingest`](../../library/ar9av-obsidian-wiki/skills/hermes-history-ingest) | ⚪ Reserve | `ar9av-obsidian-wiki` | Ingest Hermes agent history into Obsidian as distilled knowledge. Use for importing or mining ~... |
+| [`hermes-hudui-consciousness-monitor`](../../library/reason-machines-trending-skills/skills/hermes-hudui-consciousness-monitor) | ⚪ Reserve | `reason-machines-trending-skills` | name: hermes-hudui-consciousness-monitor |
 | [`hermes-imports`](../../library/affaan-m-ecc/skills/hermes-imports) | ⚪ Reserve | `affaan-m-ecc` | Convert local Hermes operator workflows into sanitized ECC skills and release-pack artifacts. U... |
+| [`hermes-labyrinth-observability`](../../library/reason-machines-trending-skills/skills/hermes-labyrinth-observability) | ⚪ Reserve | `reason-machines-trending-skills` | Read-only observability dashboard plugin for Hermes Agent — journeys, crossings, guideposts, an... |
 | [`hermes-s6-container-supervision`](../../library/nousresearch-hermes-optional-skills/skills/hermes-s6-container-supervision) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Modify or debug s6 services in the Hermes Docker image. |
+| [`hermes-web-ui`](../../library/reason-machines-trending-skills/skills/hermes-web-ui) | ⚪ Reserve | `reason-machines-trending-skills` | name: hermes-web-ui |
 | [`himalaya`](../../library/nousresearch-hermes-skills/skills/himalaya) | ⚪ Reserve | `nousresearch-hermes-skills` | Himalaya CLI: IMAP/SMTP email from terminal. |
 | [`honcho`](../../library/nousresearch-hermes-optional-skills/skills/honcho) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Configure and troubleshoot Honcho memory for Hermes. |
 | [`huggingface-hub`](../../library/nousresearch-hermes-optional-skills/skills/huggingface-hub) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | HuggingFace hf CLI: search/download/upload models, datasets. |
@@ -97,7 +97,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`inspecting-hermes-desktop-dom`](../../library/nousresearch-hermes-skills/skills/inspecting-hermes-desktop-dom) | ⚪ Reserve | `nousresearch-hermes-skills` | Read the live Hermes desktop DOM/CSS over CDP. |
 | [`instructor`](../../library/nousresearch-hermes-optional-skills/skills/instructor) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Structured LLM outputs validated with Pydantic. |
 | [`ip-as-logo`](../../library/nousresearch-hermes-optional-skills/skills/ip-as-logo) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Design minimal cute IP mascot marks readable at 32px. |
-| [`jupyter-notebook`](../../library/nousresearch-hermes-optional-skills/skills/jupyter-notebook) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Iterative Python via live Jupyter kernel (hamelnb). |
 | [`kanban-video-orchestrator`](../../library/nousresearch-hermes-optional-skills/skills/kanban-video-orchestrator) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Plan and run multi-agent video production pipelines. |
 | [`lambda-labs`](../../library/nousresearch-hermes-optional-skills/skills/lambda-labs) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | On-demand GPU cloud instances for ML training. |
 | [`live-dashboard`](../../library/nousresearch-hermes-optional-skills/skills/live-dashboard) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Build self-updating dashboards from live sources. |
@@ -116,9 +115,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nemo-curator`](../../library/nousresearch-hermes-optional-skills/skills/nemo-curator) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Curate LLM training data: dedupe, filter, PII redaction. |
 | [`neuroskill-bci`](../../library/nousresearch-hermes-optional-skills/skills/neuroskill-bci) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Use live BCI cognitive and mood state from NeuroSkill. |
 | [`node-inspect-debugger`](../../library/nousresearch-hermes-skills/skills/node-inspect-debugger) | ⚪ Reserve | `nousresearch-hermes-skills` | Debug Node.js via --inspect + Chrome DevTools Protocol CLI. |
-| [`notion`](../../library/nousresearch-hermes-skills/skills/notion) | ⚪ Reserve | `nousresearch-hermes-skills` | Notion API + ntn CLI: pages, databases, markdown, Workers. |
 | [`obliteratus`](../../library/nousresearch-hermes-optional-skills/skills/obliteratus) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
 | [`obsidian`](../../library/nousresearch-hermes-skills/skills/obsidian) | ⚪ Reserve | `nousresearch-hermes-skills` | Read, search, create, and edit notes in the Obsidian vault. |
+| [`office-document`](../../library/starchild-ai-agent-official-skills/skills/office-document) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Route editable PDF, DOCX, XLSX, and PPTX creation or modification tasks to the appropriate offi... |
 | [`one-three-one-rule`](../../library/nousresearch-hermes-optional-skills/skills/one-three-one-rule) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | 1-3-1 decision briefs: problem, three options, one pick. |
 | [`opencode`](../../library/nousresearch-hermes-skills/skills/opencode) | ⚪ Reserve | `nousresearch-hermes-skills` | Delegate coding to OpenCode CLI (features, PR review). |
 | [`openhands`](../../library/nousresearch-hermes-optional-skills/skills/openhands) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Delegate coding to OpenHands CLI (model-agnostic, LiteLLM). |
@@ -128,7 +127,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`page-agent`](../../library/nousresearch-hermes-optional-skills/skills/page-agent) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Embed an in-page natural-language GUI copilot in web apps. |
 | [`parallel-cli`](../../library/nousresearch-hermes-optional-skills/skills/parallel-cli) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Agent-native web search, deep research, and enrichment. |
 | [`peft`](../../library/nousresearch-hermes-optional-skills/skills/peft) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Fine-tune large LLMs with LoRA on limited GPU memory. |
-| [`pinecone`](../../library/nousresearch-hermes-optional-skills/skills/pinecone) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Managed vector DB for production RAG and search. |
 | [`pinecone-research`](../../library/nousresearch-hermes-optional-skills/skills/pinecone-research) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Agent RAG and long-term memory with Pinecone. |
 | [`pinggy-tunnel`](../../library/nousresearch-hermes-optional-skills/skills/pinggy-tunnel) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Zero-install localhost tunnels over SSH via Pinggy. |
 | [`pokemon-player`](../../library/nousresearch-hermes-optional-skills/skills/pokemon-player) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Play Pokemon via headless emulator + RAM reads. |
@@ -141,11 +139,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`publish-site`](../../library/nousresearch-hermes-optional-skills/skills/publish-site) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Versioned site deploys to GitHub/Cloudflare/Netlify Pages. |
 | [`python-debugpy`](../../library/nousresearch-hermes-skills/skills/python-debugpy) | ⚪ Reserve | `nousresearch-hermes-skills` | Debug Python: pdb REPL + debugpy remote (DAP). |
 | [`pytorch-fsdp`](../../library/nousresearch-hermes-optional-skills/skills/pytorch-fsdp) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Fully sharded data-parallel training for large models. |
-| [`qdrant`](../../library/nousresearch-hermes-optional-skills/skills/qdrant) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Vector search engine for production RAG systems. |
 | [`qmd`](../../library/nousresearch-hermes-optional-skills/skills/qmd) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Hybrid local search over notes, docs, and transcripts. |
 | [`reddit-reading`](../../library/nousresearch-hermes-optional-skills/skills/reddit-reading) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Read Reddit: subreddits, search, threads, users. No browser. |
 | [`rest-graphql-debug`](../../library/nousresearch-hermes-optional-skills/skills/rest-graphql-debug) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Debug REST/GraphQL APIs: status codes, auth, schemas, repro. |
 | [`rss-feeds`](../../library/nousresearch-hermes-optional-skills/skills/rss-feeds) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Read RSS, Atom, JSON feeds; discover feeds behind a page. |
+| [`runbookhermes-aiops-agent`](../../library/reason-machines-trending-skills/skills/runbookhermes-aiops-agent) | ⚪ Reserve | `reason-machines-trending-skills` | name: runbookhermes-aiops-agent |
 | [`saelens`](../../library/nousresearch-hermes-optional-skills/skills/saelens) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Train sparse autoencoders to interpret model features. |
 | [`scrapling`](../../library/nousresearch-hermes-optional-skills/skills/scrapling) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Scrape sites with stealth browsing and Cloudflare bypass. |
 | [`scrollcraft`](../../library/nousresearch-hermes-optional-skills/skills/scrollcraft) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Premium scroll-driven landing pages; scroll = timeline. |
@@ -156,13 +154,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`setup-wizard-generator`](../../library/nousresearch-hermes-optional-skills/skills/setup-wizard-generator) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Generate a bash wizard guiding a human through manual setup. |
 | [`sherlock`](../../library/nousresearch-hermes-optional-skills/skills/sherlock) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Find accounts for a username across 400+ platforms. |
 | [`shop`](../../library/nousresearch-hermes-optional-skills/skills/shop) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Shop catalog search, checkout, order tracking, returns. |
-| [`shopify`](../../library/nousresearch-hermes-optional-skills/skills/shopify) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Query Shopify Admin/Storefront GraphQL APIs via curl. |
 | [`simplify-code`](../../library/nousresearch-hermes-skills/skills/simplify-code) | ⚪ Reserve | `nousresearch-hermes-skills` | Parallel 4-agent cleanup of recent code changes. |
 | [`simpo`](../../library/nousresearch-hermes-optional-skills/skills/simpo) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Reference-free preference alignment, simpler than DPO. |
 | [`siyuan`](../../library/nousresearch-hermes-optional-skills/skills/siyuan) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Query and edit a SiYuan knowledge base via its API. |
 | [`slime`](../../library/nousresearch-hermes-optional-skills/skills/slime) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | RL post-training for LLMs with Megatron and SGLang. |
 | [`social-media-content-calendar`](../../library/nousresearch-hermes-optional-skills/skills/social-media-content-calendar) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Plan multi-platform social campaigns: briefs to posting. |
-| [`solana`](../../library/nousresearch-hermes-optional-skills/skills/solana) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Query Solana wallets, tokens, txs, and NFTs in USD. |
 | [`songsee`](../../library/nousresearch-hermes-skills/skills/songsee) | ⚪ Reserve | `nousresearch-hermes-skills` | Audio spectrograms/features (mel, chroma, MFCC) via CLI. |
 | [`songwriting-and-ai-music`](../../library/nousresearch-hermes-skills/skills/songwriting-and-ai-music) | ⚪ Reserve | `nousresearch-hermes-skills` | Songwriting craft and Suno AI music prompts. |
 | [`spike`](../../library/nousresearch-hermes-skills/skills/spike) | ⚪ Reserve | `nousresearch-hermes-skills` | Throwaway experiments to validate an idea before build. |

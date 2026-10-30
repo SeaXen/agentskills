@@ -1,0 +1,17 @@
+# Company-type bar
+
+Contents: four operating contexts, three sourced · what differs concretely · the honest note on the unsourced fourth.
+
+## Four contexts, three sourced
+
+1. **In-house at a tech company running its own conference/meetup series.** The role often blends producer and manager responsibilities into one hybrid title; cross-functional collaboration (sales, marketing, ops, design, content, customer success) is a named expectation. Pay skews to the tech-industry premium - Information Technology is the single highest-paying industry for Event Manager, Event Marketing Manager, and Events Manager titles across every sourced salary breakdown (see [compensation.md](./compensation.md)).
+2. **Event-production agency** (serves multiple corporate clients, including tech companies buying flagship-conference production). Agencies bring integrated creative/logistics/AV/production expertise and negotiated vendor scale. Recruiters describe a distinct internal ladder (Junior Producer -> Producer -> Senior Producer -> Conference Manager -> Director) and note a robust freelance market for experienced producers - agency-side career paths tolerate and even reward a contractor/freelance posture that in-house roles typically do not.
+3. **Non-profit/foundation or volunteer-community-run event** (e.g. devopsdays, PyCon US/PSF, FOSDEM). The first paid role that appears as an event scales past roughly low-thousands of attendees and/or a six-figure budget is consistently an event coordinator/manager, never a community manager, with program and community leadership staying volunteer even after that hire. Compensation at this pole is generally lower and less standardized - no sourced salary bands exist specific to non-profit/foundation event-staff pay, distinct from the general PCMA/BLS bands.
+4. **A standing for-profit conference business** (a company whose product is running a conference) - **not sourced in this field's research.** Say this plainly rather than inferring from the other three: a standing conference business likely sits closer to the agency model on skill/role structure (dedicated full-time production, sales, and marketing functions rather than a rotating volunteer base), but this is an unverified hypothesis, not a sourced finding.
+
+## What differs across the sourced three, concretely
+
+- **Scope of one role**: in-house and non-profit/community both tend to compress program + logistics + sponsorship into fewer people than an agency, where roles specialize by function because the agency serves many clients in parallel and can amortize specialists across them.
+- **Reporting line and cross-functional pull**: in-house event roles are explicitly pulled into sales/marketing/product alignment; agency roles report to a client-services structure inside the agency; non-profit/community roles report to a volunteer board or standing committee.
+- **Career ladder visibility**: agency and in-house both have a somewhat-documented internal ladder; the non-profit/community pole has no equivalent documented ladder because most of that pole stays entirely volunteer - the "ladder" there is closer to succession and bus-factor mechanisms than to career progression.
+- **Pay**: tech-company in-house roles carry the clearest, best-sourced premium; agency pay was only sourced narrowly (UK bands, likely dated and not adjusted for tech-sector premium); non-profit/community pay has no sourced bands at all.

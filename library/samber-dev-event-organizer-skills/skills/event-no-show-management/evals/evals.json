@@ -1,0 +1,623 @@
+{
+  "skill_name": "event-no-show-management",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run MetaForge Dev Nights, a free monthly meetup in Rotterdam. Our new venue holds 180 people - that's the number written into the venue contract, and the fire certificate on the wall says 195. We have 341 people registered for the March edition and the form is still open. Our caterer needs a final head count 12 days before the date, charges 14 EUR a head, and will not refund after that point. A colleague pulled two numbers off an organizing guide last month - one said free events see 40-60% no-shows, another said 30-50% drop-off - and suggested we just split the difference and call it 45%. What number do I give the caterer, and what do I do about the form?",
+      "expected_output": "A capacity plan that refuses the blended 45% rate, names one figure with its scope, shows the ceiling arithmetic against 180 seats, sets a 360-registration ceiling with a named closer, and hands catering the expected-show-up number with the buffer stated separately.",
+      "files": [],
+      "expectations": [
+        "Rejects averaging the 40-60% free-event no-show band with the 30-50% drop-off range, and states that the two figures measure different things.",
+        "Names the single figure used for the multiplier - the roughly 50% show-up trendline stated as an operational instruction - rather than a blended rate.",
+        "States the scope of the figure it uses (free-registration events).",
+        "Uses 180 as the binding hard capacity rather than the 195 on the fire certificate.",
+        "Shows the ceiling arithmetic as explicit lines: hard capacity, aimed attendance, expected show-up rate, resulting registration ceiling.",
+        "States a registration ceiling of 360 registrations for the 180-seat room and does not exceed double the aimed attendance.",
+        "Notes that the current 341 registrations sit under the 360 ceiling, so the form does not have to close immediately.",
+        "Notes that 341 registrations imply roughly 170 expected show-ups, below the 180-seat capacity.",
+        "Gives catering the expected-show-up number rather than the registration count of 341 or the ceiling of 360.",
+        "States the overbooking buffer separately as the gap between the registration ceiling and the expected show-up number.",
+        "Names a specific person or role who closes the registration form when the ceiling is reached."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Tidewater Systems runs a one-day paid conference in Lisbon. The room seats 400, tickets are 290 EUR, and we are sold out. Our ops lead wants to release another 60 tickets because, in her words, everyone knows a chunk of people never show up. She also argues that almost every attendee expenses the ticket to their employer, so they never really felt the money themselves and will behave like a free crowd. Do we release the extra 60? And what head count do I give the caterer - we are on a per-head contract that locks 14 days out.",
+      "expected_output": "A refusal to overbook the paid event, the paid band quoted with its scope, the employer-funded argument named as an untested hypothesis rather than used as a lever, and a catering number derived from the paid band.",
+      "files": [],
+      "expectations": [
+        "Recommends no overbooking and does not release the extra 60 tickets.",
+        "Quotes the paid-event band - roughly 90-97% of tickets converting to attendance, a 3-10% no-show rate - rather than a free-event rate.",
+        "States that both overbooking ceilings are deleted from the menu on a paid or nominal-fee event.",
+        "Names the asymmetry: an empty chair costs one cover, while turning away someone who paid costs a refund and the public account of it.",
+        "States that the 3-10% no-show rate is a number to plan catering against, never a margin to sell into.",
+        "Treats the employer-funded or expensed-ticket argument as an untested hypothesis and refuses to use it as a lever.",
+        "States that every show-up figure cited is measured against price posture, never against who actually paid for the ticket.",
+        "Plans against the paid price posture rather than the free band.",
+        "Gives catering an expected-show-up number derived from the paid band, in the region of 360-390 of the 400 seats, rather than 400 or 460.",
+        "Does not apply a roughly 50% free-event show-up rate or a double-the-registrations ceiling to this event.",
+        "Leaves the ticket price itself to samber/dev-event-organizer-skills@event-ticket-pricing rather than proposing or changing a price.",
+        "Names the 14-day catering lock as the date after which the head count stops being changeable."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Northbeam Robotics hosts a free monthly Rust-at-breakfast session in Austin. Around 90 people RSVP and about 45 turn up, and we pay for the catering either way. I want to charge a 40 dollar deposit at registration and refund it at the door when people scan in. Can you design the flow for me - what the registration page says, when the card is charged, how the refund fires, and what we do about people who arrive late?",
+      "expected_output": "A stated refusal to design the deposit flow, the two cross-industry data points quoted with their limits, the three costs named, and the concern routed to the nominal-fee lever.",
+      "files": [],
+      "expectations": [
+        "Declines to design a refundable-deposit flow as a recommended attendance mechanic.",
+        "States that no established practice exists behind deposits as a real-world attendance mechanic in developer-event organizing.",
+        "Names refund handling on every single attendee who shows up as a cost the deposit carries.",
+        "Names the accounting and tax obligation that follows from moving money at all as a cost the deposit carries.",
+        "Names the barrier that lands hardest on exactly the people a need-gated scholarship seat exists for as a cost the deposit carries.",
+        "Cites the Eventtia 2024 managed-conference data point - a 3 dollar refundable deposit taking a previously free event from a 38% to a 14% no-show rate - and labels it a general-conference result rather than a developer-event one.",
+        "Cites the 37signals/Basecamp Chicago breakfast data point - a 100 dollar deposit refunded at the door, 55 people paying it and 50 showing, a roughly 90% show rate.",
+        "States that both deposit data points are single events rather than studies.",
+        "Names the loss-aversion limit: an attendee reimbursed by an employer may not feel a deposit the way someone paying out of pocket does.",
+        "Routes the underlying concern to the nominal fee owned by samber/dev-event-organizer-skills@event-ticket-pricing as the lever with organizer practice behind it.",
+        "Notes that the current turnout of roughly 45 of 90 sits inside the ordinary free-event band rather than treating it as an anomaly."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Kestrel Conf is our free two-day event, 250 seats. Last year roughly 60 registered people never showed and the room looked half empty in the photos. Here is what I want to build: badge scanners at the door, and at 09:45 any registered attendee who has not scanned in gets their seat released, with the top person on the waitlist getting an SMS saying seat 114 is yours, be here by 10:15. Our ticketing tool already has a waitlist automation feature with timed claim windows, so I think we can wire this up in an afternoon. Walk me through the setup.",
+      "expected_output": "A statement that live per-seat promotion during the event is untested, the ticketing automation's actual pre-event scope named, and the walk-in lane recommended instead with its three load-bearing properties.",
+      "files": [],
+      "expectations": [
+        "States that a live, per-seat waitlist promotion during the event is untested, and declines to design it as the recommendation.",
+        "States that the ticketing-platform waitlist automation runs before the event, against cancellations and expired holds, never during it.",
+        "Repeats the platform's own framing that the mechanism is a recovery mechanism for post-sale inventory gaps, not an in-event promotion strategy.",
+        "Recommends the walk-in lane as the mechanic with practice behind it, filling the room from below rather than promoting a named person into a named empty seat.",
+        "States that the walk-in lane uses a separate late-registration form.",
+        "States that the walk-in lane opens only after the pre-registered check-in window has closed.",
+        "States that everyone arriving through the walk-in lane still completes the full registration form.",
+        "Names what skipping the full form costs: the head count, the code-of-conduct agreement, the dietary and accessibility data, and the emergency contact list.",
+        "Rejects promoting continuously, one seat at a time, on every cancellation, as a standing job whose gain the ceiling has already absorbed.",
+        "Hands the expected walk-in volume and the ratio behind it to samber/dev-event-organizer-skills@event-attendee-experience rather than specifying how the desk is staffed or queued."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We are running a free full-day developer day inside our parent company's R&D campus in Grenoble. Security is strict: every visitor must be on a pre-approved list submitted 72 hours ahead, sign in at a gatehouse with photo ID, and be escorted to the auditorium. The auditorium holds 220. We have 410 people registered and a waitlist of 90 more that we can reach on a Slack Connect channel and by email. Catering locks 7 days out. How do we fill the seats the no-shows are going to leave?",
+      "expected_output": "The walk-in lane deleted for lack of a walk-up population, the waitlist-fed lane chosen with both promotion conditions named, the 72-hour clearance and the 7-day catering lock both read as deadlines, and the promotion send handed off as a brief.",
+      "files": [],
+      "expectations": [
+        "Deletes the walk-in lane on the grounds that the access-controlled, pre-approved-list venue leaves no walk-up population.",
+        "Recommends the waitlist-fed lane instead, and names both of its promotion conditions as met: no walk-up population, and a channel that reaches the waitlist within a day.",
+        "States that the waitlist is told the night before that unclaimed seats open at a named time.",
+        "Notes that the 72-hour pre-approval deadline caps how late anyone can still be promoted onto the visitor list.",
+        "States that the catering guarantee locking 7 days out sits before the latest realistic promotion date, so the waitlist no longer changes the number catering is working from.",
+        "Says explicitly which of the two the waitlist is buying here: chairs filled, not a changed budget number.",
+        "Does not recommend admitting unregistered arrivals with no form.",
+        "Hands the promotion send's trigger, audience and deadline to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief rather than drafting the message.",
+        "Fixes a claim window after which an unclaimed promoted seat moves on to the next person."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our venue contract for Brightwater Tech Day says 250 people maximum in the main hall. The fire certificate pinned by the door says 268. We are free-registration and I want a full room - the last two editions we had about 240 in there and honestly nobody counted. My co-organizer wants to open registration to 700 and just let whoever turns up come in, with some people standing at the back. There is a wide rear area that would easily take another 40 standing. What ceiling do we set?",
+      "expected_output": "The occupancy limit treated as a non-negotiable gate, 250 used as binding, written venue approval required before any standing-room registrations, the 700 proposal and the no-ceiling posture both rejected, and a 500-registration ceiling shown with arithmetic.",
+      "files": [],
+      "expectations": [
+        "Treats the occupancy limit as a gate that is never traded against catering economics or a fuller room, rather than as an option on a ranked menu.",
+        "Uses 250 as the binding number rather than the 268 on the fire certificate.",
+        "Models expected attendance against the limit rather than modelling registrations against it.",
+        "States the arrival assumption behind the expected-attendance number and what happens if it does not hold.",
+        "Refuses to accept registrations against standing room or overflow space without written approval from whoever the venue names.",
+        "States that any such approval must be obtained before registrations are accepted against it, never on the day at the door.",
+        "Rejects the 700-registration proposal as going past double the aimed attendance.",
+        "Rejects leaving registration open with no ceiling at all, and states that it is the one posture the source explicitly forbids.",
+        "States that where the ratio would put expected attendance over the limit, the ratio moves and the limit does not.",
+        "States a registration ceiling of 500 for the 250-seat hall, with the arithmetic shown."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Fourth edition of Loomhill Data Day is coming up: free registration, 300 seats. I have real numbers from our own past editions - 2024 was 612 registered and 289 attended, 2023 was 528 registered and 251 attended, both in the same venue and the same one-day single-track format. Catering is a per-head contract at 22 EUR that locks 15 days out. My board wants me to just use the industry 50% rule everyone quotes. What ceiling do I set, and which number do I use?",
+      "expected_output": "The own-ratio ceiling chosen with its three promotion conditions named, the organizer's measured rate computed at roughly 47%, the implied ceiling held under the sourced double ceiling at 600, and catering given the expected-show-up number.",
+      "files": [],
+      "expectations": [
+        "Selects the own-ratio ceiling over the borrowed sourced rate for this event.",
+        "Names all three promotion conditions as met: a recurring event, a prior registered-versus-attended count for the same event in the same format, and a committed cost locking against head count before doors open.",
+        "Computes the organizer's own show-up rate from the stated counts at roughly 47%.",
+        "Computes the ceiling that own rate would imply for 300 seats, in the region of 630-640 registrations.",
+        "Holds the own-ratio ceiling under the sourced double ceiling rather than letting it sit above it.",
+        "States the final registration ceiling as 600 registrations.",
+        "States that one or two editions is a small sample and does not treat the measured rate as settled.",
+        "Hands catering an expected-show-up number of roughly 300, not the 600-registration ceiling.",
+        "States the buffer separately as the gap between the 600-registration ceiling and the roughly 300 expected show-ups.",
+        "Names the 15-day catering lock as the point that makes an over-estimate expensive.",
+        "Instructs recording this edition's realised registered-versus-attended count as the input for the next edition's ceiling."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Second edition of Copperline JS, free tickets, room holds 300. We had 480 RSVPs and 268 people walked in. The team is furious with me because I own the email side - I only sent one confirmation and one reminder the day before. I have already drafted four new reminder emails for next time at T-14, T-7, T-2 and morning-of, and I want you to rewrite them so they are punchier, plus tell me what else we screwed up operationally.",
+      "expected_output": "The measured rate placed inside the published free band as normal rather than a failure, the email rewrite declined and routed, the demand reading routed, and the measured rate converted into next edition's ceiling.",
+      "files": [],
+      "expectations": [
+        "States that a show-up rate of roughly 56%, meaning roughly 44% no-shows, sits inside the published free-event band of 40-60% no-shows.",
+        "States that the band describes a population rather than being a target to manage toward, so landing inside it is normal rather than proof of a failure.",
+        "Declines to rewrite or draft the reminder email copy.",
+        "Routes the reminder sequence's design and copy to samber/dev-event-organizer-skills@event-attendee-email-sequences.",
+        "Refuses to read the low show-up rate as an operations failure on its own.",
+        "Routes the demand, price and audience reading of the number to samber/dev-event-organizer-skills@event-market-fit before acting on the capacity side.",
+        "Treats the realised registered-versus-attended count as this event's own input for the next edition's ceiling.",
+        "Computes a next-edition registration ceiling from the measured rate against the 300-seat room, in the region of 530-540 registrations, and notes it sits under the sourced double ceiling of 600.",
+        "Does not blend the free band with any other published figure to produce a single rate.",
+        "Names what to count on the day next time: registrations, attended, walk-ins, and waitlist promotions with how many of those arrived."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Helvetia Go Conf is a free one-day conference in Zurich with 320 seats, and the whole pitch on our landing page is that we draw the German-speaking Go community from four countries. We hit 640 registrations and closed the form. Since then 180 more people have piled onto a waitlist. Someone on the team read that you should promote the people who live closest because they are the most likely to actually show up, and wants to sort the list by postcode distance and mail the top 40 during the week of the event. Our catering guarantee locks 21 days out. Is that the right call?",
+      "expected_output": "FIFO named as the default with proximity's promotion conditions and unquantified gain stated, the contradiction with the four-country positioning flagged, publication of the ordering rule required at waitlist opening, and the 21-day lock read as ending the waitlist's budget role.",
+      "files": [],
+      "expectations": [
+        "Names FIFO drained on a fixed date as the default waitlist ordering rule.",
+        "States the promotion conditions for proximity ordering: the effort ceiling covers someone sorting and checking the list, and registrations run far enough past the ceiling that promotion order changes who gets in rather than only who gets in first.",
+        "States that the proximity rule is given as a reason rather than a measurement, so the size of the gain is unquantified.",
+        "Flags the contradiction between proximity ordering and the event's published four-country regional-draw positioning.",
+        "States that proximity ordering is an allocation decision made on registrants' location data that must be stated publicly.",
+        "States that the ordering rule cannot be changed quietly mid-window once people have registered against it.",
+        "Requires the ordering rule to be published at the moment the waitlist opens, not after someone asks why they were skipped.",
+        "Fixes a named drain date, a claim window for a promoted seat, and who decides.",
+        "States that the catering guarantee locking 21 days out sits before the week-of promotion date, so the waitlist stops being a budget lever.",
+        "Says explicitly which of the two the waitlist is buying, and names samber/dev-event-organizer-skills@event-budget as the sibling that was promised the other.",
+        "Notes that 640 registrations sit exactly at the sourced double ceiling for 320 seats, and does not recommend raising the ceiling.",
+        "Hands the promotion send to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief carrying trigger, audience and deadline, rather than drafting the copy."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "A sponsor is funding 60 travel-and-ticket scholarships for students at Thornfield Systems Days, our free 350-seat conference. Applicants write a 300-word motivation letter and we review every single one. My assumption is that because they applied and were selected, they will show up at roughly the same rate as our paid speaker guests, so I am going to plan catering for all 60 and not hold any of those seats back for anyone else. Does that sound right?",
+      "expected_output": "The assumption refused in both directions, scholarship seats planned at the general free-seat rate, the sponsored-student data point quoted with its limits, and separate counting instructed.",
+      "files": [],
+      "expectations": [
+        "States that comped and scholarship seats behave as free seats until measured otherwise, and refuses the assumption that an application review raises commitment.",
+        "States that the opposite assumption is equally unsupported: the seat may carry more commitment than a general free ticket, or none.",
+        "Plans the 60 scholarship seats at the general free-seat rate rather than at a paid-guest rate.",
+        "Cites the sponsored-student data point: 47 student tickets funded for a 2024 conference, of which 22 attended, a 47% show rate.",
+        "States that this data point sits inside the ordinary free-ticket band and settles nothing, being a single event with no comparison against that same event's non-sponsored attendees.",
+        "Instructs counting the scholarship seats separately so the next edition has a rate of their own.",
+        "Does not plan catering for all 60 scholarship holders as guaranteed attendance."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Redcliff Analytics runs a free half-day workshop series, 120 seats a session. Registration today is a single email field and takes about four seconds. Our ops director has two proposals. First, add a five-question form plus a mandatory email confirmation click, because in her words frictionless signup is exactly why nobody shows, and the data shows events with easy registration have far worse attendance. Second, she read an organizer guide saying you should have 100% of your attendance goal signed up two weeks out and 200% signed up one week out, and she wants to make that 200% our standing overbooking rule. Which of these do we do?",
+      "expected_output": "The friction claim rejected with the confound named, the signup curve identified as a campaign calendar spine and routed away, and a 240-registration ceiling derived from the show-up trendline instead.",
+      "files": [],
+      "expectations": [
+        "Rejects the claim that registration friction drives no-shows.",
+        "States that among paid events, no-show rates stay roughly flat at about 16-19% regardless of how easy or hard registration is.",
+        "Names the confound: free events also tend to run the simplest registration forms, so controlling for the free-versus-paid split erases the apparent correlation.",
+        "Identifies the 100%-at-two-weeks and 200%-at-one-week figures as a registration signup curve that tells a marketing plan whether registrations are on pace.",
+        "States that this curve is not an overbooking instruction, and routes it to samber/dev-event-organizer-skills@event-marketing-plan.",
+        "Distinguishes the signup curve from the separate show-up trendline that does set the overbooking multiplier.",
+        "Recommends against adding the five-question form and mandatory confirmation click as a no-show fix.",
+        "States a registration ceiling of 240 for the 120-seat workshop, derived from the free-event show-up rate.",
+        "Does not blend the signup curve percentages with any show-up rate or drop-off range."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "We have 400 registrations for a free hackathon and the room holds 250. Do we close the form?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many people should I order lunch for, 180 signed up and it's a free meetup",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we overbook our free developer day?",
+      "should_trigger": true
+    },
+    {
+      "query": "Half our RSVPs didn't turn up last year. What do we change before the next edition?",
+      "should_trigger": true
+    },
+    {
+      "query": "what's a normal no-show rate for a free tech conference",
+      "should_trigger": true
+    },
+    {
+      "query": "How many registrations should I accept for a 300-seat room?",
+      "should_trigger": true
+    },
+    {
+      "query": "we sold out in two hours but I'm scared the room is going to look empty",
+      "should_trigger": true
+    },
+    {
+      "query": "Do I need a waitlist for our meetup, and how do I actually run one?",
+      "should_trigger": true
+    },
+    {
+      "query": "who gets promoted off the waitlist first?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it fine to accept three times our capacity in signups?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can we let people in at the door on the day without registering?",
+      "should_trigger": true
+    },
+    {
+      "query": "should we take a refundable deposit so people actually turn up",
+      "should_trigger": true
+    },
+    {
+      "query": "270 people clicked going on the event page, how many chairs do I actually need",
+      "should_trigger": true
+    },
+    {
+      "query": "our catering contract locks three weeks out, what head count do I give them",
+      "should_trigger": true
+    },
+    {
+      "query": "What multiplier should I use between signups and actual attendance?",
+      "should_trigger": true
+    },
+    {
+      "query": "I don't know whether to cap registrations for our free event",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I handle people who turn up on the day and never registered",
+      "should_trigger": true
+    },
+    {
+      "query": "Our venue holds 150 and 600 people want to come. What now?",
+      "should_trigger": true
+    },
+    {
+      "query": "We keep ordering way too much food for our dev meetup",
+      "should_trigger": true
+    },
+    {
+      "query": "how many walk-ins should I plan for",
+      "should_trigger": true
+    },
+    {
+      "query": "should we release more tickets since some people always flake",
+      "should_trigger": true
+    },
+    {
+      "query": "is a 55% turnout bad for a free event?",
+      "should_trigger": true
+    },
+    {
+      "query": "we want the room to look full in the photos, what do we do about the empty seats",
+      "should_trigger": true
+    },
+    {
+      "query": "what do I do with the 90 people who registered after we hit capacity",
+      "should_trigger": true
+    },
+    {
+      "query": "how long should someone have to claim a waitlist seat before it moves on",
+      "should_trigger": true
+    },
+    {
+      "query": "my co-organizer wants to leave registration open indefinitely, is that OK",
+      "should_trigger": true
+    },
+    {
+      "query": "Design the registration cap for our free Kubernetes day.",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I stop people registering and then not coming",
+      "should_trigger": true
+    },
+    {
+      "query": "do free tickets and paid tickets have different turnout rates?",
+      "should_trigger": true
+    },
+    {
+      "query": "we're charging 20 euros this year instead of free - does that change how many tickets we sell against a 400 seat room?",
+      "should_trigger": true
+    },
+    {
+      "query": "when should I close signups for a free event",
+      "should_trigger": true
+    },
+    {
+      "query": "our sponsor funded 50 student tickets, how many of them will actually come",
+      "should_trigger": true
+    },
+    {
+      "query": "Should I give the caterer the signup number or something lower?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many no-shows should I budget for",
+      "should_trigger": true
+    },
+    {
+      "query": "we have a 2:1 signup to attendance ratio, is that normal",
+      "should_trigger": true
+    },
+    {
+      "query": "I want a second check-in line for people who show up without a ticket - how many should I expect?",
+      "should_trigger": true
+    },
+    {
+      "query": "what's the right overbooking ratio for a community conference",
+      "should_trigger": true
+    },
+    {
+      "query": "our event is on a badge-access corporate campus, can we still do walk-ins",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we fill the empty seats on the day",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we promote waitlisted people every time someone cancels?",
+      "should_trigger": true
+    },
+    {
+      "query": "help me set a registration ceiling with the arithmetic written out",
+      "should_trigger": true
+    },
+    {
+      "query": "plan the seat allocation for our 200-person free workshop",
+      "should_trigger": true
+    },
+    {
+      "query": "how many tickets do we release for a paid conference so the room isn't half empty",
+      "should_trigger": true
+    },
+    {
+      "query": "everyone says overbook like an airline does, should we?",
+      "should_trigger": true
+    },
+    {
+      "query": "I need to justify my attendance estimate to the venue",
+      "should_trigger": true
+    },
+    {
+      "query": "the fire marshal says 250 but I have 500 signups",
+      "should_trigger": true
+    },
+    {
+      "query": "Do people who pay for a ticket show up more than people who don't?",
+      "should_trigger": true
+    },
+    {
+      "query": "it's our first edition and we have no data, what turnout should I assume",
+      "should_trigger": true
+    },
+    {
+      "query": "our waitlist ordering rule - do we have to publish it anywhere?",
+      "should_trigger": true
+    },
+    {
+      "query": "should I sort the waitlist by who lives closest to the venue",
+      "should_trigger": true
+    },
+    {
+      "query": "what number goes to the badge printer, registrations or expected attendance",
+      "should_trigger": true
+    },
+    {
+      "query": "our room holds 180 and I want it full, how many should I let register",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the day-before reminder email for our meetup.",
+      "should_trigger": false
+    },
+    {
+      "query": "What should we charge for an early-bird ticket to our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should our conference be free or paid?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our attendance has dropped three editions running - is this event still worth running at all?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many volunteers do I need staffing the check-in desk?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the badge pickup flow and the signage for check-in.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the P&L for our 400-person conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "What per-head catering price should we be negotiating with vendors?",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft the whole attendee email arc from announcement through to the thank-you.",
+      "should_trigger": false
+    },
+    {
+      "query": "Which weekend should we hold our conference on?",
+      "should_trigger": false
+    },
+    {
+      "query": "Find us a venue for 300 people in Berlin.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we run a hybrid event so the remote attendees aren't second-class?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many tracks should our conference have?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our code of conduct and the incident response process.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we handle a keynote speaker cancelling two days before the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the sponsor tiers and what each one gets.",
+      "should_trigger": false
+    },
+    {
+      "query": "What do we put in the sponsor prospectus?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we source speakers for a first-edition conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Review the questions on our CFP form.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the run of show for the main stage.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we make our event accessible for wheelchair users?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we offer childcare at our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the after-party and the rest of the social program.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get press coverage for our event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the landing page copy for our conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the post-event feedback survey.",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we structure the hackathon prize pool?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we form balanced hackathon teams out of solo signups?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up the judging rubric for our hackathon.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we recruit and brief mentors for our hackathon?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the 12-month timeline for organizing our conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we match sponsors with attendees for 1:1 meetings on the floor?",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our booth look like at the next big cloud conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we grow our meetup from 40 regulars to 200?",
+      "should_trigger": false
+    },
+    {
+      "query": "What social media cadence should we run in the six weeks before the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run a single user conference or a multi-city roadshow?",
+      "should_trigger": false
+    },
+    {
+      "query": "Who should own the events budget line inside our company?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we turn conference talks into blog posts and short clips?",
+      "should_trigger": false
+    },
+    {
+      "query": "What's the right team structure for a volunteer-run conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we take care of our speakers before and during the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I reduce no-shows at my restaurant on Friday nights?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our clinic loses money on patients who miss appointments - what do we do about it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Candidates keep ghosting our final-round interviews. How do we fix that?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our sales demos have a 40% no-show rate, help me fix the booking flow.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do airlines actually decide how much to overbook a flight?",
+      "should_trigger": false
+    },
+    {
+      "query": "Half the invitees never join our weekly engineering standup.",
+      "should_trigger": false
+    },
+    {
+      "query": "What's a good webinar attendance rate, and how do I improve ours?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do hotels handle overbooking and walk-in guests?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we design the VIP program and decide what perks VIPs get?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many seats should we book on the shuttle bus between the hotel and the venue?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a policy for employees who skip mandatory training sessions.",
+      "should_trigger": false
+    },
+    {
+      "query": "Our virtual conference had 2,000 registrations and 300 live viewers - how do we improve the streaming platform experience?",
+      "should_trigger": false
+    }
+  ]
+}

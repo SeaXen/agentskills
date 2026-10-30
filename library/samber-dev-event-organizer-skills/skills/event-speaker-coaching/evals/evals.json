@@ -1,0 +1,583 @@
+{
+  "skill_name": "event-speaker-coaching",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Acceptances for Larkspur DevSummit went out this morning: 14 talks in 30-minute slots that each include 5 minutes of Q&A, plus one 45-minute keynote with no Q&A. The event is 26 March 2027 and our captioning vendor needs every final deck by 18 March. Our CFP form had a 'this would be my first conference talk' checkbox and six of the fourteen ticked it. Two committee members, Ravi and Clara, have offered to mentor. I'd like to set up a mentoring scheme for those six so nobody gets thrown in the deep end, and leave the experienced ones alone since they know what they're doing. Draft what I send and when.",
+      "expected_output": "One coaching offer sent to all 15 accepted speakers in the same words with an opt-out default, a calendar anchored on the 18 March captioner deadline, talk time derived as slot minus Q&A, mentors available only on request, and the offer text shown for approval before sending.",
+      "files": [],
+      "expectations": [
+        "Rejects a scheme addressed only to the six first-timers and sends one coaching offer, in identical wording, to all 15 accepted speakers including the keynote",
+        "States that an offer targeted at first-timers tells them the organizer expects them to struggle and is declined by exactly the people it was meant for",
+        "Makes the dry-run slot the opt-out default for every speaker and states in the offer that skipping it changes nothing about their slot",
+        "Uses the six checkbox answers only to order the work, such as earlier dry-run dates, never to decide who is offered what",
+        "States the talk time as 25 minutes for the 30-minute slots (slot minus the 5 Q&A minutes) and 45 minutes for the keynote, and sets dry-run clocks to those figures",
+        "Anchors the calendar on 18 March, the captioner deadline, as the content freeze rather than on the 26 March event date",
+        "Places milestones working back from 18 March: an outline check about six weeks before, a first out-loud run about four weeks before, a slide and accessibility review about three weeks before, and a timed dry run about two weeks before",
+        "Sends the offer to everyone before any individual reply to a speaker's draft, so no reply reads as targeted help",
+        "Attaches intake questions that are optional for everyone and required only for mentor requests, with the 'first talk at an event this size' question asked of every speaker rather than taken from the CFP checkbox",
+        "The offer includes two or three dry-run date options, a 'reply mentor' opt-in line, a code-of-conduct line with a no-reason-needed re-pairing contact, the slot length and Q&A format, and the 18 March final-slides date",
+        "Offers Ravi and Clara as a paired-mentor rung available on request and never assigns either to a speaker who did not ask",
+        "Sends every speaker a rehearsal kit with the offer covering their dates, how to time a run, the accessibility Blocking items, the Q&A format and the stage walk-through",
+        "Shows the user the offer text and the dated calendar for approval before anything is sent",
+        "States that any reminder goes to everyone who has not answered, never only to the six first-timers"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I listened to Priyanka's dry run last night for Ridgeback Platform Conf. Her slot is 30 minutes including 5 minutes of Q&A. She ran 31 minutes to her last slide, against the room clock we had set to 30. Here are the notes I was going to email her tonight, tell me if they're OK:\n1. Great talk overall!\n2. You need to speed up in the middle, you lose about 6 minutes on the migration history.\n3. Try to sound more confident, you trail off at the end of sentences.\n4. Slide 14 is a wall of code, cut it to the 5 lines you actually talk about.\n5. The opening story about the outage is strong but it's 3 minutes, trim it.\n6. The demo hand-off at minute 18 took a while, maybe pre-record it.\n7. Your accent makes 'cache' sound like 'cash', say it slower.\n8. Add a summary slide at the end.\n9. You should practise this at least 10 more times.\nShe's a first-time speaker and I don't want to crush her.",
+      "expected_output": "A corrected talk time of 25 minutes with a mark of about 22-23, the nine notes reduced to a specific keep plus at most three moment-anchored changes led by a cut list of whole sections, the speed, confidence and accent notes removed, the overrun labelled Change not Blocking, and rehearsal guidance based on listener runs.",
+      "files": [],
+      "expectations": [
+        "Corrects the talk time to 25 minutes (30-minute slot minus 5 minutes of Q&A), says the clock was set wrong at 30, and states the pass mark as about 22 to 23 minutes",
+        "Quantifies the gap: the 31-minute run is about 6 minutes over the full talk time and about 8 to 9 minutes over the mark",
+        "Removes the 'speed up' note and replaces it with a cut list of whole sections, naming the migration history as the first candidate, and states that talking faster loses the room",
+        "Removes the 'sound more confident' note as a trait with no fix, and removes the accent note entirely",
+        "Keeps the opening outage story rather than trimming it, on the rule that cuts come from the middle while the opening and closing stay",
+        "Replaces 'Great talk overall!' with a keep anchored to a specific moment, such as the outage opening or a named slide",
+        "Caps the written notes at three changes plus keeps and parks the remaining notes for the next round rather than sending all nine",
+        "Labels the overrun as a Change note with a cut list, not a Blocking note, and states that Blocking applies only if the run still exceeds 25 minutes after the agreed cuts",
+        "Writes each change as an observation anchored to a moment (slide 14, minute 18, the migration section), its effect on the room, and one request or question",
+        "Replaces 'practise 10 more times' with the distinction that solo runs are practice and only a listener run meets the gate, with about five to seven full out-loud runs typical for a beginner",
+        "States that any small change after the gate run is re-timed solo and out loud against the same mark, and a structural change needs another listener run",
+        "Adds a live cut list: one section Priyanka drops on the day if a timing signal arrives early, marked in her speaker notes",
+        "Checks that the minute-18 demo has a rehearsed fallback rather than mandating a pre-recording, and treats the summary slide as Optional at most"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm the volunteer doing slide checks for Coppervale Frontend Days. Tomas sent me his deck for his 20-minute talk (there's a separate 5-minute Q&A after it). His accepted abstract promised 'a migration path off a legacy Redux store, with the three traps we hit'. What I see: body text is #777777 on a white background, headings are 28pt in the same grey. Slide 6 is a before/after diff with removed lines in red and added lines in green, nothing else marks them. Slide 9 embeds a 4-second terminal GIF where the cursor strobes fast, I'd guess five or six times a second. The code on slides 11 to 13 is 11pt and shows whole files. Slide 17 is a QR code with no URL. Slides 3, 8 and 15 have no title. There's no summary slide at the end. What do I send him? Final slides are due 2 March and this is review 1 of 2.",
+      "expected_output": "A written review in the Keep / Blocking / Change / Optional template: three Blocking items (body contrast at about 4.48:1, colour-only diff, strobing GIF), headings passing on the large-text ratio, font size and QR and titles classified below Blocking and parked or Optional, a keep slot left for the reviewer, the abstract's promise carried in the header, and the chair escalation rule.",
+      "files": [],
+      "expectations": [
+        "Flags the body text as Blocking: #777777 on white is about 4.48:1, below the 4.5:1 minimum of WCAG 2.2 SC 1.4.3, and states it is not rounded up to a pass",
+        "Does not block the 28pt headings in the same grey, because large text (18pt, or 14pt bold) needs only 3:1, which 4.48:1 clears",
+        "Flags the red/green-only diff on slide 6 as Blocking under meaning carried by colour alone (WCAG 2.2 SC 1.4.1) and suggests a label, symbol or pattern in addition to colour",
+        "Flags the strobing GIF on slide 9 as Blocking under the no-more-than-three-flashes-per-second rule (WCAG 2.2 SC 2.3.1)",
+        "Classifies the 11pt whole-file code as a Change, not Blocking, states that no authoritative minimum font size exists, and prescribes the back-row or projector test plus showing only the lines discussed",
+        "Classifies the QR-only link and the missing slide titles below Blocking, as Change or Optional items",
+        "Keeps the round to three changes including the three Blocking items, and parks the font size, QR and title notes for review 2 or lists them under Optional, never as a fourth Change",
+        "Uses the written review template: Keep, Blocking, Change, Optional, with a header stating 20 minutes talk time, 5 minutes Q&A, review 1 of 2, and the abstract's promise",
+        "Does not invent a Keep from the description; leaves the Keep slot for the reviewer to fill with a specific slide, or asks for the deck",
+        "Carries the abstract's promise (migration path, three traps) into the review and asks whether the deck delivers the three traps rather than ignoring the abstract",
+        "Does not require a summary slide; treats it as Optional at most, since the talk is coached against its own promise and not a house style",
+        "States that Blocking notes go to Tomas first, and escalation to the program chair happens only if he declines or cannot fix them by 2 March, with Tomas told before any escalation",
+        "States the next milestone with its date: review 2 of 2 before the 2 March slide deadline",
+        "Suggests moves Tomas makes himself (recolour, add markers, replace or slow the GIF) and never that the reviewer edits the deck"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Thornfield Data Day is on 18 November. Our live captioners need every deck by 9 November. It's 23 October today. We have 9 speakers and nobody has rehearsed anything, because our coaching volunteer dropped out in September and I only picked this up this week. The acceptance email in August promised 'rehearsal support and feedback on your slides'. One speaker, Mateus, is pre-recorded from São Paulo. Another, Dana, sent me her slides yesterday for her 25-minute talk and says the structure is wrong and she wants to rebuild the second half. I'd like to run the full program: outline reviews, mentors, two dry runs each. How do I schedule it?",
+      "expected_output": "A compressed program anchored on 9 November as D (about 17 days out): one timed dry run per speaker as early as possible plus the accessibility checklist, polish only and said so, paired mentors deleted, the promised rehearsal support and slide feedback still delivered, Dana's rebuild allowed only if a listener run fits before 9 November, Mateus rehearsed on the event's own video tool with a recording deadline before D, and the after-D overrun rule.",
+      "files": [],
+      "expectations": [
+        "Anchors on 9 November, the captioner deadline, as the content freeze D, giving about 17 days, and not on the 18 November event date",
+        "Rejects the full program (outline reviews, mentors, two dry runs each) because fewer than three weeks remain to D: one timed dry run per speaker as early as possible plus the accessibility checklist",
+        "Deletes the paired-mentor rung because no milestones remain, and promotes one-to-one timed runs because they schedule faster than a group",
+        "Says plainly, in the offer, that this edition offers polish only, and sends that offer to all nine speakers in the same words",
+        "Delivers what the August acceptance email promised, rehearsal support and slide feedback, rather than shrinking it, and tells speakers the depth changed instead of going silent",
+        "Allows Dana's second-half rebuild only if a listener run can follow it before 9 November, and states that after 9 November only timing and delivery change",
+        "States that a structural change after the content freeze is an unrehearsed talk: cut, do not rebuild",
+        "Runs Mateus's dry run on the event's own video tool, sets his recording deadline before 9 November, and hands the production side to the virtual-event production skill",
+        "States that an overrun found after 9 November, when captioners hold the deck, is fixed by skipping whole sections, never by editing slides, with the skipped slide numbers sent to the captioners",
+        "Runs the accessibility Blocking checklist (contrast, flashing, colour-only meaning) on every deck before 9 November, about ten minutes each",
+        "Books the coaching hours as named tasks in the calendar so the program cannot silently vanish again",
+        "Keeps a stage walk-through before doors on 18 November for the in-person speakers, and hands the equipment tech check to the speaker-experience skill",
+        "Shows the user the offer text and the dated calendar before anything goes out"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Wrenfield Code Camp is meetup-scale: 14 talks of 30 minutes (no Q&A in the slot, questions go to the hallway) and 8 Ignite-style lightning talks, 20 slides auto-advancing every 15 seconds. Final decks are due 27 November for the printed programme and the captions, which gives us three weeks from Monday. Coaches are me and one other volunteer, about 2 hours a week each. I was going to offer everyone a one-to-one rehearsal and hand out slots first-come-first-served. Two speakers also asked whether we'd record the rehearsals so they can rewatch. Does this plan work?",
+      "expected_output": "An hour count showing the plan does not fit (about 19 hours needed against 12 available), group dry-run sessions as the default rung, dry-run places ordered by the self-declared first-talk answer then lottery with the rule stated in the offer, words-per-slide cutting for the Ignite talks, Critical Response Process in the group sessions, recordings only on each speaker's yes and deleted after the event.",
+      "files": [],
+      "expectations": [
+        "Computes the listening cost per speaker as talk time plus about 20 minutes of feedback (10 for a lightning talk) plus 5 minutes of changeover, plus about 10 minutes per deck for the accessibility checklist",
+        "Arrives at roughly 19 hours needed (about 12h50 for the 14 talks, 2h40 for the 8 lightning talks, 3h40 for 22 decks) against 12 hours available, and says the plan does not fit as proposed",
+        "Replaces universal one-to-one rehearsals with group dry-run sessions as the default rung, and states that a 3-hour session holds three 30-minute talks or about eight lightning talks",
+        "Rejects first-come-first-served because it rewards the most confident responders, and orders dry-run places by the intake answer to 'is this your first talk at an event this size', then by lottery, with the kit going to the rest",
+        "States the allocation rule in the offer itself, and still sends the same offer in the same words to all 22 speakers",
+        "Schedules the dry-run sessions in the two weeks before 27 November and the accessibility checklist on every deck before that date",
+        "States that the Ignite talks cannot be cut by section: they cut words per slide and rehearse with the auto-advance on",
+        "Sets the dry-run clock to 30 minutes for the talks (no Q&A to subtract) and 5 minutes for the Ignite talks, with the pass mark at about 90% of talk time",
+        "Runs each group session with the Critical Response Process in order: statements of meaning, the speaker's own questions, neutral questions, opinions only by permission",
+        "Has the facilitator read the brief aloud at the start of each session and write each speaker's summary within a day: keeps first, then at most three changes",
+        "Records a rehearsal only with that speaker's yes, shares it with nobody else, and deletes it after the event",
+        "Names the four parts of the minimum viable program (kit with the offer, group dry runs, accessibility checklist on every deck, stage walk-through) and states that anything less is a kit with no listener",
+        "Tells the user plainly which speakers will get only the kit if hours still run short, rather than calling it a program for everyone"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "One of our speakers at Saltmarsh Security Summit, Yusuf, emailed me this morning: 'I've been dreading this for weeks. I've thought about pulling out. I barely sleep. A friend says I should get beta blockers. I'm going to write the whole thing out word for word and learn it.' His slot is 25 minutes plus 10 minutes of open-floor questions with no host, in our 300-seat main hall. The event is in five weeks. The talk itself is solid, I heard an early run. What do I write back and what do I set up?",
+      "expected_output": "A reply that asks what specifically worries him, never mentions medication, points to a professional if the anxiety looks clinical while keeping his slot open, steers him off word-for-word memorisation, and a plan: an early listener run, the real room, a named sequence of what will happen, a recovery move, a friendly face, and a proposal to the schedule owner to move his open-floor Q&A to a moderated format.",
+      "files": [],
+      "expectations": [
+        "Does not comment on beta blockers or any medication and does not diagnose; given the sleep loss and thoughts of withdrawing, suggests a professional and keeps his slot open",
+        "Does not say 'you'll be fine' or equivalent dismissal, and asks what specifically worries him",
+        "Recommends no power poses",
+        "Steers him away from memorising word for word: memorise only the first and last sentences, rehearse the rest from talking points, because a memorised talk collapses on the first lost line",
+        "Books a listener run early rather than in the final week, as the first lever",
+        "Gives him the real room: a stage walk-through in the 300-seat hall before doors and a photo of the room sent in advance",
+        "Names what will happen: audience size, who introduces him, the timing signals, what happens if a demo fails, and the Q&A format",
+        "Offers the 'I am excited' reappraisal line as a cheap option, not a promise, noting the evidence is mixed",
+        "Agrees a recovery move for a blank: pause, look at the notes, say 'let me come back to that', move to the next section",
+        "Seats a friendly face, the host or a mentor, where he can see them",
+        "Proposes to whoever owns the schedule that the 10-minute no-host open floor become host-moderated or written-question Q&A, rather than changing it unilaterally, and tells Yusuf the format before his dry run",
+        "Rehearses two questions out loud in the dry run, one the talk answers and one it does not, including 'I don't know, I'll find out and post it with the slides' as a complete answer",
+        "Briefs the host, through the run-of-show, on the three moves: closing a comment that is not a question, closing a hostile question under the code of conduct, and ending Q&A on time",
+        "Treats the talk time as 25 minutes with the 10 Q&A minutes separate"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Mentor matching for Glasswater Ruby Conf. Five speakers replied 'mentor' to our offer. Our mentors: Ines (past keynote, works at Brightfold), Kwame (two past talks, runs his own consultancy), Lotte (past speaker, also at Brightfold). Requests: Amara wants help with a live-coding demo. Sofia, who works at Brightfold, wants help structuring a 40-minute talk. Hana wrote 'anything, I just want someone who gets it' and mentioned she's the only woman on the Rails track. Diego wants help with delivery in English, his second language. Niko wants slide feedback only. There's also Petra, who didn't reply at all, but I know from her CFP she's never spoken before, so I'd like to give her Lotte. Who gets whom, and what do I send the mentors?",
+      "expected_output": "Pairings made on what each speaker asked for, no mentor assigned to Petra, no gender-based match for Hana unless she asks, no same-employer pairing for Sofia unless both agree, the shortfall handled by sending the unmatched to the group dry run, a single mentor brief sent to all three before first contact, intake answers shared only with the speaker's agreement, and a midpoint check-in.",
+      "files": [],
+      "expectations": [
+        "Does not assign Lotte or anyone to Petra, who did not ask; keeps her dry-run slot open and sends one reminder to everyone who has not answered rather than a message only to her",
+        "Pairs on what each speaker asked for (demo, structure, delivery, slides) and does not match Hana with Ines or Lotte on the basis of gender unless Hana asks for a shared identity",
+        "Asks Hana what kind of help she wants before pairing, since 'anything' gives no match basis and the mentor-request intake question is required",
+        "Avoids pairing Sofia (Brightfold) with Ines or Lotte (Brightfold) unless both agree, defaulting her to Kwame",
+        "States the expected shortfall (roughly two requests per mentor) and the time cost of about four to six mentor hours per speaker, so each mentor takes one or at most two speakers",
+        "Sends any speaker left unmatched to the group dry run and tells them why",
+        "Scopes Niko's mentoring to a written slide review in Keep / Blocking / Change / Optional form, and adds no outline call or dry run he did not ask for",
+        "For Diego, allows pace and clarity notes anchored to a moment and the room, forbids accent notes, and offers a scripted opening and closing, fuller speaker notes, and key terms on the slides",
+        "Sends all three mentors the same brief before first contact, stating that the talk belongs to the speaker and is never rewritten, that coaching is against the accepted abstract and slot, keeps first with at most three changes per round, no notes on accent, pitch, appearance or confidence, the code of conduct and privacy of what the speaker shares, the milestone time box, and one check-in if the speaker goes quiet",
+        "Introduces each pair by email with the calendar, attaching the speaker's intake answers only with the speaker's agreement",
+        "Schedules a midpoint check-in asking whether the pairing is working and re-pairs quietly, no reason needed, if not",
+        "Keeps worries from intake private to the mentor and passes access needs only to the speaker contact with the speaker's agreement"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "I run speaker coaching for Harrowgate Cloud's annual customer conference: 1,200 attendees, 18 external customer speakers we fly in, and there is budget. Our marketing director wants me to also sign off every deck for product claims and legal wording, since I'm 'already reviewing them'. In this week's dry runs: Lena's talk has drifted a long way from her accepted abstract (the abstract was cost optimisation, the talk is now her incident response story). Rafael has a slide with a joke about 'the ops guys who can't read'. Omar's demo shows a customer's internal dashboard with real account names and I don't know whether his employer cleared it. Our keynote is a customer CTO who has never keynoted. What do I do with each, and should I take on the sign-off?",
+      "expected_output": "Sign-off declined and kept with a different person, Lena's drift handled as a non-blocker with the abstract updated by agreement after telling her and the schedule owner, Rafael told which rule the joke may cross with the chair involved only if it stays, Omar asked once about clearance and left with it, a professional coach promoted for the keynote only, and the same offer to all 18.",
+      "files": [],
+      "expectations": [
+        "Declines to combine product-claim and legal sign-off with coaching: keeps the mandatory content review separate and run by a different person, so no speaker wonders whether their coach is also their censor",
+        "Treats Lena's drift from the abstract as not a Blocking note; tells Lena first, then the schedule owner, and updates the published abstract with her agreement rather than re-opening acceptance",
+        "Tells Rafael which rule the joke may cross (the code of conduct) and passes it to the program chair only if the passage stays, rather than removing the slide or escalating first",
+        "Distinguishes harassment-grade content, which goes to the chair at once, from a passage that may cross the code of conduct, which goes to the speaker first",
+        "Asks Omar once whether the dashboard with real account names is cleared by his employer and leaves clearance with him, routing any legal question to the separate content reviewer",
+        "Promotes a professional speaking coach for the keynote only, on the grounds that it carries the event's headline promise and a budget line exists, and does not extend paid coaching to all 18",
+        "Still offers the same coaching to all 18 external speakers in the same words",
+        "Labels none of the three cases as Blocking, since Blocking covers only a run still over the full talk time after agreed cuts and a deck failing an accessibility Blocking item",
+        "States that any escalation to the chair happens only after the speaker has been told",
+        "Does not rewrite Lena's talk or Rafael's slide; each change is the speaker's own to make"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Pinecrest DevFest ended on Saturday, second edition. 16 speakers were coached: 12 took the group dry run, 4 had mentors. I have the attendee ratings per talk from our feedback form, 1-5 stars plus free-text comments. My plan: email each speaker their star average and every comment, send a coaching NPS survey, keep the dry-run recordings on our shared drive so next year's mentors can watch examples, and keep the intake forms because they hold access needs we'll need again next year. Three talks ran over on the day. What should I actually do?",
+      "expected_output": "Audience ratings relayed through the feedback protocol (keeps first, at most three themes, no raw score dump), the NPS replaced by one open question read as text, dry-run recordings and intake answers deleted, the three overruns counted against the zero target and checked against the timed-run gate, the two gates reported with everything else labelled self-set, return rate tracked, and the edition's coaching record kept for next year's menu.",
+      "files": [],
+      "expectations": [
+        "Does not send raw star averages and full comment dumps; relays audience ratings with the feedback protocol: keeps first, at most three themes per speaker",
+        "Filters relayed themes to the talk, not the person: no comment on accent, voice or appearance passed on as a theme",
+        "Replaces the NPS survey with one question to each coached speaker, 'What in the coaching changed your talk?', and reads the answers rather than scoring them",
+        "Deletes the dry-run recordings after the event rather than keeping an example library: each was recorded on that speaker's yes and shared with nobody",
+        "Deletes the intake answers after the event: access needs went to the speaker contact with the speaker's agreement and worries only to the mentor; nothing is kept for next year",
+        "Counts the three overruns on the day against a target of zero and checks whether each overrunning speaker had a listener run that ended by about 90% of talk time and was re-timed after any later change",
+        "Notes that a speaker who opted out of the dry run was covered only by the day's timing signals and live cut list",
+        "Reports the timed-run gate and the accessibility gate as the objective, and labels overruns, coaching usefulness and return rate as self-set",
+        "Tracks return rate, coached first-timers who speak or mentor again within two editions, and states this only means something because the edition recurs",
+        "Runs one short debrief with each coached speaker: what worked, what to try next time",
+        "Records for this edition who opted in, which rung each used, the overruns and who returns, to re-rank next edition's coaching menu",
+        "Recruits next year's mentors from this edition's coached speakers first"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "We accepted 14 talks, six from first-time speakers. How do we support them without being patronising?",
+      "should_trigger": true
+    },
+    {
+      "query": "A speaker ran 38 minutes in a 25-minute dry run. What do I tell her?",
+      "should_trigger": true
+    },
+    {
+      "query": "I'm mentoring a speaker for our conference next month. How do I give feedback on her slides?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can we set up rehearsals for our meetup speakers with just two volunteers?",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft the email offering our accepted speakers a dry run.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I pair mentors with the speakers who asked for one?",
+      "should_trigger": true
+    },
+    {
+      "query": "One of our speakers keeps running long in rehearsals. Cut list or just tell him to speed up?",
+      "should_trigger": true
+    },
+    {
+      "query": "What should the volunteer checking speaker decks look for before the slide deadline?",
+      "should_trigger": true
+    },
+    {
+      "query": "A speaker's deck is dark grey text on black. Is that something we should flag?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our speaker is terrified of the Q&A. What can we do as organizers?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many changes should I put in feedback after a dry run?",
+      "should_trigger": true
+    },
+    {
+      "query": "Set up a group rehearsal evening for our 20 speakers.",
+      "should_trigger": true
+    },
+    {
+      "query": "We've got budget for a professional speaking coach for one person. Who should get it?",
+      "should_trigger": true
+    },
+    {
+      "query": "A speaker told us she's never presented before. Should we assign her a mentor?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the brief I send to volunteer mentors before they contact their speaker.",
+      "should_trigger": true
+    },
+    {
+      "query": "Our conference is in 10 days and nobody has rehearsed. Is coaching still worth doing?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I run a dry run with a timer so it actually predicts the real talk?",
+      "should_trigger": true
+    },
+    {
+      "query": "The talk in rehearsal is nothing like the abstract we accepted. Can we block it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Speaker wants to rebuild half her talk the week before. Should I let her?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to record rehearsals so speakers can rewatch. Any rules?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I give feedback to a speaker presenting in their second language?",
+      "should_trigger": true
+    },
+    {
+      "query": "Two speakers co-presenting keep overrunning at the hand-offs.",
+      "should_trigger": true
+    },
+    {
+      "query": "What does a rehearsal kit for speakers contain?",
+      "should_trigger": true
+    },
+    {
+      "query": "How far ahead of the slide deadline should the first rehearsal be?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our mentor rewrote the speaker's slides. What now?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should the coach also check product claims in the decks at our user conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "A speaker asked whether she should memorise the whole talk.",
+      "should_trigger": true
+    },
+    {
+      "query": "Is 'sound more confident' acceptable feedback to give a speaker?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we relay attendee ratings to our speakers after the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "What questions do we ask speakers in the coaching intake form?",
+      "should_trigger": true
+    },
+    {
+      "query": "Give every speaker a dry run slot, or only the ones who ask?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our pre-recorded speaker needs a rehearsal too. How do we handle that?",
+      "should_trigger": true
+    },
+    {
+      "query": "Build a review calendar for 12 speakers working back from our captioner deadline.",
+      "should_trigger": true
+    },
+    {
+      "query": "The demo in the speaker's talk is what pushes it over time.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I tell a speaker their slides fail contrast without crushing them?",
+      "should_trigger": true
+    },
+    {
+      "query": "Ignite-format speakers can't cut sections. How do they cut to time?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the post-rehearsal feedback for a speaker whose talk ran 27 minutes against 25.",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we offer speakers a few minutes on the stage before doors open?",
+      "should_trigger": true
+    },
+    {
+      "query": "Which Q&A format should we propose for a speaker who dreads open mic?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's a fair way to allocate limited rehearsal slots among speakers?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our keynote speaker has never keynoted. How do we prepare him without rewriting his talk?",
+      "should_trigger": true
+    },
+    {
+      "query": "A speaker replied 'I don't want coaching'. What do I do with his slot?",
+      "should_trigger": true
+    },
+    {
+      "query": "Critical Response Process for a room of speakers, how does it work?",
+      "should_trigger": true
+    },
+    {
+      "query": "What counts as a blocking note when reviewing a speaker's talk?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can we check a speaker's deck is readable from the back row?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we measure whether our speaker coaching worked this year?",
+      "should_trigger": true
+    },
+    {
+      "query": "Help me plan feedback sessions for the speakers we just accepted.",
+      "should_trigger": true
+    },
+    {
+      "query": "One of our accepted speakers has a slide with a joke at a group's expense. Do I pull it?",
+      "should_trigger": true
+    },
+    {
+      "query": "First talk at this size for half our lineup. What do we run between acceptance and the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Help me outline and rehearse the talk I'm giving next month.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I structure the opening of my conference talk?",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm speaking at a conference in May. Help me practise my talk.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write my CFP submission for a Kubernetes conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a proposal mentorship programme for people submitting to our CFP.",
+      "should_trigger": false
+    },
+    {
+      "query": "What fields should our call for papers form have?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the scoring rubric our review committee uses on submissions.",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we do blind review of talk proposals?",
+      "should_trigger": false
+    },
+    { "query": "What goes in a speaker packet?", "should_trigger": false },
+    {
+      "query": "Do we book our speakers' flights or make them claim it back?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we run tech checks for 16 speakers across two tracks?",
+      "should_trigger": false
+    },
+    {
+      "query": "What actually goes in a green room, and who staffs it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Do lightning talk speakers get to opt out of being recorded?",
+      "should_trigger": false
+    },
+    {
+      "query": "A speaker needs a visa letter for our conference. What do we do?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many times should I chase a speaker for their bio?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the cold email inviting a speaker we've shortlisted but never contacted.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I find good speakers for a Rust conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the minute-by-minute run of show for conference day.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the stage manager's cue sheet and timing-card protocol for the day.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the post-event attendee feedback survey.",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our captioning and sign-language provision be?",
+      "should_trigger": false
+    },
+    {
+      "query": "Audit our conference website for WCAG compliance.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the session grid across three tracks and two days.",
+      "should_trigger": false
+    },
+    {
+      "query": "How should hackathon mentors support teams during the build?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the curriculum and helper ratio for our full-day workshop track.",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick a streaming platform and moderation setup for our virtual conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "Coach the founders pitching at our startup contest.",
+      "should_trigger": false
+    },
+    {
+      "query": "Coach our sales team on demo delivery.",
+      "should_trigger": false
+    },
+    {
+      "query": "Give feedback on my engineer's code review comments.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a performance review for a direct report.",
+      "should_trigger": false
+    },
+    {
+      "query": "Executive presence coaching for our new VP of engineering.",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me design a public-speaking training course we can sell to companies.",
+      "should_trigger": false
+    },
+    {
+      "query": "Make our investor pitch deck slides accessible.",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the catering and coffee breaks for 400 attendees.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our code of conduct and the reporting process behind it.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we recognise volunteers after the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the budget for a 500-person conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set early bird and regular ticket prices.",
+      "should_trigger": false
+    },
+    {
+      "query": "Run the post-event debrief with the organizing team.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get media to cover our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "What perks should we promise speakers in the call for papers?",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn our conference talk videos into short clips for LinkedIn.",
+      "should_trigger": false
+    },
+    {
+      "query": "Deliver what we promised our gold sponsors.",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft the rejection email for 60 CFP submissions.",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a developer advocate. How do I prepare for a podcast interview?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a live demo fallback plan for my own talk.",
+      "should_trigger": false
+    },
+    {
+      "query": "How should moderators handle a heated thread in our Discord community?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our developer meetup's speaker pipeline for next year.",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me write the MC script for introducing each speaker on stage.",
+      "should_trigger": false
+    }
+  ]
+}

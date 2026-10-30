@@ -1,0 +1,539 @@
+{
+  "skill_name": "event-speaker-experience",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Acceptance emails went out on Monday for the 11 speakers we picked for Havenport Devcon: 8 conference talks, 2 workshops, 1 keynote. Our printer needs the final programme PDF on 14 October, badges get printed the same week, and the event itself is 21 November. Three organizers have been answering speaker emails from their own personal accounts so far. What do I send these 11 people, and what do I need back from them by when?",
+      "expected_output": "A dated material-collection ladder with one date per item pinned to the last date each item is usable, a single named speaker contact replacing the three organizers, and the contents of a written speaker packet.",
+      "files": [],
+      "expectations": [
+        "Produces a dated collection ladder with a separate date per material item, not one blanket deadline covering all materials",
+        "Pins the speaker bio and the final session title to the 14 October programme print date rather than to the 21 November event date",
+        "Pins the headshot to programme or badge production and notes that print jobs need lead time",
+        "States that the A/V requirements deadline is the venue's own equipment ordering deadline, and instructs asking the venue for that date rather than choosing one",
+        "Replaces the three organizers answering from personal accounts with one named point of contact (a person or a pair), one address, and a stated response window",
+        "Specifies the speaker packet as one document or link covering at minimum slot, room, format and length, the deadlines, the recording policy, travel and reimbursement mechanics, arrival instructions, and the contact",
+        "Treats accessibility and dietary needs as a dated collection item pinned to when catering and venue changes lock, not as optional extra information",
+        "States a consequence for missing the slide deadline, or states honestly that there is none",
+        "Invents no honorarium, perk or term that was not already stated in the call or the acceptance email",
+        "Recommends per-speaker threads or a mailing tool rather than one thread with all 11 speakers addressed together",
+        "Names roughly five speakers, or any deadline that must land on a single day, as the threshold past which a lone contact stops scaling, and adjusts the plan for 11 speakers on that basis"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're filming everything at Northgate Go Conf and putting it on YouTube afterwards. The programme is 14 conference talks, 6 lightning talks running back-to-back inside one 45-minute block, and 2 keynotes we invited directly (they never went through the CFP). Our CFP form had a checkbox saying 'I agree to be recorded'. The camera crew is already booked. Two of the talk speakers work at a bank and one of them has asked a nervous question about whether her employer needs to approve anything. What do we need from speakers and when do we ask?",
+      "expected_output": "A per-format recording-consent posture, an explicit fix for the two invited keynotes the CFP checkbox never covered, separate recording/streaming/publication questions, and a consent record with named fields.",
+      "files": [],
+      "expectations": [
+        "Flags that the two invited keynote speakers never filled in the CFP form, so the bundled checkbox does not cover them, and requires the terms be presented and the answer recorded at acceptance instead",
+        "Separates recording, live streaming, and publication or channels into distinct consent questions rather than one combined yes/no",
+        "Sets the policy per session format, stating the answer separately for conference talks, lightning talks and keynotes",
+        "Notes that a lightning talk recorded inside one continuous block cannot practically be cut out of the stream, and treats a no-opt-out policy for that format as a legitimate choice rather than an oversight",
+        "Requires any format offering no opt-out to say so plainly and in advance, before submission rather than after acceptance",
+        "Rejects collecting signed releases on the morning of the event as the primary mechanism, and names the cost it carries on the busiest day",
+        "States that a camera in the room is not agreement and that speaker silence is not consent",
+        "Specifies a consent record carrying at least speaker and session, session format, where the terms were shown, date of the answer, recording yes/no, live stream yes/no, publication and channels, and any condition the speaker attached",
+        "Requires checking the consent record against the published-video list before anything goes public",
+        "Recommends granular per-format consent given that employer-restricted material is in play, and names that condition as the reason",
+        "Explains the licence in plain words above the legal ones, including that a non-exclusive licence leaves the speaker free to publish the talk themselves",
+        "States a policy for what happens to a recording of a talk that went badly, in either direction, rather than leaving it undecided"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Baltic Rust Days is in Riga on 3 March. Our call said 'travel and two nights' hotel covered for speakers based outside Latvia'. Nine of our 14 speakers are travelling: four from elsewhere in the EU, three from India, one from Brazil, one from the US. Our treasurer wants everyone to book their own flights and claim the money back afterwards because it's far less admin for her. Budget is about 9,000 EUR for speaker travel in total. How do we run this?",
+      "expected_output": "A stated booking mechanism, direct booking or an advance for the speakers who cannot front a long-haul flight, a coverage-and-cap breakdown, visa-letter handling, and a deletion date for the travel documents collected.",
+      "files": [],
+      "expectations": [
+        "States that reimbursement filters the lineup by who can front the cost of a flight and wait, rather than treating it as a neutral admin preference",
+        "Recommends the event books and pays directly, or offers an advance, for at least the speakers travelling from India, Brazil and the US rather than reimbursing all nine uniformly",
+        "Raises visa letters for the non-EU speakers, asks early whether one is needed and who signs it, and states no specific processing lead time as fact",
+        "Fixes the mechanism before the first message and states in one sentence in the packet whether the event books and pays or the speaker pays and claims",
+        "Specifies what is covered and what is not: flights or train, which nights of lodging, ground transport, meals, and a cap on each, rather than the phrase 'reasonable expenses'",
+        "States a claim deadline and a payment turnaround and commits to honouring both",
+        "Names a deletion date for passport or ID details, ticket numbers and bank details, decided at collection time and written into the packet",
+        "Notes that travel and lodging concierge tops both effort and compliance cost, so an efficiency ranking on its own never selects it",
+        "Routes anything beyond expense reimbursement, such as direct payments, taxes or contracts, through whoever handles the event's money rather than handling it inside speaker care",
+        "Collects arrival and departure times as a dated material item rather than discovering them on the day",
+        "Does not silently downgrade the promised 'travel and two nights' hotel' term to fit the 9,000 EUR budget, and escalates any shortfall to whoever made the promise"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "One of our accepted speakers at Cinderhall Frontend Day mentioned in her reply that this is the first conference talk she's ever given. She's a senior engineer with eight years at a payments company, so she isn't junior, just new to stages. Her talk is 30 minutes in our 180-seat main room. She's accepted and the programme is locked. What do we offer her over the next six weeks without being patronising?",
+      "expected_output": "Post-acceptance first-time-speaker support: a rehearsal at a named time with a named listener, stage access, a description of the room, and a clear line between organizer logistics and the speaker's own content.",
+      "files": [],
+      "expectations": [
+        "Does not route her to a speaker mentorship programme, and states that mentorship programmes work on proposal drafts and close before acceptance decisions are made",
+        "Offers a rehearsal slot at a specific named time with a named person listening, rather than an open 'let us know if you want to practise'",
+        "States that an open offer to practise is declined by exactly the people who most need it",
+        "Offers access to the actual stage, the actual clicker and the actual confidence monitor before the doors open",
+        "Describes what the room will be like: audience size, whether questions happen, who introduces her, what the timing signals look like, and what happens if a demo fails",
+        "Limits the organizer's role to booking the room, providing a listener and coordinating the timing, and leaves what goes in the talk to her",
+        "Points her at talk-preparation and rehearsal material for the content side rather than coaching the talk's content here",
+        "Recommends asking every speaker whether this is their first talk at this size, with the stated reason that it changes what is offered and not how the talk is judged, rather than inferring it from seniority",
+        "Promotes a per-speaker check-in call for her specifically rather than raising the cadence for the whole roster",
+        "Adds a live briefing, a short call or a session on arrival, on top of the written packet",
+        "Labels the first-time-speaker measures as defaults worth trying rather than as established conference practice"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Two weeks out from Hollowmere Cloud Summit. 16 speakers across two tracks in a converted warehouse. The venue gave us a side room upstairs we've been calling the green room, but it's also where our 22 volunteers get briefed at 08:00, where the organizer laptops live, and where we put the lost-property box. There's no house AV technician; one of our volunteers has a bag of adapters. Right now the plan is to tell speakers to find us at the AV desk before their talk for a quick check. What should we change?",
+      "expected_output": "Scheduled per-speaker tech checks on the real stage, a green room stripped back to its single purpose with a stated entry norm, and a named on-site host.",
+      "files": [],
+      "expectations": [
+        "Rejects 'find us before your talk' and schedules each speaker's tech check at a named time inside that speaker's own cadence",
+        "States that an unscheduled check produces a queue of speakers in the last minutes before the first session",
+        "Requires the tech check to happen on the actual stage with the actual equipment, not in a side room",
+        "Lists tech-check steps including connecting the speaker's own machine to the real projector and confirming resolution and aspect ratio, testing the microphone the speaker will actually use at speaking volume with the room's own gain, and playing any talk audio through the room system",
+        "Runs only the demo's riskiest moment, such as the network call, the SSH session or the hardware, rather than the whole demo",
+        "Agrees in advance what happens if a demo fails live: skip to a slide, show a recording, or talk through it",
+        "States that the green room's single purpose is somewhere a speaker can be not-on, and removes the volunteer briefing, the organizer laptops and the lost-property box on that basis",
+        "Sets a stated norm about who else may enter the green room, and puts that norm in the speaker packet",
+        "Lists green room contents including power, wifi and a table, water and something to eat that does not require leaving, a clock showing the real time with the current schedule, and somebody who knows what is happening",
+        "Names a single on-site host, a person or a pair, who meets each speaker, walks them to the speaker room rather than pointing, and is findable in the twenty minutes before each slot",
+        "Answers each speaker's A/V request back with what the venue can actually provide, including explicitly where the answer is no",
+        "Hands the speakers' timing needs to the day-of run-of-show document rather than writing a minute-by-minute event schedule here"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Bramblewick JS Conf ran on 12 September. It's now 9 January and the videos finally went up on our YouTube channel last Thursday. I was going to send all 19 speakers one email containing the playlist link, a thank you, their session feedback scores, and a question about who wants to come back next year. Our feedback forms have some rough written comments on two of the talks that I'd rather not forward. Does that email work?",
+      "expected_output": "The single email split into separate sequenced messages, unfiltered written feedback, per-session direct links, and an acknowledgement of the missed publication promise plus a retention pass.",
+      "files": [],
+      "expectations": [
+        "Splits the single combined email into separate messages rather than one send",
+        "Requires the thank-you to be individual, from the named contact, and to name one specific thing about that speaker's talk",
+        "States that feedback and a request must never travel in the same message",
+        "Passes anonymous written comments on in full, minus abuse, rather than filtering out the negative ones",
+        "States that a speaker will assume comments were filtered if they are",
+        "Includes the organizer's own read of the room alongside the numbers",
+        "Sends each speaker the direct link to their own session rather than the channel or the playlist",
+        "States that speakers should have been told before the videos went live, not after, and that hearing about it from a colleague undermines the consent they gave",
+        "Says where else the recording lives, and gives the speaker what they need to share it themselves, including that the non-exclusive licence already permits it",
+        "States that publication slipping past a promised date should have been communicated before that date passed rather than met with silence",
+        "Separates the returning-speaker ask into a later, separate message, asked once and with the answer recorded",
+        "Includes a retention pass deleting travel documents, ID scans and payment details still held from the event"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "The deadline for bios and headshots at Quillford Data Day was last Friday. Five of our 12 speakers still haven't sent anything. I've already emailed the whole speaker list four times, the same message each time, just with 'reminder', then 'second reminder', then 'final reminder' in the subject. One of them replied 'sorry, chaotic month'. The programme goes to the printer on Thursday. What do I send now, and how do I stop this happening next year?",
+      "expected_output": "One individually addressed message to the five outstanding speakers carrying the real reason, the actual consequence and an offer to renegotiate, plus a two-reminder ladder and a default cadence for next edition.",
+      "files": [],
+      "expectations": [
+        "Rejects sending another copy of the same message, and states that an identical repeat teaches speakers the deadline is decorative",
+        "States that two reminders carrying new information beat five identical ones",
+        "Writes to the five outstanding speakers individually rather than to the whole speaker list",
+        "States that one thread addressing every speaker at once leaks each speaker's address to the others and reads as somebody else's problem",
+        "The message names the real reason behind the date, that the programme goes to the printer on Thursday, rather than restating the date",
+        "The message names the actual consequence of non-delivery, such as publishing the programme without their bio",
+        "Offers to renegotiate: invites the speaker to say today if the date does not work, and to be told what is still possible",
+        "Treats a speaker who has missed a deadline as stuck rather than uninterested",
+        "Prescribes for next edition a first reminder at roughly half the remaining time and a second at the deadline, rather than four",
+        "Recommends the default cadence of packet at acceptance, a reminder at the materials deadline, and a logistics note 48 hours out",
+        "Recommends recording which materials arrived late and after which reminder, so next edition's ladder is built from this edition's record"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "I've just taken over speaker relations for Arclight Connect, our company's own user conference: 1,400 attendees, a proper production crew, travel and hotel booked by our events agency. Reading back through the thread history, whoever invited three of our external speakers told them 'we'll sort out a speaker fee, probably in the usual range' and 'your session will be 45 minutes'. Finance has no honorarium line at all, and the published grid has every breakout session at 30 minutes. The event is in five weeks. The agency also says a speaker packet is unnecessary because they handle all the logistics. How do I handle this?",
+      "expected_output": "Immediate escalation of both broken promises to whoever made them, no invented fee figure, and a speaker packet plus named contact retained despite the agency's logistics coverage.",
+      "files": [],
+      "expectations": [
+        "Escalates the fee promise and the session-length promise to whoever made them, now, rather than resolving either at the venue or in front of the speaker",
+        "Refuses to invent, estimate or quote any honorarium figure that nobody has confirmed",
+        "States that a term quietly downgraded between acceptance and arrival is the failure a speaker tells other speakers about",
+        "Rejects the agency's position and states that the packet and the named contact matter more at a vendor or user conference, not less, because bigger machinery hides the speaker's own experience more easily",
+        "Names one point of contact for all speaker communications despite the agency handling logistics",
+        "Labels the recommendation as assuming the vendor or user-conference pole wherever that differs from a community-run event",
+        "Does not treat the promised perks as negotiable by this role, and delivers whatever was promised rather than re-opening the terms",
+        "Ships a speaker packet covering slot, room, format, length and how strictly the length is enforced, alongside whatever the agency provides",
+        "Names who introduces each speaker and what they will say, and asks for name pronunciation and pronouns",
+        "Adds a live briefing for the three external speakers given the changed session length, rather than relying on the written packet alone",
+        "Treats the vendor-pole adjustments as judged rather than as established practice"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Second edition of Wrenmoor Platform Day is in four months. Last year we had 10 speakers and it went fine, but I honestly couldn't tell you whether the speaker side worked. I want a couple of numbers this time so the board can see progress. What should we track, and what's a good target for things like on-time material submission and how fast we publish the videos?",
+      "expected_output": "Two completeness gates plus self-set metrics, an explicit refusal to supply an industry benchmark, and instructions to pick two metrics and record them before the event.",
+      "files": [],
+      "expectations": [
+        "Sets material completeness at the deadline as a hard gate: every accepted speaker has bio, headshot, final title, A/V requirements and travel details recorded by the date each becomes unusable",
+        "Sets consent-record completeness as a hard gate: every published recording has a record naming session format, licence and opt-out answer, with no exceptions",
+        "Refuses to supply an industry benchmark or norm for on-time submission rate or for video publication latency",
+        "Instructs setting the video publication target yourself, publishing it in the speaker packet, and being measured against that stated promise",
+        "Labels which metrics are gates and which are self-set",
+        "Counts A/V surprises discovered on stage, targets zero, and tracks which category recurs",
+        "Tracks returning and referring speakers, and notes this is meaningful only because the edition recurs",
+        "Instructs picking two metrics, writing down what each would change next edition, and recording both before the event rather than after",
+        "States that failing material completeness at the deadline means the deadline ladder is wrong rather than the speakers",
+        "Promotes the speakers' dinner and appreciation gifts on the grounds that the edition recurs and the return lands after this edition is over"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "Acceptance emails went out yesterday for eleven speakers. What do I send them, and what do I need back by when?",
+      "should_trigger": true
+    },
+    { "query": "What goes in a speaker packet?", "should_trigger": true },
+    {
+      "query": "Do we book our speakers' flights or make them claim it back?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to put the talks on YouTube. What do we need from speakers and when do we ask?",
+      "should_trigger": true
+    },
+    {
+      "query": "One of our speakers has never given a conference talk before. What do we offer without being patronising?",
+      "should_trigger": true
+    },
+    {
+      "query": "What actually goes in a green room, and who staffs it?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many times should I chase a speaker for their bio?",
+      "should_trigger": true
+    },
+    {
+      "query": "When do I need headshots from speakers if the programme goes to print in October?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our speaker still hasn't sent slides and the event is Thursday.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we run tech checks for 16 speakers across two tracks?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is a signed release on the morning of the event enough to publish the video?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do lightning talk speakers get to opt out of being recorded?",
+      "should_trigger": true
+    },
+    {
+      "query": "Who should be the single person answering speaker emails?",
+      "should_trigger": true
+    },
+    {
+      "query": "Three organizers are all replying to the same speaker in different threads. Fix this.",
+      "should_trigger": true
+    },
+    {
+      "query": "We invited two keynotes directly and they never went through the CFP. Does our recording checkbox cover them?",
+      "should_trigger": true
+    },
+    {
+      "query": "What do I ask speakers about their AV setup?",
+      "should_trigger": true
+    },
+    {
+      "query": "A speaker needs a visa letter for our conference. What do we do?",
+      "should_trigger": true
+    },
+    {
+      "query": "How long should we keep a speaker's passport scan after the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Planning a speakers' dinner. Should sponsors be invited?",
+      "should_trigger": true
+    },
+    {
+      "query": "What do I send speakers after the conference is over?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our videos went up four months late. What do I tell the speakers?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should I forward the harsh anonymous comments to the speaker?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we support a first-time speaker after they're accepted?",
+      "should_trigger": true
+    },
+    { "query": "Can I offer our speakers a rehearsal?", "should_trigger": true },
+    {
+      "query": "What's a reasonable cadence for emailing confirmed speakers before the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Somebody promised a speaker a fee and finance says there's no budget line for it.",
+      "should_trigger": true
+    },
+    {
+      "query": "Our speaker's session got cut from 45 to 30 minutes after we accepted them.",
+      "should_trigger": true
+    },
+    {
+      "query": "We have no green room. What do we tell speakers?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I stop discovering AV problems on stage?",
+      "should_trigger": true
+    },
+    {
+      "query": "Who walks the speaker to their room on the day?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I track which materials each speaker has sent?",
+      "should_trigger": true
+    },
+    {
+      "query": "What should a confirmed speaker know before they arrive?",
+      "should_trigger": true
+    },
+    {
+      "query": "Setting up a consent record for our conference videos.",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we need separate permission for live streaming versus publishing the recording afterwards?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our speakers keep asking questions and nobody knows who owns the answer.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we thank the people who gave talks at our conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it okay to collect the deck right after the talk and send it to attendees?",
+      "should_trigger": true
+    },
+    {
+      "query": "A speaker arrives the morning of and we have no idea what time their flight lands.",
+      "should_trigger": true
+    },
+    {
+      "query": "We're a company running our own user conference and an agency handles logistics. Do we still need a speaker packet?",
+      "should_trigger": true
+    },
+    {
+      "query": "What metrics tell me whether the speaker side of our event worked?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I brief a keynote without re-editing their talk?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our accepted speakers have gone quiet. What now?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should I ask speakers if it's their first talk?",
+      "should_trigger": true
+    },
+    {
+      "query": "Building the on-site plan for the people presenting at our conference.",
+      "should_trigger": true
+    },
+    {
+      "query": "We recorded everything and now one of them wants their video taken down.",
+      "should_trigger": true
+    },
+    {
+      "query": "What information do speakers need about the room before they walk on stage?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the cold email inviting a speaker we've shortlisted but never contacted.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I find good speakers for a Kubernetes conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "We need to send rejection emails to 60 CFP submissions.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the scoring rubric our review committee uses on submissions.",
+      "should_trigger": false
+    },
+    {
+      "query": "What fields should our call for papers submission form have?",
+      "should_trigger": false
+    },
+    {
+      "query": "When should our CFP open and close relative to the event date?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we do blind review of talk proposals?",
+      "should_trigger": false
+    },
+    {
+      "query": "What perks should we promise speakers in the call for papers?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the catering and coffee breaks for 400 attendees.",
+      "should_trigger": false
+    },
+    {
+      "query": "What's our alcohol policy for the evening social?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the minute-by-minute run of show for conference day.",
+      "should_trigger": false
+    },
+    {
+      "query": "Who is the organizer on duty at each room transition?",
+      "should_trigger": false
+    },
+    {
+      "query": "A government minister is attending. What protocol do we need?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we recognise volunteers after the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the badge pickup and check-in desk flow.",
+      "should_trigger": false
+    },
+    {
+      "query": "First-time attendee orientation, what do we run?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many cameras do we need to record two tracks?",
+      "should_trigger": false
+    },
+    {
+      "query": "Separate the room display feed from the recorded output.",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn our conference videos into clips for LinkedIn.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our code of conduct and the reporting process behind it.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the session grid across three tracks and two days.",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me outline and rehearse the talk I'm giving next month.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I structure the opening of my conference talk?",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our sign language and captioning provision be?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the post-event attendee feedback survey.",
+      "should_trigger": false
+    },
+    {
+      "query": "Deliver what we promised our gold sponsors.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the budget for a 500-person conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "Compare three venues for our conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we split roles across our organizing team?",
+      "should_trigger": false
+    },
+    {
+      "query": "How should hackathon mentors support teams during the build?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the curriculum for a full-day workshop track.",
+      "should_trigger": false
+    },
+    {
+      "query": "Run the post-event debrief with the organizing team.",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our conference's social media in the weeks before the event.",
+      "should_trigger": false
+    },
+    {
+      "query": "What goes on the conference landing page above the fold?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set early bird and regular ticket prices.",
+      "should_trigger": false
+    },
+    {
+      "query": "Reduce no-shows on our free workshop registrations.",
+      "should_trigger": false
+    },
+    {
+      "query": "Improve our developer experience for API users.",
+      "should_trigger": false
+    },
+    {
+      "query": "Map the customer experience journey for our SaaS onboarding.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the onboarding experience for new employees joining the team.",
+      "should_trigger": false
+    },
+    {
+      "query": "Run user experience research interviews for our product.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get media to cover our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up ticket discount code swaps with another conference.",
+      "should_trigger": false
+    },
+    { "query": "How do we price sponsorship tiers?", "should_trigger": false },
+    {
+      "query": "What kind of event should our company run, a user conference or a roadshow?",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick a date for next year's conference that avoids clashes.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the B2B meeting matchmaking between attendees and sponsors.",
+      "should_trigger": false
+    }
+  ]
+}

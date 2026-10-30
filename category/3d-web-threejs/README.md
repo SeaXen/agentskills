@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 52 skills  
+> **Total Curated Skills**: 56 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -40,6 +40,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`build-wireframe-scan-reveal`](../../library/mengto-skills/skills/build-wireframe-scan-reveal) | ⚪ Reserve | `mengto-skills` | Reveal Three.js geometry with an expanding world-space scan whose wire cage leads the solid sur... |
 | [`create-game-vfx`](../../library/mengto-skills/skills/create-game-vfx) | ⚪ Reserve | `mengto-skills` | Create readable, performance-safe Three.js game visual effects. Use for attacks, impacts, damag... |
 | [`design-game-encounters`](../../library/mengto-skills/skills/design-game-encounters) | ⚪ Reserve | `mengto-skills` | Design, implement, tune, or test Three.js action-game encounters. Use for arena layout, enemy c... |
+| [`fal-3d`](../../library/nexu-io-open-design/skills/fal-3d) | ⚪ Reserve | `nexu-io-open-design` | Generate 3D models from text or images via fal.ai. Useful for game assets, AR previews, product... |
 | [`fire-paper-loader`](../../library/mengto-skills/skills/fire-paper-loader) | ⚪ Reserve | `mengto-skills` | Build a burning-paper ring loader whose GLSL flame is drawn by a Worker on an OffscreenCanvas s... |
 | [`fire-smoke-skill-vfx`](../../library/mengto-skills/skills/fire-smoke-skill-vfx) | ⚪ Reserve | `mengto-skills` | Build the effects of a fire skill as one visual language in Three.js. Flames that read as fire,... |
 | [`globe-gl`](../../library/mengto-skills/skills/globe-gl) | ⚪ Reserve | `mengto-skills` | Use when implementing globe.gl (Globe.GL) for 3D globe data visualization with WebGL/ThreeJS, i... |
@@ -50,8 +51,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`makepad-shaders`](../../library/sickn33-agentic-awesome-skills/skills/makepad-shaders) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CRITICAL: Use for Makepad shader system. Triggers on: makepad shader, makepad draw_bg, Sdf2d, m... |
 | [`melonjs`](../../library/melonjs-melonjs/skills/melonjs) | ⚪ Reserve | `melonjs-melonjs` | Provides migration guidance for melonJS 20.x, covering async initialization, WebGL 2/WebGPU bac... |
 | [`optimize-threejs-games`](../../library/mengto-skills/skills/optimize-threejs-games) | ⚪ Reserve | `mengto-skills` | Profile, diagnose, and improve Three.js or WebGL game performance without regressing gameplay. ... |
+| [`optimize-web`](../../library/unity-technologies-skills/skills/optimize-web) | ⚪ Reserve | `unity-technologies-skills` | Optimizes Unity WebGL and WebGPU builds for smaller downloads, faster loading, and smoother bro... |
 | [`premium-3d-website`](../../library/sickn33-agentic-awesome-skills/skills/premium-3d-website) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing,... |
 | [`shader-dev`](../../library/minimax-ai-skills/skills/shader-dev) | ⚪ Reserve | `minimax-ai-skills` | Comprehensive GLSL shader techniques for creating stunning visual effects — ray marching, SDF m... |
+| [`shader-graph-create-custom-node`](../../library/unity-technologies-skills/skills/shader-graph-create-custom-node) | ⚪ Reserve | `unity-technologies-skills` | Generates custom Shader Graph nodes from HLSL code. Use when the user wants a new Shader Graph ... |
 | [`shader-programming-glsl`](../../library/sickn33-agentic-awesome-skills/skills/shader-programming-glsl) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, cov... |
 | [`threejs`](../../library/mengto-skills/skills/threejs) | ⚪ Reserve | `mengto-skills` | Use when building or debugging interactive 3D scenes on the web with Three.js (scene/camera/ren... |
 | [`threejs-asset-pipeline`](../../library/cloudai-x-threejs-skills/skills/threejs-asset-pipeline) | ⚪ Reserve | `cloudai-x-threejs-skills` | Shrinking glTF assets for three.js with gltf-transform: inspect, validate and optimize commands... |
@@ -70,4 +73,5 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`threejs-towers`](../../library/mengto-skills/skills/threejs-towers) | ⚪ Reserve | `mengto-skills` | Generate architecture procedurally in Three.js and film it assembling — a small geometry vocabu... |
 | [`threejs-weather`](../../library/mengto-skills/skills/threejs-weather) | ⚪ Reserve | `mengto-skills` | Put weather into a Three.js scene that reads as weather — rain anchored inside the frustum, a s... |
 | [`vantajs`](../../library/mengto-skills/skills/vantajs) | ⚪ Reserve | `mengto-skills` | Use when adding animated WebGL background effects with Vanta.js (setup, parameters, resizing, p... |
+| [`web-clone`](../../library/nexu-io-open-design/skills/web-clone) | ⚪ Reserve | `nexu-io-open-design` | 网站复刻 / 克隆方法论。USE WHEN 用户说 复刻网站、克隆网站、clone website、抄个站、仿站、 照着这个站做一个、reproduce site、还原某个网页效果、把这个站... |
 | [`webgl-landing-steering`](../../library/mengto-skills/skills/webgl-landing-steering) | ⚪ Reserve | `mengto-skills` | Use when creating or refining WebGL-heavy landing pages and you need to steer toward a specific... |

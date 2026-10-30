@@ -1,0 +1,170 @@
+{
+  "skill_name": "event-official-social-program",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run Kestrel Systems' annual developer conference, about 600 people, and we have three things happening Wednesday 19:00-22:00: a beer-and-boardgames night in the hotel bar (ground floor, step-free, beer on tap), a karaoke room on the second floor reachable only by stairs with an alcohol-free bar, and a bring-your-kids pizza social on the mezzanine up a short flight of steps with beer available. Our accessibility page commits to step-free routes to every official space, an alcohol-free option, and family-inclusive evening programming. Each of the three was signed off individually by the organiser who proposed it, so I think we're fine. Sanity-check the evening and write up the social programme so we can post it Friday.",
+      "expected_output": "A finding that the 19:00-22:00 slot has no option clearing all three published commitments at once, the three named fixes, a refusal to publish with the gap noted, and a requirement to name which option clears the floor beside the slate.",
+      "files": [],
+      "expectations": [
+        "Identifies that no single option in the 19:00-22:00 slot clears all three published commitments (step-free, alcohol-free, family-inclusive) at once",
+        "States the check as a slate-level or per-slot floor, explicitly contrasted with checking each activity on its own",
+        "States that every activity passing its own individual sign-off is precisely why the gap survived",
+        "Offers the three fixes for the failing slot: add a clearing option to that slot, move one activity out of it, or narrow the slate",
+        "Refuses to note the gap and publish the programme anyway",
+        "Requires the published slate itself to state which option clears the floor, rather than a separate page a reader finds afterwards",
+        "Names which activity is step-free, which is alcohol-free, and which is family-inclusive, using the terms of the event's own published access commitments",
+        "Hands the finished per-slot check and any uncovered slot back to the accessibility work that owns the commitments, without setting a new bar of its own",
+        "Identifies concurrency as what created the failure, noting a slate whose occasions never share an hour cannot fail this floor on choice"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Fernbrook Labs here. Our conference is two days and we've already locked the Thursday evening mixer, venue booked and catering signed. Day two's evening is completely empty and it feels like a waste of a slot. I was thinking we add a second thing, maybe a pub quiz or a walking tour, so people have more to do. It'd be me organising it on top of everything else, same as the mixer. Nobody has actually asked for it, I just don't like the empty evening. What should the second event be?",
+      "expected_output": "A recommendation to stay at one social occasion, with both promotion conditions evaluated separately and failing, and the upper options deleted from the menu and its axis orderings rather than ranked last.",
+      "files": [],
+      "expectations": [
+        "Recommends staying at a single social occasion instead of choosing between the pub quiz and the walking tour",
+        "Names both conditions for moving up one rung - somebody actually asked for a second occasion, and a named owner exists for it - and evaluates them separately",
+        "States that either condition failing keeps the plan at one occasion",
+        "Identifies the user's own statement that nobody asked as the failing request condition",
+        "Identifies the same person owning both occasions as no owner for the second, because ownership is answered per occasion and never for the slate as a whole",
+        "Deletes the two-occasion and themed-track options from the menu rather than ranking them last or parking them as future options",
+        "States that the deletion applies to the effort, value, compliance-cost and efficiency orderings too, not only to the list of options",
+        "Names an empty hour in the evening as an illegitimate trigger for adding an occasion"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Quick count check for Aldergate Dev Summit. Our social programme for the week is: (1) our own welcome mixer Tuesday night, (2) an afterparty our platinum sponsor Vantik is throwing at a club on Wednesday, (3) a speakers-and-advisors dinner Wednesday, invitation only, 30 seats, (4) the local Rust user group's meetup Thursday, which is using our logo on their signup page. That's four social events, right? I want to put all four on the schedule page as our official social track and tell the code of conduct people we're covered. Give me the times to publish for each as well.",
+      "expected_output": "A slate of one occasion, the two third-party events routed to side-event coordination, the invite-only dinner routed to the invite-only gathering work, a non-overlap requirement instead of published times, and a handoff to the code of conduct.",
+      "files": [],
+      "expectations": [
+        "Counts one occasion on the event's own slate, not four",
+        "Classifies the sponsor afterparty and the user-group meetup as events the organiser permits rather than provides, keeping both off the slate",
+        "Routes both third-party events to side-event coordination, including the logo usage on the user group's page",
+        "Hands the confirmed slate to side-event coordination as the calendar those third-party events are deconflicted against",
+        "Classifies the invitation-only speakers-and-advisors dinner as outside the open slate and routes it to the invite-only or named-guest gathering work",
+        "Declines to publish times for the occasions and states a non-overlap requirement for the schedule to place instead",
+        "States that placing or moving a slot belongs to the schedule, never to this decision",
+        "Hands the count and the places to the code of conduct so its scope clause reaches every occasion rather than only the one everybody remembered"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Hollins Tech Week, fourth edition, about 1,200 attendees. Our published accessibility commitments cover step-free access, a quiet alcohol-free space, childcare, and captioned content. We want a proper social track on Thursday evening: a run club, a board-game room, a family pizza hour, and a quiet crafting corner, all 18:00-21:00 across three different buildings. Our community manager Dara is fantastic and is happy to own all four of them. People come back partly for this stuff, it's part of why the event works. Green light?",
+      "expected_output": "A refusal to green-light the track as staffed, with all three track conditions evaluated separately, the single-owner condition identified as the failure, and the concurrency cost of three buildings named.",
+      "files": [],
+      "expectations": [
+        "Declines to green-light the four-activity track as currently staffed",
+        "Names all three conditions the track requires - an access set no single format can carry at once, an owner per activity, and a recurring edition - and evaluates each separately",
+        "Identifies the diverse published access commitments and the recurring edition as the two conditions that are satisfied",
+        "Identifies one person owning all four activities as the failing condition, because the requirement is an owner per activity rather than one owner for the whole track",
+        "States that any one condition failing leaves the plan below the track",
+        "Describes a track held by a single owner as a sequence rather than a genuine track",
+        "Notes that the track's compliance cost rises with concurrency across more than one building, multiplying the access confirmation and the licensing question per place",
+        "Notes that a published track is expensive to withdraw once people have planned around it"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Northmoor Data Conf, 300 people, single day. We haven't decided anything about the evening yet. Honestly we might just do nothing and let people find a bar on their own. If we do put something on, rank the options for me: a mixer at the venue, a sit-down dinner with a programme, or a coach trip out to the old brewery. And if we end up doing two things, I'd want the dinner to be dry and the mixer to have beer on tap. Give me the ranking and say what each one serves.",
+      "expected_output": "A refusal to rank the three formats or to split the alcohol posture per activity, with both routed to the hospitality decision, plus the point that the do-nothing option sits there too and still has to be published.",
+      "files": [],
+      "expectations": [
+        "Declines to rank the mixer, the sit-down dinner and the brewery trip itself, routing that ranking to the hospitality decision that owns the format menu",
+        "States that it produces no second, differently worded ranking of those same formats",
+        "States that the occasion format and the alcohol posture must already be decided before any slate depth is ranked",
+        "Refuses to give the dinner and the mixer different alcohol postures",
+        "States the alcohol posture is set once for the whole event, so a slate does not get a posture per activity",
+        "Routes the do-nothing option to the hospitality decision rather than treating it as a rung of the slate menu",
+        "States that the floor of the slate menu is one occasion",
+        "Notes that an absence still has to be published either way, because an unannounced absence sends people to an unhosted bar"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Braylin Open Source Days. The plan is to post a page on Monday listing six optional evening activities - pool night, escape room, open mic, city walk, board games, quiet lounge - and let attendees pick whichever suits them. More choice, more inclusive, right? The accessibility page with the venue details for each is coming the week after, our a11y volunteer is away until then. And if signups look thin on two of them we'll just quietly drop those. Write me the announcement copy.",
+      "expected_output": "A refusal to write the announcement, identifying the unqualified options list as a deleted option, rejecting publication before the access statement, rejecting the silent shortening, and requiring approval before further venues are held.",
+      "files": [],
+      "expectations": [
+        "Refuses to produce the announcement copy as described",
+        "Identifies a slate published as a list of options with no statement of which one clears the access floor as a deleted option, not a lower-ranked one",
+        "Rejects the more-choice-is-more-inclusive reasoning, stating the choice is fake for exactly the people the floor exists for",
+        "States that a slate is not an access provision because it is long",
+        "Rejects publishing the slate before the access statement, because people plan around the slate the moment it appears",
+        "Notes that an access statement arriving later reaches only whoever is still deciding, which is not the population it was written for",
+        "Rejects quietly dropping activities after publication, stating that a published slate later shortened reads as a cancellation",
+        "Requires the slate to be presented for approval before any further venue is held"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Two questions for Sandhill Infra Con. First, we're running one big evening party this year instead of the three-activity thing we did last year, and my co-organiser keeps saying the single party is worth more because everybody is in the same room for once. Is she right, and how do I weigh that against reaching more people? Second, give me the benchmark numbers: what share of attendees should turn up to an official social activity, and how many activities per 500 attendees is normal? I want targets written into the plan before registration opens.",
+      "expected_output": "A refusal to supply attendance shares or activity-per-attendee ratios, slot floor coverage named as the only gate at zero uncovered slots, the rest self-set, and the shared-moment property confirmed as real but deliberately unranked.",
+      "files": [],
+      "expectations": [
+        "Refuses to supply a benchmark attendance share for official social activities",
+        "Refuses to supply an activity count or a ratio of activities to attendees",
+        "Names slot floor coverage as the only gate, with the number being zero uncovered slots and no threshold applied",
+        "Marks the remaining measures as self-set and meaningful only across editions",
+        "Tells the user to pick one measure and write down before the event what it would change next edition",
+        "Confirms the co-organiser's shared-moment argument names a real property of a slate, while stating the menu deliberately does not rank it",
+        "States that the shared-moment property orders the options single occasion > two occasions on separate slots > themed track, and that this ordering is rank-identical to inverse effort",
+        "Says the co-organiser should argue for the shared moment directly rather than expecting the ranking to carry it"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    { "query": "Should we run more than one official social activity at our conference?", "should_trigger": true },
+    { "query": "We've already locked the evening mixer - is a second social event on day two worth it?", "should_trigger": true },
+    { "query": "Three social things all at the same time on Thursday night. Problem?", "should_trigger": true },
+    { "query": "How do I publish a social track so people know which activity they can actually attend?", "should_trigger": true },
+    { "query": "Somebody wants to add a pub quiz on day two. What has to be true before I say yes?", "should_trigger": true },
+    { "query": "We have a run club, a board game room and a karaoke night all running 7-10pm. Is that fine?", "should_trigger": true },
+    { "query": "One big party or four smaller things?", "should_trigger": true },
+    { "query": "How many official evening things should a 500-person conference put on?", "should_trigger": true },
+    { "query": "A wheelchair user who doesn't drink looked at our evening lineup and said there was nothing for her, but every activity on the list is individually accessible.", "should_trigger": true },
+    { "query": "Our accessibility page promises a quiet alcohol-free option and childcare - does our evening programme actually cover both at once?", "should_trigger": true },
+    { "query": "Is it fine to list six optional evening activities and let attendees pick whichever they want?", "should_trigger": true },
+    { "query": "We want the social programme to be a real feature of the event, not an afterthought. How many things do we run?", "should_trigger": true },
+    { "query": "Do we need a named organiser for every evening activity, or can one person run the lot?", "should_trigger": true },
+    { "query": "Thinking of adding a second evening thing since day two is completely empty.", "should_trigger": true },
+    { "query": "What exactly do I hand the schedule team about our evening events?", "should_trigger": true },
+    { "query": "Can two of our official evening activities share the same hours?", "should_trigger": true },
+    { "query": "Should the board game table and the mixer overlap, or go back to back?", "should_trigger": true },
+    { "query": "We ran three parallel activities last year and one attendee could not attend any of them. How do I stop that repeating?", "should_trigger": true },
+    { "query": "Is a caregiver going to find anything at all on our Thursday evening lineup?", "should_trigger": true },
+    { "query": "Help me justify adding a second official social occasion to my co-chair.", "should_trigger": true },
+    { "query": "We're planning a themed evening track for our returning attendees. Sanity check it for me.", "should_trigger": true },
+    { "query": "How do I decide between one big party and a multi-activity evening?", "should_trigger": true },
+    { "query": "Our evening lineup is pizza social, karaoke and escape room, all starting at 7pm. Write up how we announce it.", "should_trigger": true },
+    { "query": "Do I need to say which evening activity is step-free when we publish the lineup?", "should_trigger": true },
+    { "query": "Adding a morning run alongside the evening mixer - good idea or scope creep?", "should_trigger": true },
+    { "query": "Should we serve alcohol at our conference or run it dry?", "should_trigger": false },
+    { "query": "What should a coffee break contain at a two-day conference?", "should_trigger": false },
+    { "query": "Buffet or plated dinner for 400 people with 60 dietary restrictions?", "should_trigger": false },
+    { "query": "Is a venue mixer better than a formal dinner for our evening programme?", "should_trigger": false },
+    { "query": "A sponsor wants to throw an afterparty at a club during our conference dates. Do we approve it?", "should_trigger": false },
+    { "query": "A meetup group is using our event's name and logo on their own signup page. What do we do?", "should_trigger": false },
+    { "query": "How do I write a disclaimer for fringe events we don't run ourselves?", "should_trigger": false },
+    { "query": "How do I assemble the seat list for our invite-only speakers dinner when sponsors keep adding names?", "should_trigger": false },
+    { "query": "How do we run the door at a private reception without publishing a VIP tier?", "should_trigger": false },
+    { "query": "A government minister is attending our conference. What escort and protocol do we owe?", "should_trigger": false },
+    { "query": "Should we caption every talk and run a quiet room?", "should_trigger": false },
+    { "query": "How do I write our conference accessibility page?", "should_trigger": false },
+    { "query": "Someone requested a sign language interpreter. How should we handle the request data?", "should_trigger": false },
+    { "query": "How do I lay 42 accepted talks into a three-track grid?", "should_trigger": false },
+    { "query": "Two of my speakers are double-booked across tracks. How do I fix the grid?", "should_trigger": false },
+    { "query": "Where should lunch and the breaks go in a one-day agenda?", "should_trigger": false },
+    { "query": "How do I design a signature tradition people remember our event for?", "should_trigger": false },
+    { "query": "Script our opening ceremony and brief the MC.", "should_trigger": false },
+    { "query": "Write the minute-by-minute rundown for conference day one.", "should_trigger": false },
+    { "query": "Where does the quiet room go, and how do we sign the venue so people find rooms?", "should_trigger": false },
+    { "query": "How should check-in and badge pickup work for 800 attendees?", "should_trigger": false },
+    { "query": "Does our code of conduct scope clause need rewriting this year?", "should_trigger": false },
+    { "query": "How many volunteers do we need to staff a two-day conference?", "should_trigger": false },
+    { "query": "Should we run a single-city user conference or a multi-city roadshow?", "should_trigger": false },
+    { "query": "How do we price a two-day conference ticket?", "should_trigger": false }
+  ]
+}

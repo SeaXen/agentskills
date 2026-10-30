@@ -32,12 +32,60 @@
     "path": "category/architecture-system-design/adhd"
   },
   {
+    "id": "adr-create",
+    "name": "adr-create",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Create a new Architecture Decision Record with sequential numbering and AgentDB registration",
+    "path": "category/architecture-system-design/adr-create"
+  },
+  {
+    "id": "adr-drafting",
+    "name": "adr-drafting",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Creates new Architecture Decision Record (ADR) documents for significant architectural changes using a consistent template and repository-aware naming and storage guidance. Use when a user or agent decides on an architectural change, needs to document technical rationale, or wants to add a new ADR to the project history.",
+    "path": "category/architecture-system-design/adr-drafting"
+  },
+  {
+    "id": "adr-index",
+    "name": "adr-index",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Build or rebuild the ADR index + dependency graph by running scripts/import.mjs (handles v3-style and plugin-style ADR formats; one Bash call vs hundreds of MCP round-trips)",
+    "path": "category/architecture-system-design/adr-index"
+  },
+  {
+    "id": "adr-reindex",
+    "name": "adr-reindex",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Reconcile the ADR index against a DELETED ADR file or relation line by dropping and rebuilding adr-patterns + adr-edges from scratch (scripts/reindex.mjs). Use when adr-index alone leaves stale rows behind.",
+    "path": "category/architecture-system-design/adr-reindex"
+  },
+  {
+    "id": "adr-review",
+    "name": "adr-review",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Review code changes against accepted ADRs for compliance violations",
+    "path": "category/architecture-system-design/adr-review"
+  },
+  {
     "id": "adr-verbatim",
     "name": "adr-verbatim",
     "category": "architecture-system-design",
     "repository": "davidondrej-skills",
     "description": "Record concise ADRs that preserve the user''s decisions without conversational noise. Use for \"adr-verbatim\", \"new ADR\", \"document that as an ADR\", \"record this decision\", or supplied ADR wording.",
     "path": "category/architecture-system-design/adr-verbatim"
+  },
+  {
+    "id": "adr-verify",
+    "name": "adr-verify",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Read back adr-patterns + adr-edges namespaces, surface dangling refs / supersede cycles / Unknown statuses; exit 1 on cycles",
+    "path": "category/architecture-system-design/adr-verify"
   },
   {
     "id": "adrapid-automation",
@@ -48,12 +96,28 @@
     "path": "category/architecture-system-design/adrapid-automation"
   },
   {
+    "id": "adroll",
+    "name": "adroll",
+    "category": "architecture-system-design",
+    "repository": "membranedev-application-skills",
+    "description": "AdRoll integration. Manage data, records, and automate workflows. Use when the user wants to interact with AdRoll data.",
+    "path": "category/architecture-system-design/adroll"
+  },
+  {
     "id": "ads-plan",
     "name": "ads-plan",
     "category": "architecture-system-design",
     "repository": "agricidaniel-claude-ads",
     "description": "Create a professional paid-advertising strategy covering objectives, economics, platform selection, campaign architecture, audiences, budget, creative, measurement, experiments, governance, rollout, and reporting. Use for ad plan, media plan, PPC strategy, paid-social strategy, campaign architecture, advertising roadmap, or channel planning.",
     "path": "category/architecture-system-design/ads-plan"
+  },
+  {
+    "id": "aeon",
+    "name": "aeon",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "This skill should be used for time series machine learning tasks including classification, regression, clustering, forecasting, anomaly detection, segmentation, and similarity search. Use when working with temporal data, sequential patterns, or time-indexed observations requiring specialized algorithms beyond standard ML approaches. Particularly suited for univariate and multivariate time series analysis with scikit-learn compatible APIs.",
+    "path": "category/architecture-system-design/aeon"
   },
   {
     "id": "agent-architecture-audit",
@@ -104,6 +168,14 @@
     "path": "category/architecture-system-design/agent-workflow-designer"
   },
   {
+    "id": "agentdb-query",
+    "name": "agentdb-query",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Query AgentDB through the controller bridge -- semantic routing, hierarchical recall, causal graphs, context synthesis, pattern store/search",
+    "path": "category/architecture-system-design/agentdb-query"
+  },
+  {
     "id": "agentforce-architecture-analyze",
     "name": "agentforce-architecture-analyze",
     "category": "architecture-system-design",
@@ -126,6 +198,14 @@
     "repository": "affaan-m-ecc",
     "description": "Build persistent multi-agent operating systems on Claude Code. Covers kernel architecture, specialist agents, slash commands, file-based memory, scheduled automation, and state management without external databases. Use when building a persistent multi-agent system on Claude Code with its own memory, commands, and scheduling.",
     "path": "category/architecture-system-design/agentic-os"
+  },
+  {
+    "id": "agentmemory-architecture",
+    "name": "agentmemory-architecture",
+    "category": "architecture-system-design",
+    "repository": "rohitg00-agentmemory",
+    "description": "How agentmemory is built, the iii engine primitives it runs on, its storage model, ports, and the viewer. Use when reasoning about how memory is stored or retrieved end to end, when extending the system, or when answering how agentmemory works under the hood.",
+    "path": "category/architecture-system-design/agentmemory-architecture"
   },
   {
     "id": "ai-inference-service-mesh",
@@ -168,6 +248,14 @@
     "path": "category/architecture-system-design/airflow-dag-patterns"
   },
   {
+    "id": "alphagenome",
+    "name": "alphagenome",
+    "category": "architecture-system-design",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Looks up precomputed AlphaGenome Atlas effects for any GRCh38 single-nucleotide variant (AVI score with Phred and 18 SHAP feature attributions, plus raw and quantile scores for RNA-seq, DNase, ATAC, ChIP-TF, ChIP-histone, CAGE, PRO-cap, splicing, polyadenylation and contact-map tracks), scores variants or scans windows on demand with the AlphaGenome model for human and mouse (variant scoring, in silico mutagenesis, REF-versus-ALT track prediction), and builds Atlas website deep links. Use when the user mentions AlphaGenome, AlphaGenome Atlas, AVI or AlphaGenome Variant Impact, DeepMind variant effect prediction, or wants to prioritise or mechanistically interpret non-coding, regulatory, splicing, enhancer, promoter, or chromatin-accessibility effects of SNVs from a VCF, credible set, or region. Research use only; not a clinical tool.",
+    "path": "category/architecture-system-design/alphagenome"
+  },
+  {
     "id": "amazon-listing-competitor-analysis-skill",
     "name": "amazon-listing-competitor-analysis-skill",
     "category": "architecture-system-design",
@@ -176,12 +264,44 @@
     "path": "category/architecture-system-design/amazon-listing-competitor-analysis-skill"
   },
   {
+    "id": "amazon-trending-products",
+    "name": "amazon-trending-products",
+    "category": "architecture-system-design",
+    "repository": "nexscope-ai-amazon-skills",
+    "description": "Trending products and rising categories discovery for Amazon sellers. Analyzes Best Seller Rank patterns, seasonal trends, new release momentum, and emerging niches. Identifies product opportunities before they peak. Use when the user asks about what's trending on Amazon, hot products, rising categories, seasonal opportunities, viral products, what to sell next, emerging niches, or early-mover opportunities. Also trigger for questions like 'what should I sell now?', 'what products are doing well?', 'find me trending niches', or 'what's hot on Amazon?'.",
+    "path": "category/architecture-system-design/amazon-trending-products"
+  },
+  {
+    "id": "amee-joshi-data-engineering-portfolio",
+    "name": "amee-joshi-data-engineering-portfolio",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-data-skills",
+    "description": "Reference portfolio demonstrating Azure data engineering patterns, Medallion architecture, and end-to-end analytics solutions",
+    "path": "category/architecture-system-design/amee-joshi-data-engineering-portfolio"
+  },
+  {
+    "id": "analyze-ai-topics",
+    "name": "analyze-ai-topics",
+    "category": "architecture-system-design",
+    "repository": "amplitude-mcp-marketplace",
+    "description": "Analyzes what users ask AI agents about and how well each topic is served. Only use when the user has Amplitude Agent Analytics instrumented in their project. Use when the user asks \"what are people asking the AI\", \"top AI topics\", \"where is the AI struggling\", \"AI coverage gaps\", \"what should we improve in our AI\", or wants product insights from AI conversation patterns.",
+    "path": "category/architecture-system-design/analyze-ai-topics"
+  },
+  {
     "id": "analyzing-dotnet-performance",
     "name": "analyzing-dotnet-performance",
     "category": "architecture-system-design",
     "repository": "dotnet-skills",
     "description": "Scans .NET code for ~50 performance anti-patterns across async, memory, strings, collections, LINQ, regex, serialization, and I/O with tiered severity classification. Use when analyzing .NET code for optimization opportunities, reviewing hot paths, or auditing allocation-heavy patterns.",
     "path": "category/architecture-system-design/analyzing-dotnet-performance"
+  },
+  {
+    "id": "anomaly-detection",
+    "name": "anomaly-detection",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Identify unusual patterns, outliers, and anomalies in data using statistical methods, isolation forests, and autoencoders for fraud detection and quality monitoring",
+    "path": "category/architecture-system-design/anomaly-detection"
   },
   {
     "id": "anti-sycophancy",
@@ -208,6 +328,14 @@
     "path": "category/architecture-system-design/api-connector-builder"
   },
   {
+    "id": "api-test-mode-design",
+    "name": "api-test-mode-design",
+    "category": "architecture-system-design",
+    "repository": "samber-developer-platform-skills",
+    "description": "Design the test/sandbox mode of a public API platform so external integrators build and validate without touching real money, messages, or data - isolation architecture (soft test-mode toggle vs hard separate-copy sandbox), test-key prefixing, magic test values, simulated objects and personas, on-demand test events, deterministic time manipulation, reset and seeding, sandbox quotas, abuse controls, and graduation to live. Use whenever the user mentions a sandbox, test mode, test API keys, magic or dummy test values, simulated webhook events, or demo data - even if they never say \"test mode\". Not code-execution sandboxing or unit-test mocking. Do NOT use for partner sandbox provisioning - use samber/developer-platform-skills@partner-app-onboarding instead.",
+    "path": "category/architecture-system-design/api-test-mode-design"
+  },
+  {
     "id": "apify-audience-analysis",
     "name": "apify-audience-analysis",
     "category": "architecture-system-design",
@@ -224,6 +352,14 @@
     "path": "category/architecture-system-design/appinsights-instrumentation"
   },
   {
+    "id": "arch-check",
+    "name": "arch-check",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Architecture conformance check: verifies an existing codebase against its declared architecture (VSA, Clean Architecture, DDD, Modular Monolith) \u2014 dependency direction, layer violations, module boundary leaks, and cycles \u2014 using token-cheap Roslyn MCP analysis. Invoke when: \"check architecture\", \"architecture violations\", \"layer violations\", \"dependency direction\", \"module boundaries\", \"arch check\", \"is my architecture clean\", \"enforce architecture\", \"conformance check\". For CHOOSING an architecture, use architecture-advisor instead.",
+    "path": "category/architecture-system-design/arch-check"
+  },
+  {
     "id": "architect-review",
     "name": "architect-review",
     "category": "architecture-system-design",
@@ -238,6 +374,14 @@
     "repository": "active",
     "description": "Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design.",
     "path": "category/architecture-system-design/architecture"
+  },
+  {
+    "id": "architecture-advisor",
+    "name": "architecture-advisor",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Architecture selection advisor for .NET applications. Asks structured questions about domain complexity, team size, system lifetime, compliance, and integration needs, then recommends the best-fit architecture: Vertical Slice, Clean Architecture, DDD + Clean Architecture, or Modular Monolith. Load this skill when the user asks \"which architecture\", \"choose architecture\", \"set up project\", \"new project\", \"architecture decision\", \"restructure\", or \"how should I organize\". Always load BEFORE any architecture-specific skill.",
+    "path": "category/architecture-system-design/architecture-advisor"
   },
   {
     "id": "architecture-decision",
@@ -280,6 +424,22 @@
     "path": "category/architecture-system-design/architecture-designer"
   },
   {
+    "id": "architecture-diagrams",
+    "name": "architecture-diagrams",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Create system architecture diagrams using Mermaid, PlantUML, C4 model, flowcharts, and sequence diagrams. Use when documenting architecture, system design, data flows, or technical workflows.",
+    "path": "category/architecture-system-design/architecture-diagrams"
+  },
+  {
+    "id": "architecture-optimization",
+    "name": "architecture-optimization",
+    "category": "architecture-system-design",
+    "repository": "wondelai-skills",
+    "description": "Guided journey from a working codebase grown slow and tangled to one measurably fast, cleanly bounded, and readable. Orchestrates eight skills phase by phase - working-with-legacy-code, clean-architecture, software-design-philosophy, refactoring-patterns, system-design, ddia-systems, release-it, pragmatic-programmer - every phase carries its method inline so it runs standalone, asking the user questions at every decision point and recording results in the project docs/ folder (PERFORMANCE.md, ARCHITECTURE.md, ARCHITECTURE-OPTIMIZATION-PLAN.md) so the journey resumes across sessions. Use when the user wants to make an app faster, untangle drifted boundaries, fix slow endpoints and queries, or says ''it works but it is slow and getting worse''. For an untested prototype, improve-code-quality; for an aged codebase you fear to touch, remove-technical-debt; for greenfield structure, design-code-architecture; for marketing-site page speed, improve-website. For one framework in isolation, invoke that skill directly.",
+    "path": "category/architecture-system-design/architecture-optimization"
+  },
+  {
     "id": "architecture-patterns",
     "name": "architecture-patterns",
     "category": "architecture-system-design",
@@ -299,7 +459,7 @@
     "id": "astro",
     "name": "astro",
     "category": "architecture-system-design",
-    "repository": "sickn33-agentic-awesome-skills",
+    "repository": "davila7-claude-code-templates",
     "description": "Build content-focused websites with Astro \u2014 zero JS by default, islands architecture, multi-framework components, and Markdown/MDX support.",
     "path": "category/architecture-system-design/astro"
   },
@@ -344,12 +504,28 @@
     "path": "category/architecture-system-design/auto"
   },
   {
+    "id": "autogen-development",
+    "name": "autogen-development",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert guidance for Microsoft AutoGen multi-agent framework development including agent creation, conversations, tool integration, and orchestration patterns.",
+    "path": "category/architecture-system-design/autogen-development"
+  },
+  {
     "id": "autonomous-loops",
     "name": "autonomous-loops",
     "category": "architecture-system-design",
     "repository": "affaan-m-ecc",
     "description": "Patterns and architectures for autonomous Claude Code loops \u2014 from simple sequential pipelines to RFC-driven multi-agent DAG systems. Retained for compatibility only: when new autonomous loop guidance is needed, use continuous-agent-loop instead.",
     "path": "category/architecture-system-design/autonomous-loops"
+  },
+  {
+    "id": "autopilot-predict",
+    "name": "autopilot-predict",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Use learned patterns and current state to predict the optimal next action",
+    "path": "category/architecture-system-design/autopilot-predict"
   },
   {
     "id": "autoresearch-skill",
@@ -376,6 +552,62 @@
     "path": "category/architecture-system-design/aws-cloud-patterns"
   },
   {
+    "id": "aws-cloudformation-auto-scaling",
+    "name": "aws-cloudformation-auto-scaling",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides AWS CloudFormation patterns for Auto Scaling including EC2, ECS, and Lambda. Use when creating Auto Scaling groups, launch configurations, launch templates, scaling policies, lifecycle hooks, and predictive scaling. Covers template structure with Parameters, Outputs, Mappings, Conditions, cross-stack references, and best practices for high availability and cost optimization.",
+    "path": "category/architecture-system-design/aws-cloudformation-auto-scaling"
+  },
+  {
+    "id": "aws-cloudformation-cloudwatch",
+    "name": "aws-cloudformation-cloudwatch",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides AWS CloudFormation patterns for CloudWatch monitoring, metrics, alarms, dashboards, logs, and observability. Use when creating CloudWatch metrics, alarms, dashboards, log groups, log subscriptions, anomaly detection, synthesized canaries, Application Signals, and implementing template structure with Parameters, Outputs, Mappings, Conditions, cross-stack references, and CloudWatch best practices for monitoring production infrastructure.",
+    "path": "category/architecture-system-design/aws-cloudformation-cloudwatch"
+  },
+  {
+    "id": "aws-cloudformation-dynamodb",
+    "name": "aws-cloudformation-dynamodb",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides AWS CloudFormation patterns for DynamoDB tables, GSIs, LSIs, auto-scaling, and streams. Use when creating DynamoDB tables with CloudFormation, configuring primary keys, local/global secondary indexes, capacity modes (on-demand/provisioned), point-in-time recovery, encryption, TTL, and implementing template structure with Parameters, Outputs, Mappings, Conditions, cross-stack references.",
+    "path": "category/architecture-system-design/aws-cloudformation-dynamodb"
+  },
+  {
+    "id": "aws-cloudformation-s3",
+    "name": "aws-cloudformation-s3",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides AWS CloudFormation patterns for Amazon S3. Use when creating S3 buckets, policies, versioning, lifecycle rules, and implementing template structure with Parameters, Outputs, Mappings, Conditions, and cross-stack references.",
+    "path": "category/architecture-system-design/aws-cloudformation-s3"
+  },
+  {
+    "id": "aws-cloudformation-vpc",
+    "name": "aws-cloudformation-vpc",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides AWS CloudFormation patterns for VPC foundations, including subnets, route tables, internet and NAT gateways, endpoints, and reusable outputs. Use when creating a new network baseline, segmenting public and private workloads, or preparing CloudFormation networking stacks for application deployments.",
+    "path": "category/architecture-system-design/aws-cloudformation-vpc"
+  },
+  {
+    "id": "aws-development",
+    "name": "aws-development",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "AWS development best practices for Lambda, SAM, CDK, DynamoDB, IAM, and serverless architecture using Infrastructure as Code.",
+    "path": "category/architecture-system-design/aws-development"
+  },
+  {
+    "id": "aws-drawio-architecture-diagrams",
+    "name": "aws-drawio-architecture-diagrams",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Creates professional AWS architecture diagrams in draw.io XML format (.drawio files) using official AWS Architecture Icons (aws4 library). Use when the user asks for AWS diagrams, VPC layouts, multi-tier architectures, serverless designs, network topology, or draw.io exports involving Lambda, EC2, RDS, or other AWS services.",
+    "path": "category/architecture-system-design/aws-drawio-architecture-diagrams"
+  },
+  {
     "id": "aws-serverless-eda",
     "name": "aws-serverless-eda",
     "category": "architecture-system-design",
@@ -398,14 +630,6 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Design AWS architectures for startups using serverless patterns and IaC templates. Use when asked to design serverless architecture, create CloudFormation templates, optimize AWS costs, set up CI/CD pipelines, or migrate to AWS. Covers Lambda, API Gateway, DynamoDB, ECS, Aurora, and cost optimization.",
     "path": "category/architecture-system-design/aws-solution-architect"
-  },
-  {
-    "id": "azure-functions",
-    "name": "azure-functions",
-    "category": "architecture-system-design",
-    "repository": "antigravity-awesome-skills",
-    "description": "Expert patterns for Azure Functions development including isolated worker model, Durable Functions orchestration, cold start optimization, and production patterns. Covers .NET, Python, and Node.js ...",
-    "path": "category/architecture-system-design/azure-functions"
   },
   {
     "id": "azure-identity-java",
@@ -464,12 +688,36 @@
     "path": "category/architecture-system-design/binary-analysis-patterns"
   },
   {
+    "id": "bleu",
+    "name": "bleu",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use this skill whenever a developer wants to turn an idea into a complete, production-ready, end-to-end system plan BEFORE writing any code. Trigger on 'plan this system', 'design the architecture for', 'help me blueprint', 'deep plan for X', 'break this idea into components', 'expand into action points', 'full implementation plan', or when the user pastes a project idea wanting architecture, components, pipelines, and file-level execution mapped out. Casual phrasing also triggers: 'help me think this through end-to-end', 'plan before coding'. Also covers living-workspace patterns: self-improving knowledge bases, reflection loops with auditor agents, four-agent teams, schema-as-code, wiki health scoring. **Resume triggers**: 'where did we leave off', 'continue this plan', 'resume my blueprint' - rehydrates state from disk via SESSION.md/NEXT.md/decisions/. Web research is mandatory every invocation.",
+    "path": "category/architecture-system-design/bleu"
+  },
+  {
+    "id": "bmad-architecture",
+    "name": "bmad-architecture",
+    "category": "architecture-system-design",
+    "repository": "bmad-code-org-bmad-method",
+    "description": "Work out and record the architecture decisions that keep separately built parts of a system consistent, in a short architecture document. Creates, updates, or validates one; works from a ticket file, with an existing codebase or architecture document beside it. Use when the user says \"create the architecture\", \"create technical architecture\", \"architecture spine\", or \"create a solution design",
+    "path": "category/architecture-system-design/bmad-architecture"
+  },
+  {
     "id": "brain-to-docs",
     "name": "brain-to-docs",
     "category": "architecture-system-design",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Interview the user to turn project vision and decisions into README and ADR documentation.",
     "path": "category/architecture-system-design/brain-to-docs"
+  },
+  {
+    "id": "broadridge",
+    "name": "broadridge",
+    "category": "architecture-system-design",
+    "repository": "membranedev-application-skills",
+    "description": "Broadridge integration. Manage data, records, and automate workflows. Use when the user wants to interact with Broadridge data.",
+    "path": "category/architecture-system-design/broadridge"
   },
   {
     "id": "brooks-audit",
@@ -496,6 +744,14 @@
     "path": "category/architecture-system-design/browser-extension-builder"
   },
   {
+    "id": "brutalism",
+    "name": "brutalism",
+    "category": "architecture-system-design",
+    "repository": "bergside-awesome-design-skills",
+    "description": "Raw, anti-design aesthetic inspired by concrete architecture with unadorned elements, jarring layouts, and functional minimalism.",
+    "path": "category/architecture-system-design/brutalism"
+  },
+  {
     "id": "budget-scenario-planner",
     "name": "budget-scenario-planner",
     "category": "architecture-system-design",
@@ -520,6 +776,22 @@
     "path": "category/architecture-system-design/build-isometric-arpg"
   },
   {
+    "id": "build-mcp-server",
+    "name": "build-mcp-server",
+    "category": "architecture-system-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks to \"build an MCP server\", \"create an MCP\", \"make an MCP integration\", \"wrap an API for Claude\", \"expose tools to Claude\", \"make an MCP app\", or discusses building something with the Model Context Protocol. It is the entry point for MCP server development \u2014 it interrogates the user about their use case, determines the right deployment model (remote HTTP, MCPB, local stdio), picks a tool-design pattern, and hands off to specialized skills.",
+    "path": "category/architecture-system-design/build-mcp-server"
+  },
+  {
+    "id": "building-blog",
+    "name": "building-blog",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use when adding a blog to a Next.js + Sanity site, building a blog section from scratch, integrating Sanity CMS for editorial content, or setting up an SEO-optimized article surface. Triggers on phrases like 'add a blog', 'build the blog', 'create blog section', 'set up blog with Sanity', 'integrate Sanity CMS', 'blog architecture', or any new-blog scoping conversation on a Next.js project.",
+    "path": "category/architecture-system-design/building-blog"
+  },
+  {
     "id": "building-identity-federation-with-saml-azure-ad",
     "name": "building-identity-federation-with-saml-azure-ad",
     "category": "architecture-system-design",
@@ -542,6 +814,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Business email template register: trigger, sender and recipient type, subject pattern, body structure, personalisation tokens and send checks. Use for repeatable outbound email.",
     "path": "category/architecture-system-design/business-email-template"
+  },
+  {
+    "id": "c4-architecture",
+    "name": "c4-architecture",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Generate architecture documentation using C4 model Mermaid diagrams. Use when asked to create architecture diagrams, document system architecture, visualize software structure, create C4 diagrams, or generate context/container/component/deployment diagrams. Triggers include \"architecture diagram\", \"C4 diagram\", \"system context\", \"container diagram\", \"component diagram\", \"deployment diagram\", \"document architecture\", \"visualize architecture\".",
+    "path": "category/architecture-system-design/c4-architecture"
   },
   {
     "id": "c4-architecture-c4-architecture",
@@ -584,6 +864,30 @@
     "path": "category/architecture-system-design/c4-context"
   },
   {
+    "id": "campaign-architect",
+    "name": "campaign-architect",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"plan my paid account structure\", \"pick Search vs PMax\", \"lay out ad groups / asset groups\", or \"audit paid-vs-organic cannibalization\"; designs campaign-type selection, ad-group/asset-group layout, targeting + match types, negative/exclusion hygiene, and a paid\u2194organic overlap audit, and scores the ROAS A (Audience) dimension + structure. Not for computing the final RQS \u2014 use ad-account-auditor; not for budget split \u2014 use budget-optimizer; not for organic site architecture \u2014 use site-structure-optimizer. \u4ed8\u8d39\u5e7f\u544a\u8d26\u6237\u7ed3\u6784/\u5e7f\u544a\u7cfb\u5217\u89c4\u5212/\u5426\u5b9a\u5173\u952e\u8bcd",
+    "path": "category/architecture-system-design/campaign-architect"
+  },
+  {
+    "id": "capso-screenshot-macos",
+    "name": "capso-screenshot-macos",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-trending-skills",
+    "description": "Expert skill for Capso, the open-source macOS screenshot and screen recording app built with Swift 6 and SwiftUI \u2014 covers architecture, building from source, package APIs, and contributing.",
+    "path": "category/architecture-system-design/capso-screenshot-macos"
+  },
+  {
+    "id": "card-sort-analysis",
+    "name": "card-sort-analysis",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Analyse open or closed card sort results into a proposed grouping and label set. Use after running a sort study. For turning that evidence into a full structure, use `information-architecture` (ux-strategy).",
+    "path": "category/architecture-system-design/card-sort-analysis"
+  },
+  {
     "id": "cc-skill-clickhouse-io",
     "name": "cc-skill-clickhouse-io",
     "category": "architecture-system-design",
@@ -616,6 +920,14 @@
     "path": "category/architecture-system-design/change-management"
   },
   {
+    "id": "chat-format",
+    "name": "chat-format",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Format chat messages in a local model's template (llama3, mistral, chatml, phi, gemma, or a model id) and route queries over a small WASM HNSW pattern index (about 11 patterns). Use when preparing prompts for local runtimes.",
+    "path": "category/architecture-system-design/chat-format"
+  },
+  {
     "id": "chief-data-officer-advisor",
     "name": "chief-data-officer-advisor",
     "category": "architecture-system-design",
@@ -624,12 +936,44 @@
     "path": "category/architecture-system-design/chief-data-officer-advisor"
   },
   {
+    "id": "circuit-breaker-pattern",
+    "name": "circuit-breaker-pattern",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement circuit breaker patterns for fault tolerance, automatic failure detection, and fallback mechanisms. Use when calling external services, handling cascading failures, or implementing resilience patterns.",
+    "path": "category/architecture-system-design/circuit-breaker-pattern"
+  },
+  {
     "id": "ciso-advisor",
     "name": "ciso-advisor",
     "category": "architecture-system-design",
     "repository": "alirezarezvani-claude-skills",
     "description": "Security leadership for growth-stage companies. Risk quantification in dollars, compliance roadmap (SOC 2/ISO 27001/HIPAA/GDPR), security architecture strategy, incident response leadership, and board-level security reporting. Use when building security programs, justifying security budget, selecting compliance frameworks, managing incidents, assessing vendor risk, or when user mentions CISO, security strategy, compliance roadmap, zero trust, or board security reporting.",
     "path": "category/architecture-system-design/ciso-advisor"
+  },
+  {
+    "id": "claude-code-source-study",
+    "name": "claude-code-source-study",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-trending-skills",
+    "description": "Deep dive into Claude Code source code to learn production-grade AI agent architecture patterns",
+    "path": "category/architecture-system-design/claude-code-source-study"
+  },
+  {
+    "id": "claude-reviews-claude-architecture",
+    "name": "claude-reviews-claude-architecture",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-trending-skills",
+    "description": "name: claude-reviews-claude-architecture",
+    "path": "category/architecture-system-design/claude-reviews-claude-architecture"
+  },
+  {
+    "id": "clean-architecture",
+    "name": "clean-architecture",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Clean Architecture for .NET applications. Covers the 4-project layout (Domain, Application, Infrastructure, Api), dependency inversion, use case handlers, domain entities with behavior, and infrastructure as a plugin. Load this skill when building a project with Clean Architecture, discussing layered architecture, dependency inversion, use cases, or when the architecture-advisor recommends Clean Architecture.",
+    "path": "category/architecture-system-design/clean-architecture"
   },
   {
     "id": "clerk-astro-patterns",
@@ -680,6 +1024,14 @@
     "path": "category/architecture-system-design/code-documentation-doc-generate"
   },
   {
+    "id": "code-generation-template",
+    "name": "code-generation-template",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Generate code from templates and patterns including scaffolding, boilerplate generation, AST-based code generation, and template engines. Use when generating code, scaffolding projects, creating boilerplate, or using templates.",
+    "path": "category/architecture-system-design/code-generation-template"
+  },
+  {
     "id": "code-showcase-react-ui-patterns",
     "name": "code-showcase-react-ui-patterns",
     "category": "architecture-system-design",
@@ -712,12 +1064,28 @@
     "path": "category/architecture-system-design/codebase-onboarding"
   },
   {
+    "id": "codereadr",
+    "name": "codereadr",
+    "category": "architecture-system-design",
+    "repository": "membranedev-application-skills",
+    "description": "CodeREADr integration. Manage data, records, and automate workflows. Use when the user wants to interact with CodeREADr data.",
+    "path": "category/architecture-system-design/codereadr"
+  },
+  {
     "id": "codereadr-automation",
     "name": "codereadr-automation",
     "category": "architecture-system-design",
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Codereadr tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/architecture-system-design/codereadr-automation"
+  },
+  {
+    "id": "cognitive-pattern",
+    "name": "cognitive-pattern",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Define and manage cognitive patterns for agent reasoning and decision-making",
+    "path": "category/architecture-system-design/cognitive-pattern"
   },
   {
     "id": "collect-user-input",
@@ -744,20 +1112,20 @@
     "path": "category/architecture-system-design/competitor-alternatives"
   },
   {
-    "id": "competitor-analysis",
-    "name": "competitor-analysis",
-    "category": "architecture-system-design",
-    "repository": "browserbase-skills",
-    "description": "Competitor research and intelligence skill. Takes a user's company (with optional seed competitor URLs), auto-discovers additional competitors via Browserbase Search API, deeply researches each using a 4-lane pattern (marketing surface, external signal, public benchmarks, strategic diff vs the user's company), and compiles the results into an HTML report with four views: overview, per-competitor deep dive, side-by-side feature/pricing matrix, and a chronological mentions feed (news, reviews, social, comparison pages, and public benchmarks). Use when the user wants to: (1) analyze competitors, (2) build a competitive matrix, (3) extract competitor pricing / features, (4) find comparison pages and online mentions of competitors, (5) surface public benchmarks. Triggers: \"competitor analysis\", \"analyze competitors\", \"competitive intel\", \"competitor research\", \"competitor pricing\", \"feature comparison\", \"price comparison\", \"find comparisons\", \"who's comparing us\", \"competitor mentions\", \"competitor benchmarks\".",
-    "path": "category/architecture-system-design/competitor-analysis"
-  },
-  {
     "id": "competitor-creative-analysis",
     "name": "competitor-creative-analysis",
     "category": "architecture-system-design",
     "repository": "irinabuht12-oss-marketing-skills",
     "description": "Pulls competitor ads from Meta Ad Library and Google Ads Transparency Center, categorizes their messaging angles, formats, CTAs, and creative types, then identifies gaps in their approach you can exploit and patterns worth testing in your own campaigns. Platform: Meta.",
     "path": "category/architecture-system-design/competitor-creative-analysis"
+  },
+  {
+    "id": "component-spec",
+    "name": "component-spec",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Specify one component \u2014 props, states, variants, accessibility, and usage rules. Use when defining a library component. For the reusable doc scaffold use `documentation-template`; for a problem-solution pattern use `pattern-library`.",
+    "path": "category/architecture-system-design/component-spec"
   },
   {
     "id": "compose-multiplatform-patterns",
@@ -776,6 +1144,30 @@
     "path": "category/architecture-system-design/composition-patterns"
   },
   {
+    "id": "concepts",
+    "name": "concepts",
+    "category": "architecture-system-design",
+    "repository": "starchild-ai-agent-official-skills",
+    "description": "Monad architecture concepts that affect how developers build apps \u2014 async execution, parallel execution, block states, reserve balance, EIP-7702, real-time data sources, and execution events. Fetch this skill when the developer needs to understand Monad-specific behavior that differs from Ethereum.",
+    "path": "category/architecture-system-design/concepts"
+  },
+  {
+    "id": "concurrency-patterns",
+    "name": "concurrency-patterns",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement thread-safe code, mutexes, semaphores, async/await patterns, and concurrent data structures. Use when handling parallel operations, race conditions, or building high-performance concurrent systems.",
+    "path": "category/architecture-system-design/concurrency-patterns"
+  },
+  {
+    "id": "configuration",
+    "name": "configuration",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Configuration patterns for .NET 10 applications. Covers the Options pattern, IOptionsSnapshot vs IOptions, secrets management, and environment-based configuration. Load this skill when setting up application configuration, managing secrets, binding configuration sections, or when the user mentions \"configuration\", \"appsettings\", \"Options pattern\", \"IOptions\", \"IOptionsSnapshot\", \"secrets\", \"user secrets\", \"environment variables\", \"connection string\", or \"config binding\".",
+    "path": "category/architecture-system-design/configuration"
+  },
+  {
     "id": "content-hash-cache-pattern",
     "name": "content-hash-cache-pattern",
     "category": "architecture-system-design",
@@ -790,6 +1182,14 @@
     "repository": "affaan-m-ecc",
     "description": "Govern stable domain context with a narrowly scoped CONTEXT.md when needed, and route hard-to-reverse decisions to ECC's existing architecture-decision-records skill. Use when domain terms require repeated explanation, one term has multiple meanings, unclear language causes module-boundary mistakes, or domain semantics must remain separate from architecture decisions.",
     "path": "category/architecture-system-design/context-and-decisions"
+  },
+  {
+    "id": "context-architecture",
+    "name": "context-architecture",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Audit a codebase and bind every claim it makes about itself to a mechanism that fails when the claim stops being true, so it is legible to people and AI agents. Applies Context Architecture's nine principles: make structure say what the system does, place AGENTS.md at boundaries, codify conventions, and bind every claim the repo makes about itself to a mechanism (compiler, linter, automated tests, review) that fails when the claim stops being true. Works greenfield (a repo born legible) and brownfield (a repo restructured in steps). Use when an agent reimplements code that already exists, invents structure, follows stale or deleted docs, propagates a deprecated pattern, or resolves ambiguity at random, or when asked to make a repository \"agent-ready\", \"AI-legible\", or to add or fix AGENTS.md / CLAUDE.md files. Related terms: harness engineering, context files, instruction bloat, cognitive debt, agent readiness.",
+    "path": "category/architecture-system-design/context-architecture"
   },
   {
     "id": "context-degradation",
@@ -832,6 +1232,38 @@
     "path": "category/architecture-system-design/convex-suggest"
   },
   {
+    "id": "corporate",
+    "name": "corporate",
+    "category": "architecture-system-design",
+    "repository": "bergside-awesome-design-skills",
+    "description": "Professional, brand-aligned design with structured grids, minimalist layouts, and consistent enterprise patterns.",
+    "path": "category/architecture-system-design/corporate"
+  },
+  {
+    "id": "correlation-tracing",
+    "name": "correlation-tracing",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement distributed tracing with correlation IDs, trace propagation, and span tracking across microservices. Use when debugging distributed systems, monitoring request flows, or implementing observability.",
+    "path": "category/architecture-system-design/correlation-tracing"
+  },
+  {
+    "id": "cost-federation",
+    "name": "cost-federation",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Consumer-side wiring for ADR-097 Phase 3 federation_spend events \u2014 per-peer rolling windows + suspension-threshold check",
+    "path": "category/architecture-system-design/cost-federation"
+  },
+  {
+    "id": "create-app",
+    "name": "create-app",
+    "category": "architecture-system-design",
+    "repository": "wondelai-skills",
+    "description": "Guided journey from a raw app idea to a validated, cleanly architected first version that ships on a sustainable cadence. Orchestrates ten skills phase by phase - lean-startup, design-sprint, clean-architecture, domain-driven-design, clean-code, pragmatic-programmer, system-design, ios-hig-design, 37signals-way, software-design-philosophy - asking the user questions at every decision point and recording results in the project docs/ folder (PRODUCT.md, ARCHITECTURE.md, EXPERIMENTS.md, CREATE-APP-PLAN.md) so the journey resumes across sessions. Use when the user wants to build a new app, validate an idea before writing code, architect an MVP that will not need a rewrite, or says ''help me build my app the right way''. App already exists: use improve-app or grow-app. Business idea not yet validated: run create-business first. Marketing site only: use create-website. Architecture-only question: design-code-architecture. For one framework in isolation, invoke that skill directly.",
+    "path": "category/architecture-system-design/create-app"
+  },
+  {
     "id": "create-architecture",
     "name": "create-architecture",
     "category": "architecture-system-design",
@@ -864,12 +1296,36 @@
     "path": "category/architecture-system-design/create-epics"
   },
   {
+    "id": "creator-insights",
+    "name": "creator-insights",
+    "category": "architecture-system-design",
+    "repository": "starchild-ai-agent-official-skills",
+    "description": "Twitter/X account analytics, viral patterns, VIP follower discovery, tweet drafting.",
+    "path": "category/architecture-system-design/creator-insights"
+  },
+  {
+    "id": "critique-information-density",
+    "name": "critique-information-density",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Critique a rendered screen's density \u2014 cognitive load, content prioritisation, scanning patterns, and progressive disclosure. Use when a screen feels overwhelming. For the underlying choice-count principle, use `hicks-law` (interaction-design).",
+    "path": "category/architecture-system-design/critique-information-density"
+  },
+  {
     "id": "crosspost",
     "name": "crosspost",
     "category": "architecture-system-design",
     "repository": "affaan-m-ecc",
     "description": "Multi-platform content distribution across X, LinkedIn, Threads, and Bluesky. Adapts content per platform using content-engine patterns. Never posts identical content cross-platform. Use when the user wants to distribute content across social platforms.",
     "path": "category/architecture-system-design/crosspost"
+  },
+  {
+    "id": "crxjs",
+    "name": "crxjs",
+    "category": "architecture-system-design",
+    "repository": "samber-cc-skills",
+    "description": "CRXJS Chrome extension development \u2014 true HMR for popup, options, content scripts, side panels, manifest-driven builds, dynamic content script imports (`?script`, `?script&module`), and `defineManifest` for type-safe manifests. Uses Vite as its build tool. Use when the user mentions CRXJS, crxjs, @crxjs/vite-plugin, 'extension with hot reload', 'HMR for chrome extension', or wants to set up a CRXJS-based Chrome extension project with any framework (React, Vue, Svelte, Solid, Vanilla). Also trigger when the user has an existing CRXJS project and wants to add features, fix HMR issues, or configure content scripts with CRXJS. For general Chrome extension architecture (messaging, CSP, storage, permissions) -> See `samber/cc-skills@chrome-extension` skill.",
+    "path": "category/architecture-system-design/crxjs"
   },
   {
     "id": "csharp-pro",
@@ -896,6 +1352,22 @@
     "path": "category/architecture-system-design/cto-review"
   },
   {
+    "id": "cypress",
+    "name": "cypress",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Cypress end-to-end testing best practices for web applications, covering test structure, commands, and reliability patterns.",
+    "path": "category/architecture-system-design/cypress"
+  },
+  {
+    "id": "daa-agent",
+    "name": "daa-agent",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Create and adapt Dynamic Agentic Architecture agents that learn and evolve",
+    "path": "category/architecture-system-design/daa-agent"
+  },
+  {
     "id": "dali-short-address-commissioner",
     "name": "dali-short-address-commissioner",
     "category": "architecture-system-design",
@@ -920,6 +1392,38 @@
     "path": "category/architecture-system-design/data-engineering-data-pipeline"
   },
   {
+    "id": "data-engineering-medallion-pipeline",
+    "name": "data-engineering-medallion-pipeline",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-data-skills",
+    "description": "End-to-end data engineering pipeline using MinIO, Airbyte, PostgreSQL, DBT, and Airflow with medallion architecture (Bronze/Silver/Gold layers)",
+    "path": "category/architecture-system-design/data-engineering-medallion-pipeline"
+  },
+  {
+    "id": "data-engineering-patterns-fabric-databricks",
+    "name": "data-engineering-patterns-fabric-databricks",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-data-skills",
+    "description": "600+ patterns and concepts for Azure Databricks, Microsoft Fabric, and PySpark data engineering - covering lakehouse architecture, Delta Lake, pipelines, and production best practices.",
+    "path": "category/architecture-system-design/data-engineering-patterns-fabric-databricks"
+  },
+  {
+    "id": "database-sharding",
+    "name": "database-sharding",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement database sharding for horizontal scalability. Use when scaling large databases, distributing data across multiple servers, or designing sharded architectures.",
+    "path": "category/architecture-system-design/database-sharding"
+  },
+  {
+    "id": "ddd",
+    "name": "ddd",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Domain-Driven Design tactical patterns for .NET applications. Covers aggregates, aggregate roots, value objects, domain events, domain services, strongly-typed IDs, and repository patterns for aggregate persistence. Load this skill when implementing DDD, working with aggregates, value objects, domain events, bounded contexts, or when the architecture-advisor recommends DDD + Clean Architecture. Pair with the clean-architecture skill.",
+    "path": "category/architecture-system-design/ddd"
+  },
+  {
     "id": "ddd-context-mapping",
     "name": "ddd-context-mapping",
     "category": "architecture-system-design",
@@ -934,6 +1438,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Apply DDD tactical patterns in code using entities, value objects, aggregates, repositories, and domain events with explicit invariants.",
     "path": "category/architecture-system-design/ddd-tactical-patterns"
+  },
+  {
+    "id": "ddia-systems",
+    "name": "ddia-systems",
+    "category": "architecture-system-design",
+    "repository": "wondelai-skills",
+    "description": "Design data systems by understanding storage engines, replication, partitioning, transactions, and consistency models. Use when the user mentions \"database choice\", \"which database should I use\", \"SQL or NoSQL\", \"replication lag\", \"partitioning strategy\", \"consistency vs availability\", \"stream processing\", \"ACID transactions\", \"eventual consistency\", \"my queries are slow at scale\", or \"data is inconsistent across replicas\". Also trigger when choosing a datastore, designing data pipelines, or debugging distributed-system consistency issues. Covers data models, batch/stream processing, and distributed consensus. For system design, see system-design. For resilience, see release-it.",
+    "path": "category/architecture-system-design/ddia-systems"
   },
   {
     "id": "de-ai-writer",
@@ -952,12 +1464,68 @@
     "path": "category/architecture-system-design/decision-logger"
   },
   {
+    "id": "deep-agents-core",
+    "name": "deep-agents-core",
+    "category": "architecture-system-design",
+    "repository": "langchain-ai-langchain-skills",
+    "description": "INVOKE THIS SKILL when building ANY Deep Agents application. Covers create_deep_agent(), harness architecture, SKILL.md format, and configuration options.",
+    "path": "category/architecture-system-design/deep-agents-core"
+  },
+  {
     "id": "delivery-gate",
     "name": "delivery-gate",
     "category": "architecture-system-design",
     "repository": "affaan-m-ecc",
     "description": "Stop hook that blocks Claude from finishing until quality checks pass. Detects rationalization patterns (surface text heuristics), stale learning logs (filesystem mtime), and low disk space. Complements self-audit by mechanically enforcing learning capture habits. Use when Claude should be mechanically blocked from declaring work finished before quality checks and learning capture actually pass.",
     "path": "category/architecture-system-design/delivery-gate"
+  },
+  {
+    "id": "dependency-injection",
+    "name": "dependency-injection",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Dependency injection patterns for .NET 10. Covers service lifetimes, keyed services, the decorator pattern, factory pattern, and common DI pitfalls. Load this skill when registering services, resolving lifetime issues, designing service composition, or when the user mentions \"DI\", \"dependency injection\", \"service registration\", \"AddScoped\", \"AddTransient\", \"AddSingleton\", \"keyed services\", \"decorator\", \"Scrutor\", \"IServiceCollection\", or \"captive dependency\".",
+    "path": "category/architecture-system-design/dependency-injection"
+  },
+  {
+    "id": "design-code-architecture",
+    "name": "design-code-architecture",
+    "category": "architecture-system-design",
+    "repository": "wondelai-skills",
+    "description": "Guided journey from an app idea to a deliberate architecture: boundaries, domain model, data decisions, and resilience, making only the expensive-to-reverse decisions and deferring the rest. Orchestrates eight skills phase by phase - clean-architecture, domain-driven-design, system-design, ddia-systems, software-design-philosophy, release-it, pragmatic-programmer, 37signals-way - asking the user questions at every decision point and recording results in the project docs/ folder (ARCHITECTURE.md, DESIGN-CODE-ARCHITECTURE-PLAN.md) so the journey resumes across sessions. Use when the user wants to design a new app''s architecture, choose boundaries and a domain model, decide monolith versus microservices, or says ''how should I structure this app''. If a codebase already exists, use remove-technical-debt (aged), improve-code-quality (fresh prototype), or architecture-optimization (slow but working); if unvalidated, run create-business or create-app first. For one framework in isolation, invoke that skill directly.",
+    "path": "category/architecture-system-design/design-code-architecture"
+  },
+  {
+    "id": "design-patterns-implementation",
+    "name": "design-patterns-implementation",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Apply appropriate design patterns (Singleton, Factory, Observer, Strategy, etc.) to solve architectural problems. Use when refactoring code architecture, implementing extensible systems, or following SOLID principles.",
+    "path": "category/architecture-system-design/design-patterns-implementation"
+  },
+  {
+    "id": "design-system-creation",
+    "name": "design-system-creation",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Build comprehensive design systems with components, patterns, and guidelines. Enable consistent design, faster development, and better collaboration across teams.",
+    "path": "category/architecture-system-design/design-system-creation"
+  },
+  {
+    "id": "design-system-starter",
+    "name": "design-system-starter",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Create and evolve design systems with design tokens, component architecture, accessibility guidelines, and documentation templates. Ensures consistent, scalable, and accessible UI across products.",
+    "path": "category/architecture-system-design/design-system-starter"
+  },
+  {
+    "id": "design-systems",
+    "name": "design-systems",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Comprehensive design system guidelines for building consistent, accessible, and scalable component libraries. Use when creating design tokens, building component libraries, implementing design systems, setting up theming architecture, or establishing UI governance processes.",
+    "path": "category/architecture-system-design/design-systems"
   },
   {
     "id": "design-thinking",
@@ -1000,6 +1568,14 @@
     "path": "category/architecture-system-design/detecting-modbus-protocol-anomalies"
   },
   {
+    "id": "dev-event-hiring",
+    "name": "dev-event-hiring",
+    "category": "architecture-system-design",
+    "repository": "samber-dev-event-organizer-skills",
+    "description": "Employer-side hiring for tech-event-organizing roles - producer/manager/coordinator, and the community-manager-shaped end of the field. Calibrates the scorecard to operating context (in-house, agency, non-profit/community, or a standing conference business), builds the loop from the general event-planner sequence plus CMX's five-competency set and paid mini-audit work sample, flags the \"one hire owns sponsorship, content and production\" consolidation pattern seen in postings, sources candidates from general event-industry boards since no tech-specific one exists, and gates compensation on named sources (PCMA, BLS, Glassdoor) rather than a blended figure. Use when the user asks how to hire an event producer or manager, write a posting, design a loop, or hire an event community manager. Do NOT use for candidate prep (samber/dev-event-organizer-skills@dev-event-career) or team org design (samber/dev-event-organizer-skills@event-team-structure).",
+    "path": "category/architecture-system-design/dev-event-hiring"
+  },
+  {
     "id": "dev-story",
     "name": "dev-story",
     "category": "architecture-system-design",
@@ -1014,6 +1590,22 @@
     "repository": "samber-developer-relations-skills",
     "description": "Audits an existing developer documentation set's structure - a page-by-page inventory classified against the Di\u00e1taxis modes (tutorial, how-to, reference, explanation), mixed-mode and misplaced pages, coverage gaps per product surface, navigation drift against the file tree, a CNCF TechDocs rubric score, and a prioritized remediation queue. Use whenever the user mentions a docs structure or content audit, docs information architecture, Di\u00e1taxis, \"our documentation is a mess\", a docs gap analysis, what docs are missing, where a page should live, or reorganizing a documentation site - even if they only say \"our docs are hard to navigate\". Not for writing pages. Do NOT use for docs search ranking - use samber/developer-relations-skills@docs-seo.",
     "path": "category/architecture-system-design/developer-docs-structure-audit"
+  },
+  {
+    "id": "developer-platform-hiring",
+    "name": "developer-platform-hiring",
+    "category": "architecture-system-design",
+    "repository": "samber-developer-platform-skills",
+    "description": "Employer-side hiring for developer-platform roles - API Product Manager, Platform Engineer/Architect, Partner/Integration Engineer. Disambiguates \"platform engineer\" first, since the term overwhelmingly means internal developer platforms elsewhere in the industry. Calibrates the scorecard to company archetype (infra/API-first, bolt-on public API, enterprise partner ecosystem), flags a scope-collapse pattern distinct from DevRel's gatekeeper/pit-trap taxonomy, sources from apidays, not PlatformCon's internal-IDP audience, builds the loop from the API-design-vs-system-design interview split, and benchmarks compensation against the general engineering/PM ladder rather than a bespoke platform title. Use when the user asks how to hire a platform engineer, API product manager, or partner/integration engineer, write a posting, or design a loop. Do NOT use for candidate prep (samber/developer-platform-skills@developer-platform-career) or DevRel hiring (samber/developer-relations-skills@devrel-hiring).",
+    "path": "category/architecture-system-design/developer-platform-hiring"
+  },
+  {
+    "id": "developer-portal-design",
+    "name": "developer-portal-design",
+    "category": "architecture-system-design",
+    "repository": "samber-developer-platform-skills",
+    "description": "Design an external developer portal as a product surface, not a documentation site - information architecture for business evaluators and integrating engineers, the signup-to-first-call onboarding path governed by time to first call (TTFC), placement of each self-service surface (key dashboard, request logs, sandbox, usage metering, docs entry points), portal search with an AI answer assistant, RBAC and multi-tenant hierarchy, and the build-vs-buy platform decision. Use whenever the user mentions a developer portal, developer console, API dashboard, developer onboarding, or time to first call - even if they never say \"portal\". External API-consumer portals only, not internal service catalogs.",
+    "path": "category/architecture-system-design/developer-portal-design"
   },
   {
     "id": "developer-sandbox",
@@ -1040,6 +1632,14 @@
     "path": "category/architecture-system-design/dfm"
   },
   {
+    "id": "dhdna-profiler",
+    "name": "dhdna-profiler",
+    "category": "architecture-system-design",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Applies the DHDNA framework as an exploratory rubric for reasoning and writing patterns in supplied text. Used for explicit requests for DHDNA, cognitive-style reflection, a thinking-pattern profile, or comparisons of textual reasoning. Scores describe evidence in the sample, not validated psychological traits or personal identity.",
+    "path": "category/architecture-system-design/dhdna-profiler"
+  },
+  {
     "id": "distributed-systems-guide",
     "name": "distributed-systems-guide",
     "category": "architecture-system-design",
@@ -1051,9 +1651,17 @@
     "id": "distributed-tracing",
     "name": "distributed-tracing",
     "category": "architecture-system-design",
-    "repository": "antigravity-awesome-skills",
-    "description": "Implement distributed tracing with Jaeger and Tempo to track requests across microservices and identify performance bottlenecks. Use when debugging microservices, analyzing request flows, or implem...",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement distributed tracing with Jaeger and Zipkin for tracking requests across microservices. Use when debugging distributed systems, tracking request flows, or analyzing service performance.",
     "path": "category/architecture-system-design/distributed-tracing"
+  },
+  {
+    "id": "dithered",
+    "name": "dithered",
+    "category": "architecture-system-design",
+    "repository": "bergside-awesome-design-skills",
+    "description": "Dot-pattern rendering technique that simulates shades with a limited palette for nostalgic, retro, high-contrast visuals.",
+    "path": "category/architecture-system-design/dithered"
   },
   {
     "id": "dmux-workflows",
@@ -1128,12 +1736,28 @@
     "path": "category/architecture-system-design/domain-modeling"
   },
   {
+    "id": "dossier-collect",
+    "name": "dossier-collect",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Build a graph-structured dossier on a seed entity via parallel fan-out + recursive expansion across web, memory, knowledge-graph, codebase, ADR index, and git intel",
+    "path": "category/architecture-system-design/dossier-collect"
+  },
+  {
     "id": "dotnet-core-expert",
     "name": "dotnet-core-expert",
     "category": "architecture-system-design",
     "repository": "jeffallan-claude-skills",
     "description": "Use when building .NET 8 applications with minimal APIs, clean architecture, or cloud-native microservices. Invoke for Entity Framework Core, CQRS with MediatR, JWT authentication, AOT compilation.",
     "path": "category/architecture-system-design/dotnet-core-expert"
+  },
+  {
+    "id": "dotnet-init",
+    "name": "dotnet-init",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Interactive project initialization. Detects project type, asks architecture questions, and generates a customized CLAUDE.md \u2014 no manual template copying. Use when: \"init project\", \"setup project\", \"initialize\", \"new project setup\", \"generate CLAUDE.md\", \"configure for dotnet-claude-kit\", or starting Claude Code on a fresh or existing .NET codebase.",
+    "path": "category/architecture-system-design/dotnet-init"
   },
   {
     "id": "dotnet-patterns",
@@ -1150,6 +1774,14 @@
     "repository": "dotnet-skills",
     "description": "Correctly call native (C/C++) libraries from .NET using P/Invoke and LibraryImport. Covers function signatures, string marshalling, memory lifetime, SafeHandle, and cross-platform patterns. USE FOR: writing new P/Invoke or LibraryImport declarations, reviewing or debugging existing native interop code, wrapping a C or C++ library for use in .NET, diagnosing crashes, memory leaks, or corruption at the managed/native boundary. DO NOT USE FOR: COM interop, C++/CLI mixed-mode assemblies, or pure managed code with no native dependencies.",
     "path": "category/architecture-system-design/dotnet-pinvoke"
+  },
+  {
+    "id": "drawio-logical-diagrams",
+    "name": "drawio-logical-diagrams",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Creates professional logical flow diagrams and logical system architecture diagrams using draw.io XML format (.drawio files). Use when creating: (1) logical flow diagrams showing data/process flow between system components, (2) logical architecture diagrams representing system structure without cloud provider specifics, (3) BPMN process diagrams, (4) UML diagrams (class, sequence, activity), (5) data flow diagrams (DFD), (6) decision flowcharts, or (7) system interaction diagrams. This skill focuses on generic/abstract representations, not AWS/Azure-specific architectures (use aws-drawio-architecture-diagrams for cloud diagrams).",
+    "path": "category/architecture-system-design/drawio-logical-diagrams"
   },
   {
     "id": "dse-loop",
@@ -1176,6 +1808,22 @@
     "path": "category/architecture-system-design/e1"
   },
   {
+    "id": "ebay-product-research",
+    "name": "ebay-product-research",
+    "category": "architecture-system-design",
+    "repository": "nexscope-ai-ecommerce-skills",
+    "description": "Research profitable products to sell on eBay. Analyze completed listings, sell-through rates, average selling prices, competition density, and seasonal demand patterns.",
+    "path": "category/architecture-system-design/ebay-product-research"
+  },
+  {
+    "id": "ecosystem-primer",
+    "name": "ecosystem-primer",
+    "category": "architecture-system-design",
+    "repository": "langchain-ai-langchain-skills",
+    "description": "INVOKE FIRST for any LangChain / LangGraph / Deep Agents agent building project before consulting other skills or writing any agent code. Required starting point for up to date info on framework selection (LangChain vs LangGraph vs Deep Agents vs hybrid composition), agent patterns, install, environment setup, and which skill to load next.",
+    "path": "category/architecture-system-design/ecosystem-primer"
+  },
+  {
     "id": "ejentum-reasoning-harness",
     "name": "ejentum-reasoning-harness",
     "category": "architecture-system-design",
@@ -1195,9 +1843,17 @@
     "id": "electron-development",
     "name": "electron-development",
     "category": "architecture-system-design",
-    "repository": "sickn33-agentic-awesome-skills",
+    "repository": "davila7-claude-code-templates",
     "description": "Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-process architecture, electron-builder packaging, code signing, and auto-update.",
     "path": "category/architecture-system-design/electron-development"
+  },
+  {
+    "id": "elixir",
+    "name": "elixir",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert in Elixir and Phoenix development with functional programming patterns",
+    "path": "category/architecture-system-design/elixir"
   },
   {
     "id": "elixir-pro",
@@ -1214,6 +1870,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Authorized email security review: phishing analysis, SPF/DKIM/DMARC header authentication, BEC pattern investigation, and mailbox token abuse research.",
     "path": "category/architecture-system-design/email-security"
+  },
+  {
+    "id": "emerging-techniques-moe-training",
+    "name": "emerging-techniques-moe-training",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Train Mixture of Experts (MoE) models using DeepSpeed or HuggingFace. Use when training large-scale models with limited compute (5\u00d7 cost reduction vs dense models), implementing sparse architectures like Mixtral 8x7B or DeepSeek-V3, or scaling model capacity without proportional compute increase. Covers MoE architectures, routing mechanisms, load balancing, expert parallelism, and inference optimization.",
+    "path": "category/architecture-system-design/emerging-techniques-moe-training"
   },
   {
     "id": "engineering-blog-post",
@@ -1280,6 +1944,46 @@
     "path": "category/architecture-system-design/eugeniughelbur-obsidian-second-brain"
   },
   {
+    "id": "event-booth-experience",
+    "name": "event-booth-experience",
+    "category": "architecture-system-design",
+    "repository": "samber-dev-event-organizer-skills",
+    "description": "Design a technical event's expo floor once per edition, organizer-side - the layout and traffic pattern carrying attendees past every booth, the tier-to-physical-spec catalog turning \"floor presence, Gold\" into table size, power, height and signage rules, the master setup and teardown schedule, per-booth power and WiFi distribution, booth staffing and conduct rules, and a floor-wide traffic mechanic such as a passport card. Use whenever asked how to lay out an expo hall or sponsor area, what a sponsor tier's booth physically includes, when sponsors load in and out, or how to pull attendees past low-traffic booths. Do NOT use for per-sponsor day-of execution - use samber/dev-event-organizer-skills@event-sponsor-fulfillment - or for how a company runs its own booth.",
+    "path": "category/architecture-system-design/event-booth-experience"
+  },
+  {
+    "id": "event-comms-channels",
+    "name": "event-comms-channels",
+    "category": "architecture-system-design",
+    "repository": "samber-dev-event-organizer-skills",
+    "description": "Design the attendee-facing communication channel architecture for one edition of a technical event - which channels exist, who is on each, which class of message routes to which channel, how several writers stay consistent executing a register set elsewhere, and how every channel is wound down once the event ends. Use whenever asked whether an event needs a chat space, an app or a status page, where a room change or schedule slip should be announced, how to stop attendees missing announcements, who may post in the event's name, or what to do with the event's channels after it is over. Do NOT use for mailing-list copy and consent - use samber/dev-event-organizer-skills@event-attendee-email-sequences - or social copy - use samber/dev-event-organizer-skills@event-social-media.",
+    "path": "category/architecture-system-design/event-comms-channels"
+  },
+  {
+    "id": "event-continuous-improvement",
+    "name": "event-continuous-improvement",
+    "category": "architecture-system-design",
+    "repository": "samber-dev-event-organizer-skills",
+    "description": "Turn several editions of a recurring technical event's debrief logs into operational trends and deliberate changes  -  a signal gate separating a one-off from a reproducible pattern, themes grouping differently-worded findings, recurrence counts across editions, a learning log persisted so it survives organizer turnover, an audit so it never grows unexamined, and a route from each resulting change to the sibling that owns it. Use whenever asked what keeps going wrong every year, how to stop relearning the same lessons, how to keep institutional memory across a team that turns over, or what several editions of evidence say to change next. Do NOT use for one edition's retrospective  -  use samber/dev-event-organizer-skills@event-debrief.",
+    "path": "category/architecture-system-design/event-continuous-improvement"
+  },
+  {
+    "id": "event-production",
+    "name": "event-production",
+    "category": "architecture-system-design",
+    "repository": "samber-dev-event-organizer-skills",
+    "description": "Engineer the technical AV production of a technical event once the format and session grid are fixed - capture tiers from a single smartphone to multi-camera vision mixing, signal-path architecture separating room display from recorded output and crew monitor, redundancy against named recorded-audio failure modes, AV crew roles, the written technical spec handed to venue sourcing, the Media budget line, rehearsal, and the publication pipeline. Use whenever the user mentions conference AV, recording or livestreaming talks, cameras, microphones, an AV supplier brief, or a backup plan for a technical failure - even if they never say \"production\". Do NOT use to decide whether to run hybrid or virtual at all - use samber/dev-event-organizer-skills@event-format-selection instead.",
+    "path": "category/architecture-system-design/event-production"
+  },
+  {
+    "id": "event-sourcing",
+    "name": "event-sourcing",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement event sourcing and CQRS patterns using event stores, aggregates, and projections. Use when building audit trails, temporal queries, or systems requiring full history.",
+    "path": "category/architecture-system-design/event-sourcing"
+  },
+  {
     "id": "event-sourcing-architect",
     "name": "event-sourcing-architect",
     "category": "architecture-system-design",
@@ -1304,12 +2008,36 @@
     "path": "category/architecture-system-design/evidence-hygiene"
   },
   {
+    "id": "example-skill",
+    "name": "example-skill",
+    "category": "architecture-system-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks to \"demonstrate skills\", \"show skill format\", \"create a skill template\", or discusses skill development patterns. Provides a reference template for creating Claude Code plugin skills.",
+    "path": "category/architecture-system-design/example-skill"
+  },
+  {
+    "id": "excalidraw",
+    "name": "excalidraw",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use when working with *.excalidraw or *.excalidraw.json files, user mentions diagrams/flowcharts, or requests architecture visualization - delegates all Excalidraw operations to subagents to prevent context exhaustion from verbose JSON (single files: 4k-22k tokens, can exceed read limits)",
+    "path": "category/architecture-system-design/excalidraw"
+  },
+  {
     "id": "exploiting-http-request-smuggling",
     "name": "exploiting-http-request-smuggling",
     "category": "architecture-system-design",
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Detects and exploits HTTP request smuggling caused by Content-Length/Transfer-Encoding parsing discrepancies between front-end and back-end servers, using Burp Suite Repeater (auto Content-Length disabled), the HTTP Request Smuggler extension, and smuggler.py. Use during authorized tests of multi-tier architectures behind a reverse proxy, load balancer, or CDN to find desync flaws and bypass front-end controls.",
     "path": "category/architecture-system-design/exploiting-http-request-smuggling"
+  },
+  {
+    "id": "exploratory-data-analysis",
+    "name": "exploratory-data-analysis",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Discover patterns, distributions, and relationships in data through visualization, summary statistics, and hypothesis generation for exploratory data analysis, data profiling, and initial insights",
+    "path": "category/architecture-system-design/exploratory-data-analysis"
   },
   {
     "id": "explore-data",
@@ -1326,6 +2054,30 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Turn a proven pattern or debugging solution into a standalone reusable skill with SKILL.md, reference docs, and examples. Use when the user runs /si:extract or asks to package a recurring solution from memory into a skill.",
     "path": "category/architecture-system-design/extract"
+  },
+  {
+    "id": "fastapi-microservices-serverless",
+    "name": "fastapi-microservices-serverless",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert in FastAPI microservices for serverless and cloud-native environments",
+    "path": "category/architecture-system-design/fastapi-microservices-serverless"
+  },
+  {
+    "id": "feature-design-assistant",
+    "name": "feature-design-assistant",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Turn ideas into fully formed designs and specs through natural collaborative dialogue. Use when planning new features, designing architecture, or making significant changes to the codebase.",
+    "path": "category/architecture-system-design/feature-design-assistant"
+  },
+  {
+    "id": "feedback-patterns",
+    "name": "feedback-patterns",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Design confirmations, status updates, and notifications that tell users an action registered. Use when the system must acknowledge success or change. For waiting states use `loading-states`; for failures use `error-handling-ux`.",
+    "path": "category/architecture-system-design/feedback-patterns"
   },
   {
     "id": "file-edit-in-place",
@@ -1424,12 +2176,28 @@
     "path": "category/architecture-system-design/g5"
   },
   {
+    "id": "gaia-architecture-comparison",
+    "name": "gaia-architecture-comparison",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Side-by-side comparison of ruflo vs HAL vs other GAIA harnesses \u2014 capability gaps, design decisions, and improvement roadmap",
+    "path": "category/architecture-system-design/gaia-architecture-comparison"
+  },
+  {
     "id": "game-developer",
     "name": "game-developer",
     "category": "architecture-system-design",
     "repository": "jeffallan-claude-skills",
     "description": "Use when building game systems, implementing Unity/Unreal Engine features, or optimizing game performance. Invoke to implement ECS architecture, configure physics systems and colliders, set up multiplayer networking with lag compensation, optimize frame rates to 60+ FPS targets, develop shaders, or apply game design patterns such as object pooling and state machines. Trigger keywords: Unity, Unreal Engine, game development, ECS architecture, game physics, multiplayer networking, game optimization, shader programming, game AI.",
     "path": "category/architecture-system-design/game-developer"
+  },
+  {
+    "id": "geolocate-from-pixels",
+    "name": "geolocate-from-pixels",
+    "category": "architecture-system-design",
+    "repository": "useosint-skills",
+    "description": "Geolocate and chronolocate a photo or video from visual evidence alone \u2014 plate and phone number formats, road markings, utility poles, bollards, signage typefaces, architecture and vegetation for place; shadow direction and length with SunCalc for time and date. Use when asked where or when a picture was taken, to verify a claimed location without GPS or EXIF, or to match a scene against Google Earth, Street View, Yandex Panoramas, Mapillary or KartaView. Applies to GEOINT and conflict monitoring, insurance and claims verification, journalism fact-checking, and evidence review. Reference at useosint.com/skills/geolocate-from-pixels.",
+    "path": "category/architecture-system-design/geolocate-from-pixels"
   },
   {
     "id": "gke-custom-golden-image-discovery",
@@ -1446,6 +2214,30 @@
     "repository": "google-skills",
     "description": "Provides GKE golden path configuration defaults, production readiness checklists, and cluster default patterns. Use when designing GKE clusters, verifying GKE production readiness, or checking configurations against GKE defaults. Don't use for setting up workload autoscaling specifically (use gke-workload-scaling instead).",
     "path": "category/architecture-system-design/gke-golden-path"
+  },
+  {
+    "id": "gmgn-kline-pattern",
+    "name": "gmgn-kline-pattern",
+    "category": "architecture-system-design",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "Price-action pattern reading \u2014 classifies a token's candles into a named pattern (uptrend channel, breakdown, bounce off the lows, distribution at highs, basing, wide chop, consolidation) and scores it 0-100 from six measurements you compute directly from the kline response. Every point added or deducted states its reason. Use when the user asks about K \u7ebf, K\u7ebf\u5f62\u6001, \u8d70\u52bf, \u8d8b\u52bf, \u5f62\u6001, price action, chart pattern, whether a chart looks strong or weak, is it breaking down, is it consolidating, or wants a technical read of a token's chart rather than the raw numbers.",
+    "path": "category/architecture-system-design/gmgn-kline-pattern"
+  },
+  {
+    "id": "go",
+    "name": "go",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert in Go/Golang development with focus on APIs, microservices, and clean architecture",
+    "path": "category/architecture-system-design/go"
+  },
+  {
+    "id": "go-backend-microservices",
+    "name": "go-backend-microservices",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Go backend development best practices for microservices with clean architecture, observability, and production-ready patterns",
+    "path": "category/architecture-system-design/go-backend-microservices"
   },
   {
     "id": "go-concurrency-patterns",
@@ -1478,6 +2270,14 @@
     "repository": "samber-cc-skills-golang",
     "description": "Comprehensive guide for dependency injection (DI) in Golang. Covers why DI matters (testability, loose coupling, separation of concerns, lifecycle management), manual constructor injection, and DI library comparison (google/wire, uber-go/dig, uber-go/fx, samber/do). Use this skill when designing service architecture, setting up dependency injection, refactoring tightly coupled code, managing singletons or service factories, or when the user asks about inversion of control, service containers, or wiring dependencies in Go. For a specific DI library, \u2192 See `samber/cc-skills-golang@golang-google-wire`, `samber/cc-skills-golang@golang-uber-dig`, `samber/cc-skills-golang@golang-uber-fx`, or `samber/cc-skills-golang@golang-samber-do` skills.",
     "path": "category/architecture-system-design/golang-dependency-injection"
+  },
+  {
+    "id": "google-analytics",
+    "name": "google-analytics",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Analyze Google Analytics data, review website performance metrics, identify traffic patterns, and suggest data-driven improvements. Use when the user asks about analytics, website metrics, traffic analysis, conversion rates, user behavior, or performance optimization.",
+    "path": "category/architecture-system-design/google-analytics"
   },
   {
     "id": "google-cloud-recipe-foundation-builder",
@@ -1528,14 +2328,6 @@
     "path": "category/architecture-system-design/google-cloud-solution-n-tier-serverless-web-app"
   },
   {
-    "id": "google-cloud-waf-reliability",
-    "name": "google-cloud-waf-reliability",
-    "category": "architecture-system-design",
-    "repository": "google-skills",
-    "description": "Evaluates, designs, and improves the reliability, resilience, availability, fault tolerance, and disaster recovery (DR) of Google Cloud workloads based on the design principles and recommendations in the Reliability pillar of the Google Cloud Well-Architected Framework. Use when the user asks about reliability-related topics like workload uptime, designing for high availability (HA) or DR, setting and meeting RTO/RPO targets, SRE best practices, backup strategies, multi-region failover, or fault-tolerant architecture on Google Cloud. Don't use for other Well-Architected Framework pillars such as Cost Optimization, Operational Excellence, or Security, or for hands-on resource deployment and live incident troubleshooting.",
-    "path": "category/architecture-system-design/google-cloud-waf-reliability"
-  },
-  {
     "id": "grade-tests",
     "name": "grade-tests",
     "category": "architecture-system-design",
@@ -1568,6 +2360,22 @@
     "path": "category/architecture-system-design/growth-log"
   },
   {
+    "id": "grpc-service-development",
+    "name": "grpc-service-development",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Build high-performance gRPC services with Protocol Buffers, bidirectional streaming, and microservice communication. Use when building gRPC servers, defining service contracts, or implementing inter-service communication.",
+    "path": "category/architecture-system-design/grpc-service-development"
+  },
+  {
+    "id": "guarding-architecture",
+    "name": "guarding-architecture",
+    "category": "architecture-system-design",
+    "repository": "riekelt-principal-engineer",
+    "description": "Use when a change crosses module boundaries, adds a dependency direction between modules, touches a critical path, or conflicts with a stated principle - and when writing or updating architecture principles themselves. Encodes structural invariants as named, enforced contracts: statement, rationale, guard. Use whenever \\\"we'll just import it from there for now\\\" appears, which is how boundaries die.",
+    "path": "category/architecture-system-design/guarding-architecture"
+  },
+  {
     "id": "handoff",
     "name": "handoff",
     "category": "architecture-system-design",
@@ -1576,11 +2384,51 @@
     "path": "category/architecture-system-design/handoff"
   },
   {
+    "id": "harness-drift-from-history",
+    "name": "harness-drift-from-history",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "One-command drift detection: run a fresh metaharness audit, diff it against the latest stored audit by ADR-152 similarity, and alert when the distance crosses `--threshold`. Use when checking whether a harness has drifted since its last audit.",
+    "path": "category/architecture-system-design/harness-drift-from-history"
+  },
+  {
+    "id": "harness-evolve",
+    "name": "harness-evolve",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Run `@metaharness/darwin evolve {repo}`: mutate a harness's seven policy surfaces, sandbox-score each variant and promote only measured wins. Use when evolving a harness against its tests or a bench suite. Degrades gracefully without darwin (ADR-150/153).",
+    "path": "category/architecture-system-design/harness-evolve"
+  },
+  {
+    "id": "harness-genome",
+    "name": "harness-genome",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "7-section repo readiness report from `metaharness genome {path}`. Returns repo_type / agent_topology / risk_score / mcp_surface / test_confidence / publish_readiness. Pure-read; degrades gracefully (ADR-150).",
+    "path": "category/architecture-system-design/harness-genome"
+  },
+  {
+    "id": "harness-oia-audit",
+    "name": "harness-oia-audit",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Composite Phase-2 audit worker (ADR-150). Bundles harness oia-manifest + threat-model + mcp-scan into one timestamped audit record stored in the `metaharness-audit` memory namespace. Designed for cron-scheduled drift detection.",
+    "path": "category/architecture-system-design/harness-oia-audit"
+  },
+  {
+    "id": "harness-similarity",
+    "name": "harness-similarity",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Weighted similarity (ADR-152) between two harness fingerprints (genome + score JSON): an overall score in [0,1] plus per-component breakdown. Use when comparing two harnesses or detecting drift between them. Pure TypeScript; needs no @metaharness package.",
+    "path": "category/architecture-system-design/harness-similarity"
+  },
+  {
     "id": "hatch-pet",
     "name": "hatch-pet",
     "category": "architecture-system-design",
-    "repository": "openai-skills",
-    "description": "Create, repair, validate, visually QA, and package Codex-compatible animated pets and pet spritesheets from character art, generated images, company or prospect brand cues, or visual references. Use when a user wants a lightweight-worker Codex pet workflow, a non-pixel custom pet style, a prospect or company mascot pet, or a full 8x9 animated pet atlas with transparent unused cells, QA contact sheets, and pet.json packaging. This skill composes the installed $imagegen system skill for visual generation and uses bundled scripts for deterministic spritesheet assembly.",
+    "repository": "nexu-io-open-design",
+    "description": "Create, repair, validate, preview, and package Codex-compatible animated pet spritesheets from character art, screenshots, generated images, or visual references. Use when a user wants to hatch a Codex pet, create a custom animated pet, or build a built-in pet asset with an 8x9 atlas, transparent unused cells, row-by-row animation prompts, QA contact sheets, preview videos, and pet.json packaging. This skill composes the installed $imagegen system skill for visual generation and uses bundled scripts for deterministic spritesheet assembly.",
     "path": "category/architecture-system-design/hatch-pet"
   },
   {
@@ -1614,6 +2462,14 @@
     "repository": "backnotprop-pstack",
     "description": "Use for \\\"how does X work\\\", code walkthroughs before changing something, and placement / ownership / layering questions (\\\"where should this live\\\", \\\"which package owns this\\\", \\\"is this the right layer\\\"). Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation.",
     "path": "category/architecture-system-design/how"
+  },
+  {
+    "id": "httpclient-factory",
+    "name": "httpclient-factory",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "IHttpClientFactory and typed HTTP clients for .NET 10 applications. Covers named/typed/keyed clients, DelegatingHandlers, resilience with Microsoft.Extensions.Http.Resilience, and testing patterns. Load this skill when configuring HTTP clients, adding retry/circuit breaker policies, or when the user mentions \"HttpClient\", \"IHttpClientFactory\", \"AddHttpClient\", \"typed client\", \"named client\", \"DelegatingHandler\", \"resilience\", \"retry\", \"circuit breaker\", \"hedging\", \"Polly\", \"AddStandardResilienceHandler\", \"socket exhaustion\", or \"Refit\".",
+    "path": "category/architecture-system-design/httpclient-factory"
   },
   {
     "id": "hunt-aspnet",
@@ -1680,6 +2536,14 @@
     "path": "category/architecture-system-design/idea-autopsy"
   },
   {
+    "id": "idea-generation",
+    "name": "idea-generation",
+    "category": "architecture-system-design",
+    "repository": "anthropics-financial-services",
+    "description": "Systematic stock screening and investment idea sourcing. Combines quantitative screens, thematic research, and pattern recognition to surface new long and short ideas. Use when looking for new ideas, running screens, or conducting thematic sweeps. Triggers on \"idea generation\", \"stock screen\", \"find ideas\", \"what looks interesting\", \"screen for\", \"new ideas\", or \"pitch me something\".",
+    "path": "category/architecture-system-design/idea-generation"
+  },
+  {
     "id": "implementing-aws-macie-for-data-classification",
     "name": "implementing-aws-macie-for-data-classification",
     "category": "architecture-system-design",
@@ -1736,6 +2600,22 @@
     "path": "category/architecture-system-design/indexing-issue-auditor"
   },
   {
+    "id": "information-architecture",
+    "name": "information-architecture",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Organize and structure information for clarity and discoverability. Design navigation systems, hierarchies, and mental models that match user needs.",
+    "path": "category/architecture-system-design/information-architecture"
+  },
+  {
+    "id": "instinct-system",
+    "name": "instinct-system",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Unified learning-and-memory system: confidence-scored instincts (observe-hypothesize-confirm, stored in .claude/instincts.md), user corrections captured as permanent rules in MEMORY.md, and organic discoveries logged to .claude/learning-log.md. Includes status, export, and import modes. Load this skill when you notice a recurring pattern, a user corrects your output, or you discover something non-obvious. Triggers: \"show instincts\", \"what have you learned\", \"list instincts\", \"export instincts\", \"share instincts\", \"import instincts\", \"load instincts from\", \"learn this\", \"I think they always\", \"notice a pattern\", \"instinct\", \"hypothesis\", \"confidence\", \"learn from mistakes\", \"remember this\", \"don't do that again\", \"log this\", \"document this finding\", \"gotcha\", \"what did we learn\", \"learnings\", \"discoveries\", or at session start (to load existing knowledge).",
+    "path": "category/architecture-system-design/instinct-system"
+  },
+  {
     "id": "integration-connectivity-generate",
     "name": "integration-connectivity-generate",
     "category": "architecture-system-design",
@@ -1744,12 +2624,44 @@
     "path": "category/architecture-system-design/integration-connectivity-generate"
   },
   {
+    "id": "intelligence-route",
+    "name": "intelligence-route",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Route tasks via the 3-tier model selector and learned patterns; emits a routing rationale via hooks_explain",
+    "path": "category/architecture-system-design/intelligence-route"
+  },
+  {
+    "id": "intelligence-transfer",
+    "name": "intelligence-transfer",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Copy learned patterns from another local project, or browse, download and publish patterns through the IPFS pattern marketplace. Use when a new project should start with patterns an older one already learned, or when sharing patterns with a peer.",
+    "path": "category/architecture-system-design/intelligence-transfer"
+  },
+  {
+    "id": "investigate-ai-session",
+    "name": "investigate-ai-session",
+    "category": "architecture-system-design",
+    "repository": "amplitude-mcp-marketplace",
+    "description": "Deep-dives into specific AI agent sessions or failure patterns to explain why something went wrong. Only use when the user has Amplitude Agent Analytics instrumented in their project. Use when investigating a specific session ID, debugging agent failures, understanding why quality is low, tracing tool errors, or when monitor-ai-quality surfaces an issue that needs root cause analysis.",
+    "path": "category/architecture-system-design/investigate-ai-session"
+  },
+  {
     "id": "iterative-retrieval",
     "name": "iterative-retrieval",
     "category": "architecture-system-design",
     "repository": "affaan-m-ecc",
     "description": "Pattern for progressively refining context retrieval to solve the subagent context problem. Use when a subagent lacks the context it needs and retrieval must be refined across passes.",
     "path": "category/architecture-system-design/iterative-retrieval"
+  },
+  {
+    "id": "jakobs-law",
+    "name": "jakobs-law",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Apply Jakob's Law \u2014 users expect your product to work like the others they already use. Use when deciding whether to innovate on a familiar pattern. For OS-mandated conventions specifically, use `platform-conventions` (ui-design).",
+    "path": "category/architecture-system-design/jakobs-law"
   },
   {
     "id": "java-pro",
@@ -1776,22 +2688,6 @@
     "path": "category/architecture-system-design/javascript-pro"
   },
   {
-    "id": "kpi-dashboard-design",
-    "name": "kpi-dashboard-design",
-    "category": "architecture-system-design",
-    "repository": "antigravity-awesome-skills",
-    "description": "Design effective KPI dashboards with metrics selection, visualization best practices, and real-time monitoring patterns. Use when building business dashboards, selecting metrics, or designing data ...",
-    "path": "category/architecture-system-design/kpi-dashboard-design"
-  },
-  {
-    "id": "landing-page",
-    "name": "landing-page",
-    "category": "architecture-system-design",
-    "repository": "mengto-skills",
-    "description": "Use when designing or rewriting a high-converting landing page (single-offer page) for SaaS/apps/services. Covers structure, layout patterns, conversion strategies, copywriting, SEO/AEO, and common pitfalls.",
-    "path": "category/architecture-system-design/landing-page"
-  },
-  {
     "id": "landing-page-design",
     "name": "landing-page-design",
     "category": "architecture-system-design",
@@ -1814,6 +2710,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use when debugging agent behavior, investigating errors, analyzing tool calls, checking memory operations, or examining agent performance. Automatically fetches recent traces and analyzes execution patterns. Requires langsmith-fetch CLI installed.",
     "path": "category/architecture-system-design/langsmith-fetch"
+  },
+  {
+    "id": "laravel",
+    "name": "laravel",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert in Laravel PHP development with best practices and modern patterns",
+    "path": "category/architecture-system-design/laravel"
   },
   {
     "id": "laravel-expert",
@@ -1864,12 +2768,76 @@
     "path": "category/architecture-system-design/linkerd-patterns"
   },
   {
+    "id": "ljg-relationship",
+    "name": "ljg-relationship",
+    "category": "architecture-system-design",
+    "repository": "lijigang-ljg-skills",
+    "description": "Relationship analyst combining structural diagnostics (5-layer framework) with psychoanalytic depth (transference, unconscious patterns, resistance). Guides users through dialogue to \"see\" the real structure of their relationship issues. Use when user says \"\u5173\u7cfb\u5206\u6790\", \"\u5206\u6790\u5173\u7cfb\", \"relationship\", \"\u4eba\u9645\u5173\u7cfb\", or describes a specific relationship problem they want to understand.",
+    "path": "category/architecture-system-design/ljg-relationship"
+  },
+  {
+    "id": "llm-architecture-gallery",
+    "name": "llm-architecture-gallery",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-trending-skills",
+    "description": "name: llm-architecture-gallery",
+    "path": "category/architecture-system-design/llm-architecture-gallery"
+  },
+  {
+    "id": "loading-states",
+    "name": "loading-states",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Design waiting experiences \u2014 spinners, skeletons, optimistic updates, and progressive reveal. Use when content takes time to arrive. For the latency budget itself use `doherty-threshold`; for success confirmation use `feedback-patterns`.",
+    "path": "category/architecture-system-design/loading-states"
+  },
+  {
+    "id": "log-analysis",
+    "name": "log-analysis",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Analyze application and system logs to identify errors, patterns, and root causes. Use log aggregation tools and structured logging for effective debugging.",
+    "path": "category/architecture-system-design/log-analysis"
+  },
+  {
+    "id": "longbridge-technical",
+    "name": "longbridge-technical",
+    "category": "architecture-system-design",
+    "repository": "longbridge-skills",
+    "description": "Technical analysis frameworks \u2014 candlestick patterns, Ichimoku cloud, technical indicators (RSI/MACD/EMA/Bollinger), harmonic patterns (Gartley/Bat/Butterfly/Crab), Elliott Wave, Chan Theory (\u7f20\u8bba bi/zhongshu/buy-sell points), Smart Money Concepts (BOS/FVG/Order Block), and Turtle Trading signals with ATR/Unit position sizing. Triggers: \"\u6280\u672f\u5206\u6790\", \"K\u7ebf\u5f62\u6001\", \"\u8721\u70db\u56fe\", \"\u4e00\u76ee\u5747\u8861\u8868\", \"RSI\", \"MACD\", \"\u5e03\u6797\u5e26\", \"\u8c10\u6ce2\u5f62\u6001\", \"\u827e\u7565\u7279\u6ce2\u6d6a\", \"\u7f20\u8bba\", \"\u5206\u578b\", \"\u7b14\", \"\u4e2d\u67a2\", \"Smart Money\", \"BOS\", \"FVG\", \"\u6d77\u9f9f\u4ea4\u6613\", \"\u6d77\u9f9f\u4fe1\u53f7\", \"K\u7dda\u5f62\u614b\", \"\u881f\u71ed\u5716\", \"\u4e00\u76ee\u5747\u8861\u8868\", \"\u7e8f\u8ad6\", \"ichimoku\", \"candlestick pattern\", \"K\u7ebf\u5f62\u6001\u8bc6\u522b\", \"\u5f62\u6001\u8bc6\u522b\", \"\u8bc6\u522bK\u7ebf\", \"\u8bc6\u522b\u5f62\u6001\", \"harmonic\", \"Elliott Wave\", \"chan theory\", \"turtle trading\", \"SMC\", \"technical indicators\", \"\u6280\u8853\u5206\u6790\", \"\u6d77\u9f9c\u4ea4\u6613\", \"\u6d77\u9f9c\u4fe1\u865f\", \"\u8ae7\u6ce2\u5f62\u614b",
+    "path": "category/architecture-system-design/longbridge-technical"
+  },
+  {
     "id": "lore",
     "name": "lore",
     "category": "architecture-system-design",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Markdown project memory for AI agents. Use for decisions, architecture, conventions, monorepo scopes, `.lore/`, or `lore` commands; not native `/init`/`/compact` or generic init/compress/audit/query.",
     "path": "category/architecture-system-design/lore"
+  },
+  {
+    "id": "m05-type-driven",
+    "name": "m05-type-driven",
+    "category": "architecture-system-design",
+    "repository": "actionbook-rust-skills",
+    "description": "CRITICAL: Use for type-driven design. Triggers: type state, PhantomData, newtype, marker trait, builder pattern, make invalid states unrepresentable, compile-time validation, sealed trait, ZST, \u7c7b\u578b\u72b6\u6001, \u65b0\u7c7b\u578b\u6a21\u5f0f, \u7c7b\u578b\u9a71\u52a8\u8bbe\u8ba1",
+    "path": "category/architecture-system-design/m05-type-driven"
+  },
+  {
+    "id": "m09-domain",
+    "name": "m09-domain",
+    "category": "architecture-system-design",
+    "repository": "actionbook-rust-skills",
+    "description": "CRITICAL: Use for domain modeling. Triggers: domain model, DDD, domain-driven design, entity, value object, aggregate, repository pattern, business rules, validation, invariant, \u9886\u57df\u6a21\u578b, \u9886\u57df\u9a71\u52a8\u8bbe\u8ba1, \u4e1a\u52a1\u89c4\u5219",
+    "path": "category/architecture-system-design/m09-domain"
+  },
+  {
+    "id": "m12-lifecycle",
+    "name": "m12-lifecycle",
+    "category": "architecture-system-design",
+    "repository": "actionbook-rust-skills",
+    "description": "Use when designing resource lifecycles. Keywords: RAII, Drop, resource lifecycle, connection pool, lazy initialization, connection pool design, resource cleanup patterns, cleanup, scope, OnceCell, Lazy, once_cell, OnceLock, transaction, session management, when is Drop called, cleanup on error, guard pattern, scope guard, \u8d44\u6e90\u751f\u547d\u5468\u671f, \u8fde\u63a5\u6c60, \u60f0\u6027\u521d\u59cb\u5316, \u8d44\u6e90\u6e05\u7406, RAII \u6a21\u5f0f",
+    "path": "category/architecture-system-design/m12-lifecycle"
   },
   {
     "id": "magicblock-dev",
@@ -1880,12 +2848,52 @@
     "path": "category/architecture-system-design/magicblock-dev"
   },
   {
-    "id": "mcp-integration",
-    "name": "mcp-integration",
+    "id": "manage-sprite-atlas",
+    "name": "manage-sprite-atlas",
     "category": "architecture-system-design",
-    "repository": "besync-labs-antigravity-ai-kit",
-    "description": "Model Context Protocol (MCP) integration patterns for extending AI capabilities with external tools and data sources.",
-    "path": "category/architecture-system-design/mcp-integration"
+    "repository": "unity-technologies-skills",
+    "description": "Manages SpriteAtlas assets through a prebuild pipeline, covering master and variant atlases, packing settings, and platform overrides. Use when asked to create or optimize sprite atlases.",
+    "path": "category/architecture-system-design/manage-sprite-atlas"
+  },
+  {
+    "id": "mantle-smart-contract-developer",
+    "name": "mantle-smart-contract-developer",
+    "category": "architecture-system-design",
+    "repository": "starchild-ai-agent-official-skills",
+    "description": "Use when a Mantle project needs contract requirements, architecture, access control, upgradeability, dependencies, or deployment-readiness decisions before authoring or deployment.",
+    "path": "category/architecture-system-design/mantle-smart-contract-developer"
+  },
+  {
+    "id": "market-ingest",
+    "name": "market-ingest",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Ingest and normalize market data into OHLCV vectors stored by symbol and date for later pattern detection. Use when you need to load price and volume history for a symbol before running pattern detection or comparison. Read-only analysis; it never places orders.",
+    "path": "category/architecture-system-design/market-ingest"
+  },
+  {
+    "id": "market-pattern",
+    "name": "market-pattern",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Detect and classify candlestick patterns from ingested OHLCV data",
+    "path": "category/architecture-system-design/market-pattern"
+  },
+  {
+    "id": "mechanistic-interpretability-nnsight",
+    "name": "mechanistic-interpretability-nnsight",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Provides guidance for interpreting and manipulating neural network internals using nnsight with optional NDIF remote execution. Use when needing to run interpretability experiments on massive models (70B+) without local GPU resources, or when working with any PyTorch architecture.",
+    "path": "category/architecture-system-design/mechanistic-interpretability-nnsight"
+  },
+  {
+    "id": "mechanistic-interpretability-transformer-lens",
+    "name": "mechanistic-interpretability-transformer-lens",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Provides guidance for mechanistic interpretability research using TransformerLens to inspect and manipulate transformer internals via HookPoints and activation caching. Use when reverse-engineering model algorithms, studying attention patterns, or performing activation patching experiments.",
+    "path": "category/architecture-system-design/mechanistic-interpretability-transformer-lens"
   },
   {
     "id": "memory-systems",
@@ -1896,12 +2904,44 @@
     "path": "category/architecture-system-design/memory-systems"
   },
   {
+    "id": "messaging",
+    "name": "messaging",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Asynchronous messaging patterns for .NET applications. Covers Wolverine and MassTransit, outbox pattern, saga and choreography, and broker configuration for RabbitMQ and Azure Service Bus. Load this skill when implementing event-driven communication, background processing, module-to-module messaging, or when the user mentions \"Wolverine\", \"MassTransit\", \"message bus\", \"RabbitMQ\", \"Azure Service Bus\", \"event\", \"publish\", \"consumer\", \"outbox\", \"saga\", \"integration event\", \"queue\", or \"pub/sub\".",
+    "path": "category/architecture-system-design/messaging"
+  },
+  {
+    "id": "micronaut",
+    "name": "micronaut",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert guidance for Micronaut framework development with compile-time dependency injection, GraalVM native builds, and cloud-native microservices",
+    "path": "category/architecture-system-design/micronaut"
+  },
+  {
+    "id": "microservices",
+    "name": "microservices",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Guidelines for building production-grade microservices with FastAPI/Python and Go, covering serverless patterns, clean architecture, observability, and resilience.",
+    "path": "category/architecture-system-design/microservices"
+  },
+  {
     "id": "microservices-architect",
     "name": "microservices-architect",
     "category": "architecture-system-design",
     "repository": "jeffallan-claude-skills",
     "description": "Designs distributed system architectures, decomposes monoliths into bounded-context services, recommends communication patterns, and produces service boundary diagrams and resilience strategies. Use when designing distributed systems, decomposing monoliths, or implementing microservices patterns \u2014 including service boundaries, DDD, saga patterns, event sourcing, CQRS, service mesh, or distributed tracing.",
     "path": "category/architecture-system-design/microservices-architect"
+  },
+  {
+    "id": "microservices-architecture",
+    "name": "microservices-architecture",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Design and implement microservices architecture including service boundaries, communication patterns, API gateways, service mesh, service discovery, and distributed system patterns. Use when building microservices, distributed systems, or service-oriented architectures.",
+    "path": "category/architecture-system-design/microservices-architecture"
   },
   {
     "id": "microservices-patterns",
@@ -1918,6 +2958,46 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Diagnose missing data patterns and apply appropriate imputation strategies",
     "path": "category/architecture-system-design/missing-data-handling"
+  },
+  {
+    "id": "model-architecture-mamba",
+    "name": "model-architecture-mamba",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "State-space model with O(n) complexity vs Transformers' O(n\u00b2). 5\u00d7 faster inference, million-token sequences, no KV cache. Selective SSM with hardware-aware design. Mamba-1 (d_state=16) and Mamba-2 (d_state=128, multi-head). Models 130M-2.8B on HuggingFace.",
+    "path": "category/architecture-system-design/model-architecture-mamba"
+  },
+  {
+    "id": "model-architecture-nanogpt",
+    "name": "model-architecture-nanogpt",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Educational GPT implementation in ~300 lines. Reproduces GPT-2 (124M) on OpenWebText. Clean, hackable code for learning transformers. By Andrej Karpathy. Perfect for understanding GPT architecture from scratch. Train on Shakespeare (CPU) or OpenWebText (multi-GPU).",
+    "path": "category/architecture-system-design/model-architecture-nanogpt"
+  },
+  {
+    "id": "model-architecture-rwkv",
+    "name": "model-architecture-rwkv",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "RNN+Transformer hybrid with O(n) inference. Linear time, infinite context, no KV cache. Train like GPT (parallel), infer like RNN (sequential). Linux Foundation AI project. Production at Windows, Office, NeMo. RWKV-7 (March 2025). Models up to 14B parameters.",
+    "path": "category/architecture-system-design/model-architecture-rwkv"
+  },
+  {
+    "id": "model-architecture-torchtitan",
+    "name": "model-architecture-torchtitan",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Provides PyTorch-native distributed LLM pretraining using torchtitan with 4D parallelism (FSDP2, TP, PP, CP). Use when pretraining Llama 3.1, DeepSeek V3, or custom models at scale from 8 to 512+ GPUs with Float8, torch.compile, and distributed checkpointing.",
+    "path": "category/architecture-system-design/model-architecture-torchtitan"
+  },
+  {
+    "id": "modern-csharp",
+    "name": "modern-csharp",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Modern C# language features for .NET 10 and C# 14. Covers primary constructors, collection expressions, the field keyword, extension members, records, pattern matching, spans, and raw string literals. Load this skill when writing any new C# code, reviewing existing code for modernization, using \"modern C#\", \"C# 14\", \"primary constructor\", \"collection expression\", \"records\", \"pattern matching\", \"span\", \"field keyword\", or \"extension members\". Always loaded as the baseline for all agents.",
+    "path": "category/architecture-system-design/modern-csharp"
   },
   {
     "id": "modern-javascript-patterns",
@@ -1942,6 +3022,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use PROACTIVELY for monorepo setup,",
     "path": "category/architecture-system-design/monorepo-architect"
+  },
+  {
+    "id": "monorepo-management",
+    "name": "monorepo-management",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Manage monorepo architectures using Lerna, Turborepo, and Nx. Configure workspaces, dependency versioning, and cross-package testing.",
+    "path": "category/architecture-system-design/monorepo-management"
   },
   {
     "id": "monte-carlo-storage-cost-analysis",
@@ -1976,6 +3064,14 @@
     "path": "category/architecture-system-design/multi-platform-apps-multi-platform"
   },
   {
+    "id": "multiplayer",
+    "name": "multiplayer",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Multiplayer game development principles. Architecture, networking, synchronization.",
+    "path": "category/architecture-system-design/multiplayer"
+  },
+  {
     "id": "muratcankoylan-agent-skills-for-context-engineering",
     "name": "muratcankoylan-agent-skills-for-context-engineering",
     "category": "architecture-system-design",
@@ -1987,9 +3083,17 @@
     "id": "n8n-workflow-patterns",
     "name": "n8n-workflow-patterns",
     "category": "architecture-system-design",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Proven architectural patterns for building n8n workflows.",
+    "repository": "davila7-claude-code-templates",
+    "description": "Proven workflow architectural patterns from real n8n workflows. Use when building new workflows, designing workflow structure, choosing workflow patterns, planning workflow architecture, or asking about webhook processing, HTTP API integration, database operations, AI agent workflows, or scheduled tasks.",
     "path": "category/architecture-system-design/n8n-workflow-patterns"
+  },
+  {
+    "id": "navigation-patterns",
+    "name": "navigation-patterns",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Select and design a navigation pattern \u2014 tabs, drawer, hierarchy, or hub \u2014 matched to product structure and user tasks. Use when choosing how users move between sections. For the underlying content structure, use `information-architecture` (ux-strategy).",
+    "path": "category/architecture-system-design/navigation-patterns"
   },
   {
     "id": "nerdzao-elite",
@@ -1998,6 +3102,22 @@
     "repository": "antigravity-awesome-skills",
     "description": "Senior Elite Software Engineer (15+) and Senior Product Designer. Full workflow with planning, architecture, TDD, clean code, and pixel-perfect UX validation.",
     "path": "category/architecture-system-design/nerdzao-elite"
+  },
+  {
+    "id": "nestjs-best-practices",
+    "name": "nestjs-best-practices",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides comprehensive NestJS best practices including modular architecture, dependency injection scoping, exception filters, DTO validation with class-validator, and Drizzle ORM integration. Use when designing NestJS modules, implementing providers, creating exception filters, validating DTOs, or integrating Drizzle ORM within NestJS applications.",
+    "path": "category/architecture-system-design/nestjs-best-practices"
+  },
+  {
+    "id": "nestjs-code-review",
+    "name": "nestjs-code-review",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides comprehensive code review capability for NestJS applications, analyzing controllers, services, modules, guards, interceptors, pipes, dependency injection, and database integration patterns. Use when reviewing NestJS code changes, before merging pull requests, after implementing new features, or for architecture validation. Triggers on \"review NestJS code\", \"NestJS code review\", \"check my NestJS controller/service\".",
+    "path": "category/architecture-system-design/nestjs-code-review"
   },
   {
     "id": "nestjs-expert",
@@ -2022,6 +3142,38 @@
     "repository": "affaan-m-ecc",
     "description": "Diagnostics-only BGP troubleshooting patterns for neighbor state, route exchange, prefix policy, AS path inspection, and safe evidence collection. Use when a BGP neighbor is down, routes are missing, or prefix policy and AS path need inspection.",
     "path": "category/architecture-system-design/network-bgp-diagnostics"
+  },
+  {
+    "id": "neural-network-design",
+    "name": "neural-network-design",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Design and architect neural networks with various architectures including CNNs, RNNs, Transformers, and attention mechanisms using PyTorch and TensorFlow",
+    "path": "category/architecture-system-design/neural-network-design"
+  },
+  {
+    "id": "neurokit2",
+    "name": "neurokit2",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when processing cardiovascular signals, brain activity, electrodermal responses, respiratory patterns, muscle activity, or eye movements. Applicable for heart rate variability analysis, event-related potentials, complexity measures, autonomic nervous system assessment, psychophysiology research, and multi-modal physiological signal integration.",
+    "path": "category/architecture-system-design/neurokit2"
+  },
+  {
+    "id": "nextjs-code-review",
+    "name": "nextjs-code-review",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides comprehensive code review capability for Next.js applications, validates Server Components, Client Components, Server Actions, caching strategies, metadata, API routes, middleware, and performance patterns. Use when reviewing Next.js App Router code changes, before merging pull requests, after implementing new features, or for architecture validation. Triggers on \"review Next.js code\", \"Next.js code review\", \"check my Next.js app\".",
+    "path": "category/architecture-system-design/nextjs-code-review"
+  },
+  {
+    "id": "nextjs-react-redux-typescript-cursor-rules",
+    "name": "nextjs-react-redux-typescript-cursor-rules",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Comprehensive Next.js, React, Redux, and TypeScript development guidelines covering SOLID principles, component architecture, and best practices.",
+    "path": "category/architecture-system-design/nextjs-react-redux-typescript-cursor-rules"
   },
   {
     "id": "nodejs-best-practices",
@@ -2056,6 +3208,14 @@
     "path": "category/architecture-system-design/obsidian-second-brain"
   },
   {
+    "id": "odoo-development",
+    "name": "odoo-development",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert guidance for Odoo ERP development including Python ORM, XML views, and module architecture",
+    "path": "category/architecture-system-design/odoo-development"
+  },
+  {
     "id": "odoo-module-developer",
     "name": "odoo-module-developer",
     "category": "architecture-system-design",
@@ -2080,6 +3240,22 @@
     "path": "category/architecture-system-design/odoo-security-rules"
   },
   {
+    "id": "om-auto-sec-report-pr",
+    "name": "om-auto-sec-report-pr",
+    "category": "architecture-system-design",
+    "repository": "open-mercato-skills",
+    "description": "Paranoid OWASP-style security analysis of ONE unit (a PR, spec, or branch diff) \u2014 severity-ranked findings, non-obvious attack vectors, same-pattern hotspots, and \"go deeper\" follow-up runs. Writes a redacted report (live exploitable details withheld), kept local by default or shipped as a docs PR, or a fragment for `om-auto-sec-report`. Use for \"security review of PR 123\".",
+    "path": "category/architecture-system-design/om-auto-sec-report-pr"
+  },
+  {
+    "id": "om-ux-review-pr",
+    "name": "om-ux-review-pr",
+    "category": "architecture-system-design",
+    "repository": "open-mercato-skills",
+    "description": "Evidence-first design review of a PR's UI. Walks the changed screens in a real browser, performs the user's tasks, and posts findings ranked by user impact, each with evidence, a pattern, a trade-off and an acceptance criterion. A --guard mode checks code statically against the design contract, per PR or repository-wide with --health.",
+    "path": "category/architecture-system-design/om-ux-review-pr"
+  },
+  {
     "id": "on-call-handoff-patterns",
     "name": "on-call-handoff-patterns",
     "category": "architecture-system-design",
@@ -2094,6 +3270,22 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Use Ontoly's deterministic Software Graph, MCP server, and agent skills for architecture review, request tracing, impact analysis, and dependency analysis.",
     "path": "category/architecture-system-design/ontoly-software-graph"
+  },
+  {
+    "id": "optimization-hqq",
+    "name": "optimization-hqq",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Half-Quadratic Quantization for LLMs without calibration data. Use when quantizing models to 4/3/2-bit precision without needing calibration datasets, for fast quantization workflows, or when deploying with vLLM or HuggingFace Transformers.",
+    "path": "category/architecture-system-design/optimization-hqq"
+  },
+  {
+    "id": "optimized-nextjs-typescript",
+    "name": "optimized-nextjs-typescript",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Optimized Next.js TypeScript best practices with modern UI/UX, focusing on performance, security, and clean architecture",
+    "path": "category/architecture-system-design/optimized-nextjs-typescript"
   },
   {
     "id": "oss-contributor-onboarding",
@@ -2128,6 +3320,30 @@
     "path": "category/architecture-system-design/parallel-feature-development"
   },
   {
+    "id": "partner-app-onboarding",
+    "name": "partner-app-onboarding",
+    "category": "architecture-system-design",
+    "repository": "samber-developer-platform-skills",
+    "description": "Design the partner-developer onboarding journey on a B2B SaaS platform - from partner signup through dev-account and sandbox provisioning, docs, education and certification posture, and support channels, to the first submitted app. Use whenever the user mentions partner developer onboarding, developer program entry, self-service vs application-gated registration, sandbox tenancy for partners, certification gating submission, partner support channels, or time-to-first-submitted-app - even if they never say \"onboarding\". Journey design only. Do NOT use for review-gate mechanics (samber/developer-platform-skills@app-marketplace-review) or sandbox isolation architecture (samber/developer-platform-skills@api-test-mode-design).",
+    "path": "category/architecture-system-design/partner-app-onboarding"
+  },
+  {
+    "id": "pattern-library",
+    "name": "pattern-library",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Structure a pattern entry \u2014 problem context, solution, usage examples, and related patterns. Use when documenting a recurring solution rather than a component. For a single component's API, use `component-spec`.",
+    "path": "category/architecture-system-design/pattern-library"
+  },
+  {
+    "id": "pattern-of-life-from-socials",
+    "name": "pattern-of-life-from-socials",
+    "category": "architecture-system-design",
+    "repository": "useosint-skills",
+    "description": "Deep-dive a subject's social media presence \u2014 profile metadata, follower and mutual network, content analysis, and posting-time pattern of life across Instagram, Facebook, X/Twitter, TikTok, LinkedIn, Reddit, Telegram and Discord. Use when profiling a social account, mapping someone's associates, inferring a subject's timezone or routine from their posts, or archiving a profile before it is deleted. Applies to threat assessment and executive protection, insider-threat investigation, pre-litigation research, and personal exposure audits \u2014 with explicit limits on profiling uninvolved third parties. Reference at useosint.com/skills/pattern-of-life-from-socials.",
+    "path": "category/architecture-system-design/pattern-of-life-from-socials"
+  },
+  {
     "id": "performing-network-traffic-analysis-with-tshark",
     "name": "performing-network-traffic-analysis-with-tshark",
     "category": "architecture-system-design",
@@ -2160,6 +3376,14 @@
     "path": "category/architecture-system-design/photopea-embedded-editor"
   },
   {
+    "id": "plan",
+    "name": "plan",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Enter plan mode for .NET projects with architecture awareness. Analyzes tasks through the lens of supported architectures (VSA, Clean Architecture, DDD, Modular Monolith) and produces structured implementation plans before any code is written. Use when: \"plan\", \"let's plan\", \"think through\", \"design this\", \"how should I implement\", or any non-trivial task requiring 3+ steps.",
+    "path": "category/architecture-system-design/plan"
+  },
+  {
     "id": "plan-zoom-integration",
     "name": "plan-zoom-integration",
     "category": "architecture-system-design",
@@ -2176,12 +3400,36 @@
     "path": "category/architecture-system-design/plantuml-guide"
   },
   {
+    "id": "plugin-settings",
+    "name": "plugin-settings",
+    "category": "architecture-system-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-project plugin settings\", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content.",
+    "path": "category/architecture-system-design/plugin-settings"
+  },
+  {
+    "id": "pod-sales",
+    "name": "pod-sales",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Run one dry-run tick of the sales business-pod (ADR-164): validate templates/sales.json, reserve budget, post a summary envelope to the \\\"sales\\\" room and print a status line for /loop. Use when a person or a /loop asks for the next sales-pod tick.",
+    "path": "category/architecture-system-design/pod-sales"
+  },
+  {
     "id": "post-scorer",
     "name": "post-scorer",
     "category": "architecture-system-design",
     "repository": "charlie947-social-media-skills",
     "description": "Score a LinkedIn post using real performance data. Pulls the user's own post history via Apify (or uses cached data) to identify what actually performs, then scores the draft against those patterns. Use this skill whenever the user says \"score my post\", \"review my post\", \"rate this post\", \"give me feedback\", \"how good is this post\", or pastes a LinkedIn post and asks for critique. Separates historical comparisons from an explicitly labelled editorial-only fallback. Designed for live scoring at events and everyday post review.",
     "path": "category/architecture-system-design/post-scorer"
+  },
+  {
+    "id": "post-training-openrlhf",
+    "name": "post-training-openrlhf",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "High-performance RLHF framework with Ray+vLLM acceleration. Use for PPO, GRPO, RLOO, DPO training of large models (7B-70B+). Built on Ray, vLLM, ZeRO-3. 2\u00d7 faster than DeepSpeedChat with distributed architecture and GPU resource sharing.",
+    "path": "category/architecture-system-design/post-training-openrlhf"
   },
   {
     "id": "prediction-market-oracle-research",
@@ -2206,6 +3454,22 @@
     "repository": "backnotprop-pstack",
     "description": "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code.",
     "path": "category/architecture-system-design/principle-outcome-oriented-execution"
+  },
+  {
+    "id": "product-feed-optimizer",
+    "name": "product-feed-optimizer",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"optimize my Shopping feed\", \"fix product disapprovals\", \"improve product titles/attributes\", or \"build feed-driven PMax asset groups\"; audits and rewrites the Shopping/Performance Max product feed \u2014 title/description patterns, required and recommended attributes, GTIN/availability/price hygiene, disapproval triage, and feed-driven asset-group / listing-group structure \u2014 informing the ROAS O (Offer) dimension. Not for text ad copy \u2014 use ad-creative-builder; not for scoring the account or the RQS \u2014 use ad-account-auditor. \u5546\u54c1Feed\u4f18\u5316/\u8d2d\u7269\u5e7f\u544aFeed/\u5546\u54c1\u6807\u9898\u4f18\u5316/\u5546\u54c1\u7981\u6295\u4fee\u590d",
+    "path": "category/architecture-system-design/product-feed-optimizer"
+  },
+  {
+    "id": "product-review-analysis",
+    "name": "product-review-analysis",
+    "category": "architecture-system-design",
+    "repository": "nexscope-ai-ecommerce-skills",
+    "description": "Product review analysis and customer feedback intelligence. Pain point identification, praise pattern analysis, feature request extraction, sentiment analysis, and product improvement insights. Use when the user asks about review analysis, customer feedback, product reviews, or sentiment analysis.",
+    "path": "category/architecture-system-design/product-review-analysis"
   },
   {
     "id": "production-code-audit",
@@ -2304,6 +3568,14 @@
     "path": "category/architecture-system-design/python-development-python-scaffold"
   },
   {
+    "id": "python-odoo-cursor-rules",
+    "name": "python-odoo-cursor-rules",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Guidelines for Python and Odoo enterprise application development with ORM, XML views, and module architecture best practices.",
+    "path": "category/architecture-system-design/python-odoo-cursor-rules"
+  },
+  {
     "id": "pytorch-guide",
     "name": "pytorch-guide",
     "category": "architecture-system-design",
@@ -2318,6 +3590,14 @@
     "repository": "affaan-m-ecc",
     "description": "PyTorch deep learning patterns and best practices for building robust, efficient, and reproducible training pipelines, model architectures, and data loading. Use when writing or reviewing PyTorch training loops, model architectures, or data loading, or when a run will not reproduce.",
     "path": "category/architecture-system-design/pytorch-patterns"
+  },
+  {
+    "id": "quarkus",
+    "name": "quarkus",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Expert guidance for Quarkus framework development with Jakarta EE, MicroProfile, GraalVM native builds, and reactive programming patterns",
+    "path": "category/architecture-system-design/quarkus"
   },
   {
     "id": "r-bayes",
@@ -2336,6 +3616,22 @@
     "path": "category/architecture-system-design/rayden-code"
   },
   {
+    "id": "react-code-review",
+    "name": "react-code-review",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides comprehensive code review capability for React applications, validates component architecture, hooks usage, React 19 patterns, state management, performance optimization, accessibility compliance, and TypeScript integration. Use when reviewing React code changes, before merging pull requests, after implementing new features, or for component architecture validation. Triggers on \"review React code\", \"React code review\", \"check my React components\".",
+    "path": "category/architecture-system-design/react-code-review"
+  },
+  {
+    "id": "react-component-architecture",
+    "name": "react-component-architecture",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Design scalable React components using functional components, hooks, composition patterns, and TypeScript. Use when building reusable component libraries and maintainable UI systems.",
+    "path": "category/architecture-system-design/react-component-architecture"
+  },
+  {
     "id": "react-ui-patterns",
     "name": "react-ui-patterns",
     "category": "architecture-system-design",
@@ -2344,12 +3640,60 @@
     "path": "category/architecture-system-design/react-ui-patterns"
   },
   {
+    "id": "reactive-programming",
+    "name": "reactive-programming",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement reactive programming patterns using RxJS, streams, observables, and backpressure handling. Use when building event-driven UIs, handling async data streams, or managing complex data flows.",
+    "path": "category/architecture-system-design/reactive-programming"
+  },
+  {
     "id": "read-all-adrs",
     "name": "read-all-adrs",
     "category": "architecture-system-design",
     "repository": "davidondrej-skills",
     "description": "Read every ADR markdown file in the project's docs/adr/ folder so you have full context on past decisions. Use only when the user explicitly calls it.",
     "path": "category/architecture-system-design/read-all-adrs"
+  },
+  {
+    "id": "realtime-cinema-data-engineering-pipeline",
+    "name": "realtime-cinema-data-engineering-pipeline",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-data-skills",
+    "description": "Build end-to-end real-time data pipelines with Kafka, PostgreSQL, Airflow, and Streamlit using Medallion Architecture for streaming analytics.",
+    "path": "category/architecture-system-design/realtime-cinema-data-engineering-pipeline"
+  },
+  {
+    "id": "recording-decisions",
+    "name": "recording-decisions",
+    "category": "architecture-system-design",
+    "repository": "riekelt-technical-writer",
+    "description": "Use when a decision needs recording - an ADR, a decision log entry, or when someone asks to write down why something was chosen, rejected, or superseded. Encodes the ADR and decision-log formats. Use whenever a choice was made that would otherwise live only in chat, even if nobody says \"ADR\".",
+    "path": "category/architecture-system-design/recording-decisions"
+  },
+  {
+    "id": "release-it",
+    "name": "release-it",
+    "category": "architecture-system-design",
+    "repository": "wondelai-skills",
+    "description": "Build production-ready systems with stability patterns: circuit breakers, bulkheads, timeouts, and retry logic. Use when the user mentions \"production outage\", \"circuit breaker\", \"deployment pipeline\", \"chaos engineering\", \"retry storm\", \"health checks\", \"my service keeps crashing\", \"prevent cascading failures\", or \"make it resilient\". Also trigger when designing resilient microservices, planning zero-downtime deployments, or capacity-planning for peak load. Covers stability patterns, capacity planning, deploy/release decoupling, and observability. For data systems, see ddia-systems. For system architecture, see system-design.",
+    "path": "category/architecture-system-design/release-it"
+  },
+  {
+    "id": "replay-ux-audit",
+    "name": "replay-ux-audit",
+    "category": "architecture-system-design",
+    "repository": "amplitude-mcp-marketplace",
+    "description": "Finds and analyzes Amplitude Session Replays to surface UX friction patterns across multiple sessions. Produces a ranked friction map showing where users struggle, hesitate, or abandon. Use when a PM or designer asks \"where's the friction\", \"what's confusing users\", \"UX issues on this page\", \"why is this flow clunky\", \"audit the user experience\", or wants qualitative evidence of usability problems in a specific feature or flow.",
+    "path": "category/architecture-system-design/replay-ux-audit"
+  },
+  {
+    "id": "retail-etl-pipeline-medallion",
+    "name": "retail-etl-pipeline-medallion",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-data-skills",
+    "description": "End-to-end retail ETL pipeline using PySpark, SQL Server, and Medallion Architecture (Bronze/Silver/Gold layers) for data warehousing",
+    "path": "category/architecture-system-design/retail-etl-pipeline-medallion"
   },
   {
     "id": "returns-reverse-logistics",
@@ -2416,12 +3760,36 @@
     "path": "category/architecture-system-design/robius-widget-patterns"
   },
   {
+    "id": "rspec",
+    "name": "rspec",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "RSpec testing best practices for Ruby and Rails applications, covering test organization, data management, and isolation patterns.",
+    "path": "category/architecture-system-design/rspec"
+  },
+  {
     "id": "ruby-pro",
     "name": "ruby-pro",
     "category": "architecture-system-design",
     "repository": "antigravity-awesome-skills",
     "description": "Write idiomatic Ruby code with metaprogramming, Rails patterns, and",
     "path": "category/architecture-system-design/ruby-pro"
+  },
+  {
+    "id": "ruby-rails-application",
+    "name": "ruby-rails-application",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Develop Ruby on Rails applications with models, controllers, views, Active Record ORM, authentication, and RESTful routes. Use when building Rails applications, managing database relationships, and implementing MVC architecture.",
+    "path": "category/architecture-system-design/ruby-rails-application"
+  },
+  {
+    "id": "runpod-usage",
+    "name": "runpod-usage",
+    "category": "architecture-system-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Explain Runpod architecture and design choices: Pods versus Serverless, GPU/VRAM, image construction, storage, networking, and workload development. For creating or improving a complete template project use runpod-build-template; execute infrastructure with runpodctl/runpod-mcp and code-first work with flash.",
+    "path": "category/architecture-system-design/runpod-usage"
   },
   {
     "id": "saas-mvp-launcher",
@@ -2440,12 +3808,28 @@
     "path": "category/architecture-system-design/saga-orchestration"
   },
   {
+    "id": "scaffold",
+    "name": "scaffold",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Architecture-aware feature scaffolding for .NET 10 projects. Detects the project's architecture (VSA, Clean Architecture, DDD, Modular Monolith) and generates complete feature slices with all required layers: endpoint, handler, validator, DTOs, EF configuration, and integration tests \u2014 with the completeness checklist and per-architecture code templates every generated feature must satisfy. Use when: \"scaffold\", \"create feature\", \"add feature\", \"new endpoint\", \"generate\", \"add entity\", \"scaffold a module\", \"add module\", or when customizing generation templates or defining what a complete feature slice includes.",
+    "path": "category/architecture-system-design/scaffold"
+  },
+  {
     "id": "schema-markup",
     "name": "schema-markup",
     "category": "architecture-system-design",
     "repository": "alirezarezvani-claude-skills",
     "description": "When the user wants to implement, audit, or validate structured data (schema markup) on their website. Use when the user mentions 'structured data,' 'schema.org,' 'JSON-LD,' 'rich results,' 'rich snippets,' 'schema markup,' 'FAQ schema,' 'Product schema,' 'HowTo schema,' or 'structured data errors in Search Console.' Also use when someone asks why their content isn't showing rich results or wants to improve AI search visibility. NOT for general SEO audits (use seo-audit) or technical SEO crawl issues (use site-architecture).",
     "path": "category/architecture-system-design/schema-markup"
+  },
+  {
+    "id": "search-ux",
+    "name": "search-ux",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Design search \u2014 query input, zero results, refinement, and result presentation. Use when users retrieve rather than browse. For browse structure, use `navigation-patterns`.",
+    "path": "category/architecture-system-design/search-ux"
   },
   {
     "id": "secrets-vault-manager",
@@ -2520,6 +3904,14 @@
     "path": "category/architecture-system-design/sepa-strategy"
   },
   {
+    "id": "serverless-architecture",
+    "name": "serverless-architecture",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Design and implement serverless applications using AWS Lambda, Azure Functions, and GCP Cloud Functions with event-driven patterns and orchestration.",
+    "path": "category/architecture-system-design/serverless-architecture"
+  },
+  {
     "id": "service-mesh-expert",
     "name": "service-mesh-expert",
     "category": "architecture-system-design",
@@ -2536,12 +3928,28 @@
     "path": "category/architecture-system-design/setup-zoom-mcp"
   },
   {
+    "id": "shopify-seo",
+    "name": "shopify-seo",
+    "category": "architecture-system-design",
+    "repository": "nexscope-ai-ecommerce-skills",
+    "description": "Comprehensive Shopify SEO optimization guide. Technical SEO, on-page optimization, collection pages, blog strategy, site architecture, and link building for Shopify stores.",
+    "path": "category/architecture-system-design/shopify-seo"
+  },
+  {
     "id": "site-architecture",
     "name": "site-architecture",
     "category": "architecture-system-design",
     "repository": "alirezarezvani-claude-skills",
     "description": "When the user wants to audit, redesign, or plan their website's structure, URL hierarchy, navigation design, or internal linking strategy. Use when the user mentions 'site architecture,' 'URL structure,' 'internal links,' 'site navigation,' 'breadcrumbs,' 'topic clusters,' 'hub pages,' 'orphan pages,' 'silo structure,' 'information architecture,' or 'website reorganization.' Also use when someone has SEO problems and the root cause is structural (not content or schema). NOT for content strategy decisions about what to write (use content-strategy) or for schema markup (use schema-markup).",
     "path": "category/architecture-system-design/site-architecture"
+  },
+  {
+    "id": "site-structure-optimizer",
+    "name": "site-structure-optimizer",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"plan my site structure\", \"design the page hierarchy / navigation / URL taxonomy\", \"fix internal linking\", or \"find orphan pages\"; runs two modes \u2014 architecture (hierarchy, nav, URL patterns, hub/spoke clusters, Mermaid site maps) and linking (link graph, authority flow, anchor text, orphan disposition, source/target/anchor plan) \u2014 and outputs a structure score /100 plus a handoff summary. Not for external backlinks \u2014 use offsite-signal-analyzer; not for XML sitemap or indexation issues \u2014 use technical-seo-checker. \u7f51\u7ad9\u67b6\u6784/\u4fe1\u606f\u67b6\u6784/\u7ad9\u70b9\u5730\u56fe/\u5185\u94fe\u4f18\u5316",
+    "path": "category/architecture-system-design/site-structure-optimizer"
   },
   {
     "id": "skill-developer",
@@ -2560,6 +3968,14 @@
     "path": "category/architecture-system-design/skin-health-analyzer"
   },
   {
+    "id": "social-pulse-monitor",
+    "name": "social-pulse-monitor",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"monitor brand mentions\", \"set up social listening\", \"did anything spike about us this week\", or \"watch these accounts for buying triggers\"; runs always-on keyless listening \u2014 a versioned listening-query architecture (brand variants incl. misspellings and \u4e2d\u6587 names, exclusion terms, per-source syntax for HN Algolia / Bluesky / GDELT / Tavily), a mention sweep with six-class triage (crisis / bug / lead / praise / question / spam) each routed with an SLA, a 7-day rolling baseline with spike flags (the crisis trigger input), a B2B trigger watchlist (funding / hiring / launch signals), and an explicit coverage disclosure where X/IG/TikTok/LinkedIn/\u5c0f\u7ea2\u4e66 numbers are proxy-labeled, never Measured. Not for launch-window telemetry (T-0\u2192T+30 rank and review polling) \u2014 use launch-monitor. \u8206\u60c5\u76d1\u542c/\u54c1\u724c\u63d0\u53ca\u76d1\u6d4b/\u57fa\u7ebf\u7a81\u523a/\u89e6\u53d1\u4fe1\u53f7",
+    "path": "category/architecture-system-design/social-pulse-monitor"
+  },
+  {
     "id": "software-architecture",
     "name": "software-architecture",
     "category": "architecture-system-design",
@@ -2568,12 +3984,84 @@
     "path": "category/architecture-system-design/software-architecture"
   },
   {
+    "id": "sonarqube-mcp",
+    "name": "sonarqube-mcp",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides SonarQube and SonarCloud integration patterns via the Model Context Protocol (MCP) server. Enables quality gate monitoring, issue discovery and triaging, pre-push code analysis, and rule education directly in the agent workflow. Use when the user wants to check quality gates, search for Sonar issues, analyze code snippets before committing, or understand SonarQube rules. Triggers on \"sonarqube\", \"sonarcloud\", \"quality gate\", \"sonar issues\", \"analyze with sonar\", \"check sonar\", \"sonar rule\", \"pre-push analysis\".",
+    "path": "category/architecture-system-design/sonarqube-mcp"
+  },
+  {
+    "id": "sparc-implement",
+    "name": "sparc-implement",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Run the SPARC Pseudocode and Architecture phases (2 and 3) \u2014 write algorithm pseudocode, design module boundaries and API contracts, then implement",
+    "path": "category/architecture-system-design/sparc-implement"
+  },
+  {
     "id": "spec-miner",
     "name": "spec-miner",
     "category": "architecture-system-design",
     "repository": "jeffallan-claude-skills",
     "description": "Reverse-engineering specialist that extracts specifications from existing codebases. Use when working with legacy or undocumented systems, inherited projects, or old codebases with no documentation. Invoke to map code dependencies, generate API documentation from source, identify undocumented business logic, figure out what code does, or create architecture documentation from implementation. Trigger phrases: reverse engineer, old codebase, no docs, no documentation, figure out how this works, inherited project, legacy analysis, code archaeology, undocumented features.",
     "path": "category/architecture-system-design/spec-miner"
+  },
+  {
+    "id": "spring-boot-actuator",
+    "name": "spring-boot-actuator",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides patterns to configure Spring Boot Actuator for production-grade monitoring, health probes, secured management endpoints, and Micrometer metrics across JVM services. Use when setting up monitoring, health checks, or metrics for Spring Boot applications.",
+    "path": "category/architecture-system-design/spring-boot-actuator"
+  },
+  {
+    "id": "spring-boot-dependency-injection",
+    "name": "spring-boot-dependency-injection",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides dependency injection patterns for Spring Boot projects, including constructor-first design, optional collaborator handling, bean selection, and wiring validation. Use when creating services and configurations, replacing field injection, or troubleshooting ambiguous or fragile Spring wiring.",
+    "path": "category/architecture-system-design/spring-boot-dependency-injection"
+  },
+  {
+    "id": "spring-boot-event-driven-patterns",
+    "name": "spring-boot-event-driven-patterns",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides Event-Driven Architecture (EDA) patterns for Spring Boot \u2014 creates domain events, configures ApplicationEvent and @TransactionalEventListener, sets up Kafka producers and consumers, and implements the transactional outbox pattern for reliable distributed messaging. Use when implementing event-driven systems in Spring Boot, setting up async messaging with Kafka, publishing domain events from DDD aggregates, or needing reliable event publishing with the outbox pattern.",
+    "path": "category/architecture-system-design/spring-boot-event-driven-patterns"
+  },
+  {
+    "id": "spring-boot-project-creator",
+    "name": "spring-boot-project-creator",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Creates and scaffolds a new Spring Boot project (3.x or 4.x) by downloading from Spring Initializr, generating package structure (DDD or Layered architecture), configuring JPA, SpringDoc OpenAPI, and Docker Compose services (PostgreSQL, Redis, MongoDB). Use when creating a new Java Spring Boot project from scratch, bootstrapping a microservice, or initializing a backend application.",
+    "path": "category/architecture-system-design/spring-boot-project-creator"
+  },
+  {
+    "id": "spring-boot-saga-pattern",
+    "name": "spring-boot-saga-pattern",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides distributed transaction patterns using the Saga Pattern for Spring Boot microservices. Use when implementing distributed transactions across services, handling compensating transactions, ensuring eventual consistency, or building choreography or orchestration-based sagas with Kafka, RabbitMQ, or Axon Framework.",
+    "path": "category/architecture-system-design/spring-boot-saga-pattern"
+  },
+  {
+    "id": "spring-data-neo4j",
+    "name": "spring-data-neo4j",
+    "category": "architecture-system-design",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides Spring Data Neo4j integration patterns for Spring Boot applications. Use when you need to work with a graph database, Neo4j nodes and relationships, Cypher queries, or Spring Data Neo4j. Creates node entities with @Node annotation, defines relationships with @Relationship, writes Cypher queries using @Query, configures imperative and reactive Neo4j repositories, implements graph traversal patterns, and sets up testing with embedded databases.",
+    "path": "category/architecture-system-design/spring-data-neo4j"
+  },
+  {
+    "id": "sprite-segment-3x3grid",
+    "name": "sprite-segment-3x3grid",
+    "category": "architecture-system-design",
+    "repository": "unity-technologies-skills",
+    "description": "Segments a Sprite texture into a 3x3 grid and outputs a pattern of cells matching the center cell's color. Use when the user asks to analyze or document a sprite's structure or color distribution.",
+    "path": "category/architecture-system-design/sprite-segment-3x3grid"
   },
   {
     "id": "stanley-druckenmiller-investment",
@@ -2600,6 +4088,14 @@
     "path": "category/architecture-system-design/stata-modernize"
   },
   {
+    "id": "stitch",
+    "name": "stitch",
+    "category": "architecture-system-design",
+    "repository": "bergside-awesome-design-skills",
+    "description": "Clean, high-contrast enterprise design for data-driven workflows with intuitive drag-and-drop patterns and structured layouts.",
+    "path": "category/architecture-system-design/stitch"
+  },
+  {
     "id": "stitch-loop",
     "name": "stitch-loop",
     "category": "architecture-system-design",
@@ -2622,6 +4118,38 @@
     "repository": "donchitos-claude-code-game-studios",
     "description": "Checks whether a story is ready to implement: clear acceptance criteria, no open questions, valid ADR and dependencies. Use when the user asks if a story, or the sprint's stories, are ready to start or build.",
     "path": "category/architecture-system-design/story-readiness"
+  },
+  {
+    "id": "strategic-narrative-designer",
+    "name": "strategic-narrative-designer",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"design our change narrative\", \"build the old-world-to-new-game story arc\", or \"frame the shift our category is undergoing\"; produces a Raskin-style strategic narrative arc \u2014 old world \u2192 the undeniable shift \u2192 winners vs losers under the new rules \u2192 the promised land \u2192 proof the promised land is real \u2014 derived from the positioning truth set and the belief/objection map, feeding the TALE Architecture arc sub-item. Every proof beat is labeled Measured / User-provided / [needs source] and this skill never adjudicates a claim. Not for the message house hierarchy \u2014 use message-system-architect; not for the pitch deck narrative \u2014 use pitch-narrative-builder; not for claim substantiation \u2014 use offer-claims-registry. \u53d8\u9769\u53d9\u4e8b\u5f27/\u65e7\u4e16\u754c/\u5e94\u8bb8\u4e4b\u5730/\u6218\u7565\u53d9\u4e8b\u7ed3\u6784",
+    "path": "category/architecture-system-design/strategic-narrative-designer"
+  },
+  {
+    "id": "swift-architecture",
+    "name": "swift-architecture",
+    "category": "architecture-system-design",
+    "repository": "dpearson2699-swift-ios-skills",
+    "description": "Selects, reviews, and migrates Apple-platform app architectures across MV with Observation, MVVM, MVI, TCA, Clean Architecture, Coordinator, and legacy VIPER. Use when choosing module and dependency boundaries, escalating a feature beyond simple SwiftUI MV, planning incremental architecture migration, or auditing state ownership and test seams.",
+    "path": "category/architecture-system-design/swift-architecture"
+  },
+  {
+    "id": "swiftui-development",
+    "name": "swiftui-development",
+    "category": "architecture-system-design",
+    "repository": "mindrally-skills",
+    "description": "Guidelines for building SwiftUI applications with MVVM/Clean Architecture, Swift 6 strict concurrency, and modern state management. Use when building SwiftUI views, structuring view models, managing state with @State/@Observable, handling async data flow, or optimizing SwiftUI view performance.",
+    "path": "category/architecture-system-design/swiftui-development"
+  },
+  {
+    "id": "swiftui-navigation",
+    "name": "swiftui-navigation",
+    "category": "architecture-system-design",
+    "repository": "dpearson2699-swift-ios-skills",
+    "description": "Implement SwiftUI navigation patterns including NavigationStack, NavigationSplitView, sheet presentation, tab-based navigation, and deep linking. Use when building push navigation, programmatic routing, multi-column layouts, modal sheets, tab bars, universal links, or custom URL scheme handling.",
+    "path": "category/architecture-system-design/swiftui-navigation"
   },
   {
     "id": "swiftui-patterns",
@@ -2664,12 +4192,28 @@
     "path": "category/architecture-system-design/systems-programming-rust-project"
   },
   {
+    "id": "taiwan-md-knowledge-base",
+    "name": "taiwan-md-knowledge-base",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-trending-skills",
+    "description": "AI-native open knowledge base about Taiwan built with Astro v5, featuring bilingual content (zh-TW/en), D3.js knowledge graph, and structured Markdown SSOT architecture.",
+    "path": "category/architecture-system-design/taiwan-md-knowledge-base"
+  },
+  {
     "id": "target-authoring",
     "name": "target-authoring",
     "category": "architecture-system-design",
     "repository": "dotnet-skills",
     "description": "Canonical patterns for writing custom MSBuild targets. USE FOR: diagnosing and fixing custom target authoring anti-patterns; broken SDK target chains across files (e.g., Directory.Build.targets silently redefining SDK targets); targets that replace CompileDependsOn instead of extending it with $(CompileDependsOn); query targets returning stale results from Outputs vs Returns misuse; missing Inputs/Outputs causing unnecessary rebuilds; missing FileWrites registration. Covers DependsOnTargets vs BeforeTargets vs AfterTargets, the Build\u2192CoreBuild three-level pattern, and the $(XxxDependsOn) chain-extension pattern. DO NOT USE FOR: incremental build tuning (use incremental-build), parallelization (use build-parallelism), general anti-patterns (use msbuild-antipatterns), non-MSBuild build systems.",
     "path": "category/architecture-system-design/target-authoring"
+  },
+  {
+    "id": "team-topologies",
+    "name": "team-topologies",
+    "category": "architecture-system-design",
+    "repository": "wondelai-skills",
+    "description": "Organize business and technology teams for fast flow using Skelton & Pais''s \"Team Topologies\". Use when the user mentions \"team topologies\", \"Conway''s law\", \"platform team\", \"stream-aligned team\", \"team boundaries\", \"cognitive load\", \"how should we split teams\", \"who owns this service\", \"team dependencies\", or \"reorg\". Also trigger when reorganizing engineering teams, aligning team and service boundaries, splitting a monolith and deciding ownership, reducing cross-team handoffs, or designing an internal platform. Covers the four team types, three interaction modes, the inverse Conway maneuver, and fracture planes. For bounded contexts, see domain-driven-design. For dependency direction in code, see clean-architecture.",
+    "path": "category/architecture-system-design/team-topologies"
   },
   {
     "id": "techdebt",
@@ -2680,6 +4224,30 @@
     "path": "category/architecture-system-design/techdebt"
   },
   {
+    "id": "technical-debt-assessment",
+    "name": "technical-debt-assessment",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Assess, quantify, and prioritize technical debt using code analysis, metrics, and impact analysis. Use when planning refactoring, evaluating codebases, or making architectural decisions.",
+    "path": "category/architecture-system-design/technical-debt-assessment"
+  },
+  {
+    "id": "technical-roadmap-planning",
+    "name": "technical-roadmap-planning",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Create comprehensive technical roadmaps aligned with business goals. Plan technology investments, architecture evolution, and infrastructure improvements over quarters and years.",
+    "path": "category/architecture-system-design/technical-roadmap-planning"
+  },
+  {
+    "id": "technical-specification",
+    "name": "technical-specification",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Create detailed technical specifications, requirements documents, design documents, and system architecture specs. Use when writing technical specs, requirements docs, or design documents.",
+    "path": "category/architecture-system-design/technical-specification"
+  },
+  {
     "id": "telegram-bot-builder",
     "name": "telegram-bot-builder",
     "category": "architecture-system-design",
@@ -2688,12 +4256,36 @@
     "path": "category/architecture-system-design/telegram-bot-builder"
   },
   {
+    "id": "tellurium",
+    "name": "tellurium",
+    "category": "architecture-system-design",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Simulates biochemical kinetic models from SBML or Antimony with Tellurium and libRoadRunner, checks model units, compares deterministic parameter perturbations, and exports and replays SBML plus SED-ML COMBINE archives. Use for reaction-network time courses, kinetic parameters, concentration dynamics and reproducible simulation experiments; steady-state constraint-based metabolic flux analysis belongs to cobrapy.",
+    "path": "category/architecture-system-design/tellurium"
+  },
+  {
     "id": "terraform-architect",
     "name": "terraform-architect",
     "category": "architecture-system-design",
     "repository": "#searex-skill",
     "description": "Terraform Infrastructure as Code (IaC) architecture, state management, module design, and security linting. Use when authoring Terraform configurations, managing remote state backends, writing reusable modules, configuring providers, or preventing state drift.",
     "path": "category/architecture-system-design/terraform-architect"
+  },
+  {
+    "id": "test-automation-framework",
+    "name": "test-automation-framework",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Design and implement scalable test automation frameworks with Page Object Model, fixtures, and reporting. Use for test framework, page object pattern, test architecture, test organization, and automation infrastructure.",
+    "path": "category/architecture-system-design/test-automation-framework"
+  },
+  {
+    "id": "testing",
+    "name": "testing",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Testing strategy for .NET 10 applications. Covers xUnit v3, WebApplicationFactory for integration tests, Testcontainers for real database testing, Verify for snapshot testing, and the AAA pattern. Load this skill when writing tests, setting up test infrastructure, reviewing test coverage, or when the user mentions \"test\", \"xUnit\", \"WebApplicationFactory\", \"Testcontainers\", \"integration test\", \"unit test\", \"bUnit\", \"snapshot test\", \"Verify\", \"test coverage\", \"AAA pattern\", \"WireMock\", or \"FakeTimeProvider\".",
+    "path": "category/architecture-system-design/testing"
   },
   {
     "id": "testing-patterns",
@@ -2720,6 +4312,14 @@
     "path": "category/architecture-system-design/thematic-analysis"
   },
   {
+    "id": "theming-system",
+    "name": "theming-system",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Design theming architecture \u2014 brand variants, dark mode, and high-contrast \u2014 mapped through token layers. Use when one system must serve multiple themes. For a single palette use `color-system` (ui-design); for dark mode craft use `dark-mode-design` (ui-design).",
+    "path": "category/architecture-system-design/theming-system"
+  },
+  {
     "id": "think",
     "name": "think",
     "category": "architecture-system-design",
@@ -2736,12 +4336,28 @@
     "path": "category/architecture-system-design/threat-modeling-expert"
   },
   {
+    "id": "tiangolo-library-skills",
+    "name": "tiangolo-library-skills",
+    "category": "architecture-system-design",
+    "repository": "reason-machines-trending-skills",
+    "description": "Install and manage AI agent skills from Python/JS libraries so agents always use up-to-date patterns",
+    "path": "category/architecture-system-design/tiangolo-library-skills"
+  },
+  {
     "id": "tidyverse-patterns",
     "name": "tidyverse-patterns",
     "category": "architecture-system-design",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Modern tidyverse patterns for R including pipes, joins, grouping, purrr, and stringr. Use when writing tidyverse R code.",
     "path": "category/architecture-system-design/tidyverse-patterns"
+  },
+  {
+    "id": "time-series-analysis",
+    "name": "time-series-analysis",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Analyze temporal data patterns including trends, seasonality, autocorrelation, and forecasting for time series decomposition, trend analysis, and forecasting models",
+    "path": "category/architecture-system-design/time-series-analysis"
   },
   {
     "id": "tool-design",
@@ -2758,6 +4374,30 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers duplicate content, unique meta tags, heading hierarchy, internal linking, URL slugs, E-E-A-T, content registry pattern for scaling 50\u2013500 pages, and blog content strategy for position 50\u201368 keywords.",
     "path": "category/architecture-system-design/tools-page-seo-optimizer"
+  },
+  {
+    "id": "trader-backtest",
+    "name": "trader-backtest",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Run a historical backtest using npx neural-trader with Rust/NAPI engine (8-19x faster) and walk-forward validation; Ed25519-sign the result for paper\u2192live tamper evidence (ADR-126 Phase 4)",
+    "path": "category/architecture-system-design/trader-backtest"
+  },
+  {
+    "id": "trader-explain",
+    "name": "trader-explain",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Regulator-grade feature attribution for any LSTM/Transformer signal \u2014 single-entry PageRank ranks the top-K features that drove the prediction (ADR-126 Phase 6, ADR-123 single-entry PR)",
+    "path": "category/architecture-system-design/trader-explain"
+  },
+  {
+    "id": "trader-portfolio-cg",
+    "name": "trader-portfolio-cg",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Mean-variance portfolio optimization via Conjugate Gradient \u2014 40-60\u00d7 faster than the legacy Neumann path (ADR-126 Phase 3, ADR-123 Wedge 8)",
+    "path": "category/architecture-system-design/trader-portfolio-cg"
   },
   {
     "id": "transformer-architecture-guide",
@@ -2808,6 +4448,22 @@
     "path": "category/architecture-system-design/use-igniteui-blazor"
   },
   {
+    "id": "user-persona",
+    "name": "user-persona",
+    "category": "architecture-system-design",
+    "repository": "owl-listener-designer-skills",
+    "description": "Build research-grounded personas with goals, frustrations, and behavioural patterns. Use when decisions need a consistent user reference. For one session's emotional snapshot use `empathy-map`; for motivation framing use `jobs-to-be-done`.",
+    "path": "category/architecture-system-design/user-persona"
+  },
+  {
+    "id": "user-research-analysis",
+    "name": "user-research-analysis",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Analyze user research data to uncover insights, identify patterns, and inform design decisions. Synthesize qualitative and quantitative research into actionable recommendations.",
+    "path": "category/architecture-system-design/user-research-analysis"
+  },
+  {
     "id": "user-story-splitting",
     "name": "user-story-splitting",
     "category": "architecture-system-design",
@@ -2816,12 +4472,36 @@
     "path": "category/architecture-system-design/user-story-splitting"
   },
   {
+    "id": "ux-compare",
+    "name": "ux-compare",
+    "category": "architecture-system-design",
+    "repository": "jezweb-claude-skills",
+    "description": "Compare UX patterns across multiple reference apps using pattern libraries produced by ux-extract. Reads 2+ pattern-library.md files, walks them category by category, identifies where apps converge (strong signal), where they diverge (genuine design choice), what's unique to one app, and what's absent across the set. Produces an opinionated comparison document with recommendations for a new build. No browser needed \u2014 pure markdown analysis. Trigger with 'compare UX patterns', 'how do top apps handle X', 'ux comparison', 'pattern comparison across reference apps'.",
+    "path": "category/architecture-system-design/ux-compare"
+  },
+  {
+    "id": "ux-extract",
+    "name": "ux-extract",
+    "category": "architecture-system-design",
+    "repository": "jezweb-claude-skills",
+    "description": "Exhaustively extract UX patterns from a reference web app. Walks every screen, captures screenshots of every state, records interaction patterns, copy verbatim, keyboard shortcuts, responsive treatments, motion, and empty/error/loading states. Produces a reusable pattern library that other audits can compare against. The inverse of ux-audit \u2014 asks 'what is the bar?' rather than 'does this match the bar?'. Trigger with 'learn from X', 'extract patterns from X', 'study X's UX', 'reverse engineer the UX of X', 'build a pattern library from X'.",
+    "path": "category/architecture-system-design/ux-extract"
+  },
+  {
     "id": "ux-flow",
     "name": "ux-flow",
     "category": "architecture-system-design",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Design user flows and navigation structure following proven UX patterns",
     "path": "category/architecture-system-design/ux-flow"
+  },
+  {
+    "id": "ux-heuristics",
+    "name": "ux-heuristics",
+    "category": "architecture-system-design",
+    "repository": "wondelai-skills",
+    "description": "Evaluate and improve interface usability using heuristic analysis. Use when the user mentions \"usability audit\", \"users are confused\", \"form usability\", \"navigation problems\", \"Nielsen heuristics\", \"cognitive walkthrough\", or \"is this easy to use\". Also trigger when reviewing a design for usability issues, improving form-completion rates, or evaluating information architecture and navigation. Covers Krug''s laws, Nielsen''s 10 heuristics, severity ratings, dark-pattern recognition, and accessibility. For visual design fixes, see refactoring-ui. For conversion-focused audits, see cro-methodology.",
+    "path": "category/architecture-system-design/ux-heuristics"
   },
   {
     "id": "ux-review",
@@ -2859,8 +4539,8 @@
     "id": "vertical-slice",
     "name": "vertical-slice",
     "category": "architecture-system-design",
-    "repository": "donchitos-claude-code-game-studios",
-    "description": "Pre-production validation \u2014 end-to-end build to confirm the full loop is achievable before committing to Production. After GDDs, architecture, UX specs.",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Vertical Slice Architecture (VSA) for .NET applications \u2014 one of several supported architectures in dotnet-claude-kit. Covers feature folders, endpoint grouping, and handler patterns for Mediator, Wolverine, and raw handler classes. Load this skill when the architecture-advisor recommends VSA, when working in an existing VSA codebase, when adding features to a feature-folder project, or when discussing vertical slice patterns, feature folders, or handler patterns.",
     "path": "category/architecture-system-design/vertical-slice"
   },
   {
@@ -2894,6 +4574,14 @@
     "repository": "mvschwarz-openrig",
     "description": "Use when configuring `rig watchdog` policies, authoring wake/refocus/alignment-checkpoint messages, or choosing the right intervention level for a stale-owner situation. The 3-level continuity-check stack (wake / refocus / alignment-checkpoint), the discipline that prevents cadence pollution and bureaucracy theater, and the artifact-pool loop-edge pattern for evidence-aware waking.",
     "path": "category/architecture-system-design/watchdog"
+  },
+  {
+    "id": "waypoint-bio",
+    "name": "waypoint-bio",
+    "category": "architecture-system-design",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Supports work with Outpost Bio's open microbiome foundation models - the Waypoint checkpoints (Waypoint-6m, Waypoint-45m, Waypoint-170m), the Atlas pretraining corpus, the Compass eight-task benchmark, or the `waypoint` CLI from the `waypoint-bio` package. Covers embedding microbiome samples, fine-tuning on taxonomic abundance data, benchmarking a checkpoint on Compass, pretraining a GPT-2 model on taxonomic abundance profiles, and converting MetaPhlAn, Kraken2, QIIME 2, or MGnify abundance tables into waypoint format.",
+    "path": "category/architecture-system-design/waypoint-bio"
   },
   {
     "id": "wcag-audit-patterns",
@@ -2960,6 +4648,14 @@
     "path": "category/architecture-system-design/writing-motoko"
   },
   {
+    "id": "writing-rules",
+    "name": "writing-rules",
+    "category": "architecture-system-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks to \"create a hookify rule\", \"write a hook rule\", \"configure hookify\", \"add a hookify rule\", or needs guidance on hookify rule syntax and patterns.",
+    "path": "category/architecture-system-design/writing-rules"
+  },
+  {
     "id": "writing-specs",
     "name": "writing-specs",
     "category": "architecture-system-design",
@@ -2990,5 +4686,13 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Implement zero-trust network architecture. Configure identity-based access,",
     "path": "category/architecture-system-design/zero-trust"
+  },
+  {
+    "id": "zero-trust-architecture",
+    "name": "zero-trust-architecture",
+    "category": "architecture-system-design",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement Zero Trust security model with identity verification, microsegmentation, least privilege access, and continuous monitoring. Use when building secure cloud-native applications.",
+    "path": "category/architecture-system-design/zero-trust-architecture"
   }
 ]

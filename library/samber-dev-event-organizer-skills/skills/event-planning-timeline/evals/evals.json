@@ -1,0 +1,429 @@
+{
+  "skill_name": "event-planning-timeline",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We run PortConf, a Rust-and-embedded conference in Bristol, second edition. Doors open Thursday 14 May next year and that's locked - the venue contract with Bristol Maritime Hall is already signed. It's me and one other person, both doing this evenings and weekends around full-time jobs. Last year we winged it and it nearly killed us. I want a proper plan from now to the day. Make it thorough - I was picturing a full Gantt with every task broken out, an owner on each one, and a weekly re-baseline so nothing quietly slips.",
+      "expected_output": "A work-back plan built as parallel tracks with cross-track gates at milestone granularity, explicitly refusing the requested task-level weekly-re-baselined plan and removing it from the options rather than parking it lower down.",
+      "files": [],
+      "expectations": [
+        "Works each track's milestone chain backward from the 14 May doors-open date rather than forward from today",
+        "Declines the requested task-level, weekly-re-baselined plan and recommends a dependency-gated milestone plan instead",
+        "Gives the refusal's reason as the weekly upkeep exceeding the hours two volunteers working around day jobs actually have, not as the plan being too detailed or too complicated",
+        "Removes the task-level critical path from the option set entirely rather than listing it as a lower-ranked, deferred, or 'if you find time later' alternative",
+        "Warns that the task-level option fails silently: it goes stale within about a month while the team keeps trusting dates nothing has re-baselined",
+        "Presents the plan as parallel tracks each carrying its own milestone chain, not as one chronological list of dates",
+        "Trims the track taxonomy to this event, merging or omitting tracks a two-person conference does not need rather than leaving empty tracks on the plan",
+        "Gives each track a terminal milestone at or near doors-open",
+        "Expresses at least one cross-track dependency as an explicit gate naming both the prerequisite milestone and the milestone it blocks, not as a sentence describing a dependency",
+        "Assigns exactly one accountable owner to each track",
+        "Marks at least one irreversible spend or headcount decision with a latest-safe date and an owner",
+        "Recommends publishing in the simplest shared tracker the two of them will actually keep updated, and states that granularity is capped by the team's will to update it"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Kettle Systems runs DevPier, a one-day platform-engineering conference, about 400 people, doors open 3 October. I'm the ops lead. My plan is to put a two-week cushion on every single milestone so we're never the ones holding things up, and to lock the caterer and the badge print run in February - our caterer gives 12% off for bookings placed more than six months out and I'd rather bank that than gamble on prices moving. Sanity-check this before I sign anything.",
+      "expected_output": "A rejection of uniform milestone padding with the reason it is consumed silently, padding kept only for out-of-team-control lead times, and both the catering and print commitments converted to latest-safe dates with owners, with the discount priced against lost reversibility.",
+      "files": [],
+      "expectations": [
+        "Rejects putting a uniform two-week cushion on every milestone",
+        "Explains that uniform padding is consumed silently because everyone plans to the padded date, so the buffer vanishes without anyone deciding to spend it",
+        "Keeps milestone padding only for lead times outside the team's control, naming examples such as printing, shipping, visas or venue paperwork",
+        "Treats the caterer booking as an irreversible commitment carrying a latest-safe date rather than an earliest-possible one",
+        "States that the two directions of error are asymmetric: adding plates or seats late is cheap, while unwinding a pre-payment or an over-order is expensive or impossible",
+        "Prices the 12% early-booking discount against the reversibility it costs rather than accepting it as a straightforward saving",
+        "Sets the catering commitment's latest-safe date from the caterer's real lead time, with final headcount frozen just before it",
+        "Treats the badge print run's supplier lead time as a place padding legitimately applies, while still giving the order itself a latest-safe date",
+        "Recommends holding each commitment open until its latest-safe date rather than committing earlier just because the money is available",
+        "States that the earliest-possible date is not a target, and that planning to it is how teams quietly spend their reversibility",
+        "Presents delayed commitment and the Good/Better/Best scope-tier ladder as two distinct tools rather than merging them into a single 'have contingency' recommendation",
+        "Names an owner alongside each irreversible commitment's latest-safe date"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Trouble. NordStack Summit is 6 February, publicly announced since September, 550 tickets, two tracks. Our CFP closed five weeks late so selection is only half done, and we're sitting at 40% of the sponsorship target with eight weeks to go. My co-organizer wants to slide the whole thing to early March to buy breathing room. Our board would rather cancel the Thursday workshop day and keep the date. There are four of us running this and we have some budget. What do we actually do?",
+      "expected_output": "A mid-flight replan that holds the announced date, rebuilds per-track actuals against the plan, spends buffers in the prescribed order, cuts scope at the gate level, rewrites the remaining checkpoints, and reports which lever was spent and what it bought.",
+      "files": [],
+      "expectations": [
+        "Refuses to move the announced 6 February date and states that scope moves instead",
+        "Gives the reason as trust burned with speakers, sponsors and attendees, not as logistical difficulty or cost",
+        "Rebuilds the actual state per track - milestones done, late, or not started - against the plan rather than against memory",
+        "Recomputes each track's remaining runway to its terminal milestone and flags every gate now at risk",
+        "Spends buffers in order: un-spent latest-safe slack first, then a scope-tier downgrade if a ladder exists, then scope cuts",
+        "Cuts scope at the gate level, removing the item whose removal unblocks the most downstream milestones rather than the item that is furthest behind",
+        "Evaluates cancelling the Thursday workshop day by how many downstream milestones it unblocks rather than accepting or rejecting it on the board's preference",
+        "Warns that the speaker-confirmation-to-program-announcement segment cannot be compressed to zero, because speakers need employer approval and travel arrangements",
+        "States that spending money recovers execution slips but not calendar physics: a compressed CFP stays compressed",
+        "Rewrites the remaining checkpoints against the new plan rather than carrying the old conditions forward",
+        "Explains that keeping the old checkpoint conditions would re-fire them immediately",
+        "Tells the user explicitly which lever was spent and what it bought"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Vantage Cloud's user conference in Lisbon, about 900 attendees, 11 September, third edition. Six of us own a track each - venue, program, sponsors, marketing, ticketing, budget - and we already run a 30-minute standup every Tuesday that everyone genuinely shows up to. Right now our only planning ritual on top of that is a monthly all-hands where we go round the room and review progress. Tell me how to structure the oversight side of the plan.",
+      "expected_output": "A replanning-trigger design that names the monthly review as a status meeting rather than a checkpoint, specifies checkpoints as four pre-written fields, and promotes the cadence variance review on the strength of six parallel track owners plus the existing standup.",
+      "files": [],
+      "expectations": [
+        "Says the monthly all-hands review is a status meeting rather than a checkpoint, because it carries no condition, no pre-written action and no owner",
+        "Specifies every checkpoint as four fields written in advance: date, measurable condition, pre-decided action, owner",
+        "States that the pre-written action is decided while the team is calm and executed when it is not, and that this ordering is the point",
+        "Recommends pre-written checkpoints as the default rung of the replanning menu",
+        "Promotes the cadence variance review for this team, keying the promotion to roughly five or more parallel track owners and to the existing Tuesday standup making its marginal cost near zero",
+        "Notes that the cadence rung's promotion condition is an existing check-in, not an intention to start one",
+        "Anchors checkpoint dates to moments already meaningful in the plan, such as an announcement, early-bird close, or a tier's revenue deadline",
+        "Keeps the event-driven replan as the floor the plan retains regardless of the other two rungs",
+        "Where a single checkpoint gates more than one track, anchors it to the tightest real downstream constraint rather than to a round number of weeks out",
+        "States the ranking of the replanning options out loud rather than leaving it implied by the order they are listed in",
+        "Does not invent numeric demand, registration or revenue thresholds for the checkpoint conditions"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Riverbank Devs Day, second edition, 300 people, doors open 22 April. We're pushing the date announcement out on Monday because a competing meetup is circling the same weekend and I want to plant the flag first. Our funding is about 80% sponsorship and none of it is signed yet - last year's three sponsors all say they're 'likely in'. Ticketing isn't set up, we haven't picked a payment processor, and our code of conduct is still a Google Doc draft. Build me the plan.",
+      "expected_output": "A plan that blocks Monday's announcement behind its named prerequisites written as gates, and installs a Good/Better/Best scope-tier ladder with dated downgrade checkpoints driven by revenue actually received.",
+      "files": [],
+      "expectations": [
+        "Blocks Monday's date announcement and treats announcement as a gated milestone rather than a press release",
+        "Names payment handling being live as a prerequisite of the date announcement, and reports that teams skipping it have rescheduled or cancelled",
+        "Names the code of conduct being published as a gate on the event's first public listing, placing it ahead of venue and date",
+        "Names the venue being locked as a prerequisite of announcing the date publicly",
+        "Writes each of these as a gate naming both milestones rather than as prose describing a dependency",
+        "Promotes the Good/Better/Best scope-tier ladder on the grounds that the budget depends on revenue not yet booked",
+        "Defines all three costed tiers before any ticket is sold",
+        "Attaches dated downgrade checkpoints driven by revenue actually received, not by revenue promised, forecast or verbally indicated",
+        "States that the downgrade fires automatically on the checkpoint date rather than being argued at the time",
+        "Explains the ladder's value as absorbing a revenue shortfall without cancelling, at the cost of designing three versions of the event up front",
+        "Treats the sponsors' 'likely in' as unbooked revenue for the purposes of any checkpoint condition",
+        "Points out that the date remains a legitimate variable until announcement, and that announcing is what kills it as a lever"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I'm taking over organizing HalfLight, a 250-person Elixir conference that's been running four years. The handover I got is a Google Sheet of 180 rows like 'book AV', 'chase sponsors', 'sort out badges', every one stamped with a 2025 date, and about half are ticked but nobody remembers by whom. This year's edition is 9 October. I want to rebuild this into something that actually survives to whoever takes over after me. Also - last year the team was heroic in the final month and it still felt like a mess. What was going wrong?",
+      "expected_output": "A rebuilt plan with tasks phrased as finished states, bucketed relative to doors-open and tagged by track, one owner per track, and the diagnosis locating the failure in the unwatched middle stretch rather than the final sprint.",
+      "files": [],
+      "expectations": [
+        "Rewrites tasks as finished states rather than instructions, for example 'the AV supplier contract is signed' in place of 'book AV'",
+        "Gives the reason as a finished state being true or false at a glance, while an instruction leaves the reader to decide whether it counts as done",
+        "Buckets tasks by time relative to doors-open, such as S-4 for four weeks out, rather than by fixed calendar date",
+        "Gives the reason as a relative bucket carrying over to the next edition unchanged, while a fixed date has to be rewritten before it is useful again",
+        "Tags every task with its track so a track owner can filter to only their own list",
+        "Assigns exactly one accountable owner per track and flags any track currently without one",
+        "Replaces the single 180-row chronological list with parallel tracks each carrying its own backward chain",
+        "Locates the cause of last year's mess in the unwatched middle stretch rather than in the final month",
+        "Explains that a plan nobody checks against actuals during the quiet stretch will not surface drift until it has compounded",
+        "Recommends carrying forward the anchor date, track owners, gate list, latest-safe commitment dates and each checkpoint's outcome so the next organizer starts from them instead of re-deriving them",
+        "Caps the plan's granularity at what the team will actually keep updated rather than at the planner's ambition"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We want to run Foundry Jam, a first-ever 48-hour hardware hackathon for about 120 people, somewhere in Q2. The date isn't fixed - we're between two weekends in May and one in June depending on which the university gives us. I found a really good 9-month conference planning timeline online and I'm going to compress it to fit whatever date we land on. Walk me through the milestones.",
+      "expected_output": "A route-out on the unlocked date, a refusal to reuse or average the conference runway for a hackathon, a route-out for the format's actual runway and first-edition gates, and scheduling mechanics supplied without dated milestones.",
+      "files": [],
+      "expectations": [
+        "Routes the date decision out to the date-selection skill and states that a work-back plan has no anchor until the date is locked",
+        "Refuses to reuse the 9-month conference runway for a 48-hour hackathon",
+        "Gives the reason as conference-length and hackathon-length runways differing for structural reasons, not as the hackathon simply being smaller or shorter",
+        "Routes the question of how long this format's runway actually is to the first-edition skill rather than answering it from the conference runway",
+        "Declines to average or interpolate between the two formats' runways",
+        "Identifies this as a first edition and routes the launch gates and first-edition-specific risks accordingly, while still supplying the scheduling mechanics itself",
+        "Does not hand back dated milestones anchored to a date the user has not chosen",
+        "Asks its clarifying questions one at a time rather than presenting the whole interview at once"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "Build the retroplanning for our conference on 12 June next year, venue already signed.",
+      "should_trigger": true
+    },
+    {
+      "query": "We need a work-back schedule for our developer conference.",
+      "should_trigger": true
+    },
+    {
+      "query": "reverse schedule for our meetup group's annual big day",
+      "should_trigger": true
+    },
+    {
+      "query": "Our event is in seven months and I genuinely have no idea what we should be doing first.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I sequence the milestones between now and doors open?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're four months out, the CFP closed late and sponsorship is behind target. Replan without moving the date.",
+      "should_trigger": true
+    },
+    {
+      "query": "Turn last year's chaotic prep into a proper plan with checkpoints for this year's edition.",
+      "should_trigger": true
+    },
+    {
+      "query": "what should already be finished 12 weeks before a tech conference",
+      "should_trigger": true
+    },
+    {
+      "query": "I need a plan that shows which slip blocks what.",
+      "should_trigger": true
+    },
+    {
+      "query": "when do we actually have to lock the caterer",
+      "should_trigger": true
+    },
+    {
+      "query": "how late can we safely leave the venue deposit",
+      "should_trigger": true
+    },
+    {
+      "query": "Give me a month-by-month plan working backwards from the event date.",
+      "should_trigger": true
+    },
+    {
+      "query": "Our sponsor outreach and our venue search keep blocking each other and I can't see why.",
+      "should_trigger": true
+    },
+    {
+      "query": "planning calendar for a 400-person hackathon",
+      "should_trigger": true
+    },
+    {
+      "query": "We announced the date and now we're badly behind. Do we move it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it too late to push our conference back three weeks?",
+      "should_trigger": true
+    },
+    {
+      "query": "set up go/no-go checkpoints for our conference prep",
+      "should_trigger": true
+    },
+    {
+      "query": "I want dated decision points where we cut scope automatically instead of panicking.",
+      "should_trigger": true
+    },
+    {
+      "query": "which of our workstreams has to start first?",
+      "should_trigger": true
+    },
+    {
+      "query": "our team of six keeps discovering dependencies far too late",
+      "should_trigger": true
+    },
+    {
+      "query": "event milestone sequencing",
+      "should_trigger": true
+    },
+    {
+      "query": "conference retro planning",
+      "should_trigger": true
+    },
+    {
+      "query": "Who should own which part of the prep, and by when?",
+      "should_trigger": true
+    },
+    {
+      "query": "We keep finding out about lead times too late.",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft the schedule of everything leading up to our developer summit.",
+      "should_trigger": true
+    },
+    {
+      "query": "I've inherited a 180-row spreadsheet of prep tasks and it's useless. Help.",
+      "should_trigger": true
+    },
+    {
+      "query": "What order do we do things in before the doors open?",
+      "should_trigger": true
+    },
+    {
+      "query": "how much buffer should I put in the plan",
+      "should_trigger": true
+    },
+    {
+      "query": "we're 10 months out from our user conference, where do we even start",
+      "should_trigger": true
+    },
+    {
+      "query": "Map out the run-up to our annual community day.",
+      "should_trigger": true
+    },
+    {
+      "query": "our CFP timing keeps colliding with the speaker announcement",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we be adding slack to every deadline?",
+      "should_trigger": true
+    },
+    {
+      "query": "plan the months before a two-day tech conference",
+      "should_trigger": true
+    },
+    {
+      "query": "What are the hard deadlines we can't miss for a June event?",
+      "should_trigger": true
+    },
+    {
+      "query": "I need something my volunteers will actually keep updated between now and the event.",
+      "should_trigger": true
+    },
+    {
+      "query": "what has to be true before we can announce the date publicly",
+      "should_trigger": true
+    },
+    {
+      "query": "Which weekend should we run our conference on, and should it be a Saturday or a Thursday?",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick a date for our meetup that doesn't clash with the big cloud conferences.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the minute-by-minute run of show for the day itself.",
+      "should_trigger": false
+    },
+    {
+      "query": "Who is on stage doing what between 09:00 and 10:30 on the day?",
+      "should_trigger": false
+    },
+    {
+      "query": "Run our organizing team's retrospective now that the conference is over.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the standing organizing team that persists between editions.",
+      "should_trigger": false
+    },
+    {
+      "query": "We've never run an event before - what's the minimum viable first edition?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the P&L for our conference with every cost line split fixed versus per-head.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the risk register for our event with a likelihood-by-impact matrix.",
+      "should_trigger": false
+    },
+    {
+      "query": "Lay our accepted talks into a session grid without room clashes.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the call for papers copy and the submission form fields.",
+      "should_trigger": false
+    },
+    {
+      "query": "How should the review committee score CFP submissions?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set the ticket prices for our 500-person conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the sponsorship rate card.",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft the sponsorship prospectus document.",
+      "should_trigger": false
+    },
+    {
+      "query": "Deliver everything our signed gold sponsor was promised.",
+      "should_trigger": false
+    },
+    {
+      "query": "Find and negotiate a venue for 400 people.",
+      "should_trigger": false
+    },
+    {
+      "query": "Source and vet a caterer and an AV supplier.",
+      "should_trigger": false
+    },
+    {
+      "query": "Which channels should we use to sell tickets?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the attendee email sequence from announcement through to post-event.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the event landing page.",
+      "should_trigger": false
+    },
+    {
+      "query": "Recruit and roster the day-of volunteers.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our code of conduct and the enforcement process behind it.",
+      "should_trigger": false
+    },
+    {
+      "query": "Decide which accessibility provisions we commit to.",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run a single-city user conference or a multi-city roadshow?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many tracks and what session mix for a one-day event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the AV capture setup for recording our talks.",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the hybrid setup so remote attendees get something worthwhile.",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn three editions of debrief notes into operational trends.",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we grow next year's edition or hold it at the same size?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our two-week sprint and break the epics down into tasks.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a product roadmap for the next four quarters.",
+      "should_trigger": false
+    },
+    {
+      "query": "Run PI planning across our five scrum teams.",
+      "should_trigger": false
+    },
+    {
+      "query": "Animate a GSAP timeline for the hero section.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a critical path schedule for our office fit-out.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a project plan for migrating our monolith to microservices.",
+      "should_trigger": false
+    }
+  ]
+}

@@ -1,0 +1,510 @@
+{
+  "skill_name": "event-speaker-sourcing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "NordStack Days is our single-track community conference in Oslo, 10 speaking slots, and our CFP closes in 12 days. We have 4 proposals worth accepting. I pulled 6 names from my old work Slack - people I've worked with who'd say yes - and I also made a spreadsheet of the platform and infra accounts with the biggest followings on tech Twitter, sorted by follower count. Can you turn that into a ranked invite list so I can start emailing tonight?",
+      "expected_output": "Identifies this as the supplement-to-a-live-CFP trigger, refuses to rank on follower count, requires slot briefs before names, adds a second channel that reaches outside the organizer's network, and stops at a validated shortlist rather than an email.",
+      "files": [],
+      "expectations": [
+        "Names the trigger explicitly as a supplement to a live call for papers, not the replacement case where the call was deleted",
+        "States that thin early CFP volume is ordinary, expected practice rather than treating it as a crisis",
+        "Refuses to rank or score candidates by follower count or audience size",
+        "States that audience-size metrics are excluded from the qualification rubric entirely, rather than kept as a lower-weighted factor or a tiebreak between otherwise equal candidates",
+        "Requires a written slot brief for each gap before any candidate name is attached to it",
+        "Specifies the slot brief contents as at least theme, session format, audience level, and what success looks like for that slot",
+        "Requires at least two sourcing channels, at least one of which reaches beyond the organizer's own network",
+        "Identifies the six Slack names as the referral-asks channel and states its ceiling is that it returns the organizer's own network's network",
+        "Declines to write the invitation message itself and routes that work to samber/dev-event-organizer-skills@event-speaker-cold-outreach",
+        "States the shortlist is presented slot by slot for the organizer's validation before any invitation is sent",
+        "Requires delivery evidence - a recorded talk, a transcript, or long-form writing - for every name that reaches the shortlist",
+        "States that the size of the gap is re-checked after the call closes, since the final proposal count is not yet known"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Kettlebridge Infra Day, first edition, 12 speaking slots. We killed our call for papers because we ran out of runway - the event is 8 weeks from today and the whole programme now has to be invited. Budget is flights and hotel covered, free ticket, and zero speaker fee. That's confirmed and it's not moving. A colleague says we should just pay a speaker agency to fill 4 of the slots quickly - worth it? My own plan was to spend the next three weeks going through conference videos on YouTube to pick the best 12 people. What order should I do this in?",
+      "expected_output": "Names the replacement trigger, deletes paid bureau booking outright because no fee is confirmed, re-ranks channels toward fast vouched ones for the deadline, and works back a confirmation date that respects the 4-6 week travel floor.",
+      "files": [],
+      "expectations": [
+        "Names the trigger as the replacement case, where a deleted call for papers means the entire lineup is sourced by invitation",
+        "Deletes paid speaker-bureau or agency booking from the channel menu outright rather than ranking it low or keeping it as a fallback",
+        "Gives the reason for that deletion as the absence of a confirmed fee, since a bureau's mechanism is a negotiated fee",
+        "Warns that an option parked at the bottom of a menu silently returns as scope partway through sourcing",
+        "Re-ranks the channel menu against the hard deadline, promoting vouched, fast-answering channels over thorough ones",
+        "Places referral asks at or near the top of the channel order for this timeline",
+        "Gives the reason that a referral arrives vouched and therefore skips a qualification step an unvouched name still has to pay for",
+        "Rejects three weeks of prior-talk review as the primary plan for 12 slots, because it costs real hours per candidate",
+        "Keeps prior-talk review in the plan for at least the highest-risk slot rather than dropping the channel entirely",
+        "States the 4-6 week speaker travel lead time as a floor and minimum, not a target",
+        "Works back from the 8-week event date to a speaker confirmation deadline roughly 2 to 4 weeks from today so the travel floor still fits",
+        "States the lead-time gate applies when a candidate enters the shortlist, not when outreach happens",
+        "Still requires at least two channels rather than collapsing the plan to referrals alone"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Meridian Container Summit is in Lisbon, 14 weeks out, 8 slots. Three of them we want filled by speakers from outside Europe - specifically Latin America and East or Southeast Asia - and everyone presents in English. We have flights confirmed in the budget for two of those three; the third is probably fine, we'll see where we land. Speakers have to be confirmed 5 weeks from now for the programme announcement. My plan is just to search harder on LinkedIn and Google until I find people. How do I actually do this?",
+      "expected_output": "Replaces 'search harder' with directory filtering on region and language together, gates every travelling candidate on visa lead time against the 5-week confirmation date, and forces the third travel budget to be stated as unconfirmed in the handoff.",
+      "files": [],
+      "expectations": [
+        "States the mechanism for international sourcing is filtering on published directory fields, not searching harder or longer on general-purpose search engines",
+        "Requires region and language filters to be applied together in the same query rather than separately",
+        "States that filtering on region alone returns candidates who cannot be briefed in a shared language",
+        "States that filtering on language alone returns candidates from the organizer's own country again",
+        "Names at least one live directory that publishes region, language, and topic or project filters usable together",
+        "Treats visa and entry requirements as a per-candidate check against the actual route rather than assuming one processing time",
+        "States that some entry routes need months of lead time and a formal invitation letter",
+        "Scores any candidate whose visa answer would arrive after the 5-week confirmation date as Skip for this edition",
+        "Flags that same candidate as a strong lead to carry into the next edition rather than discarding them",
+        "Records the third travel budget as unconfirmed rather than as covered, likely, or probable",
+        "States that an unconfirmed travel budget means that candidate is being asked to fund their own trip",
+        "Writes the unconfirmed budget status into the handoff so the invitation discloses it, rather than leaving it to surface during negotiation"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Pelagic Data Conf, community-run, second edition, 6 invited slots. Two things I need numbers for so I can finish the budget spreadsheet. One: how many people do I approach to land 6? I've seen 2-3x quoted for outreach so I was going to send 15-18 invitations. Two: what do I put in the honorarium line per speaker? I assume a keynote is worth around $1,500 and a regular session less. Give me the figures.",
+      "expected_output": "Refuses both numbers, names the 2-3x multiplier as a borrowed sales figure, states community technical events have no standard honorarium rate, and redirects to the organizer's own prior edition plus their own legal and tax review.",
+      "files": [],
+      "expectations": [
+        "States the invitation-to-confirmation rate for invited speakers is unknown and no defensible general multiplier exists",
+        "Identifies the 2-3x figure as a lead-generation or sales number rather than a speaker-sourcing benchmark",
+        "Explains that the ask, the relationship, and the cost of a no all differ between sales prospecting and a speaker invitation",
+        "Labels the 2-3x figure as a shape for thinking if it is repeated at all, rather than applying it to produce a candidate count",
+        "Directs the organizer to size the long list from their own first edition's invitation outcomes",
+        "Instructs the organizer to record this edition's observed long-list-to-confirmation ratio as the baseline for the next one",
+        "Refuses to supply a market rate, a per-minute figure, or an industry-standard honorarium for an invited speaker",
+        "States that community technical events have no standard honorarium rate",
+        "Presents any published per-speaker figure it cites as calibration rather than a rate card, noting such figures disagree by more than 2x and sit in different currencies",
+        "Notes that published flat figures pay every accepted speaker the same amount regardless of format, which is a different shape from a negotiated invited-speaker fee",
+        "Warns that direct payment to speakers raises tax, visa, and conflict-of-interest or employment-agreement issues",
+        "Gates any fee policy on the organizer's own confirmed budget and their own legal and tax review"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Halcyon Cloud runs our own user conference, 20 sessions, and we invite basically all of it. Two decisions stuck. First: our platinum sponsor, a monitoring vendor, has offered to provide a speaker for the 40-minute main-stage slot as part of their package, and honestly it would save me a lot of work. Second: for the cost governance session I can have a solutions architect from a FinOps tooling vendor who is a genuinely polished presenter, or a staff engineer at one of our customers who ran the whole migration but has never spoken at a conference in her life. Which way do I go on each?",
+      "expected_output": "Treats invited sourcing as the main intake at a vendor conference, refuses the sponsorship-to-stage conversion while still qualifying the sponsor's name on evidence, and screens the customer practitioner ahead of the vendor presenter without disqualifying the vendor outright.",
+      "files": [],
+      "expectations": [
+        "States that at a vendor-run user conference this sourcing pass is the main content intake rather than a backup to an open call",
+        "Weights the candidate pool toward customers, partners, and practitioners who use the vendor's technology",
+        "Refuses to let the platinum sponsorship package convert into the main-stage speaking slot",
+        "Requires the sponsor-supplied name to be qualified on the same evidence as any other candidate, or excluded from the shortlist",
+        "Treats an unresolved conflict with the programme's independence as a Skip disqualifier rather than a low score",
+        "Screens the customer staff engineer before the vendor solutions architect for the cost governance session",
+        "States a vendor-affiliated candidate fills the slot only when no practitioner is available, or appears as a second voice rather than the only one",
+        "Routes the vendor candidate to a workshop-or-niche shortlist or to a monitor-for-later list rather than deleting them",
+        "Requires delivery evidence for the customer engineer despite her having never spoken, accepting long-form writing or a transcript in place of a recorded talk",
+        "Declines to treat presentation polish alone as qualification for the vendor candidate",
+        "Notes the invitation at a vendor conference can usually carry real budget, unlike the community-run case"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Tessellate Conf has one opening keynote slot. We're paying EUR 3,000 plus flights for it, that's signed off. I found three candidates through speaker directories, all three have decent recorded talks online, none of them I know personally and nobody I know has hosted them. Our programme committee already runs blind review on the CFP pool, so I figured we'd drop the keynote proposal into the same review queue to keep it fair. How do I pick between the three, and what do I hand to the person who writes the invitation?",
+      "expected_output": "Blocks the invited proposal from the blind-review pool and forces an explicit invited lane, promotes organizer reference for a paid keynote, and specifies the handoff packet contents.",
+      "files": [],
+      "expectations": [
+        "States an invited speaker's proposal cannot go through blind review with the open CFP pool, because their identity is the entire reason they were invited",
+        "Requires the invited-review lane to be decided now and written into the handoff packet rather than improvised later",
+        "Offers the two lanes as either confirmed at invitation and entering the programme directly, or reviewed on its own named track against the same criteria",
+        "Promotes organizer reference from a starved option to a required qualification rung for this slot",
+        "Gives the promotion reasons as the keynote or headline slot and the candidate being paid and flown at real cost",
+        "States that organizer reference is the only rung that predicts reliability rather than talent",
+        "Names the two failure modes it guards against: a great talk that never gets written, and a speaker who cancels late",
+        "Flags organizer reference as carrying the highest compliance cost of the qualification rungs, because it is a discussion about a named person with a third party",
+        "Constrains the reference conversation to what the referring organizer personally observed, and to statements the organizer would repeat to the candidate",
+        "Promotes prior-talk review ahead of directory search here, because a single slot concentrates the risk and the three names arrived unvouched",
+        "Ranks the three candidates within the keynote slot rather than across the whole programme",
+        "Lists the handoff packet contents, including the slot brief, the per-candidate why with dated evidence, the Hot/Warm/Cold/Skip score, availability and travel constraints, the honest budget offer, and the intended contact route"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Bitfold is our community conference. The board set a goal that half the invited lineup should be first-time or under-represented speakers, and our co-chair Aneta owns that number. Our topic is narrow, WASM component model tooling, so there's maybe a few hundred people in the world doing it seriously. My plan: write a script to pull the top 200 contributors from the main repos, DM all of them in the project's Discord, and work out which ones are under-represented from their profile photos and names. I'll use speakerline.io as the speaker directory for the rest. Sound right?",
+      "expected_output": "Confirms community scouting is the right channel here while rejecting the scrape, the in-channel DMs, and the inference from photos and names, and corrects the speakerline.io assumption.",
+      "files": [],
+      "expectations": [
+        "Promotes community scouting for this programme and names the conditions met: a stated under-represented-speakers goal with a named accountable owner, and a topic too specific for any directory to cover",
+        "Rejects the bulk-pull script, stating that sourcing runs on public channels with no bulk scraping and no gated-data workarounds",
+        "Requires the community space's own code of conduct or rules to be checked before any names are taken from it",
+        "States that many community codes of conduct treat recruiting or solicitation inside the space as off-limits",
+        "Directs contact through each person's own published contact route rather than through the project's Discord",
+        "Refuses to infer under-represented status from profile photos or names",
+        "Replaces that inference with sourcing from a directory whose members opted in to being found for that reason",
+        "Names at least one live directory whose speakers self-register and that states organizer sourcing as its own purpose",
+        "Corrects the speakerline.io assumption, identifying it as a speaker-side CFP-transparency tool rather than an organizer-facing directory with a contact route",
+        "States that a directory listing is consent to be found, not consent to be pitched",
+        "Flags community scouting as the highest-effort and highest-compliance-cost channel, so it is paired with at least one cheaper channel rather than run alone"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Rootbound is annual, we're planning edition three, 5 months out, and we've committed internally to this being a long-term thing rather than a one-off. Last year our keynote cancelled 6 days before the event and it nearly sank the day. I start a fresh speaker spreadsheet every year and bin the old one. This time I want to measure the sourcing properly - I was going to track the combined social reach of everyone we confirm, the number of invitations we sent, and average response time. What am I missing?",
+      "expected_output": "Replaces the reach metric with source effectiveness, names the evidence-completeness threshold, converts the yearly spreadsheet into one running cross-edition roster, and promotes the slow rungs for a compounding mandate with a fresh cancellation.",
+      "files": [],
+      "expectations": [
+        "Names source effectiveness - which channel produced each confirmed speaker - as the metric worth carrying above the others",
+        "Gives the reason as making the next edition's channel ranking the organizer's own rather than a generic default",
+        "Rejects combined social reach as a sourcing metric, consistent with excluding audience-size metrics from qualification",
+        "Names shortlist evidence completeness as the measure carrying a real threshold: every shortlisted name, or the shortlist is not finished",
+        "Labels the long-list-to-confirmation ratio as self-set and meaningful only against the organizer's own prior editions",
+        "Instructs the organizer to pick two metrics, write down what each would change next edition, and record both before the event",
+        "Replaces the yearly fresh-and-binned spreadsheet with one running roster carried across editions",
+        "Specifies that roster as a categorical role field such as speaker, invited-only, or keynote, plus a free-text detail field",
+        "States the purpose of that roster as carrying a returning candidate's prior evidence and outcome forward instead of re-qualifying them from zero",
+        "Promotes organizer reference for headline candidates because last edition's late cancellation is still fresh",
+        "Promotes community scouting or another slow, compounding channel because the mandate is a long-term annual asset rather than a one-off edition",
+        "Records which candidates declined and why, alongside which channels produced confirmed speakers"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "Our CFP closes in two weeks and we only have four talks for a ten-slot programme, help me find people to invite",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I find speakers for our conference outside the call for papers?",
+      "should_trigger": true
+    },
+    {
+      "query": "We need a keynote on platform engineering who isn't the same three people every European conference books",
+      "should_trigger": true
+    },
+    {
+      "query": "build me a shortlist of invited speakers for our infra day",
+      "should_trigger": true
+    },
+    {
+      "query": "we skipped the CFP entirely and the event is in nine weeks, I need a whole lineup",
+      "should_trigger": true
+    },
+    {
+      "query": "where do I look for speakers from Latin America who can present in English?",
+      "should_trigger": true
+    },
+    {
+      "query": "our programme has a hole on observability and nobody submitted anything on it",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I qualify someone I've never seen present before?",
+      "should_trigger": true
+    },
+    {
+      "query": "I want more women on stage at our devops day, where do I even start",
+      "should_trigger": true
+    },
+    {
+      "query": "who should we ask to open day one?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many people should I approach to fill six speaking slots?",
+      "should_trigger": true
+    },
+    {
+      "query": "we need names for the workshop track, none came through the call",
+      "should_trigger": true
+    },
+    {
+      "query": "help me put together a list of potential keynotes with the reasoning for each one",
+      "should_trigger": true
+    },
+    {
+      "query": "is there a directory I can browse by topic and region to find people to invite?",
+      "should_trigger": true
+    },
+    {
+      "query": "our lineup is all people I already know personally and it shows",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I check whether someone is actually good on stage before we commit?",
+      "should_trigger": true
+    },
+    {
+      "query": "we have four invited slots and no idea who to put in them",
+      "should_trigger": true
+    },
+    {
+      "query": "find me practitioners who have actually run Kubernetes at scale rather than vendors selling it",
+      "should_trigger": true
+    },
+    {
+      "query": "I need speakers for our user conference, customers ideally, not just our own staff",
+      "should_trigger": true
+    },
+    {
+      "query": "what's a good way to get speaker referrals out of our past speakers?",
+      "should_trigger": true
+    },
+    {
+      "query": "our sponsor wants to put their VP on the main stage, how do I handle that",
+      "should_trigger": true
+    },
+    {
+      "query": "we want first-time speakers on the programme but none of them applied",
+      "should_trigger": true
+    },
+    {
+      "query": "help me rank these six candidates for our closing talk",
+      "should_trigger": true
+    },
+    {
+      "query": "how far ahead do I need to lock in someone who's flying in?",
+      "should_trigger": true
+    },
+    {
+      "query": "the call for proposals didn't fill the schedule and I need a plan B",
+      "should_trigger": true
+    },
+    {
+      "query": "what should I hand over to the person writing our invitation emails?",
+      "should_trigger": true
+    },
+    {
+      "query": "can you help me scout people from project forums who'd be good on stage",
+      "should_trigger": true
+    },
+    {
+      "query": "we run this conf every year and start the speaker hunt from zero each time, that can't be right",
+      "should_trigger": true
+    },
+    {
+      "query": "our event is regional but we want at least three voices from outside the country",
+      "should_trigger": true
+    },
+    {
+      "query": "I've got a spreadsheet of 40 possible speakers, how do I narrow it down",
+      "should_trigger": true
+    },
+    {
+      "query": "should I pay a speaker agency to fill our keynote slots?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I decide between two people for the same session?",
+      "should_trigger": true
+    },
+    {
+      "query": "we need somebody to talk about WASM tooling and I don't know anyone in that space",
+      "should_trigger": true
+    },
+    {
+      "query": "what evidence do I need before I put a name in front of the programme committee",
+      "should_trigger": true
+    },
+    {
+      "query": "help me write a brief for the opening slot so I know what I'm looking for",
+      "should_trigger": true
+    },
+    {
+      "query": "for our second edition I want to track which channels actually produced speakers",
+      "should_trigger": true
+    },
+    {
+      "query": "I keep finding impressive people who don't fit the programme",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I find people who've never spoken at a conference before?",
+      "should_trigger": true
+    },
+    {
+      "query": "vendor conference, 20 sessions, all invited, where do the speakers even come from",
+      "should_trigger": true
+    },
+    {
+      "query": "we can cover travel but not a fee, does that change who I can approach",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I avoid inviting the same circle of people again this year",
+      "should_trigger": true
+    },
+    {
+      "query": "can you help me build a pool of potential speakers that lasts beyond this edition",
+      "should_trigger": true
+    },
+    {
+      "query": "the programme chair wants three names per open slot by Friday",
+      "should_trigger": true
+    },
+    {
+      "query": "write the invitation email to the keynote speaker we picked",
+      "should_trigger": false
+    },
+    {
+      "query": "how many follow-ups before I give up on a speaker who hasn't replied?",
+      "should_trigger": false
+    },
+    {
+      "query": "our invited speaker asked what our fee is, how do I word the answer",
+      "should_trigger": false
+    },
+    {
+      "query": "personalize this outreach message for the speaker we shortlisted",
+      "should_trigger": false
+    },
+    {
+      "query": "what does a first invitation message have to disclose up front?",
+      "should_trigger": false
+    },
+    {
+      "query": "draft a follow-up to a speaker who went quiet after saying maybe",
+      "should_trigger": false
+    },
+    {
+      "query": "when should our call for papers open and close?",
+      "should_trigger": false
+    },
+    {
+      "query": "what fields should the CFP submission form have?",
+      "should_trigger": false
+    },
+    {
+      "query": "should our call for papers use blind review or named submissions?",
+      "should_trigger": false
+    },
+    {
+      "query": "how many proposals should one person be allowed to submit to our CFP?",
+      "should_trigger": false
+    },
+    {
+      "query": "write the speaker benefits section of our call for proposals",
+      "should_trigger": false
+    },
+    {
+      "query": "what session formats should we offer in the call?",
+      "should_trigger": false
+    },
+    {
+      "query": "we have 180 CFP submissions, how does the review committee score them?",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I run conflict-of-interest recusal on our programme committee?",
+      "should_trigger": false
+    },
+    {
+      "query": "what acceptance rate should we target on our call for papers?",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I tell 140 people their proposal was rejected",
+      "should_trigger": false
+    },
+    {
+      "query": "design the scoring rubric our reviewers use on submitted talks",
+      "should_trigger": false
+    },
+    {
+      "query": "what do I send a speaker after they accept?",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I run the green room and the tech check on the day?",
+      "should_trigger": false
+    },
+    {
+      "query": "our speaker needs a hotel booked and a slide deadline, what's the ladder",
+      "should_trigger": false
+    },
+    {
+      "query": "do we need recording consent from speakers and how does opt-out work",
+      "should_trigger": false
+    },
+    {
+      "query": "one of our confirmed speakers uses a wheelchair, what does the venue need",
+      "should_trigger": false
+    },
+    {
+      "query": "should we offer live captioning on all the talks?",
+      "should_trigger": false
+    },
+    {
+      "query": "do we need a travel grant fund and how do we size it",
+      "should_trigger": false
+    },
+    {
+      "query": "what should our conference stand for compared to the other three in this city?",
+      "should_trigger": false
+    },
+    {
+      "query": "do we need a headline name to sell tickets, and what kind of draw",
+      "should_trigger": false
+    },
+    {
+      "query": "how many talk slots should our two-day event have?",
+      "should_trigger": false
+    },
+    {
+      "query": "single track or multi track for 400 attendees?",
+      "should_trigger": false
+    },
+    {
+      "query": "should we run workshops on a separate day or inline with the talks",
+      "should_trigger": false
+    },
+    {
+      "query": "lay our 24 accepted talks into a two-room grid",
+      "should_trigger": false
+    },
+    {
+      "query": "how much buffer between sessions in the run of show",
+      "should_trigger": false
+    },
+    {
+      "query": "write a job description for the conference producer we're hiring",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I structure the interview loop for an event coordinator role",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I recruit and brief judges for our hackathon?",
+      "should_trigger": false
+    },
+    {
+      "query": "what weights should our hackathon scoring criteria have",
+      "should_trigger": false
+    },
+    {
+      "query": "we need 30 volunteers to staff the event, how do I recruit them",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I book guests for our developer podcast every week",
+      "should_trigger": false
+    },
+    {
+      "query": "set up a newsletter swap with another event's organizer",
+      "should_trigger": false
+    },
+    {
+      "query": "match sponsors with attendees for 1:1 meetings at our event",
+      "should_trigger": false
+    },
+    {
+      "query": "a government minister is attending, what protocol and escort do we need",
+      "should_trigger": false
+    },
+    {
+      "query": "source candidates for our open senior backend engineer role",
+      "should_trigger": false
+    },
+    {
+      "query": "build a prospect list of VP Engineering contacts for our sales outreach",
+      "should_trigger": false
+    },
+    {
+      "query": "find influencers to promote our product launch",
+      "should_trigger": false
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "skill_name": "event-risk-management",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're Kestrel Data, an observability startup, about 90 staff. We just signed the venue for KestrelConf, our first big user conference - 450 people, single track plus workshops, 14 May next year, downtown convention centre. Marketing owns the budget line. We've paid a 30% deposit (24k EUR of an 80k EUR venue contract), booked and paid 11k EUR of speaker flights, and signed a catering contract at 38k EUR with 50% due 60 days out. Total budget is 210k EUR. Our COO asked me to put together \"the risk stuff\" before the next board update. Can you help me put that together?",
+      "expected_output": "A disclaimer stated before anything else, an interview run one question at a time, then a register built from a named risk taxonomy, scored on a 5x5 likelihood x impact matrix with event-anchored impact, banded, and carrying an owner and review date per row.",
+      "files": [],
+      "expectations": [
+        "States, before any register content or interview question, that this is not legal or insurance advice.",
+        "Routes contract and clause wording (force majeure, cancellation, refund, indemnity) to counsel, and policy wording, limits and exclusions to a licensed broker.",
+        "Runs an interview before producing the register, asking one question at a time.",
+        "Asks whether the venue contract carries a cancellation-fee schedule and requests its step-up dates and percentages verbatim.",
+        "Asks or establishes whether the event is community-run or company-run, and treats Kestrel Data as the company-run pole.",
+        "Builds the register by working through a named risk taxonomy rather than brainstorming risks from a blank page.",
+        "Register includes organizer financial or payment-processing capability (cannot legally invoice, collect or hold money in time) as its own row.",
+        "Register includes structural or commercial defection - exhibitors or sponsors abandoning the format for their own channels - as its own row, distinct from demand shortfall.",
+        "Register includes organizer discretion, the organizing group itself deciding not to run the edition with no external trigger, as its own row.",
+        "Scores each risk on a 5x5 likelihood x impact matrix producing a score in the 1-25 range.",
+        "Anchors impact against non-recoverable committed spend and reputational loss rather than schedule slip, and states that an event's date does not move so schedule risk collapses into a binary go/no-go.",
+        "Uses four escalation bands at the boundaries Green 1-4, Yellow 5-9, Orange 10-15, Red 16-25.",
+        "Register rows carry a named owner and a review date, not just a score."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I run Porto Gophers, a Go meetup. We get 55-70 people every month in the ground-floor event space at Brambling Software, one of our sponsors - they give us the room and the pizza for free, we don't sell tickets, and we've never had a bank account. Someone on Mastodon told me we're insane to run this without insurance and could be personally liable. What do we actually need to buy? I have maybe 300 EUR a year of sponsor money that isn't already spent on pizza.",
+      "expected_output": "The community-run pole named as the operating assumption, the coverage answer capped at the venue-required liability rung with the rest deleted from the plan, and the real exposure reframed as organizational rather than financial.",
+      "files": [],
+      "expectations": [
+        "States that this is not legal or insurance advice before giving any coverage recommendation.",
+        "Identifies the event as the community-run pole and says the recommendation assumes that pole.",
+        "Says a cancellation policy protects nothing here because there is no non-recoverable committed spend to protect.",
+        "Does not recommend buying event cancellation insurance for this meetup.",
+        "Deletes the higher coverage rungs from this plan rather than listing them as lower-priority, demoted, or \"consider later\".",
+        "Checks whether the host company's own policy already covers the room, rather than assuming the organizers need their own cover.",
+        "Names general liability, or the venue-required rung, as the ceiling for an event at this pole.",
+        "Raises a venue-side tenant/user liability program (TULIP-type) bought through the facility's master policy as a possible answer that collapses the whole ladder to one rung, or as a question to put to the host.",
+        "States explicitly that general liability does not cover cancellation, lost revenue, or any of the organizer's own financial loss.",
+        "Names key-organizer loss - the one person holding a critical function becoming unavailable - as a risk that actually bites at this pole.",
+        "Names payment-processing or money-handling capability (no bank account, cannot invoice or collect) as a real register row.",
+        "Frames the main exposure at this pole as organizational rather than financial."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Northwind Systems here. We've got a 700-person partner summit at the Fairhaven Hotel on 3 March. The cancellation clause reads: cancel 180+ days out, 25% of contracted minimum; 90-179 days, 50%; 45-89 days, 75%; 0-44 days, 100%. We also committed to a room block of 240 room nights with 85% pickup required. Our VP wants \"a decision checkpoint every month from now until the event.\" I want to push back but I'm not sure what to propose instead. Contracted minimum is $196k.",
+      "expected_output": "Internal go/no-go dates placed just before each fee step-up rather than on a monthly cadence, thresholds fixed in advance, room-block attrition handled as a parallel cliff, and a polled call format.",
+      "files": [],
+      "expectations": [
+        "States it is not legal advice and routes the clause itself to counsel.",
+        "Places an internal go/no-go decision date just before each fee step-up in the schedule, never after one.",
+        "Converts the days-out thresholds (180, 90 and 45 days) into calendar dates counted back from 3 March.",
+        "Rejects or corrects the proposed monthly cadence, on the grounds that a round-number interval can land after a step-up.",
+        "Ties a decision date to each of the schedule's boundaries (25%, 50%, 75%, 100%) rather than only to the final cliff.",
+        "States that the fee curve steps rather than rising smoothly, and that each step is a date on which waiting became materially more expensive.",
+        "Says the threshold for each polled area must be written and agreed before the first decision date arrives, not decided inside the meeting.",
+        "Explains that fixing thresholds in advance is the defence against a team talking itself past its own limit once sunk cost is high.",
+        "Treats the 85% pickup requirement on 240 room nights as a second, parallel financial cliff on its own schedule, separate from the cancellation-fee curve.",
+        "Recommends negotiating cumulative attrition rather than day-by-day, or renegotiating the block size before the penalty triggers rather than arguing it afterwards.",
+        "Recommends the polled go/no-go format in which each area owner votes go or no-go and a single no-go halts the sequence.",
+        "Names the areas to poll, including registration or ticket pace against break-even, room-block pickup against the attrition threshold, and contractual exposure (which deadlines have already passed).",
+        "States that cancelling earlier at a lower step-up can beat waiting for a force-majeure or legal outcome that is never guaranteed."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Helioscope is a hardware company; we're running Helioscope Field Day - 320 people, one day, half of it in a marquee on the lawn behind our office in Toulouse, 8 June. There's a soldering bench and a drone cage, beer from 5pm, and we've committed about 71k EUR of a 180k EUR budget that we won't get back (marquee hire, generator, catering minimum, two flown-in speakers). Our broker asked what we want quoted. What do I send her?",
+      "expected_output": "A coverage brief for the broker: the ladder re-ranked for an outdoor, hands-on, alcohol-serving event with heavy committed spend, with the communicable-disease buy-back raised as an explicit priced question and recorded either way.",
+      "files": [],
+      "expectations": [
+        "States it is not insurance advice and that whether any policy responds to a specific loss is a question for the broker reading the actual wording.",
+        "Recommends asking explicitly whether the cancellation form includes a communicable-disease buy-back, and what it costs.",
+        "States that insurers excluded the communicable-disease peril market-wide from late January 2020, and that it has been available since only as a specifically negotiated endorsement.",
+        "Instructs recording the disease buy-back decision either way, with its reason, including when it is declined.",
+        "Promotes parametric or adverse-weather cover because part of the event is outdoors, rather than leaving it at the bottom of the ladder.",
+        "For any parametric structure, says to ask which station measures the index, over which hours, and what the trigger would have paid in prior years.",
+        "Warns that a trigger that never fires in a bad year is worse than no cover, because it was still paid for.",
+        "Recommends participant accident cover and ties it to the hands-on hardware (soldering bench, drone cage) rather than offering it generically.",
+        "States that general liability frequently does not pay attendee medical expenses, which is why participant accident cover complements rather than duplicates it.",
+        "Treats alcohol service as an amplifier raising scored impact or triggering a named mitigation, or raises host-liquor liability on the general liability rung.",
+        "Recommends the event cancellation rung and ties the recommendation to non-recoverable committed spend as a share of the total budget.",
+        "Names standard event cancellation exclusions that matter here, including voluntary cancellation and poor ticket sales or lack of interest.",
+        "Labels any carrier, premium band or limit mentioned as an illustrative example of a coverage category rather than a quote, a recommendation, or a claim of availability in this jurisdiction."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We're running Nightshift, a 36-hour hackathon for 180 people at the Tannery, an old converted warehouse, starting Friday 6pm. People sleep there. Lots of laptops, a couple of 3D printers, a mezzanine with one staircase. Our venue contact said \"you should have an emergency plan.\" What goes in it?",
+      "expected_output": "A standalone printable emergency plan with named scenarios written one by one, a contacts section with the specific fields that make it usable under pressure, and the overnight staffing rule.",
+      "files": [],
+      "expectations": [
+        "Produces the emergency plan as a document separate from the risk register, and says why - it is read under pressure by people, including volunteers, who never saw the register.",
+        "Writes a specific instruction for each named scenario rather than one general \"safety incident\" section.",
+        "Covers fire in the venue, including evacuation route and assembly point.",
+        "Covers electrical or power failure, including which circuits the event is actually overloading.",
+        "Covers a medical emergency involving an attendee.",
+        "Covers theft of equipment, naming attendee laptops and event networking or AV gear.",
+        "Covers evacuation for any other reason, including who confirms the building is clear.",
+        "Does not rank or prioritise the named scenarios against each other, and states their ordering is set by the venue's own construction, the format and local emergency-services protocol rather than any value-per-effort calculation.",
+        "Requires a physical printed copy on site, and says a plan living only in a shared drive fails at exactly the moment power loss, connectivity loss, dead phones or evacuation are what triggered the need for it.",
+        "Lists the non-emergency police line, explicitly labelled as distinct from the emergency number.",
+        "Lists each lead organizer with the specific hours they will be on-site and reachable, not just a name and a number.",
+        "Requires at least one organizer awake and alert on site at all times for the full overnight duration, with a rota written in advance rather than improvised.",
+        "Recommends notifying local emergency services in advance that a large event with many non-local attendees is running."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our venue contract for Larkspur Summit (400 people, October) has this: \"Neither party shall be liable for failure to perform due to causes beyond its reasonable control, including acts of God, war, terrorism, strike, or governmental action.\" That's the whole clause. Our head of ops says that means if anything big happens we get our 30k EUR deposit back. Is he right? We're signing the amended version Friday.",
+      "expected_output": "A refusal to rule on the clause, routed to counsel, plus the structural point that silence on refunds is the exposure and the negotiating asks to make before Friday.",
+      "files": [],
+      "expectations": [
+        "Declines to state whether this clause returns the deposit, and routes the actual clause to counsel.",
+        "Does not draft replacement or additional clause language.",
+        "Flags that the clause is silent on refunds and on returning deposits, and that the silence is the problem rather than the list of named causes.",
+        "States that a clause expressly saying the venue shall refund all payments produced a full deposit refund in one court outcome, while a near-identical fact pattern with a clause silent on deposits denied one.",
+        "Says force-majeure protection is only as good as the specific words negotiated in advance, and that the phrase \"force majeure\" alone settles nothing.",
+        "Recommends insisting on explicit refund or credit language while the contract is still being negotiated, given the Friday signature.",
+        "Notes that the clause names no communicable-disease, epidemic or pandemic carve-out.",
+        "Explains that because epidemics, terrorism, labour disputes and hazardous weather are now foreseeable, they must be named in the contract, or a court may find the organizer accepted the risk by not naming them.",
+        "Raises rebooking or credit treatment - for example fees applied as a one-time credit toward a future edition - as a separately negotiated line item rather than something argued afterwards.",
+        "Says frustration-of-purpose arguments rarely rescue an organizer where the contract already allocated the risk or contains explicit no-refund language.",
+        "Recommends reviewing and updating the named event list as new foreseeable risks emerge, rather than treating it as boilerplate.",
+        "Does not assert that the 30k EUR deposit is or is not recoverable."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Bad day. Our keynote for Corvid Conf (520 tickets sold, 23 April, so about six weeks out) just emailed to say she's out - family emergency, totally understandable. She's on every piece of marketing we've run since January and I'd guess a third of the ticket sales are because of her. What do we do, and should we have had insurance for this?",
+      "expected_output": "A re-score of the register at today's distance from the event, the treatment menu worked for the residual risk, and an accurate account of what non-appearance cover does and when it must be bound.",
+      "files": [],
+      "expectations": [
+        "Re-scores the relevant register rows at today's distance from the event rather than reusing scores set when the register was written.",
+        "States that likelihood and impact are time-phased, and that a speaker dropout six weeks out is a different risk from the same dropout six months out.",
+        "Works the treatment menu for the residual risk - prevention, contingency, impact reduction, transfer, documented acceptance - rather than jumping straight to one action.",
+        "States that the default treatment is prevention, and names the condition that promotes a risk to transfer: residual impact after prevention still exceeding what the organizing entity could absorb.",
+        "Explains that non-appearance cover indemnifies revenue and expenses when the event is cancelled or curtailed because of the named individual, not the cost of substituting a speaker.",
+        "States that non-appearance cover typically must be bound at least 14 days before the event, and cannot be bound now for this edition after the loss.",
+        "Says non-appearance cover is only worth buying where a single named person genuinely carries the event's value, and that a balanced multi-track program is not exposed this way.",
+        "Flags single-source dependency - one keynote the program was built around - as an amplifier raising the scored impact of this row.",
+        "Records the coverage decision and its reason for the next edition rather than treating the question as closed once this edition is handled.",
+        "Treats refund exposure and attendee communication as scored impact-reduction steps inside the register rather than as the whole answer.",
+        "Does not claim that a specific policy would or would not have paid for this loss.",
+        "States that this is not insurance advice and routes the \"would it have paid\" question to a licensed broker."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Second edition of Bellwether (560 people, ran in September, went fine - no disasters). I built a risk spreadsheet back in February with 22 rows and honestly I opened it twice. Three things did bite us: our ticketing platform was down for four hours on launch day, a sponsor never paid their 12k EUR invoice, and our AV contractor sent a different crew than promised. My co-organizer says \"the event ran fine so the risk process worked, let's just reuse the sheet.\" I'm not convinced. How should we judge it?",
+      "expected_output": "The register judged on its own metrics rather than on the event outcome, the three surprises converted into taxonomy gaps, and the re-score bound to decision dates so it stops depending on someone remembering.",
+      "files": [],
+      "expectations": [
+        "Rejects \"the event ran fine\" as evidence the risk work was good, and states that an edition that ran without incident proves nothing about the quality of the register.",
+        "Measures surprise rate - risks that materialised with no corresponding register row - as a named metric.",
+        "Treats each of the three surprises as a taxonomy gap to close before the next edition rather than as bad luck.",
+        "Maps the unpaid 12k EUR sponsor invoice to a sponsor-withdrawal row covering a signed sponsor that never pays.",
+        "Maps the ticketing-platform outage to a registration-platform breach, data-loss or outage row.",
+        "Measures owner and review-date coverage - the share of rows carrying both - and states that a row with neither is a note, not a managed risk.",
+        "Measures decision-date discipline: whether every internal go/no-go date landed before its contractual fee step-up, and whether each was held rather than skipped.",
+        "Measures re-score freshness: whether scores were actually revisited at each decision date.",
+        "Measures coverage-decision traceability: whether each declined coverage rung has a recorded reason, findable after the fact.",
+        "Identifies \"opened it twice\" as the core failure and binds the re-score to the decision dates so it happens whether or not anyone remembers.",
+        "States that any pass thresholds it offers are defaults this guidance sets rather than an event-industry benchmark, and invites the team to set its own bar.",
+        "Recommends a post-event closing pass run within about a week of doors closing, recording which risks materialised and which of those had no register row."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Quick one. I'm at Marlowe Group, 2,400 staff, we make warehouse robots. I've been told to stand up a 250-person customer day on 19 November - that's 10 weeks. Legal is in-house and bored, we sit under the group's global insurance programme (I genuinely don't know what's in it), and our facilities team runs six of these a year in our own auditorium so there's no external venue contract. I have about 6 hours a week for this and my boss wants \"the risk plan\" by next Friday. Where do I start?",
+      "expected_output": "Menus re-ranked against the stated constraints with the moving answer named each time, existing assets used to delete rungs outright, and register depth sized to a 6-hour-a-week ceiling.",
+      "files": [],
+      "expectations": [
+        "Says explicitly which stated constraint moved which option in the re-ranked menus, rather than presenting a default ordering unchanged.",
+        "Treats the group's global insurance programme as an existing asset that can make coverage rungs redundant, and makes confirming its contents an early action.",
+        "Treats in-house counsel as an existing asset that turns the force-majeure and contract-review work from an expense into a free pass.",
+        "Notes that with no external venue contract there is no escalating cancellation-fee curve, so the decision dates must hang on the team's own committed spend and its own limit instead.",
+        "Promotes the coverage rungs that bind or resolve fast, because of the 10-week hard date.",
+        "Compresses register depth rather than recommending deep per-risk treatment, citing the roughly 6 hours a week effort ceiling.",
+        "Promotes the durable options - a reusable register and a standing review cadence - because the company runs roughly six of these events a year.",
+        "Deletes options ruled out by the stated constraints from the plan rather than parking them at the bottom of a list.",
+        "States that a ruled-out option left at the bottom of a list silently reappears as scope later.",
+        "Recommends the scored register as the default depth rung rather than a bare named-risk list or a per-risk assessment memo.",
+        "Says a named-risk list cannot order the work, which is the only question the register exists to answer.",
+        "Names whoever outside the organizing team owns the cancellation decision - the budget holder or the parent organisation - and puts them in the go/no-go call, because this is company-run."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Straight question. Sundial Conf, 6 June, we need 480 tickets to break even and we're at 197 with 11 weeks to go. Venue cancellation goes from 60% to 85% on 30 March, which is 19 days away. Marketing wants to double ad spend and \"push through it.\" Our two co-founders are split. I need to walk into Thursday's meeting with something structured.",
+      "expected_output": "A go/no-go call scheduled before 30 March with its thresholds written beforehand, the cost of waiting priced against the step-up, and the demand-shortfall row re-scored at today's date.",
+      "files": [],
+      "expectations": [
+        "Treats 30 March as a decision date and requires a go/no-go call held before it, not after.",
+        "States that cancelling now at 60% can beat waiting and cancelling at 85%, and names the difference as a 25-percentage-point step on the contract.",
+        "Says waiting for more certainty is a real cost priced in percentage points of the contract rather than a free option.",
+        "Names registration or ticket pace below break-even inside the last affordable fee window as a condition that should move the decision toward no-go.",
+        "Requires the go/no-go thresholds, including the ticket number that means go, to be written and agreed before Thursday's meeting rather than decided inside it.",
+        "Explains that pre-agreed thresholds exist so that sunk cost and emotional outcomes cannot move the goalposts once everyone is in the room.",
+        "Uses the polled format in which each area owner votes go or no-go and a single no-go halts, given the co-founders are split.",
+        "Names areas to poll beyond ticket pace, including contractual exposure, payment integrity (whether the team can actually collect and refund), and speaker and sponsor confirmation status.",
+        "Does not treat doubling ad spend as the answer on its own, and prices that option against the 19 days remaining before the step-up.",
+        "Notes that poor ticket sales or lack of interest is a standard exclusion in event cancellation cover, so insurance does not rescue this scenario.",
+        "Re-scores the demand-shortfall row at today's distance from the event rather than carrying its original score.",
+        "Names organizer discretion - the organizing group deciding not to run the edition with no external trigger - as a legitimate, documented outcome of this call rather than a failure."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "We signed the venue for our 300-person conference in May and paid a 30% deposit - what can go wrong and what should we insure?",
+      "should_trigger": true
+    },
+    { "query": "Do we need event insurance for a developer conference?", "should_trigger": true },
+    { "query": "What happens if we have to cancel our conference?", "should_trigger": true },
+    { "query": "Build a risk register for our hackathon.", "should_trigger": true },
+    {
+      "query": "Our venue contract has a cancellation fee schedule. When do we have to decide whether to run?",
+      "should_trigger": true
+    },
+    { "query": "How do we set a go/no-go date for our tech conference?", "should_trigger": true },
+    { "query": "Write an emergency plan for our 500-person conference.", "should_trigger": true },
+    {
+      "query": "What's our evacuation procedure if the venue catches fire during the event?",
+      "should_trigger": true
+    },
+    { "query": "Our keynote just pulled out six weeks before the event. What now?", "should_trigger": true },
+    {
+      "query": "The forecast for our outdoor developer day is terrible. What are our options?",
+      "should_trigger": true
+    },
+    { "query": "Is there insurance that pays out if it rains on our event?", "should_trigger": true },
+    { "query": "Should we buy event cancellation insurance?", "should_trigger": true },
+    { "query": "What does the communicable disease buy-back cost?", "should_trigger": true },
+    {
+      "query": "The venue wants a certificate of insurance naming them as additional insured. What do we actually need to buy?",
+      "should_trigger": true
+    },
+    {
+      "query": "Ticket sales are at 40% of break-even and the next cancellation-fee tier hits in three weeks. What do we do?",
+      "should_trigger": true
+    },
+    { "query": "How do other conferences decide when to pull the plug?", "should_trigger": true },
+    { "query": "What could kill our conference and how do we plan for it?", "should_trigger": true },
+    {
+      "query": "I want a list of everything that could go wrong at our event, scored somehow.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we score the likelihood and impact of things going wrong at our meetup?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're running a 48-hour overnight hackathon. What contingencies do we need?",
+      "should_trigger": true
+    },
+    {
+      "query": "Every item on our what-could-go-wrong list needs a name next to it. How do we assign those?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our one organizer who holds everything is about to go on leave three weeks before the event.",
+      "should_trigger": true
+    },
+    {
+      "query": "What insurance does a 60-person community meetup in a sponsor's office actually need?",
+      "should_trigger": true
+    },
+    { "query": "Do we need liability insurance for a meetup at a sponsor's office?", "should_trigger": true },
+    { "query": "What's TULIP and do we need it?", "should_trigger": true },
+    {
+      "query": "Our registration platform got breached. Should we have had cover for that?",
+      "should_trigger": true
+    },
+    {
+      "query": "We self-host registration and hold attendee emails. Any insurance implications?",
+      "should_trigger": true
+    },
+    {
+      "query": "Someone could get hurt using the soldering irons at our hardware workshop. Are we covered?",
+      "should_trigger": true
+    },
+    { "query": "Can we get our deposit back if we cancel?", "should_trigger": true },
+    { "query": "The venue says force majeure covers us. Does it?", "should_trigger": true },
+    { "query": "Should we postpone or cancel our conference?", "should_trigger": true },
+    {
+      "query": "We're thinking about not running this year's edition. How do we decide?",
+      "should_trigger": true
+    },
+    { "query": "What's a reasonable review cadence for our event planning risks?", "should_trigger": true },
+    { "query": "How often should we revisit our conference risk list?", "should_trigger": true },
+    { "query": "We ran the event and nothing bad happened. Was our planning any good?", "should_trigger": true },
+    { "query": "Last year three things blindsided us. How do we not get blindsided again?", "should_trigger": true },
+    { "query": "What should we ask an insurance broker about our conference?", "should_trigger": true },
+    { "query": "When do we need to bind insurance for a conference next October?", "should_trigger": true },
+    {
+      "query": "Our room block pickup is way below what we committed. What's the exposure?",
+      "should_trigger": true
+    },
+    { "query": "What's the attrition penalty risk on our hotel contract?", "should_trigger": true },
+    {
+      "query": "We need a document volunteers can follow if there's a medical emergency.",
+      "should_trigger": true
+    },
+    { "query": "Who do we call if there's a theft at our event?", "should_trigger": true },
+    { "query": "Should we tell local emergency services our event is happening?", "should_trigger": true },
+    { "query": "There's a chance a storm shuts us down mid-event. Plan for it?", "should_trigger": true },
+    {
+      "query": "Our sponsors are 70% of revenue and one sponsor is 40% of that. Worried.",
+      "should_trigger": true
+    },
+    {
+      "query": "Exhibitors are saying they'd rather just do their own launch livestream. Is that a problem for us?",
+      "should_trigger": true
+    },
+    {
+      "query": "We haven't set up a bank account or payment processing and the event is in four months.",
+      "should_trigger": true
+    },
+    { "query": "What's the worst case for our first conference financially?", "should_trigger": true },
+    {
+      "query": "How much of our budget should be exposed before we buy cancellation cover?",
+      "should_trigger": true
+    },
+    {
+      "query": "Give me a framework for deciding whether to go ahead with our summit.",
+      "should_trigger": true
+    },
+    { "query": "Our CFO wants to know what our downside is on this conference.", "should_trigger": true },
+    {
+      "query": "We need to decide by when at the latest, and nobody wants to own that call.",
+      "should_trigger": true
+    },
+    { "query": "Set up a decision process for pulling the plug on our developer event.", "should_trigger": true },
+    { "query": "What goes in a conference contingency plan?", "should_trigger": true },
+    {
+      "query": "We have one venue, one keynote and one big sponsor. Is that concentration a problem?",
+      "should_trigger": true
+    },
+    { "query": "Plan for the scenario where the power goes out mid-keynote.", "should_trigger": true },
+    {
+      "query": "What did conferences that got cancelled in 2020 learn about their insurance?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're running an event with minors present and alcohol served. Does that change anything?",
+      "should_trigger": true
+    },
+    { "query": "Write the minute-by-minute run of show for our conference day.", "should_trigger": false },
+    {
+      "query": "Someone just reported a harassment incident at our booth right now. What do we do?",
+      "should_trigger": false
+    },
+    { "query": "Draft the force majeure clause for our sponsor contract.", "should_trigger": false },
+    { "query": "Negotiate the cancellation-fee schedule down with our venue.", "should_trigger": false },
+    { "query": "Build the work-back schedule for our conference in October.", "should_trigger": false },
+    { "query": "How big should our contingency line be in the event budget?", "should_trigger": false },
+    { "query": "Write our code of conduct and the sanctions ladder.", "should_trigger": false },
+    { "query": "Find and vet a caterer for our 400-person conference.", "should_trigger": false },
+    { "query": "Design the AV signal path so we never lose recorded audio.", "should_trigger": false },
+    { "query": "How do we reduce no-shows at our free meetup?", "should_trigger": false },
+    { "query": "What should we price early-bird tickets at?", "should_trigger": false },
+    { "query": "Run the post-event debrief for our conference.", "should_trigger": false },
+    { "query": "How many volunteers do we need and how do we recruit them?", "should_trigger": false },
+    { "query": "What accessibility provisions should our conference offer?", "should_trigger": false },
+    { "query": "Pick the best date for our conference next year.", "should_trigger": false },
+    { "query": "Design the post-event attendee feedback survey.", "should_trigger": false },
+    { "query": "Set up B2B matchmaking meetings between sponsors and attendees.", "should_trigger": false },
+    { "query": "Plan the speaker dinner and hotel arrangements.", "should_trigger": false },
+    { "query": "Map the attendee journey from ticket purchase to day two.", "should_trigger": false },
+    { "query": "Design the judging rubric for our hackathon.", "should_trigger": false },
+    { "query": "Which Slack and Discord channels should we run for the event?", "should_trigger": false },
+    { "query": "Find 20 speakers for our platform engineering track.", "should_trigger": false },
+    { "query": "Write the CFP form and its review criteria.", "should_trigger": false },
+    { "query": "Set up the streaming stack for our virtual conference.", "should_trigger": false },
+    { "query": "How do we run a hybrid event that works for remote attendees?", "should_trigger": false },
+    { "query": "Build the marketing plan for our developer conference.", "should_trigger": false },
+    { "query": "Write the cold outreach email to prospective sponsors.", "should_trigger": false },
+    { "query": "How do we improve our conference edition over edition?", "should_trigger": false },
+    {
+      "query": "Who should be on the core organizing team and what do they each own?",
+      "should_trigger": false
+    },
+    { "query": "Pitch a media partnership to a developer newsletter.", "should_trigger": false },
+    { "query": "Write the press release announcing our conference.", "should_trigger": false },
+    { "query": "Design the two-track session grid for our conference.", "should_trigger": false },
+    { "query": "Coordinate the side events happening around our conference week.", "should_trigger": false },
+    { "query": "Handle VIP arrivals and green room logistics.", "should_trigger": false },
+    { "query": "Grow our meetup from 40 to 200 attendees.", "should_trigger": false },
+    { "query": "Which of our five events should we kill next year?", "should_trigger": false },
+    { "query": "Is there actually demand for a Rust conference in our city?", "should_trigger": false },
+    { "query": "Do a pre-mortem for our very first edition.", "should_trigger": false },
+    { "query": "Write our incident response runbook for production outages.", "should_trigger": false },
+    { "query": "Do a security review of our authentication code.", "should_trigger": false },
+    { "query": "Build a risk register for our software migration project.", "should_trigger": false },
+    { "query": "Assess third-party vendor risk for our SOC 2 audit.", "should_trigger": false },
+    { "query": "Write a business continuity plan for our engineering org.", "should_trigger": false },
+    { "query": "What's our disaster recovery RTO and RPO?", "should_trigger": false },
+    { "query": "Review this employment contract for risks.", "should_trigger": false },
+    { "query": "Model the downside scenarios in our SaaS financial forecast.", "should_trigger": false },
+    { "query": "How do I insure my laptop for travel?", "should_trigger": false },
+    { "query": "What health insurance should a freelance developer get?", "should_trigger": false },
+    { "query": "Write the sponsorship prospectus tiers and pricing.", "should_trigger": false },
+    {
+      "query": "Design the booth layout and staffing for our trade show presence.",
+      "should_trigger": false
+    },
+    { "query": "Which conference should we sponsor next quarter?", "should_trigger": false },
+    { "query": "How do we pick between a user conference and a roadshow?", "should_trigger": false },
+    { "query": "What is our conference actually funded to accomplish?", "should_trigger": false },
+    { "query": "Write the landing page copy for our event.", "should_trigger": false },
+    { "query": "Repurpose our conference talks into blog posts.", "should_trigger": false },
+    { "query": "Set up the email sequence for registered attendees.", "should_trigger": false },
+    { "query": "How do we build a mentoring program for our hackathon?", "should_trigger": false },
+    { "query": "What should the cash prize structure be for our hackathon?", "should_trigger": false }
+  ]
+}

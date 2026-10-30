@@ -1,0 +1,804 @@
+{
+  "skill_name": "virtual-event-production",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Northwind DevCon is fully online this year - one day, single track, 8 talks, about 600 people registered so far. It's community-run and free, no sponsors have bought anything that mentions the stream, and nobody has told us which tools we're allowed to use. We already run a Discord with about 2,400 members who are in there most weeks. I've got a quote on my desk for $9,000/year for a virtual venue platform with breakout rooms, an expo area and an attendee directory, and I'm supposed to sign it this week. What platform do we actually need?",
+      "expected_output": "A platform recommendation landing on the public one-way feed plus the community's existing Discord, explicitly rejecting the managed virtual-venue platform because none of its promotion conditions applies, with the reversibility deadline identified and the vendor questions put in writing before any commitment.",
+      "files": [],
+      "expectations": [
+        "Recommends a one-way feed on a public video platform plus the existing Discord as the platform posture.",
+        "Does not recommend the managed virtual-venue platform, and advises against signing the $9,000 contract.",
+        "States that the managed platform's promotion conditions are not met, naming at least two of: several sessions running at once, a sponsor deliverable naming a virtual booth or an attendee directory sold as a ticket benefit, a procurement constraint leaving no alternative.",
+        "Keeps the conversation in the existing chat space rather than creating a second login and a second roster.",
+        "Does not design a new channel roster, and routes channel architecture to samber/dev-event-organizer-skills@event-comms-channels.",
+        "Fixes the interaction posture in one line before recommending any platform.",
+        "Identifies the last date the platform choice can still be reversed as the deadline the decision is ranked against, rather than the event date.",
+        "Requires the vendor questions to be answered in writing before anything is committed or signed.",
+        "Does not re-argue whether the event should be virtual at all.",
+        "Warns that breakout rooms, booths and attendee directories cost procurement, ops effort and a data-handling review whether or not anyone opens them.",
+        "States that an attendee directory or sponsor-facing lead capture triggers a data-handling review before signature, and that a list a sponsor has already exported cannot be recalled.",
+        "States that a one-way feed plus the existing chat space beats a broadcast tool with a built-in question queue on ops effort, on procurement and on reach."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Helix Summit runs fully online in five weeks: three parallel tracks, six hours, 1,900 registered, chat open in our Discord the whole time. I have exactly two people who could help on the day and both of them are also handling speaker wrangling and social posts. Is one moderator per 500 attendees enough, or do I need more? Worst case I figure the speakers can keep an eye on their own chat while they present.",
+      "expected_output": "Moderation staffing sized per concurrent session by name rather than by attendee ratio, with the unstaffable track's interaction surface closed rather than left open, the speaker-moderates-own-chat option deleted outright, and the compliance inversion named.",
+      "files": [],
+      "expectations": [
+        "Rejects an attendee-based moderator ratio and states that moderation scales with concurrent sessions, not with attendance.",
+        "States that three concurrent tracks need three named moderators, one per stream live at the same time.",
+        "Requires a named person per session rather than a function or a role label.",
+        "States that an open space with nobody on duty is a code-of-conduct obligation with no responder.",
+        "Recommends closing the interaction surface on any track that cannot be staffed rather than leaving it open unstaffed.",
+        "Deletes the speaker moderating their own chat while presenting rather than offering it as a fallback or a cheaper rung.",
+        "Gives the reason that a presenting speaker cannot enforce a code of conduct against a person in their own audience while talking to them.",
+        "States that the cheapest staffing rung carries the highest compliance cost, running backwards to the other axes.",
+        "Presents that inversion as an argument about who is answerable, not as a legal reading, and points the duty, platform terms and retention questions to the organizer's own counsel.",
+        "Does not re-derive the standing cost of keeping a chat space open, and attributes it to samber/dev-event-organizer-skills@event-comms-channels.",
+        "States that a digital space raises the harassment risk rather than lowering it.",
+        "Distinguishes the technical watcher from the moderator and states the watcher does not read chat.",
+        "States that moderation capacity is identical between one moderator per concurrent session and moderator-plus-technical-watcher, so the second person exists for failure-noticing rather than for moderation."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Cobalt Conf is online-only, 400 people, one track, free. Last month I wrote a 14-page contingency runbook in Notion covering every failure I could think of - platform outage, speaker no-show, audio loss, the lot. It's linked in the organizer channel. The remaining question is whether we should also be mirroring the stream to a second platform the whole time as a backup, so if one dies people can just switch. Thoughts?",
+      "expected_output": "The runbook rejected as a drill, a one-sentence fallback line published before the day recommended instead, one rehearsed handoff for the likeliest failure prioritised, and the parallel live mirror distinguished from a silent warm fallback destination and deleted.",
+      "files": [],
+      "expectations": [
+        "States that a contingency document nobody has read aloud is not a drill and deletes it from the menu rather than ranking it.",
+        "Distinguishes the written fallback line - one sentence published where the audience will already be looking - from the runbook document.",
+        "States that the fallback line must name exactly where to go when the feed dies, and must live outside the platform.",
+        "Recommends rehearsing the single likeliest failure, the speaker's connection dropping mid-talk, with the moderator's exact opening words agreed in advance.",
+        "States that a rehearsed handoff buys composure rather than infrastructure, and is the highest-value preparation on the menu.",
+        "Deletes a second live platform carrying the same sessions in parallel, on the grounds that it halves the audience of every question and doubles the moderation.",
+        "Distinguishes that deleted parallel mirror from a standing fallback destination kept warm, which is a second stream target already live and silent with the published line pointing at it.",
+        "Does not recommend the full outage drill on a second platform, and names its promotion conditions as unmet: a paid virtual ticket or sponsor contract naming the stream, a session that cannot be rescheduled, a previous edition whose feed died.",
+        "Gives the outage sequence in order: notice, say it immediately, point somewhere, recover or reschedule, close the loop.",
+        "States that speed matters more than accuracy in the first message because every attendee's first hypothesis is that the problem is on their end.",
+        "Requires naming the person who will say the line out loud and confirming they know the sentence.",
+        "Requires saying so once the stream resumes, because a stream that quietly resumes leaves the people who left not knowing they can come back.",
+        "Does not treat a locally recorded backup of the talk as coverage for the audience-facing minute of the outage."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Auriga Systems Summit, fully remote, 14 speakers, running on a broadcast platform we've licensed for the day. I've blocked out tech-check slots next week over Google Meet since everyone already has it and it's one less account for people to create. Two of the talks do live demos against a staging API. One speaker is in Auckland and the only slot left for her lands at 03:00 her time. Everything else is EU or US East. What else should I be doing for the speakers?",
+      "expected_output": "The Google Meet tech check deleted and replaced with a check on the real platform, the home-setup note sent with the join link, demo speakers promoted to an individual check plus an instructed local backup recording, and the Auckland slot escalated with the pre-recorded rung recommended for it.",
+      "files": [],
+      "expectations": [
+        "Deletes the tech check run on Google Meet rather than accepting it, and requires the check to run on the platform the event actually runs on.",
+        "Names what a different-tool check fails to test: the platform's screen-share path, its audio device handling, and what the speaker's browser does under it.",
+        "Recommends sending a written home-setup note with the join link, in the same message, the same day acceptances go out.",
+        "Includes in that note a wired connection preferred over wireless, wired headphones with a microphone over a laptop's built-in microphone or wireless earbuds, and closing anything syncing in the background.",
+        "Includes camera at eye level and light in front of the face rather than behind it.",
+        "Promotes the two live-demo speakers to an individual tech check plus an instructed local backup recording.",
+        "Recommends a recorded fallback of the demo, surfaced before the day rather than discovered live.",
+        "Promotes the Auckland speaker to a pre-recorded talk played to schedule with the speaker live in chat.",
+        "Reports the impossible slot upward to samber/dev-event-organizer-skills@event-schedule-design rather than solving it inside speaker preparation.",
+        "States that local means local: a recording that uploads while the talk runs competes for the same uplink and is not a backup.",
+        "Requires the local backup recording to be covered by samber/dev-event-organizer-skills@event-speaker-experience's consent record before the file exists.",
+        "States that a local backup recording does nothing for the audience in the minute the feed dies.",
+        "Tells the speaker where to send the recording file and by when, in the same instruction.",
+        "Warns that background music in anything shared can get the stream taken down by the platform itself, mid-session."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Pinewood Data Conf ran in person last year with 1,100 attendees. This year it's fully virtual. I've built the plan assuming we'll get roughly 60% of that - call it 650 - since people obviously show up less when it's not a real event. For costing I found a published breakdown of what a hybrid conference spent on its virtual layer and I'm using that as our budget baseline. Sanity-check my numbers before I take this to the board?",
+      "expected_output": "Both planning assumptions rejected: the attendance-falls default corrected with the two-directional published evidence, and the hybrid cost figure refused as a baseline for a standalone virtual production, with capacity planned from this event's own signals and the concurrent-viewer ceiling asked of the vendor.",
+      "files": [],
+      "expectations": [
+        "Rejects assuming attendance falls when an event goes virtual as a planning default.",
+        "Cites PyCon US counting about 22% fewer people in 2021 as a virtual event, roughly 2,650, than the 3,393 checked in at the in-person 2019 edition.",
+        "Cites KubeCon+CloudNativeCon North America registrations nearly doubling the other way, from 11,891 in 2019 in-person to 22,816 or more in 2020 virtual.",
+        "States that removing travel cost and geography can grow the number as easily as losing the room shrinks it.",
+        "Recommends planning capacity from this event's own signals rather than from either direction as a default.",
+        "Rejects the hybrid cost breakdown as a baseline, stating it prices a hybrid run's virtual layer and not a standalone virtual production.",
+        "Recommends asking the platform vendor the concurrent-viewer ceiling on the plan being bought, in writing.",
+        "Recommends asking what happens at that ceiling: a queue, a refusal, or an upgrade invoice.",
+        "Hands the cost consequence to samber/dev-event-organizer-skills@event-budget rather than producing the budget here.",
+        "Splits that cost by what a lean tier drops, stating the feed itself survives every tier while the interaction surface and its staffing go first.",
+        "Does not re-argue the decision to run virtually.",
+        "Treats any published remote-turnout evidence about interaction usage as direction rather than as a number to size against."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "OpenKernel Days is a volunteer-run, fully online event - five parallel devrooms, two days, no money. We're self-hosting everything: OBS per room, a chat server we already operate, and a static schedule page I maintain by hand. The coordinator's home office has a 25 Mbit/s upstream and we were planning to push all five room feeds out through it. Is that going to hold, and what else am I underestimating?",
+      "expected_output": "A per-room bandwidth requirement applied to five rooms showing the 25 Mbit/s uplink is short, the stated floor named as a resilience sacrifice rather than a safe minimum, the assembled stack's seams and hours-cost surfaced, and concurrency calibrated against a published multi-track precedent.",
+      "files": [],
+      "expectations": [
+        "States an outgoing bandwidth requirement of 10 Mbit/s per room streamed.",
+        "Applies that figure per room rather than per event, giving 50 Mbit/s for five rooms.",
+        "Concludes the 25 Mbit/s uplink is insufficient for five simultaneous room feeds.",
+        "Names a 2 Mbit/s floor and states it sacrifices resilience rather than being a safe minimum, so the budget should sit above it.",
+        "Names the assembled stack's seams: a schedule that has to be updated in several places, a login the audience holds twice, and a question arriving somewhere the speaker is not looking.",
+        "States that the assembled stack's real price is organizer hours, and that it is the heaviest rung on ops effort.",
+        "Warns against under-estimating the work, framing a well-run digital event as far more than a chat server.",
+        "Reads that warning as a caution about the hours rather than as a verdict on the components, noting it was written about a hackathon's own stack.",
+        "Calibrates multi-track concurrency against FOSDEM 2021 provisioning for about 100 concurrent interactive video rooms and peaking at 46 in simultaneous use on the first day.",
+        "Notes the assembled stack is cheap to start and reversible up to the day, with nothing signed.",
+        "States that with an assembled stack the organizer chooses each component's jurisdiction, which is a review they own rather than one a vendor's terms performed for them.",
+        "Requires one rehearsal on the platform the event actually runs on."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Verdant Cloud Summit is fully remote this year, 1,400 expected, two tracks. I want you to produce the whole production plan. While you're at it: decide what captioning standard we commit to, design our attendee communication channels from scratch since we've never had any, and recommend a mixing board for the keynote so it sounds professional. Also my co-organizer keeps saying we should just do hybrid since the office auditorium is sitting empty - settle that too.",
+      "expected_output": "A virtual delivery plan that declines the caption standard, the channel-roster design, the mixing board and the hybrid question, naming the owner of each, while covering the remote attendee's journey and the in-session question surface itself.",
+      "files": [],
+      "expectations": [
+        "Declines to set the captioning standard and routes that decision to samber/dev-event-organizer-skills@event-accessibility-inclusion.",
+        "Commits only to delivering captions on the platform and reporting what the platform can and cannot do.",
+        "Declines to design the channel roster from scratch and routes it to samber/dev-event-organizer-skills@event-comms-channels.",
+        "Adds only the live in-session question surface and the staffing that watches it on top of that roster.",
+        "Reuses the existing standing-moderation-cost argument rather than deriving a second one.",
+        "Does not recommend a mixing board or any physical-stage capture equipment.",
+        "Names samber/dev-event-organizer-skills@event-production as owning capture and the signal path wherever a physical room exists.",
+        "Does not design a hybrid event, and names samber/dev-event-organizer-skills@hybrid-event-design as the owner of an event serving a room and a remote audience at once.",
+        "Does not re-argue the format decision, and names samber/dev-event-organizer-skills@event-format-selection as owning it.",
+        "Covers the remote attendee's journey rather than deferring it, noting the on-site attendee journey is keyed to a floor plan and says nothing about a remote attendee.",
+        "Keeps one organizer-only coordination channel separate from every attendee-facing one, and does not build a room-keyed cue sheet.",
+        "Hands captured sessions to samber/dev-event-organizer-skills@event-content-repurposing and the recording consent check back to samber/dev-event-organizer-skills@event-speaker-experience after the event."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Just tell me what we need for our online meetup next month.",
+      "expected_output": "An interview opened one question at a time, multiple-choice where possible, starting with whether an interaction surface exists at all, and no platform recommendation issued before the posture is fixed.",
+      "files": [],
+      "expectations": [
+        "Asks one question at a time rather than presenting a block or list of questions to answer at once.",
+        "Offers multiple-choice options on questions where a choice set exists.",
+        "Opens with whether there is an interaction surface at all or whether this is a feed people watch.",
+        "Does not produce a platform recommendation before the interaction posture is established.",
+        "Asks the last date a platform choice can still be reversed, and states that deadline rather than the event date is what the options are ranked against.",
+        "Asks whether this is a one-off edition or a recurring event, and notes a recurring event promotes options whose payoff lands after this edition.",
+        "Asks the effort ceiling: how many people can be doing only production during a session rather than also doing something else.",
+        "Asks who is still available the week after the event.",
+        "Asks which sessions cannot be re-run or rescheduled, which carry a live demo, and which speakers have an unknown connection or have never presented on this platform.",
+        "Asks where speakers and audience are in time-zone terms, including whether anyone would present in the middle of their night.",
+        "Asks what already exists that should re-rank the defaults, such as a chat space the audience is already in, an organizer who has streamed before, a platform somebody already pays for, or last edition's failures.",
+        "Commits to presenting the resulting plan section by section for validation before anything is signed."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Lumen Protocol Conf is fully online, two tracks, and all our talks are pre-recorded and played to schedule. Someone proposed opening a live video Q&A room for each talk straight after it ends, running in parallel with whatever's streaming next - free extra value, nobody has to wait. I like it. For the questions themselves I was going to just let each speaker read their own chat so we don't need anyone else on duty. Does this hang together?",
+      "expected_output": "The parallel Q&A room accepted as a deliberate trade with its published cost named, and the speaker-reads-own-chat plan rejected as a staffing answer, with the moderator relay set as the default and decided per speaker at the tech check.",
+      "files": [],
+      "expectations": [
+        "Names the trade explicitly: a parallel Q&A room buys depth of discussion and spends a piece of whatever the audience would otherwise watch next.",
+        "Cites the published survey split on exactly this arrangement: 37% very happy, 24% finding it acceptable, 10% who would have preferred something else.",
+        "Names the most common recorded complaint as being forced to choose between the next talk and staying for questions.",
+        "Recommends deciding that trade on purpose rather than discovering it live.",
+        "Rejects speaker-reads-own-chat as a staffing answer, stating it is a preference about who reads and never a moderation rung.",
+        "Requires a moderator still holding conduct in the same space even where the speaker reads their own questions.",
+        "Sets moderator-reads-questions-aloud-at-agreed-points as the default relay mechanic.",
+        "Decides the relay mechanic per speaker at the tech check rather than once for the whole event.",
+        "Notes some presenters cannot read and talk at the same time.",
+        "Requires agreeing the ending: who says the session is out of time, and where unanswered questions go.",
+        "States the moderator batches questions, drops duplicates, and rewrites a hostile question into a real one or drops it.",
+        "Notes a pre-recorded talk played to schedule maximises insurance that a usable talk exists and minimises the sense that the session is live."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Sable Infra Summit is our first fully virtual edition and the board wants numbers they can hold us to before they approve the spend. Give me the KPIs and the targets we should commit to for an online conference of about 900 registered across four sessions.",
+      "expected_output": "Three threshold-free completeness gates checkable before the first session, plus a small set of metrics each labelled self-set rather than an industry standard, with no invented benchmark percentage.",
+      "files": [],
+      "expectations": [
+        "Gives three completeness gates checkable before the first session and free of any threshold to argue about.",
+        "Gate: every concurrent session has a named moderator, or the interaction surface for it is closed.",
+        "States that gate requires a name, not a function or a role.",
+        "Gate: every speaker has joined the platform the event actually runs on at least once before the day.",
+        "Gate: the fallback line is published, and the person who will say it out loud knows the sentence.",
+        "Labels every remaining metric as self-set rather than an industry standard, and says so when presenting it.",
+        "Does not invent an industry benchmark, published target percentage, or external standard to hit.",
+        "Offers sessions delivered without an audience-visible failure over sessions scheduled.",
+        "States that a session which ran with no audio counts as a failure.",
+        "Offers time from a feed dropping to the audience being told something.",
+        "Offers questions relayed to a speaker against questions asked, as the measure of whether moderation staffing was real or nominal.",
+        "Offers speakers who joined a check before the day over speakers scheduled, as the one leading indicator available before anything goes wrong.",
+        "Recommends picking two or three, writing down what change each would trigger, and recording them before the event rather than after."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Kestrel Software runs its user conference fully virtual this year, about 3,000 registered. Procurement signed an enterprise events platform in March - it was never our choice and the contract runs to next year, so that's what we're on. Three sponsors have bought virtual booths and one of them bought the attendee list as part of their package. We also want camera-on networking breakouts between sessions so people actually meet. How do we run this well?",
+      "expected_output": "The forced platform treated as a settled deleted option rather than re-ranked, the decision energy moved to staffing, and the data, residency and attendee-on-camera consent questions put to the vendor in writing with the breakout-consent gap named and routed to counsel.",
+      "files": [],
+      "expectations": [
+        "Treats the procurement-forced platform as a deleted option rather than something to re-rank, re-argue or replace.",
+        "Redirects the saved decision energy to moderation staffing.",
+        "Asks where attendee data is stored and under which jurisdiction's law.",
+        "Asks what is exported to a sponsor when an attendee enters a booth or a directory, and whether the attendee sees that at the moment it happens.",
+        "Asks how long chat and question history is retained and whether it can be deleted on request.",
+        "Asks whether any part of the platform records attendees on camera, and whether that recording is separable from a talk's recording.",
+        "States that a talk's consent record covers a speaker presenting and does not cover an attendee whose face appeared in a breakout room.",
+        "States that attendee consent for a breakout appearance cannot be collected after the fact.",
+        "Names no jurisdiction and quotes no retention period, routing the data-protection questions to the organizer's own counsel.",
+        "Requires the vendor answers in writing before anything further is committed.",
+        "States that a list a sponsor has already exported cannot be recalled.",
+        "Promotes the moderator, technical watcher and host-on-the-feed staffing on the strength of the sponsor deliverables naming the stream.",
+        "Warns that booths, breakouts and a directory cost procurement, ops effort and a data-handling review whether or not anyone opens them."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Tessellate Research is a five-person lab. We want to put out three online talks this autumn, one a month, open to anyone. It's just me on the day - I'll be introducing the speaker and then I'm in the talk too. I was going to spin up a Discord so the audience has somewhere to discuss, seems like the obvious thing and it's free. Anything I'm missing?",
+      "expected_output": "The single one-way feed with comments closed recommended over an unstaffed Discord, the moderation staffing question dropped entirely as a consequence, and the fallback line plus the pre-day platform join still required.",
+      "files": [],
+      "expectations": [
+        "Recommends the single one-way feed with comments closed rather than opening the Discord.",
+        "States that an open space in the event's name with nobody on duty is a code-of-conduct obligation with no responder.",
+        "States that the published digital-harassment warning applies to an unstaffed open space exactly as it does during a staffed session.",
+        "Skips the moderation staffing question entirely once the posture is a single one-way feed, rather than proposing a reduced or best-effort staffing option.",
+        "Names the single one-way feed as the minimum viable posture and notes it wins outright more often than it looks.",
+        "Names its advantages: no accounts, nothing to moderate, the lowest compliance exposure, and the most robust delivery to a person on a phone.",
+        "Does not frame the choice as not running a virtual event.",
+        "Still requires a written fallback line published before the day, naming where the audience should go if the feed dies.",
+        "Still requires every speaker to join the platform the event actually runs on at least once before the day.",
+        "Does not propose breakout rooms, booths or an attendee directory.",
+        "Does not propose that the host moderate chat while also introducing or attending the talk."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "We're running our conference fully online this year. What platform do we actually need?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I get remote speakers ready so a dropped connection doesn't kill a talk?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many moderators do we need for three parallel virtual tracks?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's our plan if the stream dies during the keynote?",
+      "should_trigger": true
+    },
+    {
+      "query": "One of our speakers is in Perth and her slot lands at 3am her time. What do we do?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we buy a virtual venue platform or just stream to YouTube and use our Discord?",
+      "should_trigger": true
+    },
+    {
+      "query": "Nobody can travel this year so the whole meetup is a link. Where do I start?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we need a second person whose only job is watching the stream?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I tell whether my presenters' home internet is going to hold up?",
+      "should_trigger": true
+    },
+    {
+      "query": "What should I put in a setup note for people presenting from home?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our audio was dead for ten minutes last time and nobody in the team noticed.",
+      "should_trigger": true
+    },
+    {
+      "query": "Can the speaker just read their own chat while they're presenting?",
+      "should_trigger": true
+    },
+    {
+      "query": "We have no venue this year, the whole thing is a stream.",
+      "should_trigger": true
+    },
+    {
+      "query": "What should I ask before signing with an online event platform?",
+      "should_trigger": true
+    },
+    {
+      "query": "How much upload bandwidth do we need per room if we're self-hosting the streams?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we pre-record the talks or run them live?",
+      "should_trigger": true
+    },
+    {
+      "query": "Half the audience is asking whether it's just them when the feed goes down.",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it worth keeping a backup stream destination warm?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're doing tech checks on Google Meet but the event runs on something else. Fine?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I staff chat for a six-hour online day?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our remote audience has no idea where to go when something breaks.",
+      "should_trigger": true
+    },
+    {
+      "query": "What does a rehearsal look like when there's no stage?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write me the sentence a moderator says the moment the feed drops.",
+      "should_trigger": true
+    },
+    {
+      "query": "Planning a remote-only hackathon opening stream. What do I need on the day?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we need an attendee directory for an online conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "A sponsor bought a virtual booth and I have no idea what that commits us to.",
+      "should_trigger": true
+    },
+    {
+      "query": "What's the absolute minimum we can get away with for an online talk series?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should I open a Discord for the event if nobody can watch it during sessions?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I make sure a talk survives if the presenter's wifi dies?",
+      "should_trigger": true
+    },
+    {
+      "query": "The speaker's connection dropped last edition and we lost the whole session.",
+      "should_trigger": true
+    },
+    {
+      "query": "We want live Q&A rooms after each pre-recorded talk. Good idea?",
+      "should_trigger": true
+    },
+    {
+      "query": "What KPIs should I set for an online conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Procurement has forced us onto a platform nobody likes. Now what?",
+      "should_trigger": true
+    },
+    {
+      "query": "Everyone's remote. What does the crew look like on the day?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I brief someone presenting from their kitchen table?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is background music in a demo a problem when we're streaming it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our event has no room this year, just a link.",
+      "should_trigger": true
+    },
+    {
+      "query": "How many people do I need on duty per stream?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I run the whole thing on OBS and a chat server we already have?",
+      "should_trigger": true
+    },
+    {
+      "query": "We've gone online this year. Should I plan for fewer attendees than the in-person edition?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we mirror the stream to LinkedIn Live and YouTube at the same time?",
+      "should_trigger": true
+    },
+    {
+      "query": "What goes wrong when every presenter joins from home?",
+      "should_trigger": true
+    },
+    {
+      "query": "How early should speakers test the platform?",
+      "should_trigger": true
+    },
+    {
+      "query": "Who tells the audience when a session dies mid-stream?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our community is spread over nine time zones and I need a programme that works for them.",
+      "should_trigger": true
+    },
+    {
+      "query": "Nobody is in the same room. How do I actually run the day?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our keynote speaker has never used this platform before.",
+      "should_trigger": true
+    },
+    {
+      "query": "Does a local recording on the speaker's laptop count as a backup plan?",
+      "should_trigger": true
+    },
+    {
+      "query": "What can I ask a streaming vendor about captioning support?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our chat got nasty during a session and nobody was watching it.",
+      "should_trigger": true
+    },
+    {
+      "query": "Do I need a host talking between the online sessions?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I cost out an online-only edition?",
+      "should_trigger": true
+    },
+    {
+      "query": "Remote conference, three tracks, two volunteers. Help.",
+      "should_trigger": true
+    },
+    {
+      "query": "The platform has a concurrent-viewer cap. Should I worry?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our online event feels like TV - people just watch and leave.",
+      "should_trigger": true
+    },
+    {
+      "query": "Should the moderator read the questions out loud, or the speaker?",
+      "should_trigger": true
+    },
+    {
+      "query": "What breaks in an event where the venue is a piece of software?",
+      "should_trigger": true
+    },
+    {
+      "query": "All our talks go out over a link this year, nothing on site at all.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I stop a session failing as total silence?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's the fallback if the platform itself has an outage?",
+      "should_trigger": true
+    },
+    {
+      "query": "Give me a delivery plan for an online-only developer day.",
+      "should_trigger": true
+    },
+    {
+      "query": "What does a speaker need installed on their machine before the day?",
+      "should_trigger": true
+    },
+    {
+      "query": "I need a checklist to run through before the first session goes live.",
+      "should_trigger": true
+    },
+    {
+      "query": "Two of our talks run live demos over the network. How risky is that remotely?",
+      "should_trigger": true
+    },
+    {
+      "query": "2,000 registered for our online day and one person on chat duty. Is that enough?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're rehearsing an online conference. What actually needs rehearsing?",
+      "should_trigger": true
+    },
+    {
+      "query": "The format call is made, it's online. Now I need the delivery side.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we handle questions when the speaker can't see the chat?",
+      "should_trigger": true
+    },
+    {
+      "query": "Everything's remote this year and I'm worried about the tech side.",
+      "should_trigger": true
+    },
+    {
+      "query": "We're serving a room and a remote audience at the same time. How do we design that?",
+      "should_trigger": false
+    },
+    {
+      "query": "What camera setup do we need for the main stage?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we split the board feed between the projector and the recorder?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should this be a conference or a hackathon?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run single-track or multi-track?",
+      "should_trigger": false
+    },
+    {
+      "query": "Which channels should the event have and who's on each one?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our code of conduct.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we handle a harassment report during the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the minute-by-minute run of show for the day.",
+      "should_trigger": false
+    },
+    {
+      "query": "What accessibility provisions should we commit to and at what standard?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the badge pickup and check-in desk flow.",
+      "should_trigger": false
+    },
+    {
+      "query": "Where should the quiet room go?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I look after speakers from confirmation through to the thank-you?",
+      "should_trigger": false
+    },
+    {
+      "query": "What should be in the speaker deadline ladder?",
+      "should_trigger": false
+    },
+    {
+      "query": "Lay our accepted talks into a published session grid.",
+      "should_trigger": false
+    },
+    {
+      "query": "How long should the lunch break be?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the event budget and P&L.",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our ticket prices be?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the sponsorship prospectus.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we price the sponsor tiers?",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn the recordings into blog posts and short clips.",
+      "should_trigger": false
+    },
+    {
+      "query": "When should we publish the talk videos after the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we decide which CFP submissions to accept?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design our call for papers.",
+      "should_trigger": false
+    },
+    {
+      "query": "Find and qualify speakers outside the CFP.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the cold invitation to a speaker we want.",
+      "should_trigger": false
+    },
+    {
+      "query": "Recruit and roster our volunteers.",
+      "should_trigger": false
+    },
+    {
+      "query": "What do volunteers get when they're off duty?",
+      "should_trigger": false
+    },
+    {
+      "query": "Find us a venue.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I compare quotes from three caterers?",
+      "should_trigger": false
+    },
+    {
+      "query": "What food should we serve at the breaks?",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick the date for next year's edition.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the work-back plan from doors open.",
+      "should_trigger": false
+    },
+    {
+      "query": "Run our post-event retrospective with the organizing team.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the attendee feedback survey.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the risk register for the event.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we cut no-shows on a free event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the expo floor layout and traffic pattern.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a 1:1 meeting programme between sponsors and attendees.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the attendee email sequence from announcement to follow-up.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the event landing page.",
+      "should_trigger": false
+    },
+    {
+      "query": "Run our social media in the run-up to the event.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get press to cover this?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a barter deal with a newsletter to promote us.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the hackathon judging rubric.",
+      "should_trigger": false
+    },
+    {
+      "query": "How much prize money should the hackathon award?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do participants end up on teams at a hackathon?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the mentor programme for our hackathon.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the hackathon challenge brief.",
+      "should_trigger": false
+    },
+    {
+      "query": "Run a startup pitch contest inside our conference.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a hands-on workshop for a room full of laptops.",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run a user conference or a multi-city roadshow?",
+      "should_trigger": false
+    },
+    {
+      "query": "What is our company's event programme actually funded to achieve?",
+      "should_trigger": false
+    },
+    {
+      "query": "Define what our event stands for and against which alternatives.",
+      "should_trigger": false
+    },
+    {
+      "query": "Which skill in this collection should I use for my event task?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I get hired as an event producer?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a job description for an event manager.",
+      "should_trigger": false
+    },
+    {
+      "query": "Start a podcast for our developer community.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the escort and protocol plan for a visiting minister.",
+      "should_trigger": false
+    },
+    {
+      "query": "A user group wants to run a side event the night before ours. Approve it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Keep our community warm in the months between editions.",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we grow the event next year or hold it steady?",
+      "should_trigger": false
+    },
+    {
+      "query": "Structure the standing organizing team between editions.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up cross-promotion with another conference in our space.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up my webinar funnel and lead capture so sales gets the MQLs.",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me configure OBS scenes and overlays for my Twitch channel.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the script for our product launch video.",
+      "should_trigger": false
+    },
+    {
+      "query": "Improve the audio quality on my podcast recordings.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I run effective remote team meetings?",
+      "should_trigger": false
+    }
+  ]
+}

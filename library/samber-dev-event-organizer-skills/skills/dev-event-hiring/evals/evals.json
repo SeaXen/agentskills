@@ -1,0 +1,168 @@
+{
+  "skill_name": "dev-event-hiring",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run field marketing at Ledgerpoint, a fintech company in New York. We're launching our first annual developer conference next fall, around 1,200 attendees, and I'm opening a req for an in-house Event Marketing Manager to own it end to end. HR needs a salary band by Friday. I've seen $85k on one site and $175k on another, which is useless. Can you just give me the market rate so I can put one number in the req?",
+      "expected_output": "A compensation stance anchored explicitly to Glassdoor's tech-industry cut, with PCMA and BLS kept as separate named references, the tech-industry premium stated, and no single blended market rate.",
+      "files": [],
+      "expectations": [
+        "Refuses to give one blended market-rate number and instead attributes every figure to a named source (PCMA, BLS, or Glassdoor).",
+        "Anchors the offer band to Glassdoor's tech-industry cut, on the grounds the hire is in-house at a tech company.",
+        "States that Information Technology is the highest-paying industry for the event titles sourced (the tech-industry premium).",
+        "Carries Glassdoor's Event Marketing Manager figures: roughly $100,135 national average versus roughly $175,690 IT median total pay, identified as the widest tech premium of any event title.",
+        "Does not average or midpoint the user's $85k and $175k figures into a single recommended number.",
+        "If BLS occupational data (code 13-1121, median $59,440-$101,310) is cited, it is used only as a broad floor/ceiling check, never as the offer anchor.",
+        "The New York geographic cut (Event Manager average about $91,303, roughly 8% above the national average) is presented as a separate data point, not merged into the anchor.",
+        "PCMA Convene level-based figures, if cited, are labeled as the general events-industry anchor and kept separate from the Glassdoor cut.",
+        "States explicitly which single source the recommended band is anchored to and why."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm one of the organizers of DevBrouwerij, a volunteer-run developer conference in the Netherlands. Last edition we had about 450 attendees on a budget of roughly €38,000. Two core organizers just quit and the rest of us are exhausted. We've decided to hire a paid community manager to take over sponsor outreach and keep the community active between editions. Can you write the job description and tell us what to pay?",
+      "expected_output": "A pushback that surfaces the first-paid-hire threshold and the whether-to-hire question, reframes the role as coordinator/manager-shaped, and refuses to quote unsourced pay for this context.",
+      "files": [],
+      "expectations": [
+        "Flags that 450 attendees and a €38,000 budget sit below the threshold where a first paid role typically appears (roughly low-thousands of attendees or a six-figure budget).",
+        "Raises whether to hire at all as the real open question and routes that decision to team-structure/org-design guidance (event-team-structure) instead of proceeding silently.",
+        "States that the first paid hire at a volunteer-community-run event is consistently an event coordinator/manager, never a community-manager role first.",
+        "Notes that program and community leadership typically stay volunteer even after the first paid hire.",
+        "Declines to present PCMA, BLS, or Glassdoor figures as representative pay for this context, stating no sourced compensation bands exist for a first paid hire at a volunteer-community-run event.",
+        "Does not invent a salary band or quote an unsourced market rate for the role.",
+        "Any job description drafted reshapes the role as coordinator/manager-shaped rather than the requested community-manager shape.",
+        "The reporting line named for the role is the volunteer board or standing committee."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We're Klynt, a devtools scale-up, and we're about to publish this posting - marketing already signed off, I just want a second pair of eyes on the wording: 'Founding Event Manager (individual contributor). You'll fully own KlyntConf from scratch: close six-figure sponsorship deals, curate the CFP and speaker lineup, run AV and production hands-on, and manage day-of volunteers. No team yet - you'll build it all. Salary $58,000.' Anything you'd tighten up before it goes live?",
+      "expected_output": "A red-flag audit that names both the impossible-person and unresourced-full-ownership patterns, requires scope split or explicit resourcing before publication, and avoids citing a nonexistent event-hiring taxonomy.",
+      "files": [],
+      "expectations": [
+        "Identifies the impossible-person pattern: sponsorship-sales closing, hands-on AV/production, CFP/content curation, and day-of management demanded of one individual contributor.",
+        "Identifies the unresourced-full-ownership pattern: founding role, no team, no budget, full ownership.",
+        "Calls out the missing success metric, reporting structure, and path to headcount.",
+        "Flags the $58,000 salary as entry-level pay mismatched to the requirement list.",
+        "Recommends splitting the scope across more than one hire, or stating the resourcing explicitly, as the condition for publishing.",
+        "Does not approve the posting with wording-level copyedits alone.",
+        "Does not cite a named pre-existing 'pit-trap'-style taxonomy for event-organizing hiring; any pattern names are presented as transposed from DevRel's documented framework, not as an event-industry standard.",
+        "If replacement compensation guidance is offered, it names its source (PCMA, BLS, or Glassdoor) rather than one blended figure.",
+        "The proposed fix changes scope or resourcing, not only the salary figure."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I lead recruiting at Bright Cartel, an event-production agency - about half our clients are software companies that bring us in for their user conferences. We're adding a Senior Producer. Design the interview process for me. One of our directors wants every candidate to build a full production plan for a fictional 800-person client conference as a take-home; another says reference calls are a waste of time and two written letters are enough. We can spend at most six interviewer-hours per candidate.",
+      "expected_output": "An interview loop on the general event-planner sequence with a live scored scenario walkthrough instead of the unpaid take-home, live reference calls instead of letters, stages deleted to fit six hours, and honest framing that the design is assembled.",
+      "files": [],
+      "expectations": [
+        "Builds the loop on the general event-planner sequence, not CMX's five-competency community-manager loop.",
+        "Portfolio and past-events review is the first stage.",
+        "Includes a concrete-metrics request (attendee satisfaction, on-budget percentage, repeat-client or repeat-attendee rate) scored on whether the candidate volunteers figures unprompted.",
+        "Includes scenario-based questions such as a last-minute venue change or a vendor no-show, scored for real-time troubleshooting.",
+        "Includes budget-management questions.",
+        "Rejects the unpaid take-home production plan for a fictional client conference, replacing it with a live scored scenario walkthrough.",
+        "Rejects written reference letters in favor of live reference calls with past clients or stakeholders.",
+        "Fits the six-interviewer-hour ceiling by deleting whole loop stages, not by keeping every stage in compressed form.",
+        "States that no single fully-documented tech-conference-specific hiring loop exists published anywhere and presents the design as assembled.",
+        "Specifies independent per-interviewer scoring with a written evidence note before any debrief, combined mechanically against pre-set competency weights."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Beaconforge is a 40-person dev-tools startup and I'm hiring our first Developer Community Manager - they'll run our monthly meetups in three cities, our Discord, and our annual community day. I have a strong senior finalist. I want a final-round exercise, the interview questions, and a scorecard. My current plan for the exercise: ask her to audit our Discord and meetup program and send us an improvement plan before the final round. Also, if she falls through, where do we even find more candidates like this?",
+      "expected_output": "A CMX five-competency scorecard and loop, a paid bounded mini-audit as the final-round exercise, and sourcing via CMX plus named general event-industry boards.",
+      "files": [],
+      "expectations": [
+        "The scorecard and loop are built on CMX's five competencies: growth mindset, data-driven approach, empathy, leadership, communication.",
+        "Includes the conflict question - what the candidate does when the community wants one thing and their boss wants another - scored for a concrete answer over a diplomatic non-answer.",
+        "Converts the proposed pre-final-round audit into a paid, bounded mini-audit; free open-ended audit work is rejected.",
+        "The data-driven competency is scored on whether the candidate volunteers results and metrics unprompted when describing past projects.",
+        "Communication is assessed through the depth and quality of follow-up conversation, not a single scripted question.",
+        "Scorecard outcomes are measurable and specific; no vague 'run great events'-style responsibility appears.",
+        "The scorecard reflects the in-house context by including cross-functional fluency (sales, marketing, product).",
+        "Sourcing names the CMX Job Board and/or the CMX Slack community as the channel for community-manager-shaped candidates.",
+        "If wider sourcing channels are listed, they are named general event-industry boards (PCMA Career Center, MPI Career Center, BizBash, MeetingJobs/Cadre, Event Careers), not generic tech job boards.",
+        "States that no dev/tech-conference-specific job board exists rather than inventing one."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Orbit Row Media runs three commercial developer conferences a year - the conferences are the whole business. We're hiring a Conference Manager to own one of them end to end. Give me the hiring scorecard, and tell me how our bar should differ from a normal in-house events hire at a tech company.",
+      "expected_output": "A scorecard delivered with the standing-conference-business context flagged as unsourced, the agency analogy presented as hypothesis, and no borrowed compensation figures.",
+      "files": [],
+      "expectations": [
+        "States that the standing for-profit conference business context has no sourced hiring bar and flags the calibration as unverified.",
+        "The agency-model analogy (dedicated full-time specialized functions) is presented explicitly as a hypothesis, not a confirmed pattern.",
+        "Still delivers a scorecard, with a mission naming the operating context and measurable outcomes.",
+        "Does not present PCMA, BLS, or Glassdoor figures as representative compensation for this context; states no compensation data exists for it.",
+        "The requested in-house comparison does not import the in-house tech-industry pay premium as if it applied to this context."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "I made the final round for a Senior Event Producer role at a large developer-tooling company - interview is next Thursday, and they told me there's a scenario exercise plus a portfolio review. How should I prepare, and what salary should I ask for?",
+      "expected_output": "A one-line audience correction routing the candidate to the career-side skill, with no employer artefacts built.",
+      "files": [],
+      "expectations": [
+        "Recognizes the user as a job-hunting candidate, not an employer, and says so briefly.",
+        "Routes them to the candidate-side career skill (dev-event-career) for interview preparation.",
+        "Does not build employer-side artefacts (scorecard, interview loop design, sourcing plan) for the candidate.",
+        "Any salary discussion names its source (PCMA, BLS, or Glassdoor) instead of quoting one blended market figure."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    { "query": "How do we hire an event producer for our annual developer conference?", "should_trigger": true },
+    { "query": "Write a job description for a conference manager at our devtools company", "should_trigger": true },
+    { "query": "Design the interview loop for an event manager we're hiring", "should_trigger": true },
+    { "query": "Our community conference needs its first paid event coordinator - where do we start recruiting?", "should_trigger": true },
+    { "query": "What should we pay an in-house event marketing manager at a tech company?", "should_trigger": true },
+    { "query": "Can you review our job posting for a founding event manager before it goes live?", "should_trigger": true },
+    { "query": "Is there a job board specifically for tech conference producers?", "should_trigger": true },
+    { "query": "We're hiring someone to run our meetup series and Discord - what should the interviews look like?", "should_trigger": true },
+    { "query": "Our volunteer organizing team is burned out and we finally have budget for a paid person - how do we recruit them?", "should_trigger": true },
+    { "query": "What competencies belong on a scorecard for a developer community events manager?", "should_trigger": true },
+    { "query": "Is it okay to give event manager candidates a take-home test project?", "should_trigger": true },
+    { "query": "Salary benchmark for a senior producer at an event production agency?", "should_trigger": true },
+    { "query": "We want one person to own sponsorship, content and production for our conference - is that a reasonable job spec?", "should_trigger": true },
+    { "query": "How many interview stages for an events hire if we only have four interviewer-hours per candidate?", "should_trigger": true },
+    { "query": "Event coordinator or event manager for our user conference - which title should we hire and how do we screen?", "should_trigger": true },
+    { "query": "What red flags should I strip out of our event manager job ad?", "should_trigger": true },
+    { "query": "I need interview questions for the person who'll run our hackathons and meetups", "should_trigger": true },
+    { "query": "We got headcount to run DevSummit next year - help me define the role and find candidates", "should_trigger": true },
+    { "query": "Should our first events hire be permanent or freelance, and how do we evaluate candidates either way?", "should_trigger": true },
+    { "query": "How should I run reference checks for an event producer candidate?", "should_trigger": true },
+    { "query": "Build a hiring scorecard for a conference manager at a company whose whole business is running conferences", "should_trigger": true },
+    { "query": "What's a fair final-round exercise for the finalist who'd run our developer meetup program?", "should_trigger": true },
+    { "query": "We're poaching an event manager from an agency - what should our in-house offer look like?", "should_trigger": true },
+    { "query": "Should I use PCMA or Glassdoor numbers when setting pay for our conference producer?", "should_trigger": true },
+    { "query": "We're recruiting for a role that mixes event logistics with developer community work - how do we structure the process?", "should_trigger": true },
+    { "query": "I have a final-round interview for an event producer role next week - how do I prepare?", "should_trigger": false },
+    { "query": "How do I break into tech event organizing as a career?", "should_trigger": false },
+    { "query": "Should our volunteer-run conference hire its first paid staff member at all?", "should_trigger": false },
+    { "query": "Help us define decision rights between the conference co-chairs and the program committee", "should_trigger": false },
+    { "query": "How do we recruit volunteers for our developer conference?", "should_trigger": false },
+    { "query": "Design the volunteer experience so our crew comes back next edition", "should_trigger": false },
+    { "query": "Assign the day-of roles - MC, speaker wrangler, room monitors - for our conference", "should_trigger": false },
+    { "query": "How do I hire a DevRel community manager for our developer advocacy program?", "should_trigger": false },
+    { "query": "Write cold outreach emails to invite speakers to our conference", "should_trigger": false },
+    { "query": "How should we score and select talks from our CFP submissions?", "should_trigger": false },
+    { "query": "Find us a caterer and an AV vendor for our conference", "should_trigger": false },
+    { "query": "How much cash should we award the winners of our hackathon?", "should_trigger": false },
+    { "query": "How much should tickets to our developer conference cost?", "should_trigger": false },
+    { "query": "Negotiate the sponsorship agreement terms with our headline sponsor", "should_trigger": false },
+    { "query": "Build the budget and P&L for our 800-person developer conference", "should_trigger": false },
+    { "query": "How do we recruit judges for our hackathon?", "should_trigger": false },
+    { "query": "Can you audit my resume for event manager roles?", "should_trigger": false },
+    { "query": "How do I get promoted from producer to senior producer at my agency?", "should_trigger": false },
+    { "query": "How should we staff our expo booth at someone else's conference?", "should_trigger": false },
+    { "query": "Recruit mentors for our hackathon weekend", "should_trigger": false },
+    { "query": "Should we pay our workshop instructors, and how much per session?", "should_trigger": false },
+    { "query": "Should we outsource our conference production to an agency or keep it in-house?", "should_trigger": false },
+    { "query": "Write the 30-60-90 onboarding plan for the event manager who just signed", "should_trigger": false },
+    { "query": "How many people should our conference organizing team have and which functions?", "should_trigger": false },
+    { "query": "How do I find and book a keynote speaker for our conference?", "should_trigger": false }
+  ]
+}

@@ -1,0 +1,795 @@
+{
+  "skill_name": "event-press-relations",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm organising GopherNantes, a one-day Go conference, third edition, 280 attendees expected. Registration usually sells out in about ten days and we're already at 240 with six weeks to go. Honestly nobody has ever written about us - there's no Go publication in the region and I genuinely cannot name a single journalist, newsletter or podcaster who covers this. My co-organiser has built a whole press kit template and wants a media page, an accreditation form and an embargo calendar live before we open the CFP. Can you put the press plan together?",
+      "expected_output": "A finding that this event should run no press function at all, tied to the two conditions that produced it, backed by precedent, with the residual incident exposure named and routed elsewhere - and a stop, rather than the requested press kit, media page, accreditation form and embargo calendar.",
+      "files": [],
+      "expectations": [
+        "Recommends running no press function at all, instead of producing the requested press kit, media page, accreditation form or embargo calendar.",
+        "Ties the recommendation to two conditions together: no outlet, newsletter, podcast or creator can be named who covers this subject at this scale, and registration is meeting its curve without earned coverage.",
+        "Cites PyCon US as precedent for a major developer event publishing no current press accreditation page.",
+        "Cites FOSDEM as precedent, noting it requires no registration at all, so press access there has no mechanism to grant or deny.",
+        "Frames both events as deliberate precedent rather than as a gap those events forgot to fill.",
+        "States that the residual incident exposure does not vanish, and routes the incident reporting and response path to samber/dev-event-organizer-skills@event-code-of-conduct.",
+        "Names what is actually absent under this recommendation as only a press-facing voice nobody is asking for, not the incident path.",
+        "Explains that every higher rung would manufacture a press function for an audience of nobody.",
+        "Does not deliver an accreditation policy, a media-page contents list or an embargo calendar as the output.",
+        "Notes that no press function sits last on the efficiency ordering, and is promoted to first outright here only because of the two interview answers.",
+        "Stops after naming the posture and the residual exposure, rather than continuing through the remaining build steps."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A YouTuber with 38,000 subscribers emailed asking for a free pass to cover DevFestLyon - about 600 people, tickets are 45 EUR. We've never had a policy. My instinct is to make a light 'blogger and creator' track where we just ask them to name their channel, and keep the strict proof requirements for actual journalists. Two more creators have asked since I got that first email. Can you draft the two-lane policy, and the wording for turning someone down?",
+      "expected_output": "A two-lane policy in which the creator lane carries an equal or stricter verification bar than the press lane, with a self-set threshold labelled as this event's own, plus a refusal template that quotes a published criterion and offers a costless fallback.",
+      "files": [],
+      "expectations": [
+        "Rejects the proposed design in which the creator lane is lighter than the journalist lane.",
+        "States that every published policy operating a separate creator lane holds that lane to an equal or higher verification bar than the editorial press lane.",
+        "Names at least two of MWC/GSMA, IBIE Baking Expo, IFEBP or ALA as published policies applying the stricter bar to the creator lane.",
+        "Notes the asymmetry concretely: the press lane asks for a byline or an assignment letter, while the creator lane asks for a follower or view threshold, a traffic minimum, or a publishing-history requirement.",
+        "Cites SXSW as running two separate intake forms, a Press Application for editorial journalism and a Content Creator Application, reviewed separately.",
+        "Does not present MWC Barcelona's 100,000-subscriber and 2,500-average-view bar as an industry standard, and does not transfer it to this event.",
+        "Where MWC's number appears at all, labels it as MWC's own bar for its own creator lane at MWC's scale.",
+        "Instructs the organiser to set a creator bar proportionate to this event's own audience and publish it as theirs, with a willingness to defend the number chosen.",
+        "Requires the bar to be published before the first application, because a criterion invented after an application arrives reads as a criterion invented about that applicant.",
+        "The refusal wording quotes back the published criterion that was not met, in one sentence, without commentary on the outlet, the audience or the person.",
+        "The refusal names what specifically would change the answer, in checkable terms rather than a vague standard like a more established outlet.",
+        "The refusal offers the fallback that costs nothing: an ordinary ticket at the usual price, the ungated media page, and the post-event stats.",
+        "Routes the refusal through the single designated voice, so a second organiser does not answer again in different words."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We run HackNantes - completely free, no registration, no tickets, people just turn up, usually around 400 over a weekend. Two local tech bloggers have started showing up and posting about it. My board wants me to stand up a proper press accreditation form so we know who's press before they arrive. Draft it.",
+      "expected_output": "A refusal to build the accreditation process, on the grounds that the event is free and uncapped, with the FOSDEM precedent - plus the written recording rule and single voice that still apply regardless.",
+      "files": [],
+      "expectations": [
+        "Recommends no accreditation process for this event, rather than drafting the requested form.",
+        "Ties that directly to the event being free and uncapped, where a reporter simply walks in.",
+        "Cites FOSDEM as the precedent for a free, unregistered event where accreditation has nothing to grant or deny.",
+        "Describes an accreditation process here as a form standing in front of an open door.",
+        "Notes that none is otherwise last on the accreditation efficiency ordering, and is promoted to first outright only because of the free-and-uncapped answer.",
+        "Does not deliver an eligibility proof stack, a comped-seat policy or a numeric cap as the output.",
+        "Still recommends a written recording rule covering what press may film, since press are on the floor regardless.",
+        "Notes that the only enforcement lever an organiser has is withdrawal of a credential, and flags that this lever is weak or absent where no credential is issued.",
+        "Names a single press contact and a single voice on the record despite there being no accreditation.",
+        "Points the attendee photo and recording opt-out mechanism itself at samber/dev-event-organizer-skills@event-accessibility-inclusion rather than owning it here."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Last year we comped six press passes at ContainerConf EU (1,100 attendees) and exactly one person published anything. This year I want to tighten it hard: masthead link or staff-listing page, four to five bylined articles from the last three months, a monthly traffic report from an external analytics tool, and an assignment letter for any freelancer. One applicant sent us a press card he clearly bought off some website. Is that policy tight enough, and what do I do about the press card?",
+      "expected_output": "A warning that the proposed tightening loses on both value and effort, a lighter proof requirement scaled to this event, a published cap, and a criterion-based decline for the purchased press card.",
+      "files": [],
+      "expectations": [
+        "Warns that a proof-heavy editorial-journalists-only policy loses on both value and effort at a developer event.",
+        "States the specific relation: an open policy reaches more of the developer audience than a traditional-outlets-only policy while costing less effort to administer.",
+        "Explains the effort half: under a proof stack every application must be screened, where an open policy screens nothing.",
+        "Explains the value half: a journalists-only policy excludes by definition the constituency that most reliably reaches developers.",
+        "Recommends one item of proof at this scale, such as links to two recent pieces carrying the applicant's byline, instead of the three-part stack.",
+        "Identifies the quoted proof stack as MWC/GSMA's own published requirements for its own edition, not a standard for a 1,100-person event.",
+        "Confirms the purchased press card is not a credential, citing the published line that a press card alone will not be accepted as press credentials.",
+        "Frames declining that applicant as a decision against a published criterion rather than a judgement call, conditional on the criterion having been published first.",
+        "Recommends publishing a cap in advance, so that a later refusal is arithmetic rather than a verdict on the applicant.",
+        "Does not treat last year's one-published-out-of-six as a rate that predicts this year's outcome.",
+        "Names published-versus-accredited as the measurement that actually answers whether the bar is working, and as the input to next edition's comp allocation.",
+        "Recommends adding a creator lane rather than removing one, with a bar at least as strict as the press lane's."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "RustDays Bordeaux, second edition, community-run, no sponsor is announcing anything of their own. The full schedule goes live on our site on 14 March, and our keynote is a maintainer whose name genuinely moves people in this ecosystem. I want to put both under embargo until 14 March, send them to the twelve people on my contacts list, and set up one of those gated press-release portals so the whole thing looks professional. Thoughts?",
+      "expected_output": "A refusal to embargo the scheduled page, an honour-system embargo for the keynote with a timezoned lift, deletion of the gated portal rung with its reason, and the lineup reveal worked as the year's highest-leverage press moment.",
+      "files": [],
+      "expectations": [
+        "Refuses to put the schedule page under embargo, because a page going live on a planned date is a publication date, not an embargo.",
+        "Warns that dressing a scheduled publication as an embargo teaches recipients that this event's embargoes mean nothing.",
+        "Treats the keynote reveal as genuinely embargoable material, distinguishing it from the schedule page.",
+        "Recommends against the gated press-release portal for this event.",
+        "Deletes credential-gated distribution from the embargo menu because the event is community-run with no sponsor product news, rather than ranking it last.",
+        "Gives the deletion reason: a gated platform standing between a handful of friendly reporters and a speaker list guards nothing, and parked at the bottom it returns next cycle as a budget line.",
+        "Sets the default posture as an honour-system embargo sent to a named short list, enforced by nothing but the relationship.",
+        "States that the lift instruction must carry a date, a time and a timezone.",
+        "Warns against sending an embargo to anyone who did not ask for one.",
+        "Identifies the lineup and schedule reveal as the single highest-leverage earned-media moment of the annual cycle, to be worked as a dedicated press moment rather than a passive page update.",
+        "Considers promoting to a pre-brief under embargo, conditioned on an outlet having covered a past edition so a warm path exists.",
+        "Does not claim any embargo rung makes an embargo more likely to hold, noting a gate controls who sees the material rather than whether they wait."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I run events at Kestrel Systems. We're doing our first customer and developer conference in October - maybe 350 people, at our own venue. Four of our partner sponsors have told me they're timing product launches to our keynote day, each with their own PR team and their own embargo dates. Our CEO wants to be the person who talks to any journalists who show up, and she's also doing the opening keynote. What's the press setup?",
+      "expected_output": "A dedicated press function triggered by sponsor product news rather than attendance, a raised embargo posture protecting the sponsors' lift schedule, the brokered interview model named as the vendor-run assumption, and a backup spokesperson resolving the CEO's double role.",
+      "files": [],
+      "expectations": [
+        "Recommends a dedicated press function despite the event sitting well below the 500 to 1,000 attendee band.",
+        "Names the trigger as sponsors making their own product news at the event, not attendance, and notes that this trigger fires far more often than the attendance one at a small vendor event.",
+        "Labels the 500 to 1,000 attendee band as a self-set graduation band rather than a measured threshold.",
+        "States explicitly that the recommendation assumes the vendor or company-run pole rather than the community-run one.",
+        "Raises the embargo posture because the sponsors' lift schedule is not the organiser's to leak.",
+        "Notes that the gate in this case protects somebody else's announcement rather than the event's own.",
+        "Recommends the PR-brokered interview model, contrasting it with the direct-to-speaker model community events use.",
+        "Flags the conflict in the CEO serving as both keynote speaker and sole on-record spokesperson.",
+        "Designates a named backup spokesperson alongside the primary, and briefs everyone else that they do not speak to press and should point reporters at the spokesperson.",
+        "Presents the plan section by section for explicit approval rather than as one finished document."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "PyCascadia is fully online this year - two days, everything on a streaming platform, roughly 900 registrations. I've got a press plan I copied from an in-person event: a press room with wifi and power, a quiet interview corner, and a named press contact. Two developer newsletters have said they'd cover it. What do I keep?",
+      "expected_output": "Deletion of both physical rungs from the on-site menu because the event is online-only, with the named contact and a recording rule rewritten for a stream: who may clip, how long, how to opt out, and what a breach costs.",
+      "files": [],
+      "expectations": [
+        "Deletes both the staffed press room and the working corner because the event is online-only.",
+        "States that the deleted rungs are removed from the menu and from its axis orderings, not demoted to the bottom.",
+        "Keeps the named contact plus the written recording rule as what survives.",
+        "Rewrites the recording rule for the stream, stating who may clip it.",
+        "States how long a clip may be, expressed as a duration.",
+        "States how a speaker or attendee opts out of being clipped.",
+        "States what a breach costs, naming withdrawal of the credential as the only lever the organiser has.",
+        "Notes that an unmanaged recording exposure is not a low one, and that a published image or recording cannot be unpublished afterwards.",
+        "Does not present SXSW's four-minute session-video limit or 45-second filmed-music cap as a standard, labelling either as SXSW's own limit for its own venues if cited.",
+        "Points the attendee opt-out mechanism itself at samber/dev-event-organizer-skills@event-accessibility-inclusion."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Two reporters are accredited for ElixirConf Marseille next month - in person, two days, 420 attendees. I've booked a small side room for them, and I'm planning to schedule interview slots with each of our eight speakers, all routed through me. One of the reporters has also asked whether he can film sessions. We use the coloured-lanyard thing for photo consent. What do I need to have written down before doors open?",
+      "expected_output": "A direct-to-speaker interview model with the organiser's two remaining duties, plus a four-part written shooting rule published before doors, with consent-mechanism ownership correctly attributed.",
+      "files": [],
+      "expectations": [
+        "Recommends the direct-to-speaker interview model rather than the organiser brokering every slot, citing DEF CON's practice of telling reporters to contact speakers directly.",
+        "States the two things that still belong to the organiser under the direct model: telling the reporter which speakers agreed to be contacted, and telling those speakers a reporter may contact them.",
+        "Routes the speaker's own consent and pre-event cadence to samber/dev-event-organizer-skills@event-speaker-experience.",
+        "Ranks a named contact plus a written recording rule above a working corner, on the grounds that a table with power does not stop a camera and a written rule does.",
+        "Produces a written shooting rule with four published parts, before doors.",
+        "States where cameras may and may not go, naming specific areas such as stage areas, hallways, the quiet room and sponsor booths.",
+        "States how much of a session may be recorded, expressed as a duration.",
+        "States how the attendee opt-out is respected, naming the coloured-lanyard mechanism in use.",
+        "States that a breach costs the credential, which is the only lever an organiser actually has.",
+        "Attributes ownership of the coloured-lanyard opt-out mechanism to samber/dev-event-organizer-skills@event-accessibility-inclusion rather than to the code of conduct.",
+        "States that samber/dev-event-organizer-skills@event-code-of-conduct owns only the adjacent harassing photography or recording line, and nothing else about consent.",
+        "Requires press to disclose press status when interviewing anyone, with credential forfeit as the stated consequence."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Something happened at ScalaSud on Saturday - a sponsor's rep behaved badly towards an attendee and it's circulating on Mastodon. Two journalists have emailed us overnight. Three of my volunteers have already been replying to people online. I've drafted one statement that apologises, explains what we found, and announces that we're dropping that sponsor and rewriting our sponsorship terms. Can you tighten it up before I post it?",
+      "expected_output": "A split of the single draft into a holding statement now and a remedy later, one designated voice with a backup, silence briefed to everyone else, owned channels first, and the incident process itself routed to the code-of-conduct skill.",
+      "files": [],
+      "expectations": [
+        "Refuses to ship one merged statement, splitting it into a holding statement now and a remedy announcement days later.",
+        "Explains that merging the two either delays the acknowledgement or ships a half-considered remedy.",
+        "Cites SXSW's 2024 sequence as the pattern: a same-day statement acknowledging the situation, then the revised sponsorship model days later.",
+        "The holding statement acknowledges quickly, states what is known right now, and says when the next update comes.",
+        "Names the next-update line as the one that buys the time to investigate.",
+        "Instructs volunteers and staff to stop: no photos or videos shared, no comments to reporters, no public posting about the incident.",
+        "Attributes that instruction to DEF CON's published Goon guidance for staff and volunteers.",
+        "Designates one spokesperson and one named backup in writing, and tells every organiser, volunteer and vendor who they are.",
+        "Supplies a refusal line the spokesperson can use, declining to comment while the matter is looked into and committing to come back by a stated time.",
+        "Puts owned channels first in the channel order, with direct statements to outlets who ask second.",
+        "Instructs the organiser not to speculate, to protect identities, and to preserve evidence.",
+        "Routes the incident reporting and response process itself to samber/dev-event-organizer-skills@event-code-of-conduct rather than owning it here."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "We're a five-person volunteer team running KotlinNord, about 700 people this year, and honestly none of us wants to be the person quoted in an article if something goes sideways - I asked everyone and got five nos. Two trade outlets did cover us last year. Our CFP announcement goes out in three weeks. I want the full press operation: media page, accreditation, press room, the lot. What's the plan?",
+      "expected_output": "Deletion of the dedicated press function rung because the spokesperson slot is empty, a lower rung recommended instead, the exposure shown to persist either way, and the CFP beat placed correctly in the calendar.",
+      "files": [],
+      "expectations": [
+        "Deletes the dedicated press function rung outright rather than demoting it or leaving it on the table.",
+        "States that the deletion applies to the menu and to its axis orderings, not only to this one recommendation.",
+        "Gives the reason: a press operation whose spokesperson slot is empty produces statements answered by whoever is nearest, which is the failure the rung was bought to prevent.",
+        "Recommends a rung at or below the staged build instead of the full press operation requested.",
+        "Explains that declining to run a press function does not remove the exposure, because the statement still gets made by whichever volunteer is standing nearest the reporter.",
+        "Frames the two exposures as equal, differing only in that one voice is assigned and one is not.",
+        "States that a statement cannot be unsaid, and treats that irreversibility as why the designation sits inside the cheapest rung rather than at the top of a build ladder.",
+        "Requires a backup spokesperson as well as a primary, once someone is found.",
+        "Briefs everyone else in one sentence: you do not speak to press, point them at the spokesperson.",
+        "Notes that the CFP-opens beat is covered by niche and developer press, CFP aggregators and community channels, not mainstream press.",
+        "Places the CFP-opens beat at roughly eight to twelve months before the event date."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "My board won't sign off on any press spend for TerraformDays (1,400 attendees, third edition) until they see numbers. They want a forecast: how many articles we'll get, and what percentage of ticket sales press coverage will drive. Give me the KPI sheet with targets.",
+      "expected_output": "A refusal to forecast coverage-to-registration effect, an explicit statement that no published figure quantifies it, and a sheet of self-set signals plus three binaries, every target fixed before the edition.",
+      "files": [],
+      "expectations": [
+        "States plainly that no published figure quantifies what press coverage volume does to registrations.",
+        "Declines to supply a percentage-of-ticket-sales forecast, rather than substituting a proxy metric that would read as one.",
+        "Labels every non-binary signal on the sheet as self-set rather than published or benchmarked.",
+        "Requires each target to be fixed before the edition, never after the data arrives.",
+        "Includes published-versus-accredited: of everyone credentialed, how many published anything at all.",
+        "Names published-versus-accredited as the input to the next edition's comp allocation.",
+        "Includes beat coverage: per calendar beat, who was pitched and who published.",
+        "Names the lineup and schedule beat as the one to judge the year on.",
+        "Includes embargo integrity as a binary: zero breaks before the stated lift time.",
+        "Includes consent breaches as a binary: zero published images or recordings of anyone who used the opt-out mechanism.",
+        "Includes voice discipline as a binary: during any incident, zero on-record statements from anyone but the designated spokesperson and backup.",
+        "Distinguishes the three binaries, which have no acceptable non-zero value, from the self-set signals, which carry a chosen target."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Three things landed this week for JSConf Atlantique. The guy who writes a 20,000-subscriber Kubernetes newsletter offered us a deal: free pass plus our logo in his sponsor row, and he writes us up twice before the event and does a recap after. Separately a mid-size creator wants a pass and says she'll post three times tagging us. And a trade site told us they'd run a feature on us if we bought a half-page ad. How do I handle all three?",
+      "expected_output": "A classification of all three as barter or paid editorial rather than earned coverage, each handed to the media-partnerships skill or refused, with an ordinary accreditation route kept open for each.",
+      "files": [],
+      "expectations": [
+        "Classifies the newsletter deal as a two-way barter exchange and hands it to samber/dev-event-organizer-skills@event-media-partnerships.",
+        "States the boundary explicitly: the moment something is promised back in return for words, it stops being earned coverage.",
+        "Classifies the creator promising three tagged posts in return for a pass as barter rather than an unconditional credential.",
+        "Notes that a pass obligating specific promotional output is an exchange, not a credential, even when it resembles a creator accreditation lane.",
+        "Cites IBIE's separate influencer category as the mechanic that looks like a lighter creator bar but is actually a barter exchange.",
+        "Rejects the ad-for-feature offer as converting earned coverage into paid editorial.",
+        "States that in that arrangement both sides lose what made the coverage worth having.",
+        "Names offering a sponsorship discount, a speaking slot or an exclusive in exchange for an article as the same failure.",
+        "Distinguishes an early exclusive angle offered to one outlet ahead of a blanket release, which is legitimate, from an exclusive traded for guaranteed coverage, which is not.",
+        "Keeps a route open for each of the three to be accredited on the ordinary published criteria, with no promised output attached.",
+        "Routes the pricing of any paid or barter placement to samber/dev-event-organizer-skills@event-media-partnerships rather than pricing it here."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Building the press section of our site for JVMFest - 900 attendees last year, 1,200 expected this year. Marketing wants the logo pack and the fact sheet behind an email form so we capture who's downloading them. I also copied our accreditation wording straight off Web Summit's page since it's the most thorough one I could find. And for credibility I was going to put up KubeCon's submission and session numbers alongside ours as a scale comparison. Sanity check me?",
+      "expected_output": "An ungated media page with the element checklist, a staleness warning on the copied policy wording, a refusal to borrow another event's figures, and every judgement call labelled as the organiser's own.",
+      "files": [],
+      "expectations": [
+        "Rejects gating the media page behind an email form, requiring every element to download with no registration.",
+        "Notes that on large conferences' media pages every element downloads with no registration at all.",
+        "Warns that the copied Web Summit wording is stale, citing that its accreditation page reads last updated October 2020.",
+        "Instructs the organiser to re-check the date on any policy page before adopting its wording.",
+        "Rejects publishing KubeCon's submission and session figures as this event's credibility stat.",
+        "States that each published past-edition figure is one event's own figure for one edition, and transfers to no one else.",
+        "Instructs the organiser to publish this event's own past-edition stats instead.",
+        "Lists the fact sheet as a media-page element covering dates, venue and city, format, ticket types, expected scale and a one-line description.",
+        "Includes a boilerplate about paragraph, written once, frozen, and reused verbatim across every release so a journalist copying it produces the same sentence every year.",
+        "Includes brand assets with usage rules, and states the event's own name or logo rule where one exists rather than correcting people afterwards.",
+        "Includes one named media contact with a working, monitored address, answered by the designated voice.",
+        "Labels any minimum viable subset of the media page as the organiser's own judgement call rather than a published standard."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "Draft a press accreditation policy for our developer conference",
+      "should_trigger": true
+    },
+    {
+      "query": "What should go on our event's media page?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we handle embargoed announcements for our conference lineup?",
+      "should_trigger": true
+    },
+    {
+      "query": "Set up a press room for our technical conference",
+      "should_trigger": true
+    },
+    {
+      "query": "Who should be our designated spokesperson during the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the press kit for our conference",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we pitch journalists about our conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should our event have a press accreditation policy at all?",
+      "should_trigger": true
+    },
+    {
+      "query": "What are the rules for journalists filming sessions at our conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft the refusal email for a press pass application we're declining",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we comp press passes or make press buy a ticket like everyone else?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many press passes should we cap our conference at?",
+      "should_trigger": true
+    },
+    {
+      "query": "Design a two-lane press and creator accreditation process for our event",
+      "should_trigger": true
+    },
+    {
+      "query": "What bar should we set for content creators applying to cover our event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan the announcement calendar for our conference's press beats",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we pre-brief a reporter before the schedule goes live?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's the lead time for announcing our speaker lineup to press?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our CFP opens next month - is that worth telling press about?",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft a boilerplate paragraph about our conference that journalists can quote",
+      "should_trigger": true
+    },
+    {
+      "query": "What past-edition statistics should we publish for press credibility?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we need a press contact address on the conference site?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we handle press at a free, unticketed event?",
+      "should_trigger": true
+    },
+    {
+      "query": "A reporter wants to interview one of our speakers - how do we arrange that?",
+      "should_trigger": true
+    },
+    {
+      "query": "What do we tell accredited media about our attendee photo opt-out?",
+      "should_trigger": true
+    },
+    {
+      "query": "Set the embargo lift time for our keynote announcement",
+      "should_trigger": true
+    },
+    {
+      "query": "a blogger emailed asking for a free ticket to our conf, what do we say",
+      "should_trigger": true
+    },
+    {
+      "query": "some guy with a youtube channel wants to cover our meetup, do we let him in free",
+      "should_trigger": true
+    },
+    {
+      "query": "journalist turned up at our event and nobody knew what to do, help",
+      "should_trigger": true
+    },
+    {
+      "query": "is it even worth trying to get press for a 200 person conference",
+      "should_trigger": true
+    },
+    {
+      "query": "how do i say no to a press pass without it turning into a whole thing online",
+      "should_trigger": true
+    },
+    {
+      "query": "can reporters film whatever they want at our event?",
+      "should_trigger": true
+    },
+    {
+      "query": "we got an email from a trade publication, who's supposed to reply?",
+      "should_trigger": true
+    },
+    {
+      "query": "do small dev conferences even bother with press stuff",
+      "should_trigger": true
+    },
+    {
+      "query": "somebody bought a press card online and is asking us for a badge",
+      "should_trigger": true
+    },
+    {
+      "query": "what do we actually owe two reporters coming on the day",
+      "should_trigger": true
+    },
+    {
+      "query": "our keynote name is a big deal, how do we announce it",
+      "should_trigger": true
+    },
+    {
+      "query": "can we send press the schedule early if they promise not to publish yet",
+      "should_trigger": true
+    },
+    {
+      "query": "need a plan for the reporters coming to our conference next month",
+      "should_trigger": true
+    },
+    {
+      "query": "who is allowed to talk to the press if something goes wrong at our event",
+      "should_trigger": true
+    },
+    {
+      "query": "our volunteers keep replying to reporters online, how do i stop that",
+      "should_trigger": true
+    },
+    {
+      "query": "should we put our logo pack behind a signup form for journalists",
+      "should_trigger": true
+    },
+    {
+      "query": "how do i write the thing that says what press can and can't record",
+      "should_trigger": true
+    },
+    {
+      "query": "Three people who write newsletters asked for free passes to our conference - what's the policy?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our sponsors are timing product launches to our keynote day and each has their own lift date. How do we coordinate that?",
+      "should_trigger": true
+    },
+    {
+      "query": "Something went wrong at our event on Saturday and two outlets have emailed. What do I post?",
+      "should_trigger": true
+    },
+    {
+      "query": "Someone wants to bring a camera crew into our conference hall.",
+      "should_trigger": true
+    },
+    {
+      "query": "We're a community event - do we need to build anything for the people who write about us?",
+      "should_trigger": true
+    },
+    {
+      "query": "Who from our team is allowed to be quoted in an article about our conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "A podcaster wants to record interviews in our hallway track.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we get someone to write about our conference without paying for it?",
+      "should_trigger": true
+    },
+    {
+      "query": "We need a page on our site with our logos, dates and a paragraph anyone can copy.",
+      "should_trigger": true
+    },
+    {
+      "query": "Our schedule goes live on the 14th - can we send it to a few people first?",
+      "should_trigger": true
+    },
+    {
+      "query": "An attendee wearing a red lanyard got photographed anyway and it's published now.",
+      "should_trigger": true
+    },
+    {
+      "query": "What follower count should a creator have before we give them a free badge?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I tell a reporter I'm not commenting yet without it becoming the story?",
+      "should_trigger": true
+    },
+    {
+      "query": "Six people covered us last year and only one published. Is that bad?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we announce our ticket on-sale to anyone outside our own mailing list?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our CEO wants to be the only person who talks to media at our user conference.",
+      "should_trigger": true
+    },
+    {
+      "query": "A local business paper wants our economic impact numbers.",
+      "should_trigger": true
+    },
+    {
+      "query": "Can we hand the schedule reveal to one outlet exclusively before everyone else gets it?",
+      "should_trigger": true
+    },
+    {
+      "query": "What goes in the fact sheet we hand to people covering the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're online-only this year. What changes for the people covering us?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is there a standard follower count that events use for this kind of thing?",
+      "should_trigger": true
+    },
+    {
+      "query": "How long after the event should we publish the wrap-up numbers?",
+      "should_trigger": true
+    },
+    {
+      "query": "Somebody asked if they can quote our attendance figure. What do we give them?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our board wants a forecast of how many articles we'll get.",
+      "should_trigger": true
+    },
+    {
+      "query": "Nobody has ever written about us and registration is fine. Do we still need any of this?",
+      "should_trigger": true
+    },
+    {
+      "query": "Negotiate a barter deal with a podcast: our logo for their promo slot",
+      "should_trigger": false
+    },
+    {
+      "query": "A newsletter will promote our event in exchange for a booth - price that trade",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a media partnership with a developer community for cross-promotion",
+      "should_trigger": false
+    },
+    {
+      "query": "Which media partners should we approach for our conference this year?",
+      "should_trigger": false
+    },
+    {
+      "query": "What do we give a media partner in return for their promotion?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the posts for our conference's own Twitter and LinkedIn accounts",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the content calendar for our event's own social channels",
+      "should_trigger": false
+    },
+    {
+      "query": "How often should our event account post during the conference itself?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the paid acquisition plan for our conference tickets",
+      "should_trigger": false
+    },
+    {
+      "query": "Which channels should we buy reach on to fill our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Which trade publications should we advertise in for our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the attendee photo consent lanyard system for our event",
+      "should_trigger": false
+    },
+    {
+      "query": "How many colours should our photo opt-out wristbands have?",
+      "should_trigger": false
+    },
+    {
+      "query": "What accessibility provisions do we need for our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we offer childcare and travel grants at our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our event's code of conduct",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the incident reporting process for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we handle a harassment report during the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Who should sit on our code of conduct response team?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our keynote speaker wants to know who'll meet them at the airport",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the green room and VIP handling for our headline guests",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we brief our speakers in the weeks before the event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the speaker prep email for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get good speakers to say yes to our cold outreach?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design our conference's call for papers form",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we select talks from 400 CFP submissions?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the landing page for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "What copy converts best on an event registration page?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the email sequence for people who registered but haven't shown up yet",
+      "should_trigger": false
+    },
+    {
+      "query": "Reduce no-shows at our free meetup",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our event newsletter say to attendees the week before?",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn our conference talks into blog posts and clips after the event",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the recap blog post for our own website after the conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Run the post-event debrief with our organising team",
+      "should_trigger": false
+    },
+    {
+      "query": "Which Slack and Discord channels should our event team use internally?",
+      "should_trigger": false
+    },
+    {
+      "query": "Price our conference sponsorship tiers",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the sponsorship prospectus for our developer conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Cold outreach to potential sponsors for our event",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft the sponsor agreement for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Make sure we actually deliver everything we promised our sponsors",
+      "should_trigger": false
+    },
+    {
+      "query": "Set ticket prices and early-bird tiers for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the budget for a 500-person conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Find a venue for our 400-person developer conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick the date for our conference so it doesn't clash with the big ones",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the run of show for conference day",
+      "should_trigger": false
+    },
+    {
+      "query": "What AV and production vendors do we need for a two-track conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up the streaming stack for our virtual conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the hybrid format so remote attendees aren't second class",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we position our conference against the three other Go events in Europe?",
+      "should_trigger": false
+    },
+    {
+      "query": "What risks should we plan for at our outdoor tech event?",
+      "should_trigger": false
+    },
+    {
+      "query": "Recruit and schedule volunteers for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the evening social program for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run a user conference or a multi-city roadshow?",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our company's event portfolio look like next year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the B2B matchmaking meetings at our trade show",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our booth at someone else's conference",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get our conference talks accepted at other people's events?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a press release announcing our Series B funding round",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a PR strategy for our SaaS product launch",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get our startup covered in TechCrunch?",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft a crisis communications plan for our company's data breach",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft the media kit for our SaaS company's website",
+      "should_trigger": false
+    },
+    {
+      "query": "Configure my printing-press catalog for the publishing workflow",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our influencer marketing campaign for the product launch",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I get my open source project featured on Hacker News?",
+      "should_trigger": false
+    },
+    {
+      "query": "Prepare our CTO for a podcast interview about our product",
+      "should_trigger": false
+    },
+    {
+      "query": "Write an internal comms announcement about our company reorg",
+      "should_trigger": false
+    }
+  ]
+}

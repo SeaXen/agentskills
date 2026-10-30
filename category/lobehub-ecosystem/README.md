@@ -1,7 +1,7 @@
 # 🌐 LobeHub Agent Skills Suite
 
 > **Category**: `lobehub-ecosystem`  
-> **Total Curated Skills**: 54 skills  
+> **Total Curated Skills**: 52 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -63,13 +63,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`split-large-file`](../../library/lobehub-skills/skills/split-large-file) | ⚪ Reserve | `lobehub-skills` | Refactor a source file over 1200 lines into a directory of cohesive modules without changing be... |
 | [`split-micro-app`](../../library/lobehub-skills/skills/split-micro-app) | ⚪ Reserve | `lobehub-skills` | Use for standalone micro apps: React Router SSR/SSG, Cloud overlays, Workers, CDN/R2, SEO/OG, g... |
 | [`store-data-structures`](../../library/lobehub-skills/skills/store-data-structures) | ⚪ Reserve | `lobehub-skills` | Explicit compatibility entry for Zustand data-shape guidance. |
-| [`testing`](../../library/lobehub-skills/skills/testing) | ⚪ Reserve | `lobehub-skills` | Use for Vitest tests, mocks, coverage and failing-test diagnosis. |
 | [`testing-heterogeneous-agents`](../../library/lobehub-skills/skills/testing-heterogeneous-agents) | ⚪ Reserve | `lobehub-skills` | Manually runs the live LobeHub official-provider compatibility matrix across Claude Code, Codex... |
 | [`trpc-router`](../../library/lobehub-skills/skills/trpc-router) | ⚪ Reserve | `lobehub-skills` | Use for server TRPC routers, procedures and API endpoints in apps/server/src/routers. |
 | [`typescript`](../../library/lobehub-skills/skills/typescript) | ⚪ Reserve | `lobehub-skills` | Use for TypeScript style and type safety when editing TS/TSX/MTS, including imports, async code... |
 | [`upstash-workflow`](../../library/lobehub-skills/skills/upstash-workflow) | ⚪ Reserve | `lobehub-skills` | Use for Upstash Workflow/QStash handlers, triggers, durable steps and async fan-out. |
 | [`ux`](../../library/lobehub-skills/skills/ux) | ⚪ Reserve | `lobehub-skills` | Use for product design principles and UX checks when designing or implementing user-facing flow... |
-| [`ux-audit`](../../library/lobehub-skills/skills/ux-audit) | ⚪ Reserve | `lobehub-skills` | Audit a page / surface against the Designing Interfaces pattern language + the ux skill checkli... |
 | [`version-release`](../../library/lobehub-skills/skills/version-release) | ⚪ Reserve | `lobehub-skills` | Version release workflow — release process and GitHub Release notes (not docs/changelog pages). |
 | [`write-landing-docs`](../../library/lobehub-skills/skills/write-landing-docs) | ⚪ Reserve | `lobehub-skills` | Use for public LobeHub website documentation under docs/**, including self-hosting, deployment,... |
 | [`zustand`](../../library/lobehub-skills/skills/zustand) | ⚪ Reserve | `lobehub-skills` | Use for Zustand stores: state shapes and type sources, state-only stores with xActions classes,... |

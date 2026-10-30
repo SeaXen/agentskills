@@ -1,0 +1,587 @@
+{
+  "skill_name": "event-ticket-pricing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run Northline DevOps Day, a one-day community event in Gothenburg. The venue seats 300. Right now it's free, last year 240 people showed up, and I personally ate a 41,000 SEK catering overrun because I had no idea how many would actually turn up and eat. This year I want to charge something. Our four gold sponsors each get 6 passes written into their contracts, and we have 14 speakers, 9 organizers and 22 volunteers. A commercial DevOps conference ticket in Sweden runs about 9,500 SEK. What should the ticket cost?",
+      "expected_output": "A posture recommendation (nominal fee) derived from the funding model rather than from comparable prices, with paid capacity computed after comps, the revenue target sourced from a budget, the compliance consequence of charging anything stated, and the no-show exposure routed elsewhere.",
+      "files": [],
+      "expectations": [
+        "States that the ticket revenue target must come from the event budget - total expenses minus the sponsorship share - and does not produce a final price from comparable prices alone.",
+        "Directs the user to build or complete the budget first when no expense total and sponsorship share is on hand.",
+        "Subtracts committed comps from the 300-seat venue capacity before pricing, explicitly naming sponsor allotments, speakers, organizers and volunteers.",
+        "Carries the comp arithmetic through with the figures given: 24 sponsor passes plus 14 speakers plus 9 organizers plus 22 volunteers, leaving roughly 231 paid seats.",
+        "Refuses to set comps as a percentage of capacity and states that the count comes from the agreements already held.",
+        "Recommends a nominal-fee posture and identifies it as the efficiency-leading option rather than the highest-value one.",
+        "States the nominal-fee band as roughly 10-20% of what a commercial tech conference charges in the same region, and applies it to the 9,500 SEK reference.",
+        "States that the nominal fee's job is spreading financial risk and converting an unpaid RSVP into a headcount catering can be committed against, not funding the event.",
+        "Warns that charging any non-zero price pulls in accounting and tax obligations, and that this compliance cost is the same for a token price as for a commercial one.",
+        "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid, so the priced posture is less reversible than staying free.",
+        "Does not claim the fee eliminates no-shows, and routes the no-show exposure to the no-show management skill.",
+        "Presents the structure section by section for validation rather than returning a single final number."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Ferrite Conf is a two-day Rust conference in Porto, 420 paid seats, second edition. Last year everyone paid one flat 180 EUR. This year I want proper tiers: Corporate, Individual, Student. And on the time axis I want Super Early Bird, Early Bird, Regular, and a Last Chance tier so there's always urgency on the page. Our per-attendee cost - catering, badge, lanyard, coffee - works out to 47 EUR. Roughly 55% of our audience expenses it to an employer, 35% pay out of their own pocket, 10% are students. Give me the grid.",
+      "expected_output": "A two-price-point-per-persona ladder built from the stated payer mix, floor set from the 47 EUR per-attendee cost, upper rungs derived by transposed ratio reported as a range, one published gate, and the revenue target confirmed upstream.",
+      "files": [],
+      "expectations": [
+        "Caps public price points at two per persona and rejects the four-phase Super Early Bird / Early Bird / Regular / Last Chance time ladder.",
+        "States that a third phase is legitimate only as a late surcharge, never as a third discount step.",
+        "Warns that extra discount steps read as pressure tactics and train buyers to wait for the next one.",
+        "Builds the persona split from the stated payer mix - 55% employer-funded, 35% self-funded, 10% student - rather than from event size or city.",
+        "Sets the floor price from the 47 EUR per-attendee cost and the chosen posture, not from a comparable event's floor price.",
+        "Applies a top-to-floor ratio drawn from a published range of roughly 1.7:1 to 6.5:1 and reports it as a range rather than as one canonical number.",
+        "Names which comparable's ratio it transposed and justifies the pick on matching payer mix rather than matching city or headcount.",
+        "States explicitly whether the single time step is an expiring discount or a surcharge that lands.",
+        "Gives the time gate as a published calendar date, or as a first-N-tickets count, announced from the day tickets go on sale.",
+        "Labels each price it produces as sourced or self-set.",
+        "Does not copy absolute ticket prices from any named conference into the Ferrite Conf grid.",
+        "Confirms the ticket revenue target comes from the budget before allocating it across the tiers."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Quick one. Meridian Data Summit, 350 seats. Tickets are 240 EUR early bird until 12 March, then 310 EUR. A logistics company emailed wanting 12 seats and asked two things: does our 10% group discount apply on top of the early-bird price, and can they pay on a purchase order with a 30-day invoice instead of a card, because their card limit won't cover it. Our treasurer said we could knock another 5% off for the invoice hassle. We're a registered nonprofit and we have a bookkeeper. What do I tell them?",
+      "expected_output": "A refusal to stack the group discount on the early tier, a refusal to discount the invoice rail, the same-order and tier-exclusion rules stated, and a concrete quote for the 12-seat order at the standard tier.",
+      "files": [],
+      "expectations": [
+        "Refuses to stack the group discount on the 240 EUR early-bird price and gives the reason as discounting the same seat twice.",
+        "Restricts the group discount to the standard tier, excluding both the early and the late tiers, and requires that exclusion to be published on the page.",
+        "Requires the group discount to apply only within a single order.",
+        "Rejects the extra 5% for paying by invoice and states that invoicing is a payment rail, not a discount.",
+        "States that invoicing is offered at full price.",
+        "Explains that the invoice rail's value is unlocking orders that would otherwise not happen at all, not reducing the price.",
+        "Warns that discounting the invoice rail hands the top-paying corporate segment a second reduction for a problem that was never about money.",
+        "Notes that the rail requires an entity able to issue invoices and reconcile payment, and confirms the nonprofit with a bookkeeper satisfies that.",
+        "States that an organizer with no invoicing capacity should delete the rung outright, and that inability to take payment in the form buyers need is an upstream problem rather than a pricing one.",
+        "Reports published group thresholds and percentages as a range - for example 15% at five or more in one order, or a 5% / 10% step at 5-9 and 10-plus - rather than asserting one industry-standard number.",
+        "Recommends one threshold and one percentage rather than a multi-step table for an event of this size.",
+        "Gives a concrete answer for the 12-seat order priced at the 310 EUR standard tier rather than only restating the rules."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Trouble. Someone emailed on 27 September asking for a refund for our event on 18 October. We've sold 190 tickets and we never wrote a refund policy anywhere - not on the registration page, not in the confirmation email. What's the industry standard so I can just apply it? And what do I do about this one person? We also handed out 11 hardship tickets this year.",
+      "expected_output": "An explicit statement that no industry standard exists beyond a single dated cutoff, several real policies presented as a range of options, a forced decision on each policy term, and the hardship-ticket transfer question answered.",
+      "files": [],
+      "expectations": [
+        "States that community technical events have no industry standard refund practice beyond a single dated cutoff.",
+        "Does not present a graduated or sliding refund schedule - for example 100% at 60 days out, 50% at 30 days - as standard practice.",
+        "Notes that the worked example policies do not grade the refund by how many days out the request lands.",
+        "Presents the real policies as a demonstrated range of options rather than as a ranked list or a norm.",
+        "Shows that the administrative fee varies across the examples: a flat amount, a percentage of the price, or none at all.",
+        "Shows that the fee itself can be tiered to the ticket type rather than flat across the ladder, with a lower fee on student tickets.",
+        "Presents at least two distinct hardship mechanisms: waiving the fee for named reasons, and granting a separate later deadline for visa or travel issues.",
+        "Forces an explicit decision on each of: refund deadline, administrative fee, hardship waiver, post-deadline handling, person-to-person transfer, and transfer within a company.",
+        "States that a credit toward the next edition does not appear in the sourced examples, so an organizer choosing it should say it is their own invention.",
+        "States that the 11 hardship tickets should be non-transferable, because transferring a need-reviewed ticket defeats the review it went through.",
+        "Requires the finished policy to be published on the registration page beside the price, not only in a confirmation email.",
+        "Requires the deadline be written as a calendar date rather than a relative window such as 30 days before the event."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Sablefish Summit, about 260 attendees, Manchester. Tickets are 145 GBP individual, 310 GBP company, 45 GBP student. Three people have emailed this year saying they're between jobs and can't pay. I want a way in for them but absolutely not a public discount code that gets screenshotted onto Reddit. There are two of us organizing this in the evenings. Our website says we're 'the most accessible data conference in the north'. What do we do?",
+      "expected_output": "A need-gated application route rather than a published tier or a code, sized to a two-person evening team, with the reviewer, the response promise, the window and the award written before publication, plus an answer for the three pending emails.",
+      "files": [],
+      "expectations": [
+        "Recommends a need-gated, application-reviewed route rather than a public discount code or a fourth published price tier.",
+        "States that publishing the need-gated ticket as a cheap public tier turns a reviewed decision into a self-service checkbox and invites exactly the buyers it was not for.",
+        "Notes that the route may deliberately leave the price unpublished, which keeps the decision with the reviewer.",
+        "States that the existing 45 GBP student price does not reach the unemployed, career-changers, or others in hardship, which is why the two rungs coexist rather than compete.",
+        "Requires four things written before the route is published: who reads applications, how fast they promise to answer, whether the window closes, and what the applicant receives - a code, a free pass, or a price.",
+        "States that an unanswered application is worse than offering no route at all, because the applicant has disclosed hardship to a silent inbox.",
+        "Does not present the scholarship rung as free to the organizer, and names it as standing per-application labor.",
+        "Sizes the mechanic to the stated effort ceiling of two evening organizers, choosing a low-overhead form such as an email request or a simple form rather than a scored reviewer panel with a published eligibility list and an application window.",
+        "Uses the stated accessibility positioning claim as the reason the rung is promoted despite ranking last on efficiency.",
+        "Distinguishes need-based framing from an identity-based eligibility enumeration, and notes that events publish them as separate routes rather than merged into one paragraph.",
+        "Warns against copying an eligibility list across jurisdictions without local checking, and declines to give legal advice.",
+        "Answers the three pending emails with a concrete route rather than only describing the design."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "HackTheHarbour is a free 48-hour hackathon. 180 people registered last edition and 112 turned up - we had bought 180 lunches. Sponsors cover 100% of our costs. I read somewhere that charging a small refundable deposit you hand back at check-in fixes this. Should we do a 10 EUR refundable deposit, or just start charging 15 EUR flat? What does the data actually say?",
+      "expected_output": "A statement that deposit-hold tickets are untested for developer events, the single cross-industry data point cited with its limits, the no-show problem routed away from pricing, and the free-by-design funding model sent back upstream.",
+      "files": [],
+      "expectations": [
+        "States that deposit-hold tickets remain untested as a developer-event pricing lever specifically.",
+        "Cites the single cross-industry data point in full: Eventtia's 2024 managed-conference data, where a $3 refundable deposit cut a previously-free event's no-show rate from 38% to 14%.",
+        "Labels that data point as general-conference evidence rather than developer-event evidence, and does not present it as proof the mechanic works here.",
+        "Routes the no-show problem itself to the no-show management skill rather than answering it with a price.",
+        "States that pricing does not fix no-shows and that a nominal fee reduces the exposure without solving it.",
+        "Identifies that a format funded at roughly 100% by sponsorship has no ticket-revenue line, so the priced postures are deleted rather than ranked.",
+        "Sends the funding-model question back upstream to the budget skill rather than settling it as a pricing question.",
+        "States that free-by-design is an argued legitimate posture rather than a failure to price, and notes that a full multi-track conference exists that charges nothing and requires no registration at all.",
+        "Warns that charging 15 EUR pulls in accounting and tax obligations the free model currently carries none of.",
+        "Notes that a published price is not reversible mid-sale without refunding whoever already paid, unlike the free posture.",
+        "Computes the observed no-show rate from the numbers given - 112 of 180, roughly 38% - rather than asserting a generic rate.",
+        "Does not recommend the refundable deposit as a proven fix."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We run Cascade API Conf in Seattle - 700 seats, corporate $850, individual $420, student $120. Next year we're cloning it in Berlin, Sao Paulo and Bangalore, same two-day format, about 300 seats each. Give me the purchasing-power-adjusted price grid for all three cities. Also, our new marketing hire wants the corporate tier listed first on the page as an anchor, with individual positioned as the obvious middle choice. Does that work for conferences?",
+      "expected_output": "An explicit refusal to invent a purchasing-power formula, each market's ladder rebuilt from its own cost and payer mix, the anchoring tactic rejected as unconfirmed for tickets, and the existing Seattle ratio checked against the published range.",
+      "files": [],
+      "expectations": [
+        "States that regional and currency price parity for one format run in several countries has no established method, and declines to produce a purchasing-power formula as though it were a standard.",
+        "Leaves the per-market price decision with the organizer rather than resolving it with an invented conversion.",
+        "Rebuilds each market's floor from that market's own per-attendee cost and posture rather than converting the Seattle prices.",
+        "Does not apply an exchange-rate or purchasing-power multiplier to the $850 / $420 / $120 figures to generate the three new grids.",
+        "States that anchoring and decoy ordering is unconfirmed for event tickets and should not be imported from software pricing.",
+        "Notes that published registration pages list personas in plain reading order rather than in an anchoring order.",
+        "Asks for the payer mix in each market as the axis that sets each ladder's shape.",
+        "Checks the existing Seattle top-to-floor ratio - roughly 7:1 from $850 to $120 - against the published range of about 1.7:1 to 6.5:1 and flags that it sits above it.",
+        "Transposes ratios rather than amounts between markets.",
+        "Sanity-checks each market's top rung against what an employer in that market approves without a purchase order.",
+        "Requires each market's own ticket revenue target from its own budget before any price is set.",
+        "Labels every new figure it produces as self-set rather than sourced."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Brightpath (Series B, observability tooling) is running our first user conference - 600 attendees, Austin, two days. Marketing owns the budget line. Our VP wants to charge $1,200 because that's roughly what the big cloud-native conferences charge. We also want a 'Supporter' ticket at $2,200 that includes front-row reserved seating, a private dinner with our CTO, and a limited-edition jacket. About half our attendees are existing customers whose companies pay, the rest are individual practitioners we're trying to win over. Sign off on this?",
+      "expected_output": "Approval withheld: the ladder rebuilt on the payer split rather than on vendor-run status, the $2,200 tier reclassified as a VIP upsell rather than a supporter tier, the $1,200 figure sent back to the budget target, and comps subtracted from the 600 seats.",
+      "files": [],
+      "expectations": [
+        "States that the vendor-run versus community-run distinction bounds the price band but does not pick the ladder's shape.",
+        "Builds the ladder from the stated payer split - employer-funded customers versus self-funding practitioners - rather than from the vendor-run status alone.",
+        "Rejects the $2,200 'Supporter' ticket as described, on the grounds that it buys the buyer benefits and is therefore a VIP upsell rather than a supporter tier.",
+        "Defines a supporter tier as a voluntary pay-more ticket whose premium visibly funds access for other attendees.",
+        "States the promotion condition for a supporter tier: a named scholarship or aid program must already exist for the tier to point at.",
+        "Notes that supporter-tier uptake is small, so its cash value is modest against the effort of running the program it funds.",
+        "Confirms the commercial-price posture is legitimately available here, because a company-run event priced against marketing budgets meets its promotion condition.",
+        "States that the commercial posture tops both value and effort so it never leads on efficiency, and names the sales and refund machinery it drags in.",
+        "Requires the $1,200 figure be justified against the budget's ticket-revenue target rather than against what other conferences charge.",
+        "Warns against copying a named conference's absolute ticket price and transposes ratios instead.",
+        "Subtracts committed comps - customer invitees, speakers, staff, sponsor allotments - from the 600 seats before pricing.",
+        "Does not approve the plan as submitted."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Five weeks to Solstice Systems Conf. 250 paid seats, we've sold 91. Early bird ended three weeks ago at 190 EUR, regular is 240 EUR. The team's proposals are: (1) cut regular to 165 EUR immediately, (2) run a 48-hour flash code at 40% off this weekend, (3) add a 90 EUR 'last week' surcharge starting next Monday, which we never announced anywhere, (4) let the 15% group discount apply to any tier. Pick the ones to run.",
+      "expected_output": "A refusal to diagnose the slow sale as a pricing failure, the unannounced surcharge and the flash code rejected, the mid-sale cut flagged for its refund consequence, the group discount restricted, and the pace read framed as a self-set measure.",
+      "files": [],
+      "expectations": [
+        "Declines to treat the slow sale as a pricing failure by default, and names demand, marketing execution and price as the three candidate causes.",
+        "Routes the diagnosis to the market-fit skill before any price is changed.",
+        "Rejects the unannounced 90 EUR late surcharge because a price increase the buyer could not have seen coming was never published from the day tickets went on sale.",
+        "States that the whole structure - every price, every date, every gate - should have been published at once when the sale opened.",
+        "Flags that cutting the regular price to 165 EUR mid-sale leaves the 91 people who already paid 190 EUR or 240 EUR needing a decision, and does not treat the cut as free.",
+        "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid.",
+        "Rejects the 48-hour flash code as a third public price point beyond the two-step ladder already published.",
+        "Notes that extra discount steps read as pressure tactics and train every buyer to wait for the next one.",
+        "Rejects applying the 15% group discount to any tier, restricting it to the standard tier and excluding the early and late tiers.",
+        "Notes that a surcharge is a legitimate third phase only when it was announced in advance.",
+        "Frames the 91-of-250 position against a self-set measure such as paid share of the revenue target by the gate date, rather than against an industry benchmark.",
+        "States that ticket-ladder design has no industry benchmark to score against, so any pace measure here is self-set."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "What should we charge for tickets to our 300-person DevOps conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "Set up an early-bird tier for our Python conference",
+      "should_trigger": true
+    },
+    {
+      "query": "corporate vs individual vs student ticket prices",
+      "should_trigger": true
+    },
+    {
+      "query": "Should our conference be free or paid?",
+      "should_trigger": true
+    },
+    {
+      "query": "how much do people usually pay for a community tech conference ticket",
+      "should_trigger": true
+    },
+    {
+      "query": "We need a student rate but I don't want randos claiming it",
+      "should_trigger": true
+    },
+    {
+      "query": "Someone wants their money back three weeks before the event",
+      "should_trigger": true
+    },
+    {
+      "query": "Write our refund policy before tickets go on sale",
+      "should_trigger": true
+    },
+    {
+      "query": "Can a company buy 15 seats and pay by bank transfer?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we give a discount for bulk orders?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's a fair price ladder for a two-day conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "diversity tickets for people who can't afford to come",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to give free passes to career changers without publishing a code",
+      "should_trigger": true
+    },
+    {
+      "query": "Our sponsors get 10 free passes each - how does that change what we charge everyone else?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many seats can we actually sell once comps are out",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we add a late-bird surcharge or just let the early price expire?",
+      "should_trigger": true
+    },
+    {
+      "query": "our tickets are free and I'm nervous about signing the catering contract",
+      "should_trigger": true
+    },
+    {
+      "query": "is charging 10 EUR worth the accounting headache",
+      "should_trigger": true
+    },
+    {
+      "query": "supporter tickets to fund our scholarship program",
+      "should_trigger": true
+    },
+    {
+      "query": "what should the early bird cut-off date be",
+      "should_trigger": true
+    },
+    {
+      "query": "I want a ticket tier that companies will expense",
+      "should_trigger": true
+    },
+    {
+      "query": "pricing for our first edition, 150 people, no track record",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we invoice a corporate buyer for a block of seats",
+      "should_trigger": true
+    },
+    {
+      "query": "should students pay anything at all",
+      "should_trigger": true
+    },
+    {
+      "query": "we're thinking of three discount phases before the regular price",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I just copy KubeCon's ticket prices for our 200-person event?",
+      "should_trigger": true
+    },
+    {
+      "query": "we sold out in four hours last year, should we charge more",
+      "should_trigger": true
+    },
+    {
+      "query": "can someone hand their ticket to a colleague if they can't make it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our attendees are all self-funding - what does that mean for the price?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I decide between free entry and a small fee?",
+      "should_trigger": true
+    },
+    {
+      "query": "what has to go on the registration page next to the price",
+      "should_trigger": true
+    },
+    {
+      "query": "define the tiers for our conference registration",
+      "should_trigger": true
+    },
+    {
+      "query": "unemployed developers asked if there's a reduced rate",
+      "should_trigger": true
+    },
+    {
+      "query": "We need 18,000 EUR from tickets - how do I split that across tiers?",
+      "should_trigger": true
+    },
+    {
+      "query": "cancellation and refund terms for a conference",
+      "should_trigger": true
+    },
+    {
+      "query": "hardship tickets",
+      "should_trigger": true
+    },
+    {
+      "query": "our CFO wants to know why we'd charge anything at all",
+      "should_trigger": true
+    },
+    {
+      "query": "help me write the ticket section of our event site",
+      "should_trigger": true
+    },
+    {
+      "query": "what top-to-floor ratio should our ticket types have",
+      "should_trigger": true
+    },
+    {
+      "query": "should the group discount apply to early bird too",
+      "should_trigger": true
+    },
+    {
+      "query": "an attendee's visa was refused and they want a refund after the deadline",
+      "should_trigger": true
+    },
+    {
+      "query": "we're moving from free to paid this year, how do we announce it",
+      "should_trigger": true
+    },
+    {
+      "query": "do we charge separately for the workshop day or bundle it into the pass?",
+      "should_trigger": true
+    },
+    {
+      "query": "I need a number for the student tier and a defensible reason for it",
+      "should_trigger": true
+    },
+    {
+      "query": "our event is free by design and sponsors cover everything - is that defensible?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many price points is too many",
+      "should_trigger": true
+    },
+    {
+      "query": "structure the ticket types for a 500-person conference",
+      "should_trigger": true
+    },
+    {
+      "query": "we want it cheap enough that indie devs come but high enough to cover the food",
+      "should_trigger": true
+    },
+    {
+      "query": "who should get in for free at our conference and how does that hit our numbers?",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to keep prices flat year over year for a recurring conference",
+      "should_trigger": true
+    },
+    {
+      "query": "Build the sponsorship rate card for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "How much should a gold sponsor tier cost?",
+      "should_trigger": false
+    },
+    {
+      "query": "What do sponsors actually get for their money?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the full P&L for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Model our fixed versus per-head event costs",
+      "should_trigger": false
+    },
+    {
+      "query": "We have a 40% no-show rate - how do we fix it?",
+      "should_trigger": false
+    },
+    {
+      "query": "What overbooking ratio should we use against the room capacity?",
+      "should_trigger": false
+    },
+    {
+      "query": "Is there real demand for this event concept at all?",
+      "should_trigger": false
+    },
+    {
+      "query": "Which channels should we use to sell tickets?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the email sequence that goes to registered attendees",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the registration page and the site around it",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we provide childcare and travel grants for attendees?",
+      "should_trigger": false
+    },
+    {
+      "query": "How much should first prize at our hackathon be?",
+      "should_trigger": false
+    },
+    {
+      "query": "Negotiate the venue rental rate down",
+      "should_trigger": false
+    },
+    {
+      "query": "Get quotes from three caterers and compare them",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn the signed sponsorship into a term sheet",
+      "should_trigger": false
+    },
+    {
+      "query": "What's our cancellation insurance exposure if the event doesn't happen?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the pricing page for our SaaS product",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we price our developer tool's usage-based plans?",
+      "should_trigger": false
+    },
+    {
+      "query": "Free tier strategy for our API product",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up Stripe checkout on our website",
+      "should_trigger": false
+    },
+    {
+      "query": "Which ticketing platform has the lowest per-ticket fees?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our event's code of conduct",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the badge pickup and check-in desk flow",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we lay the accepted talks across three tracks?",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick the date for next year's conference",
+      "should_trigger": false
+    },
+    {
+      "query": "How many volunteers do we need and what do they do on the day?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the call for papers for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Run the organizing team retrospective after the event",
+      "should_trigger": false
+    },
+    {
+      "query": "What questions go in the post-event attendee survey?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we price exhibitor booths on the expo floor?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run a user conference or a multi-city roadshow?",
+      "should_trigger": false
+    },
+    {
+      "query": "What's the ROI of our developer conference and who should fund it?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we run structured 1:1 meetings between buyers and vendors?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the speaker dinner the night before",
+      "should_trigger": false
+    },
+    {
+      "query": "What do we pay our keynote speakers?",
+      "should_trigger": false
+    },
+    {
+      "query": "What does a media partner get in exchange for promoting us?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the prospectus PDF we send to prospective sponsors",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we run the stream for the remote half of the audience?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design how the hands-on workshop actually runs on the day",
+      "should_trigger": false
+    },
+    {
+      "query": "Set the judging rubric for our hackathon projects",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we handle escort and protocol for a VIP guest?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build the work-back timeline from doors-open",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the minute-by-minute run of show for day one",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we grow from 200 to 500 attendees next year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Price our consulting retainer for event production clients",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft the press release announcing our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our conference stand for against the other three in this city?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we vet third-party side events around our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Choose the AV vendor and camera setup for recording the talks",
+      "should_trigger": false
+    }
+  ]
+}

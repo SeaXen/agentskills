@@ -1,0 +1,296 @@
+{
+  "skill_name": "event-volunteer-experience",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run DunkelFlex Conf, a two-day Go and infra conference in Leipzig, about 600 attendees. This year 34 volunteers staffed it on 3-hour shifts across a 10-hour event day, and the exit chat was brutal: loads of them said they worked the whole thing and saw nothing. Two of them told me they had bought tickets and then gave them up to help us. We run it again every June. I want to fix this for next year. I have the shift grid in a spreadsheet so I can just move blocks around. Write me the plan.",
+      "expected_output": "An off-duty plan led by the off-duty pointer, with named personal-attendance blocks promoted on the ticket-surrender and recurrence answers, expressed as a requirement handed to the volunteer recruitment and shift-planning skill rather than an edit to the grid, plus the coverage rule restated and the off-post gate named.",
+      "files": [],
+      "expectations": [
+        "Names an off-duty pointer - a short live note telling off-duty volunteers what is running now and where there is room - as the default rung.",
+        "Ranks the off-duty pointer ahead of a published off-duty entitlement on efficiency.",
+        "Justifies the pointer by observing that 3-hour shifts inside a 10-hour day already leave most volunteers off-duty time, so what they lack is knowing what is worth walking into.",
+        "States the efficiency ordering off-duty pointer > named personal-attendance blocks > published off-duty entitlement > nothing designed, or explicitly re-ranks it against the answers given.",
+        "Promotes named personal-attendance blocks on the combined grounds that volunteers gave up tickets they would otherwise have used and that the edition recurs annually.",
+        "Describes named personal-attendance blocks as each volunteer naming the sessions they will not miss, with the grid built around those before shifts are assigned.",
+        "Does not edit, resize or redraw the 34-volunteer shift grid.",
+        "Frames the off-duty result as a requirement handed upstream to the volunteer recruitment and shift-planning skill, not as a change made here.",
+        "Refers the roster-sizing consequence of any entitlement to that upstream owner rather than computing a new roster.",
+        "Does not recommend informal permission for a volunteer to slip away from a post when it is quiet.",
+        "Restates that nobody leaves a post without confirmation of a replacement.",
+        "Warns that an off-duty promise the roster cannot fund is worse than no promise, because the volunteer plans their day around it.",
+        "Names a gate of 100% of volunteers holding at least one continuous block off post, read off the published grid rather than reported afterwards."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "PortMesh Summit, 450 people, single day, doors 08:00 to 20:00, 22 volunteers. The venue gave us a spare seminar room we are not using, and we already booked a quiet room on the same floor for attendees who need a break from the noise. Someone on the team suggested we just use the quiet room as the volunteer crash space since it is rarely full, and give the seminar room to sponsors instead. Separately, our volunteers keep missing lunch because their break falls after the buffet closes. Can we also get them something better than the attendee menu? Two of them are vegan and one is coeliac. What should I do?",
+      "expected_output": "A volunteer-specific hospitality delta led by off-duty catering access with an allocation and a queue rule, the rest space promoted on the 12-hour day and the available seminar room, an outright refusal to repurpose the quiet room, and the dietary and allergen questions left with the general standard.",
+      "files": [],
+      "expectations": [
+        "Refuses to use the quiet room as the volunteer break space.",
+        "Gives the reason for the refusal: the quiet room exists so a person who cannot be around interaction has somewhere to go, and filling it with off-duty volunteers destroys that property.",
+        "Directs the volunteer rest space to the spare seminar room, another borrowed room, or none.",
+        "Names off-duty catering access as the default rung of the hospitality menu.",
+        "Prescribes holding a food allocation for volunteers whose off-post block falls outside the catering window.",
+        "Prescribes a queue rule so a short break is not spent standing in line.",
+        "States the efficiency ordering off-duty catering access > volunteer rest space > volunteer social meal > attendee parity only, or explicitly re-ranks it against the answers given.",
+        "Promotes the volunteer rest space above the default on the strength of the 12-hour day and a room that is genuinely available.",
+        "Specifies the rest space contents: seating, water, self-serve snacks, and stated permission to be there while off post.",
+        "Does not re-decide the event's dietary or allergen policy, leaving the vegan and coeliac provision to the general standard already set elsewhere.",
+        "Writes the volunteer provision as a delta against that general standard rather than as a fresh catering plan.",
+        "Either asks whether the edition recurs or states that a volunteer social meal is promoted only when it does.",
+        "Budgets the volunteer top-up as its own line rather than spending the quiet room's, the sponsors' or the speakers' allocation.",
+        "Does not re-decide food delivered to volunteers at their post, leaving shift-linked food with the volunteer recruitment and shift-planning skill."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Post-event. GlyphCon wrapped on Sunday, 28 volunteers. I have drafted the thank-you post for our blog and socials: it lists all 28 names straight off the sign-up sheet, and I call out Marta and Kwesi specially because they basically ran the whole cloakroom on their own. I also want to email all 28 in one go to say thanks and ask what they thought of it. Our crew leads already thanked everyone by name at the end of their shifts, so that box is ticked. Tighten the copy for me and tell me if I am missing anything.",
+      "expected_output": "A consent gate blocking publication of the 28 names, a rewritten post with a concrete accomplishment line, a flat list, a more-people-helped line and a route back, the shift-end thanks refused as a substitute for publication consent, and the broadcast email replaced by one message per volunteer carrying a single change question.",
+      "files": [],
+      "expectations": [
+        "Blocks publishing the 28 names until each person has consented to being named.",
+        "States that consent cannot be inferred from someone having volunteered, from their name appearing on a public schedule, or from them not replying.",
+        "Rejects the claim that the crew leads' end-of-shift thanks covers the published post, treating the spoken in-the-moment thanks and the publication as separate acts with separate consent status.",
+        "Offers an opt-out that requires no explanation.",
+        "Removes the special call-out of Marta and Kwesi, or rewrites the post so no subset of a group who all did the work is singled out.",
+        "Gives the reason: singling two people out makes the rest of the list feel counted rather than thanked.",
+        "Opens the post with a concrete sentence naming what the volunteers made possible rather than a line like 'we could not have done it without you'.",
+        "Lists the consented names in one flat list, in no rank order.",
+        "Adds a line saying more people helped than are named, so the ones who declined are not read as absent.",
+        "Adds a route back: that a volunteer call opens for the next edition, and how to be on it.",
+        "Rejects the single email addressed to all 28 at once and requires one message per volunteer.",
+        "Gives the address-leak reason: a copied thread exposes each volunteer's contact address to every other volunteer.",
+        "Holds the public post until the consent answers are in, even at the cost of a few days.",
+        "Keeps the 'what would you change about your shift' ask to a single question inside the thank-you, and routes any fuller volunteer question set to the participant-feedback skill."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "ShipYard Days is our annual dev conference in Porto, fifth edition next spring. Around 40 volunteers every year and we basically start from zero each time because nobody keeps track of who helped. This year I want to fix retention. My plan: open a permanent volunteer Discord so they stay in touch year-round, and give anyone who comes back a 'veteran crew' marker on their lanyard. I still have the full sign-up spreadsheet from this year - names, emails, phone numbers, t-shirt sizes, dietary answers, emergency contacts - so I will just keep that. We already run a big attendee Discord that our community person maintains. Returning volunteers do exactly the same jobs as first-timers. Thoughts?",
+      "expected_output": "The retained past-volunteer list put first with a named owner and a deletion date, the spreadsheet cut down to the minimum record, the alumni Discord and the veteran marker deleted on the stated answers, and a named handoff to whoever runs next edition's recruitment.",
+      "files": [],
+      "expectations": [
+        "Names the retained past-volunteer list as the default and load-bearing rung, ahead of the Discord and the lanyard marker.",
+        "States the efficiency ordering retained past-volunteer list > public thank-you > nomination path > standing alumni channel > returning-volunteer marker, or explicitly re-ranks it against the answers given.",
+        "Rules the standing alumni channel out or demotes it because a community space already exists with a named owner.",
+        "Routes the between-editions community work to the community-building skill rather than standing up a second space.",
+        "Rules the 'veteran crew' marker out on the stated ground that returning volunteers do the same work as first-timers.",
+        "Explains that the marker cannot exist without the retained list and spends recognition on people whose return is no longer in question.",
+        "Deletes the ruled-out options from the plan rather than parking them at the bottom of a list.",
+        "Assigns the list a named person as owner, not 'the organizers'.",
+        "Sets an actual deletion date on the day the list is created, typically tied to the next edition's recruitment close.",
+        "Cuts phone numbers, t-shirt sizes, dietary answers and emergency contacts from the retained record.",
+        "Keeps name, the sign-up contact address, which posts they staffed and how many shifts, their recorded answer on being contacted, their recorded answer on being named, and one coordinator free-text line.",
+        "Records the contact permission as the volunteer's stated answer rather than as an assumption.",
+        "Adds a renewal ask as the deletion date approaches, rather than letting the date lapse into permanence.",
+        "Names who receives the list for next edition's recruitment and when, with the owner and the deletion date travelling with the file."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Quick one. NullPointer Meetup runs a yearly one-day conference, unpaid crew, almost no budget. The board wants to do something real for the people who staff it. Three options on the table: (a) every volunteer who does 8 or more hours gets a free ticket to next year's edition, (b) a volunteers-only raffle with a MacBook as the prize, (c) a 200 euro travel grant for the two who came from out of town. Which one do we pick and how do we announce it?",
+      "expected_output": "All three refused as rewards for a shift, with the wages reasoning and its irreversibility stated, the hours minimum identified as what makes the ticket read as payment, the invitation-versus-payment distinction required in writing, and the crew routed back to the retained list and the public thank-you.",
+      "files": [],
+      "expectations": [
+        "Refuses all three options as rewards for a shift rather than choosing among them.",
+        "States that a reward with real cash value makes the arrangement read as wages rather than volunteering.",
+        "States that the volunteering-versus-wages question is not reversible once the first reward is handed out.",
+        "Identifies the stated 8-hour minimum as the element that makes the ticket read as payment for the shift.",
+        "Notes that no convention ties a comped ticket to the same event's next edition, and that the named programs that exist run cross-event inside one organizer's portfolio.",
+        "Distinguishes a comped ticket offered as an invitation from one offered as payment.",
+        "Requires the event to say in writing which of the two it is offering.",
+        "Does not propose guardrails, caps or conditions that would keep a cash-value reward on the menu.",
+        "Routes the board back to the closure rungs that do apply: the retained past-volunteer list and the public thank-you.",
+        "Does not present a volunteer social meal as an equivalent cash reward, treating it instead as a hospitality rung.",
+        "Makes clear that the near-zero budget is not the reason for the refusal, and that the refusal holds even where the money exists."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Two things after RuntimeFest. First, Aoife. She was not assigned to run anything, but she ended up coordinating the whole A/V crew when our lead got sick, and every other volunteer was going to her with questions. I want to offer her Head of Volunteer Ops for next year - draft the role description and the offer message so I can send it tonight. Second, three of our volunteers were 16-year-olds from the local coding club, and two more were sent by a sponsor company on company time. Someone asked whether our insurance covers that and I have no idea. Sort both out for me.",
+      "expected_output": "A candidate flag rather than a role description or an offer, handed to the team-structure skill and sharpened by the vouching questions, plus an explicit refusal to answer the minors and sponsor-employment question, routed to counsel and the insurer.",
+      "files": [],
+      "expectations": [
+        "Refuses to draft the Head of Volunteer Ops role description.",
+        "Refuses to send Aoife an offer before the standing team has agreed the role exists.",
+        "Produces a candidate flag instead, carrying her name, what she did, and who noticed, and nothing more.",
+        "Hands the flag to the team-structure skill, which owns the role taxonomy and everything that follows the flag.",
+        "Applies the vouching questions: whether the team has a real opening, whether the candidate carries the skill that opening needs, whether someone already on the team trusts her enough to answer for her, and whether she will hold up doing the same repetitive work reliably for days in a row.",
+        "Notes that the nomination route should be designed to fit this event's own standing team rather than copied from a template.",
+        "Refuses to answer whether the insurance covers the 16-year-olds or the sponsor-seconded staff.",
+        "Routes the minors question to a review with counsel and the insurer.",
+        "Routes the sponsor-employment arrangement to that same review rather than to a judgment made here.",
+        "Does not draft a consent form, waiver or insurance clause for the minors."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Kernel Kitchen is a one-day workshop event we run twice a year, 9 volunteers. The grid is brutal: doors 09:00, close 18:30, and every one of the 9 sits on a post continuously from 08:30 to 18:45 with only the two of us organizers rotating them out for toilet breaks. Last time I told them 'if it is quiet at your table just go watch something', and two tables ended up unstaffed during the keynote. How do I make sure they actually get something out of the day, and how would I know next time whether it worked?",
+      "expected_output": "The default order flipped so a published off-duty entitlement outranks the pointer, the quiet-table permission ruled out rather than refined, the entitlement handed upstream as a sizing requirement, and the off-post gate plus the self-set attendance share named with no invented benchmark.",
+      "files": [],
+      "expectations": [
+        "Promotes a published off-duty entitlement above the off-duty pointer because the grid leaves no continuous block off post.",
+        "States the reason for the flip: a pointer aimed at a volunteer with no free time points at nothing.",
+        "Defines the entitlement as a stated minimum block off post inside the published shift plan.",
+        "Identifies the 'go watch something if it is quiet' instruction as the cause of the unstaffed tables and rules it out rather than refining it into a safer version.",
+        "Restates that nobody leaves a post without confirmation of a replacement.",
+        "Hands the entitlement upstream as a roster-sizing requirement against the 9-volunteer roster rather than rewriting the grid here.",
+        "Names the gate of 100% of volunteers holding at least one continuous block off post, read off the published grid rather than reported afterwards.",
+        "Names the share of volunteers who attended at least one session they chose as a self-set measure, asked as a single question at closure.",
+        "States that no published benchmark exists for these shares, so each one means something only against this event's own previous edition."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "our volunteers worked all day and saw none of the conference, what do we do next year",
+      "should_trigger": true
+    },
+    {
+      "query": "how should we thank our volunteers after the event",
+      "should_trigger": true
+    },
+    { "query": "should we run a volunteer lounge at our conference", "should_trigger": true },
+    { "query": "we want the same crew back next year, how do we make that happen", "should_trigger": true },
+    {
+      "query": "can we give volunteers a free ticket to next year's edition as a thank-you",
+      "should_trigger": true
+    },
+    { "query": "do the people staffing the rooms get to watch any talks", "should_trigger": true },
+    { "query": "is it ok to publish a list of everyone who helped out", "should_trigger": true },
+    {
+      "query": "what should we do with the volunteer sign-up spreadsheet now the event is over",
+      "should_trigger": true
+    },
+    {
+      "query": "one of our helpers was outstanding, how do we keep her involved with the team",
+      "should_trigger": true
+    },
+    { "query": "where do our crew go when they are not on a post", "should_trigger": true },
+    {
+      "query": "write the post-event thank-you post for the people who staffed our conference",
+      "should_trigger": true
+    },
+    {
+      "query": "our volunteers missed lunch every day because their break fell after the buffet closed",
+      "should_trigger": true
+    },
+    {
+      "query": "how long should we keep the contact details of the people who helped at the event",
+      "should_trigger": true
+    },
+    { "query": "we start from zero recruiting crew every edition and it is exhausting", "should_trigger": true },
+    { "query": "should we do a dinner for the crew after the last shift", "should_trigger": true },
+    {
+      "query": "is a raffle a good way to reward the people who gave up their weekend for us",
+      "should_trigger": true
+    },
+    { "query": "how do we close out the edition with the people who staffed it", "should_trigger": true },
+    { "query": "do we need permission before putting helpers' names on our website", "should_trigger": true },
+    {
+      "query": "the team that ran the desk never got anywhere to sit down, what should we offer them",
+      "should_trigger": true
+    },
+    { "query": "planning a thank-you for the crew and we have basically no budget", "should_trigger": true },
+    { "query": "a veteran badge for people who come back and help again, good idea?", "should_trigger": true },
+    { "query": "who should own the list of people who helped us last year", "should_trigger": true },
+    { "query": "should we start a discord for past crew members between editions", "should_trigger": true },
+    {
+      "query": "our helpers gave up their tickets to work the event and they are upset about it",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I hand the past-helper list to whoever runs recruitment next time",
+      "should_trigger": true
+    },
+    { "query": "what do we owe the people who staffed our meetup beyond the t-shirt", "should_trigger": true },
+    { "query": "designing off-duty time for the people working our conference", "should_trigger": true },
+    {
+      "query": "we want the people who staffed this year to come back next year, what is the first thing to do",
+      "should_trigger": true
+    },
+    { "query": "is it fine to use the quiet room as the crew break space", "should_trigger": true },
+    { "query": "our crew keep asking if they can duck out when their table is quiet", "should_trigger": true },
+    {
+      "query": "write the individual thank-you email for someone who ran our info desk",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we recognise the crew without it looking like we are paying them",
+      "should_trigger": true
+    },
+    { "query": "what happens to volunteer data after the conference ends", "should_trigger": true },
+    {
+      "query": "should everyone who staffs a post get a guaranteed free block to attend sessions",
+      "should_trigger": true
+    },
+    { "query": "post-event follow-up for the people who worked our hackathon door", "should_trigger": true },
+    {
+      "query": "how do we make sure the same twenty people do not burn out and never come back to help",
+      "should_trigger": true
+    },
+    { "query": "our crew leads said thanks at the end of each shift, is that enough", "should_trigger": true },
+    {
+      "query": "what do we send the people who staffed this year now that it is over",
+      "should_trigger": true
+    },
+    {
+      "query": "how many volunteers do we need for a 600-person two-day conference",
+      "should_trigger": false
+    },
+    { "query": "build the shift schedule for our registration desk", "should_trigger": false },
+    {
+      "query": "one of our volunteers did not show up this morning, what is the protocol",
+      "should_trigger": false
+    },
+    { "query": "what should the volunteer briefing cover before doors open", "should_trigger": false },
+    { "query": "write the role description for a room lead volunteer", "should_trigger": false },
+    { "query": "how do we recruit volunteers for our first conference", "should_trigger": false },
+    { "query": "what perks do volunteers get while they are on shift", "should_trigger": false },
+    { "query": "how long should a volunteer shift be", "should_trigger": false },
+    { "query": "should volunteers get a t-shirt", "should_trigger": false },
+    { "query": "set the arrival buffer for volunteers before their shift starts", "should_trigger": false },
+    { "query": "should we serve alcohol at our conference evening event", "should_trigger": false },
+    { "query": "what should a coffee break contain at a 400-person conference", "should_trigger": false },
+    { "query": "how do we cover dietary restrictions across the whole event", "should_trigger": false },
+    { "query": "buffet or plated service for our conference lunch", "should_trigger": false },
+    { "query": "should we run a quiet room and how big should it be", "should_trigger": false },
+    { "query": "do we need to caption the talks", "should_trigger": false },
+    { "query": "how do we answer an accommodation request from an attendee", "should_trigger": false },
+    { "query": "what do we send a speaker once their talk is accepted", "should_trigger": false },
+    { "query": "plan the speakers' dinner and the green room", "should_trigger": false },
+    { "query": "how do we get recording consent from speakers", "should_trigger": false },
+    { "query": "run the organizing team's retrospective on this edition", "should_trigger": false },
+    { "query": "write the lessons-learned log after our conference", "should_trigger": false },
+    { "query": "design the post-event attendee survey", "should_trigger": false },
+    { "query": "our survey response rate was 4 percent, how do we fix it", "should_trigger": false },
+    {
+      "query": "someone reported a code of conduct incident during a shift, what now",
+      "should_trigger": false
+    },
+    { "query": "train the code of conduct response team", "should_trigger": false },
+    {
+      "query": "we want to form a non-profit and split decision rights between organizers",
+      "should_trigger": false
+    },
+    { "query": "plan organizer succession so we are not a one-person bus factor", "should_trigger": false },
+    {
+      "query": "what do we post in the community discord in the quiet months between editions",
+      "should_trigger": false
+    },
+    { "query": "how do we turn attendees into people who come back every year", "should_trigger": false },
+    { "query": "write the cue sheet for the transitions on day one", "should_trigger": false },
+    { "query": "how should check-in and badge pickup work", "should_trigger": false },
+    { "query": "where should the wayfinding signage go in the venue", "should_trigger": false },
+    { "query": "how many social activities should our conference run", "should_trigger": false },
+    { "query": "design an event-sourced aggregate with an event store", "should_trigger": false },
+    {
+      "query": "find conferences in Europe looking for volunteers so I can apply to help",
+      "should_trigger": false
+    },
+    { "query": "set up a volunteer rota for our local food bank", "should_trigger": false },
+    { "query": "our sponsors need their post-event report, what goes in it", "should_trigger": false }
+  ]
+}

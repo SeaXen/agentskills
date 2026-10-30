@@ -1,0 +1,515 @@
+{
+  "skill_name": "event-vip-social-program",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run Terrafest, a 400-person volunteer-run infrastructure conference in Porto. We're deliberately flat - no reserved seating, speakers buy their own ticket, we've turned down reserved front rows twice now because it isn't who we are. Our comms lead wants to do a small private dinner on the Friday for six people: two long-time maintainers, a researcher whose paper everyone keeps citing, and three of us from the org. Her pitch is that it would be really nice for them to finally meet each other properly. The venue has a back room we could use for free. Can you help me set this up - guest list, invitations, timing?",
+      "expected_output": "A finding that no separate private gathering should exist here, plus the mechanics of folding the guests into the general evening: a named companion, the intended conversations written down in advance, a stated exit time, and no announcement. No seat list, no door plan, no invitation copy.",
+      "files": [],
+      "expectations": [
+        "Recommends that no separate private dinner be held, and presents that as the answer rather than designing the dinner.",
+        "Identifies that \"it would be really nice for them to finally meet each other\" names nothing the general evening cannot already do.",
+        "States that every seat-list construction option except the fold is deleted from the menu, not merely ranked last or parked at the bottom.",
+        "Treats the flat anti-hierarchy register and the absent purpose as two separate conditions that both have to hold before that deletion applies.",
+        "Names one person by role who will stand with each guest when they walk into the general evening, and for how long.",
+        "Instructs writing down, before the evening, the specific conversations the dinner was meant to produce, named individually rather than stated as a goal.",
+        "Gives the guests a stated time at which someone will walk them to the door, so leaving needs no excuse.",
+        "Instructs saying nothing publicly about the arrangement, because announcing that a guest is being looked after re-creates the tier for free.",
+        "Produces no seat-list template, no door list, no credential and no invitation copy for a private dinner.",
+        "Invents no seat count, no cap, no lead time and no invitation-send date.",
+        "Warns that a guest left holding a drink at the edge of the room is worse than not inviting them at all."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Streamline Summit, around 900 attendees, vendor-side event we run ourselves. We host a partner lunch on day one that everyone internally calls the founders' table. Three sponsors have come at us in the last week: Kestrel Analytics asked for two seats, Bowline Cloud asked whether they could \"bring a couple of people\", and Aurelio Systems is asking for four - except Aurelio's signed Platinum agreement literally lists \"4 seats at the partner lunch\" as a Platinum benefit. My instinct is to apply the same two-seat cap to all three so nobody can accuse us of favouritism. On top of that one of our keynote speakers has asked us to add her former colleague. How do I handle all of this?",
+      "expected_output": "Aurelio's four contractual seats pulled out of the allocation problem entirely and routed to sponsor fulfillment; the remaining asks handled under a host list with a stated per-party allowance; a refusal rule written before anyone is answered, cited identically to each party, and paired with a real alternative.",
+      "files": [],
+      "expectations": [
+        "Excludes Aurelio Systems' four seats from the allocation rule because the signed agreement sold them.",
+        "States that applying the two-seat cap to contractually promised seats would be a breach rather than a fairness measure.",
+        "Routes Aurelio's four seats to samber/dev-event-organizer-skills@event-sponsor-fulfillment and takes them off the seats being allocated.",
+        "Keeps Kestrel's, Bowline's and the keynote speaker's requests inside this skill's allocation problem, because those were asked for rather than sold.",
+        "Selects the host-built list with a capped allowance per asking party, on the ground that more than one party is already asking.",
+        "Invents no seat cap, per-party allowance or room capacity of its own; any figure used is one the organizer supplied.",
+        "Requires the allowance and the refusal rule to be written down before any of the asking parties is answered.",
+        "Requires the same rule to be cited to every asking party, including the keynote speaker.",
+        "Pairs each refusal with a concrete alternative that is genuinely available, such as the general evening, an introduction during a break, or a scheduled conversation.",
+        "Phrases the refusal so the rule is the stated reason, never the nominated person.",
+        "Requires stating in writing, to invitees and to whoever asked for seats, that the lunch is a relationship rather than a meeting arranged on a sponsor's behalf."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Problem. Our head of partnerships told Vanta Logistics yesterday that they could bring three people to the investor breakfast at DataBridge Conf. He doesn't hold the list, I do. The room at the hotel seats fewer people than the number who now have an invitation, and I haven't sent the rest yet. Two of the three he offered seats to have already replied yes. Can I walk it back? And what do I do about the four names I still think genuinely need to be in that room?",
+      "expected_output": "The accepted invitations honoured, the process fixed rather than the guest, a single named owner established for the list and every future invitation, and the room's purpose shrunk deliberately instead of the seat count picking the names.",
+      "files": [],
+      "expectations": [
+        "Honours the seats the head of partnerships already offered rather than withdrawing them.",
+        "States that an accepted invitation cannot be withdrawn without costing more than the seat did, because the reversibility was spent the moment the yes was sent.",
+        "Fixes the process rather than the guest: from here, invitations issue only from the person holding the list.",
+        "Names one owner who builds the list, sends every invitation, works the door and answers every refusal.",
+        "Treats the room's capacity as a constraint and never as a criterion for who belongs in it.",
+        "Instructs shrinking the purpose of the room deliberately rather than trimming names until they fit the seat count.",
+        "Keeps a seat offered and a seat confirmed as two distinct recorded states, each with its own date.",
+        "Records who put each name forward and on what date, so the outcome can be defended later.",
+        "Flags seats promised beyond what the room held as a binary measure this event has already failed.",
+        "Invents no capacity figure for the room and no number of seats to reclaim."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "HealthStack Days. We're hosting a reception for about a dozen named guests. One of them is the programme director of the foundation that funds roughly half our budget, and her office wrote to us asking that she not be listed anywhere or photographed at the event. Our marketing lead has two ideas she's attached to: gold wristbands so the room is easy to staff, and a line in the printed programme reading \"Invited Guests Reception - 18:00, Salon B\" so people know it's closed and stop asking us about it. Print deadline is in a few days. Thoughts?",
+      "expected_output": "Both the wristband and the programme listing removed from the option set outright because of the discretion request, a named door list held by one person adopted instead, the invitation issued individually and privately, and the door page mechanics specified including its return to the owner.",
+      "files": [],
+      "expectations": [
+        "Rejects both the wristbands and the programme listing, removing them from the option set rather than ranking them low.",
+        "States that no rewording of the programme line and no redesign of the credential fixes what the discretion request forbids.",
+        "Ties that deletion specifically to the guest whose office asked that she not be listed or photographed.",
+        "Selects a named door list, held by one person, as the access mechanic instead.",
+        "States that publicly only a closed door and somebody standing at it should be legible.",
+        "Requires the invitation to go out individually and privately from the person holding the list, never on a group thread.",
+        "Bans the word \"VIP\" in the invitation, at the door, and on any radio or staff channel.",
+        "Limits the door page to the names, alphabetically, and nothing else.",
+        "Instructs the door holder to take the name of anyone not on the page, say the owner will come, and fetch them - never to turn someone away with an explanation and never to adjudicate.",
+        "Requires the door page to be handed back to the owner at the end rather than left or binned in a public room.",
+        "Sets discretion as a binary check: zero guests who asked not to be identified are identifiable to a general attendee as having been in the room."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Kernelcon, second edition, 600 people. We want a private room for our three grant officers and a few maintainers - the point is that those eight people actually talk properly, not a hello. My plan: book the wine bar fifteen minutes' walk from the venue, same evening as our community party which runs 19:00 until late, and have people drift over around 20:00. I'm the event lead, I'm on site all day, and I'd be the one organising the bar, the transport and the headcount. Does this work?",
+      "expected_output": "The offsite option deleted because the named owner is also running the event that day, the overlap with the community party refused, and the placement landed inside the main venue - promoted above a break slot because the purpose is a real conversation - with the slot handed to the run of show.",
+      "files": [],
+      "expectations": [
+        "Deletes the separate-evening-at-a-separate-venue option because the named owner is also running the main event that day.",
+        "Explains that deletion as a second venue with transport and a fixed headcount being a job, which with no free owner lands on the organizer on the day.",
+        "Rejects scheduling the private room against the community party, at any venue.",
+        "Names the failure as the general evening becoming the consolation room, a tier arrived at by calendar.",
+        "States that where both the private room and the general evening exist, they do not overlap.",
+        "Offers a slot inside an existing break or meal slot, in a side room, as the default placement.",
+        "Promotes the placement to after the last session, in a room at the main venue, on the ground that the purpose is a conversation among a named set of people rather than a greeting.",
+        "Hands the chosen slot to samber/dev-event-organizer-skills@event-run-of-show and any grid clash to samber/dev-event-organizer-skills@event-schedule-design.",
+        "Refuses to move a public session to make room for the private one.",
+        "Invents no seat count, cap or headcount for the room."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Quick one. Our invited-guests room at Loomfest is in the hotel's executive lounge on floor 12. Hotel security controls that floor and they've told us their own staff will handle access - none of my team can be up there, we're all running the closing keynote until it ends. The hotel says they need \"something they can check\". I was going to just email them our guest list. Reasonable?",
+      "expected_output": "The shared credential promoted above the named door list for this specific gathering because the door is staffed by people who cannot read your list, with the credential's costs stated, circulation to hotel staff limited to what running the door requires, and the discretion check run first.",
+      "files": [],
+      "expectations": [
+        "Promotes the shared credential above the named door list for this gathering rather than defending the list as the default.",
+        "States the reason as the door being staffed by people who cannot read your list, and that a list they cannot read is not a door.",
+        "Notes that a credential is the only thing a venue's own staff can check.",
+        "Warns that the credential must not be worn through the general event, where attendees read it as a rank.",
+        "Names the credential's other cost: the door stops working once one is lent or copied.",
+        "Keeps the invitation itself issued individually and privately by the person who holds the list.",
+        "Limits what hotel staff receive to what running the door requires, withholding the reasons a seat exists, who nominated whom, and any refusals.",
+        "Checks first whether any guest asked not to be identified, listed or photographed, since that deletes the credential outright.",
+        "Keeps the named owner as the person who decides any exception at the door, even though a third party is staffing it."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Foundry Conf. Our sponsor prospectus went out in March and it lists \"an invited-guests roundtable with the programme committee\" as a Gold benefit - that was marketing's wording, not mine. Now four sponsors plus two of our speakers are asking how to get a seat. The roundtable is in the venue's Blue Room, and the venue's fire capacity for that room is whatever they tell us it is; they will not budge on it. I was planning to publish a set of criteria - here's what we look for, apply and we'll pick - and let that do the arguing for me. Does that hold?",
+      "expected_output": "The published-criteria rung deleted because the seat count is set by the venue rather than by the conversation, the capped-nomination rung chosen instead, the already-published room treated on the access menu as a description of what happened, and any contractually sold seats routed to fulfillment.",
+      "files": [],
+      "expectations": [
+        "Rejects the published-criteria approach to building the seat list, removing that option from the menu rather than ranking it low.",
+        "Ties that deletion to the seat count being set by the venue's fire capacity rather than by the conversation the organizer wants to have.",
+        "States that publishing criteria against a number you do not control converts a capacity limit into a broken commitment.",
+        "Recognizes that the prospectus having been published would otherwise have promoted exactly that rung, and says which condition wins.",
+        "Lands on a host-built list with a capped allowance per asking party, because more than one party is already asking.",
+        "On the access decision, accepts that the room is already published and treats the listing as a description of what already happened rather than a decision still open.",
+        "States that the remaining work on the listing is the wording, not whether to list.",
+        "Checks whether any signed sponsor agreement actually sold those seats, and routes any that did to samber/dev-event-organizer-skills@event-sponsor-fulfillment.",
+        "Writes the refusal rule down before answering any of the four sponsors or two speakers, and cites the same rule to each.",
+        "Refuses to let the number of seats the venue allows become the criterion for who is on the list.",
+        "Invents no seat cap, per-sponsor allowance or room capacity figure."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Three things on my plate for ByteHarbour Conf. One: we've got a speakers' dinner budget line and finance says there's room left in it, so can I just run the funder's table off that? Two: Northwind Data wants to throw their own afterparty on the Thursday and has asked us to put it in the schedule. Three: my co-organiser keeps saying the funder isn't really a VIP anyway, she's just someone who gave us money, so maybe none of this matters. Sort me out.",
+      "expected_output": "The speakers' dinner budget line kept to speakers, Northwind's afterparty routed to side-event coordination as a room you permit rather than host, and the question of whether the funder is in scope routed to VIP management rather than re-decided here.",
+      "files": [],
+      "expectations": [
+        "Refuses to fund the funder's table from the speakers' dinner budget line, stating that the line describes speakers and nobody else.",
+        "Routes the speakers' dinner itself to samber/dev-event-organizer-skills@event-speaker-experience.",
+        "Routes Northwind Data's afterparty to samber/dev-event-organizer-skills@event-side-event-coordination.",
+        "Draws the distinction as a room you permit versus a room you host.",
+        "Routes the question of whether the funder is in scope at all to samber/dev-event-organizer-skills@event-vip-management, and declines to re-decide it here.",
+        "States the qualification test as an obligation the general attendee flow cannot absorb, never a title or a status.",
+        "States that if that skill finds nobody in scope, there is no gathering to design here.",
+        "Routes food and drink for any room that does exist to samber/dev-event-organizer-skills@event-hospitality."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Can you give me a guest-list spreadsheet and an invite timeline for our partner dinner at Cascade Summit? Columns I was thinking: name, company, tier (platinum / gold / personal contact), seniority, priority 1-5, dietary, confirmed y/n. Plus a rough schedule for when invitations go out and when we chase the non-responders. Team of four will share the sheet in Drive.",
+      "expected_output": "A list whose fields are name, why the seat exists in one sentence, who nominated it and when, the answer given and when, and supplied access requirements - with the tier, seniority and priority columns removed, a deletion date fixed at creation, circulation restricted by need, and no invented dates.",
+      "files": [],
+      "expectations": [
+        "Removes the tier, seniority and priority columns from the list.",
+        "States that the list never records a judgment about a person, and that every field is either a fact somebody supplied or a decision the organizer can defend.",
+        "Replaces the removed columns with a one-sentence \"why this seat exists\" field that is not a rank, not a title, and not \"important to us\".",
+        "States that a row whose sentence has to be invented is a row that comes off the list.",
+        "Adds a field recording who put the name forward and the date they did.",
+        "Records the answer given and the date it was given, keeping a seat offered and a seat confirmed as distinct states.",
+        "Keeps access requirements only where the person supplied one, including any discretion request quoted from whoever stated it.",
+        "Sets a deletion date at the moment the list is created, by the named owner, in the same pass, defaulting to the day the post-event follow-ups go out.",
+        "Restricts circulation by need instead of sharing the whole sheet with the team of four, giving whoever works the door the names only - not the reasons, not who nominated whom, and never the refusals.",
+        "Declines to invent an invitation-send date, a chase date or a lead time.",
+        "Names a single person who holds the sheet and issues every invitation from it."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "Two sponsors and a keynote speaker have each asked us to add someone to our founders' lunch. How do we decide, and how do we say no to the others?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we run an invite-only dinner at our conference without it looking like a VIP tier?",
+      "should_trigger": true
+    },
+    {
+      "query": "Someone on my team already promised a sponsor seats at our private breakfast and now we've over-invited.",
+      "should_trigger": true
+    },
+    {
+      "query": "We want a small room where our grant officer can actually talk to three people. When do we put it, and do we tell anyone it exists?",
+      "should_trigger": true
+    },
+    {
+      "query": "Marketing wants an invitation-only reception printed in the programme. Our conference is explicitly flat. What do I do?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we need wristbands for the closed-door lunch, or is a list at the door enough?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I put together the guest list for the partner dinner when four different people keep pushing names at me?",
+      "should_trigger": true
+    },
+    {
+      "query": "What should the person on the door say when an attendee asks what's going on in that room?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our funder asked not to be photographed or listed anywhere. Can we still run a closed reception for her?",
+      "should_trigger": true
+    },
+    {
+      "query": "Where in the schedule should a closed-door dinner sit so it doesn't compete with our evening party?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I say no to a sponsor who wants two more seats at the maintainers' dinner without torching the relationship?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it even worth doing a separate private thing, or should we just look after them properly at the main evening?",
+      "should_trigger": true
+    },
+    {
+      "query": "We have a back room at the venue. Should we use it for a small closed session with our board members?",
+      "should_trigger": true
+    },
+    {
+      "query": "What goes on the door list for a closed gathering, and what happens to that page afterwards?",
+      "should_trigger": true
+    },
+    {
+      "query": "How long do we keep the seat list for the invited dinner?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our CEO wants to host a dinner for a handful of customers during the conference. How do we pick who gets asked?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we invite people to a closed session without the invitation turning into a public thread?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should the roundtable go in the printed schedule marked invitation-only, or stay unlisted?",
+      "should_trigger": true
+    },
+    {
+      "query": "We promised a private reception in the prospectus and now everyone wants in. Help.",
+      "should_trigger": true
+    },
+    {
+      "query": "Who should actually be the person sending the invitations for our closed lunch?",
+      "should_trigger": true
+    },
+    {
+      "query": "A sponsor is asking us to add their customer to the invited dinner as a favour. Do we?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our room holds fewer people than we want to invite to the closed session. How do we cut the list?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we stop a small private gathering from reading as a status tier to everyone else at the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can we hold the small dinner offsite on the same night as the community party?",
+      "should_trigger": true
+    },
+    {
+      "query": "The hotel staffs the floor our closed reception is on and won't work from our guest list. What now?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're doing a closed breakfast for six people. What does the invitation actually need to say?",
+      "should_trigger": true
+    },
+    {
+      "query": "What do we measure afterwards to know whether the closed gathering was handled properly?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I make sure every sponsor who asked for seats gets the same answer from us?",
+      "should_trigger": true
+    },
+    {
+      "query": "My co-organiser invited someone to the private dinner without telling me and now we're over capacity. Can we un-invite them?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our event is community-run and anti-hierarchy, but a big funder is coming. Do we owe her a separate room?",
+      "should_trigger": true
+    },
+    {
+      "query": "We already know we owe a visiting official a proper reception. How do we actually run the room?",
+      "should_trigger": true
+    },
+    {
+      "query": "Who decides at the door if someone turns up who isn't on the list?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is a lunch break long enough for a closed-door conversation, or does it need its own evening?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want a conversation to happen between five specific people and nobody else. How do we set that up at the conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we write the refusal so it doesn't read as a judgment about the person who was nominated?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our sponsor agreement sold four seats at the partner lunch and we also have people just asking for seats. Do the same rules apply to both?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many seats should we give each sponsor at the invited dinner?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we tell people there's a closed room, or just not mention it at all?",
+      "should_trigger": true
+    },
+    {
+      "query": "We run a vendor conference and a private room for key accounts is normal for us. What's the mechanic?",
+      "should_trigger": true
+    },
+    {
+      "query": "The venue's side room is basically a fishbowl, everyone can see in. Does that kill the idea?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we handle someone turning up whose name isn't on the door list, without making a scene?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should the guest list for the closed dinner be shared with the whole organising team?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're inviting a few people to something small during the conference. What do we need to have decided before the first invitation goes out?",
+      "should_trigger": true
+    },
+    {
+      "query": "Does a visiting deputy mayor count as someone we need to receive specially, or is that overkill?",
+      "should_trigger": false
+    },
+    {
+      "query": "How deep should the escort be for a minister visiting our conference for two hours?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we print VIP badges or set aside reserved seating for our sponsors' executives?",
+      "should_trigger": false
+    },
+    {
+      "query": "A guest is bringing their own security detail. How do we coordinate with them?",
+      "should_trigger": false
+    },
+    {
+      "query": "What's the test for whether somebody actually counts as a VIP at a community event?",
+      "should_trigger": false
+    },
+    {
+      "query": "What catering service style should we use for a 500-person conference lunch?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should our conference be dry, or serve alcohol at the evening event?",
+      "should_trigger": false
+    },
+    {
+      "query": "What should actually be in a 30-minute coffee break?",
+      "should_trigger": false
+    },
+    {
+      "query": "Do we need to run an evening event at all on day one?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we cover vegan, halal and gluten-free across the whole event's catering?",
+      "should_trigger": false
+    },
+    {
+      "query": "Can we run two social activities in the same evening slot, or do they have to be on separate nights?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many official social occasions should a three-day conference have?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we publish the social track so a non-drinker knows which activity is for them?",
+      "should_trigger": false
+    },
+    {
+      "query": "What's the inclusion floor our whole slate of social activities has to clear?",
+      "should_trigger": false
+    },
+    {
+      "query": "A user group wants to run a meetup during our conference week. Do we approve it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Someone is using our event's name on their own afterparty page. What do we do?",
+      "should_trigger": false
+    },
+    {
+      "query": "What disclaimer should we put on third-party fringe events around our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "A sponsor wants to throw their own party on the Wednesday. What do we ask them for before we say yes?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we track everything a signed platinum sponsor was promised?",
+      "should_trigger": false
+    },
+    {
+      "query": "When should we release sponsor perks relative to payment landing?",
+      "should_trigger": false
+    },
+    {
+      "query": "What should go in the post-event sponsor report before we ask for a renewal?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we price a gold sponsorship tier for a 900-person conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "What clauses belong in our event sponsorship agreement?",
+      "should_trigger": false
+    },
+    {
+      "query": "What do we send a speaker the week after they accept?",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we run the speakers' dinner at our conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "Do we need a green room, and what goes in it?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we match buyers and sellers for 1:1 meetings at our event?",
+      "should_trigger": false
+    },
+    {
+      "query": "How many meetings can we honestly promise a sponsor in their package?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we absorb a no-show on a booked 1:1 meeting slot?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build me a minute-by-minute run of show for day one.",
+      "should_trigger": false
+    },
+    {
+      "query": "Two of our tracks clash for the same audience. How do I fix the grid?",
+      "should_trigger": false
+    },
+    {
+      "query": "How long should the gap be between the last session and the evening event?",
+      "should_trigger": false
+    },
+    {
+      "query": "How should our check-in desk and badge pickup work?",
+      "should_trigger": false
+    },
+    {
+      "query": "Where should the quiet room go in the venue?",
+      "should_trigger": false
+    },
+    {
+      "query": "A guest uses a wheelchair and the room we picked is up a flight of stairs. What do we do?",
+      "should_trigger": false
+    },
+    {
+      "query": "Does our code of conduct cover parties that aren't at the venue?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we run an invite-only executive dinner instead of a user conference this year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Is a multi-city roadshow better than one big summit for our developer audience?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we shortlist venues for a 600-person conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "What should we ask a catering vendor for in an RFP?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we keep our conference feeling community-run as it grows?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we do early-bird pricing or a flat ticket price?",
+      "should_trigger": false
+    },
+    {
+      "query": "We want to run a standalone invite-only dinner for 20 prospects in Amsterdam, no conference attached. How do we shape it?",
+      "should_trigger": false
+    }
+  ]
+}
