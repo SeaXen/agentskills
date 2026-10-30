@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 255 skills  
+> **Total Curated Skills**: 256 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -143,6 +143,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`handle-objection`](../../library/anthropics-knowledge-work/skills/handle-objection) | ⚪ Reserve | `anthropics-knowledge-work` | Work through a live objection or competitive threat - what's really being said, the response th... |
 | [`hubspot-automation`](../../library/antigravity-awesome-skills/skills/hubspot-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate HubSpot CRM operations (contacts, companies, deals, tickets, properties) via Rube MCP ... |
 | [`humanize`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/humanize) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Humanization Pipeline Orchestrator v3.1 - Multi-pass 4-layer transformation pipeline Orchestrat... |
+| [`humanizer`](../../library/blader-humanizer/skills/humanizer) | ⚪ Reserve | `blader-humanizer` | Rewrite AI-sounding text so it reads like the writer without changing what it says. Use when ed... |
 | [`i-have-adhd`](../../library/ayghri-i-have-adhd/skills/i-have-adhd) | ⚪ Reserve | `ayghri-i-have-adhd` | Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate... |
 | [`icp-research-assistant`](../../library/irinabuht12-oss-marketing-skills/skills/icp-research-assistant) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Build detailed B2B buyer personas with pain points, objections, buying triggers, and messaging ... |
 | [`idea-discovery`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/idea-discovery) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Workflow 1: Full idea discovery pipeline. Orchestrates research-lit \u2192 idea-creator \u2192 ... |

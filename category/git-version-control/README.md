@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 140 skills  
+> **Total Curated Skills**: 145 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -30,6 +30,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`article-prompts-to-skills`](../../library/mengto-skills/skills/article-prompts-to-skills) | ⚪ Reserve | `mengto-skills` | Convert an article, tutorial, or prompt pack into focused reusable AgentSkills, one independent... |
 | [`authoring-github-workflows`](../../library/dotnet-skills/skills/authoring-github-workflows) | ⚪ Reserve | `dotnet-skills` | Author and review GitHub Actions workflow YAML safely so syntactically-valid YAML can't ship a ... |
 | [`autoresearch-agent`](../../library/alirezarezvani-claude-skills/skills/autoresearch-agent) | ⚪ Reserve | `alirezarezvani-claude-skills` | Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy... |
+| [`babysit-pr`](../../library/t3dotgg-tstack/skills/babysit-pr) | ⚪ Reserve | `t3dotgg-tstack` | Monitor a pull request through review and CI. Use when the user asks to monitor, watch, or baby... |
 | [`bankr-signals`](../../library/buzzbysolcex-buzz-bd-agent/skills/bankr-signals) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | On-chain verified trading signals for Buzz BD Agent. Publish scan results with TX hash proof fo... |
 | [`bitbucket-automation`](../../library/antigravity-awesome-skills/skills/bitbucket-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via ... |
 | [`build-iterated-agentic-loop`](../../library/humanlayer-skills/skills/build-iterated-agentic-loop) | ⚪ Reserve | `humanlayer-skills` | build a repo-local skill and install a matching iterated coding-agent GitHub Actions workflow, ... |
@@ -56,6 +57,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`factory`](../../library/builderio-skills/skills/factory) | ⚪ Reserve | `builderio-skills` | Experimental workflow for configuring an autonomous software delivery factory. Use when choosin... |
 | [`factory-human-digest`](../../library/builderio-skills/skills/factory-human-digest) | ⚪ Reserve | `builderio-skills` | Experimental workflow for summarizing work that still needs human judgment across configured pu... |
 | [`factory-review-prs`](../../library/builderio-skills/skills/factory-review-prs) | ⚪ Reserve | `builderio-skills` | Experimental workflow for reviewing configured repositories' pull requests. Use for manual or s... |
+| [`file-pr`](../../library/t3dotgg-tstack/skills/file-pr) | ⚪ Reserve | `t3dotgg-tstack` | File a concise pull request. Use when the user asks to file, open, or create a PR. |
 | [`finishing-a-development-branch`](../../skills/finishing-a-development-branch) | 🟢 Active | `active` | Use when implementation is complete, all tests pass, and you need to decide how to integrate th... |
 | [`fulfill-git-escrow`](../../library/internet-court-internet-court-skill/skills/fulfill-git-escrow) | ⚪ Reserve | `internet-court-internet-court-skill` | Fulfill a git escrow bounty by writing a solution or submitting an existing one. Use when the u... |
 | [`game-research-websearch`](../../library/rehan-remade-universal-modder/skills/game-research-websearch) | ⚪ Reserve | `rehan-remade-universal-modder` | Research a game, engine or modding technique on the open web with archive-aware, rate-limit-saf... |
@@ -96,6 +98,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`interface-review`](../../library/jakubkrehel-design-skills/skills/interface-review) | ⚪ Reserve | `jakubkrehel-design-skills` | Reviews a branch, pull request or uncommitted change for the interface problems it introduced o... |
 | [`langgraph`](../../library/antigravity-awesome-skills/skills/langgraph) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI appl... |
 | [`larp-detector`](../../library/davidondrej-skills/skills/larp-detector) | ⚪ Reserve | `davidondrej-skills` | Skeptical review of outside contributions to public repos. Use when reviewing, ranking, or repl... |
+| [`leaving-pr-comments`](../../library/t3dotgg-tstack/skills/leaving-pr-comments) | ⚪ Reserve | `t3dotgg-tstack` | Use whenever leaving comments on GitHub. |
 | [`linkedin-strategy`](../../library/alirezarezvani-claude-skills/skills/linkedin-strategy) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when someone needs a LinkedIn plan rather than a post — content pillars, positioning for a ... |
 | [`local-seo`](../../library/nowork-studio-notfair-plugin/skills/local-seo) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Local SEO and Google Business Profile audit: diagnose why a business isn't ranking in the local... |
 | [`make-git-escrow`](../../library/internet-court-internet-court-skill/skills/make-git-escrow) | ⚪ Reserve | `internet-court-internet-court-skill` | Create a new git escrow bounty for a test suite. Use when the user wants to submit a challenge ... |
@@ -125,6 +128,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`replication-package`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/replication-package) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Scaffold or audit a social-science replication package at a target directory. Generates folder ... |
 | [`reproduce-and-fix-issues`](../../library/backnotprop-pstack/skills/reproduce-and-fix-issues) | ⚪ Reserve | `backnotprop-pstack` | Reproduce triaged Slack bugs through a configured app-control adapter, verify existing fixes, a... |
 | [`resume-tailor`](../../library/chezou-productivity-skills/skills/resume-tailor) | ⚪ Reserve | `chezou-productivity-skills` | Tailor an existing resume to a specific job description, using an optional episode bank (past p... |
+| [`rust-review`](../../library/morganlinton-beautifulrust/skills/rust-review) | ⚪ Reserve | `morganlinton-beautifulrust` | Review existing Rust code for idiom, API design, error handling, safety, and maintainability, a... |
 | [`securing-github-actions-workflows`](../../library/mukul975-anthropic-cybersecurity-skills/skills/securing-github-actions-workflows) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Hardens GitHub Actions workflows against supply chain attacks, credential |
 | [`sentry-triage`](../../library/composio-community-awesome-codex-skills/skills/sentry-triage) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Diagnose Sentry issues without copy-pasting stack traces. Uses the Composio CLI to pull issue d... |
 | [`share-field-notes`](../../library/rehan-remade-universal-modder/skills/share-field-notes) | ⚪ Reserve | `rehan-remade-universal-modder` | Search and contribute to the shared AI-modding knowledge base, where field notes record how spe... |
@@ -134,6 +138,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-seekers`](../../library/antigravity-awesome-skills/skills/skill-seekers) | ⚪ Reserve | `antigravity-awesome-skills` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI ski... |
 | [`skill-tester`](../../library/alirezarezvani-claude-skills/skills/skill-tester) | ⚪ Reserve | `alirezarezvani-claude-skills` | Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensi... |
 | [`spawn`](../../library/alirezarezvani-claude-skills/skills/spawn) | ⚪ Reserve | `alirezarezvani-claude-skills` | Launch N parallel subagents in isolated git worktrees to compete on the session task. Use when ... |
+| [`takeover`](../../library/t3dotgg-tstack/skills/takeover) | ⚪ Reserve | `t3dotgg-tstack` | Take over existing work. Use when the user asks to take over a PR, branch, or agent thread, or ... |
 | [`team-collaboration-issue`](../../library/antigravity-awesome-skills/skills/team-collaboration-issue) | ⚪ Reserve | `antigravity-awesome-skills` | You are a GitHub issue resolution expert specializing in systematic bug investigation, feature ... |
 | [`team-collaboration-standup-notes`](../../library/antigravity-awesome-skills/skills/team-collaboration-standup-notes) | ⚪ Reserve | `antigravity-awesome-skills` | You are an expert team communication specialist focused on async-first standup practices, AI-as... |
 | [`technical-writing`](../../library/backnotprop-pstack/skills/technical-writing) | ⚪ Reserve | `backnotprop-pstack` | Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE i... |

@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 152 skills  
+> **Total Curated Skills**: 153 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -146,6 +146,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`reverse-engineering-rust-malware`](../../library/mukul975-anthropic-cybersecurity-skills/skills/reverse-engineering-rust-malware) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Reverse engineers Rust-compiled malware using IDA Pro and Ghidra, covering |
 | [`rust-async-patterns`](../../library/antigravity-awesome-skills/skills/rust-async-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns... |
 | [`rust-engineer`](../../library/jeffallan-claude-skills/skills/rust-engineer) | ⚪ Reserve | `jeffallan-claude-skills` | Writes, reviews, and debugs idiomatic Rust code with memory safety and zero-cost abstractions. ... |
+| [`rust-port`](../../library/morganlinton-beautifulrust/skills/rust-port) | ⚪ Reserve | `morganlinton-beautifulrust` | Port code from C, C++, Python, Go, JavaScript, or TypeScript into idiomatic Rust that keeps the... |
 | [`rust-pro`](../../library/antigravity-awesome-skills/skills/rust-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master Rust 1.75+ with modern async patterns, advanced type system |
 | [`scala-pro`](../../library/antigravity-awesome-skills/skills/scala-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master enterprise-grade Scala development with functional |
 | [`security-best-practices`](../../skills/security-best-practices) | 🟢 Active | `active` | Perform language and framework specific security best-practice reviews and suggest improvements... |

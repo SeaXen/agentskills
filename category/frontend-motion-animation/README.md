@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 118 skills  
+> **Total Curated Skills**: 121 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -60,6 +60,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`excalidraw-diagram`](../../library/axtonliu-axton-obsidian-visual-skills/skills/excalidraw-diagram) | ⚪ Reserve | `axtonliu-axton-obsidian-visual-skills` | Generate Excalidraw diagrams from text content. Supports three output modes - Obsidian (.md), S... |
 | [`explain-interface`](../../library/jakubkrehel-design-skills/skills/explain-interface) | ⚪ Reserve | `jakubkrehel-design-skills` | Explains how a website, a visual effect or an animation was built, from a live URL or a screens... |
 | [`explainer-high-energy`](../../library/barty-bart-motion-graphics/skills/explainer-high-energy) | ⚪ Reserve | `barty-bart-motion-graphics` | Make a 12–20 second high-energy motion-graphics promo for any product, rendered from code to MP... |
+| [`expo-animation`](../../library/expo-skills/skills/expo-animation) | ⚪ Reserve | `expo-skills` | Build animations in React Native and Expo, making the decisions in the order that determines wh... |
+| [`expo-native-ui`](../../library/expo-skills/skills/expo-native-ui) | ⚪ Reserve | `expo-skills` | Build beautiful, native-feeling Expo screens. Covers Apple HIG styling, semantic colors, native... |
 | [`fal-generate`](../../library/antigravity-awesome-skills/skills/fal-generate) | ⚪ Reserve | `antigravity-awesome-skills` | Generate images and videos using fal.ai AI models |
 | [`fal-upscale`](../../library/antigravity-awesome-skills/skills/fal-upscale) | ⚪ Reserve | `antigravity-awesome-skills` | Upscale and enhance image and video resolution using AI |
 | [`find-animation-opportunities`](../../library/emilkowalski-skills/skills/find-animation-opportunities) | ⚪ Reserve | `emilkowalski-skills` | Search a codebase or UI for places that don't animate but should, and reject everything that sh... |
@@ -94,6 +96,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mobile-native`](../../library/emilkowalski-skills/skills/mobile-native) | ⚪ Reserve | `emilkowalski-skills` | Make a web app feel native on a phone — the small CSS and meta-tag fixes that separate "a websi... |
 | [`motion-showreel`](../../library/nateherkai-herk-edit-kit/skills/motion-showreel) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Design and build a 10-30 second motion-design showreel or brand reel in the style of Nate's Opu... |
 | [`motion2code`](../../library/lovisdotio-motion2code/skills/motion2code) | ⚪ Reserve | `lovisdotio-motion2code` | Rebuilds an AI-generated (or any) flat motion design video as clean, editable code: inline SVG ... |
+| [`motionsites-web-builder`](../../library/motionsites-ai-claude-skill/skills/motionsites-web-builder) | ⚪ Reserve | `motionsites-ai-claude-skill` | Build award-level, cinematic websites, landing pages and hero sections, or detailed prompts for... |
 | [`navigation-event`](../../library/android-skills/skills/navigation-event) | ⚪ Reserve | `android-skills` | Intercept back gestures and run Predictive Back animations using the |
 | [`op7418-guizang-social-card`](../../library/op7418-guizang-social-card-skill/skills/op7418-guizang-social-card) | ⚪ Reserve | `op7418-guizang-social-card-skill` | Generate Guizang-style social card image sets, Live Photo motion cards, material-first Live Pho... |
 | [`optimize-web-animations`](../../library/mengto-skills/skills/optimize-web-animations) | ⚪ Reserve | `mengto-skills` | Profile, audit, and optimize frontend page performance with emphasis on animation work, memory-... |

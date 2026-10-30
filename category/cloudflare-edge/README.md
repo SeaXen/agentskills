@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Curated Skills**: 113 skills  
+> **Total Curated Skills**: 114 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -47,6 +47,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`deploying-cloudflare-access-for-zero-trust`](../../library/mukul975-anthropic-cybersecurity-skills/skills/deploying-cloudflare-access-for-zero-trust) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploys Cloudflare Access with Cloudflare Tunnel for zero trust access to self-hosted apps, con... |
 | [`dotnet-aot-compat`](../../library/dotnet-skills/skills/dotnet-aot-compat) | ⚪ Reserve | `dotnet-skills` | Make .NET projects compatible with Native AOT and trimming by systematically resolving IL trim/... |
 | [`durable-objects`](../../library/cloudflare-skills/skills/durable-objects) | ⚪ Reserve | `cloudflare-skills` | Build, debug, or review Cloudflare Durable Objects code for persistent state and coordination. |
+| [`eas-hosting`](../../library/expo-skills/skills/eas-hosting) | ⚪ Reserve | `expo-skills` | Deploy Expo websites and Expo Router API routes to EAS Hosting - export the web bundle, run eas... |
 | [`edge-candidate-agent`](../../library/tradermonty-claude-trading-skills/skills/edge-candidate-agent) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Generate and prioritize US equity long-side edge research tickets from EOD observations, then e... |
 | [`edge-concept-synthesizer`](../../library/tradermonty-claude-trading-skills/skills/edge-concept-synthesizer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Abstract detector tickets and hints into reusable edge concepts with thesis, invalidation signa... |
 | [`edge-hint-extractor`](../../library/tradermonty-claude-trading-skills/skills/edge-hint-extractor) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Extract edge hints from daily market observations and news reactions, with optional LLM ideatio... |

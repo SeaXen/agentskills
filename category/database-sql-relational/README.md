@@ -1,7 +1,7 @@
 # 🗄️ SQL Databases, ORMs & Indexing
 
 > **Category**: `database-sql-relational`  
-> **Total Curated Skills**: 889 skills  
+> **Total Curated Skills**: 891 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -319,6 +319,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`exist-automation`](../../library/composio-community-awesome-codex-skills/skills/exist-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Exist tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`exploiting-sql-injection-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-sql-injection-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Identifies and exploits SQL injection vulnerabilities in web applications |
 | [`exploiting-sql-injection-with-sqlmap`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-sql-injection-with-sqlmap) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detecting and exploiting SQL injection vulnerabilities using sqlmap to |
+| [`expo-dom`](../../library/expo-skills/skills/expo-dom) | ⚪ Reserve | `expo-skills` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web co... |
+| [`expo-examples`](../../library/expo-skills/skills/expo-examples) | ⚪ Reserve | `expo-skills` | Expo's official example projects - the expo/examples repo of ~70 `with-*` integrations (Stripe,... |
 | [`expofp-automation`](../../library/composio-community-awesome-codex-skills/skills/expofp-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Expofp tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`extracta-ai-automation`](../../library/composio-community-awesome-codex-skills/skills/extracta-ai-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Extracta AI tasks via Rube MCP (Composio). Always search tools first for current schem... |
 | [`faceup-automation`](../../library/composio-community-awesome-codex-skills/skills/faceup-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Faceup tasks via Rube MCP (Composio). Always search tools first for current schemas. |

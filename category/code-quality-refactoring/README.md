@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Curated Skills**: 975 skills  
+> **Total Curated Skills**: 980 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -268,6 +268,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`correct`](../../library/backnotprop-pstack/skills/correct) | ⚪ Reserve | `backnotprop-pstack` | Find the mistakes agents keep repeating in this repo and make each one impossible. Try architec... |
 | [`cost-guard`](../../library/buzzbysolcex-buzz-bd-agent/skills/cost-guard) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | category: code-quality-refactoring |
 | [`cost-optimization`](../../library/antigravity-awesome-skills/skills/cost-optimization) | ⚪ Reserve | `antigravity-awesome-skills` | Optimize cloud costs through resource rightsizing, tagging strategies, reserved instances, and ... |
+| [`council`](../../library/t3dotgg-tstack/skills/council) | ⚪ Reserve | `t3dotgg-tstack` | Trigger this if the user says 'council'. |
 | [`court-auction-notice-search`](../../library/nomadamas-k-skill/skills/court-auction-notice-search) | ⚪ Reserve | `nomadamas-k-skill` | Browse 대법원경매정보(courtauction.go.kr) 부동산 매각공고 by 매각기일·법원·기일/기간 입찰, expand each notice into 사건번호·용... |
 | [`cowork-plugin-customizer`](../../library/anthropics-knowledge-work/skills/cowork-plugin-customizer) | ⚪ Reserve | `anthropics-knowledge-work` | Customize a Claude Code plugin for a specific organization's tools and workflows. Use when: cus... |
 | [`create-branch`](../../library/getsentry-skills/skills/create-branch) | ⚪ Reserve | `getsentry-skills` | Create a git branch following Sentry naming conventions. Use when asked to "create a branch", "... |
@@ -440,6 +441,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fletcher`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/fletcher) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Defamiliarization audit for empirical output. Systematically interrogates every feature of a fi... |
 | [`forming-an-openrig-mental-model`](../../library/mvschwarz-openrig/skills/forming-an-openrig-mental-model) | ⚪ Reserve | `mvschwarz-openrig` | Use when the system around you does not make sense yet: you just booted into a seat and do not ... |
 | [`founder-ops`](../../library/jakeschincariol-founder-skill/skills/founder-ops) | ⚪ Reserve | `jakeschincariol-founder-skill` | Your operations manager. Works out how the business actually runs on day one: suppliers and wha... |
+| [`full-send`](../../library/t3dotgg-tstack/skills/full-send) | ⚪ Reserve | `t3dotgg-tstack` | Trigger this if the user says 'full send'. |
+| [`full-stop`](../../library/t3dotgg-tstack/skills/full-stop) | ⚪ Reserve | `t3dotgg-tstack` | Trigger this if the user says 'full stop', even as a closing "Full stop." that reads like empha... |
 | [`generated`](../../library/juliusbrussee-caveman/skills/generated) | ⚪ Reserve | `juliusbrussee-caveman` | Compressed code review: One line per finding with location, problem, and fix |
 | [`genvm-lint`](../../library/internet-court-internet-court-skill/skills/genvm-lint) | ⚪ Reserve | `internet-court-internet-court-skill` | Validate GenLayer intelligent contracts with the GenVM linter. |
 | [`geo-compare`](../../library/zubair-trabzada-geo-seo-claude/skills/geo-compare) | ⚪ Reserve | `zubair-trabzada-geo-seo-claude` | Monthly delta tracking and progress reporting for GEO clients. Compares two GEO audits (baselin... |
@@ -464,7 +467,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hud`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/hud) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Diverga HUD (Heads-Up Display) management skill. Configure and manage the research project stat... |
 | [`humanize-redo`](../../library/epoko77-ai-im-not-ai/skills/humanize-redo) | ⚪ Reserve | `epoko77-ai-im-not-ai` | 가장 최근 윤문 결과를 2차로 다시 다듬는다 — 특정 카테고리·문단·강도 조정도 가능. humanize-korean strict 윤문(Phase B)을 기존 run_id에... |
 | [`humanize-skills`](../../library/humanize-skills/skills/humanize-skills) | ⚪ Reserve | `humanize-skills` | Rewrite, edit, or draft text so it reads as specifically human-written rather than generically ... |
-| [`humanizer`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/humanizer) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Strip AI writing patterns from text. Checks 24 patterns across 4 categories (structural, lexica... |
 | [`hunting-for-dns-based-persistence`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hunting-for-dns-based-persistence) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Hunts for DNS-based persistence mechanisms such as DNS hijacking, dangling |
 | [`hunting-for-domain-fronting-c2-traffic`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hunting-for-domain-fronting-c2-traffic) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detects domain fronting C2 traffic by analyzing SNI-vs-HTTP-Host-header |
 | [`hunting-for-lateral-movement-via-wmi`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hunting-for-lateral-movement-via-wmi) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detects WMI-based lateral movement (e.g. wmic process call create, |
@@ -586,6 +588,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`minimax-docx`](../../library/minimax-ai-skills/skills/minimax-docx) | ⚪ Reserve | `minimax-ai-skills` | Professional DOCX document creation, editing, and formatting using OpenXML SDK (.NET). Three pi... |
 | [`minimax-xlsx`](../../library/minimax-ai-skills/skills/minimax-xlsx) | ⚪ Reserve | `minimax-ai-skills` | Open, create, read, analyze, edit, or validate Excel/spreadsheet files (.xlsx, .xlsm, .csv, .ts... |
 | [`mirofish-simulation`](../../library/buzzbysolcex-buzz-bd-agent/skills/mirofish-simulation) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | category: code-quality-refactoring |
+| [`modernize`](../../library/t3dotgg-tstack/skills/modernize) | ⚪ Reserve | `t3dotgg-tstack` | For getting old prs up to date. Use when asked to rebase a pr or "modernize". |
 | [`monitor-experiment`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/monitor-experiment) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Monitor running experiments, check progress, collect results. Use when user says \"check result... |
 | [`monitoring-darkweb-sources`](../../library/mukul975-anthropic-cybersecurity-skills/skills/monitoring-darkweb-sources) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Monitors dark web forums, marketplaces, paste sites, and ransomware |
 | [`monitoring-scada-modbus-traffic-anomalies`](../../library/mukul975-anthropic-cybersecurity-skills/skills/monitoring-scada-modbus-traffic-anomalies) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Monitors Modbus TCP traffic on SCADA and ICS networks to detect anomalous |
@@ -788,6 +791,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`robustness-table`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/robustness-table) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generates robustness check code and formats results as a combined table. Use for sensitivity an... |
 | [`rpi`](../../library/humanlayer-skills/skills/rpi) | ⚪ Reserve | `humanlayer-skills` | Only use when the user explicitly invokes this skill by name. |
 | [`running-causalpy-experiments`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/running-causalpy-experiments) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Fit, summarize, plot, and interpret a chosen CausalPy experiment. Use after the causal method h... |
+| [`rust-best-practices`](../../library/morganlinton-beautifulrust/skills/rust-best-practices) | ⚪ Reserve | `morganlinton-beautifulrust` | Write idiomatic, robust, maintainable Rust. Use this skill whenever you write, review, refactor... |
 | [`safe-refactor`](../../library/juliusbrussee-caveman/skills/safe-refactor) | ⚪ Reserve | `juliusbrussee-caveman` | Restructure code while preserving behavior. Use for extraction, consolidation, ownership moves,... |
 | [`satellite-remote-sensing`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/satellite-remote-sensing) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Satellite imagery analysis and remote sensing for earth science research |
 | [`save`](../../library/agricidaniel-claude-obsidian/skills/save) | ⚪ Reserve | `agricidaniel-claude-obsidian` | Save a user-selected answer, decision, insight, or session summary into an Obsidian vault as on... |
@@ -858,6 +862,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`social-research-methods`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/social-research-methods) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Core methods for empirical social science research including surveys and expe... |
 | [`social-science`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/social-science) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 6 social science skills. Trigger: survey research, social networks, psychology, behavioral stud... |
 | [`software-for-agents`](../../library/mvschwarz-openrig/skills/software-for-agents) | ⚪ Reserve | `mvschwarz-openrig` | Use when older OpenRig instructions name software-for-agents or describe agent-in-the-middle or... |
+| [`sol-loop`](../../library/t3dotgg-tstack/skills/sol-loop) | ⚪ Reserve | `t3dotgg-tstack` | Use when the user says "sol loop". |
 | [`solar-duotone-bold`](../../library/mengto-skills/skills/solar-duotone-bold) | ⚪ Reserve | `mengto-skills` | Use Iconify Solar Duotone Bold icon style. |
 | [`solo-founder`](../../library/alirezarezvani-claude-skills/skills/solo-founder) | ⚪ Reserve | `alirezarezvani-claude-skills` | ../../../agents/personas/solo-founder.md |
 | [`solve-challenge`](../../library/ljagiello-ctf-skills/skills/solve-challenge) | ⚪ Reserve | `ljagiello-ctf-skills` | Solves CTF challenges by performing first-pass triage, identifying the dominant category, and r... |

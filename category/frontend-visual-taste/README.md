@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 61 skills  
+> **Total Curated Skills**: 62 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -47,6 +47,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`eda`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/eda) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Comprehensive exploratory data analysis with publication-quality descriptive tables, correlatio... |
 | [`editorial-portfolio-chapters`](../../library/mengto-skills/skills/editorial-portfolio-chapters) | ⚪ Reserve | `mengto-skills` | Create or redesign creative-studio, agency, photographer, artist, and portfolio websites where ... |
 | [`editorial-tech`](../../library/mengto-skills/skills/editorial-tech) | ⚪ Reserve | `mengto-skills` | Blend editorial magazine composition with precision product-tech detailing using asymmetrical g... |
+| [`expo-design-system`](../../library/expo-skills/skills/expo-design-system) | ⚪ Reserve | `expo-skills` | Build and maintain a design system inside an Expo app - a reusable theme of design tokens (colo... |
 | [`figures`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/figures) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Design and format publication-quality figures: chart choice, color, scales, legends, captions, ... |
 | [`gathered-scenes-zine`](../../library/zeejay0-gathered-scenes-zine-skill/skills/gathered-scenes-zine) | ⚪ Reserve | `zeejay0-gathered-scenes-zine-skill` | A tool for turning personal photos into Morandi-style cinematic posters using professional typo... |
 | [`geo-report-pdf`](../../library/zubair-trabzada-geo-seo-claude/skills/geo-report-pdf) | ⚪ Reserve | `zubair-trabzada-geo-seo-claude` | Generate a professional PDF report from a GEO audit using pandoc + Chrome headless. Converts GE... |

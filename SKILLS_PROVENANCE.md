@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 225 repositories  
-> **Total Skills in Reserve**: 8,776 skills  
+> **Active Reserve Libraries**: 230 repositories  
+> **Total Skills in Reserve**: 8,815 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -41,6 +41,7 @@
 | `barty-bart-motion-graphics` | [Barty-Bart/motion-graphics](https://github.com/Barty-Bart/motion-graphics) | **6** | `python .agents/library/activate_skill.py activate explainer-default` |
 | `besync-labs-antigravity-ai-kit` | [besync/labs-antigravity-ai-kit](https://github.com/besync/labs-antigravity-ai-kit) | **34** | `python .agents/library/activate_skill.py activate api-patterns` |
 | `binance-binance-skills-hub` | [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) | **22** | `python .agents/library/activate_skill.py activate academy-skill` |
+| `blader-humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | **1** | `python .agents/library/activate_skill.py activate humanizer` |
 | `browser-act-skills` | [browser-act/skills](https://github.com/browser-act/skills) | **103** | `python .agents/library/activate_skill.py activate 1688-product-detail` |
 | `browser-use-skills` | [browser-use/browser-use](https://github.com/browser-use/browser-use) | **6** | `python .agents/library/activate_skill.py activate browser-use` |
 | `browserbase-skills` | [browserbase/skills](https://github.com/browserbase/skills) | **18** | `python .agents/library/activate_skill.py activate add-webmcp` |
@@ -83,6 +84,7 @@
 | `ericjujianzou-rederive` | [EricJujianZou/rederive](https://github.com/EricJujianZou/rederive) | **1** | `python .agents/library/activate_skill.py activate rederive` |
 | `ericosiu-ai-marketing-skills` | [ericosiu/ai-marketing-skills](https://github.com/ericosiu/ai-marketing-skills) | **35** | `python .agents/library/activate_skill.py activate agentic-video-understanding` |
 | `eugeniughelbur-obsidian-second-brain` | [eugeniughelbur/obsidian-second-brain](https://github.com/eugeniughelbur/obsidian-second-brain) | **2** | `python .agents/library/activate_skill.py activate eugeniughelbur-obsidian-second-brain` |
+| `expo-skills` | [expo/skills](https://github.com/expo/skills) | **25** | `python .agents/library/activate_skill.py activate eas-app-stores` |
 | `feder-cr-invisible_dots` | [feder-cr/invisible_dots](https://github.com/feder-cr/invisible_dots) | **2** | `python .agents/library/activate_skill.py activate invisible-playwright` |
 | `feitangyuan-onetake` | [feitangyuan/onetake](https://github.com/feitangyuan/onetake) | **1** | `python .agents/library/activate_skill.py activate onetake` |
 | `fengzhenfei-carrel` | [FengZhenfei/carrel](https://github.com/FengZhenfei/carrel) | **1** | `python .agents/library/activate_skill.py activate carrel-search` |
@@ -149,6 +151,8 @@
 | `microsoft-playwright-cli` | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | **6** | `python .agents/library/activate_skill.py activate dev` |
 | `minimax-ai-skills` | [MiniMax-AI/skills](https://github.com/MiniMax-AI/skills) | **23** | `python .agents/library/activate_skill.py activate android-native-dev` |
 | `miqdadbadjuber-anti-slop` | [miqdadbadjuber/anti-slop](https://github.com/miqdadbadjuber/anti-slop) | **7** | `python .agents/library/activate_skill.py activate anti-slop` |
+| `morganlinton-beautifulrust` | [morganlinton/BeautifulRust](https://github.com/morganlinton/BeautifulRust) | **3** | `python .agents/library/activate_skill.py activate rust-best-practices` |
+| `motionsites-ai-claude-skill` | [Motionsites-AI/claude-skill](https://github.com/Motionsites-AI/claude-skill) | **1** | `python .agents/library/activate_skill.py activate motionsites-web-builder` |
 | `mrbongoc-ai-iso-skill` | [MrBongoC/ai-iso-skill](https://github.com/MrBongoC/ai-iso-skill) | **1** | `python .agents/library/activate_skill.py activate iso-figure` |
 | `mukul975-anthropic-cybersecurity-skills` | [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) | **819** | `python .agents/library/activate_skill.py activate abusing-dpapi-for-credential-access` |
 | `multica-ai-andrej-karpathy-skills` | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | **1** | `python .agents/library/activate_skill.py activate karpathy-guidelines` |
@@ -203,6 +207,7 @@
 | `sleekdotdesign-agent-skills` | [sleekdotdesign/agent-skills](https://github.com/sleekdotdesign/agent-skills) | **1** | `python .agents/library/activate_skill.py activate design-mobile-apps` |
 | `snailsploit-claude-red` | [SnailSploit/Claude-Red](https://github.com/SnailSploit/Claude-Red) | **0** | `python .agents/library/activate_skill.py activate skill-name` |
 | `supabase-agent-skills` | [supabase/agent-skills](https://github.com/supabase/agent-skills) | **2** | `python .agents/library/activate_skill.py activate supabase` |
+| `t3dotgg-tstack` | [t3dotgg/tstack](https://github.com/t3dotgg/tstack) | **9** | `python .agents/library/activate_skill.py activate babysit-pr` |
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | **2** | `python .agents/library/activate_skill.py activate design-taste-frontend` |
 | `tejashmakwana-motionmaxxing` | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) | **1** | `python .agents/library/activate_skill.py activate motionmaxxing` |
 | `tigerless-labs-autoharness` | [tigerless-labs/autoharness](https://github.com/tigerless-labs/autoharness) | **2** | `python .agents/library/activate_skill.py activate autoharness` |

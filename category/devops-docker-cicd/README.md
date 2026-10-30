@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 252 skills  
+> **Total Curated Skills**: 253 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -93,6 +93,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`docsgpt-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/docsgpt-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Deploy DocsGPT for private document analysis and research knowledge bases |
 | [`documd-visuals`](../../library/markdown-viewer-skills/skills/documd-visuals) | ⚪ Reserve | `markdown-viewer-skills` | Create text-driven visuals in Markdown: charts, diagrams, cards, architecture and page layouts.... |
 | [`dump-collect`](../../library/dotnet-skills/skills/dump-collect) | ⚪ Reserve | `dotnet-skills` | Configure and collect crash dumps for modern .NET applications. USE FOR: enabling automatic cra... |
+| [`eas-workflows`](../../library/expo-skills/skills/eas-workflows) | ⚪ Reserve | `expo-skills` | Helps understand and write EAS workflow YAML files for Expo projects. Use this skill when the u... |
 | [`escaping-containers-to-host`](../../library/mukul975-anthropic-cybersecurity-skills/skills/escaping-containers-to-host) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Exploits privileged pods, host mounts, runC CVEs, and exposed Docker sockets to break out of a ... |
 | [`experiment-bridge`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/experiment-bridge) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Workflow 1.5: Bridge between idea discovery and auto review. Reads EXPERIMENT_PLAN.md, implemen... |
 | [`expo-deployment`](../../library/antigravity-awesome-skills/skills/expo-deployment) | ⚪ Reserve | `antigravity-awesome-skills` | Deploy Expo apps to production |

@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 124 skills  
+> **Total Curated Skills**: 140 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -59,8 +59,24 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`device-performance-split`](../../library/irinabuht12-oss-marketing-skills/skills/device-performance-split) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Analyzes how your campaigns perform across mobile, desktop, and tablet. Identifies where device... |
 | [`dickwu-apple-design-skill`](../../library/dickwu-apple-design-skill/skills/dickwu-apple-design-skill) | ⚪ Reserve | `dickwu-apple-design-skill` | Cross-platform UI/UX design reviewer grounded in Apple's Human Interface Guidelines (123 pages ... |
 | [`display-glasses-with-jetpack-compose-glimmer`](../../library/android-skills/skills/display-glasses-with-jetpack-compose-glimmer) | ⚪ Reserve | `android-skills` | Provides guidelines for developing projected Android XR apps for display |
+| [`eas-app-stores`](../../library/expo-skills/skills/eas-app-stores) | ⚪ Reserve | `expo-skills` | Build and submit iOS and Android apps with EAS to TestFlight, the App Store, or Google Play. Su... |
+| [`eas-observe`](../../library/expo-skills/skills/eas-observe) | ⚪ Reserve | `expo-skills` | Use for anything related to EAS Observe - adding `expo-observe` to an Expo project (AppMetricsR... |
+| [`eas-simulator`](../../library/expo-skills/skills/eas-simulator) | ⚪ Reserve | `expo-skills` | Run and control a user's app on a remote iOS/Android simulator hosted on EAS cloud. Read before... |
+| [`eas-update`](../../library/expo-skills/skills/eas-update) | ⚪ Reserve | `expo-skills` | Configure and use EAS Update for over-the-air JavaScript and asset updates with expo-updates an... |
 | [`email-design`](../../library/magentosh-superpowers/skills/email-design) | ⚪ Reserve | `magentosh-superpowers` | Email marketing design with layout patterns, subject line formulas, and deliverability rules. C... |
 | [`exploiting-insecure-data-storage-in-mobile`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-insecure-data-storage-in-mobile) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Identifies and exploits insecure local data storage vulnerabilities |
+| [`expo-app-clip`](../../library/expo-skills/skills/expo-app-clip) | ⚪ Reserve | `expo-skills` | Add an iOS App Clip target to an Expo app. Use when the user mentions App Clip, AASA, apple-app... |
+| [`expo-brownfield`](../../library/expo-skills/skills/expo-brownfield) | ⚪ Reserve | `expo-skills` | Integrate Expo and React Native into an existing native iOS or Android app. Use for brownfield,... |
+| [`expo-dev-client`](../../library/expo-skills/skills/expo-dev-client) | ⚪ Reserve | `expo-skills` | Build and distribute Expo development clients locally or via TestFlight for internal testing. F... |
+| [`expo-migrate-module`](../../library/expo-skills/skills/expo-migrate-module) | ⚪ Reserve | `expo-skills` | Migrate an existing Apple/Swift Expo native module from the Expo Modules API 1.0 definition DSL... |
+| [`expo-module`](../../library/expo-skills/skills/expo-module) | ⚪ Reserve | `expo-skills` | Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift,... |
+| [`expo-overview`](../../library/expo-skills/skills/expo-overview) | ⚪ Reserve | `expo-skills` | Entry point and router for every Expo or EAS task. Load this skill first — before writing code ... |
+| [`expo-project-structure`](../../library/expo-skills/skills/expo-project-structure) | ⚪ Reserve | `expo-skills` | Folder structure for a new Expo app. Use when scaffolding or laying out a new Expo project with... |
+| [`expo-router`](../../library/expo-skills/skills/expo-router) | ⚪ Reserve | `expo-skills` | Navigation and routing for Expo Router. Covers file-based routes, groups and dynamic routes, fo... |
+| [`expo-skill-eval`](../../library/expo-skills/skills/expo-skill-eval) | ⚪ Reserve | `expo-skills` | Evaluate Expo skills in this repo end-to-end - trigger accuracy, generated code quality, and ru... |
+| [`expo-ui`](../../library/expo-skills/skills/expo-ui) | ⚪ Reserve | `expo-skills` | Build native UI with the @expo/ui package: real SwiftUI on iOS and Jetpack Compose on Android. ... |
+| [`expo-upgrade`](../../library/expo-skills/skills/expo-upgrade) | ⚪ Reserve | `expo-skills` | Guidelines for upgrading Expo SDK versions and fixing dependency issues |
+| [`expo-web-to-native`](../../library/expo-skills/skills/expo-web-to-native) | ⚪ Reserve | `expo-skills` | Migrate an existing web React app to a native iOS/Android app with Expo. Use when the user want... |
 | [`exposure-coach`](../../library/tradermonty-claude-trading-skills/skills/exposure-coach) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Generate a one-page Market Posture summary with net exposure ceiling, growth-vs-value bias, par... |
 | [`flutter`](../../library/anthropics-knowledge-work/skills/flutter) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Flutter. Use when building custom video session apps in Flutter with flutter... |
 | [`flutter-dev`](../../library/minimax-ai-skills/skills/flutter-dev) | ⚪ Reserve | `minimax-ai-skills` | Flutter cross-platform development guide covering widget patterns, Riverpod/Bloc state manageme... |

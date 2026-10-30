@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 435 skills  
+> **Total Curated Skills**: 436 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -150,6 +150,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`discussion-writing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/discussion-writing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Write effective discussion sections that interpret results and impact |
 | [`downtrend-duration-analyzer`](../../library/tradermonty-claude-trading-skills/skills/downtrend-duration-analyzer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Analyze historical downtrend durations and generate interactive HTML histograms showing typical... |
 | [`e2`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/e2) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Agent E2 - Qualitative Coding Specialist - Systematic coding and theme development. Covers code... |
+| [`eas-update-insights`](../../library/expo-skills/skills/eas-update-insights) | ⚪ Reserve | `expo-skills` | Check the health of published EAS Update: crash rates, install/launch counts, unique users, pay... |
 | [`easy-spider-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/easy-spider-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to EasySpider for visual no-code web data collection |
 | [`education-data-source-campus-safety`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/education-data-source-campus-safety) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | CSS — annual Clery Act crime/fire safety for Title IV institutions. Portal: hate crimes only (2... |
 | [`effective-html`](../../library/plannotator-effective-html/skills/effective-html) | ⚪ Reserve | `plannotator-effective-html` | A set of design-focused skills for creating structured HTML plans, interactive prototypes, and ... |

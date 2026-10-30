@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 542 skills  
+> **Total Curated Skills**: 543 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -234,6 +234,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`exploiting-excessive-data-exposure-in-api`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-excessive-data-exposure-in-api) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests APIs for excessive data exposure (OWASP API3:2023) by intercepting raw API responses and ... |
 | [`exploiting-idor-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-idor-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Identifies and exploits Insecure Direct Object Reference (IDOR) vulnerabilities by manipulating... |
 | [`exploiting-mass-assignment-in-rest-apis`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-mass-assignment-in-rest-apis) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Discovers and exploits mass assignment (autobinding) in REST APIs by injecting unexpected or hi... |
+| [`expo-data-fetching`](../../library/expo-skills/skills/expo-data-fetching) | ⚪ Reserve | `expo-skills` | Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetc... |
 | [`facebook-ads-library-search`](../../library/browser-act-skills/skills/facebook-ads-library-search) | ⚪ Reserve | `browser-act-skills` | Searches Meta Ad Library (Facebook/Instagram/WhatsApp ads) by keyword or Facebook page ID and e... |
 | [`facebook-groups-scrape-posts`](../../library/browser-act-skills/skills/facebook-groups-scrape-posts) | ⚪ Reserve | `browser-act-skills` | Scrapes posts from a Facebook group given a group URL, sort order, and desired count — returns ... |
 | [`factory-recover`](../../library/builderio-skills/skills/factory-recover) | ⚪ Reserve | `builderio-skills` | Experimental workflow for finding and resuming interrupted coding runs. Use after an agent host... |
