@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 65 skills  
+> **Total Curated Skills**: 71 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -28,6 +28,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`baoyu-diagram`](../../library/jimliu-baoyu-skills/skills/baoyu-diagram) | ⚪ Reserve | `jimliu-baoyu-skills` | Create professional, dark-themed SVG diagrams of any type — architecture diagrams, flowcharts, ... |
 | [`breadth-chart-analyst`](../../library/tradermonty-claude-trading-skills/skills/breadth-chart-analyst) | ⚪ Reserve | `tradermonty-claude-trading-skills` | This skill should be used when analyzing market breadth charts, specifically the S&P 500 Breadt... |
 | [`capa-officer`](../../library/alirezarezvani-claude-skills/skills/capa-officer) | ⚪ Reserve | `alirezarezvani-claude-skills` | CAPA system management for medical device QMS. Covers root cause analysis, corrective action pl... |
+| [`chart-designer`](../../library/claude-office-skills-skills/skills/chart-designer) | ⚪ Reserve | `claude-office-skills-skills` | Design effective data visualizations and charts. Generate chart configurations for ECharts, Cha... |
 | [`chart-image-generator`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chart-image-generator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate publication-quality chart images from research data |
 | [`claude-d3js-skill`](../../library/antigravity-awesome-skills/skills/claude-d3js-skill) | ⚪ Reserve | `antigravity-awesome-skills` | Creating interactive data visualisations using d3.js. This skill should be used when creating c... |
 | [`code-documentation-code-explain`](../../library/antigravity-awesome-skills/skills/code-documentation-code-explain) | ⚪ Reserve | `antigravity-awesome-skills` | You are a code education expert specializing in explaining complex code through clear narrative... |
@@ -41,13 +42,16 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`data-clean`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-clean) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Produce documented data cleaning scripts that log every transformation with N before/after each... |
 | [`data-dashboard`](../../library/plugin87-ux-ui-agent-skills/skills/data-dashboard) | ⚪ Reserve | `plugin87-ux-ui-agent-skills` | Build a dense, data-heavy screen - an analytics console or a trading terminal - with real chart... |
 | [`diagram`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/diagram) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 9 diagrams & visuals skills. Trigger: creating diagrams, flowcharts, architecture visuals, LaTe... |
+| [`diagram-creator`](../../library/claude-office-skills-skills/skills/diagram-creator) | ⚪ Reserve | `claude-office-skills-skills` | Create professional diagrams using Mermaid, PlantUML, and other text-based diagram tools. Gener... |
 | [`diagram-design`](../../library/diagram-design/skills/diagram-design) | ⚪ Reserve | `diagram-design` | Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state m... |
+| [`diagram-generator`](../../library/sickn33-agentic-awesome-skills/skills/diagram-generator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate, refine, validate, and render diagrams from natural language, notes, code, schemas, or... |
 | [`draw-your-font`](../../library/nousresearch-hermes-optional-skills/skills/draw-your-font) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Turn a handwriting photo into an installable TTF font. |
 | [`echarts-visualization-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/echarts-visualization-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to Apache ECharts for interactive research data dashboards |
 | [`econ-visualization`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/econ-visualization) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create publication-quality charts and graphs for economics papers. |
 | [`excalidraw`](../../library/nousresearch-hermes-optional-skills/skills/excalidraw) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). |
 | [`excalidraw-diagram-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/excalidraw-diagram-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate hand-drawn style Excalidraw diagrams from text descriptions |
 | [`extract-tikz`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/extract-tikz) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Extract TikZ diagrams from Beamer source, compile to PDF, convert to SVG with 0-based indexing.... |
+| [`firecrawl-dashboard-reporting`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-dashboard-reporting) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Read metrics off web dashboards with Firecrawl browser: public stats, status and transparency p... |
 | [`generative-ui`](../../library/himself65-finance-skills/skills/generative-ui) | ⚪ Reserve | `himself65-finance-skills` | Design system and templates for interactive HTML/SVG visuals in Claude and Codex, using an avai... |
 | [`growth-signal-charts`](../../library/ericosiu-ai-marketing-skills/skills/growth-signal-charts) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Select and create Growth Signal chart posts for Instagram, X, and LinkedIn from original conten... |
 | [`hunt-xxe`](../../library/elementalsouls-claude-bughunter/skills/hunt-xxe) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunting skill for xxe vulnerabilities. Built from 10 public bug bounty reports including SVG-up... |
@@ -67,9 +71,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mermaid-visualizer`](../../library/axtonliu-axton-obsidian-visual-skills/skills/mermaid-visualizer) | ⚪ Reserve | `axtonliu-axton-obsidian-visual-skills` | Transform text content into professional Mermaid diagrams for presentations and documentation. ... |
 | [`p5js`](../../library/nousresearch-hermes-skills/skills/p5js) | ⚪ Reserve | `nousresearch-hermes-skills` | p5.js sketches: gen art, shaders, interactive, 3D. |
 | [`paper-poster`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/paper-poster) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate a conference poster (article + tcbposter LaTeX → A0/A1 PDF + editable PPTX + SVG) from... |
-| [`pitch-deck-visuals`](../../library/magentosh-superpowers/skills/pitch-deck-visuals) | ⚪ Reserve | `magentosh-superpowers` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data pres... |
+| [`pitch-deck-visuals`](../../library/101-skills-superpowers/skills/pitch-deck-visuals) | ⚪ Reserve | `101-skills-superpowers` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data pres... |
 | [`pixel-art`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/pixel-art) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate pixel art SVG illustrations for READMEs, docs, or slides. Use when user says \"\u753b\... |
+| [`platform-role-hierarchy-apply`](../../library/forcedotcom-sf-skills/skills/platform-role-hierarchy-apply) | ⚪ Reserve | `forcedotcom-sf-skills` | Bulk-realign an existing Salesforce UserRole hierarchy from an external org-chart artifact (PDF... |
 | [`pr-lens`](../../library/nousresearch-hermes-optional-skills/skills/pr-lens) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Draw code changes as animated architecture/data-flow SVGs. |
+| [`report-generator`](../../library/claude-office-skills-skills/skills/report-generator) | ⚪ Reserve | `claude-office-skills-skills` | Generate professional data reports with charts, tables, and visualizations |
 | [`sap-fiori-add-visual-filter`](../../library/cline-skills/skills/sap-fiori-add-visual-filter) | ⚪ Reserve | `cline-skills` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP ... |
 | [`sketch`](../../library/makenotion-notion-cookbook/skills/sketch) | ⚪ Reserve | `makenotion-notion-cookbook` | Sketch an App workflow as a reviewable flow diagram when planning or iterating on its design wi... |
 | [`statechart`](../../library/backnotprop-pstack/skills/statechart) | ⚪ Reserve | `backnotprop-pstack` | Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, o... |

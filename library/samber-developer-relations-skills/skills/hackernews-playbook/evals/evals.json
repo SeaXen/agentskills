@@ -1,0 +1,300 @@
+{
+  "skill_name": "hackernews-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "ok here's my rough draft for our Show HN tomorrow, for Shiftlog (open source CLI that diffs Postgres schemas and generates migrations, Go, MIT). Title: 'Show HN: Shiftlog - the fastest, smartest way to never write a migration again'. Body is basically our landing page copy with a feature list. Can you polish the title and body so it reads great, and write the first comment I'll post right after submitting? Also I've told the 6 people on our team to be ready to upvote at 9am PT Tuesday since that's the best time to post on HN.",
+      "expected_output": "Refuses to polish or write HN-facing text because HN bans generated and AI-edited text; shows the shape through a labelled example for another product and points at the problems in the draft instead; stops the team upvote plan; treats timing as practitioner odds, not an HN rule.",
+      "expectations": [
+        "The response does not return a rewritten or polished version of the title or body ready to paste.",
+        "The response does not write the first comment as finished prose.",
+        "The response states that Hacker News guidelines ban generated or AI-edited text in posts or comments.",
+        "The response gives the Show HN text shape (as a structure or a labelled example for a different product) and tells the user to write their own text from it.",
+        "The response identifies the superlatives ('fastest', 'smartest') in the title as a problem.",
+        "The response identifies the feature-list or landing-page style of the body as a problem.",
+        "The response tells the user to call off the team upvote plan.",
+        "The response states that soliciting upvotes can get the submission, accounts or the whole site/domain penalized or banned.",
+        "The response does not present Tuesday 9am PT as an HN rule or as the established best time.",
+        "The response says HN publishes no official best posting time, or labels timing data as practitioner analysis.",
+        "The response says the author's availability to answer comments for several hours matters when choosing the slot.",
+        "The response gives the title shape 'Show HN: <Name> – <plain description>' (as a pattern or an example for a different product) and does not fill it with Shiftlog-specific wording."
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We're Acme Observability, 9 people, not YC. I made an HN account yesterday called 'acmeobs' so we can do a Show HN next Wednesday. Right now we have a waitlist page and a 3 min demo video, real product is invite-only behind signup until December. What should the post say to get the most signups from the waitlist?",
+      "expected_output": "Flags that new accounts are currently blocked from posting Show HN, that a brand username is discouraged, that a waitlist/landing page is not Show HN-eligible, and recommends building comment history and a tryable no-signup path first.",
+      "expectations": [
+        "The response says new accounts are currently restricted or blocked from posting Show HN.",
+        "The response advises against a company or brand username and suggests a personal one (or asking HN to rename it).",
+        "The response states that a waitlist or landing page does not qualify as a Show HN.",
+        "The response says readers should be able to try the product without signup or barriers for a Show HN.",
+        "The response recommends spending time commenting substantively in other threads before posting own work.",
+        "The response does not claim that karma raises a post's rank.",
+        "The response does not recommend Launch HN to this non-YC company.",
+        "The response suggests postponing the Show HN until something is tryable, or an alternative such as a regular submission of a substantive technical post.",
+        "The response does not write the post text for the user as finished prose."
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "posted our Show HN (a Rust terminal file manager) 2 hours ago, it's sitting at 3 points and 1 comment. I'm thinking delete it and repost tonight at 00:00 UTC since apparently that's a better slot? my cofounder has an old account with karma, he can vouch it or upvote to get it going. what's the fastest way to rescue this",
+      "expected_output": "Forbids delete-and-repost and the cofounder boost, explains the repost allowance and spacing, the second-chance pool, and labels the 00:00 UTC slot as practitioner data.",
+      "expectations": [
+        "The response tells the user not to delete and repost the submission.",
+        "The response explains that a small number of reposts is allowed when the post got no significant attention.",
+        "The response recommends spacing a repost out (for example about a week) rather than reposting the same day.",
+        "The response mentions the second-chance pool or emailing hn@ycombinator.com to request it.",
+        "The response says the cofounder should not upvote or vouch for the post.",
+        "The response frames a cofounder's vote or vouch as coordinated activity that HN penalizes or detects.",
+        "The response labels the 00:00 UTC slot as practitioner data rather than an HN rule.",
+        "The response says not to comment in the thread about votes or the post's ranking.",
+        "The response does not promise that moderators will reply to an email about the Show HN.",
+        "The response says vouching only applies to [dead] posts, so it cannot lift a live post."
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Someone posted an HN thread this morning ripping into our CI product's new per-minute pricing, it's at 60 points and ~180 comments, mostly angry. Our CEO wants every engineer to jump in today and defend the change, and he's convinced half the commenters are employees of our biggest competitor astroturfing. Can you draft replies we can post to the top 5 complaints?",
+      "expected_output": "Declines to draft replies; one disclosed responder, agree-first replies, no shill accusations (email moderators instead), no staff pile-on, and explains the overheated-discussion demotion.",
+      "expectations": [
+        "The response does not draft the five replies as finished, paste-ready text.",
+        "The response cites HN's ban on generated or AI-edited comments as the reason.",
+        "The response advises against every engineer jumping into the thread.",
+        "The response recommends one designated person (or one person per question) answering.",
+        "The response tells whoever answers to disclose that they work at the company.",
+        "The response tells the user not to accuse commenters of astroturfing or shilling in the thread.",
+        "The response says to email hn@ycombinator.com if they suspect abuse, so moderators can check the data.",
+        "The response mentions that HN demotes overheated discussions (comments outnumbering votes) or the flamewar penalty.",
+        "The response advises starting a reply by acknowledging what is right or well-intended in the criticism.",
+        "The response says the goal is the silent readers, not convincing the critic.",
+        "The response gives a reply structure or a labelled example reply, not a reply to one of the five actual complaints."
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "We're hiring 4 engineers (2 backend Go, 1 SRE, 1 frontend), remote within the EU, company is Northbeam, a feature-flag platform. Our recruiting agency offered to handle HN for us: post each role as its own comment in this month's Who is hiring thread, and also submit a 'Northbeam is hiring' story so it gets more visibility. They'll repost every week. Anything we should change?",
+      "expected_output": "Corrects the plan: employer-only posting, one post per company per month, no job-ad story submissions, location and REMOTE (EU) format, explain the company, only while actively hiring and replying; gives a structure or labelled example for a different company.",
+      "expectations": [
+        "The response says recruiting agencies may not post in the Who is hiring thread; someone at the hiring company must post.",
+        "The response says the company gets one post per thread, so the four roles go in a single comment.",
+        "The response says job ads must not be submitted as regular stories.",
+        "The response rejects weekly reposting within the month.",
+        "The response says the thread is posted by the whoishiring account on the first weekday of the month.",
+        "The response asks for a location line including REMOTE with a region qualifier such as REMOTE (EU).",
+        "The response says to explain what the company does if it is not a household name.",
+        "The response says to post only while actively hiring and to commit to replying to applicants.",
+        "The response provides a Who is hiring structure or a labelled example for a different company, not a finished Northbeam post."
+      ],
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Seed-stage database startup here (not YC, funded by a European VC). Two plans from our DevRel: (1) do a Launch HN for our 1.0 like Supabase did, and (2) have him comment on every competitor Show HN with a link to our comparison page, plus submit each of our weekly blog posts to HN from the company account so we show up regularly. Thoughts?",
+      "expected_output": "Launch HN is YC-only, so Show HN instead; no competitor-thread hijacking (one disclosed mention when directly relevant); own content only part of the time, from a personal account; ranks comments and Show HN by value per hour.",
+      "expectations": [
+        "The response states that Launch HN is only for YC companies.",
+        "The response recommends a Show HN instead for the 1.0, if it is tryable.",
+        "The response says commenting on competitors' Show HNs to promote their product is not acceptable or is considered hijacking.",
+        "The response allows at most a single, disclosed mention in a competitor thread, and only when it answers a question.",
+        "The response cites HN's guideline that self-promotion is OK only part of the time and HN should not be used primarily for promotion.",
+        "The response advises against posting from a company account.",
+        "The response recommends substantive comments in others' threads before any further own-content submissions.",
+        "The response does not claim that posting regularly or building karma increases a story's rank."
+      ],
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Hi, I'm a French maintainer, my english is not good. 4 months ago our Show HN for logrus-ng v1 got 310 points. Now v1.4 is out with a faster encoder and I want to post Show HN again tomorrow. Here is my text, please only fix the grammar, don't change the content: 'Hello HN! We are very happy to present logrus-ng v1.4, the most fast structured logger for Go. New: encoder 2x faster, new hooks, bug fixes. Try it!'",
+      "expected_output": "Declines even a grammar-only fix because HN bans AI-edited text; suggests a human proofreader and says imperfect English is acceptable; says a new Show HN needs a significantly different version, at most once or twice a year, linking the old thread, so a minor release four months later does not qualify; names problems without rewriting.",
+      "expectations": [
+        "The response does not return a grammar-corrected version of the text.",
+        "The response states that HN bans AI-edited text, including light edits or grammar fixes.",
+        "The response says imperfect English is acceptable on HN or reads better than AI polish.",
+        "The response suggests a human proofreader or writing it in the author's own words.",
+        "The response says a new Show HN is only acceptable when the new version is significantly different.",
+        "The response says repeat Show HNs should happen at most once or twice a year.",
+        "The response says a repeat Show HN should link to the previous Show HN thread.",
+        "The response concludes that v1.4 does not qualify for a new Show HN because it is an incremental release, not a significantly different version.",
+        "The response names problems in the draft (for example 'most fast' superlative, the feature list, the exclamation tone) without supplying replacement sentences.",
+        "The response suggests an alternative such as a regular submission of a substantive technical post about the encoder work."
+      ],
+      "files": []
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "planning a Show HN for our open source vector DB next week, what should the title and first comment cover?",
+      "should_trigger": true
+    },
+    {
+      "query": "why did our hacker news post die after 20 minutes? it got flagged I think",
+      "should_trigger": true
+    },
+    {
+      "query": "our HN account was made last week and it says we can't post Show HN, what does that mean",
+      "should_trigger": true
+    },
+    {
+      "query": "how should our engineers behave when someone posts a HN thread about our product outage",
+      "should_trigger": true
+    },
+    {
+      "query": "writing our company's post for this month's HN who is hiring thread, remote roles in Canada, what's the format",
+      "should_trigger": true
+    },
+    {
+      "query": "is it ok for me to reply in a competitor's Show HN thread if someone asks how we compare",
+      "should_trigger": true
+    },
+    {
+      "query": "best time to post on hacker news for a dev tool? we're in Berlin",
+      "should_trigger": true
+    },
+    {
+      "query": "can I repost my Show HN? it got 2 points yesterday",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to hit the front page of HN with our CLI, what's realistic",
+      "should_trigger": true
+    },
+    {
+      "query": "my cofounder wants to ask our Discord to upvote our HN launch, is that a problem",
+      "should_trigger": true
+    },
+    {
+      "query": "should our startup do Launch HN or Show HN? we're not in YC",
+      "should_trigger": true
+    },
+    {
+      "query": "HN thread trashing our pricing has 200 comments, should we respond?",
+      "should_trigger": true
+    },
+    {
+      "query": "what is the hacker news second-chance pool and can I get my post into it",
+      "should_trigger": true
+    },
+    {
+      "query": "we use the company name as our HN username, does that hurt us",
+      "should_trigger": true
+    },
+    {
+      "query": "can I use Claude to clean up the grammar of my Hacker News comment before posting",
+      "should_trigger": true
+    },
+    {
+      "query": "is a waitlist page enough for a Show HN?",
+      "should_trigger": true
+    },
+    {
+      "query": "our blog post did great on HN once, should we submit every post there?",
+      "should_trigger": true
+    },
+    {
+      "query": "what karma do I need on hacker news to flag or downvote",
+      "should_trigger": true
+    },
+    {
+      "query": "Show HN for v2 of our library, we already did one for v1 last year",
+      "should_trigger": true
+    },
+    {
+      "query": "how many signups should we expect from a front-page Hacker News post for a devtool",
+      "should_trigger": true
+    },
+    {
+      "query": "we're YC W26, the partners say it's time for our Launch HN, what should our text and day look like",
+      "should_trigger": true
+    },
+    {
+      "query": "plan the full launch of our open source repo across GitHub, Reddit, newsletters and HN over the next 6 weeks",
+      "should_trigger": false
+    },
+    {
+      "query": "we're launching on Product Hunt next Tuesday, how do we get top 5 of the day",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I grow my technical Substack, stuck at 300 subscribers",
+      "should_trigger": false
+    },
+    {
+      "query": "should I cross-post my tutorial to dev.to with a canonical URL",
+      "should_trigger": false
+    },
+    {
+      "query": "our GitHub stars went flat after launch, how do we get more watchers and contributors",
+      "should_trigger": false
+    },
+    {
+      "query": "our product tag on Stack Overflow has 400 unanswered questions",
+      "should_trigger": false
+    },
+    {
+      "query": "write a Python script that pulls the top Hacker News stories from the API every hour",
+      "should_trigger": false
+    },
+    {
+      "query": "summarize today's hacker news front page for me",
+      "should_trigger": false
+    },
+    {
+      "query": "design our engineering employer brand so we can hire senior engineers",
+      "should_trigger": false
+    },
+    {
+      "query": "help me write a technical blog post about our Postgres migration tool",
+      "should_trigger": false
+    },
+    {
+      "query": "which subreddits should we post our CLI tool in and what are their self-promo rules",
+      "should_trigger": false
+    },
+    {
+      "query": "write my post for this month's HN Who wants to be hired thread, I'm a backend dev looking for remote work",
+      "should_trigger": false
+    },
+    {
+      "query": "summarize what HN commenters said about our competitor's launch thread yesterday and what they hated about its pricing",
+      "should_trigger": false
+    },
+    {
+      "query": "which awesome-lists and registries should our library be in for ongoing discovery",
+      "should_trigger": false
+    },
+    {
+      "query": "plan our build-in-public posts on X for the next quarter",
+      "should_trigger": false
+    },
+    {
+      "query": "our launch flopped across all channels, diagnose what went wrong in our positioning",
+      "should_trigger": false
+    },
+    {
+      "query": "create a Lobsters account and get an invite for our project",
+      "should_trigger": false
+    },
+    {
+      "query": "we got into YC, help me write our Demo Day pitch for the devtool",
+      "should_trigger": false
+    },
+    {
+      "query": "build a dashboard that tracks HN mentions of our brand with Algolia and Slack alerts",
+      "should_trigger": false
+    },
+    {
+      "query": "compare Hacker News, Lobsters and Reddit as launch channels for our Rust crate and pick the order",
+      "should_trigger": false
+    },
+    {
+      "query": "review our Indie Hackers milestone post about crossing $10k MRR before I publish it",
+      "should_trigger": false
+    }
+  ]
+}

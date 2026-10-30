@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 49 skills  
+> **Total Curated Skills**: 52 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -47,9 +47,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ice-frost-skill-vfx`](../../library/mengto-skills/skills/ice-frost-skill-vfx) | ⚪ Reserve | `mengto-skills` | Build the effects of an ice and frost skill as one visual language in Three.js. Frost that grow... |
 | [`implement-fog-of-war`](../../library/mengto-skills/skills/implement-fog-of-war) | ⚪ Reserve | `mengto-skills` | Implement, tune, debug, or validate soft wall-aware fog of war and gameplay perception in Three... |
 | [`lightning-energy-skill-vfx`](../../library/mengto-skills/skills/lightning-energy-skill-vfx) | ⚪ Reserve | `mengto-skills` | Build the effects of a close-combat energy skill as one visual language in Three.js. Lightning ... |
+| [`makepad-shaders`](../../library/sickn33-agentic-awesome-skills/skills/makepad-shaders) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CRITICAL: Use for Makepad shader system. Triggers on: makepad shader, makepad draw_bg, Sdf2d, m... |
 | [`melonjs`](../../library/melonjs-melonjs/skills/melonjs) | ⚪ Reserve | `melonjs-melonjs` | Provides migration guidance for melonJS 20.x, covering async initialization, WebGL 2/WebGPU bac... |
 | [`optimize-threejs-games`](../../library/mengto-skills/skills/optimize-threejs-games) | ⚪ Reserve | `mengto-skills` | Profile, diagnose, and improve Three.js or WebGL game performance without regressing gameplay. ... |
+| [`premium-3d-website`](../../library/sickn33-agentic-awesome-skills/skills/premium-3d-website) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing,... |
 | [`shader-dev`](../../library/minimax-ai-skills/skills/shader-dev) | ⚪ Reserve | `minimax-ai-skills` | Comprehensive GLSL shader techniques for creating stunning visual effects — ray marching, SDF m... |
+| [`shader-programming-glsl`](../../library/sickn33-agentic-awesome-skills/skills/shader-programming-glsl) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, cov... |
 | [`threejs`](../../library/mengto-skills/skills/threejs) | ⚪ Reserve | `mengto-skills` | Use when building or debugging interactive 3D scenes on the web with Three.js (scene/camera/ren... |
 | [`threejs-asset-pipeline`](../../library/cloudai-x-threejs-skills/skills/threejs-asset-pipeline) | ⚪ Reserve | `cloudai-x-threejs-skills` | Shrinking glTF assets for three.js with gltf-transform: inspect, validate and optimize commands... |
 | [`threejs-fundamentals`](../../library/cloudai-x-threejs-skills/skills/threejs-fundamentals) | ⚪ Reserve | `cloudai-x-threejs-skills` | Three.js scene setup: scenes and fog, cameras, the renderer and tone mapping, the animation loo... |

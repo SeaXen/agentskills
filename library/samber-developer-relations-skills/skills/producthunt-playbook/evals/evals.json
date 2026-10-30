@@ -1,0 +1,203 @@
+{
+  "skill_name": "producthunt-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're launching Pgwatch Cloud (hosted Postgres query observability, free tier + $49/mo team plan) on Product Hunt next Tuesday. Our growth lead found a 'top 10 hunter' who'll hunt us for $500, we're in a WhatsApp group of ~300 founders who do upvote swaps on launch days, and we'll send our 4,200-subscriber newsletter a 'please upvote us, every vote counts' email at 6am. Can you turn this into an hour-by-hour plan for the day?",
+      "expected_output": "Refuses the paid hunter, the upvote-swap group and the 'please upvote' email, citing Product Hunt's own rules and penalties; recommends self-hunting from a personal maker account; rewrites the newsletter ask as a share-and-feedback note with no vote request; gives an hour-by-hour plan anchored on the 12:01 AM Pacific go-live, the maker comment at go-live and staffed replies; includes an internal team note; presents no vote-count threshold as a rule.",
+      "files": [],
+      "expectations": [
+        "Recommends that a maker hunt the product themselves instead of paying the hunter",
+        "Gives a Product Hunt-sourced reason against the hunter: hunter followers are not notified, or the curator reviews products not hunters, or PH says no special hunter is needed",
+        "Refuses the WhatsApp upvote-swap group as coordinated voting",
+        "States that asking for or incentivizing upvotes can drop the launch in rank, remove it from the homepage or disqualify it",
+        "Rewrites or replaces the newsletter email so it contains no request to upvote",
+        "Keeps the newsletter announcement as an allowed move (sharing the link and inviting feedback), rather than cancelling all outreach",
+        "States that paying for a hunter or upvote service can get the launch unfeatured or unlisted",
+        "Schedules the maker comment at or immediately after go-live",
+        "Includes a note telling the team not to ask anyone for upvotes or post in vote groups",
+        "Does not state a specific number of upvotes needed for Product of the Day as a Product Hunt rule",
+        "Assigns named people or shifts to answer comments during the first hours"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "solo maintainer here. i wrote tinyjson-rs, a zero-copy JSON parser crate for Rust (~1.2k GitHub stars, MIT). made a Product Hunt account yesterday with the username tinyjson and the crate logo as avatar, planning to launch Thursday. can you write my tagline and the maker comment so i can just paste them in?",
+      "expected_output": "Flags that a brand-named account with a logo reads as a company account and that a one-day-old account cannot post until it is a week old unless it subscribes to Product Hunt's newsletter; gives a fit verdict that a Rust library is a secondary fit for Product Hunt (engineering aggregator as anchor; skip or staff Product Hunt lightly); drafts a tagline within 60 characters; returns the maker comment as an empty skeleton with the reason (PH commenting guidelines ask for no LLM-written comments, Likely AI badge); suggests a terminal or benchmark gallery.",
+      "files": [],
+      "expectations": [
+        "Flags the username 'tinyjson' or the logo avatar as a company or brand account that cannot post, vote or comment",
+        "Tells the user to switch to a personal profile: real full name, own photo, personal bio",
+        "States the one-week account-age rule for posting and that subscribing to Product Hunt's newsletter unlocks posting earlier",
+        "Gives a fit verdict that Product Hunt is a secondary or low-priority channel for a Rust library",
+        "Points to an engineering aggregator such as Hacker News as the better anchor channel for this library",
+        "Provides a tagline of 60 characters or fewer",
+        "Does not write a finished, paste-ready maker comment filled with tinyjson-rs details",
+        "Provides a maker comment skeleton with slots for the user to fill",
+        "Explains the reason: Product Hunt's commenting guidelines ask for no AI-written comments, or the Likely AI badge labels them",
+        "Suggests a gallery showing a terminal session, code or a benchmark rather than a dashboard mock-up"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We launched Deployly (preview environments for every PR) on Product Hunt on Sept 15 and finished #7. Since then we shipped dark mode, a new pricing page with a cheaper Hobby tier, and moved the app to app.deployly.io. We want to relaunch on Oct 30, and our CLI team also wants their own Product Hunt launch for deployly-cli on Nov 3. Is this plan OK? Give me the dates to put in our calendar.",
+      "expected_output": "States the two-month gap applies per product, per company and per root domain, so Oct 30 and Nov 3 are both inside the window; dark mode and pricing changes do not count as significant updates; the subdomain shares the root domain; recommends combining the CLI into one post or waiting, and a relaunch request only if there is a genuinely significant change; warns that repeated relaunches without significant change read as spam; states no date qualifies until a significant update ships, with Nov 15 as the earliest window.",
+      "files": [],
+      "expectations": [
+        "States that Product Hunt asks for at least two months between launches of the same product or company",
+        "Identifies Oct 30 as inside the two-month window after Sept 15",
+        "States that dark mode or a UI change does not count as a significant update",
+        "States that pricing changes do not count as a significant update",
+        "Flags that app.deployly.io shares the root domain deployly.io and falls under the same gap",
+        "Flags the Nov 3 CLI launch as the same company or root domain, inside the window",
+        "Recommends combining the CLI and the product update into one post, or sequencing them two months apart",
+        "Explains that launching early requires a relaunch request describing what changed, reviewed by Product Hunt",
+        "States that no date is compliant until a significant update ships, and that Nov 15 is only the earliest window once one does",
+        "Names what would qualify as significant, such as a new app or a redesign with new functionality or a new use case"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Today is our launch for Tracelane (distributed tracing for serverless). We're #3 but our points dropped from 410 to 330 in the last hour and my cofounder is panicking. Also our side product, 'SaaS Starter Pro' (a Next.js + Stripe boilerplate), launched yesterday and never appeared on the homepage at all. Cofounder wants to blast our 2,000-member Discord to win the points back and email Product Hunt support asking them to feature the boilerplate. What do we do in the next 6 hours?",
+      "expected_output": "Explains a mid-day points drop is Product Hunt filtering inauthentic votes, not a penalty, and refuses the Discord blast; explains the boilerplate falls in a category Product Hunt never features, that it is still live in the All feed, and that emailing support rarely changes featuring; gives a six-hour plan centred on comments and honest replies.",
+      "files": [],
+      "expectations": [
+        "Explains that the points drop reflects Product Hunt removing votes it judged inauthentic",
+        "Says the drop is not a penalty on the launch",
+        "Refuses the Discord blast to win points back",
+        "Advises against rallying more votes in response to the drop",
+        "States that boilerplates or templates are a category Product Hunt does not feature",
+        "Tells the user the boilerplate launch is still live in the All feed even though it is not featured",
+        "Says contacting Product Hunt rarely changes a featuring decision, and only critical missing information justifies it",
+        "Says the drop is not a penalty only if no vote push ran, and that a push can get the launch unfeatured",
+        "Flags that two launches from the same company one day apart fall inside Product Hunt's two-month per-company gap, which draws review and needs a relaunch request"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Querybook AI (AI SQL assistant for analysts, desktop + web) won Product of the Day on Product Hunt in July. Three months later Product Hunt sends us basically zero traffic. I have about 3 hours a month for Product Hunt. What should I actually do there between launches? Don't just tell me to relaunch.",
+      "expected_output": "Ranks ongoing surfaces by value per hour for a 3-hour monthly budget: product forum threads (notify all followers) with searchable titles and a monthly changelog, claimed Product Page, maker byline plus genuine comments, Shoutouts; states Kitty Points do not affect ranking; relaunch only after a significant update and the two-month gap; names a default rung and metrics.",
+      "files": [],
+      "expectations": [
+        "Recommends posting threads in the product's own Product Hunt forum",
+        "States that a thread in the product forum notifies all of the product's followers",
+        "Advises writing forum thread titles the way people search",
+        "Suggests a recurring changelog or 'what we shipped' forum thread",
+        "Recommends asking real users for reviews and states this is allowed, unlike asking for upvotes",
+        "Recommends the maker byline so the product link appears under the maker's comments",
+        "Mentions that reviews feed Product Hunt's quarterly Orbit Awards",
+        "Fits the recommended plan inside roughly 3 hours a month",
+        "States that Kitty Points or reputation do not affect ranking or featuring",
+        "Warns that promoting your own product inside comments on others' launches gets the comment removed, with the maker byline as the allowed carrier",
+        "Names at least one metric to track, such as followers gained or forum replies"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our launch agency says: launch Hookstream (webhook relay for local dev) at 12:01 AM PT on a Tuesday because Tuesday is the best day, we need 500 upvotes in the first 4 hours because Product Hunt shows launches in random order for the first 4 hours, they'll run a Product Hunt ad on launch day for extra visibility, and they'll use their AI tool to reply to every comment within 5 minutes. We're 3 people in Berlin. Sanity-check this before we sign.",
+      "expected_output": "Separates Product Hunt's own rules from agency folklore: 12:01 AM Pacific go-live is a platform fact; Tuesday-is-best and the 500-upvote target are practitioner claims without a published source, while the first-hours randomization was a 2023 Product Hunt test of unconfirmed current status; launch-day ads are not allowed; AI auto-replies conflict with the commenting guidelines and get a Likely AI badge; plans a Berlin staffing rota from go-live converted to local time for the chosen date.",
+      "files": [],
+      "expectations": [
+        "Confirms 12:01 AM Pacific as Product Hunt's own go-live time",
+        "Labels 'Tuesday is the best day' as practitioner claim, not a Product Hunt rule",
+        "Labels the 500-upvote target as having no Product Hunt source",
+        "Treats the 'random order for the first 4 hours' claim as a randomization test Product Hunt announced in 2023, not as a current published rule, and not as invented folklore",
+        "States that Product Hunt does not allow ads on launch day",
+        "Rejects AI-generated replies, citing the commenting guidelines or the Likely AI badge",
+        "Asks or advises picking the launch day by when the team can staff the first hours, rather than by a 'best day' claim",
+        "Proposes a staffing rota across the 3 people for the first hours",
+        "Explains that points are not raw upvotes, so a vote count target is not a rank guarantee"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "we're launching our API monitoring tool on Product Hunt in two weeks, how do we prep the listing and the day itself?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should I pay a top hunter to post our devtool on PH or just hunt it myself?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Product Hunt launch didn't make the homepage and we have no idea why - it's a Next.js SaaS starter kit",
+      "should_trigger": true
+    },
+    {
+      "query": "points on our PH launch went down by 80 in an hour, are we being penalized??",
+      "should_trigger": true
+    },
+    {
+      "query": "can we relaunch on product hunt 5 weeks after our first launch if we shipped a new pricing page and dark mode",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft a tagline under 60 characters and a gallery plan for our Kubernetes cost dashboard's Product Hunt page",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it against the rules to tell our Discord community we're live on Product Hunt today?",
+      "should_trigger": true
+    },
+    {
+      "query": "We got Product of the Day in March. What do we do on Product Hunt now so it isn't a one-day spike?",
+      "should_trigger": true
+    },
+    {
+      "query": "my rust crate has 2k stars, is it even worth putting it on producthunt or is that only for SaaS apps",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I use an AI tool to answer comments on our PH launch so we reply within minutes?",
+      "should_trigger": true
+    },
+    {
+      "query": "We have a $500 offer from a Product Hunt hunter with 20k followers to post our Terraform linter - worth it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan the full open-source launch for our CLI: Show HN, Reddit, Product Hunt, newsletters, which order and which day",
+      "should_trigger": false
+    },
+    {
+      "query": "Review my Show HN title and first comment before I post it tomorrow",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a script that pulls today's top Product Hunt launches through their GraphQL API into a CSV",
+      "should_trigger": false
+    },
+    {
+      "query": "Which developer directories and awesome lists should we submit our devtool to after launch?",
+      "should_trigger": false
+    },
+    {
+      "query": "We run a partner app marketplace - plan the co-marketing launch program for apps going live in it",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the launch blog post announcing v2 of our observability platform",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we cross-post our launch article to dev.to with the right canonical URL?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up an embargoed press briefing for TechCrunch ahead of our launch next month",
+      "should_trigger": false
+    },
+    {
+      "query": "Optimize our App Store listing screenshots and keywords before the iOS launch",
+      "should_trigger": false
+    },
+    {
+      "query": "Write release notes for our 3.0 launch that we can reuse across our changelog and email",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we launch our devtool on BetaList, Uneed, Peerlist or DevHunt first? Compare their audiences and costs",
+      "should_trigger": false
+    }
+  ]
+}

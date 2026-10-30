@@ -1,0 +1,543 @@
+{
+  "skill_name": "devrel-newsletter-sponsorship",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I edit 'Pulse Weekly', a community newsletter for the Borealis observability toolkit. About 40% of our 11,000 readers are in Germany, the rest US and UK. Our first sponsor, Quillstack, sent their block and wants the header to read 'Presented by Quillstack' with their logo, and below it 'Thanks to our friends at Quillstack for supporting the community'. They also want 'Quillstack x Pulse Weekly' in the subject line of that issue. Can you write the final sponsor block and tell me what goes where (email, plain text version, our web archive)?",
+      "expected_output": "Replaces the funding-style wording with a plain advertising label ('Ad' plus 'Anzeige' for the German share) placed before the copy on the unit, keeps the friendly line only beside the label, puts the label in HTML, plain text and archive, marks archive links rel=sponsored, and keeps the sponsor out of the regular issue's subject line.",
+      "files": [],
+      "expectations": [
+        "Rejects 'Presented by Quillstack' as the only label on the sponsor unit",
+        "Uses 'Ad' or 'Advertisement' as the label word, not 'Sponsored' alone",
+        "Adds 'Anzeige' or 'Werbung' because of the German readership",
+        "Places the label before the sponsor copy, on the unit itself",
+        "Says the 'Thanks to our friends at' line may stay only next to the label, not instead of it",
+        "States the label must also appear in the plain-text part",
+        "States the label must also appear in the web archive version",
+        "Recommends marking the sponsor link in the web archive with rel=\"sponsored\"",
+        "Declines putting the sponsor name in the regular issue's subject line",
+        "Explains that a promotional subject line can make the whole issue count as commercial email",
+        "Names the basis for rejecting 'Presented by' as regulator guidance or German case law rather than calling it a criminal offence or a fine",
+        "Mentions the German court practice that 'sponsored by'-style wording does not replace 'Anzeige'",
+        "Delivers an actual rewritten sponsor block, not only advice",
+        "Does not claim to give legal advice and points real exposure to counsel",
+        "Does not offer 'Sponsored' alone as the fix, noting UK guidance advises against it"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Solo dev here. My newsletter 'Gopher Pointers' has 12,400 subscribers and Mailcraft says 52% open rate. A dev-tools company asked for my rate. Someone on a Discord said dev newsletters charge $50 CPM, so I was going to quote 12,400 x $50/1000 = $620 per issue, or maybe use opens since that's 'real readers'. Is $620 right? I haven't looked at clicks much but I can export them, the platform has some 'bot click' toggle I never turned on.",
+      "expected_output": "Refuses to price from gross subscribers or opens, asks for/uses filtered human per-link click data (turn on the filter, export history), runs floor, comparable band as a per-1k ratio and click value, quotes click value under the cap rule, and labels unmeasured numbers self-set.",
+      "files": [],
+      "expectations": [
+        "Does not endorse $620 computed from gross subscribers times a CPM",
+        "Rejects pricing on the 52% open rate, saying opens are inflated by mail-privacy features",
+        "Tells the user to turn on the bot-click filter",
+        "Asks for or uses per-link click data from past issues, noting a historical export counts",
+        "Computes or asks for a cost-recovery floor that includes the seller's hours",
+        "Uses published rate cards as a price-per-thousand-subscribers ratio, not as a dollar target",
+        "Bases click value on clicks a sponsor unit would get, not total issue clicks",
+        "When no past sponsor exists, applies an ad discount to editorial clicks at the slot's position and labels it self-set",
+        "Treats any cost per click the buyer states as buyer-supplied and discounts it",
+        "States one quote rule: quote click value, capped near the band's top until the first sponsor reports, never under the floor",
+        "Labels every number the user did not measure as self-set",
+        "Marks the price provisional or blocked until click data is in, rather than inventing click numbers",
+        "Mentions repricing after the first sponsor report",
+        "Derives any ad discount from past clicks on a labelled unit, or else quotes the band's bottom until the first report instead of inventing a discount"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We run 'The Lantern', a monthly newsletter for contributors to an open-source static site generator. 1,380 subscribers, we've sent 4 issues, no click tracking set up yet. A hosting startup emailed offering $300 for a 'sponsored section' next month. Our signup form just says 'Get monthly project news'. Should we take it? We'd love the money for CI costs.",
+      "expected_output": "Runs the sellability gate, finds which conditions fail (no click data over six issues, readers not told about sponsor content, possibly seller/invoicing), names the cheapest fixes, and offers interim options: a disclosed pilot booking at the floor, classified lines, or no sales; notes network floors.",
+      "files": [],
+      "expectations": [
+        "Runs a sellability check before discussing price",
+        "Identifies missing click data as a failed condition",
+        "Counts the evidence in issues, not months (six issues needed, four sent)",
+        "Identifies that the signup form does not tell readers issues carry sponsor content",
+        "Recommends updating the signup text or privacy notice before the first paid issue",
+        "Asks who would invoice, or whether a fiscal host or entity can receive the money",
+        "States that the failed reader-notice condition blocks any sale, including a pilot, until it is fixed",
+        "Recommends announcing sponsor content to existing subscribers in an issue before the first paid one",
+        "Once the notice is fixed, offers a pilot booking with the missing click evidence disclosed to the sponsor in writing",
+        "Prices any pilot at or above a cost-recovery floor, not simply accepting $300 without a basis",
+        "Mentions classified lines or no sales as alternatives",
+        "Notes that ad networks and marketplaces mostly pass on lists of this size",
+        "Requires labelling the section as an ad, not 'sponsored section' styling alone",
+        "Checks whether the project charter or maintainers allow paid placements before selling"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Sponsor inquiry for my weekly 'Frontend Field Notes' (21k subs). Velora wants to book 6 issues and will pay double our normal $900 rate if I also write a short honest review of their component library in the main section, plus they want a guarantee of at least 300 clicks per issue or a free extra issue. Honestly the review would be positive anyway, I like the product. Draft my reply and the terms.",
+      "expected_output": "Declines the paid review as a trust/house-rule refusal (not claiming law forbids a labelled advertorial), declines the raw-click guarantee because scanners make raw counts meaningless, offers the labelled slot at the normal price with booking terms, and optionally a filtered human-click floor only after six sponsor reports.",
+      "files": [],
+      "expectations": [
+        "Declines bundling an editorial review with the paid slot",
+        "Frames the review refusal as trust or house rule, not as something the law forbids outright",
+        "Notes that liking the product does not change the refusal, since the editorial pick cannot be part of the price",
+        "Says editorial coverage stays the editor's independent call outside the deal",
+        "Declines a raw-click guarantee",
+        "Explains that corporate mail gateways or scanners click links automatically, making raw counts meaningless",
+        "Offers at most a floor on filtered human clicks, and only after several sponsor reports exist",
+        "Offers the labelled slot instead",
+        "Reply includes a copy deadline",
+        "Terms include a cancellation rule",
+        "Terms include a make-good for a failed send or broken link",
+        "Terms include a pause clause that moves or refunds a slot if an issue is skipped",
+        "Terms state the sponsor receives aggregate reports only, with no subscriber identities",
+        "Includes a drafted reply to the sponsor"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I'm head of DevRel at Corvane (API gateway). Our 'Corvane Builders' monthly goes to 26,000 people, mostly product signups plus docs subscribers, readers in US, UK, France and Germany. Our integration partner Nimbit wants to pay us for one dedicated email to the whole list announcing our joint integration, and they'd like a CSV of the companies whose people clicked so their SDRs can follow up. Marketing says it's fine because they're a partner, not an advertiser. How do we set this up?",
+      "expected_output": "Treats the partner placement as an ad, refuses a dedicated send to a list that consented to the newsletter only and the company-level click list, offers a labelled slot inside a normal issue or a separate opt-in partner list, and explains commercial-email and consent rules.",
+      "files": [],
+      "expectations": [
+        "States that a paid partner placement is still an ad and needs the ad label",
+        "Declines a dedicated send to the main newsletter list",
+        "Explains that a dedicated send for a sponsor is commercial email under US rules",
+        "Explains that EU or UK consent to the newsletter does not cover third-party marketing",
+        "States that the UK soft opt-in never covers third-party marketing",
+        "Offers a labelled slot inside a normal issue as the alternative",
+        "Offers a separate opt-in list for partner offers as the route to dedicated sends",
+        "Declines sharing the list of companies whose readers clicked",
+        "Offers aggregate counts only, with company names excluded",
+        "Raises the competitor or overlap question for the partner under a written acceptance policy",
+        "If a dedicated send happens later, says its subject line must name the sponsor and its advertising nature",
+        "Mentions deliverability or complaint risk from dedicated sends",
+        "Adds 'Anzeige' or 'Werbung' to the label because readers are in Germany"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I volunteer on 'Kiln Notes', the newsletter of the Kiln build tool project (open source, no foundation, no company behind it). We send 'roughly every two weeks when someone has time'. A cloud company wants to prepay $4,000 for 6 months of top sponsor slots. Nobody ever decided if we take ads. Can you write us a rate card and the booking contract so we can accept this week?",
+      "expected_output": "Stops to settle the charter questions (whether paid placements are allowed, cap, who approves) with the maintainers, flags that without an invoicing entity or fiscal host every route is deleted, refuses booking issues the irregular programme may skip, and requires a pause clause and an acceptance policy written before judging the sponsor.",
+      "files": [],
+      "expectations": [
+        "Says the project must first decide whether it carries paid placements at all",
+        "Names the per-issue cap and who approves sponsors as decisions to settle first",
+        "Points to the programme or charter decision as a separate step before selling",
+        "Flags that without a fiscal host or invoicing entity the project cannot sell yet",
+        "Declines prepaying six months of issues the irregular schedule may skip",
+        "Recommends booking only issues the owner has committed to",
+        "Requires a pause clause that moves or refunds slots",
+        "Writes or requires an acceptance policy before judging this sponsor",
+        "Asks about community norms or maintainer buy-in for commercial content",
+        "Requires a named seller with hours to answer, approve copy and report, given the volunteer-when-time-allows schedule",
+        "Notes a sellability check is needed (click data, reader description, seller hours)",
+        "Does not deliver a final price as if the gate already passed",
+        "Mentions taking payment before the copy deadline rather than long invoice terms for a small volunteer publisher, or prepay tied only to committed issues"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We're Driftly (feature analytics SaaS) and our dev newsletter 'Driftly Dispatch' (weekly, 18k, solid click history, filter on) has started getting sponsor requests. Latest one: Ostrander, an observability vendor that also sells a 'product analytics' add-on, wants to run 4 issues but only pay $12 per signup they track on their side, no flat fee. My CEO likes it because 'no risk'. Should we accept? And should we even let Ostrander in given their add-on?",
+      "expected_output": "Refuses performance-only pay (flat fee above the floor first, performance on top, tracking-dispute rule settled on the publisher's filtered clicks), applies a written competitor rule that by default refuses products competing with any product the company sells including a module, and logs the refusal.",
+      "files": [],
+      "expectations": [
+        "Declines pay-per-signup as the only payment",
+        "Explains that the publisher carries the conversion risk and cannot audit the sponsor's tracking",
+        "Offers performance pay only on top of a flat fee that clears the cost floor",
+        "Requires a written tracking-dispute rule, settled on the publisher's own filtered click count",
+        "Raises the competitor rule because the sponsor's add-on overlaps the company's product",
+        "Default competitor rule refuses a competing product even when it is a module of a broader product",
+        "Says the acceptance policy should be written before judging this sponsor, not after the offer",
+        "Recommends logging the refusal with the rule that applied",
+        "Distinguishes integration partners without product overlap as acceptable with the same label",
+        "Corrects the CEO's 'no risk' framing",
+        "Recommends a direct primary slot as the default sales route given the click history",
+        "Prices from click value rather than per signup or per subscriber",
+        "Uses the newsletter's filtered click history to set the flat fee"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "what should I charge a company to sponsor my developer newsletter? ~8k subs",
+      "should_trigger": true
+    },
+    {
+      "query": "Can you build a media kit and rate card for our weekly Kubernetes digest?",
+      "should_trigger": true
+    },
+    {
+      "query": "a startup wants to pay for a mention in our newsletter, how do we handle it",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I label the sponsor block in our dev newsletter so it's legal in the US and Germany",
+      "should_trigger": true
+    },
+    {
+      "query": "Our open-source project newsletter got its first sponsor inquiry. What do we need in place before saying yes?",
+      "should_trigger": true
+    },
+    {
+      "query": "is 'Presented by X' enough as a label for a paid slot in my newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "sponsor wants a guaranteed number of clicks per issue of my newsletter, should I agree?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write an advertiser acceptance policy for our developer newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "my newsletter has 1,200 subscribers, is it too small to sell sponsorships?",
+      "should_trigger": true
+    },
+    {
+      "query": "A partner wants us to send a dedicated email to our newsletter list about their product. OK?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I price newsletter ad slots - CPM, flat fee, per click?",
+      "should_trigger": true
+    },
+    {
+      "query": "what should go in a sponsor report after their slot runs in our newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "we publish a product newsletter at our dev tools company, should we let a competitor buy an ad slot in it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft booking terms for newsletter sponsors: copy deadline, cancellation, make-goods",
+      "should_trigger": true
+    },
+    {
+      "query": "sponsor offered double if I also review their product in the newsletter. how to say no nicely?",
+      "should_trigger": true
+    },
+    {
+      "query": "Newsletter sponsorship pricing for a niche Postgres newsletter with 9k readers",
+      "should_trigger": true
+    },
+    {
+      "query": "Should our community digest join an ad network like beehiiv's or sell slots ourselves?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many sponsors per issue is too many for a technical newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "Sponsor wants the list of companies that clicked their link in our newsletter. Can I send it?",
+      "should_trigger": true
+    },
+    {
+      "query": "do I need to tell subscribers at signup that the newsletter has ads?",
+      "should_trigger": true
+    },
+    {
+      "query": "Help me set up a classifieds/job listings section we sell in our Rust newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "someone offered pay-per-signup for a slot in my newsletter instead of a flat fee",
+      "should_trigger": true
+    },
+    {
+      "query": "We have a fiscal host on Open Collective. Can our project newsletter sell ad slots through it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Raise our newsletter sponsorship price? Sold out for 3 months straight",
+      "should_trigger": true
+    },
+    {
+      "query": "What's a fair price for the top sponsor slot vs a smaller text ad lower in the issue?",
+      "should_trigger": true
+    },
+    {
+      "query": "I want to monetize my indie dev newsletter with sponsors, where do I start",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we offer exclusivity to a newsletter sponsor and what do we charge for it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it ok to call it 'Together with Acme' at the top of our newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our devrel newsletter has 30k subs. Marketing wants to start selling sponsorships to partners.",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I handle a sponsor who sends their newsletter ad copy late?",
+      "should_trigger": true
+    },
+    {
+      "query": "what open rate should i put in my newsletter media kit",
+      "should_trigger": true
+    },
+    {
+      "query": "create a newsletter ad rate card for our frontend weekly",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I put an affiliate link in my developer newsletter and how do I disclose it",
+      "should_trigger": true
+    },
+    {
+      "query": "We skipped an issue and a prepaid sponsor is upset. What should our terms have said?",
+      "should_trigger": true
+    },
+    {
+      "query": "Does a sponsored slot in my newsletter make it commercial email under CAN-SPAM?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do i figure out cost per click to justify my newsletter sponsorship price",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Python meetup newsletter wants to accept ads from a crypto exchange. Thoughts?",
+      "should_trigger": true
+    },
+    {
+      "query": "Set up sponsorship sales for 'Kotlin Corner', our biweekly community newsletter, 15k readers",
+      "should_trigger": true
+    },
+    {
+      "query": "Should ad copy in my newsletter look like the editorial items or be visually separate?",
+      "should_trigger": true
+    },
+    {
+      "query": "Writing 'Anzeige' or 'Werbung' on newsletter ads - when do I need that?",
+      "should_trigger": true
+    },
+    {
+      "query": "what do sponsors expect in a newsletter media kit",
+      "should_trigger": true
+    },
+    {
+      "query": "is a newsletter swap with another publisher an ad I need to label?",
+      "should_trigger": true
+    },
+    {
+      "query": "price a newsletter takeover issue vs single slot",
+      "should_trigger": true
+    },
+    {
+      "query": "We're a foundation. Can our project newsletter sell slots to member companies?",
+      "should_trigger": true
+    },
+    {
+      "query": "A tool vendor wants to sponsor 6 months of our newsletter upfront, how do we structure it",
+      "should_trigger": true
+    },
+    {
+      "query": "what bot-click filtering should I use before reporting sponsor clicks from my newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "we're thinking about putting ads in the Elixir digest I edit, what's a sane first price and what do we refuse?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our newsletter's sponsor booked once and never came back. Was our price wrong?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to sponsor JavaScript Weekly next quarter. How do we pick the slot and write the ad?",
+      "should_trigger": false
+    },
+    {
+      "query": "How much should our startup budget to advertise in developer newsletters?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write this week's issue of our developer newsletter from these 8 links, including the sponsor block",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we start a developer newsletter at all, or is a changelog RSS feed enough?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our newsletter is landing in spam since we switched platforms. Help.",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I grow our developer newsletter's subscriber list?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up GitHub Sponsors tiers for my open-source library",
+      "should_trigger": false
+    },
+    {
+      "query": "Our company wants to fund open-source projects we depend on. Which ones and how much?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a sponsorship prospectus and tier prices for our developer conference",
+      "should_trigger": false
+    },
+    {
+      "query": "What should we charge sponsors for booths at our hackathon?",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me pick which items go in next week's newsletter, it's a slow week",
+      "should_trigger": false
+    },
+    {
+      "query": "Is this conference sponsorship booth worth it for our devtools company?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a press release announcing our Series A",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I disclose a sponsored YouTube video about our API?",
+      "should_trigger": false
+    },
+    {
+      "query": "We pay creators to post about our product on X. What disclosure do they need?",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft a cold email to newsletter writers asking them to feature our launch for free",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we price our SaaS API plans, per seat or usage-based?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the podcast ad read for our sponsor this week",
+      "should_trigger": false
+    },
+    {
+      "query": "Our meetup needs a pizza sponsor, how do I ask a local company?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up SPF, DKIM and DMARC for our newsletter subdomain",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I write a good subject line for our monthly product newsletter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan a referral program for our newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we import our product users into the newsletter list?",
+      "should_trigger": false
+    },
+    {
+      "query": "What KPIs should our DevRel team report to the VP?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the cadence and section template for a new community newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "Our open-source project needs funding, should we try Open Collective or GitHub Sponsors?",
+      "should_trigger": false
+    },
+    {
+      "query": "A sponsor wants to renew for our conference next year, how do we negotiate the increase?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a blog post announcing our partnership with Nimbit",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up Google Ads for our developer tool",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I get my project featured in This Week in Rust?",
+      "should_trigger": false
+    },
+    {
+      "query": "Explain how to price a webinar sponsorship for our virtual summit",
+      "should_trigger": false
+    },
+    {
+      "query": "We want to run paid ads on Reddit for developers, where do we start?",
+      "should_trigger": false
+    },
+    {
+      "query": "Who should own our newsletter after our editor leaves?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I monetize my open-source project beyond donations?",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me write an affiliate program for our SaaS",
+      "should_trigger": false
+    },
+    {
+      "query": "Create an event sponsor renewal email for last year's gold sponsor",
+      "should_trigger": false
+    },
+    {
+      "query": "What's our newsletter's unsubscribe rate telling us?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan a co-marketing campaign with an integration partner",
+      "should_trigger": false
+    },
+    {
+      "query": "Audit our docs site for SEO",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a code of conduct for our Discord community",
+      "should_trigger": false
+    },
+    {
+      "query": "Our startup wants to buy a dedicated email send in a dev newsletter, is it worth it vs a regular slot?",
+      "should_trigger": false
+    },
+    {
+      "query": "How to calculate ROI of sponsoring a developer podcast",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a media kit for our developer conference sponsors",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we vet which newsletters to advertise our product in?",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft a sponsorship agreement for our meetup venue host",
+      "should_trigger": false
+    },
+    {
+      "query": "Our newsletter clicks dropped after Apple Mail changes, how do we measure engagement now?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a job board on our community website and price the listings",
+      "should_trigger": false
+    },
+    {
+      "query": "Our product newsletter's click rate halved this quarter, rewrite the next issue to fix engagement",
+      "should_trigger": false
+    }
+  ]
+}

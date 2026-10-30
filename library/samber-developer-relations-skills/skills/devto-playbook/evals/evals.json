@@ -1,0 +1,332 @@
+{
+  "skill_name": "devto-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm head of DevRel at Flagpole (feature flags SaaS, MIT TypeScript SDK with 2.1k stars). Marketing has 40 posts on blog.flagpole.dev with an RSS feed. Plan for Monday: make a fresh dev.to account called 'flagpole', RSS-import all 40 and publish them the same day, tag each one #opensource #javascript #webdev #beginners for max reach, and have our 12 engineers heart + unicorn every post in the first hour. Sanity check please?",
+      "expected_output": "Rejects same-day bulk publishing from a fresh account, the team reaction plan and the #opensource/#beginners tagging; proposes an organization, canonical-ticked RSS import as drafts, earn-first weeks and paced publishing.",
+      "files": [],
+      "expectations": [
+        "Advises against publishing all 40 imported posts on the same day and recommends publishing them one at a time over weeks",
+        "Warns that coordinated reactions from the 12 engineers count as engagement manipulation or can trigger reaction-ring detection that reduces the engineers' reputation",
+        "States that #opensource tag rules ban project promotion or announcements",
+        "States that #beginners is for beginners to programming or to a language, not people new to a specific tool or SDK",
+        "Recommends #showdev (or topic tags) instead of #opensource for showing off the SDK",
+        "Recommends publishing under a DEV organization rather than only a standalone brand account",
+        "Says the RSS import option to mark the source as canonical must be ticked (it is not automatic)",
+        "Says RSS-imported posts arrive as drafts that need review before publishing",
+        "Includes an earn-first period of commenting on other people's posts before the first company post",
+        "Notes that a brand-new account faces new-account limits or extra spam scrutiny",
+        "Says public reaction types (heart, unicorn) count the same, so asking for unicorns buys nothing extra",
+        "Notes that blog categories in the RSS feed become dev.to tags on import and must be checked",
+        "Warns that imported drafts keep the original blog post date and that old posts publish back-dated unless the date line is removed"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We run the API platform Ratchet. Our content team now drafts our weekly dev.to posts with Claude, a PM skims and approves them, and we post them from each engineer's personal dev.to account with a CTA linking to ratchet.dev/pricing. Is there anything we need to change? We'd like to keep the volume at 3 posts a week.",
+      "expected_output": "Flags AI disclosure tiers (approval-only drafts are Fully Autonomous), the AI guideline ban on AI-assisted posts promoting your own business, the company-blog backlink exemption that applies only under the organization, and the promotion-first Terms clause.",
+      "files": [],
+      "expectations": [
+        "Says the posts must carry an AI disclosure tier on dev.to (Hand Written, AI-Assisted, Fully Autonomous)",
+        "States that an LLM draft that a human only skims or approves counts as Fully Autonomous, not Hand Written or AI-Assisted",
+        "Cites the DEV AI guideline that AI-assisted posts must not promote a business, including the author's own",
+        "Recommends that posts naming the product be human-written or meaningfully rewritten by a human",
+        "States that DEV's AI guidelines exempt a company-blog backlink only when the post is published under the company's DEV organization",
+        "States that an organization byline does not make AI-assisted product promotion acceptable",
+        "Flags the Terms rule against content designed primarily for promotion or backlinks",
+        "Recommends moving the posts to an organization byline",
+        "Warns that undisclosed AI or synthetic firsthand claims risk suspension",
+        "Mentions that readers can choose to reduce AI-labelled posts in their feed, lowering reach",
+        "Questions the 3-posts-a-week volume against the team's capacity to answer comments"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Six months ago we connected our engineering blog's RSS to dev.to and have published ~30 of the imported posts since. Now Google shows the dev.to copies above our own blog for our best tutorials and our blog traffic dropped 25%. What went wrong and how do we fix it without deleting the dev.to posts?",
+      "expected_output": "Diagnoses the unticked 'mark as canonical' RSS option, fixes canonical_url per published post, changes the feed setting, and notes canonical is a hint.",
+      "files": [],
+      "expectations": [
+        "Identifies that the RSS import only sets canonical_url when the 'mark the RSS source as canonical URL' option is enabled",
+        "Recommends checking each imported dev.to post for a canonical_url pointing to the original blog URL",
+        "Notes that search engines treat canonical as a hint, so the fix is not guaranteed or immediate",
+        "Recommends setting canonical_url on each already-published post via front matter or post settings",
+        "Recommends turning on the canonical option in the RSS import settings for future imports"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our DevRel team (2 people) posts once a week on dev.to under our org account. Posts are 300-word summaries of our docs with a 'continue reading in the docs' link, no cover image. We get ~3 reactions per post when we check the analytics at the end of the month. We've started asking our Discord to leave unicorns. How do we fix reach?",
+      "expected_output": "Diagnoses teaser format, missing cover image, no earn-first commenting and the 30-day measurement window; replaces unicorn asks.",
+      "files": [],
+      "expectations": [
+        "Says teaser posts that send readers to the docs for the full content break dev.to's substantial-content rule or attract trusted-member downvotes",
+        "Recommends publishing the full content on dev.to (with canonical if it lives elsewhere)",
+        "States that public reaction types weigh the same, so unicorn requests do not add ranking",
+        "Warns that reactions solicited from Discord members count as engagement manipulation, or that reactions from accounts under about 10 days old carry almost no weight",
+        "Says ranking weight concentrates in the first few days after publishing",
+        "Recommends measuring reactions and comments at around day 4 rather than at month end",
+        "Recommends replying to comments and hearting good comments on their own posts",
+        "Recommends earn-first commenting on other people's posts in the target tags",
+        "Labels at least one ranking claim as published by the platform versus practitioner evidence"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We're open-sourcing our CLI, 'tidepool', v1.0 next Tuesday. I want a dev.to post tagged #opensource #news #contributorswanted #productivity, plus I'd like to pay dev.to to have it pinned as featured on the homepage. Also we were going to post a Listing for contributors. Budget is a few thousand dollars.",
+      "expected_output": "Moves the post to #showdev, drops #opensource for announcements, explains Listings are gone and paid routes are Billboards/Ads/Takeover/Challenges, not paid featuring of an organic post.",
+      "files": [],
+      "expectations": [
+        "States that #opensource bans project announcements and contributor requests",
+        "Keeps #news (with a summary and source) or #contributorswanted as acceptable tags for the release and contributor ask",
+        "Recommends #showdev for the launch post",
+        "States that dev.to Listings have been turned off",
+        "Names Billboards (via Pro Tools, requiring an organization admin) as the replacement paid option",
+        "Names DEV's paid offers such as DEV Ads, DEV Takeover or sponsored DEV Challenges, routed through DEV's partnership contact",
+        "Does not claim that money can buy organic featured or Top 7 placement",
+        "Recommends a story-led post with the problem, what was built, a trade-off and limitations rather than a feature list",
+        "Recommends a #discuss companion post or question during launch week",
+        "Points to the launch-window skill (oss-launch) or Hacker News playbook for the rest of launch day"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "A tag moderator just removed #javascript from our post about our new Node.js SDK release (we work at Harbor, a payments API) and left a note saying it's 'release notes, not JavaScript content'. My CEO wants me to just add the tag back and email dev.to support to complain. What should I do?",
+      "expected_output": "Explains the author cannot re-add a mod-removed tag, advises a polite reply, re-tagging by rules and a content fix rather than complaint.",
+      "files": [],
+      "expectations": [
+        "States that once a tag moderator removes a tag the author cannot add it back",
+        "Suggests #news (with a brief summary and source) or #showdev as the tag for a release post",
+        "Suggests rewriting future release posts into JavaScript-focused technical content if they want the tag",
+        "Mentions that tag rules live in each tag's sidebar or submission guidelines and should be checked before posting"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "I'm VP marketing at Vaultline. We sell a data-governance platform to banks, average contract $220k/yr, buyers are CISOs and data architects. Our CMO saw a competitor on dev.to and wants us to publish 3 dev.to posts a week starting next month. We have no developer-facing free tier and one content marketer. Build the plan.",
+      "expected_output": "Gives a fit verdict first (syndicate only or skip) because readers are individual developers and there is no self-serve product or capacity to answer comments; no 3/week cadence.",
+      "files": [],
+      "expectations": [
+        "Recommends syndicate-only or skip rather than a 3-posts-per-week program",
+        "Explains that dev.to readers are mostly individual developers who cannot try a product without a free or self-serve tier",
+        "Flags that one content marketer cannot also answer comments and do earn-first engagement",
+        "If syndication is kept, recommends canonical URLs pointing to Vaultline's own site",
+        "Does not produce a full 3-posts-a-week calendar"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Quick one: our 3 devrel folks are swamped. Can we wire ChatGPT into our dev.to comment notifications so it drafts and posts replies to comments on our articles? We'd review a sample weekly.",
+      "expected_output": "No: DEV bans AI-generated comments except translation/grammar tools; offers alternatives like batching, templates, triage.",
+      "files": [],
+      "expectations": [
+        "States that dev.to's guidelines ban AI-generated comments",
+        "Notes the exception for translation and grammar or assistive tools",
+        "Offers a non-AI alternative such as a daily reply window, rotation or saved reply templates",
+        "Mentions that replying to and hearting comments on their own posts is a high-value ranking action, so it is worth human time"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "how do I set the canonical url when I cross-post my blog to dev.to?",
+      "should_trigger": true
+    },
+    {
+      "query": "our dev.to posts get like 3 reactions each, what are we doing wrong",
+      "should_trigger": true
+    },
+    {
+      "query": "Should our company post on DEV Community from an organization account or personal accounts?",
+      "should_trigger": true
+    },
+    {
+      "query": "a tag moderator removed #javascript from my dev.to article, can I add it back?",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to launch our open source CLI on dev.to next week - which tags?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it OK to import our whole engineering blog into dev.to via RSS?",
+      "should_trigger": true
+    },
+    {
+      "query": "dev.to AI disclosure - which tier do we pick if Claude drafted the post and I edited it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I put affiliate links in a dev.to article?",
+      "should_trigger": true
+    },
+    {
+      "query": "my team wants to upvote each other's dev.to posts to get into the feed, is that a problem",
+      "should_trigger": true
+    },
+    {
+      "query": "what's the best way for a devtools startup to get traction on Forem / DEV Community?",
+      "should_trigger": true
+    },
+    {
+      "query": "how does the dev.to Relevant feed rank posts?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we get picked for the dev.to Top 7?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to sponsor a DEV challenge for our API, how does that work vs Billboards?",
+      "should_trigger": true
+    },
+    {
+      "query": "is #opensource the right tag for announcing our project release on dev.to",
+      "should_trigger": true
+    },
+    {
+      "query": "dev.to listings for hiring contributors - still a thing?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I link to my company blog from a dev.to post without getting flagged?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our dev.to org page has 40 followers after a year, what should a 2-person DevRel team change?",
+      "should_trigger": true
+    },
+    {
+      "query": "should we cross-post our tutorials to dev.to or keep them on our docs site only",
+      "should_trigger": true
+    },
+    {
+      "query": "plan 8 weeks of dev.to activity for our open-source SDK maintainers",
+      "should_trigger": true
+    },
+    {
+      "query": "Why did my dev.to post get marked as spam? new account, 3 links to our site",
+      "should_trigger": true
+    },
+    {
+      "query": "can a bot account auto-publish our release notes to DEV?",
+      "should_trigger": true
+    },
+    {
+      "query": "dev.to series vs one long post for our 5-part Kubernetes operator tutorial",
+      "should_trigger": true
+    },
+    {
+      "query": "what do trusted members on dev.to do and how does that affect my posts",
+      "should_trigger": true
+    },
+    {
+      "query": "Is dev.to worth it for an enterprise data platform sold to CISOs?",
+      "should_trigger": true
+    },
+    {
+      "query": "we got a thumbs-down from a moderator on dev.to, what does that mean for reach",
+      "should_trigger": true
+    },
+    {
+      "query": "write a technical blog post about how we cut our API p99 latency by 40%",
+      "should_trigger": false
+    },
+    {
+      "query": "help me plan our Show HN post for next Tuesday",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I grow my Substack newsletter about Rust?",
+      "should_trigger": false
+    },
+    {
+      "query": "plan the launch of our open-source library across Reddit, HN and Twitter",
+      "should_trigger": false
+    },
+    {
+      "query": "set up canonical tags on our docs site so old versions don't outrank the latest",
+      "should_trigger": false
+    },
+    {
+      "query": "our Stack Overflow tag has 300 unanswered questions about our SDK, what do we do",
+      "should_trigger": false
+    },
+    {
+      "query": "how do we increase GitHub stars after launch for our repo",
+      "should_trigger": false
+    },
+    {
+      "query": "adapt this LinkedIn post into versions for X, Threads and Bluesky",
+      "should_trigger": false
+    },
+    {
+      "query": "write a getting-started tutorial for our Python SDK",
+      "should_trigger": false
+    },
+    {
+      "query": "build a quarterly content calendar for our 3-person devrel team",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I get my product launch to #1 on Product Hunt",
+      "should_trigger": false
+    },
+    {
+      "query": "should we move our engineering blog from Medium to Hashnode with a custom domain",
+      "should_trigger": false
+    },
+    {
+      "query": "cross-post our newsletter issues to LinkedIn newsletters, what format works?",
+      "should_trigger": false
+    },
+    {
+      "query": "write a dev.to post about how we built our Rust parser, ~1500 words",
+      "should_trigger": false
+    },
+    {
+      "query": "how should we measure the ROI of our devrel content program",
+      "should_trigger": false
+    },
+    {
+      "query": "draft the next issue of our developer newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "pitch our release to tech journalists at The New Stack",
+      "should_trigger": false
+    },
+    {
+      "query": "what are r/programming's self-promotion rules for our launch post?",
+      "should_trigger": false
+    },
+    {
+      "query": "write a python script that pulls my dev.to article stats from the API into Grafana",
+      "should_trigger": false
+    },
+    {
+      "query": "which keywords should our docs target for SEO",
+      "should_trigger": false
+    },
+    {
+      "query": "which tags get Medium Partner Program articles distributed?",
+      "should_trigger": false
+    },
+    {
+      "query": "we self-host Forem for our internal eng community - how do I raise rate limits and enable Billboards?",
+      "should_trigger": false
+    },
+    {
+      "query": "cross-post our engineering blog to Hashnode with canonical_url set",
+      "should_trigger": false
+    },
+    {
+      "query": "help me write a Medium article cross-posted from our blog",
+      "should_trigger": false
+    },
+    {
+      "query": "write release notes for v2.3 of our CLI",
+      "should_trigger": false
+    }
+  ]
+}

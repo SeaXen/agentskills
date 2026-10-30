@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 205 skills  
+> **Total Curated Skills**: 216 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -21,6 +21,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | :--- | :---: | :--- | :--- |
 | [`13c-metabolic-flux`](../../library/kdense-scientific-skills/skills/13c-metabolic-flux) | ⚪ Reserve | `kdense-scientific-skills` | Estimates intracellular metabolic fluxes from steady-state carbon-13 isotope-tracing measuremen... |
 | [`adaptyv`](../../library/kdense-scientific-skills/skills/adaptyv) | ⚪ Reserve | `kdense-scientific-skills` | Uses the Adaptyv Bio Foundry API and Python SDK to design protein characterization experiments,... |
+| [`advertising-kickoff`](../../library/mbfinotti-advertising-skills/skills/advertising-kickoff) | ⚪ Reserve | `mbfinotti-advertising-skills` | Before starting any paid advertising work, before each recurring advertising review, and whenev... |
 | [`aeon`](../../library/kdense-scientific-skills/skills/aeon) | ⚪ Reserve | `kdense-scientific-skills` | This skill should be used for time series machine learning tasks including classification, regr... |
 | [`ai-scientist-v2-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/ai-scientist-v2-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Automated scientific discovery via agentic tree search by Sakana AI |
 | [`alphagenome`](../../library/kdense-scientific-skills/skills/alphagenome) | ⚪ Reserve | `kdense-scientific-skills` | Looks up precomputed AlphaGenome Atlas effects for any GRCh38 single-nucleotide variant (AVI sc... |
@@ -68,6 +69,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`deeptools`](../../library/kdense-scientific-skills/skills/deeptools) | ⚪ Reserve | `kdense-scientific-skills` | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/p... |
 | [`depmap`](../../library/kdense-scientific-skills/skills/depmap) | ⚪ Reserve | `kdense-scientific-skills` | Retrieves and analyzes Cancer Dependency Map (DepMap) release data, including CRISPR Chronos ge... |
 | [`detecting-anomalies-in-industrial-control-systems`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-anomalies-in-industrial-control-systems) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploys anomaly detection for OT/ICS environments using machine learning on OT network baseline... |
+| [`developer-relations-kickoff`](../../library/samber-developer-relations-skills/skills/developer-relations-kickoff) | ⚪ Reserve | `samber-developer-relations-skills` | Before starting any developer-relations work - and again at the start of each new session on an... |
 | [`dhdna-profiler`](../../library/kdense-scientific-skills/skills/dhdna-profiler) | ⚪ Reserve | `kdense-scientific-skills` | Applies the DHDNA framework as an exploratory rubric for reasoning and writing patterns in supp... |
 | [`diffdock`](../../library/kdense-scientific-skills/skills/diffdock) | ⚪ Reserve | `kdense-scientific-skills` | Predicts protein-small-molecule binding poses with DiffDock and DiffDock-L from PDB or sequence... |
 | [`dnanexus-integration`](../../library/kdense-scientific-skills/skills/dnanexus-integration) | ⚪ Reserve | `kdense-scientific-skills` | Builds and operates reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/app... |
@@ -75,7 +77,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`etetoolkit`](../../library/kdense-scientific-skills/skills/etetoolkit) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes, manipulates, compares, annotates, and visualizes phylogenetic or other hierarchical t... |
 | [`experimental-design`](../../library/kdense-scientific-skills/skills/experimental-design) | ⚪ Reserve | `kdense-scientific-skills` | Designs experiments and studies BEFORE data is collected — choosing a design, randomizing, bloc... |
 | [`exploratory-data-analysis`](../../library/kdense-scientific-skills/skills/exploratory-data-analysis) | ⚪ Reserve | `kdense-scientific-skills` | Performs bounded, local exploratory analysis of explicitly supported scientific files. Supports... |
+| [`falsify`](../../library/sickn33-agentic-awesome-skills/skills/falsify) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | The scientific thinking protocol for AI agents. Use when facing complex, ambiguous, or high-sta... |
 | [`fictiv`](../../library/kdense-scientific-skills/skills/fictiv) | ⚪ Reserve | `kdense-scientific-skills` | Operates Fictiv (app.fictiv.com), the on-demand manufacturing platform, end to end in the user'... |
+| [`firecrawl-deep-research`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-deep-research) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Produce an intensive, cited analytical report: executive summary, multi-angle findings, contrar... |
 | [`flowio`](../../library/kdense-scientific-skills/skills/flowio) | ⚪ Reserve | `kdense-scientific-skills` | Reads, inspects, and writes Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. ... |
 | [`flowkit`](../../library/kdense-scientific-skills/skills/flowkit) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes flow cytometry data with FlowKit, including spillover compensation, logicle and biexpo... |
 | [`fluidsim`](../../library/kdense-scientific-skills/skills/fluidsim) | ⚪ Reserve | `kdense-scientific-skills` | Plans, configures, inspects, restarts, and analyzes bounded FluidSim computational-fluid-dynami... |
@@ -91,6 +95,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`glycoengineering`](../../library/kdense-scientific-skills/skills/glycoengineering) | ⚪ Reserve | `kdense-scientific-skills` | Analyzes and engineers protein glycosylation by scanning canonical N-glycosylation sequons, des... |
 | [`grants`](../../library/alirezarezvani-claude-skills/skills/grants) | ⚪ Reserve | `alirezarezvani-claude-skills` | NIH grant research skill for clinical researchers. Grill-me intake (research idea + career stag... |
 | [`gtars`](../../library/kdense-scientific-skills/skills/gtars) | ⚪ Reserve | `kdense-scientific-skills` | Supports Gtars for local genomic interval models and set algebra, overlaps and counts, consensu... |
+| [`healthcare-cdss-patterns`](../../library/affaan-m-ecc/skills/healthcare-cdss-patterns) | ⚪ Reserve | `affaan-m-ecc` | Clinical Decision Support System (CDSS) development patterns. Drug interaction checking, dose v... |
+| [`healthcare-emr-patterns`](../../library/affaan-m-ecc/skills/healthcare-emr-patterns) | ⚪ Reserve | `affaan-m-ecc` | EMR/EHR development patterns for healthcare applications. Clinical safety, encounter workflows,... |
 | [`histolab`](../../library/kdense-scientific-skills/skills/histolab) | ⚪ Reserve | `kdense-scientific-skills` | Extracts and preprocesses whole-slide histology image tiles with Histolab. Use for WSI inspecti... |
 | [`hugging-science`](../../library/kdense-scientific-skills/skills/hugging-science) | ⚪ Reserve | `kdense-scientific-skills` | Discovers and evaluates scientific datasets, models, methodology posts, and Spaces through the ... |
 | [`hypogenic`](../../library/kdense-scientific-skills/skills/hypogenic) | ⚪ Reserve | `kdense-scientific-skills` | Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation ... |
@@ -98,6 +104,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`imaging-data-commons`](../../library/kdense-scientific-skills/skills/imaging-data-commons) | ⚪ Reserve | `kdense-scientific-skills` | Queries and downloads public cancer imaging data from NCI Imaging Data Commons. Supports IDC co... |
 | [`infographics`](../../library/kdense-scientific-skills/skills/infographics) | ⚪ Reserve | `kdense-scientific-skills` | Creates and reviews infographics with Nano Banana 2 via OpenRouter. Use for statistical summari... |
 | [`iso-standards-readiness`](../../library/kdense-scientific-skills/skills/iso-standards-readiness) | ⚪ Reserve | `kdense-scientific-skills` | Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-c... |
+| [`it-manager-hospital`](../../library/sickn33-agentic-awesome-skills/skills/it-manager-hospital) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | World-class Hospital IT Management Advisor specializing in clinical safety, digital maturity (H... |
 | [`lab-hardware-cad`](../../library/kdense-scientific-skills/skills/lab-hardware-cad) | ⚪ Reserve | `kdense-scientific-skills` | Designs custom laboratory hardware as parametric build123d models and exports fabrication artif... |
 | [`labarchive-integration`](../../library/kdense-scientific-skills/skills/labarchive-integration) | ⚪ Reserve | `kdense-scientific-skills` | Integrates with the official LabArchives ELN REST-like API and Inventory API v1. Supports regio... |
 | [`lamindb`](../../library/kdense-scientific-skills/skills/lamindb) | ⚪ Reserve | `kdense-scientific-skills` | Manages biological datasets and models with LaminDB, including artifact registration, lineage t... |
@@ -175,6 +182,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`pyzotero`](../../library/kdense-scientific-skills/skills/pyzotero) | ⚪ Reserve | `kdense-scientific-skills` | Manages Zotero reference libraries using the pyzotero Python client: retrieves, creates, update... |
 | [`qiime2-amplicon`](../../library/kdense-scientific-skills/skills/qiime2-amplicon) | ⚪ Reserve | `kdense-scientific-skills` | Processes paired-end 16S amplicon reads into QIIME 2 ASVs and taxonomy with retained artifact p... |
 | [`qiskit`](../../library/kdense-scientific-skills/skills/qiskit) | ⚪ Reserve | `kdense-scientific-skills` | Builds, simulates, transpiles, and executes quantum circuits with Qiskit and IBM Quantum Runtim... |
+| [`quit-sponsor`](../../library/sickn33-agentic-awesome-skills/skills/quit-sponsor) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Helps an AI agent provide non-judgmental, evidence-informed quit-smoking support with user-cons... |
 | [`qutip`](../../library/kdense-scientific-skills/skills/qutip) | ⚪ Reserve | `kdense-scientific-skills` | Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic,... |
 | [`rdkit`](../../library/kdense-scientific-skills/skills/rdkit) | ⚪ Reserve | `kdense-scientific-skills` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW... |
 | [`relion`](../../library/kdense-scientific-skills/skills/relion) | ⚪ Reserve | `kdense-scientific-skills` | Validates and executes RELION single-particle cryo-EM refinement and half-map postprocessing. S... |
@@ -183,11 +191,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`research-lookup`](../../library/kdense-scientific-skills/skills/research-lookup) | ⚪ Reserve | `kdense-scientific-skills` | Compiles current scholarly evidence for a scientific manuscript or research brief when the user... |
 | [`results-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/results-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill should be used when the user asks to "analyze experimental results", "run strict sta... |
 | [`rowan`](../../library/kdense-scientific-skills/skills/rowan) | ⚪ Reserve | `kdense-scientific-skills` | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Pyt... |
+| [`satori`](../../library/sickn33-agentic-awesome-skills/skills/satori) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Clinically informed wisdom companion blending psychology and philosophy into a structured think... |
 | [`scanpy`](../../library/kdense-scientific-skills/skills/scanpy) | ⚪ Reserve | `kdense-scientific-skills` | Performs Scanpy single-cell RNA-seq QC, normalization, HVG selection, PCA/UMAP/t-SNE, clusterin... |
 | [`scientific-article-pdf`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-article-pdf) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate publication-ready scientific article PDFs from templates |
 | [`scientific-brainstorming`](../../library/kdense-scientific-skills/skills/scientific-brainstorming) | ⚪ Reserve | `kdense-scientific-skills` | Facilitates evidence-aware scientific ideation with independent generation, structured discussi... |
 | [`scientific-critical-thinking`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-critical-thinking) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Evaluate research rigor. Assess methodology, experimental design, statistical validity, biases,... |
+| [`scientific-db-uspto-database`](../../library/affaan-m-ecc/skills/scientific-db-uspto-database) | ⚪ Reserve | `affaan-m-ecc` | USPTO patent and trademark data workflow for official record lookup, PatentSearch queries, TSDR... |
 | [`scientific-illustration-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-illustration-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create graphical abstracts, schematic diagrams, and scientific illustrations |
+| [`scientific-pkg-gget`](../../library/affaan-m-ecc/skills/scientific-pkg-gget) | ⚪ Reserve | `affaan-m-ecc` | gget CLI and Python workflow for quick genomic database queries, sequence lookup, BLAST-style s... |
 | [`scientific-problem-selection`](../../library/anthropics-knowledge-work/skills/scientific-problem-selection) | ⚪ Reserve | `anthropics-knowledge-work` | This skill should be used when scientists need help with research problem selection, project id... |
 | [`scientific-schematics`](../../library/kdense-scientific-skills/skills/scientific-schematics) | ⚪ Reserve | `kdense-scientific-skills` | Generates scientific diagram drafts using Nano Banana 2 AI with smart iterative refinement. Use... |
 | [`scientific-slides`](../../library/kdense-scientific-skills/skills/scientific-slides) | ⚪ Reserve | `kdense-scientific-skills` | Builds slide decks and presentations for research talks. Used for making PowerPoint slides, con... |

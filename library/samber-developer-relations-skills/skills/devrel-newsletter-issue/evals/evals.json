@@ -1,0 +1,527 @@
+{
+  "skill_name": "devrel-newsletter-issue",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "can you write the Shipped section + subject line for this month's Quillstack developer digest? goes out Thursday to ~11k devs. Here's what our PM sent me for the main item: \"Streams 2.0 is a total game-changer - 3x faster ingestion, customers love it, GA today for Team and Enterprise, Free tier gets it in Q1.\" No blog post for it yet, the changelog entry is just the version bump. Also the CLI got a new `qs replay` command. Make it exciting, this is our biggest release of the year!",
+      "expected_output": "A Shipped section where Streams 2.0 is written capability first, then availability on the send date (GA for Team and Enterprise), then a first step or a flagged gap; no hype words, no unsourced 3x figure, no customer-love claim; the Free-tier Q1 promise cut or held for confirmation; a one-line qs replay item; subject options naming the release; a pre-send note listing what is blocked.",
+      "files": [],
+      "expectations": [
+        "The Streams 2.0 item does not contain 'game-changer', 'game-changing', 'revolutionary', 'excited' or 'exciting'.",
+        "The draft does not state the 3x ingestion figure as a fact in the Shipped section or the subject line.",
+        "The response explains that the 3x figure has no published source to link or attribute to, and either cuts it or asks for a published post that states it.",
+        "The draft does not contain 'customers love it' or an equivalent unattributed customer-sentiment claim.",
+        "The Streams 2.0 item states availability as GA for Team and Enterprise.",
+        "The Free-tier Q1 date is either omitted from the draft or explicitly flagged as needing confirmation that it is announced before it can be published.",
+        "The Streams 2.0 item opens with a plain statement of what the user can now do, before availability.",
+        "The response either gives a concrete first step taken from the user's material or asks for one / marks it as blocked; it does not invent a flag, command or setting for Streams 2.0.",
+        "The qs replay item is one or two lines and does not invent what the command's flags do.",
+        "At least one proposed subject line names Streams 2.0 and is 45 characters or fewer.",
+        "No proposed subject line is a generic label such as 'Quillstack Newsletter', 'Monthly update' or an issue number alone.",
+        "The response states that it is not following the 'make it exciting' instruction, or explains that hype language was removed on purpose."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "For the 'Tip of the month' in our Harrowgate API newsletter I want to show the full webhook signature verification in Python, the whole thing is ~28 lines (hmac compare, timestamp tolerance, etc). I don't have it handy but you know how it works, just write it. I'll render it with Carbon in the Dracula theme and drop it in as an image so it looks slick. We send through Mailchimp with our custom HTML template. Can you put the tip together?",
+      "expected_output": "Recommends live text over an image of code and states what the image costs; refuses to author the security-sensitive verification code itself and asks for the team's tested code or a docs link; proposes a short excerpt plus a link to the hosted full file; gives an inline-styled pre pattern with a system monospace stack, lines of 70 characters or fewer, no dark highlighting theme; covers plain-text part and HTML size.",
+      "files": [],
+      "expectations": [
+        "The response recommends live text instead of an image of code.",
+        "The response names at least two concrete costs of an image of code among: images blocked by default, unreadable to screen readers, no copy-paste, dark-mode contrast.",
+        "The response states that if the image is kept, it needs alt text describing what the code does and a link to the code as text.",
+        "The response does not write a full new webhook signature verification implementation of its own.",
+        "The response asks for the team's own tested verification code, or points to linking the existing docs page, instead of authoring it.",
+        "The response proposes showing a short excerpt (5 lines or fewer) and linking to the full file, gist or docs page.",
+        "The response asks where the full file will be hosted, or tells the user to host it before send.",
+        "Any HTML code block given uses inline style attributes for font, background and colour rather than relying only on a <style> block or CSS class.",
+        "Any code block font declaration uses a system monospace stack and no web font loaded via @font-face or Google Fonts.",
+        "The response warns that a dark highlighting theme such as Dracula can invert or lose contrast in dark-mode or light-mode clients.",
+        "The response sets a maximum code line length of 45 characters or fewer, citing phone screen width.",
+        "The response mentions the plain-text part, with the code indented or the full URL spelled out."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Need Orrery Weekly #58 assembled tonight. Template is: Lead / Project news / Ecosystem / Community showcase / Help wanted / Tutorials / Events. This week I only have 3 things: https://wiki.orrery.internal/rfc-412 (lead, it's the scheduler rewrite RFC, approved Tuesday), https://wiki.orrery.internal/notes/perf-2024-q3 and https://docs.orrery.internal/guides/9a7f2c. For the empty sections just fill them with whatever - generic tips, a couple of forum threads, I trust you. Readers expect all 7 sections every week.",
+      "expected_output": "Writes the lead as a headline-only or minimal item from the user's own description (scheduler rewrite RFC approved Tuesday) without inventing details; asks for titles for the two untitled links rather than deriving headlines from slugs; lists all three as unread; drops empty sections instead of padding; declines to invent tips or forum threads and routes item-finding elsewhere; flags the issue as thin and offers ship shorter, skip or merge.",
+      "files": [],
+      "expectations": [
+        "The lead item contains no technical detail about the scheduler rewrite beyond what the user stated (an RFC, a scheduler rewrite, approved Tuesday).",
+        "The draft contains no numbers, benchmarks or percentages attributed to any of the three links.",
+        "The response asks the user for the titles of the perf-2024-q3 and 9a7f2c links instead of presenting headlines derived from the URL slugs as real titles.",
+        "The response lists the three links as unread or unverified in a report or note.",
+        "The draft does not contain invented forum threads presented as real.",
+        "The draft does not contain generic filler tips written to occupy an empty section.",
+        "The response declines to choose or invent items to fill empty sections, saying item selection is a separate job.",
+        "Empty sections are dropped from this issue rather than kept with placeholder or filler content.",
+        "The response tells the user the issue is thin.",
+        "The response offers at least two of: ship a shorter issue, skip this week, merge into the next issue.",
+        "The response names at least one cost of padding, such as readers learning to skip sections or losing trust that each item is worth reading."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Quick one: subject, preview text and intro for Ferncastle Dev Digest #37, sending tomorrow. Lead story is that our TypeScript SDK 5.0 is out with ESM-only builds and Node 18 dropped. Nothing else changed with the newsletter. My draft: Subject 'Ferncastle Dev Digest #37 - October Edition 🚀', intro 'Hi everyone and welcome to the October edition of the Ferncastle Dev Digest! It's been a busy month here at Ferncastle and we have tons of exciting updates to share with you, so grab a coffee and dive in!' Can you polish these?",
+      "expected_output": "Replaces the generic subject with options naming the SDK 5.0 lead, 45 characters or fewer, each with a trade-off; writes preview text that complements the subject, carries news in the first 35 characters and reaches 90 characters; cuts the intro or reduces it to 25 words or fewer because nothing changed, with the reason.",
+      "files": [],
+      "expectations": [
+        "The recommended subject line names the TypeScript SDK 5.0 release.",
+        "The recommended subject line is 45 characters or fewer.",
+        "The recommended subject line does not consist of the newsletter name plus issue number or month.",
+        "The response offers more than one subject line option, each with a stated trade-off.",
+        "The preview text does not repeat the subject line's wording.",
+        "The preview text is at least 90 characters long.",
+        "The first 35 characters of the preview text carry concrete news (for example ESM-only or Node 18), not a greeting or the newsletter name.",
+        "The response recommends dropping the intro, or reduces it to 25 words or fewer.",
+        "The response gives as the reason that nothing about the newsletter changed, so an editor's note adds nothing.",
+        "The polished output does not contain 'welcome to', 'exciting' or 'dive in'.",
+        "The response proposes that the first body line or preview names the action readers must take (move off Node 18 or switch to ESM imports) and points to a migration guide."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Ugh. Yesterday's Kestrel CLI newsletter (9,400 subscribers) had two mistakes: we credited the caching deep-dive to Ines Okonjo when it was written by Tomasz Vey, and the 'upgrade now' tip told people to run `pip install kestrel-cli==3.1.0` - but 3.1.0 has the path traversal bug (CVE fixed in 3.1.2). My manager wants to just resend the whole issue with fixes and an apology at the top. Is that the right call? What do I send?",
+      "expected_output": "Separates the two errors by harm: the misattribution is fixed in the web archive with no email; the vulnerable-version command warrants a short correction email now, leading with the correct command and version, plus an archive fix. Advises against resending the whole issue, explains why, drafts the short correction, and suggests a standing error-report route in the footer.",
+      "files": [],
+      "expectations": [
+        "The response treats the two mistakes differently based on harm to readers.",
+        "The response recommends a dedicated short correction email for the vulnerable version instruction, sent promptly.",
+        "The drafted correction email states the safe version (3.1.2 or later) and the corrected install command near the top.",
+        "The drafted correction email names the risk (path traversal or the vulnerability) in plain words.",
+        "The response advises against resending the whole issue.",
+        "The response gives a reason against the full resend: duplicate content reads as spam, or the fix gets buried.",
+        "The response recommends correcting the author credit in the web archive.",
+        "The response does not recommend a separate email just for the author misattribution.",
+        "The response recommends fixing the install command in the web archive too.",
+        "The first sentence of the drafted correction email states the safe version or corrected command, before any apology.",
+        "The response recommends a standing way for readers to report errors in the footer of future issues."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Sponsor question for the Pinewick devtools weekly. Lumora (observability) paid for this week and they want their item to look exactly like our editorial items, same font and layout, no 'sponsored' tag, they call it native. Their copy: 'Lumora is the #1 fastest observability platform in the world. Start free today, don't miss out!' with 3 links (signup, docs, pricing). Also my boss wants the bottom of the issue to have: star us on GitHub, join our Discord, sign up for the Driftwood beta, register for our Nov 14 webinar, and follow us on Bluesky. Sending in 4 hours. Can you set up the sponsor block and the bottom of the issue?",
+      "expected_output": "Keeps the sponsor in a labelled slot and refuses the unlabelled native format; reduces to one link; cuts the unprovable superlative and urgency; gives a fallback since edits cannot round-trip in 4 hours (label, name, one neutral line, link) and tells the sponsor; keeps one issue-level ask, moves the dated webinar into events, standing community links into one footer line, defers the rest.",
+      "files": [],
+      "expectations": [
+        "The sponsor block carries a visible label such as 'Sponsor', 'Sponsored' or 'Together with'.",
+        "The response declines the request to run the sponsor item without a label.",
+        "The sponsor block contains exactly one link.",
+        "The sponsor block does not contain '#1', 'fastest' or 'in the world'.",
+        "The sponsor block does not contain 'don't miss out'.",
+        "The response proposes, given the 4-hour window, running a neutral line with the label, sponsor name and link, and telling the sponsor what changed.",
+        "The response does not add editorial coverage praising Lumora elsewhere in the issue.",
+        "The bottom of the issue carries one primary ask, not five separate calls to action of equal weight.",
+        "The Nov 14 webinar is placed in an events section or listed as a dated event rather than as a generic call to action.",
+        "GitHub, Discord and Bluesky links are grouped into a single footer line rather than separate calls to action."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Can you review this draft item from our Quarrytide Data community roundup before it goes out at noon?\n\n---\n**Ingest pipelines just got simply amazing**\nOur friends at Selwyn wrote a great post about moving their ETL to Quarrytide streams, and they cut costs by 40% and latency by half! It's easy to set up, just follow their steps. Read more here: https://selwyn.example/blog/etl-to-streams | Also see https://selwyn.example/case-study and https://quarrytide.example/docs/streams and https://quarrytide.example/pricing\n---\n\nFor reference, the key paragraph of the Selwyn post: 'After moving the nightly job onto Quarrytide streams, we reduced our nightly batch window from 6 hours to 40 minutes, and the on-call team stopped getting 3am pages for stuck jobs.' We send via Buttondown in markdown.",
+      "expected_output": "A line-by-line review: removes the unsupported 40% cost and 'latency by half' claims and uses the source's own figure attributed to Selwyn; cuts 'just', 'simply', 'easy', 'amazing'; one primary link on a descriptive headline instead of 'Read more here' and four links; author/org credit; rewrites the item as headline plus 1-3 sentences; reports pre-send lines as pass/fail/blocked including test send.",
+      "files": [],
+      "expectations": [
+        "The review flags the 40% cost claim as unsupported by the source.",
+        "The review flags 'latency by half' as unsupported by the source.",
+        "The rewritten item uses the source's own figure (6 hours to 40 minutes) and attributes it to Selwyn.",
+        "The rewritten item does not contain 'simply', 'just', 'easy' or 'amazing'.",
+        "The rewritten item does not use 'Read more' or 'click here' as link text.",
+        "The rewritten item puts the primary link on the headline or descriptive text.",
+        "The rewritten item carries one primary link and at most one additional link.",
+        "The rewritten item credits the author or Selwyn as the source organisation.",
+        "The rewritten item summary is 1 to 3 sentences.",
+        "The response presents its checks as pass, fail or blocked lines.",
+        "The response marks the test send to Gmail and Outlook (light and dark) as something the user must do before noon, or as blocked."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Something weird with the Corvane SDK newsletter: a bunch of readers tell us the footer and unsubscribe link are missing and the bottom 3 sections just aren't there, while others see everything. This issue had 14 code samples, we highlight them with Prism in our build script and inline the CSS with juice before upload to our ESP. Our deliverability guy is on leave but thinks a spam filter is stripping content. What do I change for next week's issue?",
+      "expected_output": "Diagnoses Gmail's 102KB HTML clipping, not deliverability; explains per-token span highlighting and inlined CSS inflate HTML; notes the hidden unsubscribe and footer; says to measure exported HTML and aim under about 90KB; recommends fewer and plain live-text blocks, excerpt plus link for long samples, and a Gmail test send; does not recommend images of code.",
+      "files": [],
+      "expectations": [
+        "The response identifies Gmail clipping messages over about 102KB as the cause.",
+        "The response explains that per-token syntax highlighting adds a span with inline styles per token and inflates HTML size.",
+        "The response notes that inlining CSS repeats styles on every element and adds to the size.",
+        "The response points out that the clipped part holds the footer and body unsubscribe link, hidden behind a 'View entire message' click.",
+        "The response recommends measuring the exported HTML size before sending.",
+        "The response recommends a target below the limit with margin (about 90KB or similar).",
+        "The response recommends plain, unhighlighted live-text blocks for short snippets.",
+        "The response recommends replacing long samples with a short excerpt plus a link to the full code.",
+        "The response does not recommend converting code to images as the fix.",
+        "The response recommends a test send to a Gmail inbox before the next issue goes out."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "write up these 8 links into this week's newsletter issue for our devs",
+      "should_trigger": true
+    },
+    {
+      "query": "Can you draft issue #24 of our developer digest? Template and links below.",
+      "should_trigger": true
+    },
+    {
+      "query": "turn our v3.1 release notes into the Shipped section of the monthly dev newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "need a subject line and preview text for our dev newsletter, lead story is the Go SDK going GA",
+      "should_trigger": true
+    },
+    {
+      "query": "review my newsletter draft before it goes out at 9, check tone and links",
+      "should_trigger": true
+    },
+    {
+      "query": "our code samples look broken in Outlook when we send the newsletter, how do I format them",
+      "should_trigger": true
+    },
+    {
+      "query": "the newsletter's code blocks are unreadable in dark mode on iPhone, what should we change",
+      "should_trigger": true
+    },
+    {
+      "query": "write 2-sentence blurbs for each of these ecosystem links for our community roundup email",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I write about our own product release in the newsletter without it sounding like an ad",
+      "should_trigger": true
+    },
+    {
+      "query": "we sent the newsletter with a wrong install command yesterday, do we resend?",
+      "should_trigger": true
+    },
+    {
+      "query": "Put together this month's product digest email for developers from these changelog entries",
+      "should_trigger": true
+    },
+    {
+      "query": "our sponsor wants their blurb to look like a normal article in the newsletter, how should I format the sponsor block",
+      "should_trigger": true
+    },
+    {
+      "query": "my boss wants 6 CTAs at the bottom of the dev newsletter, how do I push back and what goes in the footer",
+      "should_trigger": true
+    },
+    {
+      "query": "help me edit the intro of our developer newsletter issue, it feels too long",
+      "should_trigger": true
+    },
+    {
+      "query": "Gmail is clipping our developer newsletter and the footer disappears",
+      "should_trigger": true
+    },
+    {
+      "query": "is it ok to put a screenshot of code in our newsletter email instead of a code block",
+      "should_trigger": true
+    },
+    {
+      "query": "write the plain-text version of this newsletter issue, our ESP's auto one is garbage",
+      "should_trigger": true
+    },
+    {
+      "query": "pre-send checklist for this week's issue of our OSS project newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "I have 3 items and a 6-section template for the newsletter this week, what do I do",
+      "should_trigger": true
+    },
+    {
+      "query": "turn this list of merged PRs and community posts into This Week in Kestrel",
+      "should_trigger": true
+    },
+    {
+      "query": "rewrite these newsletter blurbs, they say 'simply' and 'game-changing' everywhere",
+      "should_trigger": true
+    },
+    {
+      "query": "draft the community roundup email for our Discord members, links attached",
+      "should_trigger": true
+    },
+    {
+      "query": "Need the lead item and 'in brief' bullets for tomorrow's devtools weekly",
+      "should_trigger": true
+    },
+    {
+      "query": "how many links should each item in our dev digest have, and what link text",
+      "should_trigger": true
+    },
+    {
+      "query": "We're launching webhooks v2 and I need to write it up for the customer developer newsletter going out Friday",
+      "should_trigger": true
+    },
+    {
+      "query": "can you check this issue draft for anything a dev audience would roll their eyes at",
+      "should_trigger": true
+    },
+    {
+      "query": "format a 12-line config example so it survives email clients in our newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "write a correction for the newsletter, we credited the wrong author",
+      "should_trigger": true
+    },
+    {
+      "query": "assemble the monthly SDK digest from these 5 release notes and 2 blog posts",
+      "should_trigger": true
+    },
+    {
+      "query": "the preview text of our newsletter shows 'View in browser', fix it",
+      "should_trigger": true
+    },
+    {
+      "query": "write our newsletter's 'Tip of the month' section about using the --watch flag",
+      "should_trigger": true
+    },
+    {
+      "query": "our monthly devrel email is due tomorrow, here's the template from the charter and my notes",
+      "should_trigger": true
+    },
+    {
+      "query": "what should the editor's note at the top of our dev newsletter say this time? nothing really changed",
+      "should_trigger": true
+    },
+    {
+      "query": "help me write the sponsored slot copy for this week's newsletter, the sponsor's copy is full of superlatives",
+      "should_trigger": true
+    },
+    {
+      "query": "Rewrite these newsletter item summaries so each says why a backend dev should care",
+      "should_trigger": true
+    },
+    {
+      "query": "I paste a draft of our open source project's weekly email, tell me what fails before I hit send",
+      "should_trigger": true
+    },
+    {
+      "query": "convert this blog post into a newsletter item, 2-3 sentences",
+      "should_trigger": true
+    },
+    {
+      "query": "we use Buttondown markdown, how do I add a styled code block to the issue",
+      "should_trigger": true
+    },
+    {
+      "query": "draft the email version of our quarterly ecosystem digest for API partners",
+      "should_trigger": true
+    },
+    {
+      "query": "subject line ideas for our dev digest, lead is Postgres 17 support",
+      "should_trigger": true
+    },
+    {
+      "query": "can you QA this newsletter before it goes to 20k developers",
+      "should_trigger": true
+    },
+    {
+      "query": "write up our CLI release for the newsletter, PM says it's 5x faster",
+      "should_trigger": true
+    },
+    {
+      "query": "the bottom of our newsletter has too many buttons, how should the footer look",
+      "should_trigger": true
+    },
+    {
+      "query": "make this week's ecosystem section from these 6 links for the Rust user group newsletter",
+      "should_trigger": true
+    },
+    {
+      "query": "our newsletter item about the v2 SDK needs to tell people Node 16 support is gone, how do I word it",
+      "should_trigger": true
+    },
+    {
+      "query": "draft the In brief bullets for this week's issue from these 9 release links",
+      "should_trigger": true
+    },
+    {
+      "query": "should we start a developer newsletter or is a changelog with RSS enough?",
+      "should_trigger": false
+    },
+    {
+      "query": "our newsletter writer left, who should own it and how often should we send",
+      "should_trigger": false
+    },
+    {
+      "query": "weekly or monthly cadence for our dev newsletter? we ship every two weeks",
+      "should_trigger": false
+    },
+    {
+      "query": "where do I find items for this week's newsletter, the month was quiet",
+      "should_trigger": false
+    },
+    {
+      "query": "how do we score and pick the 6 best links each week for the newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "how do we grow our developer newsletter list from 2k to 10k",
+      "should_trigger": false
+    },
+    {
+      "query": "add a newsletter signup to our docs pages and README, what converts",
+      "should_trigger": false
+    },
+    {
+      "query": "our newsletter lands in spam at Gmail, set up SPF DKIM DMARC for it",
+      "should_trigger": false
+    },
+    {
+      "query": "do we need one-click List-Unsubscribe headers for our newsletter sends",
+      "should_trigger": false
+    },
+    {
+      "query": "what should we charge sponsors for a slot in our 15k-subscriber dev newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "write the release notes for v4.2 in CHANGELOG.md",
+      "should_trigger": false
+    },
+    {
+      "query": "write a technical blog post about our migration to Postgres 17",
+      "should_trigger": false
+    },
+    {
+      "query": "grow my Substack and convert free readers to paid",
+      "should_trigger": false
+    },
+    {
+      "query": "write a cold outreach email to devtools founders",
+      "should_trigger": false
+    },
+    {
+      "query": "build a password reset email template in React Email",
+      "should_trigger": false
+    },
+    {
+      "query": "write a 5-email onboarding sequence for new signups",
+      "should_trigger": false
+    },
+    {
+      "query": "plan the next quarter of devrel content across blog, video and newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "which devrel newsletters and podcasts should I follow",
+      "should_trigger": false
+    },
+    {
+      "query": "write a press release for our Series B",
+      "should_trigger": false
+    },
+    {
+      "query": "pitch our launch to newsletter curators like JavaScript Weekly to get featured",
+      "should_trigger": false
+    },
+    {
+      "query": "draft our monthly investor update email",
+      "should_trigger": false
+    },
+    {
+      "query": "write a LinkedIn post announcing our new SDK",
+      "should_trigger": false
+    },
+    {
+      "query": "set up the double opt-in flow for our newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "how do we measure if the newsletter is working, opens or clicks?",
+      "should_trigger": false
+    },
+    {
+      "query": "should we kill our newsletter? clicks have been falling for a year",
+      "should_trigger": false
+    },
+    {
+      "query": "write the internal engineering all-hands update for this sprint",
+      "should_trigger": false
+    },
+    {
+      "query": "write the migration guide for our v3 breaking changes",
+      "should_trigger": false
+    },
+    {
+      "query": "design the HTML email template system for our transactional emails",
+      "should_trigger": false
+    },
+    {
+      "query": "write the README for our new CLI",
+      "should_trigger": false
+    },
+    {
+      "query": "draft a reply to a customer who complained about our newsletter frequency",
+      "should_trigger": false
+    },
+    {
+      "query": "write a Hacker News Show HN post for our launch",
+      "should_trigger": false
+    },
+    {
+      "query": "our bounce rate on the newsletter is 4%, how do we clean the list",
+      "should_trigger": false
+    },
+    {
+      "query": "write the script for a 3-minute video about our new API",
+      "should_trigger": false
+    },
+    {
+      "query": "what should the section template of our newsletter programme be",
+      "should_trigger": false
+    },
+    {
+      "query": "compare Buttondown, Beehiiv and Substack for running a dev newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "write a promotional email for our Black Friday discount",
+      "should_trigger": false
+    },
+    {
+      "query": "what should our newsletter sponsorship rate card and disclosure policy say",
+      "should_trigger": false
+    },
+    {
+      "query": "write a case study on how a customer cut ETL time with our product",
+      "should_trigger": false
+    },
+    {
+      "query": "plan a build-in-public update cadence on X and our blog",
+      "should_trigger": false
+    },
+    {
+      "query": "write the conference talk abstract for KubeCon",
+      "should_trigger": false
+    },
+    {
+      "query": "make a weekly digest Slack bot that posts our merged PRs",
+      "should_trigger": false
+    },
+    {
+      "query": "create a newsletter subscriber survey to learn what readers want",
+      "should_trigger": false
+    },
+    {
+      "query": "draft a security advisory for CVE in our library",
+      "should_trigger": false
+    },
+    {
+      "query": "turn this newsletter into a podcast episode script",
+      "should_trigger": false
+    },
+    {
+      "query": "write the launch email announcing v4 GA to all our users",
+      "should_trigger": false
+    },
+    {
+      "query": "our API-key welcome email's code block breaks in Outlook, fix the template",
+      "should_trigger": false
+    }
+  ]
+}

@@ -1,0 +1,582 @@
+{
+  "skill_name": "devrel-newsletter-deliverability",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our monthly SDK digest for Petrel Labs (about 14,000 developers) started going to spam in June, right after we moved from our old newsletter tool to a new one. Opens went from 41% to 22%. Marketing wants to rewrite every subject line and drop the word 'free' from the free-tier section, since spam filters hate it. We also send password resets from petrel.dev, same as the newsletter. Here's what a June issue's header shows at Gmail: 'dkim=pass header.i=@mailer-cloud.net; spf=pass smtp.mailfrom=bounces.mailer-cloud.net; dmarc=fail header.from=petrel.dev'. Can you just give us the new subject lines?",
+      "expected_output": "Diagnoses lost DMARC alignment after the platform move from the supplied header, refuses content-first fixes, discounts the open-rate drop, and gives a fix plan led by custom DKIM on the user's domain, with Postmaster Tools and a cohort ramp.",
+      "files": [],
+      "expectations": [
+        "States that DMARC fails because DKIM and SPF pass only for the platform's domain (mailer-cloud.net), not petrel.dev",
+        "Names custom DKIM signing with d= on petrel.dev (or a subdomain of it) as the first technical fix",
+        "Declines to lead with subject-line rewrites or spam-word removal, and says content is checked only after authentication and reputation",
+        "Says the word 'free' or spam-word lists are not a meaningful filter factor at Gmail or Outlook",
+        "Says the open-rate drop alone is not evidence of spam-folder placement, citing mail-privacy features or image blocking",
+        "Asks for or recommends Gmail Postmaster Tools spam-rate data and marks complaints unverified until it exists",
+        "Says Gmail 4.7.x or 5.7.x authentication replies, if present in the bounce log, are sender-side and must not be suppressed",
+        "Recommends checking the raw bounce or deferral replies (for example 4.7.32 or other 4.7.x/5.7.x codes) rather than platform hard/soft totals",
+        "Mentions that the newsletter sharing petrel.dev with password resets puts reset mail at risk, and suggests moving the newsletter to a dedicated subdomain as a later step",
+        "Does not recommend buying a dedicated IP",
+        "Gives a fix plan where each row has an owner, a date and a done-when check",
+        "Includes a done-when check of a seed issue showing dkim=pass with the user's own domain and dmarc=pass",
+        "Orders the next send by most recent human clicks over consecutive sending days rather than one full send"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Quillwork (our open-source static site generator) has a community newsletter we haven't sent since February. 11,400 subscribers, all from the signup form on our docs site. v3.0 ships next Tuesday and we want everyone to hear about it. To be safe we already paid a list-cleaning service, which removed 1,600 'risky' addresses, so we're down to 9,800 'verified'. Plan is to send the announcement to all 9,800 Tuesday morning at 9am. Any last checks before we hit send?",
+      "expected_output": "Stops the single blast to a list dormant for eight months, explains recycled traps and that verification cannot find them, and plans a cohort ramp starting with the most recently engaged, with hold rules, a re-permission step for the cold tail, and a realistic Tuesday plan.",
+      "files": [],
+      "expectations": [
+        "Applies a re-confirmation issue for a list silent this long (or names the programme's silent-list rule as the deciding fact), sent through the ramp with non-responders suppressed",
+        "Explains that addresses dead during the silent months can have become recycled spam traps",
+        "States that a list-verification or cleaning service cannot reliably detect spam traps or prove readers still want the mail",
+        "Proposes sending Tuesday's issue first to the most recently engaged cohort (for example recent clickers or newest signups)",
+        "Describes growing cohorts over several sends (roughly doubling, or over weeks) rather than one send",
+        "Names concrete hold conditions between cohorts, such as user-unknown bounces around 2%, deferral spikes, or Gmail spam rate above 0.1%",
+        "Labels the 2% bounce hold level as a house rule, not a provider rule",
+        "Treats the 1,600 addresses the cleaning service removed as unproven cold-cohort subscribers, not as bounces",
+        "Sends the launch issue on Tuesday to the warm cohorts only and the rest over the following sending days",
+        "Asks whether click history exists to order cohorts, or says to fall back to signup date when it does not",
+        "Recommends reading each send's raw bounce replies before the next cohort",
+        "Does not recommend buying a dedicated IP or switching platform for the launch",
+        "Checks authentication (DKIM and DMARC alignment) of the sending domain before the restart"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The Fernhill CLI weekly digest has ~22,000 subscribers, around 60% at big companies. We run self-hosted listmonk sending through Amazon SES from digest@fernhill.dev, which also sends our password resets. Since August, readers at enterprise companies keep emailing us that they got unsubscribed without clicking anything, and our click-through went from 4% to 11% even though nothing about the content changed. Ops says the unsubscribe link is GET /unsubscribe?u=<base64 of the email>. Our Gmail open rate also fell to 18%, so I assume we're in spam at Gmail too. What's going on?",
+      "expected_output": "Identifies corporate link scanners fetching a GET unsubscribe URL as the cause of false unsubscribes and inflated clicks, fixes the endpoint to POST-only with an opaque token and RFC 8058 headers, discounts the open-rate claim, and handles the wrongly removed readers without silent re-adding.",
+      "files": [],
+      "expectations": [
+        "Explains that corporate security gateways or link scanners fetch URLs on arrival and thereby trigger the GET unsubscribe",
+        "Explains the click-rate jump as scanner or bot clicks rather than real engagement",
+        "Recommends making the unsubscribe act only on POST, with GET showing a confirmation page",
+        "Gives a test order: GET the URL, confirm the seed is still subscribed, then POST, then confirm it is unsubscribed",
+        "Warns that the confirmation page must not auto-submit with JavaScript because some scanners execute it",
+        "Flags that a base64-encoded email in the URL lets anyone unsubscribe anyone, and recommends an opaque token checked server-side",
+        "Recommends List-Unsubscribe with an HTTPS URI plus List-Unsubscribe-Post: List-Unsubscribe=One-Click",
+        "States that the List-Unsubscribe headers must be covered by the DKIM signature (h= tag)",
+        "Says the unsubscribe endpoint must not return a redirect to the POST",
+        "Says the 18% open rate is not evidence of Gmail spam placement",
+        "Recommends filtering scanner clicks (seconds after delivery, cloud IPs, every link clicked) before reporting clicks or applying an inactivity rule",
+        "Says not to silently re-subscribe the readers removed by scanners, and to tell them how to resubscribe or restore only those who ask",
+        "Puts fixing the unsubscribe endpoint first in the fix plan",
+        "Suggests verifying the scanner hypothesis by comparing unsubscribe or click timestamps with delivery time",
+        "Mentions that sharing fernhill.dev with password resets is a later separation step (dedicated newsletter subdomain)"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our security team at Corvane wants to publish 'v=DMARC1; p=reject; pct=10' on corvane.com next Monday and ramp pct up weekly. We don't have DMARC at all today and no reports. Mail going out as corvane.com: Google Workspace for staff, our developer newsletter through a newsletter platform, Zendesk for support, invoices from our billing system, and Greenhouse for recruiting. The newsletter person (me) is worried. Is their plan fine?",
+      "expected_output": "Rejects the pct-based reject-first plan, explains pct removal in RFC 9989 and the t=y replacement, and lays out monitor, inventory, subdomain-first enforcement, organizational domain last.",
+      "files": [],
+      "expectations": [
+        "States that the pct tag was removed by RFC 9989 (DMARCbis) because receivers applied partial values inconsistently",
+        "Names t=y test mode as the replacement for pct",
+        "Recommends rehearsing each enforcement level with t=y together with pct=0 so old and new receivers both apply one level lower",
+        "Recommends reading aggregate reports for a period (weeks) before any enforcement",
+        "Lists inventorying every sender (Workspace, newsletter platform, Zendesk, billing, Greenhouse) and aligning or retiring each",
+        "Warns that p=reject without inventory would make legitimate third-party mail (such as invoices or support replies) fail",
+        "Recommends enforcing on the newsletter subdomain before the organizational domain",
+        "Recommends the newsletter platform sign with custom DKIM on the corvane domain or its subdomain",
+        "Notes that some receivers may still follow the old RFC 7489 behaviour during the transition",
+        "Describes t=y as an on/off test flag rather than a percentage ramp",
+        "Gives the order: monitor, inventory, subdomain enforcement, organizational domain enforcement"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I run a solo weekly dev newsletter (Pebbleworth Weekly), 4,200 subscribers. I send it from my personal address, jonah.pebble@gmail.com, through a newsletter platform because I like replies landing in my inbox. My product app at pebbleworth.app also sends about 3,000 notification emails a day. Since I'm under 5,000 a day, I figure Gmail's bulk sender rules don't apply to me. The platform is pushing a dedicated IP add-on so 'other senders can't hurt me'. Worth it?",
+      "expected_output": "Corrects the freemail From, explains Gmail's primary-domain counting and permanence, and advises against a dedicated IP for a small weekly list, recommending an owned-domain subdomain with custom DKIM on the shared pool.",
+      "files": [],
+      "expectations": [
+        "Says sending From a gmail.com address through a third-party platform cannot align DKIM or SPF to gmail.com",
+        "Mentions that Google warns it will apply DMARC quarantine to Gmail From impersonation, or that freemail domains like yahoo.com publish p=reject",
+        "Recommends sending the newsletter from a domain the user owns (pebbleworth.app or a subdomain of it)",
+        "Notes Reply-To can still point to the personal inbox so replies keep arriving there",
+        "Explains that Gmail counts mail to personal Gmail accounts from the same primary domain, including subdomains, toward the 5,000 a day, and only that Gmail-consumer share",
+        "Explains that once a domain reaches bulk status at Gmail it stays bulk permanently",
+        "Says to estimate the Gmail-consumer share of the newsletter plus the 3,000 daily notifications before deciding whether the domain is a bulk sender",
+        "Advises against the dedicated IP for a 4,200-subscriber weekly list",
+        "Explains that one weekly burst then silence is inconsistent volume that hurts a dedicated IP's reputation",
+        "Recommends staying on the platform's shared pool with custom DKIM on the user's own domain",
+        "Recommends a dedicated newsletter subdomain separate from the app's notification mail",
+        "Recommends a warm-up for the new sending domain or subdomain"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "After last Thursday's send of the Saltmarsh Devs digest our newsletter platform flagged 1,930 'hard bounces' and wants us to delete them. Almost all are outlook.com and hotmail.com with '550 5.7.515 Access denied, sending domain saltmarshdevs.io does not meet the required authentication level'. Another 140 say '550 5.1.1 user unknown'. Also Gmail Postmaster Tools shows our spam rate at 0.4% - can you tell us how to find and remove the Gmail people who reported us?",
+      "expected_output": "Splits the bounces by code: suppress the 140 5.1.1, keep the 1,930 5.7.515 and fix authentication for Outlook.com; explains Gmail has no per-message complaint report, the 0.3% mitigation consequence, and prevention steps.",
+      "files": [],
+      "expectations": [
+        "Gives a way to find which segment drives the Gmail spam rate: Feedback-ID feedback-loop data where the platform supports it, or sending cohorts on separate days and comparing Postmaster's daily rate",
+        "Recommends NOT deleting or suppressing the 1,930 5.7.515 addresses",
+        "Explains 5.7.515 as Outlook.com rejecting the sender for failing its authentication requirement, not bad addresses",
+        "Names the fix for 5.7.515 as SPF, DKIM and DMARC passing and aligned on the sending domain",
+        "Says the 5.7.515 readers can be reached again after the fix",
+        "States that Gmail provides no per-message complaint feedback, so individual complainers cannot be identified",
+        "States that at a Gmail spam rate above 0.3% the sender is ineligible for Google mitigation until 7 consecutive days below it",
+        "Gives 0.1% as the target spam rate",
+        "Recommends prevention levers instead: pausing the segment driving complaints, a working one-click unsubscribe, the inactivity rule",
+        "Asks what changed recently (import, old segment, new form) to explain the complaint spike",
+        "Recommends reading bounce reply text rather than the platform's hard/soft label",
+        "Recommends stopping or slowing sends to the complaining segment before other fixes",
+        "Says to pause and escalate a receiver only if it still blocks two sends after the authentication fix is verified"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Our Tidewater API changelog newsletter is in Gmail's Promotions tab and I hate it. Also MXToolbox says ourdomain is on 4 blocklists (UCEPROTECT and some others), though Spamhaus shows nothing. A company emailed offering to get us delisted from all of them for $299. And our inbox-placement seed test came back 92%, so honestly I think we're fine apart from Promotions. What tricks get us into Primary?",
+      "expected_output": "Explains Promotions is an inbox category not spam, declines tricks, says minor blocklists in mass checkers rarely matter and Spamhaus removal is free and follows fixing the cause, refuses paid delisting, and explains seed tests are directional only.",
+      "files": [],
+      "expectations": [
+        "Recommends Spamhaus's own lookup page rather than DNS queries through public resolvers, or warns that public-resolver lookups return misleading codes",
+        "Declines to give tricks for escaping Promotions, noting they risk complaints",
+        "Suggests the only sanctioned lever is asking readers to move the message or reply",
+        "Says most lists flagged by mass blocklist checkers are irrelevant to Gmail and Outlook placement",
+        "Identifies Spamhaus (and its domain list) as the listing that matters, and notes it is clean here",
+        "Explains Gmail Postmaster Tools spam rate below 0.1% as the target figure to check",
+        "States that delisting requests are made by the sender, free of charge, after fixing the cause",
+        "Explains seed or placement tests are directional because seed inboxes have no engagement history",
+        "Recommends Gmail Postmaster Tools spam rate as the real placement evidence",
+        "Says requesting delisting before fixing the cause leads to being listed again",
+        "Does not claim the newsletter is in the spam folder based on the Promotions placement",
+        "Checks or asks about authentication and one-click unsubscribe status before concluding all is fine"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Readers of the Larchmont Data newsletter who work at big enterprises (we hear from banks and a couple of Fortune 500s) say our issues land in Junk or quarantine, while personal Gmail readers get it fine. Postmaster Tools shows 0.04% spam rate and DMARC passes. My CEO wants us to switch to a different newsletter platform next month to fix it. Good idea?",
+      "expected_output": "Points to corporate gateways (Microsoft Defender BCL, Safe Links, other gateways) as a separate filter Gmail data cannot show, advises against a platform switch, asks for reader headers, and gives allow-listing and feed fallbacks.",
+      "files": [],
+      "expectations": [
+        "Explains that corporate mail gateways filter separately from consumer Gmail, so a good Postmaster Tools reading says nothing about them",
+        "Names Microsoft Defender's Bulk Complaint Level and its default threshold of 7 moving bulk mail to Junk",
+        "Mentions that the Strict preset uses threshold 5 and quarantines, which fits regulated enterprises such as banks",
+        "Notes that the Standard preset uses threshold 6",
+        "Mentions that company admins can lower the bulk threshold",
+        "Recommends asking an affected reader for the message headers (for example X-Forefront-Antispam-Report with BCL) before acting",
+        "Advises against switching platforms as the fix, noting a switch resets signals and needs a warm-up",
+        "Recommends publishing allow-listing instructions for readers' IT teams naming the sending domain and DKIM d= rather than IPs",
+        "Recommends a consistent branded HTTPS tracking domain or no tracking",
+        "Offers a feed or web archive fallback for readers whose company junks bulk mail",
+        "Mentions that Google Workspace corporate recipients fall outside Gmail's sender rules and follow their admins' policies",
+        "Notes that gateway link scanning can inflate clicks and recommends filtering them",
+        "Does not treat the corporate Junk placement as a list-quality or consent problem without evidence",
+        "Gives a monitoring or evidence step with an owner rather than a vague recommendation"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "our dev newsletter keeps going to spam since we switched to buttondown, help",
+      "should_trigger": true
+    },
+    {
+      "query": "Which DNS records does our newsletter tool need for SPF, DKIM and DMARC on news.acme.dev?",
+      "should_trigger": true
+    },
+    {
+      "query": "We haven't sent our community newsletter since March. Is it safe to just email all 9k people about the launch?",
+      "should_trigger": true
+    },
+    {
+      "query": "Gmail Postmaster says our spam rate is 0.25% for the weekly digest. How worried should we be?",
+      "should_trigger": true
+    },
+    {
+      "query": "Getting '550 5.7.515 Access denied' bounces from hotmail on our project newsletter, what does that mean",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we get a dedicated IP for our 30k-subscriber developer newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I set up one-click List-Unsubscribe headers for our self-hosted listmonk newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our newsletter platform says 99% delivered but readers say they never see it. Where is it going?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it OK to send our open source project's newsletter From my personal gmail address through Mailchimp?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're moving our developer digest from Mailchimp to beehiiv. What do we need to do so we don't land in spam?",
+      "should_trigger": true
+    },
+    {
+      "query": "Enterprise readers say our SDK newsletter ends up in Outlook Junk but Gmail is fine. Why?",
+      "should_trigger": true
+    },
+    {
+      "query": "our platform marked 2k addresses as hard bounces after one send, should we delete them all?",
+      "should_trigger": true
+    },
+    {
+      "query": "Security wants p=reject on our root domain; our devrel newsletter is sent via a platform. What order should we do this in?",
+      "should_trigger": true
+    },
+    {
+      "query": "Readers say they got unsubscribed from our newsletter without clicking anything. What could cause that?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do the Gmail and Yahoo bulk sender requirements apply to our 4,000-person developer newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "Opens on our monthly digest dropped from 40% to 20%. Are we in the spam folder?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our click rate jumped to 12% with no content change, suspicious?",
+      "should_trigger": true
+    },
+    {
+      "query": "How should we handle soft bounces and inactive subscribers on our developer newsletter list?",
+      "should_trigger": true
+    },
+    {
+      "query": "We bought a list-cleaning service for our old newsletter list. Can we mail everyone now?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should the product newsletter use a subdomain like news.example.com or our main domain?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our newsletter now shows dkim=fail at Yahoo since we moved the footer to a new template service",
+      "should_trigger": true
+    },
+    {
+      "query": "MXToolbox says our newsletter domain is on 3 blocklists. What do we do?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our newsletter is in the Promotions tab and marketing wants it in Primary",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we warm up a new sending domain for our community digest?",
+      "should_trigger": true
+    },
+    {
+      "query": "Set up Postmaster Tools and DMARC reports for the newsletter and tell me what to watch",
+      "should_trigger": true
+    },
+    {
+      "query": "nobody gets our emails anymore, the developer digest just vanished from inboxes",
+      "should_trigger": true
+    },
+    {
+      "query": "Do I need DKIM if my newsletter tool already handles sending?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our event attendee reminders and our newsletter both bounce with 4.7.32 at Gmail, what's wrong?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is pct=25 the right way to ramp DMARC for our newsletter subdomain?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's a safe bounce rate threshold for our developer newsletter sends?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can our Rust newsletter keep sharing the domain we send password resets from?",
+      "should_trigger": true
+    },
+    {
+      "query": "Gmail says we're a bulk sender now; what changes for our weekly digest?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I tell if our newsletter's DKIM is aligned from the email headers?",
+      "should_trigger": true
+    },
+    {
+      "query": "We restarted our newsletter after 8 months and got tons of bounces and complaints. What now?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do link shorteners hurt our newsletter's deliverability?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our weekly digest's unsubscribe link is a GET request. Is that a problem?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's the difference between a hard bounce and a 5.7.1 rejection for our newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is a seed test score of 90% proof our newsletter reaches the inbox?",
+      "should_trigger": true
+    },
+    {
+      "query": "Why does Gmail not show the unsubscribe button next to our newsletter's sender name?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're starting a developer newsletter next month; set up the sending side so it lands in the inbox",
+      "should_trigger": true
+    },
+    {
+      "query": "We send our digest via Amazon SES; how do we make SPF align with a custom MAIL FROM?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our newsletter's Gmail spam rate is over 0.3%. Can we get Google to help?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I find which Gmail users marked our newsletter as spam so I can remove them?",
+      "should_trigger": true
+    },
+    {
+      "query": "Microsoft 365 readers say our issues get quarantined. What can we tell their IT team?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it worth paying a delisting service to get our newsletter domain off blocklists?",
+      "should_trigger": true
+    },
+    {
+      "query": "Does sending to Google Workspace addresses count under Gmail's bulk sender rules?",
+      "should_trigger": true
+    },
+    {
+      "query": "We imported suppression lists wrong during a platform move and resent to unsubscribers, how do we recover deliverability?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it bad that our newsletter has no plain-text part for deliverability?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our weekly newsletter is getting 4.7.28 rate-limit errors from Gmail. What should we do?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can BIMI fix our developer newsletter landing in spam?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we grow our developer newsletter's subscriber list?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we start a monthly developer newsletter or just keep a changelog?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write this month's issue of our SDK newsletter from these release notes",
+      "should_trigger": false
+    },
+    {
+      "query": "Find items for next week's issue of our Go community newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "Can we import our trial users into the newsletter list?",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we price sponsor slots in our developer newsletter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a cold email sequence to book demos with CTOs",
+      "should_trigger": false
+    },
+    {
+      "query": "Our cold outbound emails to prospects go to spam, how do we warm up the sales domains?",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft the release notes for v2.4 of our CLI",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the attendee email sequence for our developer conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up transactional password-reset emails in our Next.js app with Resend",
+      "should_trigger": false
+    },
+    {
+      "query": "Should our newsletter be double opt-in or single opt-in?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our newsletter churn is high in the first three issues, why?",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick the cadence for our open source project newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I measure DevRel ROI and which metrics matter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up tracking UTMs and dashboards for our devrel content",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a migration guide for our breaking API v3 change",
+      "should_trigger": false
+    },
+    {
+      "query": "How should our API status page notify customers during incidents?",
+      "should_trigger": false
+    },
+    {
+      "query": "Configure SPF and DKIM for our company's Google Workspace staff email",
+      "should_trigger": false
+    },
+    {
+      "query": "Our support desk replies from Zendesk go to customers' spam",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a mail server with Postfix for our homelab",
+      "should_trigger": false
+    },
+    {
+      "query": "Our webhooks deliveries to customers fail intermittently, how to retry?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a launch announcement blog post for our open source tool",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our quarter's devrel content calendar including the newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a referral program for our developer newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "Pitch our release to other Rust newsletters for inclusion",
+      "should_trigger": false
+    },
+    {
+      "query": "What subject lines work best for a developer newsletter issue?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our newsletter's welcome email for new subscribers",
+      "should_trigger": false
+    },
+    {
+      "query": "Who owns the newsletter when our devrel writer leaves?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we keep or kill our struggling community newsletter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Fix the HTML rendering of code blocks in our newsletter in Outlook",
+      "should_trigger": false
+    },
+    {
+      "query": "Our email signup form gets bot submissions, how do we add a honeypot?",
+      "should_trigger": false
+    },
+    {
+      "query": "Is it legal to email EU developers who signed up for a webinar about our newsletter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a lead nurture email sequence for trial users",
+      "should_trigger": false
+    },
+    {
+      "query": "Our SaaS product's in-app notification emails need a preference center design",
+      "should_trigger": false
+    },
+    {
+      "query": "Which developer newsletters should I follow to keep up with DevRel?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a press pitch for our Series A announcement to tech reporters",
+      "should_trigger": false
+    },
+    {
+      "query": "Our Slack community is dying, how do we revive it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up DMARC reporting for phishing protection on our corporate domain, no marketing email involved",
+      "should_trigger": false
+    },
+    {
+      "query": "Our password-reset emails from SES bounce with 5.7.26 at Gmail, do we need a dedicated IP for them?",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me plan a webinar series for developers",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm the Microsoft 365 admin at a bank; which BCL threshold should our tenant use for vendor newsletters?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the SES bounce webhook handler for our SaaS so it suppresses addresses automatically",
+      "should_trigger": false
+    },
+    {
+      "query": "Design an onboarding email drip for our developer platform signups",
+      "should_trigger": false
+    },
+    {
+      "query": "Analyze our newsletter's sponsor click-through to set rates",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a technical tutorial on sending email with Amazon SES",
+      "should_trigger": false
+    },
+    {
+      "query": "Choose an email API provider for transactional mail in our app",
+      "should_trigger": false
+    },
+    {
+      "query": "Our cold sales emails get 5.7.1 bounces from prospects' servers",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a postmortem for our email outage last week for customers",
+      "should_trigger": false
+    },
+    {
+      "query": "Gmail shows 4.7.40 deferrals for our weekly digest since we moved DNS providers",
+      "should_trigger": true
+    },
+    {
+      "query": "Our devrel digest got 5.7.28 blocks from Gmail after last week's send, what now?",
+      "should_trigger": true
+    },
+    {
+      "query": "Configure DKIM signing for outgoing mail on our self-hosted Postfix server for staff email",
+      "should_trigger": false
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "skill_name": "devrel-newsletter-sourcing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run the monthly developer digest for Ferrolink (payments API, we ship Node, Python and Go SDKs). It goes out Thursday. Sections per our charter: Heads-up (0-3), Shipped (2-4), Learn (1-3), From the community (1-3, must be external, and at least a third of the whole issue has to be external). Here's what the team dumped in Slack this month, can you tell me what makes the cut and in what order?\n\n1. Hacker News thread 'Ferrolink quietly killed API v1 auth headers' (412 points) - news.ycombinator.com/item?id=4410921\n2. Our own changelog entry 2026-05-14: Node SDK 6.0.0 removes v1 auth header support - ferrolink.dev/changelog#node-6-0-0\n3. Tweet from our CEO announcing Payouts API GA with a screenshot - x.com/ferrolink_ceo/status/18822\n4. Payouts API GA docs page - ferrolink.dev/docs/payouts (published 2026-05-20)\n5. 'Ferrolink is 9x faster than every payments API' benchmark post on a Medium account created three weeks ago, 2.1k claps, no method section\n6. A dev.to tutorial by an outside developer, 'Idempotent refunds with Ferrolink in Go', 2026-05-09\n7. DailyDevLinks aggregator repost of that same dev.to tutorial\n8. Our forum thread 'Is anyone else seeing 429s on webhooks?' - 38 replies, most upvoted thing on the forum this month\n9. Python SDK 3.4.0 release notes - adds async client - github.com/ferrolink/ferrolink-python/releases/tag/v3.4.0 (2026-05-02)\n10. Go SDK 2.8.1 patch, fixes a typo in an error message (2026-05-22)\n\nLast issue went out 2026-04-30.",
+      "expected_output": "A candidate sheet with a window header, every item listed with a verdict and reason, primary sources substituted for the HN thread, the tweet and the aggregator repost, the Node 6.0.0 breaking change placed first in Heads-up, the benchmark held on authenticity, popularity not used to raise the forum thread or benchmark, and the external share stated against the one-third rule.",
+      "files": [],
+      "expectations": [
+        "The output states the sourcing window as two explicit dates, the first being 2026-04-30 or the last issue's sourcing cutoff.",
+        "The Node SDK 6.0.0 removal of v1 auth header support is placed in the Heads-up section, as an action-required item.",
+        "The Node SDK 6.0.0 item links the changelog entry (ferrolink.dev/changelog#node-6-0-0), not the Hacker News thread.",
+        "The Hacker News thread is not kept as its own item; it is cut or merged as commentary on the Node 6.0.0 change.",
+        "The Payouts GA item links the docs page (ferrolink.dev/docs/payouts) rather than the CEO's tweet.",
+        "The 9x benchmark post is held or cut, with a reason naming missing method, account age, or authenticity.",
+        "The output says that popularity (points, claps, replies or upvotes) does not by itself raise an item's position or earn inclusion.",
+        "The aggregator repost of the dev.to tutorial is cut as a duplicate, and the dev.to tutorial itself is the item kept.",
+        "Every one of the 10 candidates appears in the output with a verdict (keep, hold or cut).",
+        "Every cut or held candidate carries a one-line reason.",
+        "The output counts own versus external kept items and states whether the one-third external share is met.",
+        "The output does not invent items beyond the 10 supplied to fill a section.",
+        "The forum 429 thread is not kept in From the community as a news item on the strength of its reply count."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Ugh, slow month. Our Tesselate CLI digest has five sections (Shipped 2-4, Fixes 1-3, Learn 1-2, Community 1-3, Events 0-2) and all I've got since the last issue is a 2.3.1 patch release and a 2.3.2 patch release, plus one meetup in Lisbon in three weeks. My manager says the issue has to look full, it's been monthly for two years. Can you just fill it out? Rerun April's top-clicked post about plugin authoring, grab a couple of the hottest links from TLDR and Console this month, and pad Learn with whatever from our docs. I need the item list by tonight.",
+      "expected_output": "A thin-issue call made explicitly (fewer than half of the content sections reach their minimum), recommending shipping a shorter issue over padding, refusing to rerun April's item, refusing to fill from other newsletters, refusing to pad Learn with arbitrary docs pages, and a short item list with only the qualifying items plus the hold list and open questions.",
+      "files": [],
+      "expectations": [
+        "The output explicitly states that this issue is thin.",
+        "The output ties the thin verdict to section minimums (fewer than half of the content sections reaching their minimum).",
+        "The output recommends shipping a shorter issue as the default response.",
+        "The output does not include April's plugin-authoring post in this issue's item list.",
+        "The output explains that rerunning April's post repeats an item readers already received.",
+        "The output does not take items from TLDR or Console as this issue's content.",
+        "The output says other newsletters may serve only as a cross-check, or that their stories must be followed to the primary source.",
+        "The output does not fill Learn with an arbitrary docs page chosen only to fill the section.",
+        "The output presents the thin-issue options in a stated order (for example ship shorter before evergreen slot before skip).",
+        "The Lisbon meetup is kept in Events with a note to confirm the date on the event's own page.",
+        "The output says that a second consecutive thin issue should trigger a cadence review rather than more padding.",
+        "The output states that empty sections are dropped for this issue rather than filled.",
+        "The thin verdict counts only sections with a minimum of one or more; the Events section (minimum 0) is not counted as reaching its minimum."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Weekly newsletter for the Orrin data-pipeline project, goes out Wednesdays. Last week's issue was late: I closed the link list on Monday 2026-06-08 but it only went out Friday 2026-06-12. For this week (sending Wednesday 2026-06-17) can you just grab everything from the past 7 days across our release feed and the community calendar? Stuff I already know about: Orrin 1.9.0 was released 2026-06-09, a contributor posted a big 'Orrin connector internals' write-up on 2026-06-11, and there's an Orrin Day Berlin listed on the community calendar for 2026-07-02 (the meetup page says 2026-07-09). Also, the 2024 'Backfilling with Orrin' guide suddenly matters again because 1.9.0 brought back the backfill command. Sections: Releases, Reading, Events (anything in the next month).",
+      "expected_output": "A window from the last issue's sourcing cutoff (2026-06-08) to this issue's cutoff rather than a rolling 7 days, catching the 1.9.0 release and the internals write-up that fell between cutoff and late send, checking the last issue for overlap, using the meetup page date (2026-07-09) for Orrin Day Berlin, and including the 2024 backfill guide only on the learning rung with its trigger stated.",
+      "files": [],
+      "expectations": [
+        "The output does not use a rolling 'past 7 days' window ending at the send date or today.",
+        "The output starts the window at 2026-06-08, the previous issue's sourcing cutoff.",
+        "The output explains that a rolling 7-day window would miss items published between the last cutoff and the late send (or double-count after a late send).",
+        "Orrin 1.9.0 (2026-06-09) is treated as inside this issue's window, after a check that the late-sent issue did not already carry it.",
+        "The connector internals write-up (2026-06-11) is treated as inside this issue's window.",
+        "The output recommends checking last week's issue contents for overlap before including items.",
+        "Orrin Day Berlin is listed with the date 2026-07-09 from the meetup page, not 2026-07-02 from the calendar.",
+        "The output states that the event page's date takes precedence over the calendar's.",
+        "The 2024 backfill guide is included as a reading or learning item, not presented as news.",
+        "The backfill guide entry states its trigger: 1.9.0 restoring the backfill command.",
+        "Every candidate carries a full YYYY-MM-DD date.",
+        "The output says to record this issue's sourcing cutoff so the next window starts from it.",
+        "The window boundaries are stated with a time and a time zone, not only dates."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Help me assemble items for the July issue of the Brackwater platform developer newsletter (we're a hosted Postgres company). I pulled merged PRs from our main repo since the last issue: (a) #4471 'Add logical replication slots UI' - merged 2026-07-03, ships in the 2026-07-22 release; (b) #4480 'Fix auth bypass in connection pooler' - merged 2026-07-08, our security team says the advisory goes public 2026-07-24, the newsletter sends 2026-07-16; (c) #4402 'Raise free-tier connection limit from 20 to 60' - merged and released 2026-07-01; (d) #4455 'Deprecate pg 13 images, removal on 2026-10-01' - released 2026-07-05. Also our PM wants a teaser of the Q4 roadmap (branching, which is not announced yet). What goes in and how should each be linked?",
+      "expected_output": "The unreleased replication UI held until its release, the auth-bypass fix withheld until the public advisory and then linked to the advisory not the PR, the roadmap teaser cut as unannounced, the limit change and the pg 13 deprecation kept as action-required items with the deprecation date stated, and each kept item linked to its public release notes or changelog page.",
+      "files": [],
+      "expectations": [
+        "PR #4471 (replication slots UI) is held, not included, because it is merged but not yet released by the send date.",
+        "The held #4471 item carries an expiry or revisit point tied to its 2026-07-22 release or the next issue.",
+        "The auth-bypass fix (#4480) is not included in the 2026-07-16 issue.",
+        "The output states that a security fix is included only after its advisory is public.",
+        "The output says that once public, the security item should link the advisory page rather than the fix PR or commit.",
+        "The Q4 branching roadmap teaser is cut as unannounced or off-limits.",
+        "The pg 13 deprecation is kept as an action-required item.",
+        "The pg 13 deprecation entry states the removal date 2026-10-01.",
+        "The free-tier connection limit change is kept.",
+        "The output recommends linking public release notes or changelog entries for the kept items rather than the merged PR pages.",
+        "The output places the action-required items (deprecation, limit change) above other items in the ranking.",
+        "The output flags kept time-bound items (releases, the deprecation) to be re-checked before the send."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I'm in a rush - here are the titles I jotted down for the Kestrel SDK newsletter, no links, can you just find the URLs and give me the final list so I can paste it into the template? \n- Kestrel 5.2 release notes\n- 'Streaming uploads in Kestrel' by Marta Ivanova\n- KestrelConf talk videos are up\n- The new rate-limit docs page\n- Some blog post comparing Kestrel and two competitors, I think on a site called devcompare\nAlso I exported our community forum's top posts for the month but the CSV came back empty, so skip that. Send date is Tuesday.",
+      "expected_output": "No fabricated URLs. Each item either gets a link the run actually opened, or is marked unverified and placed on the hold list until a link is confirmed. The empty forum export is reported as an intake gap rather than silently skipped or back-filled, and the comparison post gets an authenticity or primary-source check before inclusion.",
+      "files": [],
+      "expectations": [
+        "The output does not present any constructed or guessed URL as a final link.",
+        "Every item without a link opened during the run is marked unverified (or equivalent).",
+        "Unverified items are placed on a hold list or explicitly kept out of the final list.",
+        "The output asks the user to confirm or paste the pages for items it could not open.",
+        "The empty forum export is reported as an empty channel or intake gap.",
+        "The output does not replace the empty forum channel with invented community items.",
+        "The devcompare comparison post is subject to a check (primary source, authenticity, or vendor bias) before inclusion.",
+        "The output asks for, or uses, the last issue's contents to rule out duplicates.",
+        "The output lists each candidate with a verdict (keep, hold or cut) rather than a bare paste-ready list.",
+        "The output gives each candidate a YYYY-MM-DD date or marks the date as unknown pending verification."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I'm handing off our curated ecosystem newsletter, 'Lattice Weekly' (covers our open-source Lattice graph database plus the surrounding ecosystem, 6,000 subscribers, weekly), to a new editor, Dario, next month. I've always just scrolled Twitter and Hacker News on Tuesday mornings and picked what looked good. Dario can spend about 3 hours per issue on finding items. Can you set up how he should collect items going forward so he doesn't have to rely on my instinct?",
+      "expected_output": "A standing intake: the channel menu presented in a stated efficiency order with own release feed and a labelled merged-PR query first, ecosystem release and advisory feeds, a submission channel with published inclusion rules, the calendar, demand signals; community scan promoted because the newsletter is a curated ecosystem one but capped within the 3 hours; other newsletters as cross-check only; an unlabelled sweep for breaking changes; one candidate log with fixed fields; the sourcing cutoff recorded each issue; and a per-section runbook row with owner and backup.",
+      "files": [],
+      "expectations": [
+        "The output presents the intake channels in an explicitly stated ranked order.",
+        "The project's own release feed or changelog plus a saved merged-PR query is ranked at or near the top.",
+        "The output adds a sweep for breaking changes that lack a label or sit outside the main repository.",
+        "The output includes ecosystem release or security-advisory feeds for the dependencies readers use.",
+        "The output sets up a submission channel and says its inclusion rules should be published alongside it.",
+        "The output keeps a community scan (Hacker News, Twitter or forums) but caps its time within Dario's 3 hours.",
+        "The output says community popularity breaks ties at most and is not the selection criterion.",
+        "The output treats other newsletters as a cross-check only, not as an item source.",
+        "The output defines one candidate log with fixed fields that include primary link, date, verdict and reason.",
+        "The output says to record each issue's sourcing cutoff as the next issue's window start.",
+        "The output assigns each section or channel an owner and a backup.",
+        "The output includes a periodic review that drops channels producing no kept items.",
+        "The output tells Dario to answer each submitter with the verdict (kept, held or declined)."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "what should go in this month's developer newsletter? here's our changelog and a bunch of links people dropped in slack",
+      "should_trigger": true
+    },
+    {
+      "query": "Can you shortlist the links for Friday's issue of our Go SDK newsletter? I have 40 candidates and room for 8.",
+      "should_trigger": true
+    },
+    {
+      "query": "slow month for releases, we have one patch and nothing else. should the dev digest still go out or do we skip it?",
+      "should_trigger": true
+    },
+    {
+      "query": "I curate a weekly newsletter on the Rust embedded ecosystem. Help me decide which of these 25 links make the cut this week.",
+      "should_trigger": true
+    },
+    {
+      "query": "Our community newsletter keeps linking Hacker News threads instead of the actual release notes. Fix how we pick items for the next issue.",
+      "should_trigger": true
+    },
+    {
+      "query": "New editor takes over our developer newsletter next month - set up a repeatable way to collect items so it doesn't depend on my gut.",
+      "should_trigger": true
+    },
+    {
+      "query": "Which of these merged PRs belong in the July product update email for developers? Some aren't released yet.",
+      "should_trigger": true
+    },
+    {
+      "query": "I need to fill the newsletter template by tonight and two sections are empty. What do I put in?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we stop missing breaking changes in our monthly developer digest? We only scan GitHub labels right now.",
+      "should_trigger": true
+    },
+    {
+      "query": "Set up a submission form and rules for people to suggest links for our weekly devtools newsletter.",
+      "should_trigger": true
+    },
+    {
+      "query": "Last issue went out late. What date range should this week's newsletter cover so we don't repeat or miss items?",
+      "should_trigger": true
+    },
+    {
+      "query": "Rank these items for the Heads-up / Shipped / Learn / Community sections of our API newsletter.",
+      "should_trigger": true
+    },
+    {
+      "query": "someone sent us a benchmark post claiming our db is 10x faster than postgres, should it go in the newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "There's a security fix merged but the advisory isn't public yet. Can it go in Thursday's developer newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it ok to reuse last month's most clicked item in this month's newsletter since it's a quiet month?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want our dev newsletter to feature more community content. Where should we look for items each week?",
+      "should_trigger": true
+    },
+    {
+      "query": "Here are titles I jotted down, no links. Find the URLs and give me the final newsletter item list.",
+      "should_trigger": true
+    },
+    {
+      "query": "Our charter says at least a third of each issue must be external links. This month we have mostly our own releases. What do we include?",
+      "should_trigger": true
+    },
+    {
+      "query": "Help me triage reader submissions for the next issue of our open-source project newsletter.",
+      "should_trigger": true
+    },
+    {
+      "query": "Build me a candidate list for the March issue of the Kestrel SDK developer newsletter from our release feed and forum.",
+      "should_trigger": true
+    },
+    {
+      "query": "Which docs pages should we feature in the newsletter evergreen slot this month? Support keeps getting the same questions.",
+      "should_trigger": true
+    },
+    {
+      "query": "We send a monthly email to developers using our API. What sources should I monitor to find things worth including?",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft the item list for this week's Kubernetes operators newsletter - I've got the release notes and the community calendar.",
+      "should_trigger": true
+    },
+    {
+      "query": "Should an old 2024 tutorial go in this week's newsletter now that the feature came back in the new release?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many items should we cut down to for the newsletter and which ones go first, the deprecation or the new feature?",
+      "should_trigger": true
+    },
+    {
+      "query": "The forum's most upvoted thread this month is a complaint about rate limits. Does it belong in our developer newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our weekly newsletter repeated the same release two weeks in a row. How do we pick items so that doesn't happen again?",
+      "should_trigger": true
+    },
+    {
+      "query": "I'm the only DevRel person and I have 1 hour a week to find newsletter items. Which channels are worth it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Pick the events and CFPs for the next issue of our developer newsletter from this community calendar export.",
+      "should_trigger": true
+    },
+    {
+      "query": "aggregator reposted a tutorial about our sdk, the original is on dev.to - which do I link in the newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "We run an ecosystem newsletter for the Elixir community. What intake should we set up for project updates without drowning in submissions?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is this week thin enough to skip the newsletter? Releases: 1 patch. Learn: nothing. Community: 1 post.",
+      "should_trigger": true
+    },
+    {
+      "query": "Go through the dependency advisories this month and tell me which belong in the developer newsletter's heads-up section.",
+      "should_trigger": true
+    },
+    {
+      "query": "what makes the cut for the next devrel newsletter, and in what order? list attached",
+      "should_trigger": true
+    },
+    {
+      "query": "Create a candidate sheet with verdicts and reasons for our next developer digest.",
+      "should_trigger": true
+    },
+    {
+      "query": "Our newsletter editor picks whatever is trending on HN. Give us a better way to choose items for each issue.",
+      "should_trigger": true
+    },
+    {
+      "query": "We have a deprecation announced three issues ago that ends in two weeks. Does it go in the newsletter again or is that a duplicate?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the intro and item blurbs for this week's developer newsletter issue from these 6 links.",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we start a developer newsletter at all, or is a changelog with RSS enough?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our newsletter writer left. Who should own it and what cadence should we run?",
+      "should_trigger": false
+    },
+    {
+      "query": "Grow our developer newsletter list from 2,000 to 10,000 subscribers this year.",
+      "should_trigger": false
+    },
+    {
+      "query": "Our newsletter emails land in Gmail spam. Check SPF, DKIM and DMARC for us.",
+      "should_trigger": false
+    },
+    {
+      "query": "How much should we charge sponsors for a slot in our 15k-subscriber dev newsletter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our devrel content calendar for Q3: blog posts, videos and talks.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the release notes for v4.2 of our SDK.",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick the items for Friday's internal engineering all-hands digest from these 25 Slack links.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up contribution rules for our awesome-graphql list repository.",
+      "should_trigger": false
+    },
+    {
+      "query": "Which stories should we cover in this week's episode of our dev news podcast?",
+      "should_trigger": false
+    },
+    {
+      "query": "Give me today's AI news briefing from Hacker News and arXiv.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up Dependabot alerts on our repositories.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a subject line and preview text for our newsletter issue going out tomorrow.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build me a personal watch list of DevRel newsletters and podcasts to follow.",
+      "should_trigger": false
+    },
+    {
+      "query": "Summarize the top posts from r/rust this week for me to read.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a Substack post for my paid newsletter about burnout in open source.",
+      "should_trigger": false
+    },
+    {
+      "query": "Design an onboarding email sequence for new API signups.",
+      "should_trigger": false
+    },
+    {
+      "query": "Our newsletter has 18% opens. Which metrics should we report to leadership instead?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a migration guide for the breaking changes in SDK 6.0.",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan a launch announcement for our Payouts API: blog, email, social.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a cold outreach email to newsletter curators asking them to feature our tool.",
+      "should_trigger": false
+    },
+    {
+      "query": "Find me trending GitHub repositories in Rust this week.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a blog post about our new dead-letter queue feature.",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up an RSS reader with my favorite engineering blogs.",
+      "should_trigger": false
+    },
+    {
+      "query": "Check this newsletter HTML for rendering bugs in Outlook and dark mode.",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we disclose sponsored links in our newsletter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a tweet thread recapping this month's product releases.",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our hackathon sponsorship budget for next year.",
+      "should_trigger": false
+    },
+    {
+      "query": "Our docs search returns nothing for 'exactly once' - write the missing docs page.",
+      "should_trigger": false
+    },
+    {
+      "query": "Triage the GitHub issues opened on our repo this week and label them.",
+      "should_trigger": false
+    },
+    {
+      "query": "Moderate our Discord: someone keeps spamming links to their benchmark blog.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a press release for our Series B announcement.",
+      "should_trigger": false
+    },
+    {
+      "query": "Monitor news mentions of our company and competitors and send me a weekly digest.",
+      "should_trigger": false
+    },
+    {
+      "query": "Create a weekly digest of my calendar meetings and unread emails.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a conference talk outline about our message queue internals.",
+      "should_trigger": false
+    },
+    {
+      "query": "Decide whether our developer newsletter should go from weekly to monthly given we only ship twice a month.",
+      "should_trigger": false
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # ⚔️ Core Antigravity Kit Protocols
 
 > **Category**: `core-antigravity-protocols`  
-> **Total Curated Skills**: 20 skills  
+> **Total Curated Skills**: 29 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,6 +19,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
+| [`agy-auto`](../../library/sickn33-agentic-awesome-skills/skills/agy-auto) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layere... |
+| [`agy-delegate`](../../library/sickn33-agentic-awesome-skills/skills/agy-delegate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate coding tasks to the Google Antigravity CLI (`agy`) only when |
+| [`agy-powerline`](../../library/sickn33-agentic-awesome-skills/skills/agy-powerline) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Install, check and restyle the agy-powerline statusline for Antigravity CLI (agy): quotas, mode... |
+| [`antigravity-agent-manager`](../../library/sickn33-agentic-awesome-skills/skills/antigravity-agent-manager) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Configure and orchestrate parallel agents using the standalone Antigravity 2.0 Agent Manager an... |
+| [`antigravity-maintainer-batch-release`](../../library/sickn33-agentic-awesome-skills/skills/antigravity-maintainer-batch-release) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Run protected AAS maintainer sweeps, PR merge batches, resumable review, immutable distribution... |
+| [`antigravity-skill-orchestrator`](../../library/sickn33-agentic-awesome-skills/skills/antigravity-skill-orchestrator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | A meta-skill that understands task requirements, dynamically selects appropriate skills, tracks... |
 | [`antigravity-workflows`](../../library/antigravity-awesome-skills/skills/antigravity-workflows) | ⚪ Reserve | `antigravity-awesome-skills` | Orchestrate multiple Antigravity skills through guided workflows for SaaS MVP delivery, securit... |
 | [`auditing-cloud-with-cis-benchmarks`](../../library/mukul975-anthropic-cybersecurity-skills/skills/auditing-cloud-with-cis-benchmarks) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Audit AWS, Azure, and GCP environments against the CIS Foundations Benchmarks by running automa... |
 | [`battle`](../../skills/battle) | 🟢 Active | `active` | Activates Antigravity's Colosseum Battle Mode. Pits two rival subagents in isolated branched wo... |
@@ -31,6 +37,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`google-cloud-solution-agentic-analytics-spark-knowledge-catalog`](../../library/google-skills/skills/google-cloud-solution-agentic-analytics-spark-knowledge-catalog) | ⚪ Reserve | `google-skills` | Discovers requirements and designs an end-to-end governed agentic analytics solution using Know... |
 | [`incident-commander`](../../library/alirezarezvani-claude-skills/skills/incident-commander) | ⚪ Reserve | `alirezarezvani-claude-skills` | Comprehensive incident response framework from detection through resolution and post-incident r... |
 | [`infinite-gratitude`](../../library/antigravity-awesome-skills/skills/infinite-gratitude) | ⚪ Reserve | `antigravity-awesome-skills` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real ... |
+| [`nanoclaw-repl`](../../library/affaan-m-ecc/skills/nanoclaw-repl) | ⚪ Reserve | `affaan-m-ecc` | Operate and extend NanoClaw, ECC's zero-dependency session-aware REPL, with persistent markdown... |
 | [`owl`](../../skills/owl) | 🟢 Active | `active` | Activates the OWL (Optimized Workforce Learning) decoupled multi-agent pipeline: uses DeepInves... |
 | [`owl-protocol-automation`](../../library/composio-community-awesome-codex-skills/skills/owl-protocol-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Owl Protocol tasks via Rube MCP (Composio). Always search tools first for current sche... |
 | [`property-patterns`](../../library/dotnet-skills/skills/property-patterns) | ⚪ Reserve | `dotnet-skills` | Diagnose and fix concrete MSBuild property defects in projects and existing shared-file hierarc... |
@@ -38,4 +45,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`self-managed-context`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/self-managed-context) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | This skill should be used when a model gets read-write control over its own live context window... |
 | [`session-compaction-and-restore`](../../library/mvschwarz-openrig/skills/session-compaction-and-restore) | ⚪ Reserve | `mvschwarz-openrig` | Use when reasoning about what survives compaction/context-loss/restart/seat-refresh, designing ... |
 | [`session-guard`](../../library/wshobson-agents/skills/session-guard) | ⚪ Reserve | `wshobson-agents` | Use when working on complex multi-step tasks, when a session is getting long (40+ tool calls), ... |
-| [`strategic-compact`](../../library/besync-labs-antigravity-ai-kit/skills/strategic-compact) | ⚪ Reserve | `besync-labs-antigravity-ai-kit` | Context window management with strategic compaction |
+| [`skill-porter`](../../library/sickn33-agentic-awesome-skills/skills/skill-porter) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Preview conservative tool-name translations and copy complete local skill bundles for manual ad... |
+| [`strategic-compact`](../../library/affaan-m-ecc/skills/strategic-compact) | ⚪ Reserve | `affaan-m-ecc` | Suggests manual context compaction at logical intervals to preserve context through task phases... |
+| [`wordpress-woocommerce-development`](../../library/sickn33-agentic-awesome-skills/skills/wordpress-woocommerce-development) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | WooCommerce store development workflow covering store setup, payment integration, shipping conf... |

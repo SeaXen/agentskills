@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 35 skills  
+> **Total Curated Skills**: 56 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,7 +19,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
+| [`arrowspace`](../../library/sickn33-agentic-awesome-skills/skills/arrowspace) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity miss... |
 | [`assessing-vector-and-embedding-weaknesses`](../../library/mukul975-anthropic-cybersecurity-skills/skills/assessing-vector-and-embedding-weaknesses) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Test RAG vector stores (Pinecone, Qdrant, Weaviate, Chroma, pgvector, |
+| [`azure-ai`](../../library/microsoft-azure-skills/skills/azure-ai) | ⚪ Reserve | `microsoft-azure-skills` | Use for Azure AI: Search, Speech, OpenAI, Document Intelligence. Helps with search, vector/hybr... |
 | [`azure-cloud-architect`](../../library/alirezarezvani-claude-skills/skills/azure-cloud-architect) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design Azure architectures for startups and enterprises. Use when asked to design Azure infrast... |
 | [`azure-cosmos-db-py`](../../library/antigravity-awesome-skills/skills/azure-cosmos-db-py) | ⚪ Reserve | `antigravity-awesome-skills` | Build Azure Cosmos DB NoSQL services with Python/FastAPI following production-grade patterns. U... |
 | [`azure-cosmos-java`](../../library/antigravity-awesome-skills/skills/azure-cosmos-java) | ⚪ Reserve | `antigravity-awesome-skills` | Azure Cosmos DB SDK for Java. NoSQL database operations with global distribution, multi-model s... |
@@ -32,25 +34,44 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`azure-resource-manager-redis-dotnet`](../../library/antigravity-awesome-skills/skills/azure-resource-manager-redis-dotnet) | ⚪ Reserve | `antigravity-awesome-skills` | Azure Resource Manager SDK for Redis in .NET. Use for MANAGEMENT PLANE operations: creating/man... |
 | [`azure-search-documents-dotnet`](../../library/antigravity-awesome-skills/skills/azure-search-documents-dotnet) | ⚪ Reserve | `antigravity-awesome-skills` | Azure AI Search SDK for .NET (Azure.Search.Documents). Use for building search applications wit... |
 | [`azure-search-documents-ts`](../../library/antigravity-awesome-skills/skills/azure-search-documents-ts) | ⚪ Reserve | `antigravity-awesome-skills` | Build search applications using Azure AI Search SDK for JavaScript (@azure/search-documents). U... |
+| [`azure-storage`](../../library/microsoft-azure-skills/skills/azure-storage) | ⚪ Reserve | `microsoft-azure-skills` | Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and D... |
 | [`cosmosdb-best-practices`](../../library/cline-skills/skills/cosmosdb-best-practices) | ⚪ Reserve | `cline-skills` | Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, partitioning,... |
+| [`debug-buttercup`](../../library/sickn33-agentic-awesome-skills/skills/debug-buttercup) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | All pods run in namespace crs. Use when pods in the crs namespace are in CrashLoopBackOff, OOMK... |
 | [`deep-searcher-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/deep-searcher-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Open deep research alternative for private data with vector search |
 | [`exploiting-nosql-injection-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-nosql-injection-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detects and exploits NoSQL injection vulnerabilities in MongoDB, CouchDB, |
-| [`firebase-basics`](../../library/google-skills/skills/firebase-basics) | ⚪ Reserve | `google-skills` | Provides foundational Firebase CLI setup, CLI installation, version checks (`firebase-tools@lat... |
+| [`extension-to-functions-codebase`](../../library/firebase-agent-skills/skills/extension-to-functions-codebase) | ⚪ Reserve | `firebase-agent-skills` | Skill for converting an installed Firebase Extension (or extension source) into a standalone Cl... |
+| [`firebase-app-hosting-basics`](../../library/firebase-agent-skills/skills/firebase-app-hosting-basics) | ⚪ Reserve | `firebase-agent-skills` | Deploys and manages full-stack web applications (Next.js, Angular) with Server-Side Rendering (... |
+| [`firebase-app-platform`](../../library/sickn33-agentic-awesome-skills/skills/firebase-app-platform) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Build and operate apps on Firebase using Auth, Firestore, Cloud Functions, |
+| [`firebase-auth-basics`](../../library/firebase-agent-skills/skills/firebase-auth-basics) | ⚪ Reserve | `firebase-agent-skills` | Guide for setting up and using Firebase Authentication. Use this skill when the user's app requ... |
+| [`firebase-basics`](../../library/firebase-agent-skills/skills/firebase-basics) | ⚪ Reserve | `firebase-agent-skills` | Provides foundational Firebase CLI setup, CLI installation, version checks (`firebase-tools@lat... |
+| [`firebase-crashlytics`](../../library/firebase-agent-skills/skills/firebase-crashlytics) | ⚪ Reserve | `firebase-agent-skills` | Comprehensive guide for Firebase Crashlytics, including provisioning and SDK usage. Use this sk... |
+| [`firebase-hosting-basics`](../../library/firebase-agent-skills/skills/firebase-hosting-basics) | ⚪ Reserve | `firebase-agent-skills` | Deploys and configures classic Firebase Hosting for static websites, single-page apps (SPAs), a... |
+| [`firebase-remote-config-basics`](../../library/firebase-agent-skills/skills/firebase-remote-config-basics) | ⚪ Reserve | `firebase-agent-skills` | Manages Firebase Remote Config templates, feature flags, loading strategies, and SDKs (Android,... |
+| [`firebase-security-rules-auditor`](../../library/firebase-agent-skills/skills/firebase-security-rules-auditor) | ⚪ Reserve | `firebase-agent-skills` | Audits Firebase (Firestore, Cloud Storage) security rules for vulnerabilities, privilege escala... |
 | [`firestore-data`](../../library/cline-skills/skills/firestore-data) | ⚪ Reserve | `cline-skills` | Handles NoSQL document operations and collection hierarchy exploration. Use for CRUD tasks and ... |
+| [`firestore-rules-creation`](../../library/firebase-agent-skills/skills/firestore-rules-creation) | ⚪ Reserve | `firebase-agent-skills` | Designs, authors, refactors, and hardens production-grade Cloud Firestore Security Rules (fires... |
 | [`hunt-nosqli`](../../library/elementalsouls-claude-bughunter/skills/hunt-nosqli) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunt NoSQL Injection — MongoDB operator injection ($where, $regex, $gt, $ne), CouchDB, Redis co... |
 | [`i3`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/i3) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | RAG Builder with Parallel Document Processing Vector database construction with local embedding... |
 | [`illustration-flat`](../../library/mengto-skills/skills/illustration-flat) | ⚪ Reserve | `mengto-skills` | Draws flat vector illustrations as SVG cards (480x360): slim, long-limbed people acting out one... |
 | [`illustration-flat-with-black`](../../library/mengto-skills/skills/illustration-flat-with-black) | ⚪ Reserve | `mengto-skills` | Draws flat vector spot illustrations of tall, long-legged people doing design and coding things... |
 | [`investigating-ransomware-attack-artifacts`](../../library/mukul975-anthropic-cybersecurity-skills/skills/investigating-ransomware-attack-artifacts) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Forensically preserve memory and disk, collect ransom notes and encrypted file samples, and ide... |
+| [`knowledge-ops`](../../library/affaan-m-ecc/skills/knowledge-ops) | ⚪ Reserve | `affaan-m-ecc` | Knowledge base management, ingestion, sync, and retrieval across multiple storage layers (local... |
+| [`launch-check`](../../library/sickn33-agentic-awesome-skills/skills/launch-check) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Bounded pre-launch audit of a live URL for AI-built apps: exposed secret keys, open Supabase/Fi... |
 | [`mirrord-header-propagation`](../../library/metalbear-co-mirrord/skills/mirrord-header-propagation) | ⚪ Reserve | `metalbear-co-mirrord` | Makes a codebase propagate W3C baggage (the `baggage` header carrying `mirrord-session=<key>`) ... |
 | [`neon-auth`](../../library/neondatabase-agent-skills/skills/neon-auth) | ⚪ Reserve | `neondatabase-agent-skills` | Add authentication to a new app. Use for "add auth", "add login", Neon Auth (Managed Better Aut... |
 | [`neon-functions`](../../library/neondatabase-agent-skills/skills/neon-functions) | ⚪ Reserve | `neondatabase-agent-skills` | Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_U... |
 | [`neon-object-storage`](../../library/neondatabase-agent-skills/skills/neon-object-storage) | ⚪ Reserve | `neondatabase-agent-skills` | S3-compatible object storage that branches with your database, so each branch gets its own copy... |
 | [`nosql-expert`](../../library/antigravity-awesome-skills/skills/nosql-expert) | ⚪ Reserve | `antigravity-awesome-skills` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models... |
+| [`redis`](../../library/sickn33-agentic-awesome-skills/skills/redis) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Configure Redis for caching and data storage. Set up clustering, persistence, |
+| [`redis-patterns`](../../library/affaan-m-ecc/skills/redis-patterns) | ⚪ Reserve | `affaan-m-ecc` | Redis data structure patterns, caching strategies, distributed locks, rate limiting, pub/sub, a... |
+| [`shopify-firebase-app`](../../library/sickn33-agentic-awesome-skills/skills/shopify-firebase-app) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Scaffold, extend and deploy Shopify embedded apps on Firebase with Nitrogen. Use for a Shopify ... |
 | [`similarity-search-patterns`](../../library/antigravity-awesome-skills/skills/similarity-search-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Implement efficient similarity search with vector databases. Use when building semantic search,... |
+| [`supabase`](../../library/sickn33-agentic-awesome-skills/skills/supabase) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when doing ANY task involving Supabase. |
 | [`vector-database-engineer`](../../library/antigravity-awesome-skills/skills/vector-database-engineer) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in vector databases, embedding strategies, and semantic search implementation. Masters P... |
+| [`vector-database-ops`](../../library/sickn33-agentic-awesome-skills/skills/vector-database-ops) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Deploy, manage, and optimize vector databases for AI applications. |
 | [`vector-index-tuning`](../../library/antigravity-awesome-skills/skills/vector-index-tuning) | ⚪ Reserve | `antigravity-awesome-skills` | Optimize vector index performance for latency, recall, and memory. Use when tuning HNSW paramet... |
 | [`vectorization`](../../library/dotnet-skills/skills/vectorization) | ⚪ Reserve | `dotnet-skills` | Design, implement, optimize, and review SIMD code in .NET. USE FOR: vectorizing scalar loops wi... |
 | [`vexor`](../../library/antigravity-awesome-skills/skills/vexor) | ⚪ Reserve | `antigravity-awesome-skills` | Vector-powered CLI for semantic file search with a Claude/Codex skill |
 | [`vmas-simulator-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/vmas-simulator-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Vectorized multi-agent reinforcement learning simulator |
+| [`weaviate`](../../library/sickn33-agentic-awesome-skills/skills/weaviate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Search, query, inspect, create, and import data into Weaviate vector database collections using... |
 | [`websocket-engineer`](../../library/jeffallan-claude-skills/skills/websocket-engineer) | ⚪ Reserve | `jeffallan-claude-skills` | Use when building real-time communication systems with WebSockets or Socket.IO. Invoke for bidi... |
