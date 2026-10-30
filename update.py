@@ -167,9 +167,12 @@ def clean_nested():
     if os.path.exists(nested_agents):
         shutil.rmtree(nested_agents, onerror=remove_readonly)
     if os.path.exists(library_dir):
-        for root, dirs, files in os.walk(library_dir):
-            if '.git' in dirs:
-                shutil.rmtree(os.path.join(root, '.git'), onerror=remove_readonly)
+        for d in os.listdir(library_dir):
+            dp = os.path.join(library_dir, d)
+            if os.path.isdir(dp):
+                gp = os.path.join(dp, '.git')
+                if os.path.exists(gp):
+                    shutil.rmtree(gp, onerror=remove_readonly)
 
 # 1. Multi-repository remote upstream sync
 def sync_all_upstreams(force=False):

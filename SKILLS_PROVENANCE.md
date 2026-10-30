@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 224 repositories  
-> **Total Skills in Reserve**: 8,775 skills  
+> **Active Reserve Libraries**: 225 repositories  
+> **Total Skills in Reserve**: 8,776 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -75,6 +75,7 @@
 | `earthtojake-text-to-cad` | [earthtojake/text-to-cad](https://github.com/earthtojake/text-to-cad) | **13** | `python .agents/library/activate_skill.py activate bambu-labs` |
 | `egonex-ai-understand-anything` | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | **10** | `python .agents/library/activate_skill.py activate understand` |
 | `elayadesign-ai-design-skills` | [elayadesign/ai-design-skills](https://github.com/elayadesign/ai-design-skills) | **1** | `python .agents/library/activate_skill.py activate landing-page-design` |
+| `elayadesign-redesign-skill` | [elayadesign/redesign-skill](https://github.com/elayadesign/redesign-skill) | **1** | `python .agents/library/activate_skill.py activate redesign-existing-projects` |
 | `elementalsouls-claude-bughunter` | [elementalsouls/Claude-BugHunter](https://github.com/elementalsouls/Claude-BugHunter) | **84** | `python .agents/library/activate_skill.py activate apk-redteam-pipeline` |
 | `emilkowalski-skills` | [emilkowalski/skills](https://github.com/emilkowalski/skills) | **15** | `python .agents/library/activate_skill.py activate animate` |
 | `epicgames-unreal-engine-skills-for-claude-code-plugin` | [EpicGames/unreal-engine-skills-for-claude-code-plugin](https://github.com/EpicGames/unreal-engine-skills-for-claude-code-plugin) | **3** | `python .agents/library/activate_skill.py activate create-toolset` |

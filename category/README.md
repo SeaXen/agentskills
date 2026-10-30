@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 7401 standalone modular skills  
+> **Total Unique Skills**: 7402 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -14,7 +14,7 @@
 | **[`code-quality-refactoring`](./code-quality-refactoring)** | 🧹 Code Quality, Refactoring & Clean Code | **975** | [Open Catalog](./code-quality-refactoring/README.md) |
 | **[`database-sql-relational`](./database-sql-relational)** | 🗄️ SQL Databases, ORMs & Indexing | **889** | [Open Catalog](./database-sql-relational/README.md) |
 | **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **542** | [Open Catalog](./backend-api-design/README.md) |
-| **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **434** | [Open Catalog](./frontend-ui-components/README.md) |
+| **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **435** | [Open Catalog](./frontend-ui-components/README.md) |
 | **[`prompt-llm-engineering`](./prompt-llm-engineering)** | 💬 Prompt Engineering, LLMs & RAG | **292** | [Open Catalog](./prompt-llm-engineering/README.md) |
 | **[`architecture-system-design`](./architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **267** | [Open Catalog](./architecture-system-design/README.md) |
 | **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **255** | [Open Catalog](./business-sales-crm/README.md) |

@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 434 skills  
+> **Total Curated Skills**: 435 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -337,6 +337,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`react-modernization`](../../library/antigravity-awesome-skills/skills/react-modernization) | ⚪ Reserve | `antigravity-awesome-skills` | Upgrade React applications to latest versions, migrate from class components to hooks, and adop... |
 | [`react-native-dev`](../../library/minimax-ai-skills/skills/react-native-dev) | ⚪ Reserve | `minimax-ai-skills` | React Native and Expo development guide covering components, styling, animations, navigation, s... |
 | [`rebuttal-writing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/rebuttal-writing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Write effective rebuttals to reviewer comments for journal submissions |
+| [`redesign-existing-projects`](../../library/elayadesign-redesign-skill/skills/redesign-existing-projects) | ⚪ Reserve | `elayadesign-redesign-skill` | Audits and upgrades existing websites and apps to premium quality. Diagnoses generic AI design ... |
 | [`release-checklist`](../../library/donchitos-claude-code-game-studios/skills/release-checklist) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Pre-release checklist — build verification, certification requirements, store metadata, launch ... |
 | [`render`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/render) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Runs the clean render pipeline (HTML, PDF, Word) via scripts/render.sh. Use when asked to rende... |
 | [`replica-design`](../../library/jakeschincariol-replica-skill/skills/replica-design) | ⚪ Reserve | `jakeschincariol-replica-skill` | Rebuilds an app's design system for a clone: colour roles, type scale, spacing, radius, shadows... |
