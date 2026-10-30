@@ -118,17 +118,19 @@ def load_local_knowledge():
             if os.path.isdir(os.path.join(lib_dir, d)):
                 existing_folders.add(d.lower())
 
-    known_upstreams = set()
+    upstream_to_folder = {}
     for k, v in upstreams.items():
         if isinstance(v, dict):
-            if 'upstream' in v:
-                known_upstreams.add(v['upstream'].lower())
-            if 'url' in v:
-                m = re.search(r'github\.com/([^/]+/[^/]+)', v['url'], re.IGNORECASE)
-                if m:
-                    known_upstreams.add(m.group(1).lower().rstrip('.git'))
+            # Only map if folder actually exists on disk
+            if k.lower() in existing_folders:
+                if 'upstream' in v:
+                    upstream_to_folder[v['upstream'].lower()] = k
+                if 'url' in v:
+                    m = re.search(r'github\.com/([^/]+/[^/]+)', v['url'], re.IGNORECASE)
+                    if m:
+                        upstream_to_folder[m.group(1).lower().rstrip('.git')] = k
 
-    return existing_folders, known_upstreams, upstreams
+    return existing_folders, upstream_to_folder, upstreams
 
 def fetch_skills_sh_dataset(refresh=False):
     if not refresh and os.path.exists(cache_file):
@@ -254,7 +256,7 @@ def check_repositories(min_installs=100_000, max_installs=None, limit=None, refr
         if folder_slug in existing_folders:
             matched_folder = folder_slug
         elif slug.lower() in known_upstreams:
-            matched_folder = folder_slug
+            matched_folder = known_upstreams[slug.lower()]
         else:
             for ef in existing_folders:
                 if ef == name.lower() or ef == f"{name.lower()}-skills" or ef.endswith(f"-{name.lower()}"):

@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 374 repositories  
-> **Total Skills in Reserve**: 22,001 skills  
+> **Active Reserve Libraries**: 364 repositories  
+> **Total Skills in Reserve**: 21,532 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -41,9 +41,7 @@
 | `anthropics-claude-plugins-official` | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | **29** | `python .agents/library/activate_skill.py activate access` |
 | `anthropics-financial-services` | [anthropics/financial-services](https://github.com/anthropics/financial-services) | **64** | `python .agents/library/activate_skill.py activate 3-statement-model` |
 | `anthropics-knowledge-work` | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | **245** | `python .agents/library/activate_skill.py activate accessibility-review` |
-| `anthropics-knowledge-work-plugins` | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | **232** | `python .agents/library/activate_skill.py activate accessibility-review` |
 | `anthropics-official-skills` | [anthropics/skills](https://github.com/anthropics/skills) | **21** | `python .agents/library/activate_skill.py activate academy-guide` |
-| `anthropics-skills` | [anthropics/skills](https://github.com/anthropics/skills) | **19** | `python .agents/library/activate_skill.py activate academy-guide` |
 | `antibrow-anti-detect-browser-skills` | [antibrow/anti-detect-browser-skills](https://github.com/antibrow/anti-detect-browser-skills) | **4** | `python .agents/library/activate_skill.py activate anti-detect-browser` |
 | `antigravity-awesome-skills` | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | **876** | `python .agents/library/activate_skill.py activate 3d-web-experience` |
 | `anysearch-ai-anysearch-skill` | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | **3** | `python .agents/library/activate_skill.py activate anysearch` |
@@ -67,7 +65,6 @@
 | `blader-humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | **1** | `python .agents/library/activate_skill.py activate humanizer` |
 | `bmad-code-org-bmad-method` | [bmad-code-org/bmad-method](https://github.com/bmad-code-org/bmad-method) | **31** | `python .agents/library/activate_skill.py activate bmad` |
 | `browser-act-skills` | [browser-act/skills](https://github.com/browser-act/skills) | **103** | `python .agents/library/activate_skill.py activate 1688-product-detail` |
-| `browser-use-browser-use` | [browser-use/browser-use](https://github.com/browser-use/browser-use) | **6** | `python .agents/library/activate_skill.py activate browser-use` |
 | `browser-use-skills` | [browser-use/browser-use](https://github.com/browser-use/browser-use) | **6** | `python .agents/library/activate_skill.py activate browser-use` |
 | `browserbase-skills` | [browserbase/skills](https://github.com/browserbase/skills) | **18** | `python .agents/library/activate_skill.py activate add-webmcp` |
 | `brycewang-stanford-auto-empirical-research-skills` | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | **1024** | `python .agents/library/activate_skill.py activate 00-Full-empirical-analysis-skill_StatsPAI` |
@@ -101,7 +98,6 @@
 | `davidondrej-skills` | [davidondrej/skills](https://github.com/davidondrej/skills) | **67** | `python .agents/library/activate_skill.py activate 4x4` |
 | `davila7-claude-code-templates` | [davila7/claude-code-templates](https://github.com/davila7/claude-code-templates) | **895** | `python .agents/library/activate_skill.py activate 2d-games` |
 | `deanpeters-product-manager-skills` | [deanpeters/Product-Manager-Skills](https://github.com/deanpeters/Product-Manager-Skills) | **78** | `python .agents/library/activate_skill.py activate acquisition-channel-advisor` |
-| `designed-by-ai-skills` | [designed-by-ai/skills](https://github.com/designed-by-ai/skills) | **1** | `python .agents/library/activate_skill.py activate design-mobile-apps` |
 | `diagram-design` | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | **1** | `python .agents/library/activate_skill.py activate diagram-design` |
 | `dickwu-apple-design-skill` | [dickwu/apple-design-skill](https://github.com/dickwu/apple-design-skill) | **2** | `python .agents/library/activate_skill.py activate apple-design` |
 | `dietrichgebert-ponytail` | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) | **6** | `python .agents/library/activate_skill.py activate ponytail` |
@@ -157,7 +153,6 @@
 | `greensock-gsap-skills` | [greensock/gsap-skills](https://github.com/greensock/gsap-skills) | **8** | `python .agents/library/activate_skill.py activate gsap-core` |
 | `haidrrrry-claude-remotion-skill` | [haidrrrry/claude-remotion-skill](https://github.com/haidrrrry/claude-remotion-skill) | **1** | `python .agents/library/activate_skill.py activate remotion-motion-graphics` |
 | `hanzohanzhe-grandet` | [hanzohanzhe/Grandet](https://github.com/hanzohanzhe/Grandet) | **1** | `python .agents/library/activate_skill.py activate grandet-api-price-finder` |
-| `heygen-com-hyperframes` | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | **7** | `python .agents/library/activate_skill.py activate figma` |
 | `heygen-hyperframes` | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | **20** | `python .agents/library/activate_skill.py activate canopy-part-title` |
 | `higgsfield-ai-skills` | [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills) | **9** | `python .agents/library/activate_skill.py activate higgsfield-brandkit` |
 | `himself65-finance-skills` | [himself65/finance-skills](https://github.com/himself65/finance-skills) | **26** | `python .agents/library/activate_skill.py activate company-valuation` |
@@ -181,7 +176,6 @@
 | `jakeschincariol-replica-skill` | [Jakeschincariol/replica-skill](https://github.com/Jakeschincariol/replica-skill) | **11** | `python .agents/library/activate_skill.py activate replica-architect` |
 | `jakeschincariol-trader-skill` | [Jakeschincariol/trader-skill](https://github.com/Jakeschincariol/trader-skill) | **11** | `python .agents/library/activate_skill.py activate trader-alerts` |
 | `jakeschincariol-youtube-agent-skill` | [Jakeschincariol/youtube-agent-skill](https://github.com/Jakeschincariol/youtube-agent-skill) | **11** | `python .agents/library/activate_skill.py activate yt-audit` |
-| `jakubkrehel-design-skills` | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | **14** | `python .agents/library/activate_skill.py activate better-accessibility` |
 | `jakubkrehel-make-interfaces-feel-better` | [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better) | **1** | `python .agents/library/activate_skill.py activate make-interfaces-feel-better` |
 | `jakubkrehel-skills` | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | **14** | `python .agents/library/activate_skill.py activate better-accessibility` |
 | `jeffallan-claude-skills` | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | **68** | `python .agents/library/activate_skill.py activate angular-architect` |
@@ -193,7 +187,6 @@
 | `juliusbrussee-caveman` | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | **30** | `python .agents/library/activate_skill.py activate cavecrew` |
 | `k-dense-ai-scientific-agent-skills` | [k-dense-ai/scientific-agent-skills](https://github.com/k-dense-ai/scientific-agent-skills) | **177** | `python .agents/library/activate_skill.py activate 13c-metabolic-flux` |
 | `kaankiziltug-logo-design-skill` | [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill) | **1** | `python .agents/library/activate_skill.py activate logo-design` |
-| `kdense-scientific-skills` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | **177** | `python .agents/library/activate_skill.py activate 13c-metabolic-flux` |
 | `kepano-obsidian-skills` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | **6** | `python .agents/library/activate_skill.py activate defuddle` |
 | `kostja94-marketing-skills` | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills) | **9** | `python .agents/library/activate_skill.py activate analytics` |
 | `langchain-ai-langchain-skills` | [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) | **22** | `python .agents/library/activate_skill.py activate deep-agents-core` |
@@ -283,7 +276,6 @@
 | `plannotator-effective-html` | [plannotator/effective-html](https://github.com/plannotator/effective-html) | **1** | `python .agents/library/activate_skill.py activate effective-html` |
 | `pleaseprompto-notebooklm-skill` | [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) | **2** | `python .agents/library/activate_skill.py activate notebooklm` |
 | `plugin87-ux-ui-agent-skills` | [plugin87/ux-ui-agent-skills](https://github.com/plugin87/ux-ui-agent-skills) | **27** | `python .agents/library/activate_skill.py activate a11y-audit` |
-| `ponytail-code-quality` | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | **6** | `python .agents/library/activate_skill.py activate ponytail` |
 | `prime-skills-runcomfy-agent-skills` | [prime-skills/runcomfy-agent-skills](https://github.com/prime-skills/runcomfy-agent-skills) | **30** | `python .agents/library/activate_skill.py activate ace-step` |
 | `prisma-skills` | [prisma/skills](https://github.com/prisma/skills) | **10** | `python .agents/library/activate_skill.py activate prisma-cli` |
 | `qingyuna-answer-me-with-html` | [QingYunA/answer-me-with-html](https://github.com/QingYunA/answer-me-with-html) | **1** | `python .agents/library/activate_skill.py activate answer-me-with-html` |
@@ -317,7 +309,6 @@
 | `sentry-dev` | [getsentry/sentry-cli](https://github.com/getsentry/sentry-cli) | **1** | `python .agents/library/activate_skill.py activate sentry-cli` |
 | `sergebulaev-linkedin-skills` | [sergebulaev/linkedin-skills](https://github.com/sergebulaev/linkedin-skills) | **1** | `python .agents/library/activate_skill.py activate linkedin` |
 | `shadcn-ui` | [shadcn/ui](https://github.com/shadcn-ui/ui) | **2** | `python .agents/library/activate_skill.py activate migrate-radix-to-base` |
-| `shadcn-ui-ui` | [shadcn/ui-ui](https://github.com/shadcn/ui-ui) | **2** | `python .agents/library/activate_skill.py activate migrate-radix-to-base` |
 | `shopify-shopify-ai-toolkit` | [shopify/shopify-ai-toolkit](https://github.com/shopify/shopify-ai-toolkit) | **2** | `python .agents/library/activate_skill.py activate shopify` |
 | `sickn33-agentic-awesome-skills` | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | **2777** | `python .agents/library/activate_skill.py activate 00-andruia-consultant` |
 | `simoneavogadro-android-reverse-engineering-skill` | [SimoneAvogadro/android-reverse-engineering-skill](https://github.com/SimoneAvogadro/android-reverse-engineering-skill) | **1** | `python .agents/library/activate_skill.py activate android-reverse-engineering` |
@@ -355,9 +346,8 @@
 | `unity-technologies-skills` | [unity-technologies/skills](https://github.com/unity-technologies/skills) | **35** | `python .agents/library/activate_skill.py activate 2d-pixel-perfect` |
 | `useosint-skills` | [useosint/skills](https://github.com/useosint/skills) | **29** | `python .agents/library/activate_skill.py activate dig-through-data-brokers` |
 | `usestrix-strix` | [usestrix/strix](https://github.com/usestrix/strix) | **9** | `python .agents/library/activate_skill.py activate api-security-testing` |
-| `vercel-agent-skills` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | **9** | `python .agents/library/activate_skill.py activate deploy-to-vercel` |
 | `vercel-labs-agent-browser` | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) | **10** | `python .agents/library/activate_skill.py activate agent-browser` |
-| `vercel-labs-agent-skills` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | **9** | `python .agents/library/activate_skill.py activate composition-patterns` |
+| `vercel-labs-agent-skills` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | **13** | `python .agents/library/activate_skill.py activate composition-patterns` |
 | `vercel-labs-json-render` | [vercel-labs/json-render](https://github.com/vercel-labs/json-render) | **31** | `python .agents/library/activate_skill.py activate codegen` |
 | `vercel-labs-skills` | [vercel-labs/skills](https://github.com/vercel-labs/skills) | **4** | `python .agents/library/activate_skill.py activate find-skills` |
 | `vibeforge1111-vibeship-spawner-skills` | [vibeforge1111/vibeship-spaw](https://github.com/vibeforge1111/vibeship-spaw) | **4** | `python .agents/library/activate_skill.py activate 3d-web-experience` |
