@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 7440 standalone modular skills  
+> **Total Unique Skills**: 7441 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -41,7 +41,7 @@
 | **[`algorithms-logic`](./algorithms-logic)** | 🧮 Algorithms, Logic & Math | **86** | [Open Catalog](./algorithms-logic/README.md) |
 | **[`diagrams-technical-visuals`](./diagrams-technical-visuals)** | 📊 Technical Diagrams & Isometric SVG | **65** | [Open Catalog](./diagrams-technical-visuals/README.md) |
 | **[`testing-playwright-e2e`](./testing-playwright-e2e)** | 🎭 Playwright & Browser Automation | **64** | [Open Catalog](./testing-playwright-e2e/README.md) |
-| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **62** | [Open Catalog](./frontend-visual-taste/README.md) |
+| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **63** | [Open Catalog](./frontend-visual-taste/README.md) |
 | **[`graphics-branding-design`](./graphics-branding-design)** | 🎨 Visual Design, Branding & Graphics | **57** | [Open Catalog](./graphics-branding-design/README.md) |
 | **[`lobehub-ecosystem`](./lobehub-ecosystem)** | 🌐 LobeHub Agent Skills Suite | **54** | [Open Catalog](./lobehub-ecosystem/README.md) |
 | **[`3d-web-threejs`](./3d-web-threejs)** | 🧊 3D Web Experiences & Three.js | **49** | [Open Catalog](./3d-web-threejs/README.md) |

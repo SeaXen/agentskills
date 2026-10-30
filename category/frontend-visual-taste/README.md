@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 62 skills  
+> **Total Curated Skills**: 63 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -60,6 +60,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`install-anti-slop`](../../library/dmmulroy-anti-slop/skills/install-anti-slop) | ⚪ Reserve | `dmmulroy-anti-slop` | Install, configure, update, or upgrade vendored anti-slop Oxlint plugins. Use when adding anti-... |
 | [`ios-design`](../../library/pbakaus-impeccable/skills/ios-design) | ⚪ Reserve | `pbakaus-impeccable` | Design and review iOS UI/UX for iPhone apps in SwiftUI, UIKit, or React Native. Use for mobile ... |
 | [`landing-page-design`](../../library/elayadesign-ai-design-skills/skills/landing-page-design) | ⚪ Reserve | `elayadesign-ai-design-skills` | Complete system for building high converting landing pages: intake questions, page structure, l... |
+| [`make-interfaces-feel-better`](../../library/jakubkrehel-make-interfaces-feel-better/skills/make-interfaces-feel-better) | ⚪ Reserve | `jakubkrehel-make-interfaces-feel-better` | Design engineering principles for making interfaces feel polished. Use when building UI compone... |
 | [`maui-theming`](../../library/dotnet-skills/skills/maui-theming) | ⚪ Reserve | `dotnet-skills` | Guide for theming .NET MAUI apps — light/dark mode via AppThemeBinding, ResourceDictionary them... |
 | [`md-to-docx`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/md-to-docx) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Convert Markdown files to Word documents (.docx) with proper formatting, Chinese font support (... |
 | [`minimax-music-playlist`](../../library/minimax-ai-skills/skills/minimax-music-playlist) | ⚪ Reserve | `minimax-ai-skills` | Generate personalized music playlists by analyzing the user's music taste and generation feedba... |

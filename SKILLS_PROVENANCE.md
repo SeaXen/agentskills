@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 230 repositories  
-> **Total Skills in Reserve**: 8,815 skills  
+> **Active Reserve Libraries**: 231 repositories  
+> **Total Skills in Reserve**: 8,816 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -30,7 +30,7 @@
 | `antfu-skills` | [antfu/skills](https://github.com/antfu/skills) | **12** | `python .agents/library/activate_skill.py activate antfu` |
 | `anthropics-knowledge-work` | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | **245** | `python .agents/library/activate_skill.py activate accessibility-review` |
 | `anthropics-official-skills` | [anthropics/skills](https://github.com/anthropics/skills) | **21** | `python .agents/library/activate_skill.py activate academy-guide` |
-| `antigravity-awesome-skills` | [benjaminasterA/antigravity-awesome-skills](https://github.com/benjaminasterA/antigravity-awesome-skills) | **876** | `python .agents/library/activate_skill.py activate 3d-web-experience` |
+| `antigravity-awesome-skills` | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | **876** | `python .agents/library/activate_skill.py activate 3d-web-experience` |
 | `anysearch-ai-anysearch-skill` | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | **3** | `python .agents/library/activate_skill.py activate anysearch` |
 | `ar9av-obsidian-wiki` | [Ar9av/obsidian-wiki](https://github.com/Ar9av/obsidian-wiki) | **41** | `python .agents/library/activate_skill.py activate claude-history-ingest` |
 | `assafkip-claudemy` | [assafkip/claudemy](https://github.com/assafkip/claudemy) | **1** | `python .agents/library/activate_skill.py activate claudemy` |
@@ -119,6 +119,7 @@
 | `jakeschincariol-trader-skill` | [Jakeschincariol/trader-skill](https://github.com/Jakeschincariol/trader-skill) | **11** | `python .agents/library/activate_skill.py activate trader-alerts` |
 | `jakeschincariol-youtube-agent-skill` | [Jakeschincariol/youtube-agent-skill](https://github.com/Jakeschincariol/youtube-agent-skill) | **11** | `python .agents/library/activate_skill.py activate yt-audit` |
 | `jakubkrehel-design-skills` | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | **14** | `python .agents/library/activate_skill.py activate better-accessibility` |
+| `jakubkrehel-make-interfaces-feel-better` | [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better) | **1** | `python .agents/library/activate_skill.py activate make-interfaces-feel-better` |
 | `jeffallan-claude-skills` | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills) | **68** | `python .agents/library/activate_skill.py activate angular-architect` |
 | `jetbrains-thinkrail` | [JetBrains/thinkrail](https://github.com/JetBrains/thinkrail) | **12** | `python .agents/library/activate_skill.py activate asking-user-questions` |
 | `jimliu-baoyu-design` | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | **2** | `python .agents/library/activate_skill.py activate baoyu-design` |
