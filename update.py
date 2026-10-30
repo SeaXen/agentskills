@@ -483,8 +483,8 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     clean_nested()
 
-    if any(arg.startswith(('--leaderboard', '--trending', '--starred', '--traction')) for arg in args):
-        leaderboard_script = os.path.join(agents_dir, 'scripts', 'leaderboard.py')
+    if any(arg.startswith(('--skillleaderboard', '--leaderboard', '--trending', '--starred', '--traction', '--newest')) for arg in args):
+        leaderboard_script = os.path.join(agents_dir, 'scripts', 'skillleaderboard.py')
         sys.exit(subprocess.run([sys.executable, leaderboard_script] + args).returncode)
 
     if '--index' in args or '--reindex' in args:

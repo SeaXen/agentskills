@@ -1,1 +1,1 @@
-& python "$PSScriptRoot\scripts\leaderboard.py" @args
+& python "$PSScriptRoot\scripts\skillleaderboard.py" @args
