@@ -1,7 +1,6 @@
 ---
 name: pr-labeling
 description: Classify a skills CLI pull request from its description and patch, while respecting existing labels.
-category: git-version-control
 ---
 
 # Label a skills CLI pull request

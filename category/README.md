@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 7443 standalone modular skills  
+> **Total Unique Skills**: 7442 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -11,7 +11,7 @@
 
 | Category Folder | Domain Title | Skills | Individual Catalog |
 | :--- | :--- | :---: | :--- |
-| **[`code-quality-refactoring`](./code-quality-refactoring)** | 🧹 Code Quality, Refactoring & Clean Code | **980** | [Open Catalog](./code-quality-refactoring/README.md) |
+| **[`code-quality-refactoring`](./code-quality-refactoring)** | 🧹 Code Quality, Refactoring & Clean Code | **979** | [Open Catalog](./code-quality-refactoring/README.md) |
 | **[`database-sql-relational`](./database-sql-relational)** | 🗄️ SQL Databases, ORMs & Indexing | **891** | [Open Catalog](./database-sql-relational/README.md) |
 | **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **543** | [Open Catalog](./backend-api-design/README.md) |
 | **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **436** | [Open Catalog](./frontend-ui-components/README.md) |

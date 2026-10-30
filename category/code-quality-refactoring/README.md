@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Curated Skills**: 980 skills  
+> **Total Curated Skills**: 979 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -365,7 +365,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`diverge`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/diverge) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Before implementing, generate 3-5 conceptually distinct approaches labeled by creativity dimens... |
 | [`django-perf-review`](../../library/getsentry-skills/skills/django-perf-review) | ⚪ Reserve | `getsentry-skills` | Django performance code review. Use when asked to "review Django performance", "find N+1 querie... |
 | [`django-pro`](../../library/antigravity-awesome-skills/skills/django-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master Django 5.x with async views, DRF, Celery, and Django |
-| [`docs`](../../library/vercel-labs-skills/skills/docs) | ⚪ Reserve | `vercel-labs-skills` | category: code-quality-refactoring |
 | [`docs-architect`](../../library/antigravity-awesome-skills/skills/docs-architect) | ⚪ Reserve | `antigravity-awesome-skills` | Creates comprehensive technical documentation from existing |
 | [`docx`](../../library/anthropics-official-skills/skills/docx) | ⚪ Reserve | `anthropics-official-skills` | Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.do... |
 | [`docx-official`](../../library/antigravity-awesome-skills/skills/docx-official) | ⚪ Reserve | `antigravity-awesome-skills` | Comprehensive document creation, editing, and analysis with support for tracked changes, commen... |

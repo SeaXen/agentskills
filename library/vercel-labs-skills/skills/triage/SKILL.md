@@ -1,7 +1,6 @@
 ---
 name: triage
 description: Identify focused, evidence-backed skills CLI bug fixes worth quuu's attention.
-category: code-quality-refactoring
 ---
 
 # Triage a new skills CLI pull request
