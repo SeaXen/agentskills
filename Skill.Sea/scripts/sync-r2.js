@@ -27,6 +27,9 @@ if (!fs.existsSync(DATA_DIR)) {
   process.exit(1);
 }
 
+const ALLOW_OFFLINE = process.argv.includes('--allow-offline') || process.argv.includes('--graceful');
+const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+
 let successCount = 0;
 
 for (const item of FILES_TO_SYNC) {
@@ -42,19 +45,27 @@ for (const item of FILES_TO_SYNC) {
 
   try {
     // 1. Upload to data/{name}
-    const cmdData = `npx wrangler r2 object put "${BUCKET_NAME}/data/${item.name}" --file="${filePath}" --content-type="application/json" --cache-control="${item.cache}" --remote`;
+    const cmdData = `${npxCmd} wrangler r2 object put "${BUCKET_NAME}/data/${item.name}" --file="${filePath}" --content-type="application/json" --cache-control="${item.cache}" --remote`;
     execSync(cmdData, { stdio: 'inherit', cwd: path.resolve(__dirname, '..') });
 
     // 2. Also upload to root {name} for direct bucket lookups
-    const cmdRoot = `npx wrangler r2 object put "${BUCKET_NAME}/${item.name}" --file="${filePath}" --content-type="application/json" --cache-control="${item.cache}" --remote`;
+    const cmdRoot = `${npxCmd} wrangler r2 object put "${BUCKET_NAME}/${item.name}" --file="${filePath}" --content-type="application/json" --cache-control="${item.cache}" --remote`;
     execSync(cmdRoot, { stdio: 'inherit', cwd: path.resolve(__dirname, '..') });
 
     console.log(`  ✓ Synced ${item.name} successfully.\n`);
     successCount++;
   } catch (err) {
     console.error(`  ✗ Failed to upload ${item.name}:`, err.message);
-    process.exit(1);
+    if (ALLOW_OFFLINE) {
+      console.warn(`  ℹ️ Graceful offline mode: continuing without crashing.`);
+    } else {
+      process.exit(1);
+    }
   }
 }
 
-console.log(`🎉 Sync Complete! ${successCount}/${FILES_TO_SYNC.length} datasets uploaded to R2 '${BUCKET_NAME}'.\n`);
+if (successCount === FILES_TO_SYNC.length) {
+  console.log(`🎉 Sync Complete! ${successCount}/${FILES_TO_SYNC.length} datasets uploaded to R2 '${BUCKET_NAME}'.\n`);
+} else {
+  console.log(`⚠️ Sync partial: ${successCount}/${FILES_TO_SYNC.length} datasets uploaded to R2.\n`);
+}

@@ -452,6 +452,14 @@ def rebuild_skill_sea_catalog():
         except Exception as e:
             print(f"⚠️ Skill.Sea catalog rebuild error: {e}", flush=True)
 
+        sync_script = os.path.join(agents_dir, 'Skill.Sea', 'scripts', 'sync-r2.js')
+        if os.path.exists(sync_script):
+            try:
+                print("☁️ Auto-syncing Skill.Sea catalog to Cloudflare R2 (skill-sea-vault)...", flush=True)
+                subprocess.run(['node', sync_script, '--allow-offline'], cwd=os.path.join(agents_dir, 'Skill.Sea'), check=False)
+            except Exception as e:
+                print(f"⚠️ Cloudflare R2 sync notice: {e}", flush=True)
+
 # 6. Git Commit & Push
 def git_commit_and_push():
     print("\n[6/6] Checking Git status and pushing updates...", flush=True)

@@ -9,6 +9,7 @@
     "build": "node scripts/build-catalog.js",
     "build:catalog": "node scripts/build-catalog.js",
     "deploy": "wrangler pages deploy . --project-name=skill-sea",
+    "sync": "node scripts/build-catalog.js && node scripts/sync-r2.js",
     "sync:r2": "node scripts/sync-r2.js",
     "test": "node scripts/verify.js && python tests/test_webapp.py",
     "test:e2e": "python tests/test_webapp.py",
