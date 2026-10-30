@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 231 repositories  
-> **Total Skills in Reserve**: 8,816 skills  
+> **Active Reserve Libraries**: 232 repositories  
+> **Total Skills in Reserve**: 8,818 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -32,6 +32,7 @@
 | `anthropics-official-skills` | [anthropics/skills](https://github.com/anthropics/skills) | **21** | `python .agents/library/activate_skill.py activate academy-guide` |
 | `antigravity-awesome-skills` | [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) | **876** | `python .agents/library/activate_skill.py activate 3d-web-experience` |
 | `anysearch-ai-anysearch-skill` | [anysearch-ai/anysearch-skill](https://github.com/anysearch-ai/anysearch-skill) | **3** | `python .agents/library/activate_skill.py activate anysearch` |
+| `appllama-appllama-skills` | [Appllama/appllama-skills](https://github.com/Appllama/appllama-skills) | **2** | `python .agents/library/activate_skill.py activate appllama-app-design-skill` |
 | `ar9av-obsidian-wiki` | [Ar9av/obsidian-wiki](https://github.com/Ar9av/obsidian-wiki) | **41** | `python .agents/library/activate_skill.py activate claude-history-ingest` |
 | `assafkip-claudemy` | [assafkip/claudemy](https://github.com/assafkip/claudemy) | **1** | `python .agents/library/activate_skill.py activate claudemy` |
 | `avdlee-swiftui-agent-skill` | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | **2** | `python .agents/library/activate_skill.py activate swiftui-expert-skill` |

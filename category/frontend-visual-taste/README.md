@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 63 skills  
+> **Total Curated Skills**: 64 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -23,6 +23,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agency-grid-layout-minimal`](../../library/mengto-skills/skills/agency-grid-layout-minimal) | ⚪ Reserve | `mengto-skills` | Create a minimal agency design system with a disciplined editorial grid, oversized typography, ... |
 | [`amazon-product-api-skill`](../../library/browser-act-skills/skills/amazon-product-api-skill) | ⚪ Reserve | `browser-act-skills` | This skill helps users extract structured product listings from Amazon, including titles, ASINs... |
 | [`anti-slop`](../../library/miqdadbadjuber-anti-slop/skills/anti-slop) | ⚪ Reserve | `miqdadbadjuber-anti-slop` | A collection of filters for AI agents to remove generic comments, refine prose, and enforce hig... |
+| [`appllama-app-design-skill`](../../library/appllama-appllama-skills/skills/appllama-app-design-skill) | ⚪ Reserve | `appllama-appllama-skills` | Build native-feeling, benchmark-quality mobile app screens (Expo / React Native). Use when desi... |
 | [`audit-ai-design-slop`](../../library/mengto-skills/skills/audit-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Audit websites, apps, screenshots, mockups, and design code for harmful AI-design clichés, gene... |
 | [`baoyu-cover-image`](../../library/jimliu-baoyu-skills/skills/baoyu-cover-image) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combini... |
 | [`baoyu-xhs-images`](../../library/jimliu-baoyu-skills/skills/baoyu-xhs-images) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates infographic image card series with 12 visual styles, 8 layouts, and 3 color palettes.... |

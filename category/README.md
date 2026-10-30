@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 7441 standalone modular skills  
+> **Total Unique Skills**: 7443 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -29,7 +29,7 @@
 | **[`autonomous-agents-hermes`](./autonomous-agents-hermes)** | 🧠 NousResearch Hermes Agent Skills | **165** | [Open Catalog](./autonomous-agents-hermes/README.md) |
 | **[`programming-languages-core`](./programming-languages-core)** | 📐 Programming Languages & Type Systems | **153** | [Open Catalog](./programming-languages-core/README.md) |
 | **[`git-version-control`](./git-version-control)** | 🐙 Git, Worktrees & PR Workflows | **145** | [Open Catalog](./git-version-control/README.md) |
-| **[`mobile-ios-android`](./mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **140** | [Open Catalog](./mobile-ios-android/README.md) |
+| **[`mobile-ios-android`](./mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **141** | [Open Catalog](./mobile-ios-android/README.md) |
 | **[`data-engineering-ml`](./data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **124** | [Open Catalog](./data-engineering-ml/README.md) |
 | **[`frontend-motion-animation`](./frontend-motion-animation)** | ✨ UI Motion, Animations & Polish | **121** | [Open Catalog](./frontend-motion-animation/README.md) |
 | **[`productivity-workspace-tools`](./productivity-workspace-tools)** | 🚀 Productivity, Slack, Notion & Linear | **119** | [Open Catalog](./productivity-workspace-tools/README.md) |
@@ -40,8 +40,8 @@
 | **[`video-motion-production`](./video-motion-production)** | 🎬 Video Creation & Generative Motion | **96** | [Open Catalog](./video-motion-production/README.md) |
 | **[`algorithms-logic`](./algorithms-logic)** | 🧮 Algorithms, Logic & Math | **86** | [Open Catalog](./algorithms-logic/README.md) |
 | **[`diagrams-technical-visuals`](./diagrams-technical-visuals)** | 📊 Technical Diagrams & Isometric SVG | **65** | [Open Catalog](./diagrams-technical-visuals/README.md) |
+| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **64** | [Open Catalog](./frontend-visual-taste/README.md) |
 | **[`testing-playwright-e2e`](./testing-playwright-e2e)** | 🎭 Playwright & Browser Automation | **64** | [Open Catalog](./testing-playwright-e2e/README.md) |
-| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **63** | [Open Catalog](./frontend-visual-taste/README.md) |
 | **[`graphics-branding-design`](./graphics-branding-design)** | 🎨 Visual Design, Branding & Graphics | **57** | [Open Catalog](./graphics-branding-design/README.md) |
 | **[`lobehub-ecosystem`](./lobehub-ecosystem)** | 🌐 LobeHub Agent Skills Suite | **54** | [Open Catalog](./lobehub-ecosystem/README.md) |
 | **[`3d-web-threejs`](./3d-web-threejs)** | 🧊 3D Web Experiences & Three.js | **49** | [Open Catalog](./3d-web-threejs/README.md) |

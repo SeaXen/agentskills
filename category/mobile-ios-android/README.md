@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 140 skills  
+> **Total Curated Skills**: 141 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -42,6 +42,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`appfunctions`](../../library/android-skills/skills/appfunctions) | ⚪ Reserve | `android-skills` | Analyzes Android apps to identify key user workflows for AppFunctions |
 | [`apple-crash-symbolication`](../../library/dotnet-skills/skills/apple-crash-symbolication) | ⚪ Reserve | `dotnet-skills` | Symbolicate .NET runtime frames in Apple platform .ips crash logs (iOS, tvOS, Mac Catalyst, mac... |
 | [`apple-design`](../../library/dickwu-apple-design-skill/skills/apple-design) | ⚪ Reserve | `dickwu-apple-design-skill` | Cross-platform UI/UX design reviewer grounded in Apple's Human Interface Guidelines (123 pages ... |
+| [`appllama-usage`](../../library/appllama-appllama-skills/skills/appllama-usage) | ⚪ Reserve | `appllama-appllama-skills` | Use the Appllama MCP (mcp.appllama.io) well — research real top-grossing mobile apps, their scr... |
 | [`author-game-levels`](../../library/mengto-skills/skills/author-game-levels) | ⚪ Reserve | `mengto-skills` | Author or revise readable, flat-world Three.js game levels. Use for movement and camera routes,... |
 | [`azure-monitor-opentelemetry-exporter-py`](../../library/antigravity-awesome-skills/skills/azure-monitor-opentelemetry-exporter-py) | ⚪ Reserve | `antigravity-awesome-skills` | Azure Monitor OpenTelemetry Exporter for Python. Use for low-level OpenTelemetry export to Appl... |
 | [`build-game-changelog`](../../library/mengto-skills/skills/build-game-changelog) | ⚪ Reserve | `mengto-skills` | Design, implement, backfill, audit, and release in-game changelogs with contiguous versioning, ... |

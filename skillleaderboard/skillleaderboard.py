@@ -7,14 +7,17 @@ Enables humans and AI agents to track, audit, and ingest:
   - Top 150 Most Starred skills (--starred [N], default 150)
   - Top 50 Trending skills by 7-day growth (--trending [N], default 50)
   - Top skills by Traction score (--traction [N])
+  - Newest skills (--newest [N])
   - Automated downloading and vault ingestion (--ingest / --sync)
+  - Clean 3-item vault standardization (skills/, README.md, skills_index.json, .upstream_commit)
+  - 38-Category taxonomy and provenance rebuilding
 
 Usage Examples:
-  python scripts/leaderboard.py --trending
-  python scripts/leaderboard.py --starred
-  python scripts/leaderboard.py --trending 50 --json
-  python scripts/leaderboard.py --starred 150 --ingest
-  python scripts/leaderboard.py --trending 50 --ingest --push
+  python skillleaderboard.py --trending
+  python skillleaderboard.py --starred
+  python skillleaderboard.py --trending 50 --json
+  python skillleaderboard.py --starred 150 --ingest
+  python skillleaderboard.py --trending 50 --ingest --push
 """
 
 import os
@@ -34,9 +37,9 @@ if hasattr(sys.stdout, 'reconfigure'):
     except Exception:
         pass
 
-# Paths
+# Paths: skillleaderboard/ is directly inside .agents/
 script_dir = os.path.dirname(os.path.abspath(__file__))
-agents_dir = os.path.dirname(script_dir) if os.path.basename(script_dir) == 'scripts' else script_dir
+agents_dir = os.path.dirname(script_dir) if os.path.basename(script_dir) == 'skillleaderboard' else script_dir
 lib_dir = os.path.join(agents_dir, 'library')
 upstreams_file = os.path.join(lib_dir, 'upstreams.json')
 temp_clone_dir = os.path.join(agents_dir, '.temp_leaderboard_clones')
@@ -228,14 +231,14 @@ def ingest_repository(item, upstreams):
     skills_sub = os.path.join(target_dir, 'skills')
     os.makedirs(skills_sub, exist_ok=True)
 
-    # 3. Locate skills
-    # Check if repo already has a 'skills' folder
+    # 3. Locate skills:
+    # A. Check if repo has a 'skills' folder
     src_skills = os.path.join(clone_tmp, 'skills')
     if os.path.exists(src_skills) and any(os.path.isdir(os.path.join(src_skills, d)) for d in os.listdir(src_skills)):
         shutil.rmtree(skills_sub, ignore_errors=True)
         shutil.copytree(src_skills, skills_sub)
     else:
-        # Check plugins or subdirectories
+        # B. Check plugins, subdirectories, or .claude
         for root, dirs, files in os.walk(clone_tmp):
             if '.git' in root:
                 continue
@@ -249,8 +252,9 @@ def ingest_repository(item, upstreams):
                     if not os.path.exists(dest_skill):
                         shutil.copytree(parent, dest_skill)
 
-    # If still no skills discovered, synthesize single skill from root SKILL.md/README
-    if not os.path.exists(skills_sub) or not os.listdir(skills_sub):
+    # C. If still no skills discovered, synthesize single skill from root SKILL.md/README
+    root_skills = [d for d in os.listdir(skills_sub) if os.path.isdir(os.path.join(skills_sub, d))]
+    if not root_skills:
         skill_slug = re.sub(r'[^a-zA-Z0-9_-]', '-', name.lower()).strip('-')
         single_skill_dir = os.path.join(skills_sub, skill_slug)
         os.makedirs(single_skill_dir, exist_ok=True)
@@ -275,6 +279,14 @@ def ingest_repository(item, upstreams):
 
         with open(dest_md, 'w', encoding='utf-8') as sf:
             sf.write(full_text)
+
+        # Copy any supporting agents or scripts
+        for sub in ['agents', 'scripts', 'references', 'examples', 'media']:
+            sp = os.path.join(clone_tmp, sub)
+            if os.path.exists(sp):
+                dp = os.path.join(single_skill_dir, sub)
+                if not os.path.exists(dp):
+                    shutil.copytree(sp, dp)
 
     # 4. Standard README.md
     readme_src = os.path.join(clone_tmp, 'README.md')
@@ -301,7 +313,8 @@ def ingest_repository(item, upstreams):
         'url': f"https://github.com/{repo}"
     }
 
-    print(f"✓ Ingested {repo} into library/{folder_slug} ({len(os.listdir(skills_sub))} skills).")
+    skills_count = len(os.listdir(skills_sub)) if os.path.exists(skills_sub) else 0
+    print(f"✓ Ingested {repo} into library/{folder_slug} ({skills_count} skills).")
     return True
 
 def run_vault_rebuild(push=False):
