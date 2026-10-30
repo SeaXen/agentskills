@@ -8,17 +8,17 @@ web
 
 ## Stack
 
-Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in CSS3, vanilla ES Modules in JavaScript, and a zero-dependency Node HTTP static server. Compatible with static edge deployment (Vercel, Cloudflare Pages, Netlify, GitHub Pages) and local execution via `node server.js` or `npm run dev`.
+Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in CSS3, vanilla ES Modules in JavaScript, and a zero-dependency Node HTTP static server. Automated backend workflows powered by Python 3 (`update.py`, `skillssh.py`, `skillleaderboard.py`) and Git lifecycle hooks (`.git/hooks/pre-commit`, `.git/hooks/pre-push`). Edge data streaming powered by Cloudflare Pages Functions and Cloudflare R2 object storage (`skill-sea-vault`).
 
 ## Users
 
-1. **AI Systems & Autonomous Agents**: Autonomous coding agents running in Google Antigravity, Claude Code, Cursor, and Windsurf that need targeted, on-demand skill activation without inflating LLM context windows or incurring token bloat.
-2. **AI Engineers & Developers**: Builders configuring local agent environments who need to discover, evaluate, and 1-click activate production-tested skills across specific technical domains (backend, frontend, security, data, DevOps, web3).
-3. **Open-Source Community**: Visitors browsing the catalog online to explore agent capabilities, compare upstream implementations, and clone curated skill libraries.
+1. **AI Systems & Autonomous Agents**: Autonomous coding agents running in Google Antigravity, Claude Code, Cursor, Windsurf, and Codex that require targeted, on-demand skill activation without inflating LLM context windows or incurring token bloat.
+2. **AI Engineers & Developers**: Builders configuring local agent environments who need to discover, evaluate, and 1-click activate production-tested skills across 38 technical domains (backend, frontend, security, data, DevOps, web3, academic research).
+3. **Open-Source Community**: Visitors browsing the catalog online at [https://skill-sea.pages.dev](https://skill-sea.pages.dev) to explore agent capabilities, compare upstream implementations, and clone curated skill libraries.
 
 ## Product Purpose
 
-Skill.Sea is an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 7,400+ skills discovered across 212 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery and instant, offline-capable workspace activation with zero token bloat.
+The Antigravity Agent Skills Vault and companion web app Skill.Sea provide an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 17,145 skills discovered across 339 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery and instant, offline-capable workspace activation with zero token bloat.
 
 ## Positioning
 
@@ -26,11 +26,13 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 - **Zero Token Overhead**: Skills remain indexed in the master library and are linked into `.agents/skills/` only when needed for a specific task.
 - **Hot-Set Tier (130 Skills)**: A pre-linked, curated core tier of high-impact skills immediately available for zero-latency execution.
 - **Dual Operating Topology**: Operates as a local workbench inside the developer's filesystem and deploys statically to the web without requiring a backend database.
+- **Zero-Friction Auto-Pipeline**: Automatically rebuilds local catalog datasets on `git commit` and synchronizes to Cloudflare R2 on `git push`, ensuring live visitors see updates instantly with zero build delays.
 
 ## Operating Context
 
 - **Local Development Workbench**: Served on `http://127.0.0.1:8080` inside `D:/Repo/.agents/Skill.Sea`, mounted directly alongside the `.agents/library/` master repository and active `.agents/skills/` directory.
-- **Git Hook Automation**: Automatically synchronized via Git pre-commit hooks (`scripts/setup_hooks.py` and `category_system.py`), ensuring datasets (`catalog.json`, `categories.json`, `repositories.json`, `stats.json`) stay synchronized on every commit.
+- **Production Edge Endpoint**: Live on [https://skill-sea.pages.dev](https://skill-sea.pages.dev), streaming master datasets from Cloudflare R2 bucket `skill-sea-vault` with HTTP ETags and 304 conditional request caching.
+- **Git Hook Automation**: Automatically synchronized via Git hooks (`.git/hooks/pre-commit` and `.git/hooks/pre-push`), ensuring datasets (`catalog.json`, `categories.json`, `repositories.json`, `stats.json`) stay synchronized on every commit and push.
 - **Dual Display Modes**: Seamless switching between light (warm paper `#f9f9f7`) and dark (deep graphite `#0b0b0b`) themes.
 - **Responsive Environments**: Full desktop multi-column data views, tablet grid views, and mobile-native bottom sheet drawer views with notch/Dynamic Island safe-area accommodation.
 
@@ -38,18 +40,19 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 - **Confirmed Functionality**:
   - Full-text instant search across names, descriptions, categories, and command snippets with keyboard shortcut (`/`).
-  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (Skills, Categories, Repositories, Hot-Set).
+  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (17,145 Skills, 38 Categories, 339 Repositories, 130 Hot-Set).
   - Horizontal scrolling category rail with colored badges and item counts.
   - 1-Click install mode switcher supporting:
     1. Universal NPX (`npx skills add <url>`)
     2. Local CLI & Symlink activation (`python .agents/library/activate_skill.py activate <name>`)
     3. My Repo Vault installation (`git clone https://github.com/SeaXen/agentskills.git .agents`)
   - Detail slide-over drawer showing full markdown documentation, parameter lists, example prompts, and source repository links.
-  - Tab navigation across Skill Hub, Hot-Set, 38 Categories, 212 Git Repositories, and Install Guide.
+  - Tab navigation across Skill Hub, Hot-Set, 38 Categories, 339 Git Repositories, and Install Guide.
+  - Automated ecosystem synchronization with skills.sh (100K+ install repos) and skillleaderboard.com.
 - **Constraints**:
   - Absolute zero external runtime JavaScript or CSS dependencies (no React, no Vue, no Tailwind, no external CDN trackers). Only Tabler icons are pulled via CDN with local SVG fallbacks.
   - Strict preservation of offline capability for all local development and activation workflows.
-  - **Full Repository File Retention**: When skills or repositories are downloaded or updated from upstreams, all files of that repo (docs, scripts, examples, assets) stay intact in the files. Files are never deleted automatically; they are deleted only when the user explicitly instructs to delete them.
+  - **Full Repository File Retention Policy**: When skills or repositories are downloaded or updated from upstreams, all files of that repo (docs, scripts, examples, assets) stay intact in the files. Files are never deleted automatically; they are deleted only when the user explicitly instructs to delete them.
 
 ## Brand Commitments
 
@@ -59,10 +62,11 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 ## Evidence on Hand
 
-- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (7,401 validated items).
+- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (20.30 MB, 17,145 validated items).
 - **Taxonomy Categories**: `Skill.Sea/data/categories.json` (38 domain definitions).
-- **Origin Repositories**: `Skill.Sea/data/repositories.json` (212 indexed repositories).
-- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (7,401 skills, 38 categories, 212 repos, 130 hot-set).
+- **Origin Repositories**: `Skill.Sea/data/repositories.json` (1.54 MB, 339 indexed repositories).
+- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (17,145 skills, 38 categories, 339 repos, 130 hot-set).
+- **Cloudflare R2 Bucket**: `skill-sea-vault` with active Wrangler OAuth configuration.
 - **Physical Skill Files**: Canonical source directories under `.agents/skills/` and `.agents/library/`.
 
 ## Product Principles
@@ -71,6 +75,7 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 2. **Zero-Latency Execution**: Local agent workflows must never wait on network requests. Symlinks and local indices provide immediate workspace availability.
 3. **Truth in Telemetry**: Numbers on screen must match physical files in the filesystem. Desynchronization or hardcoded stale counts are treated as defects.
 4. **Resilient Portability**: The web app runs anywhere a static web server or browser can run, with zero external database dependencies.
+5. **Zero-Friction Automation**: Repository modifications automatically reflect on the live website through git hooks and edge streaming, eliminating manual deployment chores.
 
 ## Accessibility & Inclusion
 
