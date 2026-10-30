@@ -483,6 +483,10 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     clean_nested()
 
+    if any(arg.startswith(('--leaderboard', '--trending', '--starred', '--traction')) for arg in args):
+        leaderboard_script = os.path.join(agents_dir, 'scripts', 'leaderboard.py')
+        sys.exit(subprocess.run([sys.executable, leaderboard_script] + args).returncode)
+
     if '--index' in args or '--reindex' in args:
         rebuild_all_indexes()
         rebuild_categories_and_provenance()
