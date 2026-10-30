@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 543 skills  
+> **Total Curated Skills**: 544 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -193,6 +193,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`debug-zoom`](../../library/anthropics-knowledge-work/skills/debug-zoom) | ⚪ Reserve | `anthropics-knowledge-work` | Debug a broken Zoom integration by isolating the failure point and routing into the right Zoom ... |
 | [`deck-generator`](../../library/ericosiu-ai-marketing-skills/skills/deck-generator) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Generate professional presentations with AI-generated images. Use when asked to create a deck, ... |
 | [`deploying-osquery-for-endpoint-monitoring`](../../library/mukul975-anthropic-cybersecurity-skills/skills/deploying-osquery-for-endpoint-monitoring) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploys and configures osquery for real-time endpoint monitoring using |
+| [`derive-client`](../../library/vercel-labs-agent-browser/skills/derive-client) | ⚪ Reserve | `vercel-labs-agent-browser` | Reverse-engineer a website's internal API by recording browser traffic into a HAR file, then ge... |
 | [`design-mcp-workflow`](../../library/anthropics-knowledge-work/skills/design-mcp-workflow) | ⚪ Reserve | `anthropics-knowledge-work` | Design a Zoom MCP workflow for Claude. Use when deciding whether Zoom MCP fits a task, when pla... |
 | [`detecting-api-enumeration-attacks`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-api-enumeration-attacks) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detect API enumeration attacks (BOLA/IDOR, OWASP API1:2023) by writing SIEM |
 | [`detecting-aws-cloudtrail-anomalies`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-aws-cloudtrail-anomalies) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detect unusual API call patterns in AWS CloudTrail logs using boto3, |

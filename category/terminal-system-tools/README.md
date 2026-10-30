@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 185 skills  
+> **Total Curated Skills**: 186 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -115,6 +115,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hunting-for-webshell-activity`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hunting-for-webshell-activity) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Runs a hypothesis-driven threat hunt for web shell deployment (T1505.003) on internet-facing se... |
 | [`implementing-data-loss-prevention-with-microsoft-purview`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-data-loss-prevention-with-microsoft-purview) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements DLP policies using Microsoft Purview PowerShell cmdlets and |
 | [`implementing-gcp-vpc-firewall-rules`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-gcp-vpc-firewall-rules) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements and audits GCP VPC firewall rules using gcloud, covering auditing overly permissive ... |
+| [`ink`](../../library/vercel-labs-json-render/skills/ink) | ⚪ Reserve | `vercel-labs-json-render` | Ink terminal renderer for json-render that turns JSON specs into interactive terminal UIs. Use ... |
 | [`jotform-automation`](../../library/composio-community-awesome-codex-skills/skills/jotform-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Jotform form listing, user management, activity history, folder organization, and plan... |
 | [`karpathy-check`](../../library/alirezarezvani-claude-skills/skills/karpathy-check) | ⚪ Reserve | `alirezarezvani-claude-skills` | ../../../commands/karpathy-check.md |
 | [`linear-sdk-scripting`](../../library/cline-skills/skills/linear-sdk-scripting) | ⚪ Reserve | `cline-skills` | Perform actions in Linear (read, create, update, search issues, projects, comments, teams, cycl... |

@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 436 skills  
+> **Total Curated Skills**: 441 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -145,6 +145,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`detecting-dns-exfiltration-with-dns-query-analysis`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-dns-exfiltration-with-dns-query-analysis) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detect data exfiltration via DNS tunneling (tools like iodine, dnscat2, dns2tcp) by analyzing q... |
 | [`development-economics-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/development-economics-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Apply development economics research methods and data sources |
 | [`devils-advocate`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/devils-advocate) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Challenge a slide deck design with 5-7 specific pedagogical questions. Checks ordering, prerequ... |
+| [`devtools-vue`](../../library/vercel-labs-json-render/skills/devtools-vue) | ⚪ Reserve | `vercel-labs-json-render` | Vue adapter for the json-render devtools inspector. Use whenever the user wants to add, configu... |
 | [`diagnosing-superpowers`](../../library/obra-superpowers/skills/diagnosing-superpowers) | ⚪ Reserve | `obra-superpowers` | Use when a superpowers session went wrong and your human partner wants to know why — repeated w... |
 | [`digital-humanities-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/digital-humanities-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Computational methods for humanities research including text mining and netwo... |
 | [`discussion-writing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/discussion-writing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Write effective discussion sections that interpret results and impact |
@@ -234,6 +235,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`jabref-reference-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/jabref-reference-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to JabRef open-source BibTeX and BibLaTeX reference manager |
 | [`jasminum-zotero-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/jasminum-zotero-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to Jasminum for retrieving CNKI Chinese academic metadata in Zotero |
 | [`json-data-visualizer`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/json-data-visualizer) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to JSON Crack for visualizing complex JSON data structures |
+| [`json-render-shadcn`](../../library/vercel-labs-json-render/skills/json-render-shadcn) | ⚪ Reserve | `vercel-labs-json-render` | Pre-built shadcn/ui components for json-render. Use when working with @json-render/shadcn, addi... |
 | [`kosmos-scientist-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/kosmos-scientist-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Claude Code-driven autonomous AI Scientist for discovery |
 | [`landing-page-generator`](../../library/alirezarezvani-claude-skills/skills/landing-page-generator) | ⚪ Reserve | `alirezarezvani-claude-skills` | Generates high-converting landing pages as complete Next.js/React (TSX) components with Tailwin... |
 | [`latex-ecosystem-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/latex-ecosystem-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Comprehensive guide to LaTeX editors, packages, and typesetting workflows |
@@ -334,6 +336,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`rd-agent-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/rd-agent-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Microsoft AI-driven R&D agent for automated data and model development |
 | [`react-component-performance`](../../library/dimillian-skills/skills/react-component-performance) | ⚪ Reserve | `dimillian-skills` | Analyze and optimize React component performance issues (slow renders, re-render thrash, laggy ... |
 | [`react-components`](../../library/google-labs-code-stitch-skills/skills/react-components) | ⚪ Reserve | `google-labs-code-stitch-skills` | Converts Stitch designs into modular Vite and React components, or syncs/updates existing React... |
+| [`react-email`](../../library/vercel-labs-json-render/skills/react-email) | ⚪ Reserve | `vercel-labs-json-render` | React Email renderer for json-render that turns JSON specs into HTML or plain-text emails using... |
 | [`react-expert`](../../library/jeffallan-claude-skills/skills/react-expert) | ⚪ Reserve | `jeffallan-claude-skills` | Use when building React 18+ applications in .jsx or .tsx files, Next.js App Router projects, or... |
 | [`react-modernization`](../../library/antigravity-awesome-skills/skills/react-modernization) | ⚪ Reserve | `antigravity-awesome-skills` | Upgrade React applications to latest versions, migrate from class components to hooks, and adop... |
 | [`react-native-dev`](../../library/minimax-ai-skills/skills/react-native-dev) | ⚪ Reserve | `minimax-ai-skills` | React Native and Expo development guide covering components, styling, animations, navigation, s... |
@@ -365,6 +368,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`setup-cms`](../../library/nowork-studio-notfair-plugin/skills/setup-cms) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Connect a CMS to notfair SEO tools. Guides users through configuring WordPress, Strapi, Content... |
 | [`setup-help`](../../library/davidondrej-skills/skills/setup-help) | ⚪ Reserve | `davidondrej-skills` | Guide setup one step at a time and show what remains. Use only when the user explicitly asks fo... |
 | [`shadcn`](../../skills/shadcn) | 🟢 Active | `active` | Manages shadcn components and projects — adding, searching, fixing, debugging, styling, and com... |
+| [`shadcn-svelte`](../../library/vercel-labs-json-render/skills/shadcn-svelte) | ⚪ Reserve | `vercel-labs-json-render` | Pre-built shadcn-svelte components for json-render Svelte apps. Use when working with @json-ren... |
 | [`shadcn-ui`](../../library/google-labs-code-stitch-skills/skills/shadcn-ui) | ⚪ Reserve | `google-labs-code-stitch-skills` | Expert guidance for integrating and building applications with shadcn/ui components, including ... |
 | [`shaders-cursor-ripples`](../../library/mengto-skills/skills/shaders-cursor-ripples) | ⚪ Reserve | `mengto-skills` | Add cursor-following fluid WebGPU distortion over an existing image with the Shaders library's ... |
 | [`show-me`](../../library/humanlayer-skills/skills/show-me) | ⚪ Reserve | `humanlayer-skills` | Help the user understand the current topic visually with concise diagrams, code-shape sketches,... |
@@ -391,6 +395,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`stripe-integration`](../../library/antigravity-awesome-skills/skills/stripe-integration) | ⚪ Reserve | `antigravity-awesome-skills` | Implement Stripe payment processing for robust, PCI-compliant payment flows including checkout,... |
 | [`support-prerendering`](../../library/dotnet-skills/skills/support-prerendering) | ⚪ Reserve | `dotnet-skills` | Make interactive Blazor components work correctly with prerendering. USE FOR fixing duplicate d... |
 | [`survival-analysis-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/survival-analysis-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Conduct Kaplan-Meier, Cox regression, and time-to-event analyses |
+| [`svelte`](../../library/vercel-labs-json-render/skills/svelte) | ⚪ Reserve | `vercel-labs-json-render` | Svelte 5 renderer for json-render that turns JSON specs into Svelte component trees. Use when w... |
 | [`swot-analysis`](../../library/deanpeters-product-manager-skills/skills/swot-analysis) | ⚪ Reserve | `deanpeters-product-manager-skills` | Build an evidence-cited SWOT of one company — yours or a competitor's — from public sources, en... |
 | [`sync`](../../library/makenotion-notion-cookbook/skills/sync) | ⚪ Reserve | `makenotion-notion-cookbook` | Scaffold a new sync capability with guided setup — asks about data source, mode, pagination, an... |
 | [`tailwind-design-system`](../../library/antigravity-awesome-skills/skills/tailwind-design-system) | ⚪ Reserve | `antigravity-awesome-skills` | Build scalable design systems with Tailwind CSS, design tokens, component libraries, and respon... |

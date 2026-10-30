@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Curated Skills**: 979 skills  
+> **Total Curated Skills**: 980 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -360,6 +360,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`diagnosing-bugs`](../../skills/diagnosing-bugs) | 🟢 Active | `active` | Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"de... |
 | [`did-reviewer`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/did-reviewer) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 双重差分(DID)实证审查Skill。做DID分析前必须检查平行趋势假设、画图可视化、报告违背情况。触发词：DID审查/双重差分检查/平行趋势/DiD reviewer/difference... |
 | [`digest`](../../library/anthropics-knowledge-work/skills/digest) | ⚪ Reserve | `anthropics-knowledge-work` | Generate a daily or weekly digest of activity across all connected sources. Use when catching u... |
+| [`directives`](../../library/vercel-labs-json-render/skills/directives) | ⚪ Reserve | `vercel-labs-json-render` | Pre-built custom directives for json-render — formatting, math, string manipulation, and i18n. ... |
 | [`distributed-debugging-debug-trace`](../../library/antigravity-awesome-skills/skills/distributed-debugging-debug-trace) | ⚪ Reserve | `antigravity-awesome-skills` | You are a debugging expert specializing in setting up comprehensive debugging environments, dis... |
 | [`diverga`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/diverga) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Diverga Dashboard - Live configuration status and feature overview. 24 specialized agents acros... |
 | [`diverge`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/diverge) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Before implementing, generate 3-5 conceptually distinct approaches labeled by creativity dimens... |

@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 232 repositories  
-> **Total Skills in Reserve**: 8,817 skills  
+> **Active Reserve Libraries**: 234 repositories  
+> **Total Skills in Reserve**: 8,858 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -226,6 +226,8 @@
 | `ui-ux-pro-max-skill` | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | **6** | `python .agents/library/activate_skill.py activate banner-design` |
 | `underleveledbuilder-awesome-short-drama-skills` | [UnderleveledBuilder/awesome-short-drama-skills](https://github.com/UnderleveledBuilder/awesome-short-drama-skills) | **1** | `python .agents/library/activate_skill.py activate short-drama-skill-finder` |
 | `vercel-agent-skills` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | **9** | `python .agents/library/activate_skill.py activate deploy-to-vercel` |
+| `vercel-labs-agent-browser` | [vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser) | **10** | `python .agents/library/activate_skill.py activate agent-browser` |
+| `vercel-labs-json-render` | [vercel-labs/json-render](https://github.com/vercel-labs/json-render) | **31** | `python .agents/library/activate_skill.py activate codegen` |
 | `vercel-labs-skills` | [vercel-labs/skills](https://github.com/vercel-labs/skills) | **4** | `python .agents/library/activate_skill.py activate find-skills` |
 | `vibeforge1111-vibeship-spawner-skills` | [vibeforge1111/vibeship-spaw](https://github.com/vibeforge1111/vibeship-spaw) | **4** | `python .agents/library/activate_skill.py activate 3d-web-experience` |
 | `virgiliojr94-book-to-skill` | [virgiliojr94/book-to-skill](https://github.com/virgiliojr94/book-to-skill) | **2** | `python .agents/library/activate_skill.py activate book-to-skill` |

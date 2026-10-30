@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 119 skills  
+> **Total Curated Skills**: 120 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -114,6 +114,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`setup-benny`](../../library/backnotprop-pstack/skills/setup-benny) | ⚪ Reserve | `backnotprop-pstack` | Configure Benny and prepare its triage and repro automations. Use when installing Benny or chan... |
 | [`skill-share`](../../library/composio-community-awesome-codex-skills/skills/skill-share) | ⚪ Reserve | `composio-community-awesome-codex-skills` | A skill that creates new Claude skills and automatically shares them on Slack using Rube for se... |
 | [`skillopt-sleep`](../../library/alirezarezvani-claude-skills/skills/skillopt-sleep) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user wants their Claude agent to self-improve from past usage, asks about a nightl... |
+| [`slack`](../../library/vercel-labs-agent-browser/skills/slack) | ⚪ Reserve | `vercel-labs-agent-browser` | Interact with Slack workspaces using browser automation. Use when the user needs to check unrea... |
 | [`slack-automation`](../../library/antigravity-awesome-skills/skills/slack-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Comp... |
 | [`slack-messaging`](../../library/anthropics-knowledge-work/skills/slack-messaging) | ⚪ Reserve | `anthropics-knowledge-work` | Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax |
 | [`slack-search`](../../library/anthropics-knowledge-work/skills/slack-search) | ⚪ Reserve | `anthropics-knowledge-work` | Guidance for effectively searching Slack to find messages, files, channels, and people |

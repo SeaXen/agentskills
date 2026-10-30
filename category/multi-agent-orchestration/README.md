@@ -1,7 +1,7 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Curated Skills**: 45 skills  
+> **Total Curated Skills**: 46 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -24,6 +24,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-orchestration`](../../library/davidondrej-skills/skills/agent-orchestration) | ⚪ Reserve | `davidondrej-skills` | Tools for managing BB services via CLI and developing custom plugins, agent tools, and provider... |
 | [`agent-orchestration-multi-agent-optimize`](../../library/antigravity-awesome-skills/skills/agent-orchestration-multi-agent-optimize) | ⚪ Reserve | `antigravity-awesome-skills` | Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware ... |
 | [`agent-startup-and-context-ingestion`](../../library/mvschwarz-openrig/skills/agent-startup-and-context-ingestion) | ⚪ Reserve | `mvschwarz-openrig` | Use when designing or auditing how an agent becomes useful after launch — AGENTS.md overlays, r... |
+| [`agentcore`](../../library/vercel-labs-agent-browser/skills/agentcore) | ⚪ Reserve | `vercel-labs-agent-browser` | Run agent-browser on AWS Bedrock AgentCore cloud browsers. Use when the user wants to use Agent... |
 | [`ai-agents-architect`](../../library/antigravity-awesome-skills/skills/ai-agents-architect) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planni... |
 | [`antigravity-expert`](../../library/vudovn-antigravity-kit/skills/antigravity-expert) | ⚪ Reserve | `vudovn-antigravity-kit` | Complete mastery of Google Antigravity platform architecture. Use when authoring or debugging A... |
 | [`automation`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/automation) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 10 research automation skills. Trigger: automating experiments, tracking results, reproducible ... |

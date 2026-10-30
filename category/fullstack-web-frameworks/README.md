@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 9 skills  
+> **Total Curated Skills**: 10 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -28,3 +28,4 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nextjs-best-practices`](../../library/antigravity-awesome-skills/skills/nextjs-best-practices) | ⚪ Reserve | `antigravity-awesome-skills` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
 | [`nextjs-react-expert`](../../library/vudovn-antigravity-kit/skills/nextjs-react-expert) | ⚪ Reserve | `vudovn-antigravity-kit` | React and Next.js performance optimization from Vercel Engineering. Use when building React com... |
 | [`nextjs-supabase-auth`](../../library/antigravity-awesome-skills/skills/nextjs-supabase-auth) | ⚪ Reserve | `antigravity-awesome-skills` | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authe... |
+| [`tanstack-start`](../../library/vercel-labs-json-render/skills/tanstack-start) | ⚪ Reserve | `vercel-labs-json-render` | Build JSON-defined TanStack Start applications with @json-render/tanstack-start. Use for Start ... |
