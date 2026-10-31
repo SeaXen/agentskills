@@ -479,16 +479,62 @@ def git_commit_and_push():
         print(push_res.stderr, flush=True)
     print("🎉 SUCCESS: All repos, new skills, categories, and docs updated and pushed!", flush=True)
 
+def show_help():
+    print("""
+================================================================================
+⚡ AGENTSKILLS VAULT — UNIFIED AUTOMATED UPDATER & INTEGRATED SUITE
+================================================================================
+
+USAGE:
+  python update.py [OPTIONS]
+
+CORE VAULT COMMANDS:
+  python update.py                   Run full upstream sync across all 364 repositories
+  python update.py --reindex         Rebuild all indexes, 38 categories, & sync R2
+  python update.py --about           Show vault inventory stats & counts
+  python update.py --tags            List available skill functional domain tags
+  python update.py --tag <name>      Search skills by domain tag (e.g. frontend, backend)
+  python update.py --find <keyword>  Search all active & offline skills across vault
+  python update.py --push            Commit and push changes to GitHub remote
+
+EMBEDDED SKILLS.SH INTEGRATION (skills.sh):
+  python update.py --skills-sh [--check]         Audit 100K+ install repositories
+  python update.py --skills-sh --sync            Ingest missing 100K+ repos & reindex
+  python update.py --skills-sh --sync --push     Ingest, reindex, and push to GitHub
+  python update.py --skills-sh --min-installs 500k  Filter by minimum install threshold
+  python update.py --skills-sh --update          Pull updates for existing repos
+
+EMBEDDED SKILL LEADERBOARD (skillleaderboard.com):
+  python update.py --skillleaderboard            Audit Top 50 Trending skills (default)
+  python update.py --trending [N]                Check Top N Trending skills (default: 50)
+  python update.py --starred [N]                 Check Top N Most Starred skills (default: 150)
+  python update.py --traction [N]                Check Top N Traction skills (default: 50)
+  python update.py --trending 50 --ingest        Download missing trending skills & reindex
+  python update.py --starred 150 --ingest --push Download missing starred skills & push
+================================================================================
+""")
+
 if __name__ == '__main__':
     args = sys.argv[1:]
     clean_nested()
 
-    if any(arg.startswith(('--skillleaderboard', '--leaderboard', '--trending', '--starred', '--traction', '--newest')) for arg in args):
-        leaderboard_script = os.path.join(agents_dir, 'skillleaderboard', 'skillleaderboard.py')
-        sys.exit(subprocess.run([sys.executable, leaderboard_script] + args).returncode)
+    if any(a in args for a in ('-h', '--help', 'help')):
+        show_help()
+        sys.exit(0)
 
+    # Embedded skillleaderboard.com runner
+    if any(arg.startswith(('--skillleaderboard', '--leaderboard', '--trending', '--starred', '--traction', '--newest')) for arg in args):
+        clean_args = [a for a in args if not a.startswith(('--skillleaderboard', '--leaderboard'))]
+        if not any(a in clean_args for a in ('--trending', '--starred', '--traction', '--newest')):
+            clean_args = ['--trending', '50'] + clean_args
+        leaderboard_script = os.path.join(agents_dir, 'skillleaderboard', 'skillleaderboard.py')
+        sys.exit(subprocess.run([sys.executable, leaderboard_script] + clean_args).returncode)
+
+    # Embedded skills.sh runner
     if any(arg.startswith(('--skillssh', '--skills-sh')) for arg in args):
         clean_args = [a for a in args if not a.startswith(('--skillssh', '--skills-sh'))]
+        if not clean_args:
+            clean_args = ['--check']
         ssh_script = os.path.join(agents_dir, 'skillssh', 'skillssh.py')
         sys.exit(subprocess.run([sys.executable, ssh_script] + clean_args).returncode)
 
