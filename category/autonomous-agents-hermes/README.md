@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Curated Skills**: 163 skills  
+> **Total Curated Skills**: 162 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -143,7 +143,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`reddit-reading`](../../library/nousresearch-hermes-optional-skills/skills/reddit-reading) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Read Reddit: subreddits, search, threads, users. No browser. |
 | [`rest-graphql-debug`](../../library/nousresearch-hermes-optional-skills/skills/rest-graphql-debug) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Debug REST/GraphQL APIs: status codes, auth, schemas, repro. |
 | [`rss-feeds`](../../library/nousresearch-hermes-optional-skills/skills/rss-feeds) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Read RSS, Atom, JSON feeds; discover feeds behind a page. |
-| [`runbookhermes-aiops-agent`](../../library/reason-machines-trending-skills/skills/runbookhermes-aiops-agent) | ⚪ Reserve | `reason-machines-trending-skills` | name: runbookhermes-aiops-agent |
 | [`saelens`](../../library/nousresearch-hermes-optional-skills/skills/saelens) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Train sparse autoencoders to interpret model features. |
 | [`scrapling`](../../library/nousresearch-hermes-optional-skills/skills/scrapling) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Scrape sites with stealth browsing and Cloudflare bypass. |
 | [`scrollcraft`](../../library/nousresearch-hermes-optional-skills/skills/scrollcraft) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Premium scroll-driven landing pages; scroll = timeline. |

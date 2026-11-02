@@ -8,22 +8,6 @@
     "path": "category/git-version-control/accesslint-diff"
   },
   {
-    "id": "accint-commitments",
-    "name": "accint-commitments",
-    "category": "git-version-control",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Triage acc's open promises and close them with honest real-world verdicts via acc_act(runtime=\"outcome\").",
-    "path": "category/git-version-control/accint-commitments"
-  },
-  {
-    "id": "ad-test-designer",
-    "name": "ad-test-designer",
-    "category": "git-version-control",
-    "repository": "aaron-he-zhu-aaron-marketing-skills",
-    "description": "Use when the user asks to \"design an A/B test\", \"set up a creative/landing test\", \"run an incrementality test\", or \"is this result statistically and practically material?\"; produces a hypothesis, variant matrix, sample-size/duration/power plan, and a documented effect/uncertainty read from own exported results. It applies only a precommitted owner-approved action rule; the statistical helper never chooses a business action. Not for producing variants \u2014 use ad-creative-builder; not for reading back one shipped change \u2014 use paid-measurement-loop. \u5e7f\u544aAB\u6d4b\u8bd5\u8bbe\u8ba1/\u5b9e\u9a8c\u8bbe\u8ba1/\u663e\u8457\u6027\u5224\u5b9a/\u589e\u6548\u6d4b\u8bd5",
-    "path": "category/git-version-control/ad-test-designer"
-  },
-  {
     "id": "add-analytics-instrumentation",
     "name": "add-analytics-instrumentation",
     "category": "git-version-control",
@@ -64,6 +48,14 @@
     "path": "category/git-version-control/affiliate-onboarding-sequence"
   },
   {
+    "id": "agent-skill-offering",
+    "name": "agent-skill-offering",
+    "category": "git-version-control",
+    "repository": "samber-developer-platform-skills",
+    "description": "Ships an Agent Skill (SKILL.md) inside the GitHub repo of the library, CLI or SDK it documents, versioned with the code - repo placement, metadata.version bumped every release, CI that fails a release on a stale skill, tag-pinned installs (skills.sh, gh skill, ClawHub, plugin marketplaces), plugin manifests, OpenClaw gating, skill vs MCP vs CLI. Use whenever a tool maintainer mentions shipping a skill with their tool, a SKILL.md for their library, keeping a skill in sync with releases, or plugin.json versions for a skill beside code - even if they never say \"agent skill\". Not for standalone skill collections. Do NOT use for CLI command or --json design - use samber/developer-platform-skills@cli-interface-design; nor for MCP servers - use samber/developer-platform-skills@mcp-server-offering.",
+    "path": "category/git-version-control/agent-skill-offering"
+  },
+  {
     "id": "agent-watchdog",
     "name": "agent-watchdog",
     "category": "git-version-control",
@@ -86,6 +78,22 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Multi-agent collaboration plugin that spawns N parallel subagents competing on the same task via git worktree isolation. Agents work independently, results are evaluated by metric or LLM judge, and the best branch is merged. Use when: user wants multiple approaches tried in parallel \u2014 code optimization, content variation, research exploration, or any task that benefits from parallel competition. Requires: a git repo.",
     "path": "category/git-version-control/agenthub"
+  },
+  {
+    "id": "agentic-actions-auditor",
+    "name": "agentic-actions-auditor",
+    "category": "git-version-control",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines.",
+    "path": "category/git-version-control/agentic-actions-auditor"
+  },
+  {
+    "id": "agents",
+    "name": "agents",
+    "category": "git-version-control",
+    "repository": "elevenlabs-skills",
+    "description": "Build voice AI agents with ElevenLabs. Use when creating voice assistants, customer service bots, interactive voice characters, or any real-time voice conversation experience, and when configuring an agent's tools, workflows, or procedures, including creating, editing, and publishing free-form and structured procedure drafts on an agent branch over the SDKs or REST API.",
+    "path": "category/git-version-control/agents"
   },
   {
     "id": "ai-listening",
@@ -112,6 +120,14 @@
     "path": "category/git-version-control/analyzing-release-readiness"
   },
   {
+    "id": "android-cicd",
+    "name": "android-cicd",
+    "category": "git-version-control",
+    "repository": "davila7-claude-code-templates",
+    "description": "Automated Android CI/CD pipeline to Google Play \u2014 supports TWA, React Native, Flutter, and native Android. Run npx android-cicd to set up keystore generation, GitHub Secrets, and a multi-stage workflow (internal/alpha/beta/production) with auto-bump versionCode.",
+    "path": "category/git-version-control/android-cicd"
+  },
+  {
     "id": "animated-github-profile",
     "name": "animated-github-profile",
     "category": "git-version-control",
@@ -134,6 +150,14 @@
     "repository": "antfu-skills",
     "description": "Triage open issues and PRs of the current GitHub repo - find already-fixed, duplicate, and spam items, suggest labels, gauge demand from reactions and comments, then present a table of proposed actions and comments for confirmation before touching anything. Use when asked to triage, organize, clean up, or groom issues and PRs.",
     "path": "category/git-version-control/antfu-issue-triage"
+  },
+  {
+    "id": "apple-design",
+    "name": "apple-design",
+    "category": "git-version-control",
+    "repository": "dickwu-apple-design-skill",
+    "description": "Cross-platform UI/UX design reviewer grounded in Apple's Human Interface Guidelines (123 pages pulled from developer.apple.com, including 57 component pages) plus a design-craft lens for distinctive, non-templated work. Use it to audit, review, critique, or improve any mobile app (iOS, Flutter, React Native) or desktop app (macOS, Tauri, Electron) design: design review, UI audit, HIG compliance, accessibility audit, dark mode, Liquid Glass or glassmorphism, navigation structure, iPhone Duo or foldable layouts, Apple Pay buttons and marks, widgets and Live Activities, onboarding, forms, app icons, generative AI UX, App Review rejections over design or branding, or requests like \"make this look less generic\". Also use whenever the user shares screenshots, mockups, wireframes, Figma exports, or UI code and wants feedback, even if they only say \"review my design\" or \"is this good UI\", or asks to audit a codebase or pull request. Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri, and Electron.",
+    "path": "category/git-version-control/apple-design"
   },
   {
     "id": "ar-resume",
@@ -184,20 +208,28 @@
     "path": "category/git-version-control/autoresearch-agent"
   },
   {
+    "id": "aws-cloudformation-task-ecs-deploy-gh",
+    "name": "aws-cloudformation-task-ecs-deploy-gh",
+    "category": "git-version-control",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides patterns to deploy ECS tasks and services with GitHub Actions CI/CD. Use when building Docker images, pushing to ECR, updating ECS task definitions, deploying ECS services, integrating with CloudFormation stacks, configuring AWS OIDC authentication for GitHub Actions, and implementing production-ready container deployment pipelines. Supports ECS deployments with proper security (OIDC or IAM keys), multi-environment support, blue/green deployments, ECR private repositories with image scanning, and CloudFormation infrastructure updates.",
+    "path": "category/git-version-control/aws-cloudformation-task-ecs-deploy-gh"
+  },
+  {
+    "id": "aws-deployment",
+    "name": "aws-deployment",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures CI/CD pipelines using AWS CodePipeline, CodeBuild, CodeDeploy, CodeConnections, and CodeArtifact. Covers CodePipeline V2 (triggers, variables, execution modes, cross-account), buildspec.yml (caching, VPC, Docker), CodeDeploy strategies (blue/green, canary, linear), CodeArtifact (private package registries, auth tokens, cross-account), and source connections (GitHub, GitLab, Bitbucket). Applies when CodePipeline, CodeBuild, CodeDeploy, CodeConnections, CodeArtifact, buildspec.yml, appspec.yml, or CI/CD pipeline orchestration is referenced. Does NOT cover: ECS Fargate services or task definitions (use aws-containers), CDK Pipelines or cdk deploy (use aws-cdk), sam deploy (use aws-serverless), Amplify deployments (use aws-amplify), or GitHub Actions/GitLab CI.",
+    "path": "category/git-version-control/aws-deployment"
+  },
+  {
     "id": "aws-marketplace-playbook",
     "name": "aws-marketplace-playbook",
     "category": "git-version-control",
     "repository": "samber-developer-platform-skills",
     "description": "Takes a B2B SaaS vendor onto AWS Marketplace as the ISV seller - whether to list, irreversible account and pricing model choices, going public, private offers, CPPO resale authorizations, EDP/PPA commit drawdown, and co-selling through ACE and ISV Accelerate. Use whenever a vendor mentions AWS Marketplace, a private offer, CPPO, burning a customer's AWS commit, the Deployed on AWS badge, or ACE, ISV Accelerate or FTR for its listing, even if they only ask how to sell through AWS. ISV side only: not buyers, not resellers. Do NOT use for listing copy or search rank (use samber/developer-platform-skills@integration-listing-optimization), for your own marketplace's billing (use samber/developer-platform-skills@app-marketplace-monetization-model), or for metering code.",
     "path": "category/git-version-control/aws-marketplace-playbook"
-  },
-  {
-    "id": "ax-extract-workflow",
-    "name": "ax-extract-workflow",
-    "category": "git-version-control",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Reconstruct workflow behind a past coding-agent artifact using local ax sessions/commits/skills/tool traces. Use when asked how X was built.",
-    "path": "category/git-version-control/ax-extract-workflow"
   },
   {
     "id": "babysit-pr",
@@ -208,12 +240,36 @@
     "path": "category/git-version-control/babysit-pr"
   },
   {
+    "id": "bankr-error-handling",
+    "name": "bankr-error-handling",
+    "category": "git-version-control",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "description": "Self-healing diagnostics for Bankr API errors. Handles 401s, timeouts, rate limits, and configuration issues. Source: https://github.com/BankrBot/claude-plugins NOTE: Replace this placeholder with actual skill from BankrBot repo.",
+    "path": "category/git-version-control/bankr-error-handling"
+  },
+  {
     "id": "bankr-signals",
     "name": "bankr-signals",
     "category": "git-version-control",
     "repository": "buzzbysolcex-buzz-bd-agent",
     "description": "On-chain verified trading signals for Buzz BD Agent. Publish scan results with TX hash proof for credibility. Source: https://github.com/BankrBot/openclaw-skills/tree/main/bankr/bankr-signals NOTE: Replace this placeholder with actual skill from BankrBot repo.",
     "path": "category/git-version-control/bankr-signals"
+  },
+  {
+    "id": "baoyu-wechat-summary",
+    "name": "baoyu-wechat-summary",
+    "category": "git-version-control",
+    "repository": "jimliu-baoyu-skills",
+    "description": "Summarizes WeChat group chat highlights into a structured digest using the local wx-cli binary (https://github.com/jackwener/wx-cli). Generates a normal digest by default; a roast (\u6bd2\u820c) version is opt-in. Maintains per-group history (history.json + history-digests.jsonl), per-user profiles, and per-group fact memory (memory.md) across runs, with privacy guardrails baked in. Use when the user asks to \"\u603b\u7ed3\u7fa4\u804a\", \"\u7fa4\u804a\u7cbe\u534e\", \"\u7fa4\u804a\u6458\u8981\", \"summarize group chat\", \"group chat digest\", mentions a WeChat group name with a time range, says \"\u5e2e\u6211\u770b\u770b XX \u7fa4\u6700\u8fd1\u804a\u4e86\u4ec0\u4e48\", \"XX \u7fa4\u6709\u4ec0\u4e48\u503c\u5f97\u770b\u7684\", or asks to \"\u56de\u6eaf\u753b\u50cf\" / \"\u521d\u59cb\u5316\u753b\u50cf\" / \"backfill profiles\". Adds the roast version when the user says \"\u6bd2\u820c\u7248\", \"roast \u7248\", \"\u518d\u6765\u4e2a\u6bd2\u820c\u7684\", or similar.",
+    "path": "category/git-version-control/baoyu-wechat-summary"
+  },
+  {
+    "id": "better-auth",
+    "name": "better-auth",
+    "category": "git-version-control",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides Better Auth integration patterns for NestJS backend and Next.js frontend with Drizzle ORM and PostgreSQL. Use when setting up Better Auth with NestJS backend, integrating Next.js App Router frontend, configuring Drizzle ORM schema, implementing social login (GitHub, Google), adding plugins (2FA, Organization, SSO, Magic Link, Passkey), implementing email/password authentication with session management, or creating protected routes and middleware.",
+    "path": "category/git-version-control/better-auth"
   },
   {
     "id": "bitbucket-automation",
@@ -264,6 +320,14 @@
     "path": "category/git-version-control/build-iterated-agentic-loop"
   },
   {
+    "id": "building-devsecops-pipeline-with-gitlab-ci",
+    "name": "building-devsecops-pipeline-with-gitlab-ci",
+    "category": "git-version-control",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Configure a GitLab CI/CD pipeline that embeds SAST (Semgrep, SpotBugs, Gosec, Bandit, NodeJsScan), DAST, container scanning, dependency scanning, and secret detection via GitLab's managed security templates. Use when building a shift-left DevSecOps pipeline in GitLab, adding automated vulnerability scanning stages to .gitlab-ci.yml, or triaging scanner findings with GitLab Duo AI before deployment.",
+    "path": "category/git-version-control/building-devsecops-pipeline-with-gitlab-ci"
+  },
+  {
     "id": "cargo-context",
     "name": "cargo-context",
     "category": "git-version-control",
@@ -312,20 +376,20 @@
     "path": "category/git-version-control/ce-dogfood"
   },
   {
-    "id": "ce-prototype",
-    "name": "ce-prototype",
-    "category": "git-version-control",
-    "repository": "everyinc-compound-engineering-plugin",
-    "description": "Build a throwaway prototype to answer how something should work, feel, or read. Use when committing the wrong answer would be expensive to unravel and a cheap sketch cannot settle it. Not a rough visual probe during brainstorming, not for deciding what to build, not polishing a feature that already works, not implementing the real thing.",
-    "path": "category/git-version-control/ce-prototype"
-  },
-  {
     "id": "ce-resolve-pr-feedback",
     "name": "ce-resolve-pr-feedback",
     "category": "git-version-control",
     "repository": "everyinc-compound-engineering-plugin",
     "description": "Judge PR feedback centrally, apply valid fixes, and complete review conversations with publication verified. Use when addressing feedback already left on a PR, preparing local fixes for a caller to publish, or completing a saved feedback batch. Use ce-code-review for reviewing code before feedback exists.",
     "path": "category/git-version-control/ce-resolve-pr-feedback"
+  },
+  {
+    "id": "ce-sweep",
+    "name": "ce-sweep",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Sweep configured feedback sources (Slack, GitHub Issues; email experimental) for new items: acknowledge at source, analyze recordings, verify fixes merged to main, and emit an `lfg`-ready plan. First run sets up sources; supports mode:non-interactive for scheduled runs.",
+    "path": "category/git-version-control/ce-sweep"
   },
   {
     "id": "ce-test-browser",
@@ -342,14 +406,6 @@
     "repository": "everyinc-compound-engineering-plugin",
     "description": "Set up isolated git worktrees \u2014 create a new branch for fresh work, or attach a worktree to an existing branch, PR, or commit. Use when starting isolated work or isolating an existing ref.",
     "path": "category/git-version-control/ce-worktree"
-  },
-  {
-    "id": "challenge",
-    "name": "challenge",
-    "category": "git-version-control",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Pre-mortem plan analysis. Imagine the plan failed 12 months from now and work backwards to find the weaknesses. Surfaces assumptions, dependencies, and execution risks before committing resources. Use when before significant resource commitment, before presenting to a board or investors, when feedback has been one-sidedly positive, or when there is pressure to move fast and figure it out later.",
-    "path": "category/git-version-control/challenge"
   },
   {
     "id": "changelog-automation",
@@ -392,6 +448,14 @@
     "path": "category/git-version-control/check-impl-against-spec"
   },
   {
+    "id": "ci-cd",
+    "name": "ci-cd",
+    "category": "git-version-control",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "CI/CD pipelines for .NET applications. Covers GitHub Actions and Azure DevOps YAML pipelines with build, test, publish, and deploy stages. Load this skill when setting up continuous integration, automated testing, deployment workflows, or when the user mentions \"CI/CD\", \"pipeline\", \"GitHub Actions\", \"Azure DevOps\", \"workflow\", \"deploy\", \"build pipeline\", \"publish\", \"NuGet push\", \"release\", or \"continuous integration\".",
+    "path": "category/git-version-control/ci-cd"
+  },
+  {
     "id": "ci-security-scanning-with-strix",
     "name": "ci-security-scanning-with-strix",
     "category": "git-version-control",
@@ -414,14 +478,6 @@
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Design and implement CI/CD pipelines with GitHub Actions, GitLab CI, Jenkins, or CircleCI. Use for automated testing, building, and deployment workflows.",
     "path": "category/git-version-control/cicd-pipeline-setup"
-  },
-  {
-    "id": "claude-devfleet",
-    "name": "claude-devfleet",
-    "category": "git-version-control",
-    "repository": "affaan-m-ecc",
-    "description": "Orchestrate multi-agent coding tasks via Claude DevFleet \u2014 plan projects, dispatch parallel agents in isolated worktrees, monitor progress, and read structured reports. Use when dispatching parallel coding agents across isolated worktrees and tracking their reports.",
-    "path": "category/git-version-control/claude-devfleet"
   },
   {
     "id": "claude-security",
@@ -462,6 +518,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Integrate Salesforce B2B Commerce open source components from GitHub into B2B Commerce stores. Use when users mention \\\"integrate open code components\\\", \\\"open source B2B commerce\\\", \\\"add open code components\\\", \\\"forcedotcom/b2b-commerce-open-source-components\\\", or want to add open source commerce components to their store. Copies all components and labels so they become available in Experience Builder.",
     "path": "category/git-version-control/commerce-b2b-open-code-components-integrate"
+  },
+  {
+    "id": "commercial-forecaster",
+    "name": "commercial-forecaster",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when building a quarterly bookings forecast, ARR projection, pipeline forecast, NRR projection, or commit/best-case/pipe-only board number \u2014 especially when the CRO needs to walk the board through funnel math + cohort ARR + per-stage conversion assumptions without the theatre of a single undefended number. Decomposes pipeline into commit, best-case, and pipe-only tiers; projects cohort-level NRR/GRR to surface leaky cohorts before they show up in the consolidated number; scores per-stage funnel confidence so soft-floor stages get treated differently from high-confidence ones. Every output explicitly names the conversion rate used, the data window, and the weighting choice. For Head of Commercial, RevOps, VP Sales, and CRO at quarterly forecast or board prep. NOT financial close (see finance/financial-analysis). NOT strategic CRO hiring/territory (see c-level-advisor/cro-advisor). NOT pricing (see sibling pricing-strategist).",
+    "path": "category/git-version-control/commercial-forecaster"
   },
   {
     "id": "commit-context",
@@ -528,6 +592,22 @@
     "path": "category/git-version-control/companion-clis"
   },
   {
+    "id": "composio",
+    "name": "composio",
+    "category": "git-version-control",
+    "repository": "starchild-ai-agent-official-skills",
+    "description": "Composio gateway: act on 1000+ connected apps like Gmail, Slack, GitHub, Calendar.",
+    "path": "category/git-version-control/composio"
+  },
+  {
+    "id": "composio-br",
+    "name": "composio-br",
+    "category": "git-version-control",
+    "repository": "starchild-ai-agent-official-skills",
+    "description": "Composio for BR agents (br-composio-proxy + machine Agent Key): act on 1000+ connected apps like Gmail, Slack, GitHub, Calendar.",
+    "path": "category/git-version-control/composio-br"
+  },
+  {
     "id": "comprehensive-review-pr-enhance",
     "name": "comprehensive-review-pr-enhance",
     "category": "git-version-control",
@@ -544,20 +624,28 @@
     "path": "category/git-version-control/conductor-revert"
   },
   {
+    "id": "connect",
+    "name": "connect",
+    "category": "git-version-control",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "Connect Codex to any app via the Composio CLI. Send emails, create issues, post messages, update databases - take real actions across Gmail, Slack, GitHub, Notion, and 1000+ services from the terminal.",
+    "path": "category/git-version-control/connect"
+  },
+  {
+    "id": "connect-apps",
+    "name": "connect-apps",
+    "category": "git-version-control",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "Connect Claude to external apps via the Composio CLI. Use this skill when the user wants to send emails, create issues, post messages, or take actions across Gmail, Slack, GitHub, Notion, and 1000+ services from the terminal.",
+    "path": "category/git-version-control/connect-apps"
+  },
+  {
     "id": "conventional-commit-review",
     "name": "conventional-commit-review",
     "category": "git-version-control",
     "repository": "affaan-m-ecc",
     "description": "Reviews staged changes and drafts a Conventional Commits-compliant commit message with the right type, scope, and length. Use before committing, or when the user asks to write, fix, or review a commit message.",
     "path": "category/git-version-control/conventional-commit-review"
-  },
-  {
-    "id": "conventional-git",
-    "name": "conventional-git",
-    "category": "git-version-control",
-    "repository": "samber-cc-skills",
-    "description": "Conventional Commits v1.0.0 branch naming, worktree naming, and commit message standards for GitHub and GitLab projects. Use when creating branches, naming worktrees, writing commits, generating commit messages, reviewing branch conventions, or setting up changelog automation. Apply when your project needs consistent git history, SemVer-driven releases, parseable changelog generation, or automatic issue closing. Trigger when the user asks how to name a worktree, create a git worktree, or organize worktrees alongside branches.",
-    "path": "category/git-version-control/conventional-git"
   },
   {
     "id": "copilot-cli",
@@ -600,14 +688,6 @@
     "path": "category/git-version-control/cost-diff"
   },
   {
-    "id": "cost-estimation",
-    "name": "cost-estimation",
-    "category": "git-version-control",
-    "repository": "microsoft-azure-skills",
-    "description": "Forecast Azure spend and price planned resources or workloads. WHEN: \\\"forecast Azure spending\\\", \\\"project next month cost\\\", \\\"compare forecast to my planning target\\\", \\\"how much will Azure cost\\\", \\\"estimate VM cost\\\", \\\"compare storage tiers\\\", \\\"compare Azure regions\\\", \\\"retail price\\\", \\\"EA rate card\\\", \\\"negotiated pricesheet\\\". DO NOT USE FOR: configured budget health or alerts, bill analysis, cost spikes, rightsizing, or commitments.",
-    "path": "category/git-version-control/cost-estimation"
-  },
-  {
     "id": "coverage-analysis",
     "name": "coverage-analysis",
     "category": "git-version-control",
@@ -624,12 +704,28 @@
     "path": "category/git-version-control/cpp-coding-standards"
   },
   {
+    "id": "cursor-sdk",
+    "name": "cursor-sdk",
+    "category": "git-version-control",
+    "repository": "cursor-plugins",
+    "description": "Guide users building apps, scripts, CI pipelines, or automations on top of the Cursor TypeScript SDK (`@cursor/sdk`). Use this skill whenever the user mentions integrating, installing, or writing code against the Cursor SDK; whenever they say `Agent.create`, `Agent.prompt`, `Agent.resume`, `agent.send`, `run.stream`, `CursorAgentError`, or `@cursor/sdk`; whenever they ask to run Cursor agents programmatically from a script, CI/CD pipeline, GitHub Action, backend service, or any other code that isn't the Cursor IDE itself; and whenever they want to pick between local and cloud runtime, configure MCP servers for an SDK agent, or handle streaming, cancellation, or errors from an SDK agent. Also trigger when a user is wiring Cursor into an automation, writing a bot that runs Cursor, or porting REST `/v1/agents` calls to the SDK, even if they don't explicitly name the package. Use this eagerly rather than answering from memory; the SDK surface evolves and this skill plus its references are the source of truth for the external package.",
+    "path": "category/git-version-control/cursor-sdk"
+  },
+  {
     "id": "d2r-mobile",
     "name": "d2r-mobile",
     "category": "git-version-control",
     "repository": "d2r-mobile-d2r-mobile",
     "description": "Build and install D2R Mobile (Diablo II Resurrected with Reign of the Warlock, running natively on iPhone and iPad) from the user's own Switch game files, end to end. Use when the user asks to build, reproduce, set up, install or sideload D2R Mobile, to \"\u590d\u523b / \u7f16\u8bd1 / \u5b89\u88c5 D2R Mobile\", to get Diablo II Resurrected on iPhone or iPad from this repository, or points an agent at https://github.com/d2r-mobile/d2r-mobile. Works in Claude Code and Codex.",
     "path": "category/git-version-control/d2r-mobile"
+  },
+  {
+    "id": "daily-meeting-update",
+    "name": "daily-meeting-update",
+    "category": "git-version-control",
+    "repository": "davila7-claude-code-templates",
+    "description": "Interactive daily standup/meeting update generator. Use when user says 'daily', 'standup', 'scrum update', 'status update', 'what did I do yesterday', 'prepare for meeting', 'morning update', or 'team sync'. Pulls activity from GitHub, Jira, and Claude Code session history. Conducts 4-question interview (yesterday, today, blockers, discussion topics) and generates formatted Markdown update.",
+    "path": "category/git-version-control/daily-meeting-update"
   },
   {
     "id": "daily-stock-analysis",
@@ -646,6 +742,14 @@
     "repository": "nomadamas-k-skill",
     "description": "\ub300\uc2e0\uc99d\uad8c \ub9ac\ud3ec\ud2b8 GitHub Pages \ubbf8\ub7ec\uc5d0\uc11c \ucd5c\uc2e0 HTML \ub9ac\ud3ec\ud2b8 \ubaa9\ub85d\uacfc \uc6d0\ubb38/\uc124\uba85 \ud398\uc774\uc9c0\ub97c \uc870\ud68c\ud55c\ub2e4.",
     "path": "category/git-version-control/daishin-report-search"
+  },
+  {
+    "id": "data-scraper-agent",
+    "name": "data-scraper-agent",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "Build a fully automated AI-powered data collection agent for any public source \u2014 job boards, prices, news, GitHub, sports, anything. Runs on a schedule, enriches data with a free LLM (Gemini Flash), stores results in Notion/Sheets/Supabase, and learns from user feedback. Runs 100% free on GitHub Actions. Use when the user wants to monitor, collect, or track any public data automatically.",
+    "path": "category/git-version-control/data-scraper-agent"
   },
   {
     "id": "datalad",
@@ -672,20 +776,28 @@
     "path": "category/git-version-control/debate-review"
   },
   {
-    "id": "decision-navigator",
-    "name": "decision-navigator",
-    "category": "git-version-control",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Guide stuck or overwhelmed users through targeted branching questions until they reach concrete next steps.",
-    "path": "category/git-version-control/decision-navigator"
-  },
-  {
     "id": "deepapi",
     "name": "deepapi",
     "category": "git-version-control",
     "repository": "davidondrej-skills",
     "description": "Use DeepAPI for all web search, deep research, and web scraping (websites, LinkedIn, GitHub, X/Twitter, YouTube, Instagram) instead of built-in search, research, fetch, or browser tools. Prefer dedicated platform endpoints over web search. Instagram has profile, post, comment, and hashtag endpoints; no generic search. Use Deep Scrape for sourced JSON dossiers on people, companies, or topics. Also use it to navigate and act on public websites, draft and send safe email, and generate images.",
     "path": "category/git-version-control/deepapi"
+  },
+  {
+    "id": "deploy",
+    "name": "deploy",
+    "category": "git-version-control",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Render Quarto slides and sync to docs/ for GitHub Pages deployment. Use when deploying lecture slides after making changes.",
+    "path": "category/git-version-control/deploy"
+  },
+  {
+    "id": "deploying-containers-to-amazon-lightsail",
+    "name": "deploying-containers-to-amazon-lightsail",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Deploys, hosts, or runs a container or Docker app on Amazon Lightsail Container Service and returns a live, managed HTTPS URL at a flat monthly price \u2014 no cluster, VPC, load balancer, or registry to set up. Used when deploying a container image to Lightsail from a local Docker build, a public registry image, or a GitHub repo, or when a Lightsail container deployment fails or won't serve \u2014 including when the request doesn't name Lightsail but asks to run one always-on container behind a public URL at a flat, predictable monthly price. Not for running an app on a Lightsail instance (VM) or Amazon EC2 instead of the container service, and not for workloads needing Kubernetes, autoscaling, scale-to-zero, or per-request pricing (use Amazon ECS/EKS or ECS Express Mode).",
+    "path": "category/git-version-control/deploying-containers-to-amazon-lightsail"
   },
   {
     "id": "deploying-palo-alto-prisma-access-zero-trust",
@@ -728,12 +840,28 @@
     "path": "category/git-version-control/developer-listening"
   },
   {
+    "id": "developer-signup-flow",
+    "name": "developer-signup-flow",
+    "category": "git-version-control",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Design frictionless signup experiences for developers including GitHub OAuth, API key generation, and onboarding personalization.",
+    "path": "category/git-version-control/developer-signup-flow"
+  },
+  {
     "id": "developing-openrig",
     "name": "developing-openrig",
     "category": "git-version-control",
     "repository": "mvschwarz-openrig",
     "description": "Use when changing OpenRig's own source in a clone of the openrig repository: finding which package or file owns a behaviour, choosing which tests to run, testing a change without disturbing the OpenRig daemon your own session runs on, judging whether a diff touches a high-risk area, or preparing a pull request. Not for operating rigs (openrig-skills) or designing rig topologies.",
     "path": "category/git-version-control/developing-openrig"
+  },
+  {
+    "id": "devops-deploy",
+    "name": "devops-deploy",
+    "category": "git-version-control",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "DevOps e deploy de aplicacoes \u2014 Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infraestrutura como codigo e monitoramento.",
+    "path": "category/git-version-control/devops-deploy"
   },
   {
     "id": "devrel-analytics",
@@ -750,6 +878,14 @@
     "repository": "warpdotdev-common-skills",
     "description": "Diagnose CI failures for a PR using the GitHub CLI, extract error logs, and generate a plan to fix them. Use when the user asks to check CI status, pull CI issues, triage test failures, or investigate PR build failures.",
     "path": "category/git-version-control/diagnose-ci-failures"
+  },
+  {
+    "id": "dickwu-apple-design-skill",
+    "name": "dickwu-apple-design-skill",
+    "category": "git-version-control",
+    "repository": "dickwu-apple-design-skill",
+    "description": "Cross-platform UI/UX design reviewer grounded in Apple's Human Interface Guidelines (123 pages pulled from developer.apple.com, including 57 component pages) plus a design-craft lens for distinctive, non-templated work. Use it to audit, review, critique, or improve any mobile app (iOS, Flutter, React Native) or desktop app (macOS, Tauri, Electron) design: design review, UI audit, HIG compliance, accessibility audit, dark mode, Liquid Glass or glassmorphism, navigation structure, iPhone Duo or foldable layouts, Apple Pay buttons and marks, widgets and Live Activities, onboarding, forms, app icons, generative AI UX, App Review rejections over design or branding, or requests like \"make this look less generic\". Also use whenever the user shares screenshots, mockups, wireframes, Figma exports, or UI code and wants feedback, even if they only say \"review my design\" or \"is this good UI\", or asks to audit a codebase or pull request. Works for SwiftUI, UIKit, AppKit, Flutter, React Native, Tauri, and Electron.",
+    "path": "category/git-version-control/dickwu-apple-design-skill"
   },
   {
     "id": "diff-intake",
@@ -832,6 +968,14 @@
     "path": "category/git-version-control/dossier"
   },
   {
+    "id": "dx-code-analyzer-configure",
+    "name": "dx-code-analyzer-configure",
+    "category": "git-version-control",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Set up, configure, and troubleshoot Salesforce Code Analyzer for any project. Handles installation, prerequisite checks, diagnosing broken setups, creating and editing code-analyzer.yml overrides, engine-specific settings, ignore patterns, severity overrides, and CI/CD pipeline setup. TRIGGER when: user says 'set up code analyzer', 'configure code analyzer', 'install code analyzer', 'code analyzer not working', 'fix my setup', 'scan failing', 'check my setup', 'enable/disable engine', 'exclude files', 'change severity', 'set up GitHub Actions', 'set up CI/CD', 'add to pipeline', 'pipeline fail', 'update my workflow', 'quality gate', 'fail on violations', 'scan changed files only', 'add SARIF', 'code-analyzer.yml', 'ESLint config', 'increase SFGE memory', or reports errors running Code Analyzer. DO NOT TRIGGER when: user wants to run a scan (use dx-code-analyzer-run), fix violations, explain rules, create custom rules (use dx-code-analyzer-custom-rule-create), or suppress violations.",
+    "path": "category/git-version-control/dx-code-analyzer-configure"
+  },
+  {
     "id": "dx-devops-conflict-resolve",
     "name": "dx-devops-conflict-resolve",
     "category": "git-version-control",
@@ -846,14 +990,6 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Recommends and manages DevOps Center test suite assignments for pipeline stages. Mode A analyzes a commit diff against assigned suite metadata to recommend relevant existing suites and flag coverage gaps (pure reasoning). Modes B-D assign a single suite, bulk-map multiple suites with a mandatory impact preview, or add/remove test classes with governance rules, via the testSuiteStages Connect API. Use this skill to recommend suites for a commit, assign or map suites to stages, or add/remove tests in a suite. TRIGGER when: the user asks which suites to run for a commit/diff or what covers their changes; a suite is unlinked and the user wants it assigned; the user wants to configure suite-to-stage mappings, assign multiple suites, or add/remove/sync tests in a suite. DO NOT TRIGGER when: configuring or syncing a test provider (use dx-devops-test-pipeline-configure), running suites (use dx-devops-test-suite-run), or authoring/running tests directly (use platform-apex-test-generate or platform-apex-test-run).",
     "path": "category/git-version-control/dx-devops-test-suite-assignments-configure"
-  },
-  {
-    "id": "dx-devops-work-item-manage",
-    "name": "dx-devops-work-item-manage",
-    "category": "git-version-control",
-    "repository": "forcedotcom-sf-skills",
-    "description": "Use this skill to manage the full lifecycle of DevOps Center work items \u2014 list, create, update, commit changes, perform status transitions, and create pull requests. Update fields like subject, description, and status. Commit changes to work item branches, through the DevOps Center commit API or git. Create pull requests for work item branches via DevOps Center API. Invoke when the user wants to track, find, create, or update a work item, commit changes to a work item branch, advance a work item's status through the pipeline, or create a pull request for code review. Consolidates sf devops work-item and review operations. DO NOT TRIGGER for promotion or deployment operations, or conflict detection.",
-    "path": "category/git-version-control/dx-devops-work-item-manage"
   },
   {
     "id": "ecc-tools-cost-audit",
@@ -872,28 +1008,28 @@
     "path": "category/git-version-control/efficient-web-research"
   },
   {
-    "id": "env-secrets-manager",
-    "name": "env-secrets-manager",
+    "id": "email-sequence-designer",
+    "name": "email-sequence-designer",
     "category": "git-version-control",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Manage environment-variable hygiene and secrets safety across local development and production. Practical auditing, drift awareness, rotation readiness. Use when auditing .env files for committed secrets, planning a credential rotation, debugging missing-env-var production incidents, or hardening a new project against secrets leakage.",
-    "path": "category/git-version-control/env-secrets-manager"
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"design a welcome flow\", \"set up an abandoned-cart sequence\", \"build a light re-engagement branch inside a lifecycle flow\", or \"plan a cold-outbound sequence\"; produces general lifecycle automation flows (welcome, cart, browse-abandon, post-purchase, in-flow re-engagement, B2B cold outbound) with trigger, step timing, branch/exit conditions, goal, frequency governance (send caps, quiet hours, fatigue guardrail), a sunset path, and a SEND N-dimension score. Not for the closed-loop win-back / re-consent (re-permission) program on a lapsed cohort \u2014 use reactivation-specialist; not for writing each email''s copy \u2014 use email-creative-builder; not for computing EQS or the N1 unsubscribe veto \u2014 use email-quality-auditor. \u90ae\u4ef6\u81ea\u52a8\u5316\u6d41\u7a0b\u8bbe\u8ba1/\u8d2d\u7269\u8f66\u633d\u56de/\u6d41\u5931\u53ec\u56de\u5e8f\u5217",
+    "path": "category/git-version-control/email-sequence-designer"
   },
   {
-    "id": "event-hospitality",
-    "name": "event-hospitality",
+    "id": "event-b2b-matchmaking",
+    "name": "event-b2b-matchmaking",
     "category": "git-version-control",
     "repository": "samber-dev-event-organizer-skills",
-    "description": "Decide the food, drink and social provision every population at a technical event shares - the catering service style and the dietary counts it has to carry, what a scheduled break contains, the event's alcohol posture, and whether an evening or social programme exists and in what form. Use whenever asked what format to feed a conference in, how catering should cover dietary restrictions across a whole event, what to put in a coffee break, whether to serve alcohol or run the event dry, or what to do on the evening of a conference day. Sets the shared floor only. Do NOT use for how many social occasions run - use samber/dev-event-organizer-skills@event-official-social-program - or which dietary needs the event commits to - use samber/dev-event-organizer-skills@event-accessibility-inclusion.",
-    "path": "category/git-version-control/event-hospitality"
+    "description": "Design a technical event's structured 1:1 business meeting program - whether to run one at all, how the two sides are matched (directory, brokering, mutual opt-in, scored ranking), how slots get booked inside the grid, what meeting quota a sponsor package may honestly commit to, how a booked-meeting no-show is absorbed, and what to measure. Use whenever asked to set up scheduled 1:1 meetings at an event, run buyer-seller or founder-investor matchmaking, promise a sponsor a number of meetings, or build a booked-meeting timetable. Matches two populations for business conversations. Do NOT use for hackathon build-team formation - use samber/dev-event-organizer-skills@hackathon-team-formation - or the expo floor - use samber/dev-event-organizer-skills@event-booth-experience.",
+    "path": "category/git-version-control/event-b2b-matchmaking"
   },
   {
-    "id": "event-talk-selection",
-    "name": "event-talk-selection",
+    "id": "event-registration-forecast",
+    "name": "event-registration-forecast",
     "category": "git-version-control",
     "repository": "samber-dev-event-organizer-skills",
-    "description": "Run the review and selection process on CFP submissions a technical event already collected - committee composition, how blind review executes (platform hiding versus a dedicated anonymizer role) and what it cannot fix, scoring rubrics, multi-round score-to-shortlist-to-program-fit cascades, conflict-of-interest recusal, diversity and first-time-speaker balancing, acceptance-rate management, and accept/decline/waitlist communication. Use whenever the user mentions a program committee, a talk rating grid, blind CFP review, choosing which submitted talks make the programme, reviewer conflicts of interest, or acceptance and rejection emails - even if they never say \"selection\". Do NOT use to design the call itself - use samber/dev-event-organizer-skills@event-cfp-design.",
-    "path": "category/git-version-control/event-talk-selection"
+    "description": "Forecast final registrations for a technical event from its sign-up pace curve, with a bundled Python 3 script, while registration is still open - prior-edition or generic reference curves aligned on days-out, a low/mid/high band, milestone tripwires declared in advance, the commit figure at each contract lock date, when the forecast crosses capacity, and attendance by ticket type. Use whenever asked how many people will end up registering or attending, to project this year from last year's curve, what headcount to commit before sign-ups close, or when registration will hit its cap. Do NOT use for the demand verdict - use samber/dev-event-organizer-skills@event-market-fit - or overbooking ratios and food counts once sign-ups close - use samber/dev-event-organizer-skills@event-no-show-management.",
+    "path": "category/git-version-control/event-registration-forecast"
   },
   {
     "id": "experiment-orchestration",
@@ -912,28 +1048,20 @@
     "path": "category/git-version-control/explore-code"
   },
   {
+    "id": "extension-http-endpoints",
+    "name": "extension-http-endpoints",
+    "category": "git-version-control",
+    "repository": "caffeinelabs-skills",
+    "description": "Serve inbound HTTP from a Motoko canister (webhooks, curl POST/GET, bot callbacks, ingest/health APIs) via the IC HTTP Gateway methods `http_request` / `http_request_update`. Load whenever the user or spec needs a canister URL that external HTTP clients can hit \u2014 Stripe/GitHub/Slack webhooks, Telegram bots, health checks, or any plain REST-ish endpoint. NOT for calling external APIs from the canister (use `extension-http-outcalls`); NOT for certified static asset serving.",
+    "path": "category/git-version-control/extension-http-endpoints"
+  },
+  {
     "id": "factory",
     "name": "factory",
     "category": "git-version-control",
     "repository": "builderio-skills",
     "description": "Experimental workflow for configuring an autonomous software delivery factory. Use when choosing feedback sources, schedules, worktree behavior, autonomy gates, or host automations.",
     "path": "category/git-version-control/factory"
-  },
-  {
-    "id": "factory-human-digest",
-    "name": "factory-human-digest",
-    "category": "git-version-control",
-    "repository": "builderio-skills",
-    "description": "Experimental workflow for summarizing work that still needs human judgment across configured pull requests, issues, feedback, errors, and delivery signals. Use for a human decision queue or bounded review.",
-    "path": "category/git-version-control/factory-human-digest"
-  },
-  {
-    "id": "factory-review-prs",
-    "name": "factory-review-prs",
-    "category": "git-version-control",
-    "repository": "builderio-skills",
-    "description": "Experimental workflow for reviewing configured repositories' pull requests. Use for manual or scheduled PR triage, approval, or merge decisions.",
-    "path": "category/git-version-control/factory-review-prs"
   },
   {
     "id": "field-service-scheduling-policy-designer-query",
@@ -960,6 +1088,14 @@
     "path": "category/git-version-control/find-security-vulnerabilities-in-code"
   },
   {
+    "id": "find-untested-sources",
+    "name": "find-untested-sources",
+    "category": "git-version-control",
+    "repository": "dotnet-skills",
+    "description": "MANDATORY for static source-to-test pairing: find or list source files/modules without corresponding tests, or suggest test locations from repository structure. Invoke even for a tiny package; do not substitute manual globbing. Uses Roslyn for C#/.NET and tree-sitter for Python, TS/JS, Go, Java, Rust, Ruby, Kotlin, Swift, PowerShell, and C++. DO NOT USE FOR: real line/branch/Cobertura data, coverage-backed test priorities, CRAP risk, or grading existing tests.",
+    "path": "category/git-version-control/find-untested-sources"
+  },
+  {
     "id": "fingerprint-ci-gate",
     "name": "fingerprint-ci-gate",
     "category": "git-version-control",
@@ -976,6 +1112,14 @@
     "path": "category/git-version-control/finishing-a-development-branch"
   },
   {
+    "id": "firebase-app-hosting-basics",
+    "name": "firebase-app-hosting-basics",
+    "category": "git-version-control",
+    "repository": "firebase-agent-skills",
+    "description": "Deploys and manages full-stack web applications (Next.js, Angular) with Server-Side Rendering (SSR) using Firebase App Hosting. Use when deploying Next.js/Angular apps, configuring apphosting.yaml or firebase.json apphosting blocks, managing secrets, setting up GitHub CI/CD, or configuring Blaze billing requirements. Don't use for classic static web hosting, Auth, Firestore, Crashlytics, or Xcode.",
+    "path": "category/git-version-control/firebase-app-hosting-basics"
+  },
+  {
     "id": "flag-and-release-change",
     "name": "flag-and-release-change",
     "category": "git-version-control",
@@ -990,6 +1134,22 @@
     "repository": "launchdarkly-ai-tooling",
     "description": "Record an automated rollout for an existing LaunchDarkly flag that guards a pull request's change, so the change releases safely when the PR merges. Honors a stated release intent (release now / hold / notBefore / segment / prerequisite) and defers per-environment to the project's release policies. Use as the release step once the guarding flag exists and its code is wired. Keywords: record release, automated rollout, release policy, guarded rollout, staged rollout, simple vs policy, release intent, hold release, dark launch.",
     "path": "category/git-version-control/flag-release"
+  },
+  {
+    "id": "folklore-variant-evidence",
+    "name": "folklore-variant-evidence",
+    "category": "git-version-control",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Retrieves ClinGen gene-disease validity assertions for a public gene or disease, and reviews source-linked public evidence and literature for one supported GRCh38 germline nuclear SNV or simple indel through Folklore Clinical Variant Interpretation MCP. Used when a scientific agent must branch deterministically on resolved, ambiguous, not-found, invalid, unsupported, or unavailable variant outcomes; chain a resolved public variant into related literature or publication details; or preserve evidence provenance without accepting patient, phenotype, family, segregation, or private case data.",
+    "path": "category/git-version-control/folklore-variant-evidence"
+  },
+  {
+    "id": "forecast",
+    "name": "forecast",
+    "category": "git-version-control",
+    "repository": "anthropics-knowledge-work",
+    "description": "Generate the commit / best-case / pipeline narrative for a forecast call or a 1:1 with your manager - what's closing, what's at risk, what changed since last time. Use when the user asks \"write my forecast\", \"forecast narrative\", \"prep for forecast call\", \"prep for my quarterly forecast call\", \"which deals should I commit vs. call upside\", \"forecast from this pipeline export\", or \"prep for my 1:1 with my manager\".",
+    "path": "category/git-version-control/forecast"
   },
   {
     "id": "fulfill-git-escrow",
@@ -1128,28 +1288,12 @@
     "path": "category/git-version-control/git-guardrails-claude-code"
   },
   {
-    "id": "git-hooks-setup",
-    "name": "git-hooks-setup",
-    "category": "git-version-control",
-    "repository": "aj-geddes-useful-ai-prompts",
-    "description": "Implement Git hooks using Husky, pre-commit, and custom scripts. Enforce code quality, linting, and testing before commits and pushes.",
-    "path": "category/git-version-control/git-hooks-setup"
-  },
-  {
     "id": "git-pr-review",
     "name": "git-pr-review",
     "category": "git-version-control",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Generate a concise and structured PR description from commit history with minimal token usage",
     "path": "category/git-version-control/git-pr-review"
-  },
-  {
-    "id": "git-pr-workflows-git-workflow",
-    "name": "git-pr-workflows-git-workflow",
-    "category": "git-version-control",
-    "repository": "antigravity-awesome-skills",
-    "description": "Orchestrate a comprehensive git workflow from code review through PR creation, leveraging specialized agents for quality assurance, testing, and deployment readiness. This workflow implements modern g",
-    "path": "category/git-version-control/git-pr-workflows-git-workflow"
   },
   {
     "id": "git-pr-workflows-onboard",
@@ -1232,14 +1376,6 @@
     "path": "category/git-version-control/gitbackup-github-desktop"
   },
   {
-    "id": "gitflow",
-    "name": "gitflow",
-    "category": "git-version-control",
-    "repository": "mindrally-skills",
-    "description": "Branching, merging, versioning, and release conventions for the Gitflow workflow, covering main/develop branches, feature/release/hotfix branches, semantic versioning, and pull request rules. Use when creating a branch, naming a branch, planning a release or hotfix, writing a commit message, or setting up branch protection for a repository that follows Gitflow.",
-    "path": "category/git-version-control/gitflow"
-  },
-  {
     "id": "github",
     "name": "github",
     "category": "git-version-control",
@@ -1272,12 +1408,36 @@
     "path": "category/git-version-control/github-actions-advanced"
   },
   {
+    "id": "github-actions-creator",
+    "name": "github-actions-creator",
+    "category": "git-version-control",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use when the user wants to create, generate, or set up a GitHub Actions workflow. Handles CI/CD pipelines, testing, deployment, linting, security scanning, release automation, Docker builds, scheduled tasks, and any custom workflow for any language or framework.",
+    "path": "category/git-version-control/github-actions-creator"
+  },
+  {
     "id": "github-actions-debugger",
     "name": "github-actions-debugger",
     "category": "git-version-control",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by parsing run logs and pipeline definitions.",
     "path": "category/git-version-control/github-actions-debugger"
+  },
+  {
+    "id": "github-actions-templates",
+    "name": "github-actions-templates",
+    "category": "git-version-control",
+    "repository": "antigravity-awesome-skills",
+    "description": "Create production-ready GitHub Actions workflows for automated testing, building, and deploying applications. Use when setting up CI/CD with GitHub Actions, automating development workflows, or cre...",
+    "path": "category/git-version-control/github-actions-templates"
+  },
+  {
+    "id": "github-actions-workflow",
+    "name": "github-actions-workflow",
+    "category": "git-version-control",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Build comprehensive GitHub Actions workflows for CI/CD, testing, security, and deployment. Master workflows, jobs, steps, and conditional execution.",
+    "path": "category/git-version-control/github-actions-workflow"
   },
   {
     "id": "github-automation",
@@ -1304,14 +1464,6 @@
     "path": "category/git-version-control/github-issue-creator"
   },
   {
-    "id": "github-issue-workflow",
-    "name": "github-issue-workflow",
-    "category": "git-version-control",
-    "repository": "giuseppe-trisciuoglio-developer-kit",
-    "description": "Provides a structured 8-phase workflow for resolving GitHub issues in Claude Code. Covers fetching issue details, analyzing requirements, implementing solutions, verifying correctness, performing code review, committing changes, and creating pull requests. Use when user asks to resolve, implement, work on, fix, or close a GitHub issue, or references an issue URL or number for implementation.",
-    "path": "category/git-version-control/github-issue-workflow"
-  },
-  {
     "id": "github-marketplace-playbook",
     "name": "github-marketplace-playbook",
     "category": "git-version-control",
@@ -1328,6 +1480,14 @@
     "path": "category/git-version-control/github-ops"
   },
   {
+    "id": "github-outside-sandbox",
+    "name": "github-outside-sandbox",
+    "category": "git-version-control",
+    "repository": "davidondrej-skills",
+    "description": "Run Git and GitHub CLI commands on the host when sandboxing blocks Keychain auth, network access, or .git writes. Use for gh auth, repo/PR operations, index.lock, or permission errors; covers execution context only.",
+    "path": "category/git-version-control/github-outside-sandbox"
+  },
+  {
     "id": "github-presence",
     "name": "github-presence",
     "category": "git-version-control",
@@ -1342,6 +1502,14 @@
     "repository": "samber-developer-relations-skills",
     "description": "Audits and rebuilds a personal or organization profile on GitHub as a developer-relations surface - the profile README, the six pinned items, bio and social fields, the organization profile repository, and the contribution signals visitors read as evidence. Use whenever someone says \"optimize my GitHub profile\", \"profile README\", \"our GitHub org page is empty\", \"what should I pin\", \"nobody knows what our company builds on GitHub\", or is preparing a launch, a talk or a job search - even if they only mention their GitHub page. Covers solo maintainers, company organizations, and engineers whose profile gets read during hiring. GitHub-scoped: the audit script and pin/contribution-graph mechanics are GitHub-specific, though the checklist reasoning transfers by hand to another forge. Not a single repository's README - use samber/developer-relations-skills@readme-optimization.",
     "path": "category/git-version-control/github-profile-optimization"
+  },
+  {
+    "id": "github-project-contributor-finder-api-skill",
+    "name": "github-project-contributor-finder-api-skill",
+    "category": "git-version-control",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract GitHub repository project details and contributor contact information using keywords, stars, and update dates. Agent should proactively apply this skill when users express needs like search for GitHub projects by keywords, find top open-source contributors in specific domains, extract developer contacts from GitHub repositories, discover trending repositories with high stars, gather contributor profiles and social links for tech recruiting, retrieve GitHub project descriptions and metrics, build developer communities by finding active contributors, search for repositories updated recently, collect personal website and Twitter links of developers, generate targeted leads for developer tools, or track active open-source contributors for collaboration.",
+    "path": "category/git-version-control/github-project-contributor-finder-api-skill"
   },
   {
     "id": "github-release",
@@ -1416,6 +1584,14 @@
     "path": "category/git-version-control/gitlab-ci-patterns"
   },
   {
+    "id": "gitlab-cicd-pipeline",
+    "name": "gitlab-cicd-pipeline",
+    "category": "git-version-control",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Design and implement GitLab CI/CD pipelines with stages, jobs, artifacts, and caching. Configure runners, Docker integration, and deployment strategies.",
+    "path": "category/git-version-control/gitlab-cicd-pipeline"
+  },
+  {
     "id": "gitlab-workflow",
     "name": "gitlab-workflow",
     "category": "git-version-control",
@@ -1430,6 +1606,14 @@
     "repository": "samber-cc-skills-golang",
     "description": "Compile-time dependency injection in Golang using google/wire \u2014 wire.NewSet, wire.Build, wire.Bind (interface\u2192concrete), wire.Struct, wire.Value, wire.InterfaceValue, wire.FieldsOf, cleanup functions, //go:build wireinject injector files, and generated wire_gen.go. Apply when using or adopting google/wire, when the codebase imports `github.com/google/wire`, or when wiring an application graph at compile time via `wire.Build`. For runtime DI with reflection, see `samber/cc-skills-golang@golang-uber-dig` skill.",
     "path": "category/git-version-control/golang-google-wire"
+  },
+  {
+    "id": "golang-graphql",
+    "name": "golang-graphql",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Implements GraphQL APIs in Golang using gqlgen or graphql-go. Apply when building GraphQL servers, designing schemas, writing resolvers, handling subscriptions, or integrating GraphQL with existing Go HTTP services. Also apply when the codebase imports `github.com/99designs/gqlgen` or `github.com/graph-gophers/graphql-go`.",
+    "path": "category/git-version-control/golang-graphql"
   },
   {
     "id": "golang-samber-do",
@@ -1496,20 +1680,20 @@
     "path": "category/git-version-control/golang-stretchr-testify"
   },
   {
+    "id": "golang-swagger",
+    "name": "golang-swagger",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang OpenAPI/Swagger documentation with swaggo/swag \u2014 annotation comments (@Summary, @Param, @Success, @Router, @Security), swag init code generation, framework integrations (gin, echo, fiber, chi, net/http), security definitions (Bearer/JWT, OAuth2, API key), and struct tags (swaggertype, enums, example, swaggerignore). Apply when adding or maintaining Swagger/OpenAPI docs in a Go project, or when the codebase imports github.com/swaggo/swag, github.com/swaggo/gin-swagger, github.com/swaggo/echo-swagger, github.com/swaggo/http-swagger, or github.com/swaggo/files.",
+    "path": "category/git-version-control/golang-swagger"
+  },
+  {
     "id": "google-workspace-cli",
     "name": "google-workspace-cli",
     "category": "git-version-control",
     "repository": "alirezarezvani-claude-skills",
     "description": "Google Workspace administration via the gws CLI (github.com/googleworkspace/cli). Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits and use local recipe templates and persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling.",
     "path": "category/git-version-control/google-workspace-cli"
-  },
-  {
-    "id": "graph-evolution",
-    "name": "graph-evolution",
-    "category": "git-version-control",
-    "repository": "trailofbits-skills",
-    "description": "Compares Trailmark code graphs at two source code snapshots (git commits, tags, or directories) to surface security-relevant structural changes. Detects new attack paths, complexity shifts, blast radius growth, taint propagation changes, and privilege boundary modifications that text diffs miss. Use when comparing code between commits or tags, analyzing structural evolution, detecting attack surface growth, reviewing what changed between audit snapshots, or finding security-relevant changes that text diffs miss.",
-    "path": "category/git-version-control/graph-evolution"
   },
   {
     "id": "grill-me",
@@ -1526,6 +1710,14 @@
     "repository": "intellectronica-agent-skills",
     "description": "Initialise a git repository with optional agent commit instructions and .gitignore. Use when users say \"here be git\", \"init git\", \"initialise git\", or otherwise indicate they want to set up version control in the current directory.",
     "path": "category/git-version-control/here-be-git"
+  },
+  {
+    "id": "hivemind",
+    "name": "hivemind",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grunt work to a single worker or a parallel swarm (scout/coder/tester) with worktree isolation, benchmarking against opencode, or when the user says \"spawn a worker\", \"swarm\", \"delegate to opencode\", or \"/oc\".",
+    "path": "category/git-version-control/hivemind"
   },
   {
     "id": "hotfix",
@@ -1568,6 +1760,22 @@
     "path": "category/git-version-control/huggingface-papers"
   },
   {
+    "id": "hunt-auth-bypass",
+    "name": "hunt-auth-bypass",
+    "category": "git-version-control",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Hunting skill for auth bypass vulnerabilities. Built from 12 public bug bounty reports across SAML XSW / parser-differential (GitHub Enterprise CVE-2025-25291/25292), SAML signature stripping (Uber, Rocket.Chat, samlify CVE-2025-47949), SAML domain enforcement bypass via control characters (HackerOne 2024), partner-portal cross-IdP assertion reuse (Slack), WordPress XMLRPC bypassing SSO (Uber), JWT alg-confusion HS256/RS256 (Jitsi), JWT signature-validation skip (Linktree, Newspack), and token-audience confusion (Argo CD CVE-2023-22482). For standalone JWT signature/crypto forging (alg:none, key confusion, kid/jku) see hunt-jwt-crypto; this skill covers JWT only inside SSO/SAML/token-trust bypass chains. SAML assertion-layer attacks (XSW, comment injection, signature stripping, XXE-in-assertion) are owned by hunt-saml; this skill owns the broader cross-protocol auth-bypass taxonomy. Use when hunting auth bypass \u2014 see the Legacy-Protocol Matrix for branded-UI vs legacy-endpoint patterns.",
+    "path": "category/git-version-control/hunt-auth-bypass"
+  },
+  {
+    "id": "hunt-cicd",
+    "name": "hunt-cicd",
+    "category": "git-version-control",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Hunt CI/CD pipeline vulnerabilities \u2014 GitHub Actions workflow injection (pull_request_target Pwnrequest + ${{ }}-into-shell), self-hosted runner poisoning, OIDC trust-policy abuse, Jenkins script-console RCE and CVE-2024-23897 file read, GitLab CI runner-token registration, Terraform state file leakage, artifact/log secret leakage, pipeline env-var disclosure. Use when target has a public GitHub/GitLab org, exposed CI dashboards (Jenkins/TeamCity/Drone/Argo), or build artifacts/images are reachable.",
+    "path": "category/git-version-control/hunt-cicd"
+  },
+  {
     "id": "hunt-csrf",
     "name": "hunt-csrf",
     "category": "git-version-control",
@@ -1584,14 +1792,6 @@
     "path": "category/git-version-control/hunt-ssrf"
   },
   {
-    "id": "idea-refine",
-    "name": "idea-refine",
-    "category": "git-version-control",
-    "repository": "addyosmani-agent-skills",
-    "description": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on \"ideate\", \"refine this idea\", or \"stress-test my plan\".",
-    "path": "category/git-version-control/idea-refine"
-  },
-  {
     "id": "implement-patch",
     "name": "implement-patch",
     "category": "git-version-control",
@@ -1600,20 +1800,28 @@
     "path": "category/git-version-control/implement-patch"
   },
   {
-    "id": "implementing-gdpr-data-subject-access-request",
-    "name": "implementing-gdpr-data-subject-access-request",
-    "category": "git-version-control",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Automates GDPR Data Subject Access Request (DSAR) workflows including",
-    "path": "category/git-version-control/implementing-gdpr-data-subject-access-request"
-  },
-  {
     "id": "implementing-github-advanced-security-for-code-scanning",
     "name": "implementing-github-advanced-security-for-code-scanning",
     "category": "git-version-control",
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Configures GitHub Advanced Security (code scanning with CodeQL, secret scanning, dependency review, and Dependabot alerts) to perform automated static analysis and vulnerability detection across repositories at enterprise scale, including custom CodeQL queries and CI workflow integration. Use when setting up or tuning code scanning, rolling out CodeQL across an organization, or shifting SAST left into pull request workflows.",
     "path": "category/git-version-control/implementing-github-advanced-security-for-code-scanning"
+  },
+  {
+    "id": "infrastructure-cicd-data-engineering",
+    "name": "infrastructure-cicd-data-engineering",
+    "category": "git-version-control",
+    "repository": "reason-machines-data-skills",
+    "description": "Deploy data infrastructure changes using CI/CD patterns with GitHub Actions, Terraform, and AWS OIDC authentication",
+    "path": "category/git-version-control/infrastructure-cicd-data-engineering"
+  },
+  {
+    "id": "integrating-dast-with-owasp-zap-in-pipeline",
+    "name": "integrating-dast-with-owasp-zap-in-pipeline",
+    "category": "git-version-control",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Integrates OWASP ZAP (Zed Attack Proxy) into GitHub Actions and GitLab CI pipelines, covering baseline, full, and API scan configuration against running applications, ZAP finding interpretation, scan policy tuning, and DAST quality gates. Use when testing running web apps or REST/GraphQL APIs for XSS, SQLi, CSRF, and auth/authz flaws, or when SAST alone is insufficient and runtime DAST is required for compliance or release gating.",
+    "path": "category/git-version-control/integrating-dast-with-owasp-zap-in-pipeline"
   },
   {
     "id": "integrating-sast-into-github-actions-pipeline",
@@ -1664,6 +1872,14 @@
     "path": "category/git-version-control/k-skill-setup"
   },
   {
+    "id": "karpathytalk-community",
+    "name": "karpathytalk-community",
+    "category": "git-version-control",
+    "repository": "reason-machines-trending-skills",
+    "description": "Run and interact with KarpathyTalk, an open markdown-based developer social network with GitHub auth, SQLite, and an LLM-friendly JSON/markdown API.",
+    "path": "category/git-version-control/karpathytalk-community"
+  },
+  {
     "id": "langgraph",
     "name": "langgraph",
     "category": "git-version-control",
@@ -1704,14 +1920,6 @@
     "path": "category/git-version-control/leaving-pr-comments"
   },
   {
-    "id": "linkedin-strategy",
-    "name": "linkedin-strategy",
-    "category": "git-version-control",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Use when someone needs a LinkedIn plan rather than a post \u2014 content pillars, positioning for a career change or consulting or thought leadership, a sustainable posting cadence, or a newsletter decision. Triggers on \"what should I post about\", \"how often should I post\", \"LinkedIn content strategy\", \"should I start a LinkedIn newsletter\", \"grow my following\", \"90-day plan\". Validates the positioning brief, sizes the week against real hours and refuses a plan that will not survive week five, and gates a newsletter against eligibility and a six-month cadence commitment.",
-    "path": "category/git-version-control/linkedin-strategy"
-  },
-  {
     "id": "ljg-push",
     "name": "ljg-push",
     "category": "git-version-control",
@@ -1720,20 +1928,20 @@
     "path": "category/git-version-control/ljg-push"
   },
   {
+    "id": "llm-to-bedrock",
+    "name": "llm-to-bedrock",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when the user wants to migrate code that calls OpenAI, Gemini/Google AI, or the Anthropic API to Amazon Bedrock \u2014 a pure model/SDK rewrite. End-to-end: assesses the codebase, rewrites SDK calls, evaluates output quality against Bedrock, and delivers a ready-to-merge git branch. Also has an access-only mode for checking or enabling Bedrock model access for specific models (e.g. 'request access to Claude on Bedrock', 'which models do I turn on') with no code migration \u2014 it checks each model and walks the right access step, then stops. Not for agent runtime selection or agent migration planning (use agent-advisor), nor standalone cost estimates or infra-only migration. The full migration REQUIRES gcp-to-aws OR azure-to-aws installed alongside this skill (gcp-to-aws preferred when both are present); access-only mode needs neither.",
+    "path": "category/git-version-control/llm-to-bedrock"
+  },
+  {
     "id": "local-seo",
     "name": "local-seo",
     "category": "git-version-control",
     "repository": "nowork-studio-notfair-plugin",
     "description": "Local SEO and Google Business Profile audit: diagnose why a business isn't ranking in the local pack / map results and produce a fix plan. Covers GBP completeness, NAP (name/address/phone) consistency across the site and citations, local pack and \"near me\" ranking factors, review velocity and responses, local landing pages, service-area pages, and LocalBusiness JSON-LD. Use whenever the user asks about local rankings, map results, Google Maps ranking, NAP consistency, store/branch pages, or multi-location SEO. Trigger on: \"local SEO\", \"Google Business Profile\", \"GBP audit\", \"rank on Google Maps\", \"local pack\", \"map pack\", \"near me ranking\", \"NAP\", \"local citations\", \"my business isn't on the map\", \"why don't I show up on Google Maps\", \"store locator SEO\", \"multi-location SEO\", \"service area pages\", or any location-based ranking question. For full-site (non-local) audits use /seo-analysis; for a single URL use /seo-page.",
     "path": "category/git-version-control/local-seo"
-  },
-  {
-    "id": "logit-io",
-    "name": "logit-io",
-    "category": "git-version-control",
-    "repository": "membranedev-application-skills",
-    "description": "Logit.io integration. Manage data, records, and automate workflows. Use when the user wants to interact with Logit.io data.",
-    "path": "category/git-version-control/logit-io"
   },
   {
     "id": "loop-on-ci",
@@ -1760,6 +1968,14 @@
     "path": "category/git-version-control/make-pr-easy-to-review"
   },
   {
+    "id": "makepad-deployment",
+    "name": "makepad-deployment",
+    "category": "git-version-control",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "CRITICAL: Use for Makepad packaging and deployment. Triggers on: deploy, package, APK, IPA, \u6253\u5305, \u90e8\u7f72, cargo-packager, cargo-makepad, WASM, Android, iOS, distribution, installer, .deb, .dmg, .nsis, GitHub Actions, CI, action, marketplace",
+    "path": "category/git-version-control/makepad-deployment"
+  },
+  {
     "id": "managed-deep-agents",
     "name": "managed-deep-agents",
     "category": "git-version-control",
@@ -1776,12 +1992,12 @@
     "path": "category/git-version-control/mcore-create-issue"
   },
   {
-    "id": "mdpr-skill",
-    "name": "mdpr-skill",
+    "id": "mcp-configure",
+    "name": "mcp-configure",
     "category": "git-version-control",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic renderer boundaries.",
-    "path": "category/git-version-control/mdpr-skill"
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Configure the LaunchDarkly hosted MCP server during onboarding. Use when the parent LaunchDarkly onboarding skill reaches the MCP offer, after the first flag works. Supports Cursor, Claude Code, Windsurf, GitHub Copilot, and other MCP-compatible agents. OAuth authentication; no API keys for the hosted server.",
+    "path": "category/git-version-control/mcp-configure"
   },
   {
     "id": "merge",
@@ -1792,12 +2008,28 @@
     "path": "category/git-version-control/merge"
   },
   {
+    "id": "message-house-builder",
+    "name": "message-house-builder",
+    "category": "git-version-control",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"build a message house\", \"write a PR-FAQ for our launch\", or \"define the launch narrative and value pillars\"; derives from the positioning canvas a message house \u2014 tagline, one-liner, three value pillars, per-persona proof points (each labeled Measured / User-provided / [needs source]) \u2014 plus a working-backwards PR-FAQ narrative spine (launch-day tense, empty-chair test, five external + five internal FAQs) and per-channel message angle packs (angles, not finished copy). Not for the positioning canvas itself \u2014 use positioning-mapper; not for finished blog posts or pages \u2014 use content-writer; not for ad or email units \u2014 use each discipline creative builder; not for claim adjudication \u2014 use offer-claims-registry. \u6d88\u606f\u5c4b/PR-FAQ/\u4ef7\u503c\u652f\u67f1/\u53d1\u5e03\u53d9\u4e8b",
+    "path": "category/git-version-control/message-house-builder"
+  },
+  {
     "id": "message-system-architect",
     "name": "message-system-architect",
     "category": "git-version-control",
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"author our durable brand message hierarchy\", \"build the brand message house that seeds the canon\", or \"define the main narrative, three pillars, and tagline for the whole brand\"; produces the DURABLE brand message system \u2014 main narrative, three value pillars, per-persona proof points (each labeled Measured / User-provided / ''[needs source]''), and the tagline/one-liner \u2014 that seeds the narrative-registry canon and from which every per-launch house derives. Not for a single launch''s message house or PR-FAQ \u2014 use message-house-builder; not for claim adjudication \u2014 use offer-claims-registry; not for the change-narrative arc itself \u2014 use strategic-narrative-designer. \u54c1\u724c\u6d88\u606f\u5c4b/\u4e3b\u53d9\u4e8b/\u4e09\u652f\u67f1/\u6807\u8bed/\u6301\u4e45\u53d9\u4e8b canon",
     "path": "category/git-version-control/message-system-architect"
+  },
+  {
+    "id": "metronome",
+    "name": "metronome",
+    "category": "git-version-control",
+    "repository": "stripe-ai",
+    "description": "Guides Metronome usage-based billing integration decisions \u2014 event ingestion (single and batch, idempotency, billable metrics), contract design (rate cards, overrides, dimensional pricing, products), invoicing lifecycle (grace periods, finalization, Stripe sync), credit and commit management (prepaid, postpaid, thresholds, auto-recharge), and Stripe integration (arrears invoicing, tax providers, line item limits). Use when building, modifying, or reviewing any Metronome integration \u2014 including ingesting usage events, creating customers, contracts, or rate cards, designing billable metric group keys, managing credits and commits, configuring invoicing, syncing invoices with Stripe Billing, billing AI applications for token usage, setting up self-serve (PLG) pricing, reviewing customer health, commit burn, portfolios, or renewals, or migrating from Stripe Billing Meters to Metronome.",
+    "path": "category/git-version-control/metronome"
   },
   {
     "id": "migrate-to-msk",
@@ -1832,12 +2064,52 @@
     "path": "category/git-version-control/nagent"
   },
   {
+    "id": "neon",
+    "name": "neon",
+    "category": "git-version-control",
+    "repository": "active",
+    "description": "Overview of Neon, a complete set of cloud backend primitives around Lakebase Postgres: Auth, Object Storage, Functions, the AI Gateway, and Realtime. Start here to choose Neon for undecided login, files, APIs, and LLM calls, set up the CLI or MCP server, and follow the branch-first workflow. Use when building an app or backend on Neon, or when \"Neon\" or \"Lakebase Postgres\" is mentioned. Child skill neon-postgres wins for an existing DATABASE_URL, SQL, schema, inspect, or search. Child skill neon-auth wins for login, users, sessions, identity routing, and Managed Better Auth setup. Child skill neon-realtime wins for live queries in reactive apps and agents. Also use for object storage, S3, buckets, serverless functions, function triggers, cron, AI gateway, LLM calls, realtime, logs, Loki, Grafana, observability, postgres, database, backend, Claimable Neon, neon.new, a no-signup database, or pairing Neon with Upstash for cache, Redis, rate limiting, queues, or background jobs.",
+    "path": "category/git-version-control/neon"
+  },
+  {
+    "id": "neon-ai-gateway",
+    "name": "neon-ai-gateway",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "One API and one credential for frontier and open-source LLMs and embedding models, built into your Neon branch and powered by Databricks. Use when a user wants to call an LLM, generate embeddings, add AI/chat/an agent to their app, route between model providers (OpenAI, Anthropic, Google/Gemini, Meta, Alibaba, and more), or avoid juggling separate provider API keys and accounts \u2014 especially when they already use Neon and want AI requests to branch with their project. Works with the OpenAI SDK, Anthropic SDK, google-genai, the Vercel AI SDK, and Mastra by changing only the base URL. Triggers include \"call an LLM\", \"add AI to my app\", \"chat completion\", \"model routing\", \"LLM proxy/gateway\", \"one API for all models\", \"use Claude/GPT/Gemini\", \"AI SDK\", \"Mastra agent\", \"Neon AI Gateway\", \"generate embeddings\", \"generate images\", and \"log/rate-limit AI calls\".",
+    "path": "category/git-version-control/neon-ai-gateway"
+  },
+  {
     "id": "neon-functions",
     "name": "neon-functions",
     "category": "git-version-control",
     "repository": "neondatabase-agent-skills",
     "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE) server, a webhook handler, a Discord bot, an MCP server, or any request/response workload that risks timing out on short, lambda-style serverless functions \u2014 and wants it to branch with their database. Also use for Function Triggers: a cron or an object-storage event that POSTs to a function. Triggers include \"serverless function\", \"deploy an API\", \"long-running function\", \"streaming agent\", \"SSE server\", \"WebSocket server\", \"webhook handler\", \"MCP server\", \"cron\", \"scheduled function\", \"object storage trigger\", \"on upload\", \"function that won't time out\", \"function logs\", \"Neon Functions\", \"Neon Compute\", \"DDoS protection\", \"rate limiting\", and \"production hardening\". For live UIs over database rows, use neon-realtime.",
     "path": "category/git-version-control/neon-functions"
+  },
+  {
+    "id": "neon-object-storage",
+    "name": "neon-object-storage",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "S3-compatible object storage that branches with your database, so each branch gets its own copy of the files and the rows that point at them. Use when a user wants object storage, a bucket, blob/file storage, or somewhere to put uploads, images, documents, avatars, or user-generated files for their app or agent \u2014 especially when they already use (or are setting up) Lakebase Postgres and don't want to add a separate storage provider like AWS S3, Cloudflare R2, or Supabase Storage. Triggers include \"object storage\", \"bucket\", \"blob storage\", \"file storage\", \"store uploads/images/files\", \"S3-compatible storage\", \"presigned URL\", \"where do I put files\", \"storage logs\", \"bucket logs\", \"CDN in front of object storage\", \"Neon Object Storage\", \"Neon Storage\", and \"storage that branches with my database\".",
+    "path": "category/git-version-control/neon-object-storage"
+  },
+  {
+    "id": "neon-postgres-branches",
+    "name": "neon-postgres-branches",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "Choose and create the right Neon branch type for testing and development. Use when users ask about Neon branching, migration testing with real data, isolated test environments, schema-only branch workflows for sensitive data, resetting a branch from its parent, branch expiration and CI/CD branch lifecycles, or branch creation via Neon CLI or Neon MCP. Triggers include \"Neon branch\", \"test migrations safely\", \"branch production data\", \"schema-only branch\", \"reset branch\", \"branch per PR\" and \"sensitive data testing\".",
+    "path": "category/git-version-control/neon-postgres-branches"
+  },
+  {
+    "id": "new",
+    "name": "new",
+    "category": "git-version-control",
+    "repository": "davila7-claude-code-templates",
+    "description": "Create Railway projects, services, and databases with proper configuration. Use when user says \"setup\", \"deploy to railway\", \"initialize\", \"create project\", \"create service\", or wants to deploy from GitHub. Handles initial setup AND adding services to existing projects. For databases, use railway-railway-database skill instead.",
+    "path": "category/git-version-control/new"
   },
   {
     "id": "new-branch-and-pr",
@@ -1856,12 +2128,28 @@
     "path": "category/git-version-control/new-term-radar"
   },
   {
+    "id": "nextjs-deployment",
+    "name": "nextjs-deployment",
+    "category": "git-version-control",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides comprehensive patterns for deploying Next.js applications to production. Use when configuring Docker containers, setting up GitHub Actions CI/CD pipelines, managing environment variables, implementing preview deployments, or setting up monitoring and logging for Next.js applications. Covers standalone output, multi-stage Docker builds, health checks, OpenTelemetry instrumentation, and production best practices.",
+    "path": "category/git-version-control/nextjs-deployment"
+  },
+  {
     "id": "nodejs-core",
     "name": "nodejs-core",
     "category": "git-version-control",
     "repository": "mcollina-skills",
     "description": "Contributes to and debugs Node.js core, including nodejs/node commit and PR tone, contribution workflows, native crashes, V8 performance, node-gyp builds, N-API bindings, and libuv issues. Use when drafting or reviewing a Node.js core commit or pull request, working in nodejs/node, or diagnosing C++ addons, binding.gyp failures, segfaults, native leaks, V8 deoptimizations, and event-loop internals.",
     "path": "category/git-version-control/nodejs-core"
+  },
+  {
+    "id": "nuget-trusted-publishing",
+    "name": "nuget-trusted-publishing",
+    "category": "git-version-control",
+    "repository": "dotnet-skills",
+    "description": "Set up NuGet trusted publishing (OIDC) on a GitHub Actions repo \u2014 replaces long-lived API keys with short-lived tokens. USE FOR: trusted publishing, NuGet OIDC, keyless NuGet publish, migrate from NuGet API key, NuGet/login, secure NuGet publishing. DO NOT USE FOR: publishing to private feeds or Azure Artifacts (OIDC is nuget.org only). INVOKES: shell (powershell or bash), edit, create, ask_user for guided repo setup.",
+    "path": "category/git-version-control/nuget-trusted-publishing"
   },
   {
     "id": "octocat",
@@ -1872,12 +2160,12 @@
     "path": "category/git-version-control/octocat"
   },
   {
-    "id": "om-app-spec-writing",
-    "name": "om-app-spec-writing",
+    "id": "oh-my-issues",
+    "name": "oh-my-issues",
     "category": "git-version-control",
-    "repository": "open-mercato-skills",
-    "description": "Write and review a business-level App Spec \u2014 domain model, workflows with ROI, stories with failure paths, platform gap mapping in atomic commits, phased rollout \u2014 before any feature spec exists. Feeds om-spec-writing via feature briefs. Use for \"create an app spec\", \"define business requirements\", \"what should we build\".",
-    "path": "category/git-version-control/om-app-spec-writing"
+    "repository": "thedotmack-claude-mem",
+    "description": "Cluster a GitHub issue backlog by root cause into a small set of plan-master issues, redirect children with a standardized comment, and bundle architectural-fix PRs that close clusters atomically. Use when an issue tracker has accumulated dozens of reports that share underlying defects, when asked to triage / consolidate / cluster / dedupe issues, when asked to build a plan series or roadmap from open issues, or when routing a new incoming bug into an existing plan.",
+    "path": "category/git-version-control/oh-my-issues"
   },
   {
     "id": "om-auto-continue-pr",
@@ -2016,14 +2304,6 @@
     "path": "category/git-version-control/om-followup-issue-from-pr"
   },
   {
-    "id": "om-gap-analysis",
-    "name": "om-gap-analysis",
-    "category": "git-version-control",
-    "repository": "open-mercato-skills",
-    "description": "Grounded gap analysis of requirements against the platform an app builds on \u2014 client docs become an Epic/Story tree whose every coverage verdict is re-run by executable gates against a validated platform checkout, scored in atomic commits, license-tier-tagged, summarized with a backlog. Use for \"gap analysis\", \"what does the platform already cover\".",
-    "path": "category/git-version-control/om-gap-analysis"
-  },
-  {
     "id": "om-harness",
     "name": "om-harness",
     "category": "git-version-control",
@@ -2038,14 +2318,6 @@
     "repository": "open-mercato-skills",
     "description": "Design and implement a feature through existing spec, testing, environment, and review skills, then leave a verified staged branch for human review without committing, pushing, or opening a pull request. Use when the user says \"implement this feature but stop before PR\", \"leave the feature staged\", \"staged feature build\", \"zaimplementuj bez PR\", or \"zostaw feature staged\".",
     "path": "category/git-version-control/om-implement-feature"
-  },
-  {
-    "id": "om-merge-buddy",
-    "name": "om-merge-buddy",
-    "category": "git-version-control",
-    "repository": "open-mercato-skills",
-    "description": "Scan open pull requests via the configured tracker, classify merge readiness from labels, reviews, CI, and mergeability, then report which PRs can merge now and which ones are close but blocked.",
-    "path": "category/git-version-control/om-merge-buddy"
   },
   {
     "id": "om-open-pr",
@@ -2072,14 +2344,6 @@
     "path": "category/git-version-control/om-qa-buddy"
   },
   {
-    "id": "om-review-prs",
-    "name": "om-review-prs",
-    "category": "git-version-control",
-    "repository": "open-mercato-skills",
-    "description": "Review unreviewed open pull requests, newest first, using om-auto-review-pr and respecting claim locks. Use --subagents for a fresh reviewer per PR and --parallel N for bounded concurrency; without flags, review sequentially in the current session.",
-    "path": "category/git-version-control/om-review-prs"
-  },
-  {
     "id": "om-setup-agent-pipeline",
     "name": "om-setup-agent-pipeline",
     "category": "git-version-control",
@@ -2104,14 +2368,6 @@
     "path": "category/git-version-control/om-verify-in-repo"
   },
   {
-    "id": "open-source-company-strategy",
-    "name": "open-source-company-strategy",
-    "category": "git-version-control",
-    "repository": "samber-developer-relations-skills",
-    "description": "Decides what a company open-sources and what stays proprietary, names the strategic motive for each side of the line, says who owns the decision, and states what the company commits never to close. Use whenever someone asks \"should we open source this?\", \"what should we open source\", \"where do we draw the open-core line\", \"which features stay paid\", \"who signs off on open sourcing this\", or wants a company-level open source strategy rather than a plan for one project - even if they frame it as a licensing question. Produces an asset-by-asset open/closed verdict, a value-capture and irreversibility check, a public non-reversal commitment and a re-evaluation trigger. Not license selection - use samber/developer-relations-skills@oss-license-strategy.",
-    "path": "category/git-version-control/open-source-company-strategy"
-  },
-  {
     "id": "open-source-marketing",
     "name": "open-source-marketing",
     "category": "git-version-control",
@@ -2134,6 +2390,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis",
     "path": "category/git-version-control/openclaw-github-repo-commander"
+  },
+  {
+    "id": "opencli-autofix",
+    "name": "opencli-autofix",
+    "category": "git-version-control",
+    "repository": "jackwener-opencli",
+    "description": "Automatically fix broken OpenCLI adapters when commands fail. Load this skill when an opencli command fails \u2014 it guides you through collecting a trace artifact, patching the adapter, retrying, and filing an upstream GitHub issue after a verified fix. Works with any AI agent.",
+    "path": "category/git-version-control/opencli-autofix"
   },
   {
     "id": "orca-cli",
@@ -2184,6 +2448,14 @@
     "path": "category/git-version-control/orch-pipeline"
   },
   {
+    "id": "orchestration",
+    "name": "orchestration",
+    "category": "git-version-control",
+    "repository": "stablyai-orca",
+    "description": "Coordinate supervised Orca workers, or work as a dispatched worker (heartbeats, ask, worker_done): threaded messages, blocking ask/reply, task dispatch, worker_done/escalation waits, task DAGs, decision gates, coordinator loops, and decomposing work across agents. Use `orca-cli` for full ownership handoffs \u2014 \"hand off\", \"handoff\", \"handover\", \"give this to another agent\", \"another worktree\" \u2014 unless asked to supervise, monitor, or coordinate a DAG, and for terminal control, lightweight terminal prompts, shell commands, Orca worktree management, and reading or waiting on terminals.",
+    "path": "category/git-version-control/orchestration"
+  },
+  {
     "id": "oss-launch",
     "name": "oss-launch",
     "category": "git-version-control",
@@ -2200,6 +2472,14 @@
     "path": "category/git-version-control/oss-sponsors-fundraising"
   },
   {
+    "id": "page-play-builder",
+    "name": "page-play-builder",
+    "category": "git-version-control",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"build programmatic SEO pages\", \"generate pages at scale\", \"rank on a high-authority third-party site\", \"borrow domain authority\", \"build a vs / alternative page\", \"do local SEO\", \"optimize a Google Business Profile\", or \"fix NAP\" \u2014 one page-build router with four modes: programmatic (template \u00d7 dataset systems), parasite (barnacle publishing on Medium/Reddit/LinkedIn/GitHub), comparison (vs / alternative pages in four formats), and local (GBP + NAP + citations + location pages), each with its own thin/duplicate, honesty, or reputation-abuse guardrail. Not for finding what to target \u2014 use keyword-research or content-gap-analysis; not for drafting one standalone article \u2014 use content-writer; not for scoring a page for publish \u2014 use content-quality-auditor. \u7a0b\u5e8f\u5316SEO/\u6279\u91cf\u9875\u9762/\u5bc4\u751fSEO/\u501f\u52bf\u6743\u91cd/\u5bf9\u6bd4\u9875/vs\u9875/\u66ff\u4ee3\u9875/\u672c\u5730SEO/\u8c37\u6b4c\u5546\u5bb6\u6863\u6848/NAP\u4e00\u81f4\u6027",
+    "path": "category/git-version-control/page-play-builder"
+  },
+  {
     "id": "parallel-execution-optimizer",
     "name": "parallel-execution-optimizer",
     "category": "git-version-control",
@@ -2214,22 +2494,6 @@
     "repository": "trailofbits-skills",
     "description": "Use when a known bug or falsifiable bug hypothesis in a local codebase needs a patch commit and reviewable proof report.",
     "path": "category/git-version-control/patching-bugs"
-  },
-  {
-    "id": "pathway-enrichment",
-    "name": "pathway-enrichment",
-    "category": "git-version-control",
-    "repository": "k-dense-ai-scientific-agent-skills",
-    "description": "Performs pathway and gene-set enrichment analysis on gene lists or ranked gene data and interprets the results. Used when the user has a set of genes (differentially expressed genes from PyDESeq2/Scanpy, CRISPR-screen hits, cluster marker genes, proteomics hits) and wants to know which biological pathways, GO terms, or gene sets are over-represented or enriched. Covers over-representation analysis (ORA / Enrichr / Fisher / hypergeometric), ranked Gene Set Enrichment Analysis (GSEA / preranked), single-sample scoring (ssGSEA/GSVA), and functional profiling via gseapy, g:Profiler, Enrichr libraries, MSigDB, GO, KEGG, Reactome, and WikiPathways \u2014 plus gene-ID mapping, choosing the right background universe, multiple-testing correction, redundancy reduction, dotplots/enrichment maps, and publication-ready tables. Use this for \"pathway analysis\", \"enrichment analysis\", \"GO enrichment\", \"KEGG/Reactome pathways\", \"GSEA\", \"over-representation\", \"functional annotation\", or \"what pathways are my genes in\".",
-    "path": "category/git-version-control/pathway-enrichment"
-  },
-  {
-    "id": "pay-the-bills",
-    "name": "pay-the-bills",
-    "category": "git-version-control",
-    "repository": "anthropics-knowledge-work",
-    "description": "Works the bill pile from the AP inbox all the way to a staged payment run \u2014 reads and codes every bill, then checks the cash position before a dollar is committed, then stages the run for one-click approval and keeps the books tidy for close. Coding and paying are two separate decisions with two separate approvals, and the cash check sits between them on purpose. Runs on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) and a mail connector (Gmail or M365), deepens with Expensify and Ramp, and works from uploaded PDFs or phone photos with the run sheet exported for manual entry. Use it when the owner says \"pay the bills,\" \"the bills are piling up,\" \"what do I owe,\" \"who needs to get paid this week,\" \"can I afford to pay these,\" or forwards a stack of vendor invoices.",
-    "path": "category/git-version-control/pay-the-bills"
   },
   {
     "id": "performing-paste-site-monitoring-for-credentials",
@@ -2320,14 +2584,6 @@
     "path": "category/git-version-control/pr-merge-champion"
   },
   {
-    "id": "pr-review",
-    "name": "pr-review",
-    "category": "git-version-control",
-    "repository": "mindrally-skills",
-    "description": "Focused pull request review practices with severity-ranked, file-and-line-cited findings across four angles: security, performance, tests, and architecture. Use when asked to review a pull request, review a diff or set of changes, review \\\"this PR,\\\" or provide a code review before merge.",
-    "path": "category/git-version-control/pr-review"
-  },
-  {
     "id": "pr-review-canvas",
     "name": "pr-review-canvas",
     "category": "git-version-control",
@@ -2350,22 +2606,6 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Posts review findings from a JSON file as inline comments on a GitHub Pull Request, attaching each comment to its file and line. Use when you have a list/JSON of review findings (each with a file path, line number, and a message such as summary/failure_scenario) and want them published on a PR as inline review comments. Triggers include \"post these review comments on the PR\", \"associate comments to files in the PR\", \"publish review findings to PR #N\", or having a JSON array of {file, line, summary} to turn into PR comments.",
     "path": "category/git-version-control/pr-review-comments"
-  },
-  {
-    "id": "pr-review-expert",
-    "name": "pr-review-expert",
-    "category": "git-version-control",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Use when the user asks to review pull requests, analyze code changes, check for security issues in PRs, or assess code quality of diffs.",
-    "path": "category/git-version-control/pr-review-expert"
-  },
-  {
-    "id": "pr-review-specialist",
-    "name": "pr-review-specialist",
-    "category": "git-version-control",
-    "repository": "#searex-skill",
-    "description": "High-impact Pull Request (PR) reviews, automated diff analysis, severity calibration, and security flagging. Use when reviewing PRs, analyzing diffs, providing structured code review feedback, or checking for introduced regressions.",
-    "path": "category/git-version-control/pr-review-specialist"
   },
   {
     "id": "pr-screenshots",
@@ -2408,36 +2648,12 @@
     "path": "category/git-version-control/prepare-regression"
   },
   {
-    "id": "principle-exhaust-the-design-space",
-    "name": "principle-exhaust-the-design-space",
-    "category": "git-version-control",
-    "repository": "backnotprop-pstack",
-    "description": "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing.",
-    "path": "category/git-version-control/principle-exhaust-the-design-space"
-  },
-  {
     "id": "principle-separate-before-serializing-shared-state",
     "name": "principle-separate-before-serializing-shared-state",
     "category": "git-version-control",
     "repository": "backnotprop-pstack",
     "description": "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.",
     "path": "category/git-version-control/principle-separate-before-serializing-shared-state"
-  },
-  {
-    "id": "principle-sequence-verifiable-units",
-    "name": "principle-sequence-verifiable-units",
-    "category": "git-version-control",
-    "repository": "backnotprop-pstack",
-    "description": "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence proves itself to a reviewer.",
-    "path": "category/git-version-control/principle-sequence-verifiable-units"
-  },
-  {
-    "id": "product-discovery",
-    "name": "product-discovery",
-    "category": "git-version-control",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Use when validating product opportunities, mapping assumptions, planning discovery sprints, or testing problem-solution fit before committing delivery resources.",
-    "path": "category/git-version-control/product-discovery"
   },
   {
     "id": "project-artifact",
@@ -2456,14 +2672,6 @@
     "path": "category/git-version-control/project-flow-ops"
   },
   {
-    "id": "project-state-governor",
-    "name": "project-state-governor",
-    "category": "git-version-control",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Govern evidence-backed canonical project state across sessions, branches, reviews, and research cycles without inventing product intent.",
-    "path": "category/git-version-control/project-state-governor"
-  },
-  {
     "id": "prove-patch",
     "name": "prove-patch",
     "category": "git-version-control",
@@ -2478,6 +2686,22 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Takes a proofread or apsa-style report file (or any markdown file using **Original:** / **Recommended:** syntax) and rewrites the original source file with git merge conflict markers so the user can accept or reject each suggested edit using VS Code or Positron''s built-in merge conflict UI. Branch names are \"original\" and \"claude-edits\". Use when asked to apply edits, insert conflict markers, or set up merge resolution for a copy-edit report. Supports an optional @sec-label argument to restrict markers to one section.",
     "path": "category/git-version-control/pseudo-merge"
+  },
+  {
+    "id": "public-roadmap-strategy",
+    "name": "public-roadmap-strategy",
+    "category": "git-version-control",
+    "repository": "samber-developer-platform-skills",
+    "description": "Decides whether and how a developer platform or API company publishes its roadmap to customers or the public - posture (none, NDA briefings, direction page, horizon roadmap, dated quarters), commitment vocabulary, what never goes public, disclaimers and sales citation rules, voting boards, and slipped or cancelled items. Use whenever the user mentions a public roadmap, a GitHub roadmap repo, a feature voting board, roadmap dates, sales promising unbuilt features, or a delayed roadmap item - even if they only say \"customers keep asking what's coming\". Not internal roadmap planning or prioritization. Do NOT use for triaging feature requests - use samber/developer-relations-skills@developer-feedback-loop; for deprecation notices use samber/developer-platform-skills@api-versioning-policy.",
+    "path": "category/git-version-control/public-roadmap-strategy"
+  },
+  {
+    "id": "publish-project-to-github",
+    "name": "publish-project-to-github",
+    "category": "git-version-control",
+    "repository": "mengto-skills",
+    "description": "Package a finished local project into an intentional GitHub repository, create a strong README and visual preview, push it safely, configure a public GitHub Pages URL when the project is compatible, and verify the deployed result. Use when a user asks to upload, publish, open-source, share, or turn a local HTML/CSS/JavaScript experiment or small web project into a documented GitHub repository with a live demo.",
+    "path": "category/git-version-control/publish-project-to-github"
   },
   {
     "id": "pull-request-automation",
@@ -2504,6 +2728,14 @@
     "path": "category/git-version-control/python-design-patterns"
   },
   {
+    "id": "react-performance",
+    "name": "react-performance",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "React and Next.js performance optimization patterns adapted from Vercel Engineering's React Best Practices (https://github.com/vercel-labs/agent-skills). Organizes 70+ rules across 8 priority categories \u2014 waterfalls, bundle size, server-side, client fetching, re-render, rendering, JS micro-perf, advanced. Use when writing, reviewing, or refactoring React/Next.js code for performance.",
+    "path": "category/git-version-control/react-performance"
+  },
+  {
     "id": "readme-optimization",
     "name": "readme-optimization",
     "category": "git-version-control",
@@ -2520,28 +2752,12 @@
     "path": "category/git-version-control/readout"
   },
   {
-    "id": "regression-hunt",
-    "name": "regression-hunt",
-    "category": "git-version-control",
-    "repository": "trailofbits-skills",
-    "description": "Use when investigating regressions in PRs or commits, coordinating a regression campaign, or resuming saved progress.",
-    "path": "category/git-version-control/regression-hunt"
-  },
-  {
     "id": "release-skills",
     "name": "release-skills",
     "category": "git-version-control",
     "repository": "jimliu-baoyu-design",
     "description": "Universal release workflow. Auto-detects version files and changelogs. Supports Node.js, Python, Rust, Claude Plugin, GitHub Releases, annotated tags, historical release backfill, and generic projects. Use when user says \"release\", \"\u53d1\u5e03\", \"new version\", \"bump version\", \"push\", \"\u63a8\u9001\", \"release notes\", \"GitHub Release\", or \"\u56de\u586b Release\".",
     "path": "category/git-version-control/release-skills"
-  },
-  {
-    "id": "repairshopr-automation",
-    "name": "repairshopr-automation",
-    "category": "git-version-control",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Repairshopr tasks via Rube MCP (Composio). Always search tools first for current schemas.",
-    "path": "category/git-version-control/repairshopr-automation"
   },
   {
     "id": "replication-package",
@@ -2600,6 +2816,14 @@
     "path": "category/git-version-control/review-and-ship"
   },
   {
+    "id": "review-multi-agent-orchestration",
+    "name": "review-multi-agent-orchestration",
+    "category": "git-version-control",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Use when a supervisor, swarm, graph, planner-worker system, or parallel agent workflow needs review for task boundaries, shared state, branch joins, retries, cancellation, context handoffs, budgets, deadlocks, or human escalation before implementation or production rollout.",
+    "path": "category/git-version-control/review-multi-agent-orchestration"
+  },
+  {
     "id": "review-pr",
     "name": "review-pr",
     "category": "git-version-control",
@@ -2624,6 +2848,14 @@
     "path": "category/git-version-control/rust-review"
   },
   {
+    "id": "sales-discovery-questions",
+    "name": "sales-discovery-questions",
+    "category": "git-version-control",
+    "repository": "mbfinotti-sales-skills",
+    "description": "Builds a sequenced sales discovery question set - pain, root cause, impact, urgency - for a specific deal or persona, sized to the call length, with follow-up ladders, branch triggers, and a do-not-ask list. Covers B2B (SDR qualification through multi-stakeholder AE discovery) and high-ticket B2C consultations. Use whenever the user mentions discovery call prep, qualification questions, SPIN or pain-funnel questions, a first-meeting agenda, or \"what should I ask this prospect\", even without the word discovery. Do NOT use for rebuttals (mbfinotti/sales-skills@sales-objection-handling), the cold-call opening (mbfinotti/sales-skills@cold-call-opener), or grading a finished call (mbfinotti/sales-skills@sales-call-review).",
+    "path": "category/git-version-control/sales-discovery-questions"
+  },
+  {
     "id": "sales-enablement-kit",
     "name": "sales-enablement-kit",
     "category": "git-version-control",
@@ -2632,12 +2864,28 @@
     "path": "category/git-version-control/sales-enablement-kit"
   },
   {
+    "id": "sales-forecast-diagnostic",
+    "name": "sales-forecast-diagnostic",
+    "category": "git-version-control",
+    "repository": "mbfinotti-revops-skills",
+    "description": "Diagnose why an existing sales forecast is unreliable and recommend fixes - stage inflation and happy ears, sandbagging, deals without verifiable buyer evidence, stale or mass-pushed close dates, wrong forecast-category assignment, zombie and duplicate opportunities, late-created deals, manager roll-up overrides, and comp incentives that reward bias - separating data-quality from behavioral from genuine demand problems. Use whenever the user mentions forecast accuracy, a forecast miss, reps sandbagging, deals that keep slipping, \"why did we miss the number\", or \"our commit is never right\" - even if they never say \"forecast\". Covers B2B deal-based and B2C/high-volume. Do NOT use for pipeline coverage modeling - use mbfinotti/sales-skills@sales-pipeline-coverage-modeling instead.",
+    "path": "category/git-version-control/sales-forecast-diagnostic"
+  },
+  {
     "id": "sample-app-strategy",
     "name": "sample-app-strategy",
     "category": "git-version-control",
     "repository": "samber-developer-platform-skills",
     "description": "Decide a developer platform's sample-code portfolio - which quickstart repos, reference apps, starter and deploy templates, and hosted playgrounds exist, for which developer job, in which languages, owned by whom, kept fresh by what CI, and archived by what rule. Use whenever the user mentions their sample apps or example repos as a set, a samples GitHub org, too many or broken sample repos, which samples to keep or archive, sample ownership, a sample gallery, or reference app vs quickstart choices - even if they never say \"portfolio\". Not for building one sample app. Do NOT use for snippets inside docs pages - use samber/developer-relations-skills@docs-code-sample-standards; or for which SDK languages exist - use samber/developer-platform-skills@sdk-portfolio-strategy.",
     "path": "category/git-version-control/sample-app-strategy"
+  },
+  {
+    "id": "scanning-container-images-with-grype",
+    "name": "scanning-container-images-with-grype",
+    "category": "git-version-control",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Scans container images, filesystems, and SBOMs for known CVEs with Anchore Grype, matching Syft-generated SBOM packages against NVD, GitHub Advisories, and OS-specific feeds with configurable severity thresholds and failure gates. Use when Grype or Syft is the chosen toolchain, when scanning an existing SBOM rather than an image, or when gating a build on severity. Keywords: Grype, Syft, SBOM, NVD, GitHub Advisory, --fail-on, severity threshold. Do not use when the toolchain is Trivy - use scanning-docker-images-with-trivy.",
+    "path": "category/git-version-control/scanning-container-images-with-grype"
   },
   {
     "id": "search-first",
@@ -2672,22 +2920,6 @@
     "path": "category/git-version-control/securing-github-actions-workflows"
   },
   {
-    "id": "semantic-versioning",
-    "name": "semantic-versioning",
-    "category": "git-version-control",
-    "repository": "aj-geddes-useful-ai-prompts",
-    "description": "Implement semantic versioning (SemVer) with automated release management. Use conventional commits, semantic-release, and version bumping strategies.",
-    "path": "category/git-version-control/semantic-versioning"
-  },
-  {
-    "id": "send-experiment-designer",
-    "name": "send-experiment-designer",
-    "category": "git-version-control",
-    "repository": "aaron-he-zhu-aaron-marketing-skills",
-    "description": "Use when the user asks to \"design an email A/B test\", \"set up a multivariate subject/CTA test\", \"run a send-time test\", \"build a hold-out group\", or \"is this email result statistically and practically material?\"; produces a falsifiable hypothesis, one-variable-per-cell matrix, sample-size/MDE/duration/power plan, and an effect/uncertainty read from own ESP data. Applies only a precommitted owner-approved action rule; the helper never chooses a business action. Not for EQS/vetoes or writing the email. \u90ae\u4ef6AB\u6d4b\u8bd5\u8bbe\u8ba1/\u591a\u53d8\u91cf\u6d4b\u8bd5/\u53d1\u9001\u65f6\u95f4\u6d4b\u8bd5/\u7559\u51fa\u7ec4/\u663e\u8457\u6027\u5224\u5b9a",
-    "path": "category/git-version-control/send-experiment-designer"
-  },
-  {
     "id": "sentry-debug-issue",
     "name": "sentry-debug-issue",
     "category": "git-version-control",
@@ -2712,12 +2944,20 @@
     "path": "category/git-version-control/sentry-snapshots-cocoa"
   },
   {
-    "id": "sentry-triage",
-    "name": "sentry-triage",
+    "id": "service",
+    "name": "service",
     "category": "git-version-control",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Diagnose Sentry issues without copy-pasting stack traces. Uses the Composio CLI to pull issue details, events, breadcrumbs, and suspect commits, then maps the frames to local source so the agent can propose a fix directly.",
-    "path": "category/git-version-control/sentry-triage"
+    "repository": "davila7-claude-code-templates",
+    "description": "Check service status, rename services, change service icons, link services, or create services with Docker images. For creating services with local code, prefer railway-new skill. For GitHub repo sources, use railway-new skill to create empty service then railway-environment skill to configure source.",
+    "path": "category/git-version-control/service"
+  },
+  {
+    "id": "setting-up-cloudwatch-observability",
+    "name": "setting-up-cloudwatch-observability",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Sets up CloudWatch observability for the first time - Omni (CloudWatch Application Observability) and classic CloudWatch. Omni: creating a Space or Domain; access grants (who has access, at what level), access profiles bounding alerts, integrations, agents; instrumenting an app or AI agent with the plain ADOT SDK so traces reach Omni (Python/Node/Java/.NET on EC2/ECS/EKS/Lambda), incl. no-image-rebuild, CoreCLR vars; ingesting Azure or Google Cloud telemetry via the CloudWatch agent (VM/AKS, GCE/GKE); connecting Slack or the AWS DevOps Agent to a Space; whether GitHub or a custom MCP tool server (HTTP/stdio) can connect. CloudWatch: onboarding a service to Application Signals: ADOT auto-instrumentation, amazon-cloudwatch-observability add-on, monitored service, ServiceEvents, CI/CD metadata, Terraform. For using what is set up - queries, dashboards, alarms, Omni alerts, X-Ray, synthetics, Dynamic Instrumentation, AI agent evaluation, detecting Omni vs classic - use aws-observability.",
+    "path": "category/git-version-control/setting-up-cloudwatch-observability"
   },
   {
     "id": "share-field-notes",
@@ -2792,20 +3032,20 @@
     "path": "category/git-version-control/skill-tester"
   },
   {
-    "id": "smart-git-automation",
-    "name": "smart-git-automation",
+    "id": "springboot-verification",
+    "name": "springboot-verification",
     "category": "git-version-control",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Smart change detection, auto branch naming, and streamlined commit/PR workflow",
-    "path": "category/git-version-control/smart-git-automation"
+    "repository": "affaan-m-ecc",
+    "description": "Run the full Spring Boot verification loop \u2014 Maven or Gradle build, SpotBugs, PMD, and Checkstyle static analysis, unit and Testcontainers integration tests with JaCoCo coverage, OWASP dependency and secret scans, and diff review \u2014 producing a pass/fail readiness report. Use when preparing a Spring Boot pull request, validating coverage thresholds, or running pre-deploy verification.",
+    "path": "category/git-version-control/springboot-verification"
   },
   {
-    "id": "spawn",
-    "name": "spawn",
+    "id": "star-history-chart",
+    "name": "star-history-chart",
     "category": "git-version-control",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Launch N parallel subagents in isolated git worktrees to compete on the session task. Use when the user runs /hub:spawn or asks to start the competing agents for an initialized AgentHub session.",
-    "path": "category/git-version-control/spawn"
+    "repository": "davila7-claude-code-templates",
+    "description": "Add a self-hosted \"Stargazers over time\" chart to any GitHub repo's README. GitHub now restricts the stargazers endpoint to a repo's own admins/collaborators, so third-party live services (star-history free tier, starchart.cc) return \"Requires authentication\" for everyone. This generates a static, theme-aware SVG in-repo and auto-refreshes it weekly with a GitHub Action using the repo's own GITHUB_TOKEN. Use when the star chart in a README is broken, shows \"Requires authentication\", or you want a star history that never breaks.",
+    "path": "category/git-version-control/star-history-chart"
   },
   {
     "id": "supercov",
@@ -2814,6 +3054,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Measure line, branch and MC/DC coverage of a project's existing tests with the supercov CLI, then write small, focused tests for the code no test reaches.",
     "path": "category/git-version-control/supercov"
+  },
+  {
+    "id": "supply-chain-attack-recon",
+    "name": "supply-chain-attack-recon",
+    "category": "git-version-control",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "External recon for software supply-chain attack surface \u2014 package-namespace squatting candidates, dependency-confusion vulnerabilities, GitHub Actions injection openings, container image registry exposure, SBOM mining, internal-package-name leakage, and CI/CD configuration exposure. Reconnaissance and identification ONLY \u2014 actual package publishing / typosquat attacks are EXTERNAL-OFFENSIVE and require explicit written sign-off because they can affect the entire npm/PyPI ecosystem. Use when the target has a public GitHub org, when their build artifacts/SBOMs are reachable, when their docker images are on Docker Hub/GHCR, or when you find internal package names in their JS bundles.",
+    "path": "category/git-version-control/supply-chain-attack-recon"
   },
   {
     "id": "supply-chain-guard",
@@ -2830,14 +3078,6 @@
     "repository": "t3dotgg-tstack",
     "description": "Take over existing work. Use when the user asks to take over a PR, branch, or agent thread, or requests a takeover.",
     "path": "category/git-version-control/takeover"
-  },
-  {
-    "id": "talentlms",
-    "name": "talentlms",
-    "category": "git-version-control",
-    "repository": "membranedev-application-skills",
-    "description": "TalentLMS integration. Manage Users, Branchs, Categories, Rules, Certificates, Tags and more. Use when the user wants to interact with TalentLMS data.",
-    "path": "category/git-version-control/talentlms"
   },
   {
     "id": "team-agent-orchestration",
@@ -2870,6 +3110,14 @@
     "repository": "backnotprop-pstack",
     "description": "Layered technical-writing standard: Di\u00e1taxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages.",
     "path": "category/git-version-control/technical-writing"
+  },
+  {
+    "id": "technology-selection",
+    "name": "technology-selection",
+    "category": "git-version-control",
+    "repository": "dotnet-skills",
+    "description": "Guides technology selection and implementation of AI and ML features in .NET 8+ applications using ML.NET, Microsoft.Extensions.AI (MEAI), Microsoft Agent Framework (MAF), GitHub Copilot SDK, ONNX Runtime, and OllamaSharp. Covers the full spectrum from classic ML through modern LLM orchestration to local inference. Use when adding classification, regression, clustering, anomaly detection, recommendation, LLM integration (text generation, summarization, reasoning), RAG pipelines with vector search, agentic workflows with tool calling, Copilot extensions, or custom model inference via ONNX Runtime to a .NET project. DO NOT USE FOR projects targeting .NET Framework (requires .NET 8+), the task is pure data engineering or ETL with no ML/AI component, or the project needs a custom deep learning training loop (use Python with PyTorch/TensorFlow, then export to ONNX for .NET inference).",
+    "path": "category/git-version-control/technology-selection"
   },
   {
     "id": "test-setup",
@@ -2920,6 +3168,14 @@
     "path": "category/git-version-control/thermos"
   },
   {
+    "id": "token-card",
+    "name": "token-card",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "Render a token-usage stat card from local Claude Code, Codex, Gemini CLI, and OpenCode session logs and commit it into the repository as a file. Use when someone wants a current usage figure in a README, or asks for a shareable card of their coding-agent activity.",
+    "path": "category/git-version-control/token-card"
+  },
+  {
     "id": "tools",
     "name": "tools",
     "category": "git-version-control",
@@ -2942,14 +3198,6 @@
     "repository": "browserbase-skills",
     "description": "AI-powered adversarial UI testing via the browse CLI. Analyzes git diffs to test only what changed, or explores the full app to find bugs. Tests functional correctness, accessibility, responsive layout, and UX heuristics. Use when the user asks to test UI changes, QA a pull request, audit accessibility, or run exploratory testing. Supports local browser (localhost) and remote Browserbase (deployed sites).",
     "path": "category/git-version-control/ui-test"
-  },
-  {
-    "id": "understand-diff",
-    "name": "understand-diff",
-    "category": "git-version-control",
-    "repository": "egonex-ai-understand-anything",
-    "description": "Use when you need to analyze git diffs or pull requests to understand what changed, affected components, and risks",
-    "path": "category/git-version-control/understand-diff"
   },
   {
     "id": "unified-notifications-ops",
@@ -3080,6 +3328,14 @@
     "path": "category/git-version-control/warp-eval"
   },
   {
+    "id": "web-debug-search",
+    "name": "web-debug-search",
+    "category": "git-version-control",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Search GitHub, Stack Exchange, Chinese technical communities, official documentation, and general developer web sources for software errors, compatibility problems, API usage questions, and real-world workarounds. Use for debugging and discovery only; results are not paper-citation evidence.",
+    "path": "category/git-version-control/web-debug-search"
+  },
+  {
     "id": "web-to-app-funnel",
     "name": "web-to-app-funnel",
     "category": "git-version-control",
@@ -3094,22 +3350,6 @@
     "repository": "elementalsouls-claude-bughunter",
     "description": "Web2 recon pipeline \u2014 subdomain enumeration (subfinder, Chaos API, assetfinder), live host discovery (dnsx, httpx), URL crawling (katana, waybackurls, gau), directory fuzzing (ffuf), JS analysis (LinkFinder, SecretFinder), continuous monitoring (new subdomain alerts, JS change detection, GitHub commit watch). Use when starting recon on any web2 target or when asked about asset discovery, subdomain enum, or attack surface mapping.",
     "path": "category/git-version-control/web2-recon"
-  },
-  {
-    "id": "weekly-review",
-    "name": "weekly-review",
-    "category": "git-version-control",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Use when someone wants to run a weekly review, close open loops, audit stalled projects and commitments, get their system back to trusted, restart a lapsed review habit, or says \"/cs-weekly-review\". Walks David Allen's three-phase loop \u2014 GET CLEAR, GET CURRENT, GET CREATIVE \u2014 with deterministic scripts that inventory open loops, gate the checklist with named gaps, and score commitment health 0-100.",
-    "path": "category/git-version-control/weekly-review"
-  },
-  {
-    "id": "what-did-i-get-done",
-    "name": "what-did-i-get-done",
-    "category": "git-version-control",
-    "repository": "cursor-plugins",
-    "description": "Summarize authored commits over a user-specified time period into a concise update",
-    "path": "category/git-version-control/what-did-i-get-done"
   },
   {
     "id": "wiki-changelog",
@@ -3158,14 +3398,6 @@
     "repository": "davila7-claude-code-templates",
     "description": "Interactive guide for parallel development with Ghostty, git worktrees, and Lazygit. Use when setting up multi-task workflows or learning the worktree system.",
     "path": "category/git-version-control/worktree-guide"
-  },
-  {
-    "id": "write-pr-description",
-    "name": "write-pr-description",
-    "category": "git-version-control",
-    "repository": "warpdotdev-common-skills",
-    "description": "Writes the body of a pull request - the summary, the repository template sections, and reviewer guidance such as a recommended reading order and focus areas. Use whenever drafting or revising a PR description, filling in a repository's PR template, refreshing a description that no longer matches the branch, or preparing a branch for review. Use it even when the user only says \"open a PR\", \"put this up for review\", or \"write this up\" without naming the description.",
-    "path": "category/git-version-control/write-pr-description"
   },
   {
     "id": "writing-clearly-and-concisely",

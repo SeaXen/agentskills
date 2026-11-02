@@ -201,6 +201,13 @@ GRANULAR_CATEGORIES = {
 
 print(f"Total granular categories defined: {len(GRANULAR_CATEGORIES)}")
 
+COMPILED_PATTERNS = {}
+for slug, data in GRANULAR_CATEGORIES.items():
+    kws = data.get("keywords", [])
+    if kws:
+        pat = re.compile(r"\b(?:" + "|".join(re.escape(k) for k in kws) + r")\b", re.IGNORECASE)
+        COMPILED_PATTERNS[slug] = pat
+
 def classify_granular(name, desc, tags=None, repo=""):
     full_text = f"{name} {desc} {' '.join(tags or [])}".lower()
     name_l = name.lower()
@@ -242,20 +249,10 @@ def classify_granular(name, desc, tags=None, repo=""):
     if "antigravity-elite" in repo_l:
         return "core-antigravity-protocols"
 
-    # Match based on keywords in taxonomy
-    scores = {}
-    for cat_slug, cat_data in GRANULAR_CATEGORIES.items():
-        score = 0
-        for kw in cat_data["keywords"]:
-            if word_match(kw, full_text):
-                score += 3
-            elif kw in full_text:
-                score += 1
-        if score > 0:
-            scores[cat_slug] = score
-
-    if scores:
-        return max(scores.items(), key=lambda x: x[1])[0]
+    # Match based on pre-compiled regex patterns (blazing fast)
+    for cat_slug, pat in COMPILED_PATTERNS.items():
+        if pat.search(full_text):
+            return cat_slug
 
     # Defaults
     if "test" in full_text:

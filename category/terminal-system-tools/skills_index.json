@@ -8,6 +8,22 @@
     "path": "category/terminal-system-tools/acquiring-disk-image-with-dd-and-dcfldd"
   },
   {
+    "id": "ads-setup",
+    "name": "ads-setup",
+    "category": "terminal-system-tools",
+    "repository": "agricidaniel-claude-ads",
+    "description": "Set up a paid-media client, account, data-source, privacy, and mutation-guardrail profile for Claude Ads. Use for onboarding, initial configuration, API tokens or credential profiles, environment-variable or keychain setup, connecting exports or read adapters, safe native or verified-local installation, curl-pipe-bash install requests, declaring KPIs, or preparing a new advertising project.",
+    "path": "category/terminal-system-tools/ads-setup"
+  },
+  {
+    "id": "aegisops-ai",
+    "name": "aegisops-ai",
+    "category": "terminal-system-tools",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Autonomous DevSecOps & FinOps Guardrails. Guide to reviewing Linux kernel patches, Terraform cost changes and Kubernetes policy with a separately reviewed upstream tool and configured model.",
+    "path": "category/terminal-system-tools/aegisops-ai"
+  },
+  {
     "id": "agent-experience",
     "name": "agent-experience",
     "category": "terminal-system-tools",
@@ -22,14 +38,6 @@
     "repository": "starchild-ai-agent-official-skills",
     "description": "Manage shell hooks \u2014 user scripts that run at agent lifecycle points to block, rewrite, or warn on actions, via the /hooks command.",
     "path": "category/terminal-system-tools/agent-hooks"
-  },
-  {
-    "id": "agent-skill-offering",
-    "name": "agent-skill-offering",
-    "category": "terminal-system-tools",
-    "repository": "samber-developer-platform-skills",
-    "description": "Ships an Agent Skill (SKILL.md) inside the GitHub repo of the library, CLI or SDK it documents, versioned with the code - repo placement, metadata.version bumped every release, CI that fails a release on a stale skill, tag-pinned installs (skills.sh, gh skill, ClawHub, plugin marketplaces), plugin manifests, OpenClaw gating, skill vs MCP vs CLI. Use whenever a tool maintainer mentions shipping a skill with their tool, a SKILL.md for their library, keeping a skill in sync with releases, or plugin.json versions for a skill beside code - even if they never say \"agent skill\". Not for standalone skill collections. Do NOT use for CLI command or --json design - use samber/developer-platform-skills@cli-interface-design; nor for MCP servers - use samber/developer-platform-skills@mcp-server-offering.",
-    "path": "category/terminal-system-tools/agent-skill-offering"
   },
   {
     "id": "agentmemory-agents",
@@ -160,20 +168,20 @@
     "path": "category/terminal-system-tools/analyzing-powershell-script-block-logging"
   },
   {
-    "id": "analyzing-windows-shellbag-artifacts",
-    "name": "analyzing-windows-shellbag-artifacts",
-    "category": "terminal-system-tools",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Analyze Windows Shellbag (BagMRU) registry artifacts with SBECmd and",
-    "path": "category/terminal-system-tools/analyzing-windows-shellbag-artifacts"
-  },
-  {
     "id": "anti-debugging-techniques",
     "name": "anti-debugging-techniques",
     "category": "terminal-system-tools",
     "repository": "yaklang-hack-skills",
     "description": "Anti-debugging detection and bypass playbook. Use when reversing protected binaries that detect debuggers via ptrace, PEB flags, timing checks, or signal/exception handlers on Linux and Windows.",
     "path": "category/terminal-system-tools/anti-debugging-techniques"
+  },
+  {
+    "id": "apple-container",
+    "name": "apple-container",
+    "category": "terminal-system-tools",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Build, run, and manage OCI/Linux containers as lightweight per-container VMs on Apple-silicon macOS using Apple's open-source container CLI, no Docker daemon required.",
+    "path": "category/terminal-system-tools/apple-container"
   },
   {
     "id": "applying-a-permission-policy",
@@ -200,12 +208,12 @@
     "path": "category/terminal-system-tools/asc-cli-usage"
   },
   {
-    "id": "asc-id-resolver",
-    "name": "asc-id-resolver",
+    "id": "audit-skills",
+    "name": "audit-skills",
     "category": "terminal-system-tools",
-    "repository": "rorkai-app-store-connect-cli-skills",
-    "description": "Resolve App Store Connect IDs (apps, builds, app and digital-goods versions, groups, testers) from human-friendly names using asc. Use when commands require IDs.",
-    "path": "category/terminal-system-tools/asc-id-resolver"
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identify malicious patterns, data leaks, system stability risks, and obfuscated payloads across Windows, macOS, Linux/Unix, and Mobile (Android/iOS).",
+    "path": "category/terminal-system-tools/audit-skills"
   },
   {
     "id": "auditing-entra-id-with-aadinternals",
@@ -222,6 +230,22 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides advanced AWS CLI patterns for managing EC2, Lambda, S3, DynamoDB, RDS, VPC, IAM, and CloudWatch. Generates bulk operation scripts, automates cross-service workflows, validates security configurations, and executes JMESPath queries for complex filtering. Triggers on \"aws cli help\", \"aws command line\", \"aws scripting\", \"aws automation\", \"aws batch operations\", \"aws bulk operations\", \"aws cli pagination\", \"aws multi-region\", \"aws profiles\", \"aws cli troubleshooting\".",
     "path": "category/terminal-system-tools/aws-cli-beast"
+  },
+  {
+    "id": "aws-compute",
+    "name": "aws-compute",
+    "category": "terminal-system-tools",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provisions, scales, and operates Amazon EC2 virtual-machine workloads: instance-type selection (Graviton/Arm64, burstable T credits, GPU, instance store vs EBS), launch templates, Auto Scaling groups (scaling policies, instance refresh, mixed instances, Spot, warm pools, lifecycle hooks), IMDSv2, placement groups, Elastic IPs, AMI lifecycle, and Systems Manager fleet operations (Session Manager, Run Command, Patch Manager). Applies to EC2 instance and fleet questions, InsufficientInstanceCapacity, CPU-credit/surplus charges, IMDSv2 401s, instances stuck in Pending:Wait, ASG not replacing unhealthy instances, status-check failures, SSH refused/timed out, or instances missing as SSM managed nodes. For a single secure instance launch, the launching-ec2-instance-with-best-practices skill is more appropriate; for instance profiles, see setting-up-ec2-instance-profiles; for Image Builder, see amazon-ec2-image-builder. Does NOT cover Lambda, ECS/Fargate, EKS, VPC/ALB/NLB design, or IAM policy authoring.",
+    "path": "category/terminal-system-tools/aws-compute"
+  },
+  {
+    "id": "azure-diagnostics",
+    "name": "azure-diagnostics",
+    "category": "terminal-system-tools",
+    "repository": "microsoft-azure-skills",
+    "description": "Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage, including evidence-only diagnosis without live access. WHEN: debug production issues, troubleshoot app service, app service high CPU, app service deployment failure, troubleshoot container apps, container app 503 or target port mismatch, troubleshoot functions, function telemetry missing or stopped after a config/connection-string change, troubleshoot AKS, VM RDP, Linux SSH, VM black screen, can't connect to VM, reset VM password, NSG or firewall blocking, kubectl cannot connect, kube-system/CoreDNS failures, pod pending, crashloop, node not ready, upgrade failures, analyze logs, KQL, insights, image pull failures, cold start issues, health probe failures, resource health, root cause of errors, troubleshoot event hubs, troubleshoot service bus, messaging SDK error, AMQP connection failure, message lock lost, lock renewal during long-running processing, service bus dead letter.",
+    "path": "category/terminal-system-tools/azure-diagnostics"
   },
   {
     "id": "bash-defensive-patterns",
@@ -264,22 +288,6 @@
     "path": "category/terminal-system-tools/bats-testing-patterns"
   },
   {
-    "id": "bb-cli",
-    "name": "bb-cli",
-    "category": "terminal-system-tools",
-    "repository": "davidondrej-skills",
-    "description": "Use this when controlling bb. The bb CLI inspects and manages threads, environments, projects, machines, providers, skills, plugins, settings, terminals, and other BB services.",
-    "path": "category/terminal-system-tools/bb-cli"
-  },
-  {
-    "id": "bb-plugins",
-    "name": "bb-plugins",
-    "category": "terminal-system-tools",
-    "repository": "davidondrej-skills",
-    "description": "Build, install, and debug bb plugins. Use when the user wants a bb plugin, a sidebar panel, a bb CLI subcommand, an agent tool, a theme, a provider, or to extend bb itself. For running threads and the core bb CLI, use bb-cli instead.",
-    "path": "category/terminal-system-tools/bb-plugins"
-  },
-  {
     "id": "binlog-generation",
     "name": "binlog-generation",
     "category": "terminal-system-tools",
@@ -288,36 +296,12 @@
     "path": "category/terminal-system-tools/binlog-generation"
   },
   {
-    "id": "bionemo-complexa-target",
-    "name": "bionemo-complexa-target",
-    "category": "terminal-system-tools",
-    "repository": "nvidia-skills",
-    "description": "Add, edit, inspect, or validate Proteina-Complexa target definitions for protein binders, ligand binders, and AME motif scaffolding. Use for target registries, chain/residue selectors, hotspots, ligand fields, and incomplete motif inputs. Covers direct YAML edits and complexa target/validate target commands; running a campaign with an already registered target belongs to complexa-design.",
-    "path": "category/terminal-system-tools/bionemo-complexa-target"
-  },
-  {
     "id": "bionemo-genomics-workflow-acceleration",
     "name": "bionemo-genomics-workflow-acceleration",
     "category": "terminal-system-tools",
     "repository": "nvidia-skills",
     "description": "Use when accelerating existing genomics workflows with NVIDIA Parabricks, improving runtime or price/performance, converting pipeline steps to GPUs, or comparing CPU and GPU workflow outputs. Adds optional GPU steps in-place with runtime toggles (default off). Do NOT use for individual pbrun command routing \u2014 use parabricks.",
     "path": "category/terminal-system-tools/bionemo-genomics-workflow-acceleration"
-  },
-  {
-    "id": "bionemo-parabricks",
-    "name": "bionemo-parabricks",
-    "category": "terminal-system-tools",
-    "repository": "nvidia-skills",
-    "description": "Plan NVIDIA Parabricks pbrun commands, translate CPU options and check runtime readiness. Use for individual tools, including planning-only questions.",
-    "path": "category/terminal-system-tools/bionemo-parabricks"
-  },
-  {
-    "id": "blue-laser-clean-glass-layout",
-    "name": "blue-laser-clean-glass-layout",
-    "category": "terminal-system-tools",
-    "repository": "mengto-skills",
-    "description": "Create a clean dark glass layout system with a thin blue laser atmosphere, frosted premium shells, and polished dashboard structure.",
-    "path": "category/terminal-system-tools/blue-laser-clean-glass-layout"
   },
   {
     "id": "book-study",
@@ -336,20 +320,28 @@
     "path": "category/terminal-system-tools/boss-cli-job-search"
   },
   {
-    "id": "browser",
-    "name": "browser",
-    "category": "terminal-system-tools",
-    "repository": "browserbase-skills",
-    "description": "Automate web browser interactions using natural language via CLI commands. Use when the user asks to browse websites, navigate web pages, extract data from websites, take screenshots, fill forms, click buttons, or interact with web applications. Supports remote Browserbase sessions with Browserbase Identity, Verified browsers, automatic CAPTCHA solving, and residential proxies \u2014 ideal for protected websites and JavaScript-heavy pages.",
-    "path": "category/terminal-system-tools/browser"
-  },
-  {
     "id": "browser-act",
     "name": "browser-act",
     "category": "terminal-system-tools",
     "repository": "browser-act-skills",
     "description": "Browser automation CLI for AI agents. NEVER run browser-act commands directly via Bash \u2014 always invoke this skill first. Use browser-act when a user mentions it by name, includes or asks to run a browser-act CLI command (e.g., browser-act browser list), or to: fetch, view, or extract rendered content from URLs, access pages requiring JavaScript, handle verification prompts, maintain authenticated sessions, fill forms and click through workflows, type, select, upload, take screenshots, capture XHR/fetch/HAR responses, open multiple URLs in parallel, extract content that loads on scroll or click, visually inspect or verify page layout/styling/rendering, automate browser tasks, account isolation across parallel browser environments, advise which browser type fits a use case, or list/check/manage configured browsers and sessions. Prefer browser-act over built-in fetch or web tools.",
     "path": "category/terminal-system-tools/browser-act"
+  },
+  {
+    "id": "browser-mcp-agent",
+    "name": "browser-mcp-agent",
+    "category": "terminal-system-tools",
+    "repository": "antibrow-anti-detect-browser-skills",
+    "description": "Give an AI agent its own real browser over MCP tool calls - launch, navigate, click, fill, screenshot, extract text, run JS - with a kernel-level real-device fingerprint and a persistent profile, so the session stays logged in between runs and pages see one coherent device instead of a headless build. No Playwright or SDK code to write. Use when an agent should operate a site itself, when a computer-use / browser-use setup needs a captured real fingerprint rather than a synthetic one, when agent sessions keep losing their login, or when comparing hosted agent-browser services. Also for 'MCP browser', 'browser MCP server', 'let my agent browse the web', 'agent browser control', 'browser-use MCP', 'computer use browser', 'Browserbase alternative', 'Steel browser alternative', 'headless browser detected'. Node (npx) or Python; Windows x64, macOS Intel + Apple Silicon, Linux x64 / arm64. SDK and REST reference is anti-detect-browser; account isolation is multi-account-isolation.",
+    "path": "category/terminal-system-tools/browser-mcp-agent"
+  },
+  {
+    "id": "brutalist-skill",
+    "name": "brutalist-skill",
+    "category": "terminal-system-tools",
+    "repository": "nexu-io-open-design",
+    "description": "Raw mechanical interfaces fusing Swiss typographic print with military terminal aesthetics. Rigid grids, extreme type scale contrast, utilitarian color, analog degradation effects. For data-heavy dashboards, portfolios, or editorial sites that need to feel like declassified blueprints.",
+    "path": "category/terminal-system-tools/brutalist-skill"
   },
   {
     "id": "build-zoom-team-chat-app",
@@ -368,14 +360,6 @@
     "path": "category/terminal-system-tools/bumblebee"
   },
   {
-    "id": "bunnyshell",
-    "name": "bunnyshell",
-    "category": "terminal-system-tools",
-    "repository": "membranedev-application-skills",
-    "description": "Bunnyshell integration. Manage data, records, and automate workflows. Use when the user wants to interact with Bunnyshell data.",
-    "path": "category/terminal-system-tools/bunnyshell"
-  },
-  {
     "id": "burpsuite-project-parser",
     "name": "burpsuite-project-parser",
     "category": "terminal-system-tools",
@@ -390,6 +374,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.",
     "path": "category/terminal-system-tools/busybox-on-windows"
+  },
+  {
+    "id": "buzzshield",
+    "name": "buzzshield",
+    "category": "terminal-system-tools",
+    "repository": "buzzbysolcex-buzz-bd-agent",
+    "description": "Crypto-native security scanner for Claude Code agent configurations. Scans for exposed private keys, insecure RPC endpoints, contract addresses in public repos, unprotected wallet operations, and agent config vulnerabilities. Extends AgentShield concept with 47 crypto-specific detection rules. Run via /security-scan command.",
+    "path": "category/terminal-system-tools/buzzshield"
   },
   {
     "id": "cardputer-buddy",
@@ -408,12 +400,28 @@
     "path": "category/terminal-system-tools/cargo"
   },
   {
+    "id": "cargo-mcp",
+    "name": "cargo-mcp",
+    "category": "terminal-system-tools",
+    "repository": "getcargohq-cargo-skills",
+    "description": "Drive Cargo from its hosted MCP server at https://mcp.getcargo.io/mcp \u2014 connect a client, discover and price an action, run it over one record or a batch, poll it, and read workspace models, with no CLI install. Also when to call an MCP tool instead of shelling out to `cargo-ai`. Triggers: \\\"connect Cargo to Claude Desktop\\\", \\\"add Cargo to ChatGPT\\\", \\\"Cargo MCP server\\\", \\\"mcp.getcargo.io\\\", \\\"use Cargo without installing anything\\\", \\\"which Cargo tool do I call\\\", \\\"search_actions\\\", \\\"execute_action_batch\\\", \\\"MCP server is showing the wrong workspace\\\". Tools: whoami, search_actions, get_action_schema, execute_action, execute_action_batch, get_run, query_models. Skip when: you have a shell and the job is a workflow, a project deploy, warehouse SQL, or a mailbox \u2014 use the CLI skills; when publishing an MCP server out of your own workspace or attaching one to a Cargo agent \u2014 use cargo-ai.",
+    "path": "category/terminal-system-tools/cargo-mcp"
+  },
+  {
     "id": "cargo-workspace-management",
     "name": "cargo-workspace-management",
     "category": "terminal-system-tools",
     "repository": "getcargohq-cargo-skills",
     "description": "Administer a Cargo workspace and talk back to the Cargo team \u2014 invite and manage members, mint and rotate API tokens, organize plays, tools, and agents into folders, inspect roles, upload batch input files, and file reports. Triggers: \\\"invite my teammate\\\", \\\"create an API token for CI\\\", \\\"who has access\\\", \\\"organize these into folders\\\", \\\"rotate that token\\\", \\\"upload this CSV for a batch\\\" \u2014 and for feedback: \\\"report this bug to Cargo\\\", \\\"send feedback to the Cargo team\\\", \\\"this CLI command is broken\\\", \\\"share this session with Cargo\\\", \\\"request a feature\\\". Most commands need a token with admin access. Skip when: the question is about credits, plans, or invoices \u2014 use cargo-billing.",
     "path": "category/terminal-system-tools/cargo-workspace-management"
+  },
+  {
+    "id": "cdf-orchestration-preflight",
+    "name": "cdf-orchestration-preflight",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Set up missing Linux prerequisites and audit whether a Cosmos Data Factory (CDF) Orchestration checkout and its Kubernetes or OSMO environment are ready to install the controller and run every packaged DAG. Use for prerequisite, pre-setup, Kubernetes, GPU, RWX/NFS, credential, controller-readiness, and quick-start checks. Not for deploying the controller (use cdf-orchestration-setup, which calls this audit first), authoring payloads, or running workflows.",
+    "path": "category/terminal-system-tools/cdf-orchestration-preflight"
   },
   {
     "id": "ce-help",
@@ -424,14 +432,6 @@
     "path": "category/terminal-system-tools/ce-help"
   },
   {
-    "id": "changelog",
-    "name": "changelog",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/changelog.md",
-    "path": "category/terminal-system-tools/changelog"
-  },
-  {
     "id": "chaos-engineering",
     "name": "chaos-engineering",
     "category": "terminal-system-tools",
@@ -440,44 +440,12 @@
     "path": "category/terminal-system-tools/chaos-engineering"
   },
   {
-    "id": "chaos-experiment",
-    "name": "chaos-experiment",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/chaos-experiment.md",
-    "path": "category/terminal-system-tools/chaos-experiment"
-  },
-  {
-    "id": "check-compiler-errors",
-    "name": "check-compiler-errors",
-    "category": "terminal-system-tools",
-    "repository": "cursor-plugins",
-    "description": "Run compile and type-check commands and report failures",
-    "path": "category/terminal-system-tools/check-compiler-errors"
-  },
-  {
-    "id": "ck",
-    "name": "ck",
-    "category": "terminal-system-tools",
-    "repository": "affaan-m-ecc",
-    "description": "Persistent per-project memory for Claude Code (Context Keeper) driven by deterministic Node.js /ck commands: init, save, resume, info, list, forget, and v1-to-v2 migrate, plus a SessionStart hook that injects a compact project brief. Use when context must survive across sessions, saving session state with next steps and decisions, resuming where a previous session left off, or picking up a project without re-explaining it.",
-    "path": "category/terminal-system-tools/ck"
-  },
-  {
     "id": "claude-better-cli",
     "name": "claude-better-cli",
     "category": "terminal-system-tools",
     "repository": "reason-machines-trending-skills",
     "description": "Compatibility-first Claude CLI reimplementation with faster startup, lower memory, and drop-in command compatibility",
     "path": "category/terminal-system-tools/claude-better-cli"
-  },
-  {
-    "id": "claude-code-source-recovery",
-    "name": "claude-code-source-recovery",
-    "category": "terminal-system-tools",
-    "repository": "reason-machines-trending-skills",
-    "description": "Skill for exploring and understanding the recovered Claude Code 2.1.88 TypeScript source code, including its CLI architecture, command system, MCP integration, and Ink/React terminal UI components.",
-    "path": "category/terminal-system-tools/claude-code-source-recovery"
   },
   {
     "id": "claude-hud-statusline",
@@ -502,14 +470,6 @@
     "repository": "reason-machines-trending-skills",
     "description": "Better Harness Tools for Claude Code \u2014 a Python (and in-progress Rust) rewrite of the Claude Code agent harness, with CLI tooling for manifest inspection, parity auditing, and tool/command inventory.",
     "path": "category/terminal-system-tools/claw-code-harness"
-  },
-  {
-    "id": "clawd-code-python-port",
-    "name": "clawd-code-python-port",
-    "category": "terminal-system-tools",
-    "repository": "reason-machines-trending-skills",
-    "description": "Python port of Claude Code agent harness \u2014 tools, commands, task orchestration, and CLI entrypoint via oh-my-codex",
-    "path": "category/terminal-system-tools/clawd-code-python-port"
   },
   {
     "id": "cli-anything-agent-native",
@@ -560,44 +520,20 @@
     "path": "category/terminal-system-tools/cli-for-agents"
   },
   {
-    "id": "cli-interface-design",
-    "name": "cli-interface-design",
+    "id": "cli-to-js-api-wrapper",
+    "name": "cli-to-js-api-wrapper",
     "category": "terminal-system-tools",
-    "repository": "samber-developer-platform-skills",
-    "description": "Design the public CLI that wraps a developer platform's API - which commands exist (curated commands plus a raw api escape hatch, not a 1:1 REST mirror), grammar, flag/env/config precedence, a frozen --json and exit-code contract, TTY behavior, login and CI tokens, pagination and --wait, errors, help, flag deprecation, telemetry, and safe use by scripts and coding agents. Use whenever the user mentions designing or reviewing a CLI for their API, CLI command naming, --json output, exit codes, CLI login, or an agent-friendly CLI - even without saying \"CLI design\". Not for API-less tools or parser code. Do NOT use for whether to offer a CLI (samber/developer-platform-skills@api-integration-surface-strategy) or a skill shipped with it (samber/developer-platform-skills@agent-skill-offering).",
-    "path": "category/terminal-system-tools/cli-interface-design"
+    "repository": "reason-machines-trending-skills",
+    "description": "Turn any CLI tool into a fully typed JavaScript/TypeScript API using cli-to-js",
+    "path": "category/terminal-system-tools/cli-to-js-api-wrapper"
   },
   {
-    "id": "clockify-automation",
-    "name": "clockify-automation",
+    "id": "clickhouse",
+    "name": "clickhouse",
     "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate time tracking workflows in Clockify -- create and manage time entries, workspaces, and users through natural language commands.",
-    "path": "category/terminal-system-tools/clockify-automation"
-  },
-  {
-    "id": "cloud-claw",
-    "name": "cloud-claw",
-    "category": "terminal-system-tools",
-    "repository": "internet-court-internet-court-skill",
-    "description": "Use this umbrella skill when the request spans multiple Cloud Claw user-facing domains, especially launching a new AltClaw or OpenClaw VM and then managing lifecycle, logs, renewal, or dashboard access through the local altllm cloud-claw-* commands in this repository.",
-    "path": "category/terminal-system-tools/cloud-claw"
-  },
-  {
-    "id": "cloud-claw-launch-agent",
-    "name": "cloud-claw-launch-agent",
-    "category": "terminal-system-tools",
-    "repository": "internet-court-internet-court-skill",
-    "description": "Use this skill when the user wants to launch a new AltClaw, OpenClaw, PicoClaw, or Ottie deployment through Cloud Claw. Covers the same user-facing fields and constraints exposed in the Cloud Claw UI, using the local altllm cloud-claw-* commands. Do NOT use for post-launch lifecycle tasks like start/stop/delete/logs; use cloud-claw-manage-vm.",
-    "path": "category/terminal-system-tools/cloud-claw-launch-agent"
-  },
-  {
-    "id": "cloudinary-automation",
-    "name": "cloudinary-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Cloudinary media management including folder organization, upload presets, asset lookup, transformations, and usage monitoring through natural language commands",
-    "path": "category/terminal-system-tools/cloudinary-automation"
+    "repository": "cline-skills",
+    "description": "Connect to and query ClickHouse (a local server or a ClickHouse Cloud service) from the terminal using the official clickhousectl CLI, including the browser OAuth login flow. Use when the user wants to run SQL against ClickHouse, explore schemas and tables, inspect Cloud services, or authenticate clickhousectl. For building a local dev environment or deploying to Cloud, defer to the official ClickHouse skills (see Scope).",
+    "path": "category/terminal-system-tools/clickhouse"
   },
   {
     "id": "clui-cc-claude-overlay",
@@ -720,14 +656,6 @@
     "path": "category/terminal-system-tools/command-development"
   },
   {
-    "id": "commandbar",
-    "name": "commandbar",
-    "category": "terminal-system-tools",
-    "repository": "membranedev-application-skills",
-    "description": "CommandBar integration. Manage data, records, and automate workflows. Use when the user wants to interact with CommandBar data.",
-    "path": "category/terminal-system-tools/commandbar"
-  },
-  {
     "id": "commandcode-delegate",
     "name": "commandcode-delegate",
     "category": "terminal-system-tools",
@@ -742,22 +670,6 @@
     "repository": "himself65-finance-skills",
     "description": "Estimate a public company's intrinsic value with DCF, relative (peer multiple), and sum-of-the-parts (SOTP) methods, then blend them into an implied share price with upside/downside vs the market price, a WACC and terminal-growth sensitivity grid, and bull/base/bear scenarios. Use this skill whenever the user asks what a company or ticker is worth: fair value, intrinsic value, implied share price, a price target from fundamentals, whether it is overvalued or undervalued, building a DCF (WACC, terminal value, discounted cash flow), EV/EBITDA or P/E based targets, peer comparison valuation, or SOTP and conglomerate discounts. Run the model rather than answering valuation questions from memory.",
     "path": "category/terminal-system-tools/company-valuation"
-  },
-  {
-    "id": "competitive-matrix",
-    "name": "competitive-matrix",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/competitive-matrix.md",
-    "path": "category/terminal-system-tools/competitive-matrix"
-  },
-  {
-    "id": "continuous-learning-v2",
-    "name": "continuous-learning-v2",
-    "category": "terminal-system-tools",
-    "repository": "affaan-m-ecc",
-    "description": "Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confidence scoring, and evolves them into skills/commands/agents. v2.1 adds project-scoped instincts to prevent cross-project contamination. Use when capturing lessons from a session, managing instincts, or promoting them into skills, commands, or agents.",
-    "path": "category/terminal-system-tools/continuous-learning-v2"
   },
   {
     "id": "control-cli",
@@ -816,20 +728,12 @@
     "path": "category/terminal-system-tools/cqrs-implementation"
   },
   {
-    "id": "create-plugin",
-    "name": "create-plugin",
+    "id": "create-datadriven-aspnetcore",
+    "name": "create-datadriven-aspnetcore",
     "category": "terminal-system-tools",
-    "repository": "ruvnet-ruflo",
-    "description": "Scaffold a new Claude Code plugin with proper directory structure, plugin.json, skills, commands, and agents",
-    "path": "category/terminal-system-tools/create-plugin"
-  },
-  {
-    "id": "cross-host-rig-commands",
-    "name": "cross-host-rig-commands",
-    "category": "terminal-system-tools",
-    "repository": "mvschwarz-openrig",
-    "description": "Use when addressing a registered remote OpenRig host, choosing its transport, or interpreting a cross-host result.",
-    "path": "category/terminal-system-tools/cross-host-rig-commands"
+    "repository": "dotnet-skills",
+    "description": "Generate or scaffold ASP.NET Core code \u2014 Razor Pages, Blazor components, MVC controllers, views, and Minimal API endpoints \u2014 without using ASP.NET Core CLI scaffolding/code-generation tools. Use when (1) adding CRUD pages, views, or API endpoints backed by Entity Framework (EF Core) and a database, (2) generating code to create, read, update, and delete data using a DbContext, (3) scaffolding UI components that match the project's existing CSS framework and coding patterns, or (4) creating data-driven forms, tables, and navigation for a model class. Do not use for non-ASP.NET projects or when CLI-based scaffolding is preferred.",
+    "path": "category/terminal-system-tools/create-datadriven-aspnetcore"
   },
   {
     "id": "cross-platform-compatibility",
@@ -838,30 +742,6 @@
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Handle cross-platform compatibility including file paths, environment detection, platform-specific dependencies, and testing across Windows, macOS, and Linux. Use when dealing with platform-specific code or OS compatibility.",
     "path": "category/terminal-system-tools/cross-platform-compatibility"
-  },
-  {
-    "id": "cs-engineer-grill",
-    "name": "cs-engineer-grill",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/cs-engineer-grill.md",
-    "path": "category/terminal-system-tools/cs-engineer-grill"
-  },
-  {
-    "id": "cs-frontend-review",
-    "name": "cs-frontend-review",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/cs-frontend-review.md",
-    "path": "category/terminal-system-tools/cs-frontend-review"
-  },
-  {
-    "id": "cs-webinar",
-    "name": "cs-webinar",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/cs-webinar.md",
-    "path": "category/terminal-system-tools/cs-webinar"
   },
   {
     "id": "csharp-scripts",
@@ -904,12 +784,12 @@
     "path": "category/terminal-system-tools/curviate"
   },
   {
-    "id": "curviate-profile",
-    "name": "curviate-profile",
+    "id": "curviate-premium",
+    "name": "curviate-premium",
     "category": "terminal-system-tools",
     "repository": "davila7-claude-code-templates",
-    "description": "Read and write LinkedIn profiles and company pages with the Curviate CLI, and resolve human search terms into the opaque filter ids the search commands need. Covers `profile` (me, detail, sections, update, subscription, analytics, visitors, SSI), `company` (detail, employees, posts, jobs, followers, page inbox, follow-invite), `search parameters`, retrieval mode (`--mode`/`--max-age`), and the session/account commands (`login`, `config`, `account`). Use when fetching or updating a member or company profile, resolving a filter id, choosing between a stored copy and a live LinkedIn read, or connecting an account.",
-    "path": "category/terminal-system-tools/curviate-profile"
+    "description": "Drive LinkedIn Sales Navigator and Recruiter through the Curviate CLI. Covers `sales-nav` (search, profile, message, lead and account lists, save-lead, save-account) and `recruiter` (projects, pipeline, talent-search, save-candidate, project jobs, applicants, message, profile, search), and what can refuse them: the LinkedIn subscription on the connected account, the Curviate seat, and the beta-operations gate. These commands carry no Curviate add-on paywall. Use when working a Sales Navigator or Recruiter seat, or when diagnosing why a premium command failed.",
+    "path": "category/terminal-system-tools/curviate-premium"
   },
   {
     "id": "curviate-quickstart",
@@ -920,28 +800,12 @@
     "path": "category/terminal-system-tools/curviate-quickstart"
   },
   {
-    "id": "curviate-search",
-    "name": "curviate-search",
-    "category": "terminal-system-tools",
-    "repository": "davila7-claude-code-templates",
-    "description": "Find people, companies, posts, jobs, service providers and groups on LinkedIn with the Curviate CLI. Covers `search people|companies|posts|jobs|services|groups`, running a pasted LinkedIn search URL directly, the `group` read commands, pagination with `--all`, and the filter traps that silently return unfiltered results. Use when sourcing prospects or candidates, qualifying companies, finding posts or job postings to engage with, or resolving a group.",
-    "path": "category/terminal-system-tools/curviate-search"
-  },
-  {
     "id": "cve-2026-31431-copy-fail",
     "name": "cve-2026-31431-copy-fail",
     "category": "terminal-system-tools",
     "repository": "reason-machines-trending-skills",
     "description": "Detector and proof-of-concept LPE toolkit for CVE-2026-31431 (\"Copy Fail\"), a Linux kernel algif_aead page-cache scratch-write vulnerability enabling local privilege escalation.",
     "path": "category/terminal-system-tools/cve-2026-31431-copy-fail"
-  },
-  {
-    "id": "dark-glass-clean-layout",
-    "name": "dark-glass-clean-layout",
-    "category": "terminal-system-tools",
-    "repository": "mengto-skills",
-    "description": "Create a dark glass layout system with frosted premium shells, clean multi-column workspace structure, floating data cards, and restrained atmospheric depth.",
-    "path": "category/terminal-system-tools/dark-glass-clean-layout"
   },
   {
     "id": "dart-build-cli-app",
@@ -952,12 +816,36 @@
     "path": "category/terminal-system-tools/dart-build-cli-app"
   },
   {
+    "id": "data-dashboard",
+    "name": "data-dashboard",
+    "category": "terminal-system-tools",
+    "repository": "plugin87-ux-ui-agent-skills",
+    "description": "Build a dense, data-heavy screen - an analytics console or a trading terminal - with real charts drawn from tokens: candlestick, volume, depth, stacked area, waterfall, scatter, correlation matrix, donut, gauge, sparklines, heatmaps and order books. Use when the request is a dashboard, terminal, monitoring view, data console, or any screen whose job is to show many numbers at once. Covers the layout sequence, the SVG geometry, the accessibility contract per chart type, and the contrast traps that only appear in dark mode.",
+    "path": "category/terminal-system-tools/data-dashboard"
+  },
+  {
+    "id": "database-security",
+    "name": "database-security",
+    "category": "terminal-system-tools",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: exposure, authorization gaps, UDF/command execution paths, and misconfiguration review.",
+    "path": "category/terminal-system-tools/database-security"
+  },
+  {
     "id": "datadog-logs",
     "name": "datadog-logs",
     "category": "terminal-system-tools",
     "repository": "composio-community-awesome-codex-skills",
     "description": "Query and filter Datadog logs from the shell using the Composio CLI. Run scoped log searches, pivot across services/environments, and export structured JSON for downstream agents instead of click-driving the Datadog UI.",
     "path": "category/terminal-system-tools/datadog-logs"
+  },
+  {
+    "id": "dcf-model",
+    "name": "dcf-model",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-financial-services",
+    "description": "Real DCF (Discounted Cash Flow) model creation for equity valuation. Retrieves financial data from SEC filings and analyst reports, builds comprehensive cash flow projections with proper WACC calculations, performs sensitivity analysis, and outputs professional Excel models with executive summaries. Use when users need to value a company using DCF methodology, request intrinsic value analysis, or ask for detailed financial modeling with growth projections and terminal value calculations.",
+    "path": "category/terminal-system-tools/dcf-model"
   },
   {
     "id": "deepseek-harness-setup",
@@ -1000,14 +888,6 @@
     "path": "category/terminal-system-tools/detecting-command-and-control-over-dns"
   },
   {
-    "id": "detecting-dnp3-protocol-anomalies",
-    "name": "detecting-dnp3-protocol-anomalies",
-    "category": "terminal-system-tools",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Detect anomalies in DNP3 communications used in SCADA/ICS systems by monitoring unauthorized control commands, firmware update attempts, protocol violations, and deviations from baseline traffic using deep packet inspection and machine learning approaches. Use when securing energy-sector or other OT/ICS networks, investigating suspicious DNP3 master/outstation activity, or building an anomaly-based IDS for industrial control traffic.",
-    "path": "category/terminal-system-tools/detecting-dnp3-protocol-anomalies"
-  },
-  {
     "id": "detecting-misconfigured-azure-storage",
     "name": "detecting-misconfigured-azure-storage",
     "category": "terminal-system-tools",
@@ -1024,6 +904,22 @@
     "path": "category/terminal-system-tools/detecting-modbus-command-injection-attacks"
   },
   {
+    "id": "detecting-privilege-escalation-attempts",
+    "name": "detecting-privilege-escalation-attempts",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detect privilege escalation attempts across Windows and Linux, including access token manipulation, UAC bypass, unquoted service path abuse, kernel exploits, and sudo/doas abuse. Use when threat hunting for T1068-style privilege escalation, triaging EDR/SIEM alerts on suspicious privilege changes, scoping compromise during incident response, or validating detection coverage in a purple team exercise.",
+    "path": "category/terminal-system-tools/detecting-privilege-escalation-attempts"
+  },
+  {
+    "id": "detecting-privilege-escalation-in-kubernetes-pods",
+    "name": "detecting-privilege-escalation-in-kubernetes-pods",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detects and prevents privilege escalation inside Kubernetes pods by combining admission control (OPA policies), runtime monitoring (Falco), and audit log analysis of security contexts, Linux capabilities, and syscall patterns. Use when investigating a pod running as root or privileged, hardening workloads against in-pod escalation, or hunting for containers exceeding their intended scope. Keywords: allowPrivilegeEscalation, runAsRoot, capabilities, securityContext, OPA, Falco, audit log. Do not use for escalation through RBAC and service-account permissions - use auditing-kubernetes-rbac-privilege-escalation.",
+    "path": "category/terminal-system-tools/detecting-privilege-escalation-in-kubernetes-pods"
+  },
+  {
     "id": "detecting-suspicious-powershell-execution",
     "name": "detecting-suspicious-powershell-execution",
     "category": "terminal-system-tools",
@@ -1038,6 +934,14 @@
     "repository": "samber-developer-relations-skills",
     "description": "Engineers a technical demo so it survives the stage - risk triage, the fidelity tier it should run at, independently enterable checkpoints, a one-command environment reset, offline mode, a recorded fallback and rehearsed recovery lines, shipped as a demo runbook with a pre-flight checklist. Use whenever the user mentions a live demo, live coding, demo reliability or a fallback plan, \"my demo broke on stage\", whether to demo live or pre-record, a demo environment reset, a clean demo laptop, a demo profile or a panic button, or is preparing a talk, workshop, webinar or launch stream containing a demo - even if they only say \"I'm nervous about the demo\" or \"what if I share the wrong screen\". Not the talk's structure - use samber/developer-relations-skills@tech-talk-outline.",
     "path": "category/terminal-system-tools/developer-live-demo-design"
+  },
+  {
+    "id": "devops",
+    "name": "devops",
+    "category": "terminal-system-tools",
+    "repository": "mindrally-skills",
+    "description": "Comprehensive DevOps engineering practices for Kubernetes, CI/CD, Bash scripting, Ansible, and cloud infrastructure.",
+    "path": "category/terminal-system-tools/devops"
   },
   {
     "id": "dingtalk-workspace-cli",
@@ -1088,6 +992,14 @@
     "path": "category/terminal-system-tools/doca-caps"
   },
   {
+    "id": "doca-dms",
+    "name": "doca-dms",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Operate NVIDIA DOCA Management Service on a BlueField, Arm/x86 host, or Kubernetes pod: from DOCA 3.5 the local `dms-cli` (one command per YANG path, no server), and the `dmsd` + `dmspe` service: choose deployment and authentication, configure `-allowed_users` and `dmsgroup`, use gNMI Get/Set, run supported gNOI workflows, and debug frontend/backend failures. Trigger even without \"DMS\" for \"manage a remote BlueField over gRPC\", \"gNOI reboot from orchestrator\", or fleet-management requests. SAFETY: reboot, OS install, factory-reset, and managed-file deletion are destructive and require target-bound explicit confirmation; never invoke them speculatively. Route installation and library/API build questions elsewhere, and route telemetry streaming and aggregation to doca-dts (DOCA Telemetry Service).",
+    "path": "category/terminal-system-tools/doca-dms"
+  },
+  {
     "id": "doca-mgmt",
     "name": "doca-mgmt",
     "category": "terminal-system-tools",
@@ -1110,6 +1022,14 @@
     "repository": "nvidia-skills",
     "description": "Use this skill when the operator is driving the DOCA Pipeline Language (DPL) Developer Tools to inspect or debug DPL programs on a BlueField DPU \u2014 DPL Nspect for runtime state such as tables, keys, and counters, DPL Debugger for packet flow, DPL Admin for dynamic configuration changes in the DPL Runtime Daemon, P4 Runtime Shell as a P4Runtime control plane manager, or DPL Runtime Controller SDK for custom P4Runtime applications and DPL shared memory APIs. Trigger even when the user does not explicitly mention \"DPL Developer Tools\" \u2014 implicit phrasings include \"inspect the DPL tables on the DPU\", \"why can't I start a DPL debug session\", \"change a dpl_rtd configuration item without restarting\", \"build my own P4Runtime app for DPL\", or \"visualize packet flow through my DPL program\". Refuse and route elsewhere: authoring, compiling and deploying DPL programs to the DOCA Pipeline Language Service Guide, DOCA install/bring-up to doca-setup, and hardware or firmware state changes to doca-hardware-safety.",
     "path": "category/terminal-system-tools/doca-pipeline-language-developer-tools"
+  },
+  {
+    "id": "docker-patterns",
+    "name": "docker-patterns",
+    "category": "terminal-system-tools",
+    "repository": "affaan-m-ecc",
+    "description": "Docker and Docker Compose patterns for local development, hardened CLI installer harnesses, container security, networking, volumes, and multi-service orchestration. Use when creating or reviewing Dockerfiles and Compose services, testing installers across Linux distributions, or planning accurate native macOS and Windows validation.",
+    "path": "category/terminal-system-tools/docker-patterns"
   },
   {
     "id": "domain-cli",
@@ -1160,20 +1080,20 @@
     "path": "category/terminal-system-tools/dx-org-permission-set-assign"
   },
   {
-    "id": "dx-org-switch",
-    "name": "dx-org-switch",
-    "category": "terminal-system-tools",
-    "repository": "forcedotcom-sf-skills",
-    "description": "Switches the active Salesforce org (default target-org) using the Salesforce CLI. Use whenever someone wants to change which org CLI commands run against \u2014 whether they say \\\"switch org\\\", \\\"change default org\\\", \\\"set my org to\\\", \\\"use alias\\\", \\\"point to\\\", or describe wanting to work against a specific org, scratch org, sandbox, or production.",
-    "path": "category/terminal-system-tools/dx-org-switch"
-  },
-  {
     "id": "dynamodb-toolbox-patterns",
     "name": "dynamodb-toolbox-patterns",
     "category": "terminal-system-tools",
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides TypeScript patterns for DynamoDB-Toolbox v2 including schema/table/entity modeling, .build() command workflow, query/scan access patterns, batch and transaction operations, and single-table design with computed keys. Use when implementing type-safe DynamoDB access layers with DynamoDB-Toolbox v2 in TypeScript services or serverless applications.",
     "path": "category/terminal-system-tools/dynamodb-toolbox-patterns"
+  },
+  {
+    "id": "eas-simulator",
+    "name": "eas-simulator",
+    "category": "terminal-system-tools",
+    "repository": "expo-skills",
+    "description": "Run and control a user's app on a remote iOS/Android simulator hosted on EAS cloud. Read before running any `eas simulator:*` commands - it has the current syntax for this experimental API. Use whenever the user needs a simulator they can't run locally - 'run my app on a cloud simulator', 'use eas simulator to run/install/screenshot my app', 'I'm on Linux/Cursor and need an iOS device', 'no sim on this box / headless CI', 'let an agent click through my app and screenshot it', 'test my dev build on a remote sim with live reload', 'stream a sim to my browser' - even when they don't say 'EAS Simulator' or 'cloud'. On a host WITHOUT a local simulator (Linux, CI, cloud sandbox) it's the default; on macOS, do NOT auto-trigger for a plain 'run on the simulator' - use it only for a cloud/remote/shareable sim, an iOS version they lack, or an agent-driven session. NOT for local sims (expo run:ios, Xcode, Android Studio), EAS Build/Update, web preview, or physical devices.",
+    "path": "category/terminal-system-tools/eas-simulator"
   },
   {
     "id": "ecc-guide",
@@ -1200,22 +1120,6 @@
     "path": "category/terminal-system-tools/endor-setup"
   },
   {
-    "id": "eventbrite-automation",
-    "name": "eventbrite-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Eventbrite event management, attendee tracking, organization discovery, and category browsing through natural language commands",
-    "path": "category/terminal-system-tools/eventbrite-automation"
-  },
-  {
-    "id": "everything-claude-code-harness",
-    "name": "everything-claude-code-harness",
-    "category": "terminal-system-tools",
-    "repository": "reason-machines-trending-skills",
-    "description": "Agent harness performance system for Claude Code and other AI coding agents \u2014 skills, instincts, memory, hooks, commands, and security scanning",
-    "path": "category/terminal-system-tools/everything-claude-code-harness"
-  },
-  {
     "id": "example-command",
     "name": "example-command",
     "category": "terminal-system-tools",
@@ -1230,6 +1134,38 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Renders, embeds, or displays existing Salesforce CMS content in a React or Angular uiBundle app: installs the CMS toolkit, registers a typed reference, generates a framework-matched renderer from the live schema, and wires the render path (delivery API, contentKey, RichText, image resolution). Prefer over general UI-bundle skills like experience-ui-bundle-frontend-generate (page/layout shell only) for the CMS-rendering part, even under src/. Triggers on prompts like 'render the CMS article on the home page', 'embed this CMS blog post here', 'show the CMS video in the hero', 'display the CMS image in the banner', or 'add this CMS content block to the detail page'; for mixed prompts, activate for the CMS part only. Do not trigger for searching a CMS item or defining a new CMS content type/schema (use experience-cms-content-type-generate).",
     "path": "category/terminal-system-tools/experience-cms-content-render"
+  },
+  {
+    "id": "experience-ui-bundle-frontend-generate",
+    "name": "experience-ui-bundle-frontend-generate",
+    "category": "terminal-system-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "MUST activate before editing ANY file under uiBundles/*/src/ (or the bundle's index.html) for visual or UI changes to an EXISTING app \u2014 pages, components, sections, layout, styling, colors, fonts, navigation, animations, branding, or any look-and-feel change. Use this skill when modifying pages, components, layout, styling, navigation, or branding in an existing UI bundle app. Activate when the project contains appLayout.tsx, routes.tsx, src/pages/, src/components/, src/styles/global.css, or the bundle's index.html. This skill contains critical project-specific conventions (appLayout.tsx shell, shadcn/ui components, Tailwind CSS, Salesforce base-path routing, module restrictions) that override general knowledge. Without this skill, generated code will use wrong imports, break routing, or ignore project structure. Do NOT use when creating a new app from scratch or the bundle has not been scaffolded yet (use experience-ui-bundle-app-coordinate instead).",
+    "path": "category/terminal-system-tools/experience-ui-bundle-frontend-generate"
+  },
+  {
+    "id": "experience-ui-bundle-localize",
+    "name": "experience-ui-bundle-localize",
+    "category": "terminal-system-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "MUST activate to localize / internationalize a uiBundles/*/src/ project (React or Angular): extract hardcoded user-facing strings into Custom Labels, wire a runtime i18n library over the Platform SDK backend, add labels for another language, or troubleshoot label rendering across locales. Triggers: user-facing string literals in component files, a CustomLabels.labels-meta.xml, a src/i18n/ directory or label-manifest.ts, translation call sites, or requests to 'translate / localize / internationalize / support another language.' Scope: authenticated B2E UI Bundles and B2C site bundles. Use experience-ui-bundle-site-generate instead for site language configuration or sfdc_cms__languageSettings. DO NOT TRIGGER for B2B site bundles, building app shell/UI or styling, reading/writing/refreshing records (use experience-ui-bundle-salesforce-data-access), generating a new bundle (use experience-ui-bundle-frontend-generate), deploying (use experience-ui-bundle-deploy), or authoring translations in Translation Workbench.",
+    "path": "category/terminal-system-tools/experience-ui-bundle-localize"
+  },
+  {
+    "id": "experience-ui-bundle-salesforce-data-access",
+    "name": "experience-ui-bundle-salesforce-data-access",
+    "category": "terminal-system-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "MUST activate whenever a uiBundles/*/src/ project reads, writes, or displays Salesforce data \u2014 INCLUDING building a page, list, table, card grid, dashboard, or form that shows, filters, counts, or edits records of any object (e.g. Property__c, Account, Case), even when the prompt names only the UI or the object and never says query, GraphQL, or SDK. Records behind such a component come from Salesforce, so use this ALONGSIDE experience-ui-bundle-frontend-generate: that skill styles the component, this one wires its data. Also triggers on @salesforce/platform-sdk imports, sdk.graphql.query / mutate / sdk.fetch calls, *.graphql files, or stale data needing force-refresh. New read/write work uses the current @salesforce/platform-sdk API; migrate only EXISTING old @salesforce/sdk-data callable code. Not for pure styling/layout with no records, app shell, file upload, or auth/search scaffolding. DO NOT TRIGGER for OAuth, object/field schema changes, Bulk/Tooling/Metadata API, or declarative automation.",
+    "path": "category/terminal-system-tools/experience-ui-bundle-salesforce-data-access"
+  },
+  {
+    "id": "exploiting-api-injection-vulnerabilities",
+    "name": "exploiting-api-injection-vulnerabilities",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Tests API parameters, headers, and request bodies for injection flaws \u2014 SQL injection, NoSQL injection, OS command injection, LDAP injection, and SSRF \u2014 by crafting payloads tailored to the target backend to extract data, execute commands, or reach internal services, mapped to OWASP API8:2023 and API7:2023 SSRF. Use when performing SQLi, NoSQL injection, command injection, or SSRF testing against APIs, or assessing API input validation.",
+    "path": "category/terminal-system-tools/exploiting-api-injection-vulnerabilities"
   },
   {
     "id": "feature-flags-architect",
@@ -1264,22 +1200,6 @@
     "path": "category/terminal-system-tools/fieldtheory-cli-bookmarks"
   },
   {
-    "id": "financial-health",
-    "name": "financial-health",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/financial-health.md",
-    "path": "category/terminal-system-tools/financial-health"
-  },
-  {
-    "id": "flag-cleanup",
-    "name": "flag-cleanup",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/flag-cleanup.md",
-    "path": "category/terminal-system-tools/flag-cleanup"
-  },
-  {
     "id": "flox-environments",
     "name": "flox-environments",
     "category": "terminal-system-tools",
@@ -1294,14 +1214,6 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "/c-level-agents:founder-mode [question] \u2014 Auto-routes any founder question to the right C-role advisor or to /c-level-agents:boardroom for multi-role topics. The single-command entry point. Use when a founder asks any strategic question without knowing which advisor or command fits \u2014 e.g. 'runway pressure' routes to the CFO, 'gross retention dropped' routes to the CCO.",
     "path": "category/terminal-system-tools/founder-mode"
-  },
-  {
-    "id": "framed-tech-dark-border-gradient",
-    "name": "framed-tech-dark-border-gradient",
-    "category": "terminal-system-tools",
-    "repository": "mengto-skills",
-    "description": "Create a framed dark technical design system with border-gradient shells, asymmetrical grid panels, mono utility labeling, and restrained monochrome atmosphere.",
-    "path": "category/terminal-system-tools/framed-tech-dark-border-gradient"
   },
   {
     "id": "game-automation",
@@ -1342,6 +1254,14 @@
     "repository": "earthtojake-text-to-cad",
     "description": "Slice 3D models into printer-ready G-code with OrcaSlicer, the open-source slicer with built-in profiles for most FDM printers (Prusa, Bambu Lab, Creality, Voron and more). Use when the user wants an `.stl`, `.3mf` or `.obj` model sliced for their printer, as a sliced `.gcode.3mf` or plain `.gcode`, headless with OrcaSlicer's command line or by opening the model in OrcaSlicer. Never contacts a printer.",
     "path": "category/terminal-system-tools/gcode"
+  },
+  {
+    "id": "generate2dmedia",
+    "name": "generate2dmedia",
+    "category": "terminal-system-tools",
+    "repository": "0x0funky-agent-sprite-forge",
+    "description": "The art-route layer of the Forge skills. route_media.py is the one command that generates an image or an image-to-video clip - through the paid API of any provider whose key is configured (OpenAI, Google Gemini, xAI, BytePlus ModelArk, fal.ai; the configured key is the owner's consent), else through the user's own signed-in Codex or Grok CLI - and prints one JSON line with the route, artifact, sha256 and cost estimate; with no route it answers no-route (codeart2d is then the last resort). Also the capability check (forge_doctor), API key configuration, the spend ledger, resume and Codex image adoption. Use when a Forge skill sends a generation here, for the capability check, or when the user asks about keys, routes or spend. Not for planning, processing or QA of sprites, video frames or maps (generate2dsprite, video2dsprite, generate2dmap) or for code-drawn art (codeart2d).",
+    "path": "category/terminal-system-tools/generate2dmedia"
   },
   {
     "id": "genoffice",
@@ -1392,12 +1312,36 @@
     "path": "category/terminal-system-tools/golang-cli"
   },
   {
+    "id": "golang-security",
+    "name": "golang-security",
+    "category": "terminal-system-tools",
+    "repository": "samber-cc-skills-golang",
+    "description": "Security best practices and vulnerability prevention for Golang \u2014 injection (SQL, command, XSS), cryptography, path traversal, SSRF and HTTP security headers, cookies, secrets management, memory safety, PII in logs, STRIDE/DREAD threat modeling, plus `gosec` SAST, race detection, and fuzz testing. Apply when writing, reviewing, or auditing Go code for security, or when touching crypto, file or network I/O, secrets, user input, or authentication. Not for non-exploitable defensive bugs such as nil panics or slice aliasing (\u2192 See `samber/cc-skills-golang@golang-safety` skill), dependency vulnerability scanning with govulncheck (\u2192 See `samber/cc-skills-golang@golang-dependency-management` skill), or wiring security scanners into CI pipelines (\u2192 See `samber/cc-skills-golang@golang-continuous-integration` skill).",
+    "path": "category/terminal-system-tools/golang-security"
+  },
+  {
     "id": "google-agents-cli-adk-code",
     "name": "google-agents-cli-adk-code",
     "category": "terminal-system-tools",
     "repository": "google-agents-cli",
     "description": "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" \u2014 in a project that needs ADK (Agent Development Kit) API patterns and code examples. It provides a quick reference for agent types, tool definitions, orchestration patterns, callbacks, state management, the graph Workflow API, and reference recipes to study. Do NOT use for scaffolding (use google-agents-cli-scaffold) or deployment (use google-agents-cli-deploy).",
     "path": "category/terminal-system-tools/google-agents-cli-adk-code"
+  },
+  {
+    "id": "google-agents-cli-deploy",
+    "name": "google-agents-cli-deploy",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment workflows, service accounts, rollback, and production infrastructure. Applies to any framework agents-cli deploys (ADK, LangChain, ...). Part of the agents-cli skills suite. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project scaffolding (use google-agents-cli-scaffold).",
+    "path": "category/terminal-system-tools/google-agents-cli-deploy"
+  },
+  {
+    "id": "google-agents-cli-eval",
+    "name": "google-agents-cli-eval",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini platform eval methodology and the Quality Flywheel. Covers eval metrics, dataset schema, LLM-as-judge scoring, and common failure causes. Applies to any agents-cli project, whatever framework the agent is written in. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), deployment (use google-agents-cli-deploy), or project scaffolding (use google-agents-cli-scaffold).",
+    "path": "category/terminal-system-tools/google-agents-cli-eval"
   },
   {
     "id": "google-agents-cli-observability",
@@ -1424,6 +1368,14 @@
     "path": "category/terminal-system-tools/google-agents-cli-publish"
   },
   {
+    "id": "google-agents-cli-scaffold",
+    "name": "google-agents-cli-scaffold",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite. Covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. Do NOT use for writing agent code (ADK projects: use google-agents-cli-adk-code) or deployment operations (use google-agents-cli-deploy).",
+    "path": "category/terminal-system-tools/google-agents-cli-scaffold"
+  },
+  {
     "id": "google-agents-cli-workflow",
     "name": "google-agents-cli-workflow",
     "category": "terminal-system-tools",
@@ -1432,12 +1384,28 @@
     "path": "category/terminal-system-tools/google-agents-cli-workflow"
   },
   {
-    "id": "google-workspace",
-    "name": "google-workspace",
+    "id": "google-cloud-global-frontend-configuration",
+    "name": "google-cloud-global-frontend-configuration",
     "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/google-workspace.md",
-    "path": "category/terminal-system-tools/google-workspace"
+    "repository": "google-skills",
+    "description": "Guides agents through a 6-step discovery process to design and deploy Google Cloud global external Application Load Balancers with Cloud CDN, Cloud Armor, and Service Extensions, mapping workload requirements to best-practice configurations. Use when: - Designing, configuring, or deploying a Google Cloud global external Application Load Balancer, Cloud CDN, Cloud Armor WAF, or Service Extensions. - Discovering existing Google Cloud resources (Cloud Storage, MIGs, GKE, Cloud Run) to use as backends. - Generating production-grade Terraform HCL or gcloud CLI scripts for global external Application Load Balancers. - Actuating deployments via Infrastructure Manager or bash scripts, including IAM pre-checks. - Detecting, analyzing, or reconciling configuration drift on deployed global external Application Load Balancers. Don't use for: - Non-Google Cloud load balancing or security configurations. - Purely regional or internal load balancing setups (unless part of a hybrid/failover global design).",
+    "path": "category/terminal-system-tools/google-cloud-global-frontend-configuration"
+  },
+  {
+    "id": "google-cloud-scc-query",
+    "name": "google-cloud-scc-query",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Queries and retrieves active security findings, external exposures, toxic combinations, vulnerabilities, threats, and sensitive data risks from Security Command Center on Google Cloud. Use when retrieving details for a security finding by its name, validating finding scope (e.g., verifying findingClass is TOXIC_COMBINATION, VULNERABILITY, EXTERNAL_EXPOSURE, or THREAT), or fetching finding details for triage. Don't use to draft remediations, apply patches, or execute configurations.",
+    "path": "category/terminal-system-tools/google-cloud-scc-query"
+  },
+  {
+    "id": "google-cloud-scc-remediation",
+    "name": "google-cloud-scc-remediation",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Remediates Google Cloud Security Command Center findings, including IAM permission fixes, cloud resource misconfigurations, vulnerabilities, and Toxic Combinations. Use when asked to fix, remediate, or mitigate a Security Command Center finding or address attack paths. Don't use for general IAM policy querying without a Security Command Center finding. For runtime threat detections, this skill provides containment and investigation guidance rather than automated configuration fixes.",
+    "path": "category/terminal-system-tools/google-cloud-scc-remediation"
   },
   {
     "id": "graph-the-network",
@@ -1456,28 +1424,12 @@
     "path": "category/terminal-system-tools/hardening-linux-endpoint-with-cis-benchmark"
   },
   {
-    "id": "harvest-automation",
-    "name": "harvest-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate time tracking, project management, and invoicing workflows in Harvest -- log hours, manage projects, clients, and tasks through natural language commands.",
-    "path": "category/terminal-system-tools/harvest-automation"
-  },
-  {
     "id": "hasdata-cli",
     "name": "hasdata-cli",
     "category": "terminal-system-tools",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Command-line access to search, scraping, and structured web data.",
     "path": "category/terminal-system-tools/hasdata-cli"
-  },
-  {
-    "id": "help",
-    "name": "help",
-    "category": "terminal-system-tools",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Diverga help guide - displays all 24 agents across 9 categories, commands, and usage examples. Triggers: help, guide, how to use, \ub3c4\uc6c0\ub9d0",
-    "path": "category/terminal-system-tools/help"
   },
   {
     "id": "herdr",
@@ -1504,22 +1456,6 @@
     "path": "category/terminal-system-tools/holoscan-app-debug-build-run"
   },
   {
-    "id": "hookify-rules",
-    "name": "hookify-rules",
-    "category": "terminal-system-tools",
-    "repository": "affaan-m-ecc",
-    "description": "Create and configure hookify rules \u2014 markdown files with YAML frontmatter that match bash, file, prompt, or stop events by regex or conditions and show warn/block messages to the agent. Use when creating a hookify rule, writing hook rule syntax, configuring hookify, or adding pattern guardrails such as blocking dangerous commands, .env edits, or debug code.",
-    "path": "category/terminal-system-tools/hookify-rules"
-  },
-  {
-    "id": "hsb-flash",
-    "name": "hsb-flash",
-    "category": "terminal-system-tools",
-    "repository": "nvidia-skills",
-    "description": "Flash the FPGA on an HSB board connected to an NVIDIA devkit. Supports HSB Lattice boards (FPGA versions 2407, 2412, 2507, 2510) and Leopard Imaging VB1940 \"all-in-one\" cameras (FPGA versions 2507, 2510). Uses release-specific YAML manifests and board-type-specific program commands. Lattice and VB1940 commands must never be mixed.",
-    "path": "category/terminal-system-tools/hsb-flash"
-  },
-  {
     "id": "hsb-ip-def",
     "name": "hsb-ip-def",
     "category": "terminal-system-tools",
@@ -1534,6 +1470,14 @@
     "repository": "huaweicloud-huaweicloud-skills",
     "description": "Huawei Ascend NPU natural language management skill, supporting both local direct connection and SSH remote modes. Provides comprehensive npu-smi command capabilities including device queries, configuration management, firmware upgrade, vNPU virtualization, certificate management, and compute power testing (FLOPS). Enables remote management and monitoring of Ascend NPU devices with real-time metrics tracking. Use this skill when the user wants to: (1) query NPU device status and health, (2) monitor temperature, power, memory/HBM utilization, (3) configure ECC settings and fan modes, (4) perform firmware upgrades, (5) manage vNPU virtualization, (6) run compute power tests, (7) check certificate information. Trigger: user mentionsnpu', 'ascend', 'NPU', 'Ascend', 'temperature', 'power', 'HBM', 'firmware', 'upgrade', 'vNPU', 'virtualization', 'certificate', 'FLOPS', 'compute', 'health', 'memory', 'utilization', 'ECC', 'fan', '\u6607\u817e', '\u6607\u817e\u5361', '\u6607\u817e\u72b6\u6001', '\u663e\u5b58', '\u7b97\u529b', '\u8bbe\u5907\u67e5\u8be2', 'NPU\u76d1\u63a7",
     "path": "category/terminal-system-tools/huawei-cloud-ascend-command"
+  },
+  {
+    "id": "huawei-cloud-cci-instance-management",
+    "name": "huawei-cloud-cci-instance-management",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud CCI (Cloud Container Instance) full lifecycle management using hcloud CLI. Covers Namespace, Network, Deployment, StatefulSet, Pod creation/update/delete/status, EIPPool for public IP, logs and metrics. Two-step confirmation for all destructive operations (delete namespace cascades all resources under it). Use this skill when the user wants to operate CCI serverless containers via command line. Triggers: CCI, \u4e91\u5bb9\u5668\u5b9e\u4f8b, serverless container, \u5bb9\u5668\u5b9e\u4f8b, namespace, deployment, statefulset, pod, EIPPool, CCI\u8d1f\u8f7d, \u65e0\u670d\u52a1\u5668\u5bb9\u5668, \u521b\u5efa\u5bb9\u5668\u5b9e\u4f8b, \u5220\u9664\u5bb9\u5668\u5b9e\u4f8b, \u5bb9\u5668\u72b6\u6001, \u5bb9\u5668\u65e5\u5fd7",
+    "path": "category/terminal-system-tools/huawei-cloud-cci-instance-management"
   },
   {
     "id": "huawei-cloud-cdn-universal-query",
@@ -1576,6 +1520,14 @@
     "path": "category/terminal-system-tools/huawei-cloud-codearts-pipeline-diagnose"
   },
   {
+    "id": "huawei-cloud-deployment-task-management",
+    "name": "huawei-cloud-deployment-task-management",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud CloudDeploy (CodeArts Deploy / \u90e8\u7f72) management, execution, and failure analysis using the KooCLI hcloud command-line client. Covers deploy application listing and creation, deployment task listing/detail/creation, task start, task deletion, deployment failure root-cause analysis (agent offline, timeout, missing artifact, permission), and OBS artifact link verification. Query and Analyze actions run automatically (R3); Create/Start actions require preview and user confirmation (R2); Delete requires explicit confirmation (R1). Supports AK/SK credentials and local hcloud profile authentication. Triggers include: \"CloudDeploy\", \"CodeArts Deploy\", \"\u90e8\u7f72\", \"deploy task\", \"deployment\", \"deployment task\", \"deploy application\", \"\u90e8\u7f72\u4efb\u52a1\", \"\u90e8\u7f72\u5e94\u7528\", \"start deploy\", \"\u53d1\u5e03\u90e8\u7f72\", \"release\", \"artifact deployment\", \"\u5236\u54c1\u90e8\u7f72\", \"deploy failure\", \"\u90e8\u7f72\u5931\u8d25\", \"pipeline deployment\", \"CI/CD deployment\".",
+    "path": "category/terminal-system-tools/huawei-cloud-deployment-task-management"
+  },
+  {
     "id": "huawei-cloud-devkit-webui-create",
     "name": "huawei-cloud-devkit-webui-create",
     "category": "terminal-system-tools",
@@ -1598,6 +1550,22 @@
     "repository": "huaweicloud-huaweicloud-skills",
     "description": "Provides access guide for Huawei Cloud Graph Database GES service. Covers Cypher queries, GQL queries, schema/label management, summary info queries, graph data editing and more. Use this skill when users want to operate Huawei Cloud graph database GES service via terminal.",
     "path": "category/terminal-system-tools/huawei-cloud-ges-graph"
+  },
+  {
+    "id": "huawei-cloud-modelarts-vllm-ascend-model-deploy",
+    "name": "huawei-cloud-modelarts-vllm-ascend-model-deploy",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u6307\u5bfc\u5728\u534e\u4e3a\u4e91 ModelArts \u63a8\u7406\u5e73\u53f0\u901a\u8fc7 vLLM-Ascend \u63a8\u7406\u6846\u67b6\u90e8\u7f72\u5f00\u6e90\u5927\u8bed\u8a00\u6a21\u578b(GLM/Qwen/DeepSeek/Llama \u7b49)\u4e3a\u6607\u817e NPU \u5728\u7ebf\u63a8\u7406\u670d\u52a1\u7684\u5b8c\u6574\u6d41\u7a0b\u3002\u8986\u76d6:\u786e\u8ba4\u6a21\u578b\u540e\u6309 vllm-ascend \u793e\u533a\u6587\u6863\u4e0e\u7528\u6237\u786e\u8ba4\u90e8\u7f72\u5f62\u5f0f(\u5355\u8282\u70b9/\u591a\u8282\u70b9/PD\u5206\u79bb/PD\u5171\u7f6e 4 \u79cd\u5f62\u5f0f,\u7edf\u4e00\u5355\u90e8\u7f72\u5355\u5143\u627f\u8f7d),\u4ece HuggingFace/ModelScope \u4e0b\u8f7d\u6a21\u578b\u6743\u91cd\u5e76\u4e0a\u4f20 OBS\u3001\u4ece Quay.io \u62c9\u53d6 vllm-ascend \u955c\u50cf\u5e76\u63a8\u9001 SWR\u3001\u6309\u786e\u8ba4\u7684\u90e8\u7f72\u5f62\u5f0f\u9009\u7528\u4e13\u7528\u811a\u672c\u6a21\u677f(\u5355\u8282\u70b9/\u591a\u8282\u70b9/PD/PD\u5171\u7f6e \u56db\u5957,\u811a\u672c\u5185\u4e0d\u505a\u90e8\u7f72\u5f62\u5f0f\u8fd0\u884c\u65f6\u5206\u652f)\u751f\u6210\u542f\u52a8/\u63a2\u9488/\u89d2\u8272\u8bc6\u522b\u811a\u672c\u5e76\u4e0a\u4f20 OBS\u3001\u6309 ModelArts \u5e73\u53f0\u9002\u914d\u8981\u70b9(\u7aef\u53e3 8080\u3001OBS \u6302\u8f7d\u3001bash \u6570\u7ec4\u3001\u63a2\u9488\u547d\u4ee4\u68c0\u67e5\u3001\u8d85\u8282\u70b9\u4eb2\u548c\u7ec4)\u901a\u8fc7\u65b0\u7248\u5728\u7ebf\u670d\u52a1\u90e8\u7f72(\u4e8c\u9009\u4e00: \u65b9\u5f0fA \u8c03\u7528 CreateInferService API(POST /v2/{project_id}/services)\u81ea\u52a8\u90e8\u7f72 / \u65b9\u5f0fB \u5728 ModelArts \u63a7\u5236\u53f0\u6309\u4e00\u6b65\u6b65\u70b9\u51fb\u6307\u5bfc\u624b\u52a8\u90e8\u7f72;\u4e0d\u518d\u521b\u5efa AI \u5e94\u7528\u2014\u2014\u8be5\u6a21\u5757\u5df2\u5e9f\u5f03)\u3001\u901a\u8fc7 OpenAI \u517c\u5bb9 API \u8c03\u7528\u9a8c\u8bc1\u3002Triggers include: \\\"ModelArts \u90e8\u7f72\u5927\u6a21\u578b/\u5f00\u6e90\u6a21\u578b\\\", \\\"vllm-ascend\\\", \\\"\u6607\u817e NPU \u63a8\u7406\\\", \\\"HuggingFace/ModelScope \u6a21\u578b\u4e0a\u4e91\\\", \\\"OBS/SWR \u955c\u50cf\u8fc1\u79fb\\\", \\\"\u5927\u6a21\u578b\u5728\u7ebf\u670d\u52a1\\\", \\\"\u591a\u673a\u90e8\u7f72\\\", \\\"\u591a\u526f\u672c\u90e8\u7f72\\\", \\\"PD \u5206\u79bb\u90e8\u7f72\\\", \\\"PD \u5171\u7f6e\u90e8\u7f72\\\", \\\"\u8d85\u8282\u70b9\u4eb2\u548c\u7ec4\\\", \\\"\u65b0\u7248\u5728\u7ebf\u670d\u52a1\\\", \\\"CreateInferService\\\", \\\"\u63a7\u5236\u53f0\u624b\u52a8\u90e8\u7f72\u5728\u7ebf\u670d\u52a1\\\"\u3002\u5f53\u7528\u6237\u63d0\u5230\u4ee5\u4e0a\u4efb\u4e00\u573a\u666f\u65f6\u90fd\u5e94\u4f7f\u7528\u672c\u6280\u80fd,\u5373\u4f7f\u6ca1\u6709\u660e\u786e\u8bf4\u51fa'\u90e8\u7f72'\u4e8c\u5b57\u3002",
+    "path": "category/terminal-system-tools/huawei-cloud-modelarts-vllm-ascend-model-deploy"
+  },
+  {
+    "id": "huawei-cloud-optv-evolve-management",
+    "name": "huawei-cloud-optv-evolve-management",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud algorithm auto-design (LLM4AD) skill. Performs the full lifecycle through KooCLI (command-line entry `hcloud`): algorithm project management, file upload, evolve task CRUD, status polling, result retrieval, and log inspection; also uses KooCLI's `hcloud IAM` subcommand to create the trust agency and grant algorithm design module bucket permissions. Trigger words: code evolution, evolve task, LLM4AD, algorithm optimization, upload algorithm file, create evolve task, start evolve task, fetch evolve result, evolve log, \u4ee3\u7801\u6f14\u5316, \u6f14\u5316\u4efb\u52a1, LLM4AD, code evolution, \u7b97\u6cd5\u4f18\u5316, \u4e0a\u4f20\u7b97\u6cd5\u6587\u4ef6, \u521b\u5efa\u6f14\u5316\u4efb\u52a1, \u542f\u52a8\u6f14\u5316\u4efb\u52a1, \u62c9\u53d6\u6f14\u5316\u7ed3\u679c, \u6f14\u5316\u65e5\u5fd7",
+    "path": "category/terminal-system-tools/huawei-cloud-optv-evolve-management"
   },
   {
     "id": "huawei-cloud-smn-dms-message",
@@ -1630,6 +1598,22 @@
     "repository": "elementalsouls-claude-bughunter",
     "description": "Hunt file upload bugs \u2014 RCE via webshell, XSS via SVG/HTML, SSRF via XXE in DOCX, path traversal via filename. Bypass tables (10 techniques): double extension (shell.php.jpg if server checks last ext only), magic bytes spoofing (PNG header on PHP), null byte (shell.php\\0.jpg), case (PHP, .Php, .pHP), .htaccess upload to enable execution, SVG with <script>, HTML/SVG XSS, DOCX with embedded XXE, ZIP slip (../../../etc/passwd in archive), polyglot files. Detection: any /upload, /avatar, /profile-picture, /attachment, /import endpoint. Test: upload PHP/JSP/ASPX shells, request via direct URL, check response. Validate: actual code execution (whoami output) for RCE; reflected XSS in profile-photo URL. Use when testing file upload features, avatar/attachment endpoints, import/export functions, XML/DOCX/ZIP processors. Real paid examples.",
     "path": "category/terminal-system-tools/hunt-file-upload"
+  },
+  {
+    "id": "hunt-k8s",
+    "name": "hunt-k8s",
+    "category": "terminal-system-tools",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Hunt Kubernetes & Docker \u2014 API anonymous access, kubelet 10250 exec (SPDY/WebSocket, NOT plain POST) and the simpler /run primitive, etcd 2379 unauth, dashboard skip-login, RBAC misconfig, secret/SA-token abuse, docker.sock host escape, runc/container-escape (Leaky Vessels CVE-2024-21626), API-server-mediated nodes/proxy RCE, EphemeralContainers node-shell, bound/projected SA-token audience+expiry abuse, admission-controller bypass, Helm/Tiller remnants. Use when target runs containerized infra, exposes K8s ports (6443/10250/10255/2379/8443), or cloud metadata reveals K8s service accounts.",
+    "path": "category/terminal-system-tools/hunt-k8s"
+  },
+  {
+    "id": "hunt-nosqli",
+    "name": "hunt-nosqli",
+    "category": "terminal-system-tools",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Hunt NoSQL Injection \u2014 MongoDB operator injection ($where, $regex, $gt, $ne), CouchDB, Redis command injection, auth bypass via NoSQLi, data dump. Use when target uses MongoDB/Mongoose, CouchDB, Redis, or shows NoSQL error messages.",
+    "path": "category/terminal-system-tools/hunt-nosqli"
   },
   {
     "id": "hunting-for-anomalous-powershell-execution",
@@ -1704,6 +1688,14 @@
     "path": "category/terminal-system-tools/implementing-data-loss-prevention-with-microsoft-purview"
   },
   {
+    "id": "implementing-file-integrity-monitoring-with-aide",
+    "name": "implementing-file-integrity-monitoring-with-aide",
+    "category": "terminal-system-tools",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Configures AIDE (Advanced Intrusion Detection Environment) for file integrity monitoring on Linux, covering baseline database creation, scheduled integrity checks via cron, change detection, and alerting on unauthorized modifications. Use when setting up host-based file integrity monitoring, detecting unauthorized file changes, or meeting compliance requirements for FIM on Linux systems.",
+    "path": "category/terminal-system-tools/implementing-file-integrity-monitoring-with-aide"
+  },
+  {
     "id": "implementing-gcp-vpc-firewall-rules",
     "name": "implementing-gcp-vpc-firewall-rules",
     "category": "terminal-system-tools",
@@ -1728,6 +1720,14 @@
     "path": "category/terminal-system-tools/ink"
   },
   {
+    "id": "issue-triage",
+    "name": "issue-triage",
+    "category": "terminal-system-tools",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "Triage Linear or Jira backlogs and run bug sweeps via the Composio CLI. Bulk-fetch issues, dedupe, relabel, reassign, and post summaries \u2014 all from the shell without clicking through the UI.",
+    "path": "category/terminal-system-tools/issue-triage"
+  },
+  {
     "id": "jetson-download-bsp",
     "name": "jetson-download-bsp",
     "category": "terminal-system-tools",
@@ -1744,22 +1744,6 @@
     "path": "category/terminal-system-tools/jetson-init-image"
   },
   {
-    "id": "jetson-init-source",
-    "name": "jetson-init-source",
-    "category": "terminal-system-tools",
-    "repository": "nvidia-skills",
-    "description": "Set up the BSP source workspace: Linux_for_Tegra overlay tracker, bsp_sources, Crosstool-NG toolchain. Use after jetson-init-image; not for fetching inputs.",
-    "path": "category/terminal-system-tools/jetson-init-source"
-  },
-  {
-    "id": "jetson-print-bsp-info",
-    "name": "jetson-print-bsp-info",
-    "category": "terminal-system-tools",
-    "repository": "nvidia-skills",
-    "description": "Use when you need to print Jetson BSP info (L4T version, board configs, rootfs state) from a Linux_for_Tegra root on the host PC. This is an example skill.",
-    "path": "category/terminal-system-tools/jetson-print-bsp-info"
-  },
-  {
     "id": "jetson-video-benchmark",
     "name": "jetson-video-benchmark",
     "category": "terminal-system-tools",
@@ -1768,28 +1752,12 @@
     "path": "category/terminal-system-tools/jetson-video-benchmark"
   },
   {
-    "id": "jotform-automation",
-    "name": "jotform-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Jotform form listing, user management, activity history, folder organization, and plan inspection through natural language commands",
-    "path": "category/terminal-system-tools/jotform-automation"
-  },
-  {
     "id": "jq",
     "name": "jq",
     "category": "terminal-system-tools",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Expert jq usage for JSON querying, filtering, transformation, and pipeline integration. Practical patterns for real shell workflows.",
     "path": "category/terminal-system-tools/jq"
-  },
-  {
-    "id": "karpathy-check",
-    "name": "karpathy-check",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/karpathy-check.md",
-    "path": "category/terminal-system-tools/karpathy-check"
   },
   {
     "id": "kernel-exploitation",
@@ -1832,6 +1800,14 @@
     "path": "category/terminal-system-tools/launchdarkly-flag-command"
   },
   {
+    "id": "learn-docker-k8s-game",
+    "name": "learn-docker-k8s-game",
+    "category": "terminal-system-tools",
+    "repository": "reason-machines-trending-skills",
+    "description": "Interactive AI-driven game for learning Docker, Linux, networking, and Kubernetes through story-driven challenges in your AI editor.",
+    "path": "category/terminal-system-tools/learn-docker-k8s-game"
+  },
+  {
     "id": "limrun-android-emulator",
     "name": "limrun-android-emulator",
     "category": "terminal-system-tools",
@@ -1840,12 +1816,36 @@
     "path": "category/terminal-system-tools/limrun-android-emulator"
   },
   {
+    "id": "limrun-bazel",
+    "name": "limrun-bazel",
+    "category": "terminal-system-tools",
+    "repository": "limrun-inc-skills",
+    "description": "The default way to build any Bazel workspace on Limrun: build its iOS and Android targets on Limrun's shared build plane with `lim bazel setup` and `bazel build --config=limrun`, from any environment (Linux, Windows, macOS, VM, container, CI), with one remote cache shared across the organization. Use when the project is a Bazel workspace (MODULE.bazel) with rules_apple or rules_android and the user wants to build it remotely, run the built app on a Limrun simulator or emulator, set up Bazel remote execution in CI, or fix a `--config=limrun` build that fails on authentication, workers, or missing MODULE.bazel lines. limrun-xcode-bazel covers only the legacy `lim xcode rbe` flow; use it only when the workspace already runs on `lim xcode rbe` or the user asks for it. For non-Bazel Android builds, use limrun-gradle.",
+    "path": "category/terminal-system-tools/limrun-bazel"
+  },
+  {
+    "id": "limrun-gradle",
+    "name": "limrun-gradle",
+    "category": "terminal-system-tools",
+    "repository": "limrun-inc-skills",
+    "description": "Build an Android app on a remote Gradle sandbox with `lim gradle build` instead of local Gradle or Android Studio, from any environment (Linux, Windows, macOS, VM, container). Use when the user wants to build an APK or AAB, sign a release with an upload key, prepare a Play Store publish, inspect build logs, or select sandbox tools and run shell commands, for native Android projects, React Native, and Expo. To run, tap, screenshot, or otherwise interact with the built APK on an emulator, use limrun-android-emulator. For iOS builds, use limrun-xcode or limrun-expo-development.",
+    "path": "category/terminal-system-tools/limrun-gradle"
+  },
+  {
     "id": "limrun-maestro-testing",
     "name": "limrun-maestro-testing",
     "category": "terminal-system-tools",
     "repository": "limrun-inc-skills",
     "description": "Run Maestro YAML flows against a Limrun cloud iOS simulator with `lim ios maestro`, from any environment (Linux, Windows, macOS, VM, container). Use when the user wants to run, write, or debug Maestro flows or `maestro test` on iOS, migrate an existing Maestro suite to remote simulators, or asks for UI testing with Maestro. iOS simulators only today. For Detox suites use limrun-detox-testing; for driving the simulator without a test framework use limrun-ios-simulator.",
     "path": "category/terminal-system-tools/limrun-maestro-testing"
+  },
+  {
+    "id": "limrun-xcode",
+    "name": "limrun-xcode",
+    "category": "terminal-system-tools",
+    "repository": "limrun-inc-skills",
+    "description": "Build an iOS / Apple app on remote Xcode with `lim xcode build` instead of local xcodebuild, run project commands with `lim xcode run`, or run its XCTest suites with `lim xcode test`, from any environment (Linux, Windows, macOS, VM, container). Use for non-Bazel projects (an `.xcodeproj` / `.xcworkspace`, an XcodeGen `project.yml` with a gitignored project, React Native / Expo native build) when the user wants to build, compile, run code generation or Make targets, test, inspect build logs, reload, produce a preview build, or ship a signed device IPA. To run, tap, screenshot, or otherwise interact with the result on a simulator, use limrun-ios-simulator. For Bazel workspaces, use limrun-xcode-bazel.",
+    "path": "category/terminal-system-tools/limrun-xcode"
   },
   {
     "id": "linear-sdk-scripting",
@@ -1944,6 +1944,22 @@
     "path": "category/terminal-system-tools/mac-code-local-ai-agent"
   },
   {
+    "id": "macos-screen-recorder",
+    "name": "macos-screen-recorder",
+    "category": "terminal-system-tools",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "macOS screen recorder that captures the main display PLUS system audio via ScreenCaptureKit \u2014 no BlackHole/loopback driver, no sudo, just the standard Screen Recording permission. CLI-driven; fills the headless-screen-recording-with-system-sound gap QuickTime and `screencapture -v` can't.",
+    "path": "category/terminal-system-tools/macos-screen-recorder"
+  },
+  {
+    "id": "makepad-platform",
+    "name": "makepad-platform",
+    "category": "terminal-system-tools",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "CRITICAL: Use for Makepad cross-platform support. Triggers on: makepad platform, makepad os, makepad macos, makepad windows, makepad linux, makepad android, makepad ios, makepad web, makepad wasm, makepad metal, makepad d3d11, makepad opengl, makepad webgl, OsType, CxOs, makepad \u8de8\u5e73\u53f0, makepad \u5e73\u53f0\u652f\u6301",
+    "path": "category/terminal-system-tools/makepad-platform"
+  },
+  {
     "id": "managing-mcp-servers",
     "name": "managing-mcp-servers",
     "category": "terminal-system-tools",
@@ -1974,6 +1990,14 @@
     "repository": "dotnet-skills",
     "description": "Guidance for configuring dependency injection in .NET MAUI apps \u2014 service registration in MauiProgram.cs, lifetime selection (Singleton / Transient / Scoped), constructor injection, Shell navigation auto-resolution, platform-specific registrations, and testability patterns. USE FOR: \"dependency injection\", \"DI setup\", \"AddSingleton\", \"AddTransient\", \"AddScoped\", \"service registration\", \"constructor injection\", \"IServiceProvider\", \"MauiProgram DI\", \"register services\", \"BindingContext injection\". DO NOT USE FOR: data binding (use maui-data-binding), Shell route configuration (use maui-shell-navigation), unit-test mocking frameworks (use standard xUnit and NSubstitute patterns).",
     "path": "category/terminal-system-tools/maui-dependency-injection"
+  },
+  {
+    "id": "maui-safe-area",
+    "name": "maui-safe-area",
+    "category": "terminal-system-tools",
+    "repository": "dotnet-skills",
+    "description": ".NET MAUI safe area and edge-to-edge layout guidance for .NET 10+. Covers the new SafeAreaEdges property, SafeAreaRegions enum, per-edge control, keyboard avoidance, Blazor Hybrid CSS safe areas, migration from legacy iOS-only APIs, and platform-specific behavior for Android, iOS, and Mac Catalyst. USE FOR: \"safe area\", \"edge-to-edge\", \"SafeAreaEdges\", \"SafeAreaRegions\", \"keyboard avoidance\", \"notch insets\", \"status bar overlap\", \"iOS safe area\", \"Android edge-to-edge\", \"content behind status bar\", \"UseSafeArea migration\", \"soft input keyboard\", \"IgnoreSafeArea replacement\". DO NOT USE FOR: general layout or grid design (use Grid and StackLayout), app lifecycle handling (use maui-app-lifecycle), theming or styling (use maui-theming), or Shell navigation structure.",
+    "path": "category/terminal-system-tools/maui-safe-area"
   },
   {
     "id": "maui-shell-navigation",
@@ -2008,6 +2032,14 @@
     "path": "category/terminal-system-tools/minimal-run-and-audit"
   },
   {
+    "id": "minimax-multimodal-toolkit",
+    "name": "minimax-multimodal-toolkit",
+    "category": "terminal-system-tools",
+    "repository": "minimax-ai-skills",
+    "description": "Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the user wants to create media content, chat with MiniMax models, perform web search, or manage MiniMax API resources from the terminal.",
+    "path": "category/terminal-system-tools/minimax-multimodal-toolkit"
+  },
+  {
     "id": "mirrord-up",
     "name": "mirrord-up",
     "category": "terminal-system-tools",
@@ -2016,12 +2048,12 @@
     "path": "category/terminal-system-tools/mirrord-up"
   },
   {
-    "id": "mo-qa",
-    "name": "mo-qa",
+    "id": "mmx-cli",
+    "name": "mmx-cli",
     "category": "terminal-system-tools",
-    "repository": "momentic-ai-skills",
-    "description": "Run and control Mo QA sessions with Momentic's `qa` CLI. Use for bug bashes, status checks, report export, replies to Mo, file transfer, or repairs based on Mo findings.",
-    "path": "category/terminal-system-tools/mo-qa"
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the user wants to create media content, chat with MiniMax models, perform web search, or manage MiniMax API resources from the terminal.",
+    "path": "category/terminal-system-tools/mmx-cli"
   },
   {
     "id": "module-regression",
@@ -2064,28 +2096,12 @@
     "path": "category/terminal-system-tools/mt5-robot-tester"
   },
   {
-    "id": "mtp-hot-reload",
-    "name": "mtp-hot-reload",
-    "category": "terminal-system-tools",
-    "repository": "dotnet-skills",
-    "description": "Set up or recover MTP hot reload for a long-lived console-host edit/re-run loop in a Microsoft Testing Platform project. Use for explicit MTP console requests such as \"enable hot reload\", \"dotnet run to rerun on edit\", or unsupported/rude edits. Covers setup, run/watch, restarts, filters, and the VSTest no-mutation fallback. For one-time runs, exact commands, filter errors, TRX/dumps, or merely a failing test, use run-tests. Do not use when Test Explorer or an IDE should rerun tests without an MTP console host. Excludes editor integration, CI, and writing/debugging tests.",
-    "path": "category/terminal-system-tools/mtp-hot-reload"
-  },
-  {
     "id": "musickit",
     "name": "musickit",
     "category": "terminal-system-tools",
     "repository": "dpearson2699-swift-ios-skills",
     "description": "Integrate Apple Music playback, catalog search, and Now Playing metadata using MusicKit and MediaPlayer. Use when adding music search, Apple Music subscription flows, queue management, playback controls, remote command handling, or Now Playing info to iOS apps.",
     "path": "category/terminal-system-tools/musickit"
-  },
-  {
-    "id": "nemo-rl-brev-etiquette",
-    "name": "nemo-rl-brev-etiquette",
-    "category": "terminal-system-tools",
-    "repository": "nvidia-skills",
-    "description": "Brev instance operating guidance for NeMo-RL agents working in /home/ubuntu/RL with limited workspace disk, a larger /ephemeral volume, and optional /home/ubuntu/RL/.env secrets. Use when running nemo-rl-auto-research campaigns, experiments, training jobs, model or dataset downloads, shared cache-heavy commands, log-producing runs, checkpoint generation, W&B or Hugging Face authenticated workflows, or any workflow that may create large files on Brev.",
-    "path": "category/terminal-system-tools/nemo-rl-brev-etiquette"
   },
   {
     "id": "nemoclaw-setup",
@@ -2120,28 +2136,12 @@
     "path": "category/terminal-system-tools/network-troubleshooting"
   },
   {
-    "id": "nuget-trusted-publishing",
-    "name": "nuget-trusted-publishing",
-    "category": "terminal-system-tools",
-    "repository": "dotnet-skills",
-    "description": "Set up NuGet trusted publishing (OIDC) on a GitHub Actions repo \u2014 replaces long-lived API keys with short-lived tokens. USE FOR: trusted publishing, NuGet OIDC, keyless NuGet publish, migrate from NuGet API key, NuGet/login, secure NuGet publishing. DO NOT USE FOR: publishing to private feeds or Azure Artifacts (OIDC is nuget.org only). INVOKES: shell (powershell or bash), edit, create, ask_user for guided repo setup.",
-    "path": "category/terminal-system-tools/nuget-trusted-publishing"
-  },
-  {
     "id": "nv-reason-cxr",
     "name": "nv-reason-cxr",
     "category": "terminal-system-tools",
     "repository": "nvidia-skills",
     "description": "Used for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnosis or clinical reporting.",
     "path": "category/terminal-system-tools/nv-reason-cxr"
-  },
-  {
-    "id": "nvidia-nemoclaw",
-    "name": "nvidia-nemoclaw",
-    "category": "terminal-system-tools",
-    "repository": "reason-machines-trending-skills",
-    "description": "NVIDIA NemoClaw plugin for secure sandboxed installation and orchestration of OpenClaw always-on AI assistants via OpenShell",
-    "path": "category/terminal-system-tools/nvidia-nemoclaw"
   },
   {
     "id": "obsidian-cli",
@@ -2152,22 +2152,6 @@
     "path": "category/terminal-system-tools/obsidian-cli"
   },
   {
-    "id": "okr",
-    "name": "okr",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/okr.md",
-    "path": "category/terminal-system-tools/okr"
-  },
-  {
-    "id": "om-create-agents-md",
-    "name": "om-create-agents-md",
-    "category": "terminal-system-tools",
-    "repository": "open-mercato-skills",
-    "description": "Write, rewrite, or refresh an AGENTS.md (repo root or one package/module) from the actual codebase \u2014 Always / Ask First / Never / Validation Commands rules, task checklists, real paths and commands. Follows a repo template when present, else a built-in default. Use for \"write AGENTS.md for this package\", \"rewrite our AGENTS.md\", \"refresh AGENTS.md\".",
-    "path": "category/terminal-system-tools/om-create-agents-md"
-  },
-  {
     "id": "onboard",
     "name": "onboard",
     "category": "terminal-system-tools",
@@ -2176,36 +2160,12 @@
     "path": "category/terminal-system-tools/onboard"
   },
   {
-    "id": "opencli-autofix",
-    "name": "opencli-autofix",
-    "category": "terminal-system-tools",
-    "repository": "jackwener-opencli",
-    "description": "Automatically fix broken OpenCLI adapters when commands fail. Load this skill when an opencli command fails \u2014 it guides you through collecting a trace artifact, patching the adapter, retrying, and filing an upstream GitHub issue after a verified fix. Works with any AI agent.",
-    "path": "category/terminal-system-tools/opencli-autofix"
-  },
-  {
     "id": "opencli-rs-web-scraper",
     "name": "opencli-rs-web-scraper",
     "category": "terminal-system-tools",
     "repository": "reason-machines-trending-skills",
     "description": "Blazing fast Rust CLI tool to fetch information from 55+ websites (Twitter, Reddit, YouTube, Bilibili, Zhihu, etc.) with a single command, plus AI-native discovery and Electron app control.",
     "path": "category/terminal-system-tools/opencli-rs-web-scraper"
-  },
-  {
-    "id": "opencli-social-platforms",
-    "name": "opencli-social-platforms",
-    "category": "terminal-system-tools",
-    "repository": "reason-machines-trending-skills",
-    "description": "name: opencli-social-platforms",
-    "path": "category/terminal-system-tools/opencli-social-platforms"
-  },
-  {
-    "id": "opencli-usage",
-    "name": "opencli-usage",
-    "category": "terminal-system-tools",
-    "repository": "jackwener-opencli",
-    "description": "Discover and invoke OpenCLI capabilities for websites and Chrome. Find commands, inspect schemas, interpret results and choose browser or adapter tools.",
-    "path": "category/terminal-system-tools/opencli-usage"
   },
   {
     "id": "opencli-web-automation",
@@ -2248,20 +2208,12 @@
     "path": "category/terminal-system-tools/operating-safely"
   },
   {
-    "id": "operator-audit",
-    "name": "operator-audit",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/operator-audit.md",
-    "path": "category/terminal-system-tools/operator-audit"
-  },
-  {
-    "id": "orchestration",
-    "name": "orchestration",
+    "id": "orca-emulator-android",
+    "name": "orca-emulator-android",
     "category": "terminal-system-tools",
     "repository": "stablyai-orca",
-    "description": "Coordinate supervised Orca workers, or work as a dispatched worker (heartbeats, ask, worker_done): threaded messages, blocking ask/reply, task dispatch, worker_done/escalation waits, task DAGs, decision gates, coordinator loops, and decomposing work across agents. Use `orca-cli` for full ownership handoffs \u2014 \"hand off\", \"handoff\", \"handover\", \"give this to another agent\", \"another worktree\" \u2014 unless asked to supervise, monitor, or coordinate a DAG, and for terminal control, lightweight terminal prompts, shell commands, Orca worktree management, and reading or waiting on terminals.",
-    "path": "category/terminal-system-tools/orchestration"
+    "description": "Android device and emulator control from inside Orca over adb, with the live device view in Orca's emulator pane. Use when driving an adb-connected emulator or phone on Windows, Linux, or macOS: booting AVDs, taps, swipes, typing, hardware buttons, rotation, app install and launch, runtime permissions, the accessibility tree, and logcat. For an iOS simulator use the iOS emulator skill; build the APK with Gradle first.",
+    "path": "category/terminal-system-tools/orca-emulator-android"
   },
   {
     "id": "os-scripting",
@@ -2336,14 +2288,6 @@
     "path": "category/terminal-system-tools/parallel-web-search"
   },
   {
-    "id": "parsing-artifacts-with-eric-zimmerman-tools",
-    "name": "parsing-artifacts-with-eric-zimmerman-tools",
-    "category": "terminal-system-tools",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Parse Windows forensic artifacts\u2014$MFT/$J (MFTECmd), Prefetch (PECmd), registry hives (RECmd), shellbags, and Amcache\u2014into normalized CSV/JSON with Eric Zimmerman's EZ Tools, then load results into Timeline Explorer for analysis. Use during DFIR/incident-response investigations, after triage collection (e.g. with KAPE), to establish program execution, file/folder access, and persistence evidence from acquired forensic images.",
-    "path": "category/terminal-system-tools/parsing-artifacts-with-eric-zimmerman-tools"
-  },
-  {
     "id": "pentest-commands",
     "name": "pentest-commands",
     "category": "terminal-system-tools",
@@ -2406,14 +2350,6 @@
     "repository": "davidondrej-skills",
     "description": "Manage persistent dev servers, APIs, and other local processes on a port using macOS LaunchAgents. Use when starting, stopping, restarting, inspecting, or troubleshooting local servers that should survive shell exit and restart after crashes.",
     "path": "category/terminal-system-tools/persistent-localhost"
-  },
-  {
-    "id": "persona",
-    "name": "persona",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/persona.md",
-    "path": "category/terminal-system-tools/persona"
   },
   {
     "id": "pi-agent",
@@ -2480,30 +2416,6 @@
     "path": "category/terminal-system-tools/playwright"
   },
   {
-    "id": "plugin-audit",
-    "name": "plugin-audit",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/plugin-audit.md",
-    "path": "category/terminal-system-tools/plugin-audit"
-  },
-  {
-    "id": "plugin-forge",
-    "name": "plugin-forge",
-    "category": "terminal-system-tools",
-    "repository": "davila7-claude-code-templates",
-    "description": "Create and manage Claude Code plugins with proper structure, manifests, and marketplace integration. Use when creating plugins for a marketplace, adding plugin components (commands, agents, hooks), bumping plugin versions, or working with plugin.json/marketplace.json manifests.",
-    "path": "category/terminal-system-tools/plugin-forge"
-  },
-  {
-    "id": "pnpm",
-    "name": "pnpm",
-    "category": "terminal-system-tools",
-    "repository": "antfu-skills",
-    "description": "Node.js package manager with strict dependency resolution. Use when running pnpm specific commands, configuring workspaces via pnpm-workspace.yaml, or managing dependencies with catalogs, patches, overrides, config dependencies, or the global virtual store.",
-    "path": "category/terminal-system-tools/pnpm"
-  },
-  {
     "id": "posix-shell-pro",
     "name": "posix-shell-pro",
     "category": "terminal-system-tools",
@@ -2544,52 +2456,20 @@
     "path": "category/terminal-system-tools/powershell-windows"
   },
   {
-    "id": "principle-make-operations-idempotent",
-    "name": "principle-make-operations-idempotent",
-    "category": "terminal-system-tools",
-    "repository": "backnotprop-pstack",
-    "description": "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.",
-    "path": "category/terminal-system-tools/principle-make-operations-idempotent"
-  },
-  {
-    "id": "productboard-automation",
-    "name": "productboard-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate product management workflows in Productboard -- manage features, notes, objectives, components, and releases through natural language commands.",
-    "path": "category/terminal-system-tools/productboard-automation"
-  },
-  {
-    "id": "project-health",
-    "name": "project-health",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/project-health.md",
-    "path": "category/terminal-system-tools/project-health"
-  },
-  {
-    "id": "promql-cli",
-    "name": "promql-cli",
-    "category": "terminal-system-tools",
-    "repository": "samber-cc-skills",
-    "description": "CLI for querying Prometheus and PromQL-compatible engines (Thanos, Cortex, VictoriaMetrics, Grafana Mimir, Grafana Tempo...) \u2014 instant queries, range queries, metric discovery (metrics/labels/meta subcommands), output formats (table/csv/json/graph). Apply when executing PromQL queries, troubleshooting performance issues on a software having observability, investigating latency/error rates/saturation, or analyzing time series data.",
-    "path": "category/terminal-system-tools/promql-cli"
-  },
-  {
-    "id": "prop-artist",
-    "name": "prop-artist",
-    "category": "terminal-system-tools",
-    "repository": "arjun988-blender-skills",
-    "description": "Everyday and hero prop modeling for furniture, tools, household objects, kitbash parts, and readable game props. Use when hard-surface is too sci-fi/mechanical and the asset is a grounded prop.",
-    "path": "category/terminal-system-tools/prop-artist"
-  },
-  {
     "id": "ps5-linux-loader",
     "name": "ps5-linux-loader",
     "category": "terminal-system-tools",
     "repository": "reason-machines-trending-skills",
     "description": "name: ps5-linux-loader",
     "path": "category/terminal-system-tools/ps5-linux-loader"
+  },
+  {
+    "id": "python-appservice-deploy",
+    "name": "python-appservice-deploy",
+    "category": "terminal-system-tools",
+    "repository": "microsoft-azure-skills",
+    "description": "Deploy Python (Flask/Django/FastAPI) code to Azure App Service Linux. WHEN: \\\"Flask App Service\\\", \\\"Django App Service\\\", \\\"FastAPI App Service\\\", \\\"deploy Python to App Service\\\". DO NOT USE FOR: Container Apps, Functions, non-Python, Terraform/Bicep/IaC, full infra \u2014 use azure-prepare.",
+    "path": "category/terminal-system-tools/python-appservice-deploy"
   },
   {
     "id": "queue-handoff",
@@ -2614,6 +2494,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Rclone command-line cloud storage manager reference and usage guide. Use this skill whenever the user mentions rclone, or any task involving terminal-based cloud file operations such as upload, download, sync, copy, move, mount, or remote management.",
     "path": "category/terminal-system-tools/rclone-cli"
+  },
+  {
+    "id": "rds-db2",
+    "name": "rds-db2",
+    "category": "terminal-system-tools",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provisions, connects, migrates, and operates Amazon RDS for Db2. Applies when provisioning with IBM customer and site IDs (License Manager, BYOL, GovCloud), connecting over TLS, fixing SQL30082N after Secrets Manager rotation, migration from Db2 LUW (Linux, AIX, Windows, AS400) or z/OS mainframe (ADB2GEN, Q Replication), choosing code page/collation (EBCDIC, CCSID), S3 backup/restore, Multi-AZ and cross-region standby replicas, RDSADMIN procedures, customer-managed KMS BYOK, self-managed Active Directory Kerberos, Db2 audit to S3, minimum IAM, or colocation.",
+    "path": "category/terminal-system-tools/rds-db2"
   },
   {
     "id": "redis-cli",
@@ -2648,28 +2536,12 @@
     "path": "category/terminal-system-tools/repo-intake-and-plan"
   },
   {
-    "id": "retro",
-    "name": "retro",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/retro.md",
-    "path": "category/terminal-system-tools/retro"
-  },
-  {
     "id": "reverse-shell-techniques",
     "name": "reverse-shell-techniques",
     "category": "terminal-system-tools",
     "repository": "yaklang-hack-skills",
     "description": "Reverse shell techniques playbook. Use when establishing remote shells including language one-liners, encrypted shells (OpenSSL/socat/ncat), web shells, PTY upgrades, file transfer methods, PowerShell shells, and Windows payload generation.",
     "path": "category/terminal-system-tools/reverse-shell-techniques"
-  },
-  {
-    "id": "rice",
-    "name": "rice",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/rice.md",
-    "path": "category/terminal-system-tools/rice"
   },
   {
     "id": "rigs",
@@ -2694,14 +2566,6 @@
     "repository": "lllllllama-rigorpilot-skills",
     "description": "Rigor Train skill for deep learning research repositories. Use when a documented or selected training command should be run conservatively for startup verification, short-run verification, full kickoff, or resume, with command, config, seed, log, checkpoint, status, and metric evidence written to standardized `train_outputs/`. Do not use for environment setup, exploratory sweeps, speculative idea implementation, or end-to-end orchestration.",
     "path": "category/terminal-system-tools/run-train"
-  },
-  {
-    "id": "runbook",
-    "name": "runbook",
-    "category": "terminal-system-tools",
-    "repository": "anthropics-knowledge-work",
-    "description": "Create or update an operational runbook for a recurring task or procedure. Use when documenting a task that on-call or ops needs to run repeatably, turning tribal knowledge into exact step-by-step commands, adding troubleshooting and rollback steps to an existing procedure, or writing escalation paths for when things go wrong.",
-    "path": "category/terminal-system-tools/runbook"
   },
   {
     "id": "runcomfy-cli",
@@ -2736,14 +2600,6 @@
     "path": "category/terminal-system-tools/rust-cli-builder"
   },
   {
-    "id": "saas-health",
-    "name": "saas-health",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/saas-health.md",
-    "path": "category/terminal-system-tools/saas-health"
-  },
-  {
     "id": "safe-browser",
     "name": "safe-browser",
     "category": "terminal-system-tools",
@@ -2758,14 +2614,6 @@
     "repository": "lllllllama-rigorpilot-skills",
     "description": "Rigor Debug / Rigor Audit skill for deep learning research work. Use when the user pastes a traceback, terminal error, CUDA OOM, checkpoint load failure, shape mismatch, NaN loss symptom, or training failure and wants conservative diagnosis before any patching, with debug fixes clearly separated from research contributions. Do not use for broad refactoring, speculative adaptation, automatic exploratory patching, or general repository familiarization.",
     "path": "category/terminal-system-tools/safe-debug"
-  },
-  {
-    "id": "safety-guard",
-    "name": "safety-guard",
-    "category": "terminal-system-tools",
-    "repository": "affaan-m-ecc",
-    "description": "Guard against destructive operations with three modes: Careful intercepts dangerous commands (rm -rf, git push --force, DROP TABLE) for confirmation, Freeze locks writes to one directory, and Guard combines both. Advisory: the agent applies these rules itself; no hook ships with it. Use when working on production systems, running agents autonomously, restricting edits to a directory, or during migrations, deploys, and data changes.",
-    "path": "category/terminal-system-tools/safety-guard"
   },
   {
     "id": "sap-fiori-create-cli",
@@ -2792,12 +2640,12 @@
     "path": "category/terminal-system-tools/sentry-cli"
   },
   {
-    "id": "seo-auditor",
-    "name": "seo-auditor",
+    "id": "sentry-flutter-sdk",
+    "name": "sentry-flutter-sdk",
     "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/seo-auditor.md",
-    "path": "category/terminal-system-tools/seo-auditor"
+    "repository": "getsentry-sentry-for-ai",
+    "description": "Full Sentry SDK setup for Flutter and Dart. Use when asked to \"add Sentry to Flutter\", \"install sentry_flutter\", \"setup Sentry in Dart\", or configure error monitoring, tracing, profiling, session replay, or logging for Flutter applications. Supports Android, iOS, macOS, Linux, Windows, and Web.",
+    "path": "category/terminal-system-tools/sentry-flutter-sdk"
   },
   {
     "id": "seo-new-keywords-research",
@@ -2806,6 +2654,14 @@
     "repository": "zhuyansen-new-term-radar",
     "description": "Turn new AI names or unstructured AI market signals into a keyword priority table. For each name it finds the generic search terms downstream of it, screens them for relevance, and checks novelty, demand size and momentum against Google Ads volume and DataForSEO Trends (an estimate of Google search interest), ending in prioritize, watch or skip. Use when the user has new model, product or repository names (or an AI listening report, a batch of posts, a changelog) and asks which keywords to build pages or tools for. Runs the new-term-radar command line; needs an AISA_API_KEY, and a GOANYAPI_API_KEY improves it.",
     "path": "category/terminal-system-tools/seo-new-keywords-research"
+  },
+  {
+    "id": "service-de-channel-activate",
+    "name": "service-de-channel-activate",
+    "category": "terminal-system-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Activate an Enhanced `MessagingChannel` (WhatsApp/Apple/Facebook/SMS/RCS) by PATCHing `MessagingChannelUsage.DeploymentStatus` from `Disabled` to `Provisioning` via the REST sobject endpoint. The UDD save-hook dispatches by `MessageType` for the external callout (`WHATS_APP`\u2192Meta `/register`, `FACEBOOK`\u2192`subscribeFacebookPage`, `TEXT`\u2192`registerCsotSms`; Apple/LINE need none), writes the terminal `Active`/`Error`, and flips `IsActive`. Synchronous on the HTTP response \u2014 WhatsApp returns 204 after Meta confirms (~15-21s); no-callout channels are near-instant. No Aura RPC, no CSRF cookies. Use to activate an already-inserted Enhanced channel headlessly via REST. Do not use for full end-to-end setup \u2014 use `service-de-headless-channel-configure`.",
+    "path": "category/terminal-system-tools/service-de-channel-activate"
   },
   {
     "id": "service-de-channel-create",
@@ -2864,14 +2720,6 @@
     "path": "category/terminal-system-tools/setup"
   },
   {
-    "id": "setup-local-sdk",
-    "name": "setup-local-sdk",
-    "category": "terminal-system-tools",
-    "repository": "dotnet-skills",
-    "description": "Install a .NET SDK locally for safe preview testing, specific-version pinning, or reproducible team setups \u2014 without modifying the system-wide installation. USE FOR: trying .NET previews safely, testing specific SDK versions, installing MAUI or other workloads on a preview, updating or replacing an existing local SDK, creating reproducible team/CI install scripts, configuring global.json paths. DO NOT USE FOR: system-wide SDK installs, .NET hosts older than 10, runtime-only installs, or projects not using SDK-style commands.",
-    "path": "category/terminal-system-tools/setup-local-sdk"
-  },
-  {
     "id": "sheets-terminal-spreadsheet",
     "name": "sheets-terminal-spreadsheet",
     "category": "terminal-system-tools",
@@ -2896,14 +2744,6 @@
     "path": "category/terminal-system-tools/shellcheck-configuration"
   },
   {
-    "id": "shortcut-automation",
-    "name": "shortcut-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate project management workflows in Shortcut -- create stories, manage tasks, track epics, and organize workflows through natural language commands.",
-    "path": "category/terminal-system-tools/shortcut-automation"
-  },
-  {
     "id": "simple-english",
     "name": "simple-english",
     "category": "terminal-system-tools",
@@ -2920,14 +2760,6 @@
     "path": "category/terminal-system-tools/skill-suggester"
   },
   {
-    "id": "slo-design",
-    "name": "slo-design",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/slo-design.md",
-    "path": "category/terminal-system-tools/slo-design"
-  },
-  {
     "id": "smb-router",
     "name": "smb-router",
     "category": "terminal-system-tools",
@@ -2942,22 +2774,6 @@
     "repository": "openclaw-openclaw",
     "description": "Terminal Spotify playback/search via spogo (preferred) or spotify_player.",
     "path": "category/terminal-system-tools/spotify-player"
-  },
-  {
-    "id": "sprint-health",
-    "name": "sprint-health",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/sprint-health.md",
-    "path": "category/terminal-system-tools/sprint-health"
-  },
-  {
-    "id": "sprint-plan",
-    "name": "sprint-plan",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/sprint-plan.md",
-    "path": "category/terminal-system-tools/sprint-plan"
   },
   {
     "id": "stack-overflow-and-rop",
@@ -2992,36 +2808,12 @@
     "path": "category/terminal-system-tools/stata-log"
   },
   {
-    "id": "stata-python-translation",
-    "name": "stata-python-translation",
-    "category": "terminal-system-tools",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Stata-to-Python translation for data analysis. Maps Stata commands (reghdfe, xtreg, ivregress, margins, esttab, svy:) to Python (polars, pyfixest, statsmodels, svy). Use when user has Stata background or requests Stata-equivalent code comments.",
-    "path": "category/terminal-system-tools/stata-python-translation"
-  },
-  {
     "id": "stata-results",
     "name": "stata-results",
     "category": "terminal-system-tools",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Fetch and display stored r(), e(), and s() results from the last Stata command.",
     "path": "category/terminal-system-tools/stata-results"
-  },
-  {
-    "id": "stata-toolkit",
-    "name": "stata-toolkit",
-    "category": "terminal-system-tools",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Activate when users mention Stata commands, .do files, regressions, econometrics, stored results, graphs, dataset inspection, replication, or Stata errors. Route the task through mcp-stata tools and the specialized research skills instead of treating it as plain text coding.",
-    "path": "category/terminal-system-tools/stata-toolkit"
-  },
-  {
-    "id": "survey-monkey-automation",
-    "name": "survey-monkey-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate SurveyMonkey survey creation, response collection, collector management, and survey discovery through natural language commands",
-    "path": "category/terminal-system-tools/survey-monkey-automation"
   },
   {
     "id": "syswatch-terminal-diagnostics",
@@ -3040,6 +2832,14 @@
     "path": "category/terminal-system-tools/t1code-terminal-ui"
   },
   {
+    "id": "tao-setup-nvidia-gpu-host",
+    "name": "tao-setup-nvidia-gpu-host",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Host setup for TAO GPU backends. Checks and, after user approval, installs minimum-compatible NVIDIA driver, CUDA Toolkit, and NVIDIA Container Toolkit versions for Docker/local-Docker and Kubernetes GPU worker hosts. TAO-wide defaults can be overridden by the selected model's runtime profile. The `--check-only` path works on any Linux distribution; `--install` automates debian-family (Ubuntu/Debian/Pop!_OS/Mint/Zorin/Raspbian), rhel-family (Fedora/RHEL/Rocky/AlmaLinux), and suse-family (openSUSE/SLES) hosts, and prints actionable manual-install steps for everything else. Use when the user asks to \"set up an NVIDIA GPU host\", \"check TAO Docker GPU runtime\", or prepare a Kubernetes GPU worker for TAO.",
+    "path": "category/terminal-system-tools/tao-setup-nvidia-gpu-host"
+  },
+  {
     "id": "tao-token-efficient-execution",
     "name": "tao-token-efficient-execution",
     "category": "terminal-system-tools",
@@ -3056,12 +2856,12 @@
     "path": "category/terminal-system-tools/tavily-cli"
   },
   {
-    "id": "tc",
-    "name": "tc",
+    "id": "tdd-repair",
+    "name": "tdd-repair",
     "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/tc.md",
-    "path": "category/terminal-system-tools/tc"
+    "repository": "ruvnet-ruflo",
+    "description": "Test-Driven Repair: given a failing test, spawn a bounded headless `claude -p` (Read/Edit/Bash only, --max-budget-usd capped) that makes the test pass without modifying it. Use when a failing test should drive the fix to the code under test.",
+    "path": "category/terminal-system-tools/tdd-repair"
   },
   {
     "id": "team-builder",
@@ -3072,28 +2872,12 @@
     "path": "category/terminal-system-tools/team-builder"
   },
   {
-    "id": "team-chat",
-    "name": "team-chat",
-    "category": "terminal-system-tools",
-    "repository": "anthropics-knowledge-work",
-    "description": "Reference skill for Zoom Team Chat. Use after routing to a chat workflow when building user-scoped messaging integrations, chatbot experiences, rich cards, buttons, slash commands, or chat webhooks.",
-    "path": "category/terminal-system-tools/team-chat"
-  },
-  {
     "id": "telegram-automation",
     "name": "telegram-automation",
     "category": "terminal-system-tools",
     "repository": "antigravity-awesome-skills",
     "description": "Automate Telegram tasks via Rube MCP (Composio): send messages, manage chats, share photos/documents, and handle bot commands. Always search tools first for current schemas.",
     "path": "category/terminal-system-tools/telegram-automation"
-  },
-  {
-    "id": "template-validation",
-    "name": "template-validation",
-    "category": "terminal-system-tools",
-    "repository": "dotnet-skills",
-    "description": "Validates custom dotnet new templates for correctness before publishing. Catches missing fields, parameter bugs, shortName conflicts, constraint issues, and common authoring mistakes that cause templates to fail silently. USE FOR: checking template.json files for errors before publishing or testing, diagnosing why a template doesn't appear after installation, reviewing template parameter definitions for type mismatches and missing defaults, finding shortName conflicts with dotnet CLI commands, validating post-action and constraint configuration. DO NOT USE FOR: finding or using existing templates (use template-discovery), creating projects from templates (use template-instantiation), creating templates from existing projects (use template-authoring).",
-    "path": "category/terminal-system-tools/template-validation"
   },
   {
     "id": "terminal-opener",
@@ -3112,12 +2896,20 @@
     "path": "category/terminal-system-tools/terminal-ops"
   },
   {
-    "id": "toggl-automation",
-    "name": "toggl-automation",
+    "id": "test-smell-detection",
+    "name": "test-smell-detection",
     "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate time tracking workflows in Toggl Track -- create time entries, manage projects, clients, tags, and workspaces through natural language commands.",
-    "path": "category/terminal-system-tools/toggl-automation"
+    "repository": "dotnet-skills",
+    "description": "Audits existing tests in any language using formal, research-backed test smell names and the testsmells.org 19-smell academic taxonomy. Use when the caller asks for an academic or citable test-smell review, named smell categories, or a formal severity-ranked smell assessment. Covers Assertion Roulette, Conditional Test Logic, Mystery Guest, Eager Test, Sleepy Test, Unknown Test, Sensitive Equality, and the rest of the catalog across .NET, Python, JavaScript/TypeScript, Java, Go, Ruby, Rust, Swift, Kotlin, PowerShell, and C++. DO NOT USE FOR a quick pragmatic test review (use test-anti-patterns), writing or running tests, framework migration, coverage, or assertion-diversity metrics.",
+    "path": "category/terminal-system-tools/test-smell-detection"
+  },
+  {
+    "id": "testing-mwaa-workflow",
+    "name": "testing-mwaa-workflow",
+    "category": "terminal-system-tools",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Tests Amazon MWAA workflow execution end-to-end: trigger a run and monitor it to completion for Provisioned (Python DAG, via Airflow REST API) and Serverless (YAML workflow, via StartWorkflowRun). Verifies the artifact is deployed and parse-ready, triggers with confirmation, polls to terminal state, and on failure delegates diagnosis to debugging-mwaa-workflow and artifact/redeploy fixes to authoring-mwaa-workflow, then retests up to a capped number of attempts. Triggers on: test my DAG, test my workflow, run my DAG, trigger a test run, does my DAG work, smoke-test the pipeline, verify my workflow runs, execute my DAG to check it. Not applicable to writing or deploying a new workflow (handled by authoring-mwaa-workflow), or for diagnosing why a run failed or root-causing an error (handled by debugging-mwaa-workflow).",
+    "path": "category/terminal-system-tools/testing-mwaa-workflow"
   },
   {
     "id": "traffic-analysis-pcap",
@@ -3160,14 +2952,6 @@
     "path": "category/terminal-system-tools/unslop-file"
   },
   {
-    "id": "uploadcare-automation",
-    "name": "uploadcare-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Uploadcare file management including listing, storing, inspecting, downloading, and organizing file groups through natural language commands",
-    "path": "category/terminal-system-tools/uploadcare-automation"
-  },
-  {
     "id": "user-management",
     "name": "user-management",
     "category": "terminal-system-tools",
@@ -3176,12 +2960,12 @@
     "path": "category/terminal-system-tools/user-management"
   },
   {
-    "id": "user-story",
-    "name": "user-story",
+    "id": "vercel-cli-with-tokens",
+    "name": "vercel-cli-with-tokens",
     "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/user-story.md",
-    "path": "category/terminal-system-tools/user-story"
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login \u2014 e.g. \\\"deploy to vercel\\\", \\\"set up vercel\\\", \\\"add environment variables to vercel\\\".",
+    "path": "category/terminal-system-tools/vercel-cli-with-tokens"
   },
   {
     "id": "verifying-before-done",
@@ -3200,116 +2984,12 @@
     "path": "category/terminal-system-tools/wallet-integration"
   },
   {
-    "id": "webex-automation",
-    "name": "webex-automation",
-    "category": "terminal-system-tools",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Cisco Webex messaging, rooms, teams, webhooks, and people management through natural language commands",
-    "path": "category/terminal-system-tools/webex-automation"
-  },
-  {
     "id": "wecom-cli-enterprise-wechat",
     "name": "wecom-cli-enterprise-wechat",
     "category": "terminal-system-tools",
     "repository": "reason-machines-trending-skills",
     "description": "name: wecom-cli-enterprise-wechat",
     "path": "category/terminal-system-tools/wecom-cli-enterprise-wechat"
-  },
-  {
-    "id": "wecomcli-contact",
-    "name": "wecomcli-contact",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f7f\u7528 wecom-cli \u6309\u59d3\u540d\u3001\u62fc\u97f3\u3001\u82f1\u6587\u540d\u6216\u522b\u540d\u641c\u7d22\u4f01\u4e1a\u5fae\u4fe1\u901a\u8baf\u5f55\u4e2d\u7684\u4eba\u5458\uff0c\u5e76\u67e5\u8be2\u5339\u914d\u4eba\u5458\u7684 userid\u3001\u90e8\u95e8\u548c\u804c\u52a1\u3002\u9002\u7528\u4e8e\u67e5\u627e\u8054\u7cfb\u4eba\u3001\u533a\u5206\u540c\u540d\u4eba\u5458\u3001\u83b7\u53d6\u7528\u6237 userid\uff0c\u4ee5\u53ca\u5217\u51fa\u5168\u90e8\u540c\u540d\u4eba\u5458\u3002",
-    "path": "category/terminal-system-tools/wecomcli-contact"
-  },
-  {
-    "id": "wecomcli-disk",
-    "name": "wecomcli-disk",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1\u5fae\u76d8\uff08Disk / \u7f51\u76d8\uff09\u6587\u4ef6\u64cd\u4f5c\u6280\u80fd\u3002\u627f\u63a5\"\u5fae\u76d8 / \u7f51\u76d8\"\u91cc\u7684\u6587\u4ef6\u5217\u51fa\u3001\u641c\u7d22\u3001\u8bfb\u53d6\u5143\u4fe1\u606f\u3001\u4e0a\u4f20\u3001\u4e0b\u8f7d\u3001\u91cd\u547d\u540d\u3001\u65b0\u5efa\u6587\u4ef6\u5939\u64cd\u4f5c\u3002\u7528\u6237\u660e\u786e\u63d0\u5230\"\u5fae\u76d8\"/\"\u7f51\u76d8\"/\"\u5171\u4eab\u7a7a\u95f4\"\u65f6\u5fc5\u987b\u5148\u8bfb\u53d6\u672c\u6280\u80fd\u83b7\u53d6\u5b8c\u6574\u6307\u5f15\uff0c\u4e0d\u5f97\u51ed\u8bb0\u5fc6\u5904\u7406\u3002\u7528\u6237\u8bf4\"\u4e0a\u4f20\u5230\u5fae\u76d8\"\u3001\"\u5e2e\u6211\u5728\u5fae\u76d8\u91cc\u641c\u4e00\u4e0b xxx\"\u3001\"\u5fae\u76d8\u90a3\u4e2a PPT \u5728\u54ea\"\u3001\"\u4e0b\u8f7d\u5fae\u76d8\u90a3\u4e2a\u6587\u4ef6\"\u3001\"\u628a\u5fae\u76d8\u90a3\u4e2a\u6587\u4ef6\u91cd\u547d\u540d\u6210 xxx\"\u3001\u6216\u76f4\u63a5\u7ed9\u51fa `https://drive.weixin.qq.com/s?k=...` \u5f62\u5f0f\u7684\u5fae\u76d8\u6587\u4ef6\u94fe\u63a5\u65f6\u4f7f\u7528\u672c\u6280\u80fd\u3002\u4e0e `wecomcli-doc` / `wecomcli-sheet` / `wecomcli-smartsheet` / `wecomcli-smartpage` \u7684\u533a\u522b\uff1a\u672c\u6280\u80fd\u5904\u7406\u5fae\u76d8\u91cc\u6240\u6709\u6587\u4ef6\uff08\u542b\u5728\u7ebf\u6587\u6863\uff09\u7684\u641c\u7d22/\u5217\u8868/\u57fa\u7840\u4fe1\u606f/\u4f4d\u7f6e/\u8def\u5f84/\u91cd\u547d\u540d\u7b49\u6587\u4ef6\u7ea7\u64cd\u4f5c\uff1b\u5728\u7ebf\u6587\u6863\uff08`doc/sheet/smartsheet/smartpage` \u7c7b\u578b\uff09\u7684\u5185\u5bb9\u8bfb\u5199\u8d70\u5bf9\u5e94\u6587\u6863\u6280\u80fd\uff0c\u4e0d\u7531\u672c\u6280\u80fd\u63a5\u7ba1\u3002\u5f53\u7528\u6237\u95ee\u300c\u8fd9\u4e2a\u6587\u6863\u5728\u5fae\u76d8\u54ea\u91cc\u300d\u6216\u95ee\u67d0\u6587\u4ef6\u5728\u5fae\u76d8\u7684\u4f4d\u7f6e\u65f6\uff0c\u7531\u672c\u6280\u80fd\u7528 get \u8fd4\u56de\u7a7a\u95f4\u540d/\u6587\u4ef6\u5939\u540d/\u8def\u5f84\u7b49\u5143\u4fe1\u606f\u3002",
-    "path": "category/terminal-system-tools/wecomcli-disk"
-  },
-  {
-    "id": "wecomcli-doc",
-    "name": "wecomcli-doc",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1\u5728\u7ebf doc \u6587\u6863\u6280\u80fd\u3002\u80fd\u591f\u65b0\u5efa doc\u3001\u5bfc\u5165\u672c\u5730 .doc/.docx/.txt \u4e3a doc\u3001\u8bfb\u53d6 doc \u5185\u5bb9\u3001\u5411 doc \u8ffd\u52a0\u6216\u8986\u76d6\u5199\u5165\u3002\u4ec5\u5f53\u7528\u6237\u660e\u786e\u51fa\u73b0\u300cdoc\u300d\u300cdocx\u300d\u300cword\u300d\u300c\u5728\u7ebf\u6587\u6863\u300d\u300coffice \u6587\u6863\u300d\u7b49\u5f3a\u7c7b\u578b\u8bcd\uff0c\u6216\u63d0\u4f9b https://doc.weixin.qq.com/doc/xxx \u94fe\u63a5\u65f6\u624d\u4f7f\u7528\u672c\u6280\u80fd\u3002\u7528\u6237\u8bf4\"\u6587\u6863\"\"\u65b0\u5efa\u6587\u6863\"\"\u5199\u6587\u6863\"\"\u6574\u7406\u6210\u6587\u6863\"\"\u8f93\u51fa\u5230\u6587\u6863\"\u7b49\u672a\u6307\u5b9a\u7c7b\u578b\u7684\u6cdb\u5316\u8868\u8fbe\uff0c\u4e00\u5f8b\u4f7f\u7528 wecomcli-smartpage\u3002",
-    "path": "category/terminal-system-tools/wecomcli-doc"
-  },
-  {
-    "id": "wecomcli-doc-manage",
-    "name": "wecomcli-doc-manage",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1\u6587\u6863\u516c\u5171\u7ba1\u7406\uff1a\u641c\u7d22\u6587\u6863\uff08\u6700\u8fd1\u6d4f\u89c8/\u521b\u5efa\uff09\u3001\u6587\u6863\u6539\u540d\u3001\u6dfb\u52a0\u6587\u6863\u6210\u5458\u6743\u9650\u3001\u8bbe\u7f6e\u6587\u6863\u52a0\u5165\u89c4\u5219\u3002\u9002\u7528\u4e8e\u6240\u6709\u6587\u6863\u7c7b\u578b\uff08doc\u6587\u6863 / \u5728\u7ebf\u8868\u683c / \u667a\u80fd\u8868\u683c / \u667a\u80fd\u6587\u6863\uff09\u3002\u65b0\u5efa\u6216\u5bfc\u5165doc\u6587\u6863\u8bf7\u4f7f\u7528 wecomcli-doc\uff1b\u65b0\u5efa\u6216\u5bfc\u5165\u5728\u7ebf\u8868\u683c\u8bf7\u4f7f\u7528 wecomcli-sheet\uff1b\u667a\u80fd\u8868\u683c\u5185\u5bb9 CRUD \u8bf7\u4f7f\u7528 wecomcli-smartsheet\uff1b\u751f\u6210\u667a\u80fd\u6587\u6863\u8bf7\u4f7f\u7528 wecomcli-smartpage\u3002\"\u770b\u8fc7\u54ea\u4e9b\u6587\u6863/\u6d4f\u89c8\u5386\u53f2\"\u7c7b\u9700\u6c42\u8d70\u672c\u6280\u80fd\uff0c\u4e0d\u8981\u8d70 wecom_get_user_memory\u3002",
-    "path": "category/terminal-system-tools/wecomcli-doc-manage"
-  },
-  {
-    "id": "wecomcli-email",
-    "name": "wecomcli-email",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1\u90ae\u4ef6\uff1a\u53d1\u9001/\u56de\u590d/\u8f6c\u53d1\u90ae\u4ef6\u3001\u641c\u7d22\u90ae\u4ef6\u5217\u8868\u3001\u83b7\u53d6\u90ae\u4ef6\u8be6\u60c5\uff08\u6b63\u6587\u3001\u9644\u4ef6\u3001\u5185\u5d4c\u56fe\u7247\u89e3\u6790\uff09\uff0c\u652f\u6301\u901a\u8fc7\u90ae\u4ef6\u53d1\u9001\u65e5\u7a0b\u9080\u7ea6\u548c\u4f1a\u8bae\u9884\u5b9a\u3002\u5f53\u7528\u6237\u6d89\u53ca\u5185\u90e8\u90ae\u4ef6\u6536\u53d1\u3001\u90ae\u4ef6\u67e5\u8be2\u3001\u90ae\u4ef6\u7ba1\u7406\u7b49\u9700\u6c42\u65f6\u4f7f\u7528\u3002\u6ce8\u610f\uff1a\u65e5\u7a0b\u548c\u4f1a\u8bae\u6709\u5355\u72ec\u7684\u6280\u80fd\uff0c\u4ec5\u5f53\u7528\u6237\u660e\u786e\u63d0\u5230\"\u90ae\u7bb1\"\u6216\"\u90ae\u4ef6\"\u65f6\uff08\u5982\"\u901a\u8fc7\u90ae\u7bb1\u53d1\u9001\u4f1a\u8bae\u9080\u8bf7\"\u3001\"\u53d1\u5c01\u4f1a\u8bae\u90ae\u4ef6\"\uff09\uff0c\u624d\u4f7f\u7528\u672c\u6280\u80fd\u5904\u7406\u4f1a\u8bae\u65e5\u7a0b\u90ae\u4ef6\u3002",
-    "path": "category/terminal-system-tools/wecomcli-email"
-  },
-  {
-    "id": "wecomcli-media",
-    "name": "wecomcli-media",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1\u5a92\u4f53\u6587\u4ef6\u4e0a\u4f20/\u4e0b\u8f7d\u6280\u80fd\u3002\u627f\u63a5\u57fa\u4e8e media_id \u4e0b\u8f7d\u5a92\u4f53\u6587\u4ef6\u5230\u672c\u5730\uff0c\u4ee5\u53ca\u4e0a\u4f20\u672c\u5730\u6587\u4ef6\u83b7\u53d6 media_id \u4e24\u7c7b\u64cd\u4f5c\u3002\u5f53\u5176\u4ed6\u6280\u80fd\uff08\u5fae\u76d8\u3001\u90ae\u4ef6\u7b49\uff09\u8fd4\u56de\u4e86 media_id \u9700\u8981\u843d\u5730\u4e3a\u672c\u5730\u6587\u4ef6\uff0c\u6216\u5df2\u6709\u672c\u5730\u6587\u4ef6\u9700\u8981\u8f6c\u6362\u4e3a media_id \u4f9b\u5176\u4ed6\u6280\u80fd\u4f7f\u7528\u65f6\uff0c\u5fc5\u987b\u5148\u8bfb\u53d6\u672c\u6280\u80fd\u83b7\u53d6\u5b8c\u6574\u6307\u5f15\uff0c\u4e0d\u5f97\u51ed\u8bb0\u5fc6\u5904\u7406\u3002\u672c\u6280\u80fd\u4e0d\u89e3\u6790/\u8bc6\u522b\u6587\u4ef6\u5185\u5bb9\uff0c\u4ec5\u8d1f\u8d23\u6587\u4ef6\u672c\u8eab\u7684\u642c\u8fd0\u3002",
-    "path": "category/terminal-system-tools/wecomcli-media"
-  },
-  {
-    "id": "wecomcli-message",
-    "name": "wecomcli-message",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u67e5\u8be2\u5f53\u524d\u53ef\u4ee5\u53d1\u9001\u6d88\u606f\u7684\u804a\u5929\u4f1a\u8bdd\u8303\u56f4\uff0c\u5e76\u5411\u4f1a\u8bdd\u5217\u8868\u4e2d\u7684\u5355\u804a\u6216\u7fa4\u804a\u53d1\u9001\u6587\u672c\u3001Markdown\u3001\u56fe\u7247\u3001\u6587\u4ef6\u3001\u8bed\u97f3\u3001\u89c6\u9891\u6d88\u606f\u3002\u7528\u6237\u8981\u6c42\u201c\u7ed9\u67d0\u4eba\u53d1\u6d88\u606f\u201d\u201c\u5728\u67d0\u4e2a\u7fa4\u91cc\u901a\u77e5\u201d\u201c\u7ed9\u6700\u8fd1\u4f1a\u8bdd\u53d1\u6d88\u606f\u201d\u6216\u201c\u628a\u56fe\u7247/\u6587\u4ef6/\u8bed\u97f3/\u89c6\u9891\u53d1\u5230\u4f01\u4e1a\u5fae\u4fe1\u201d\u65f6\u4f7f\u7528\u3002",
-    "path": "category/terminal-system-tools/wecomcli-message"
-  },
-  {
-    "id": "wecomcli-pptx",
-    "name": "wecomcli-pptx",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1 PPT \u6280\u80fd\u3002\u4e09\u7c7b\u80fd\u529b\uff1a(1) \u751f\u6210 PPT\u2014\u2014\u6839\u636e\u4e3b\u9898\u3001\u5927\u7eb2\u3001\u6587\u6863\u6216\u53c2\u8003\u6750\u6599\u521b\u5efa\u5728\u7ebf\u6f14\u793a\u6587\u7a3f\uff1b(2) \u7f16\u8f91\u5728\u7ebf PPT\uff1b(3) \u5bfc\u5165 PPT\u2014\u2014\u628a\u672c\u5730 .ppt/.pptx \u5bfc\u5165\u4e3a\u4f01\u5fae\u5728\u7ebf\u6587\u6863\u3002\u751f\u6210\u4e0e\u7f16\u8f91\u4e00\u5f8b\u4f5c\u7528\u4e8e\u4f01\u5fae\u5728\u7ebf slide \u6587\u6863\uff0c\u4ea4\u4ed8\u5f62\u6001\u4e3a\u5728\u7ebf\u6587\u6863\u94fe\u63a5\u3002\u5f53\u7528\u6237\u63d0\u5230'\u505a\u4e2aPPT'\u3001'\u751f\u6210\u6f14\u793a\u6587\u7a3f'\u3001'\u5199\u4efd\u6c47\u62a5PPT'\u3001'\u628a\u8fd9\u4efd\u6587\u6863\u8f6c\u6210PPT'\u3001'\u7167\u7740\u8fd9\u4e2a\u6a21\u677f\u505a\u51e0\u9875'\u3001'\u6539\u7b2c3\u9875\u6807\u9898'\u3001'\u628a\u8fd9\u9875\u56fe\u8868\u6570\u636e\u6362\u6389'\u3001'\u52a0\u4e00\u9875\u603b\u7ed3'\u3001'\u5c01\u9762\u6362\u4e2a\u914d\u8272'\u3001'\u5bfc\u5165PPT'\u7b49\u8868\u8ff0\uff0c\u6216\u63d0\u4f9b\u672c\u5730 .ppt/.pptx \u8981\u6c42\u5bfc\u5165\u65f6\u89e6\u53d1\u3002\u7528\u6237\u5728\u672c\u4f1a\u8bdd\u91cc\u5df2\u751f\u6210\u8fc7 PPT \u540e\u8ffd\u52a0\u7684\u4efb\u4f55\u9875\u9762\u7ea7\u6539\u52a8\uff08'\u7b2c\u4e8c\u9875\u518d\u52a0\u5f20\u56fe'\u3001'\u8fd9\u51e0\u9875\u987a\u5e8f\u8c03\u4e00\u4e0b'\uff09\u540c\u6837\u8d70\u672c\u6280\u80fd\u3002\u82e5\u53ea\u8bfb\u53d6/\u89e3\u6790\u672c\u5730 PPT \u6587\u4ef6\u5185\u5bb9\uff08\u4e0d\u7f16\u8f91\uff09\u8bf7\u6539\u7528 wecomcli-media\u3002",
-    "path": "category/terminal-system-tools/wecomcli-pptx"
-  },
-  {
-    "id": "wecomcli-shared",
-    "name": "wecomcli-shared",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "wecom-cli \u4e1a\u52a1\u6280\u80fd\u7684\u516c\u5171\u524d\u7f6e\u68c0\u67e5\u3001\u83b7\u53d6\u673a\u5668\u4eba\u53ca\u6388\u6743\u771f\u4eba\u8eab\u4efd\uff0c\u4ee5\u53ca\u901a\u7528\u8f93\u51fa\u7ea6\u675f\u3002\u4efb\u4f55 wecomcli-* \u6280\u80fd\u9996\u6b21\u51c6\u5907\u6267\u884c wecom-cli \u547d\u4ee4\u524d\uff0c\u90fd\u5fc5\u987b\u540c\u65f6\u8bfb\u53d6\u672c\u6280\u80fd\uff0c\u68c0\u67e5 CLI \u662f\u5426\u5b89\u88c5\u3001\u7248\u672c\u662f\u5426\u4e0d\u4f4e\u4e8e 1.2.1\uff0c\u4ee5\u53ca\u4f01\u4e1a\u5fae\u4fe1\u51ed\u8bc1\u662f\u5426\u5df2\u6388\u6743\uff1b\u4ec5\u5728\u7f3a\u5931\u3001\u7248\u672c\u8fc7\u4f4e\u6216\u672a\u6388\u6743\u65f6\u6267\u884c\u5b89\u88c5\u6216\u521d\u59cb\u5316\u3002\u672c\u6280\u80fd\u8fd8\u5b9a\u4e49\u6240\u6709\u6280\u80fd\u901a\u7528\u7684 ID \u7c7b\u5b57\u6bb5\u7981\u6b62\u5916\u9732\u7ea6\u675f\u3002\u672c\u6280\u80fd\u4e0d\u5904\u7406\u5177\u4f53\u4e1a\u52a1\u8bf7\u6c42\u3002",
-    "path": "category/terminal-system-tools/wecomcli-shared"
-  },
-  {
-    "id": "wecomcli-smartpage",
-    "name": "wecomcli-smartpage",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1\u667a\u80fd\u6587\u6863\uff08smartpage\uff09\u64cd\u4f5c\u6280\u80fd\u3002\u80fd\u591f\u65b0\u5efa\u6587\u6863\u3001\u5bfc\u5165 .md \u4e3a\u6587\u6863\u3001\u8bfb\u53d6\u6587\u6863\u5185\u5bb9\u3001\u4fee\u6539\u6587\u6863\u5185\u5bb9\uff08\u6574\u9875\u91cd\u5199\u3001\u5c40\u90e8\u7f16\u8f91\u3001\u589e\u5220\u5b50\u9875\u9762\uff09\u3001\u4e0a\u4f20\u9644\u4ef6\u5230\u6587\u6863\uff0c\u4ee5\u53ca\u642d\u5efa\u5e26\u770b\u677f/\u56fe\u8868\u7684\u6570\u636e\u7cfb\u7edf\u9875\u9762\u548c\u4fe1\u606f\u6536\u96c6\u8868\u5355\u9875\u9762\u3002\u5f53\u7528\u6237\u63d0\u53ca\u6587\u6863\uff0c\u667a\u80fd\u6587\u6863\uff0c\u667a\u80fd\u4e3b\u9875\u3001\u63d0\u4f9b https://doc.weixin.qq.com/smartpage/xxx \u6216 https://page.weixin.qq.com/smartpage/xxx \u94fe\u63a5\u3001\u8981\u6c42\u6574\u7406\u6210\u6587\u6863\uff0c\u6216\u8868\u8fbe\"\u65b0\u5efa\u6587\u6863\"\"\u628a md \u5bfc\u5165\u6210\u6587\u6863\"\u7b49\u672a\u6307\u5b9a\u6587\u6863\u7c7b\u578b\u7684\u9700\u6c42\u65f6\uff0c\u4e5f\u5e94\u4f7f\u7528\u672c\u6280\u80fd\u3002",
-    "path": "category/terminal-system-tools/wecomcli-smartpage"
-  },
-  {
-    "id": "wecomcli-smartsheet",
-    "name": "wecomcli-smartsheet",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u4f01\u4e1a\u5fae\u4fe1\u667a\u80fd\u8868\u683c\u5185\u5bb9\u64cd\u4f5c\u6280\u80fd\u2014\u2014\u4e13\u6ce8\u4e8e\u667a\u80fd\u8868\u683c\uff08smartsheet\uff09\u7684\u6570\u636e\u3001\u7ed3\u6784\u4e0e\u6837\u5f0f\u7ba1\u7406\uff1a\u8bfb\u53d6\u8868\u7ed3\u6784\u4e0e\u8bb0\u5f55\u3001\u7ba1\u7406\u5b50\u8868/\u5b57\u6bb5/\u8bb0\u5f55/\u89c6\u56fe/\u56fe\u8868\uff0c\u4ee5\u53ca\u4fee\u6539\u884c\u5217\u6837\u5f0f\uff08\u586b\u8272/\u9ad8\u4eae\uff09\uff1b\u8bb0\u5f55\u65b0\u589e\u6216\u66f4\u65b0\u9047\u5230 851003 / no authority \u65f6\u901a\u8fc7 Webhook \u515c\u5e95\u5199\u5165\u3002\u89e6\u53d1\u6761\u4ef6\uff1a\u7528\u6237\u63d0\u5230\u667a\u80fd\u8868\u683c\u3001\u4f01\u5fae\u8868\u683c\u3001smartsheet \u7684\u5185\u5bb9\u64cd\u4f5c\u6216\u6837\u5f0f\u4fee\u6539\uff0c\u6216\u94fe\u63a5\u5f62\u5982 https://doc.weixin.qq.com/smartsheet/s3_xxx\u3002\u4f01\u4e1a\u5fae\u4fe1\u8868\u683c\u5206\u4e3a\u300c\u667a\u80fd\u8868\u683c\u300d\u548c\u300c\u5728\u7ebf\u8868\u683c\u300d\u4e24\u79cd\u7c7b\u578b\uff0c\u672c\u6587\u6863\u4ecb\u7ecd\u7684\u662f\u667a\u80fd\u8868\u683c\u7684\u76f8\u5173\u6280\u80fd\u3002\u667a\u80fd\u8868\u683c\u5305\u542b\u5b50\u8868\uff08sheet\uff09\u3001\u89c6\u56fe\uff08view\uff09\u3001\u5b57\u6bb5/\u5217\uff08field\uff09\uff0c\u6bcf\u6761\u8bb0\u5f55\uff08record\uff09\u4ee5 `record_id` \u4f5c\u4e3a\u4e3b\u952e\uff0c\u7ed3\u6784\u7c7b\u4f3c\u5173\u7cfb\u578b\u6570\u636e\u5e93\u3002\u5f53\u7528\u6237\u672a\u660e\u786e\u8bf4\u660e\u4f7f\u7528\u300c\u5728\u7ebf\u8868\u683c\u300d\u65f6\uff0c\u4e00\u5f8b\u9ed8\u8ba4\u4f7f\u7528\u529f\u80fd\u66f4\u5f3a\u5927\u7684\u667a\u80fd\u8868\u683c\uff08\u672c\u6280\u80fd\uff09\u3002",
-    "path": "category/terminal-system-tools/wecomcli-smartsheet"
-  },
-  {
-    "id": "wecomcli-todo",
-    "name": "wecomcli-todo",
-    "category": "terminal-system-tools",
-    "repository": "wecomteam-wecom-cli",
-    "description": "\u7ba1\u7406\u4f01\u4e1a\u5fae\u4fe1\u5f85\u529e\uff0c\u652f\u6301\u521b\u5efa\u3001\u5220\u9664\u6216\u9000\u51fa\u3001\u5b8c\u6210\u3001\u67e5\u8be2\u548c\u7b5b\u9009\uff0c\u4ee5\u53ca\u4fee\u6539\u6807\u9898\u3001\u63cf\u8ff0\u3001\u53c2\u4e0e\u4eba\u540d\u5355\u548c\u622a\u6b62\u65f6\u95f4\u3002",
-    "path": "category/terminal-system-tools/wecomcli-todo"
   },
   {
     "id": "who-really-owns-it",
@@ -3328,36 +3008,12 @@
     "path": "category/terminal-system-tools/wiki-cli"
   },
   {
-    "id": "wiki-init",
-    "name": "wiki-init",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/wiki-init.md",
-    "path": "category/terminal-system-tools/wiki-init"
-  },
-  {
-    "id": "wiki-log",
-    "name": "wiki-log",
-    "category": "terminal-system-tools",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "../../../commands/wiki-log.md",
-    "path": "category/terminal-system-tools/wiki-log"
-  },
-  {
     "id": "windows-shell-reliability",
     "name": "windows-shell-reliability",
     "category": "terminal-system-tools",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Reliable command execution on Windows: paths, encoding, and common binary pitfalls.",
     "path": "category/terminal-system-tools/windows-shell-reliability"
-  },
-  {
-    "id": "witr-process-inspector",
-    "name": "witr-process-inspector",
-    "category": "terminal-system-tools",
-    "repository": "reason-machines-trending-skills",
-    "description": "CLI and TUI tool that explains why processes, services, and ports are running by tracing causality chains across supervisors, containers, and shells.",
-    "path": "category/terminal-system-tools/witr-process-inspector"
   },
   {
     "id": "wizard",
@@ -3382,5 +3038,13 @@
     "repository": "reason-machines-trending-skills",
     "description": "name: wx-cli-wechat-local-data",
     "path": "category/terminal-system-tools/wx-cli-wechat-local-data"
+  },
+  {
+    "id": "x-ray-a-company",
+    "name": "x-ray-a-company",
+    "category": "terminal-system-tools",
+    "repository": "useosint-skills",
+    "description": "Corporate due-diligence workflow \u2014 resolve a brand or website to its registered legal entity, map group structure and beneficial ownership, profile officers and directors, enumerate the digital estate, and screen litigation, insolvency, procurement, sanctions, PEP and adverse media. Use when asked to check out, vet or research a company, verify a supplier or counterparty before signing or paying, or assess whether a business is real. Applies to vendor and third-party risk, KYC and KYB onboarding, M&A and investor diligence, procurement integrity, and shell-company assessment. Reference at useosint.com/skills/x-ray-a-company.",
+    "path": "category/terminal-system-tools/x-ray-a-company"
   }
 ]

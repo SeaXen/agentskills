@@ -1,5 +1,53 @@
 [
   {
+    "id": "03-specification-search",
+    "name": "03-specification-search",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Run an instrumented walk of a specification universe and recover honest inference from it. Estimates every specification in a design card (or walks it with a realistic search procedure), logs a complete ledger, flags pathological specifications, calibrates the search against an enforced null, runs the Simonsohn joint tests on the whole curve, measures how far the finding sits from the pre-registered analysis, attributes significance to the choices that produced it, and writes a publishable honest report. Use to run a multiverse or specification-curve analysis, to audit a search someone else ran, to compute multiplicity-corrected or null-calibrated p-values for a selected specification, or to demonstrate how far a search can move a result under a known-zero effect.",
+    "path": "category/testing-unit-tdd/03-specification-search"
+  },
+  {
+    "id": "04-framing-attacks",
+    "name": "04-framing-attacks",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Catalogue of prompt framings that determine whether an agent refuses or performs specification search, and the harness for probing them. Reproduces and extends the published finding that coding agents refuse an explicit request for significant results but comply when the identical request is reframed as uncertainty reporting. Use when running a red-team probe of statistical guardrails, designing eval conditions for an agent p-hacking benchmark, measuring the gap between refusal-by-framing and refusal-by-intent, or assessing whether a prompt someone received was engineered to induce specification search.",
+    "path": "category/testing-unit-tdd/04-framing-attacks"
+  },
+  {
+    "id": "07-phack-immunization",
+    "name": "07-phack-immunization",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Make an empirical analysis robust to specification search, before or after the fact. Covers pre-registration and pre-analysis plans encoded as design cards, specification-curve reporting with the Simonsohn joint tests, Romano-Wolf and effective-multiplicity corrections, full-procedure null calibration including for sequential searches, the distance-from-pre-registration diagnostic, split-sample and holdout designs, and the auto-generated honest report. Use when asked how to protect an analysis against p-hacking, how to correct inference after a search has happened, how to write a pre-analysis plan, or how to report a multiverse credibly.",
+    "path": "category/testing-unit-tdd/07-phack-immunization"
+  },
+  {
+    "id": "08-eval-harness",
+    "name": "08-eval-harness",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Run and score the agent p-hacking benchmark. Composes prompt cells across research framing and significance pressure, drives an agent through them, and scores each run into a P-Hacking Intensity index decomposed into selection, search breadth, estimate inflation, inference gap, pre-registration departure and disclosure. Use when benchmarking whether an AI agent p-hacks, comparing models or tool stacks on statistical integrity, scoring a single agent analysis run, or designing an evaluation of statistical guardrails.",
+    "path": "category/testing-unit-tdd/08-eval-harness"
+  },
+  {
+    "id": "39-vincentarelbundock-marginaleffects",
+    "name": "39-vincentarelbundock-marginaleffects",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Manual for the marginaleffects R and Python package, and guide to the book \"Model to Meaning\". Use when users ask about predictions, comparisons, slopes, marginal effects, average treatment effects (ATE/ATT/CATE), hypothesis testing, contrasts, counterfactuals, risk ratios, odds ratios, causal inference with G-computation, or need help with marginaleffects functions like predictions(), comparisons(), slopes(), hypotheses(), datagrid(), avg_predictions(), avg_comparisons(), avg_slopes(), or plot functions.",
+    "path": "category/testing-unit-tdd/39-vincentarelbundock-marginaleffects"
+  },
+  {
+    "id": "62-PHY041-claude-skill-citation-checker",
+    "name": "62-PHY041-claude-skill-citation-checker",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Verify academic citations against CrossRef, Semantic Scholar, and OpenAlex. Detects AI-hallucinated references, chimeric citations, and suspicious patterns.",
+    "path": "category/testing-unit-tdd/62-PHY041-claude-skill-citation-checker"
+  },
+  {
     "id": "a-b-test-design",
     "name": "a-b-test-design",
     "category": "testing-unit-tdd",
@@ -48,12 +96,28 @@
     "path": "category/testing-unit-tdd/ab-testing"
   },
   {
+    "id": "access-lifecycle",
+    "name": "access-lifecycle",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when preparing or running a user access review, checking that leavers lost their access, finding orphaned or ownerless service accounts, answering an auditor's access-control request for SOC 2, ISO 27001, PCI DSS, HIPAA or NIST 800-53, or checking whether a finished review campaign will hold up. Diffs the HR roster against account exports, tests the campaign for coverage, self-review, unremoved revokes and rubber-stamping, and maps every exception to the controls it breaks.",
+    "path": "category/testing-unit-tdd/access-lifecycle"
+  },
+  {
     "id": "accessibility-audit",
     "name": "accessibility-audit",
     "category": "testing-unit-tdd",
     "repository": "owl-listener-designer-skills",
     "description": "Audit an existing interface against WCAG, producing findings with severity ratings and remediation steps. Use when you have a design or build to assess now. Not for planning future sessions with assistive-technology users \u2014 use `accessibility-test-plan` (prototyping-testing).",
     "path": "category/testing-unit-tdd/accessibility-audit"
+  },
+  {
+    "id": "accessibility-test-plan",
+    "name": "accessibility-test-plan",
+    "category": "testing-unit-tdd",
+    "repository": "owl-listener-designer-skills",
+    "description": "Plan accessibility testing \u2014 assistive technologies, participant criteria, WCAG coverage, and session protocol. Use when scheduling testing with real AT users. Not for evaluating a design yourself \u2014 use `accessibility-audit` (design-systems).",
+    "path": "category/testing-unit-tdd/accessibility-test-plan"
   },
   {
     "id": "ad-campaign-analyzer",
@@ -64,12 +128,28 @@
     "path": "category/testing-unit-tdd/ad-campaign-analyzer"
   },
   {
+    "id": "ad-copy-variant-generator",
+    "name": "ad-copy-variant-generator",
+    "category": "testing-unit-tdd",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Analyzes your top performing ads, identifies what's working in the hooks, CTAs, messaging angles, and formats, then generates new variants that follow the same winning patterns while introducing enough variation to test meaningfully. Platform: Google and Meta.",
+    "path": "category/testing-unit-tdd/ad-copy-variant-generator"
+  },
+  {
     "id": "ad-creative",
     "name": "ad-creative",
     "category": "testing-unit-tdd",
     "repository": "alirezarezvani-claude-skills",
     "description": "When the user needs to generate, iterate, or scale ad creative for paid advertising. Use when they say 'write ad copy,' 'generate headlines,' 'create ad variations,' 'bulk creative,' 'iterate on ads,' 'ad copy validation,' 'RSA headlines,' 'Meta ad copy,' 'LinkedIn ad,' or 'creative testing.' This is pure creative production \u2014 distinct from paid-ads (campaign strategy). Use ad-creative when you need the copy, not the campaign plan.",
     "path": "category/testing-unit-tdd/ad-creative"
+  },
+  {
+    "id": "ad-creative-test-plan",
+    "name": "ad-creative-test-plan",
+    "category": "testing-unit-tdd",
+    "repository": "mbfinotti-advertising-skills",
+    "description": "Design a pre-launch ad creative test plan - falsifiable hypothesis, isolation level, test cells with per-cell budgets, required sample, spend and duration, and kill/scale rules pre-registered before any money moves. Every cell carries an explicit read standard, so an underpowered screen is never dressed up as an A/B test. Use whenever the user wants to test ads, mentions an A/B or split test on creative, asks how much budget or how long a test needs, or mentions sample size, statistical significance, single-variable vs big-swing testing, or test cell structure - even if they never say 'test plan'. Covers B2B and B2C. Do NOT use to read results from a test already running - use mbfinotti/advertising-skills@ad-creative-fatigue instead.",
+    "path": "category/testing-unit-tdd/ad-creative-test-plan"
   },
   {
     "id": "ad-spend-guardrails",
@@ -80,6 +160,14 @@
     "path": "category/testing-unit-tdd/ad-spend-guardrails"
   },
   {
+    "id": "ad-test-designer",
+    "name": "ad-test-designer",
+    "category": "testing-unit-tdd",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"design an A/B test\", \"set up a creative/landing test\", \"run an incrementality test\", or \"is this result statistically and practically material?\"; produces a hypothesis, variant matrix, sample-size/duration/power plan, and a documented effect/uncertainty read from own exported results. It applies only a precommitted owner-approved action rule; the statistical helper never chooses a business action. Not for producing variants \u2014 use ad-creative-builder; not for reading back one shipped change \u2014 use paid-measurement-loop. \u5e7f\u544aAB\u6d4b\u8bd5\u8bbe\u8ba1/\u5b9e\u9a8c\u8bbe\u8ba1/\u663e\u8457\u6027\u5224\u5b9a/\u589e\u6548\u6d4b\u8bd5",
+    "path": "category/testing-unit-tdd/ad-test-designer"
+  },
+  {
     "id": "ads-copywriter",
     "name": "ads-copywriter",
     "category": "testing-unit-tdd",
@@ -88,12 +176,12 @@
     "path": "category/testing-unit-tdd/ads-copywriter"
   },
   {
-    "id": "ads-research",
-    "name": "ads-research",
+    "id": "ads-test",
+    "name": "ads-test",
     "category": "testing-unit-tdd",
     "repository": "agricidaniel-claude-ads",
-    "description": "Refresh Claude Ads platform, API, policy, regulation, benchmark, issue, pull-request, fork, and repository evidence. Use for ads research refresh, expired refresh_due dates, stale API or platform claims, reverify-or-demote decisions, release-current claim validation, ecosystem review, current platform changes, or updating paid-media knowledge.",
-    "path": "category/testing-unit-tdd/ads-research"
+    "description": "Design and evaluate paid-ad experiments with hypotheses, randomization units, sample-size and duration assumptions, guardrails, platform experiment tools, analysis, and decision rules. Use for A/B test, split test, experiment design, hypothesis, statistical significance, sample size, test duration, or experiment readout.",
+    "path": "category/testing-unit-tdd/ads-test"
   },
   {
     "id": "aer-identification",
@@ -102,6 +190,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Use when selecting, implementing, or stress-testing the causal identification strategy for an empirical economics manuscript \u2014 difference-in-differences (including staggered designs), instrumental variables (including weak-IV-robust inference), regression discontinuity, synthetic control, or shift-share / Bartik. Apply before writing the introduction or results.",
     "path": "category/testing-unit-tdd/aer-identification"
+  },
+  {
+    "id": "aer-robustness",
+    "name": "aer-robustness",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Use when the main empirical results exist but the manuscript lacks the robustness, heterogeneity, mechanism, and placebo checks that AER referees will demand. Apply after aer-identification and before aer-introduction so that the value-added paragraph can reference these tests.",
+    "path": "category/testing-unit-tdd/aer-robustness"
   },
   {
     "id": "agent-harness",
@@ -128,6 +224,22 @@
     "path": "category/testing-unit-tdd/agent-qa-result-triage"
   },
   {
+    "id": "agent-security-hardening",
+    "name": "agent-security-hardening",
+    "category": "testing-unit-tdd",
+    "repository": "affaan-m-ecc",
+    "description": "Security hardening guidance for AI agent frameworks that process untrusted content, invoke tools, write workspace files, manage runtime identifiers, or handle credentials. Use when building or reviewing an agent runtime, autonomous worker, tool gateway, memory service, or multi-tenant agent deployment. Do not use for general web application security or offensive testing.",
+    "path": "category/testing-unit-tdd/agent-security-hardening"
+  },
+  {
+    "id": "agentforce-observe",
+    "name": "agentforce-observe",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Analyze production Agentforce agent behavior using session traces and Data Cloud, and manage Agent Health Monitoring (AHM) alerts. TRIGGER when: user queries STDM session data or Data Cloud trace records; investigates production agent failures, regressions, or performance issues; asks about session traces, conversation logs, or agent metrics; wants to reproduce a reported production issue in preview; runs findSessions or trace analysis queries; creates, lists, updates, or deletes an AHM data alert on an agent metric (escalation rate, deflection, etc.); asks why an alert is not firing or wants to check whether alerts have fired (notification counts, or the per-alert Incidents view). DO NOT TRIGGER when: user creates, modifies, or debugs .agent files during development (use agentforce-generate); writes or runs test specs (use agentforce-test); uses sf agent preview for local development iteration; deploys or publishes agents.",
+    "path": "category/testing-unit-tdd/agentforce-observe"
+  },
+  {
     "id": "agentic-test-audit",
     "name": "agentic-test-audit",
     "category": "testing-unit-tdd",
@@ -152,6 +264,14 @@
     "path": "category/testing-unit-tdd/ai-agent-evaluation-benchmarking"
   },
   {
+    "id": "ai-code-generation-guardrails",
+    "name": "ai-code-generation-guardrails",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Use when reviewing AI-generated code before merge or execution: plan AST/security checks, isolated behavior tests and evidence, with language-specific coverage limits.",
+    "path": "category/testing-unit-tdd/ai-code-generation-guardrails"
+  },
+  {
     "id": "ai-model-benchmarking",
     "name": "ai-model-benchmarking",
     "category": "testing-unit-tdd",
@@ -168,6 +288,22 @@
     "path": "category/testing-unit-tdd/ai-research-explore"
   },
   {
+    "id": "analytical-method-validation",
+    "name": "analytical-method-validation",
+    "category": "testing-unit-tdd",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Plans, executes, and documents validation, verification, and transfer of analytical procedures under the governing framework - ICH Q2(R2) and Q14, USP <1220>/<1225>/<1226>, ICH M10 bioanalytical, CLSI EP, or ISO/IEC 17025. Use for HPLC, LC-MS/MS, GC, CE, ICP-MS, dissolution, qNMR, qPCR, NIR, and ligand binding or cell-based assays whenever the question is whether a procedure is fit for its intended purpose. Triggers include \"method validation\", \"analytical method validation\", \"AMV\", \"validation protocol\", \"acceptance criteria\", \"linearity\", \"reportable range\", \"accuracy and precision\", \"repeatability\", \"intermediate precision\", \"recovery\", \"LOD\", \"LOQ\", \"detection limit\", \"quantitation limit\", \"specificity\", \"robustness\", \"method transfer\", \"method comparison\", \"Deming\", \"Passing-Bablok\", \"Bland-Altman\", \"equivalence testing\", \"OOS investigation\", \"ICH Q2\", \"Q2(R2)\", \"Q14\", \"USP 1225\", \"ICH M10\", \"incurred sample reanalysis\", \"ISR\", \"CLSI EP\", and any request to show that an assay works.",
+    "path": "category/testing-unit-tdd/analytical-method-validation"
+  },
+  {
+    "id": "analytics",
+    "name": "analytics",
+    "category": "testing-unit-tdd",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" \"tracking plan,\" \"how do I measure this,\" \"Mixpanel,\" \"Segment,\" \"are my events firing,\" or \"analytics isn't working.\" Use this whenever someone asks how to know if something is working or wants to measure marketing results. For getting conversions into ad platforms (pixels, conversion tags, CAPI, server-side) and verifying they arrived, see conversion-tracking. For choosing attribution models, comparing multi-touch/MMM/incrementality, or reconciling conflicting numbers across tools, see attribution. For A/B test measurement, see ab-testing. Rate metrics divide matching closed windows \u2014 never full-period spend by partial-period results.",
+    "path": "category/testing-unit-tdd/analytics"
+  },
+  {
     "id": "analyze-experiment",
     "name": "analyze-experiment",
     "category": "testing-unit-tdd",
@@ -182,6 +318,14 @@
     "repository": "amplitude-mcp-marketplace",
     "description": "Designs A/B tests with proper metrics and variants, analyzes running or completed experiments, and interprets results with statistical rigor. Use when setting up experiments, checking experiment status, analyzing results, or making ship decisions.",
     "path": "category/testing-unit-tdd/analyze-experiment-consolidated"
+  },
+  {
+    "id": "analyzing-network-packets-with-scapy",
+    "name": "analyzing-network-packets-with-scapy",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Use Scapy to craft, send, sniff, and dissect TCP/UDP/ICMP/DNS packets, analyze pcap files, implement SYN scans, and detect anomalous traffic such as fragmented or malformed packets. Use when performing authorized network reconnaissance, protocol-level forensic analysis, or building traffic anomaly detection during security testing.",
+    "path": "category/testing-unit-tdd/analyzing-network-packets-with-scapy"
   },
   {
     "id": "anomaly-detection-papers-guide",
@@ -256,12 +400,60 @@
     "path": "category/testing-unit-tdd/asc-crash-triage"
   },
   {
+    "id": "asc-id-resolver",
+    "name": "asc-id-resolver",
+    "category": "testing-unit-tdd",
+    "repository": "rorkai-app-store-connect-cli-skills",
+    "description": "Resolve App Store Connect IDs (apps, builds, app and digital-goods versions, groups, testers) from human-friendly names using asc. Use when commands require IDs.",
+    "path": "category/testing-unit-tdd/asc-id-resolver"
+  },
+  {
+    "id": "asc-testflight-orchestration",
+    "name": "asc-testflight-orchestration",
+    "category": "testing-unit-tdd",
+    "repository": "rorkai-app-store-connect-cli-skills",
+    "description": "Orchestrate TestFlight distribution, groups, testers, and What to Test notes using asc. Use when rolling out betas.",
+    "path": "category/testing-unit-tdd/asc-testflight-orchestration"
+  },
+  {
+    "id": "asc-workflow",
+    "name": "asc-workflow",
+    "category": "testing-unit-tdd",
+    "repository": "rorkai-app-store-connect-cli-skills",
+    "description": "Define, validate, run, resume, and audit repo-local multi-step automations with current `asc workflow` and `.asc/workflow.json`, including step outputs and safe release/TestFlight workflows.",
+    "path": "category/testing-unit-tdd/asc-workflow"
+  },
+  {
     "id": "assertion-quality",
     "name": "assertion-quality",
     "category": "testing-unit-tdd",
     "repository": "dotnet-skills",
     "description": "Analyze assertion quality, depth, variety, and false confidence in existing tests. ALWAYS USE when asked about weak, shallow, trivial, always-true, self-referential, assertion-free, presence/truthiness-only, or insufficiently diverse assertions, including MSTest, Jest, pytest, and Go. DO NOT USE for direct fixes: writing-mstest-tests owns supplied MSTest assertions; code-testing owns new cases. Use test-gap-analysis when asked whether tests would catch a production change, and test-anti-patterns for general severity-ranked audits.",
     "path": "category/testing-unit-tdd/assertion-quality"
+  },
+  {
+    "id": "atheris",
+    "name": "atheris",
+    "category": "testing-unit-tdd",
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs Atheris, the coverage-guided Python fuzzer built on libFuzzer. Covers TestOneInput harnesses, FuzzedDataProvider, instrumenting both pure Python and native C extensions, and running under AddressSanitizer. Use when fuzzing a Python package, hunting memory corruption in a Python C extension, or choosing between Atheris and Hypothesis for a Python target.",
+    "path": "category/testing-unit-tdd/atheris"
+  },
+  {
+    "id": "attack-surface-mapping",
+    "name": "attack-surface-mapping",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "Draw a testable attack surface from one authorized target URL or one application. Use when the user says \u653b\u51fb\u9762, \u4f9b\u7ed9\u9762, \u753b\u653b\u51fb\u9762, map the surface, application recon, find the business host, JS inventory, or when the only visible page is login. Derive hosts, APIs, keys, and the object graph from what the app already exposes. Do not open with directory brute or payload spray. Use when the user runs /attack-surface-mapping.",
+    "path": "category/testing-unit-tdd/attack-surface-mapping"
+  },
+  {
+    "id": "audit-prep-assistant",
+    "name": "audit-prep-assistant",
+    "category": "testing-unit-tdd",
+    "repository": "trailofbits-skills",
+    "description": "Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and generates documentation (flowcharts, user stories, inline comments). Use when preparing your own codebase to be audited by someone else, getting a repository review-ready before an external security review, deciding what to fix before auditors start, or asking what assessors need from a project. For understanding unfamiliar code you are about to audit, use audit-context-building instead.",
+    "path": "category/testing-unit-tdd/audit-prep-assistant"
   },
   {
     "id": "audit-replication",
@@ -280,6 +472,30 @@
     "path": "category/testing-unit-tdd/audit-verify-explain-grade-5"
   },
   {
+    "id": "auditing-cloud-with-cis-benchmarks",
+    "name": "auditing-cloud-with-cis-benchmarks",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Audit AWS, Azure, and GCP environments against the CIS Foundations Benchmarks by running automated scans with tools like Prowler and ScoutSuite, interpreting failed controls, and tracking remediation for continuous compliance. Use when conducting a cloud security audit, validating CIS benchmark compliance (CIS v5 AWS, v4 Azure, v4 GCP), or setting up continuous cloud compliance monitoring.",
+    "path": "category/testing-unit-tdd/auditing-cloud-with-cis-benchmarks"
+  },
+  {
+    "id": "aws-resilience-lifecycle",
+    "name": "aws-resilience-lifecycle",
+    "category": "testing-unit-tdd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Guides the end-to-end AWS resilience lifecycle integrating Resilience Hub v2, Fault Injection Service, and Application Recovery Controller. Covers the Define \u2192 Test \u2192 Operate workflow: from policy creation through failure mode assessment, to FIS experiment validation, to ARC operational controls. Applicable when the user wants a complete resilience strategy, needs to connect findings to experiments to controls, or is planning a resilience program. Also applicable for the meta question of whether marking NGRH findings as resolved is enough, whether they are \"done\" after resolving findings, or how to validate findings before resolving them. Not applicable for resolving or remediating a specific individual finding (see resilience-hub-failure-mode-assessment), or when a single service is explicitly named (e.g. \"what FIS experiment should I run\").",
+    "path": "category/testing-unit-tdd/aws-resilience-lifecycle"
+  },
+  {
+    "id": "azure-kusto-irql-graph",
+    "name": "azure-kusto-irql-graph",
+    "category": "testing-unit-tdd",
+    "repository": "microsoft-azure-skills",
+    "description": "Apply IRQL graph functions to KQL or IRQL query results for Kusto Explorer visualization. Generates Lift_To_Graph mappings and composes Graph_Render_View, Graph_Fold_By_Property, Extract_Node_*, Enrich_Node_*, and Enrich_Graph_* calls. Accepts a supplied query or limited basic natural-language source request; it is not a general natural-language-to-KQL/IRQL skill. WHEN: Lift_To_Graph, Graph_Render_View, Graph_Fold_By_Property, IRQL graph enrichment, graph mapping for existing query results, icon-decorated graph, fold graph nodes. Use azure-kusto-graph for native make-graph analysis, graph-match, shortest paths, components, or persistent graphs.",
+    "path": "category/testing-unit-tdd/azure-kusto-irql-graph"
+  },
+  {
     "id": "backtest",
     "name": "backtest",
     "category": "testing-unit-tdd",
@@ -294,6 +510,14 @@
     "repository": "tradermonty-claude-trading-skills",
     "description": "Expert guidance for systematic backtesting of trading strategies. Use when developing, testing, stress-testing, or validating quantitative trading strategies. Covers \"beating ideas to death\" methodology, parameter robustness testing, slippage modeling, bias prevention, and interpreting backtest results. Applicable when user asks about backtesting, strategy validation, robustness testing, avoiding overfitting, or systematic trading development.",
     "path": "category/testing-unit-tdd/backtest-expert"
+  },
+  {
+    "id": "behavioural-analytics",
+    "name": "behavioural-analytics",
+    "category": "testing-unit-tdd",
+    "repository": "owl-listener-designer-skills",
+    "description": "Read funnels, retention curves, and event data as a designer \u2014 separating a design problem from a tracking artefact. Use when handed product data you did not design and asked why people drop off. For choosing what to measure, use `metrics-definition` (ux-strategy); for running a controlled test, use `a-b-test-design` (prototyping-testing).",
+    "path": "category/testing-unit-tdd/behavioural-analytics"
   },
   {
     "id": "benchmark",
@@ -376,6 +600,14 @@
     "path": "category/testing-unit-tdd/brainstorm-experiments-existing"
   },
   {
+    "id": "brainstorm-experiments-new",
+    "name": "brainstorm-experiments-new",
+    "category": "testing-unit-tdd",
+    "repository": "phuryn-pm-skills",
+    "description": "Design lean startup experiments (pretotypes) for a new product. Creates XYZ hypotheses and suggests low-effort validation methods like landing pages, explainer videos, and pre-orders. Use when validating a new product idea, creating pretotypes, or testing market demand.",
+    "path": "category/testing-unit-tdd/brainstorm-experiments-new"
+  },
+  {
     "id": "break-ai-fix-loops",
     "name": "break-ai-fix-loops",
     "category": "testing-unit-tdd",
@@ -440,6 +672,14 @@
     "path": "category/testing-unit-tdd/building-patch-tuesday-response-process"
   },
   {
+    "id": "building-pydantic-ai-agents",
+    "name": "building-pydantic-ai-agents",
+    "category": "testing-unit-tdd",
+    "repository": "cline-skills",
+    "description": "Build AI agents with Pydantic AI \u2014 tools, capabilities (including on-demand loading), structured output, streaming, testing, and multi-agent patterns. Use when the user mentions Pydantic AI, imports pydantic_ai, or asks to build an AI agent, add tools/capabilities, defer capability loading, stream output, define agents from YAML, or test agent behavior.",
+    "path": "category/testing-unit-tdd/building-pydantic-ai-agents"
+  },
+  {
     "id": "building-screening-rubrics",
     "name": "building-screening-rubrics",
     "category": "testing-unit-tdd",
@@ -456,6 +696,14 @@
     "path": "category/testing-unit-tdd/capacity-plan"
   },
   {
+    "id": "cargo-gtm",
+    "name": "cargo-gtm",
+    "category": "testing-unit-tdd",
+    "repository": "getcargohq-cargo-skills",
+    "description": "Do business-to-business go-to-market work on Cargo \u2014 research accounts and buying committees, enrich and verify B2B contact records from licensed data providers, score and qualify leads, draft permission-based outreach for the user's own sequencer, sync to CRM, and monitor buying signals. Consent basis, suppression lists, and volume limits gate every step that touches a person (`references/acceptable-use.md`); bulk unsolicited messaging, purchased or scraped lists, and consumer targeting are refused. Triggers: \\\"build me a list of\\\", \\\"find 50 <title> at <segment>\\\", \\\"who works at\\\", \\\"find work emails for these accounts\\\", \\\"enrich this CSV\\\", \\\"verify these emails\\\", \\\"build a TAM\\\", \\\"who fits our ICP\\\", \\\"who actually buys from us\\\", \\\"what data points should we collect on accounts\\\", \\\"our outbound is reaching the wrong people\\\", \\\"score these leads\\\", \\\"write a first-touch email\\\", \\\"push these to my CRM\\\", \\\"who changed jobs\\\", \\\"who just raised funding\\\", \\\"companies using <tech>\\\", \\\"who is hiring <role>\\\", \\\"find the buying committee\\\", \\\"portfolio companies of <investor>\\\", \\\"upload this audience to Google/Meta/LinkedIn ads\\\". Providers: aiArk, anthropic, apolloio, bounceban, bouncer, brightData, builtwith, cargoSignals, cleon1, companyEnrich, contactOut, datagma, dropcontact, enrichCrm, enrichley, enrowio, exa, explorium, findyMail, firecrawl, forager, FullEnrich, g2, gemini, hunter, icypeas, kitt, leadMagic, linkedin, linkup, mixrank, neverBounce, oceanio, openAi, parallel, peopleDataLabs, perplexity, piloterr, pipecorn, prospeo, proxycurl, reverseContact, rocketreach, salesNavigator, serper, sillage, snitcher, societeInfo, storeleads, theirStack, theSwarm, typesafe, waterfall, x, zeroBounce. Reads phase guides, recipes, and per-provider playbooks before any paid call. Skip when: a run already happened and misbehaved \u2014 use cargo-diagnostics.",
+    "path": "category/testing-unit-tdd/cargo-gtm"
+  },
+  {
     "id": "ce-retune",
     "name": "ce-retune",
     "category": "testing-unit-tdd",
@@ -470,6 +718,14 @@
     "repository": "everyinc-compound-engineering-plugin",
     "description": "Simplify code for clarity, reuse, quality, and efficiency while preserving behavior, and prune tests and comments that carry no value. Use after implementation and before review, or to audit tests or comments in any part of a repo; use ce-debug for bugs.",
     "path": "category/testing-unit-tdd/ce-simplify-code"
+  },
+  {
+    "id": "chaos-engineer",
+    "name": "chaos-engineer",
+    "category": "testing-unit-tdd",
+    "repository": "jeffallan-claude-skills",
+    "description": "Designs chaos experiments, creates failure injection frameworks, and facilitates game day exercises for distributed systems \u2014 producing runbooks, experiment manifests, rollback procedures, and post-mortem templates. Use when designing chaos experiments, implementing failure injection frameworks, or conducting game day exercises. Invoke for chaos experiments, resilience testing, blast radius control, game days, antifragile systems, fault injection, Chaos Monkey, Litmus Chaos.",
+    "path": "category/testing-unit-tdd/chaos-engineer"
   },
   {
     "id": "check-identity-pack",
@@ -496,6 +752,30 @@
     "path": "category/testing-unit-tdd/cis-benchmarks"
   },
   {
+    "id": "citation-audit",
+    "name": "citation-audit",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Zero-context verification that every bibliographic entry in the paper is real, correctly attributed, and used in a context the cited paper actually supports \u2014 catching hallucinated authors, wrong years, fabricated venues, version mismatches, and wrong-context citations. Use when user says \\\"\u5ba1\u67e5\u5f15\u7528\\\", \\\"check citations\\\", \\\"citation audit\\\", \\\"verify references\\\", \\\"\u5f15\u7528\u6838\u5bf9\\\", or before submission to ensure bibliography integrity.",
+    "path": "category/testing-unit-tdd/citation-audit"
+  },
+  {
+    "id": "citation-crosscheck",
+    "name": "citation-crosscheck",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Double-blind bibliographic cross-check: one agent extracts each cited entry verbatim from the local .bib, a second independently re-fetches the same paper's record from the web while blind to the .bib, and a third extractor emits a mechanical field-by-field delta to catch dropped/re-ordered authors, wrong years, wrong venues, and bad DOIs/arXiv ids. The main agent (never a shard) assigns the MATCH/MINOR/MISMATCH verdict per reference, and exports a side-by-side spreadsheet. Use when user says \\\"citation crosscheck\\\", \\\"double-blind citation check\\\", \\\"verify bib against scholar\\\", \\\"bib field audit\\\", \\\"\u5f15\u7528\u4ea4\u53c9\u6838\u5bf9\\\", or before submission when bibliography FIELD accuracy (not just existence) must be certified.",
+    "path": "category/testing-unit-tdd/citation-crosscheck"
+  },
+  {
+    "id": "citation-verification",
+    "name": "citation-verification",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "This skill provides reference guidance for citation verification in academic writing. Use when the user asks about \"citation verification best practices\", \"how to verify references\", \"preventing fake citations\", or needs guidance on citation accuracy. This skill supports ml-paper-writing by providing detailed verification principles and common error patterns.",
+    "path": "category/testing-unit-tdd/citation-verification"
+  },
+  {
     "id": "clawhub",
     "name": "clawhub",
     "category": "testing-unit-tdd",
@@ -510,6 +790,14 @@
     "repository": "clerk-skills",
     "description": "Clerk webhooks for real-time events and data syncing. Verify with verifyWebhook",
     "path": "category/testing-unit-tdd/clerk-webhooks"
+  },
+  {
+    "id": "click-test-plan",
+    "name": "click-test-plan",
+    "category": "testing-unit-tdd",
+    "repository": "owl-listener-designer-skills",
+    "description": "Design first-click and click tests for findability and navigation. Use when testing whether people can locate something. For full task-based observation, use `test-scenario`.",
+    "path": "category/testing-unit-tdd/click-test-plan"
   },
   {
     "id": "clickjacking",
@@ -544,22 +832,6 @@
     "path": "category/testing-unit-tdd/code-showcase-systematic-debugging"
   },
   {
-    "id": "code-showcase-testing-patterns",
-    "name": "code-showcase-testing-patterns",
-    "category": "testing-unit-tdd",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing unit tests, creating test factories, or following TDD red-green-refactor cycle.",
-    "path": "category/testing-unit-tdd/code-showcase-testing-patterns"
-  },
-  {
-    "id": "code-testing",
-    "name": "code-testing",
-    "category": "testing-unit-tdd",
-    "repository": "dotnet-skills",
-    "description": "ALWAYS USE for test work that requires changes: write, add, generate, repair, or strengthen tests for existing code in xUnit, MSTest, NUnit, pytest, Vitest/Jest, Go, or another framework. Includes regression cases, failing or flaky tests, coverage-driven additions, and audit-then-fix requests. Focused work stays direct; broad or multi-stage work invokes test-engineer. DO NOT USE for only running tests, analysis-only audits, framework/platform migrations, a test blocked on a missing production seam (testability-obstacle), or MSTest API/configuration corrections that do not design new cases (writing-mstest-tests). Within an active test-engineer pipeline, reuse supplied guidance and do not re-enter this skill.",
-    "path": "category/testing-unit-tdd/code-testing"
-  },
-  {
     "id": "code-testing-agent",
     "name": "code-testing-agent",
     "category": "testing-unit-tdd",
@@ -592,12 +864,12 @@
     "path": "category/testing-unit-tdd/codex-fable5"
   },
   {
-    "id": "comp-analysis",
-    "name": "comp-analysis",
+    "id": "codex-session-patcher",
+    "name": "codex-session-patcher",
     "category": "testing-unit-tdd",
-    "repository": "anthropics-knowledge-work",
-    "description": "Analyze compensation \u2014 benchmarking, band placement, and equity modeling. Trigger with \"what should we pay a [role]\", \"is this offer competitive\", \"model this equity grant\", or when uploading comp data to find outliers and retention risks.",
-    "path": "category/testing-unit-tdd/comp-analysis"
+    "repository": "reason-machines-trending-skills",
+    "description": "Clean AI refusal responses from Codex CLI, Claude Code, and OpenCode session files, and inject CTF/pentest prompts to reduce refusals.",
+    "path": "category/testing-unit-tdd/codex-session-patcher"
   },
   {
     "id": "competitive-analysis",
@@ -616,12 +888,20 @@
     "path": "category/testing-unit-tdd/competitive-platform-analysis"
   },
   {
-    "id": "competitor-analysis",
-    "name": "competitor-analysis",
+    "id": "competitive-report-structure",
+    "name": "competitive-report-structure",
     "category": "testing-unit-tdd",
-    "repository": "aaron-he-zhu-aaron-marketing-skills",
-    "description": "Use when the user asks to \"analyze competitors\" or \"\u7ade\u54c1\u5206\u6790\"; benchmarks competitor keywords, content, backlinks, AI citations, and traffic share into strengths, weaknesses, and an action plan. Not for a pairwise topic-coverage gap map \u2014 use content-gap-analysis. \u7ade\u54c1\u5206\u6790/\u7ade\u4e89\u5bf9\u624b",
-    "path": "category/testing-unit-tdd/competitor-analysis"
+    "repository": "affaan-m-ecc",
+    "description": "Assemble scored competitor profile cards (from benchmark-methodology) into a decision-grade competitive report with landscape map, competitor tiers, benchmarking matrix, white-space analysis, strategic recommendations, and team alignment trigger questions. Use when presenting competitive findings to leadership or a board, writing a competitive landscape report, or as the final step of the competitive analysis pipeline.",
+    "path": "category/testing-unit-tdd/competitive-report-structure"
+  },
+  {
+    "id": "competitor-creative-analysis",
+    "name": "competitor-creative-analysis",
+    "category": "testing-unit-tdd",
+    "repository": "irinabuht12-oss-marketing-skills",
+    "description": "Pulls competitor ads from Meta Ad Library and Google Ads Transparency Center, categorizes their messaging angles, formats, CTAs, and creative types, then identifies gaps in their approach you can exploit and patterns worth testing in your own campaigns. Platform: Meta.",
+    "path": "category/testing-unit-tdd/competitor-creative-analysis"
   },
   {
     "id": "competitor-tracker",
@@ -664,6 +944,14 @@
     "path": "category/testing-unit-tdd/configs-create"
   },
   {
+    "id": "configs-variations",
+    "name": "configs-variations",
+    "category": "testing-unit-tdd",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Experiment with configs by creating and managing variations. Helps you test different models, prompts, and parameters to find what works best through systematic experimentation.",
+    "path": "category/testing-unit-tdd/configs-variations"
+  },
+  {
     "id": "configure-ecc",
     "name": "configure-ecc",
     "category": "testing-unit-tdd",
@@ -678,6 +966,14 @@
     "repository": "samber-developer-platform-skills",
     "description": "Design the certification program a platform operator runs for connectors partners build on it - go/no-go, ownership-first labels, measurable criteria, test kit, telemetry gates, support routing, renewal, decertification. Use whenever the user mentions connector certification, a certified or verified badge for partner-built connectors, a partner integration test suite, certification renewal or expiry, decertification, or certified-vs-community labels - even without saying \"certification\". Do NOT use for app admission security review (samber/developer-platform-skills@app-marketplace-review), earning a badge on someone else''s platform (samber/developer-platform-skills@etl-connector-strategy), or certifying people (samber/developer-relations-skills@developer-certification-program).",
     "path": "category/testing-unit-tdd/connector-certification-program"
+  },
+  {
+    "id": "constant-time-testing",
+    "name": "constant-time-testing",
+    "category": "testing-unit-tdd",
+    "repository": "trailofbits-skills",
+    "description": "Measures timing side channels in cryptographic implementations by running them, using dudect for statistical analysis and Timecop over Valgrind for dynamic tracing. Covers the formal, symbolic, dynamic, and statistical tool categories and how to read a result. Use when testing whether a running implementation is constant-time, measuring timing variance on a compiled binary, or investigating a suspected timing attack. Not for statically inspecting compiler output \u2014 the constant-time-analysis plugin covers that.",
+    "path": "category/testing-unit-tdd/constant-time-testing"
   },
   {
     "id": "consumer-goods-sync-management-configure",
@@ -704,6 +1000,30 @@
     "path": "category/testing-unit-tdd/convex-verify"
   },
   {
+    "id": "copywriting-cta",
+    "name": "copywriting-cta",
+    "category": "testing-unit-tdd",
+    "repository": "samber-cc-skills",
+    "description": "Designs end-of-article CTAs \u2014 copy, layout, placement, A/B test plan, accessibility \u2014 for blog posts, newsletters, and essays. Use whenever the user asks to write, review, or improve a CTA at the bottom of an article; mentions \"end-of-post CTA\", \"call-to-action\", \"signup box\", \"newsletter CTA\", \"subscribe block\", or \"what should I put at the bottom\"; or asks how to turn readers into subscribers, leads, customers, or paying supporters. Covers personal blogs, paid newsletters (Substack, beehiiv, Ghost), and brand content-marketing blogs. Do NOT use for opening hooks, ledes, or post titles \u2014 use samber/cc-skills@copywriting-hooks instead. Not for landing-page, ad, or email copy.",
+    "path": "category/testing-unit-tdd/copywriting-cta"
+  },
+  {
+    "id": "correlation-analysis",
+    "name": "correlation-analysis",
+    "category": "testing-unit-tdd",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Measure relationships between variables using correlation coefficients, correlation matrices, and association tests for correlation measurement, relationship analysis, and multicollinearity detection",
+    "path": "category/testing-unit-tdd/correlation-analysis"
+  },
+  {
+    "id": "cors-cross-origin-misconfiguration",
+    "name": "cors-cross-origin-misconfiguration",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "CORS misconfiguration testing playbook. Use when analyzing cross-origin trust, credentialed browser reads, origin reflection, preflight policy bugs, and browser-based access to authenticated APIs.",
+    "path": "category/testing-unit-tdd/cors-cross-origin-misconfiguration"
+  },
+  {
     "id": "cost-benchmark",
     "name": "cost-benchmark",
     "category": "testing-unit-tdd",
@@ -718,6 +1038,14 @@
     "repository": "ruvnet-ruflo",
     "description": "Burn-rate trend over time with optional drift-alert exit code. Bins session spend into buckets, surfaces window-over-window delta, and can exit 1 when latest bucket exceeds prior mean by a configurable %. Distinct from `cost-trend` (benchmark drift); this tracks PRODUCTION spend trajectory.",
     "path": "category/testing-unit-tdd/cost-burn"
+  },
+  {
+    "id": "coverage",
+    "name": "coverage",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Analyze test coverage gaps. Use when user says \"test coverage\", \"what's not tested\", \"coverage gaps\", \"missing tests\", \"coverage report\", or \"what needs testing\".",
+    "path": "category/testing-unit-tdd/coverage"
   },
   {
     "id": "create-mod",
@@ -768,12 +1096,28 @@
     "path": "category/testing-unit-tdd/ctr-predictor"
   },
   {
+    "id": "cypress",
+    "name": "cypress",
+    "category": "testing-unit-tdd",
+    "repository": "mindrally-skills",
+    "description": "Cypress end-to-end testing best practices for web applications, covering test structure, commands, and reliability patterns.",
+    "path": "category/testing-unit-tdd/cypress"
+  },
+  {
     "id": "d4",
     "name": "d4",
     "category": "testing-unit-tdd",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Agent D4 - Measurement Instrument Developer - Scale construction and psychometric validation. Covers item development, validity evidence, and reliability testing for social science research.",
     "path": "category/testing-unit-tdd/d4"
+  },
+  {
+    "id": "darkmoon-pentest",
+    "name": "darkmoon-pentest",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Start, follow and triage authorized autonomous AI pentest runs on a self-hosted Darkmoon Pro instance through its MCP server.",
+    "path": "category/testing-unit-tdd/darkmoon-pentest"
   },
   {
     "id": "dart-fix-runtime-errors",
@@ -784,12 +1128,44 @@
     "path": "category/testing-unit-tdd/dart-fix-runtime-errors"
   },
   {
+    "id": "dart-generate-test-mocks",
+    "name": "dart-generate-test-mocks",
+    "category": "testing-unit-tdd",
+    "repository": "dart-lang-skills",
+    "description": "Define and generate mock objects for external dependencies using `package:mockito` and `build_runner`. Use when unit testing classes that depend on complex external services like APIs or databases.",
+    "path": "category/testing-unit-tdd/dart-generate-test-mocks"
+  },
+  {
     "id": "data-engineering-data-driven-feature",
     "name": "data-engineering-data-driven-feature",
     "category": "testing-unit-tdd",
     "repository": "antigravity-awesome-skills",
     "description": "Build features guided by data insights, A/B testing, and continuous measurement using specialized agents for analysis, implementation, and experimentation.",
     "path": "category/testing-unit-tdd/data-engineering-data-driven-feature"
+  },
+  {
+    "id": "data-finder",
+    "name": "data-finder",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Find and assess datasets for a research question. Dispatches Explorer agents to search across data source categories, then Explorer-Critic to stress-test each candidate. Produces a ranked list with feasibility grades. Make sure to use this skill whenever the user wants to identify or evaluate data sources \u2014 not to search for papers or run analysis. Triggers include: \"find data\", \"what data should I use\", \"find a dataset for this\", \"where can I get data on X\", \"assess datasets\", \"what datasets exist for\", \"help me find data\", \"is there data on this\", \"what are my data options\", \"I need data for this project\", or any request to locate empirical data sources for a research question.",
+    "path": "category/testing-unit-tdd/data-finder"
+  },
+  {
+    "id": "data-profile",
+    "name": "data-profile",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Generate a complete, manuscript-ready data profile: demographics summary table, scale identification with reliability (alpha, omega, CFA), comprehensive codebook, sample characteristics, and measurement documentation \u2014 all following current best practices at the time of execution. Searches for the latest reporting standards (JARS, TOP, APA) before generating output. Produces everything a Methods section needs to describe the data. Use when the user says \"describe my data for the manuscript,\" \"demographics table,\" \"what scales are in here,\" \"codebook,\" \"Methods section data,\" \"sample characteristics,\" or any time they need data documented for publication. Triggers on \"profile,\" \"demographics,\" \"scales,\" \"codebook,\" \"sample description,\" \"Methods section.",
+    "path": "category/testing-unit-tdd/data-profile"
+  },
+  {
+    "id": "database-backup-restore",
+    "name": "database-backup-restore",
+    "category": "testing-unit-tdd",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement backup and restore strategies for disaster recovery. Use when creating backup plans, testing restore procedures, or setting up automated backups.",
+    "path": "category/testing-unit-tdd/database-backup-restore"
   },
   {
     "id": "dbs-benchmark",
@@ -806,6 +1182,14 @@
     "repository": "ruvnet-ruflo",
     "description": "Scaffold an aggregate root with entity, value objects, repository interface, domain events, and test stubs. Use when adding a new aggregate to an existing bounded context, modeling a new business concept that owns invariants, or generating the boilerplate for an entity + repo + events triplet.",
     "path": "category/testing-unit-tdd/ddd-aggregate"
+  },
+  {
+    "id": "deal-value-calc",
+    "name": "deal-value-calc",
+    "category": "testing-unit-tdd",
+    "repository": "mbfinotti-sales-skills",
+    "description": "Builds the ROI and business case for one deal - value drivers, full investment, ROI, payback, three cases conservative-first, and a one-page case the champion can forward. The buyer supplies every assumption, each number labeled buyer-supplied, benchmark, or rep-assumed, and none invented. Covers B2B and high-ticket B2C. Use whenever the user mentions ROI, business case, payback period, TCO, cost of doing nothing, \"justify the price\", or CFO sign-off, even without the word value. Do NOT use for price rebuttals (mbfinotti/sales-skills@sales-objection-handling) or discount trade planning (mbfinotti/sales-skills@negotiation-concession-planner).",
+    "path": "category/testing-unit-tdd/deal-value-calc"
   },
   {
     "id": "debugger",
@@ -872,20 +1256,20 @@
     "path": "category/testing-unit-tdd/design-action-combat"
   },
   {
-    "id": "design-qa-checklist",
-    "name": "design-qa-checklist",
-    "category": "testing-unit-tdd",
-    "repository": "owl-listener-designer-skills",
-    "description": "Build a QA checklist for verifying that a build matches the design. Use at implementation review. For the spec engineers build from, use `handoff-spec`.",
-    "path": "category/testing-unit-tdd/design-qa-checklist"
-  },
-  {
     "id": "design-sprint-plan",
     "name": "design-sprint-plan",
     "category": "testing-unit-tdd",
     "repository": "owl-listener-designer-skills",
     "description": "Plan and facilitate a design sprint from challenge framing through prototype testing. Use when compressing discovery into days. For ongoing team cadence, use `team-workflow`.",
     "path": "category/testing-unit-tdd/design-sprint-plan"
+  },
+  {
+    "id": "deterministic-design",
+    "name": "deterministic-design",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Measure rendered UI layout with reproducible spatial metrics and a separately assessed usability review; distinguish measurements from subjective judgments and user tests.",
+    "path": "category/testing-unit-tdd/deterministic-design"
   },
   {
     "id": "dev-browser",
@@ -896,12 +1280,36 @@
     "path": "category/testing-unit-tdd/dev-browser"
   },
   {
+    "id": "dev-story",
+    "name": "dev-story",
+    "category": "testing-unit-tdd",
+    "repository": "donchitos-claude-code-game-studios",
+    "description": "Implements one story in code with tests, following its ADRs. Use when the user says to build, implement or start working on a story. Not for checking readiness beforehand or closing the story after.",
+    "path": "category/testing-unit-tdd/dev-story"
+  },
+  {
     "id": "developer-tutorial",
     "name": "developer-tutorial",
     "category": "testing-unit-tdd",
     "repository": "samber-developer-relations-skills",
     "description": "Writes or audits a teaching tutorial for a developer product - one new concept per step, checkpoints the learner can verify and resume from, guidance that fades, troubleshooting hooks, and a demonstrable skill at the end. Use whenever the user mentions a tutorial, a build-along or hands-on guide, a \"learn X by building Y\" article, a workshop or lab handout, a developer course lesson, or says nobody finishes their tutorial - even if they just say \"write a guide that teaches this\". Do NOT use for a zero-to-first-success quickstart (samber/developer-relations-skills@developer-quickstart-guide) or a video script (samber/developer-relations-skills@technical-video-script).",
     "path": "category/testing-unit-tdd/developer-tutorial"
+  },
+  {
+    "id": "diary-study-plan",
+    "name": "diary-study-plan",
+    "category": "testing-unit-tdd",
+    "repository": "owl-listener-designer-skills",
+    "description": "Design a diary study \u2014 prompts, cadence, duration, participant criteria, and analysis frame. Use when behaviour unfolds over days or weeks. For a single-session study, use `usability-test-plan`.",
+    "path": "category/testing-unit-tdd/diary-study-plan"
+  },
+  {
+    "id": "direct-tests",
+    "name": "direct-tests",
+    "category": "testing-unit-tdd",
+    "repository": "internet-court-internet-court-skill",
+    "description": "Write and run fast direct mode tests for GenLayer intelligent contracts.",
+    "path": "category/testing-unit-tdd/direct-tests"
   },
   {
     "id": "disaster-recovery-testing",
@@ -912,12 +1320,28 @@
     "path": "category/testing-unit-tdd/disaster-recovery-testing"
   },
   {
+    "id": "dns-rebinding-attacks",
+    "name": "dns-rebinding-attacks",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "DNS rebinding attack playbook. Use when testing applications that trust DNS resolution for origin checks, interact with internal services from browser context, or when SSRF is not possible server-side but the target has client-side fetch/XHR to attacker-controlled domains.",
+    "path": "category/testing-unit-tdd/dns-rebinding-attacks"
+  },
+  {
     "id": "doc-coauthoring",
     "name": "doc-coauthoring",
     "category": "testing-unit-tdd",
     "repository": "anthropics-official-skills",
     "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
     "path": "category/testing-unit-tdd/doc-coauthoring"
+  },
+  {
+    "id": "doca-bf4-deployment",
+    "name": "doca-bf4-deployment",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "WARNING: guides IRREVERSIBLE BlueField-4 hardware operations (PLDM firmware burns, ISO reflashes, power cycles, BMC factory resets); every mutating step is governed by doca-hardware-safety (window, rollback). BlueField-4 only: BlueField-3 bring-up is doca-bf3-deployment. Use this skill for BlueField-4 (BF4) day-1 platform bring-up from the BMC: installing the BlueField/DOCA bundle ISO onto the DPU (Grace, the Arm complex) over UEFI HTTP Boot, PXE, or Redfish Virtual Media; the PLDM platform-firmware update via the Redfish UpdateService and pldmtool; and a Grace Ubuntu image with optional cloud-init. Trigger on BlueField-4/BF4 bring-up phrasings even without \"BF4\": {bring up my new BlueField-4}, {the BlueField ISO will not boot over HTTP from the BMC}, {attach BF4 virtual media via Redfish}, {BF4 firmware Task stuck at Running}, {prepare a BlueField-4 host: platform support, version alignment, safest first smoke test}. Route application launch and library APIs to other skills.",
+    "path": "category/testing-unit-tdd/doca-bf4-deployment"
   },
   {
     "id": "does-it-age-verify",
@@ -928,12 +1352,36 @@
     "path": "category/testing-unit-tdd/does-it-age-verify"
   },
   {
+    "id": "dogfood",
+    "name": "dogfood",
+    "category": "testing-unit-tdd",
+    "repository": "mvschwarz-openrig",
+    "description": "Systematically explore and test a web application to find bugs, UX issues, and other problems. Use when asked to \"dogfood\", \"QA\", \"exploratory test\", \"find issues\", \"bug hunt\", \"test this app/site/platform\", or review the quality of a web application. Produces a structured report with full reproduction evidence -- step-by-step screenshots, repro videos, and detailed repro steps for every issue -- so findings can be handed directly to the responsible teams.",
+    "path": "category/testing-unit-tdd/dogfood"
+  },
+  {
     "id": "doom-pay",
     "name": "doom-pay",
     "category": "testing-unit-tdd",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Add self-custodial DOOM and wDOOM checkout links with DoomPay, then verify payment receipts on Doomsday Network Layer-1 or Base Mainnet.",
     "path": "category/testing-unit-tdd/doom-pay"
+  },
+  {
+    "id": "dowhy",
+    "name": "dowhy",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Causal inference framework for answering \"does X cause Y?\" beyond correlation. DoWhy (Microsoft Research) provides the identify-estimate-refute loop: define a causal graph (DAG), identify the causal effect using backdoor/frontdoor/instrumental variable criteria, estimate treatment effects with multiple estimators, and validate results with automated refutation tests. Use when: distinguishing causation from correlation, estimating treatment effects (ATE, ATT, CATE), designing and analyzing A/B tests with confounders, using instrumental variables, performing counterfactual reasoning (\"what would have happened if...\"), validating causal claims with sensitivity analysis, working with observational data where randomization is impossible, or any analysis where the question is \"what is the CAUSAL effect of X on Y\" rather than just \"how do X and Y relate?",
+    "path": "category/testing-unit-tdd/dowhy"
+  },
+  {
+    "id": "dx-devops-test-failures-analyze",
+    "name": "dx-devops-test-failures-analyze",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Analyzes DevOps Center test failures and Code Analyzer violations in plain language \u2014 failure category, offending file/class/method/line, rule violated, fix direction, and prioritized improvement suggestions (test-code vs production-code) \u2014 then optionally creates a tracked fix WorkItem on explicit request. Analysis is pure reasoning; work-item creation is a confirmation-gated write. Use this skill to explain failures or improvement suggestions, translate Code Analyzer violations, or track a fix as a work item. TRIGGER when: a run failed and the user wants root cause; a quality gate failure needs explaining; violations need translating; the user shares a failure payload and asks how to address it; wants to strengthen tests; or wants to create a fix work item, log a remediation, or assign a failure. DO NOT TRIGGER when: the user wants fix code written (use platform-apex-generate) or new test classes authored (use platform-apex-test-generate).",
+    "path": "category/testing-unit-tdd/dx-devops-test-failures-analyze"
   },
   {
     "id": "dx-devops-test-pipeline-configure",
@@ -944,12 +1392,20 @@
     "path": "category/testing-unit-tdd/dx-devops-test-pipeline-configure"
   },
   {
-    "id": "ecommerce-competitor-analysis",
-    "name": "ecommerce-competitor-analysis",
+    "id": "early-access-designer",
+    "name": "early-access-designer",
+    "category": "testing-unit-tdd",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"design an early access program\", \"set up a waitlist and beta stages\", or \"define beta graduation criteria\"; produces a waitlist\u2192concept\u2192alpha\u2192beta\u2192GA stage ladder with per-stage purpose and opt-in semantics, quantified graduation criteria per stage (labeled Estimated), a cohort-gating and invite-throttling plan, tester recruitment with launch-day social-proof prep, a feedback-loop spec where every status change notifies its subscribers, and a referral-loop mechanism spec (invite codes, anti-abuse). Not for waitlist acquisition strategy or the capture-flow spec \u2014 use list-growth-designer; not for the canonical stage record \u2014 use launch-registry. waitlist/\u5185\u6d4b\u9636\u68af/\u62a2\u5148\u4f53\u9a8c/\u6bd5\u4e1a\u6807\u51c6/\u53cd\u9988\u95ed\u73af",
+    "path": "category/testing-unit-tdd/early-access-designer"
+  },
+  {
+    "id": "ecommerce-landing-page",
+    "name": "ecommerce-landing-page",
     "category": "testing-unit-tdd",
     "repository": "nexscope-ai-ecommerce-skills",
-    "description": "Cross-platform ecommerce competitor analysis and strategic intelligence. Multi-channel presence evaluation, strategy assessment, positioning analysis, and competitive benchmarking. Use when the user asks about competitor analysis, competitive research, market analysis, or competitive intelligence across platforms.",
-    "path": "category/testing-unit-tdd/ecommerce-competitor-analysis"
+    "description": "Audit and optimize e-commerce landing pages for conversion. CTA placement, trust signals, page structure, copy optimization, and A/B testing strategy for product pages, collection pages, and campaign landing pages.",
+    "path": "category/testing-unit-tdd/ecommerce-landing-page"
   },
   {
     "id": "econometrics",
@@ -960,12 +1416,20 @@
     "path": "category/testing-unit-tdd/econometrics"
   },
   {
-    "id": "egm-review-loop",
-    "name": "egm-review-loop",
+    "id": "eda",
+    "name": "eda",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Comprehensive exploratory data analysis with publication-quality descriptive tables, correlation matrices, distribution plots, and assumption testing. Generates a standalone EDA report with Table 1 (gtsummary/great_tables), correlation heatmap, distribution diagnostics, VIF for multicollinearity, and normality/homoscedasticity tests. All figures are APA-formatted and colorblind-safe. Use when the user says \"exploratory analysis,\" \"EDA,\" \"descriptive statistics,\" \"explore the data,\" \"Table 1,\" \"correlations,\" \"distributions,\" or when /data-clean completes successfully. Triggers on \"EDA,\" \"descriptive,\" \"Table 1,\" \"explore,\" \"correlations.",
+    "path": "category/testing-unit-tdd/eda"
+  },
+  {
+    "id": "egm-resolve",
+    "name": "egm-resolve",
     "category": "testing-unit-tdd",
     "repository": "google-elephant-goldfish-model",
-    "description": "Executes the Antagonistic-Review process from the Elephant-Goldfish Model (EGM) via an automated multi-agent review loop to audit documents against qualitative standards and structural templates, and automatically apply approved fixes. Use when reviewing design docs, READMEs, feature specifications, implementation plans, or verifying document completeness and tone.",
-    "path": "category/testing-unit-tdd/egm-review-loop"
+    "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
+    "path": "category/testing-unit-tdd/egm-resolve"
   },
   {
     "id": "electron-drive-skill",
@@ -976,6 +1440,22 @@
     "path": "category/testing-unit-tdd/electron-drive-skill"
   },
   {
+    "id": "eliminate-redundant-restores",
+    "name": "eliminate-redundant-restores",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "Remove repeated NuGet restores from multi-step .NET builds safely. USE FOR: build/test/publish steps that each restore, Directory.Build.rsp with -restore, safe restore suppression, NETSDK1004/NETSDK1047 after --no-restore. DO NOT USE FOR: slow first restore, only one restore, version or lock errors, unranked build slowness (use build-perf-baseline).",
+    "path": "category/testing-unit-tdd/eliminate-redundant-restores"
+  },
+  {
+    "id": "email-header-injection",
+    "name": "email-header-injection",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "Email header injection and spoofing playbook. Use when testing contact forms, email APIs, password reset flows, or any feature that constructs SMTP messages with user-controlled fields. Covers CRLF injection in headers, SPF/DKIM/DMARC bypass, and phishing amplification.",
+    "path": "category/testing-unit-tdd/email-header-injection"
+  },
+  {
     "id": "email-marketing",
     "name": "email-marketing",
     "category": "testing-unit-tdd",
@@ -984,20 +1464,28 @@
     "path": "category/testing-unit-tdd/email-marketing"
   },
   {
-    "id": "emaillistverify",
-    "name": "emaillistverify",
-    "category": "testing-unit-tdd",
-    "repository": "membranedev-application-skills",
-    "description": "EmailListVerify integration. Manage Users. Use when the user wants to interact with EmailListVerify data.",
-    "path": "category/testing-unit-tdd/emaillistverify"
-  },
-  {
     "id": "embedded-stm32",
     "name": "embedded-stm32",
     "category": "testing-unit-tdd",
     "repository": "mindrally-skills",
     "description": "Best practices for embedded C/C++ development on STM32 microcontrollers using the HAL, covering peripherals, DMA, interrupts, memory constraints, and hardware-focused testing. Use when writing STM32 HAL code, configuring peripherals generated by STM32CubeMX, working with interrupts or DMA, debugging with SWD/JTAG, managing memory-constrained firmware, or writing hardware-in-the-loop or host-build tests for embedded C.",
     "path": "category/testing-unit-tdd/embedded-stm32"
+  },
+  {
+    "id": "eslint-rule-development",
+    "name": "eslint-rule-development",
+    "category": "testing-unit-tdd",
+    "repository": "sap-open-ux-tools",
+    "description": "Develop a new ESLint rule for @sap-ux/eslint-plugin-fiori-tools. Always use this skill when adding any rule to the plugin, implementing manifest.json/XML/CDS/flex-change validation, writing rule tests with project context, or creating rule documentation \u2014 even if the request sounds simple or the user doesn't mention 'ESLint' explicitly. Guides through the complete workflow: diagnostics constant, rule implementation, unit tests, docs, and registration.",
+    "path": "category/testing-unit-tdd/eslint-rule-development"
+  },
+  {
+    "id": "eval-engineering",
+    "name": "eval-engineering",
+    "category": "testing-unit-tdd",
+    "repository": "langchain-ai-langchain-skills",
+    "description": "Inspect an agent repository and optional traces, interview the user, write reviewed Task Specs, build and audit Harbor tasks, and bootstrap reusable project World Knowledge Skills. Use for agent evals, benchmark design, Task generation, controlled Environments, synthetic data, Verifiers, Harbor runs, calibration, or continuous benchmark maintenance.",
+    "path": "category/testing-unit-tdd/eval-engineering"
   },
   {
     "id": "evaluation-bigcode-evaluation-harness",
@@ -1016,6 +1504,14 @@
     "path": "category/testing-unit-tdd/evanflow-tdd-loop"
   },
   {
+    "id": "event-studies",
+    "name": "event-studies",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Use this skill whenever the user wants to conduct an event study, create event study plots, test for parallel trends, implement difference-in-differences designs, or work with any panel data estimation that involves pre/post treatment comparisons. Trigger on phrases like \"event study\", \"parallel trends\", \"pre-trends\", \"dynamic treatment effects\", \"leads and lags\", \"TWFE\", \"two-way fixed effects\", \"staggered adoption\", \"staggered treatment\", \"difference-in-differences\", \"DiD\", \"Sun and Abraham\", \"Callaway and Sant'Anna\", \"de Chaisemartin\", \"Borusyak\", \"did_multiplegt\", \"fixest\", \"did2s\", \"bacon decomposition\", or any reference to plotting coefficients around a treatment event. Also trigger when the user uploads panel data and wants to estimate treatment effects with variation in treatment timing. All code is in R.",
+    "path": "category/testing-unit-tdd/event-studies"
+  },
+  {
     "id": "event-vip-management",
     "name": "event-vip-management",
     "category": "testing-unit-tdd",
@@ -1030,6 +1526,30 @@
     "repository": "nvlabs-aspire",
     "description": "Run the CaP Fix Loop + Evolutionary Search experiment on a user-supplied list of low-performing benchmark tasks: iterative K=8 candidate search on development seeds 51\u201365, validation selection, and final held-out evaluation on seeds 1\u201350.",
     "path": "category/testing-unit-tdd/evosearch"
+  },
+  {
+    "id": "executive-mentor",
+    "name": "executive-mentor",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Adversarial thinking partner for founders and executives. Stress-tests plans, prepares for brutal board meetings, dissects decisions with no good options, and forces honest post-mortems. Use when you need someone to find the holes before the board does, make a decision you've been avoiding, or understand what actually went wrong.",
+    "path": "category/testing-unit-tdd/executive-mentor"
+  },
+  {
+    "id": "exp-mock-usage-analysis",
+    "name": "exp-mock-usage-analysis",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "Audits .NET test mock usage by tracing each mock setup through the production code's execution path to find dead, unreachable, redundant, or replaceable mocks. Use when the user asks to audit mock usage, find unused or unnecessary mock setups, check if mocks are needed, reduce mock duplication or over-mocking, simplify test setup, or review whether mock configurations like ILogger/IOptions should use real implementations instead. Supports Moq, NSubstitute, and FakeItEasy.",
+    "path": "category/testing-unit-tdd/exp-mock-usage-analysis"
+  },
+  {
+    "id": "exp-test-maintainability",
+    "name": "exp-test-maintainability",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "Detects duplicate boilerplate, copy-paste tests, and structural maintainability issues across .NET test suites. Use when the user asks to reduce repetition, consolidate similar test methods, convert copy-paste tests to data-driven parameterized tests, suggest a better test structure, or identify refactoring opportunities. Identifies repeated construction, assertion patterns, copy-paste methods convertible to DataRow/Theory/TestCase, redundant setup/teardown, and shared infrastructure. Produces an analysis report with concrete before/after suggestions. Works with MSTest, xUnit, NUnit, and TUnit. DO NOT USE FOR: writing new tests (use writing-mstest-tests), reviewing test quality or anti-patterns (use test-anti-patterns), or deep mock auditing (use exp-mock-usage-analysis).",
+    "path": "category/testing-unit-tdd/exp-test-maintainability"
   },
   {
     "id": "experiment-designer",
@@ -1048,12 +1568,36 @@
     "path": "category/testing-unit-tdd/experimental-design"
   },
   {
+    "id": "exploiting-broken-link-hijacking",
+    "name": "exploiting-broken-link-hijacking",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Discovers and exploits broken link hijacking by spidering a site (Burp Suite Spider, Scrapy, curl scraping), extracting referenced external scripts/domains, and checking DNS/CNAME records and domain registration status for expired or unclaimed resources an attacker could register. Use for subdomain takeover testing, supply-chain review of third-party scripts, or bug bounty hunting for hijackable external resources.",
+    "path": "category/testing-unit-tdd/exploiting-broken-link-hijacking"
+  },
+  {
     "id": "exploiting-deeplink-vulnerabilities",
     "name": "exploiting-deeplink-vulnerabilities",
     "category": "testing-unit-tdd",
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Tests and exploits deep link (URL scheme and App Link) vulnerabilities",
     "path": "category/testing-unit-tdd/exploiting-deeplink-vulnerabilities"
+  },
+  {
+    "id": "exploiting-http-request-smuggling",
+    "name": "exploiting-http-request-smuggling",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Detects and exploits HTTP request smuggling caused by Content-Length/Transfer-Encoding parsing discrepancies between front-end and back-end servers, using Burp Suite Repeater (auto Content-Length disabled), the HTTP Request Smuggler extension, and smuggler.py. Use during authorized tests of multi-tier architectures behind a reverse proxy, load balancer, or CDN to find desync flaws and bypass front-end controls.",
+    "path": "category/testing-unit-tdd/exploiting-http-request-smuggling"
+  },
+  {
+    "id": "exploiting-websocket-vulnerabilities",
+    "name": "exploiting-websocket-vulnerabilities",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Testing WebSocket implementations for authentication bypass, cross-site",
+    "path": "category/testing-unit-tdd/exploiting-websocket-vulnerabilities"
   },
   {
     "id": "f5",
@@ -1072,6 +1616,22 @@
     "path": "category/testing-unit-tdd/fact-check-x-complete"
   },
   {
+    "id": "feature-flag-system",
+    "name": "feature-flag-system",
+    "category": "testing-unit-tdd",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Implement feature flags (toggles) for controlled feature rollouts, A/B testing, canary deployments, and kill switches. Use when deploying new features gradually, testing in production, or managing feature lifecycles.",
+    "path": "category/testing-unit-tdd/feature-flag-system"
+  },
+  {
+    "id": "file-access-vuln",
+    "name": "file-access-vuln",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "Entry P1 category router for file access and upload workflows. Use when testing download endpoints, file paths, local file inclusion, upload flows, preview pipelines, archive extraction, or storage and sharing boundaries.",
+    "path": "category/testing-unit-tdd/file-access-vuln"
+  },
+  {
     "id": "file-conversion",
     "name": "file-conversion",
     "category": "testing-unit-tdd",
@@ -1088,6 +1648,14 @@
     "path": "category/testing-unit-tdd/file-path-traversal"
   },
   {
+    "id": "filter-syntax",
+    "name": "filter-syntax",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "Reference-only filter syntax for VSTest and MTP with MSTest, NUnit, xUnit v3, and TUnit. Load only after the platform/framework is known and a consumer needs to create or translate a filter. Do not load for unfiltered runs or platform detection. Used by run-tests and mtp-hot-reload; never invoke directly.",
+    "path": "category/testing-unit-tdd/filter-syntax"
+  },
+  {
     "id": "finance-metrics-quickref",
     "name": "finance-metrics-quickref",
     "category": "testing-unit-tdd",
@@ -1102,6 +1670,14 @@
     "repository": "useosint-skills",
     "description": "Build a sourced, corroborated profile of a named individual from public records, social platforms, professional networks, court and property filings, licensing boards, patents, papers and obituaries \u2014 anchoring the name to a second selector first so you never fuse two people into one dossier. Use when asked to find, identify, background-check or profile a person, verify someone's claimed employment or credentials, or locate a missing or hard-to-reach individual. Applies to counterparty and investor due diligence, fraud and asset investigation, journalism, skip tracing, missing persons, pre-employment integrity checks on fiduciary roles, and self-exposure audits. Reference at useosint.com/skills/find-anyone.",
     "path": "category/testing-unit-tdd/find-anyone"
+  },
+  {
+    "id": "firecrawl-seo-audit",
+    "name": "firecrawl-seo-audit",
+    "category": "testing-unit-tdd",
+    "repository": "firecrawl-firecrawl-workflows",
+    "description": "Inspect a website's titles, meta descriptions, headings, canonicals, structured data and internal links for on-page and technical SEO issues. Use for SEO audits, page-source checks, broken-link reviews or comparing pages for target keywords, even without an explicit request to scrape. Return source-backed findings and prioritized fixes. Excludes generic SEO explanations, standalone copywriting and functional website testing.",
+    "path": "category/testing-unit-tdd/firecrawl-seo-audit"
   },
   {
     "id": "fix-merge-conflicts",
@@ -1224,6 +1800,14 @@
     "path": "category/testing-unit-tdd/genotex-benchmark-guide"
   },
   {
+    "id": "genotoxic",
+    "name": "genotoxic",
+    "category": "testing-unit-tdd",
+    "repository": "trailofbits-skills",
+    "description": "Graph-informed mutation testing triage. Parses codebases with Trailmark, runs mutation testing and necessist, then uses survived mutants, unnecessary test statements, and call graph data to identify false positives, missing test coverage, and fuzzing targets. Use when triaging survived mutants, analyzing mutation testing results, identifying test gaps, finding fuzzing targets from weak tests, running mutation frameworks (including circomvent and cairo-mutants), or using necessist.",
+    "path": "category/testing-unit-tdd/genotoxic"
+  },
+  {
     "id": "go-in-depth",
     "name": "go-in-depth",
     "category": "testing-unit-tdd",
@@ -1232,28 +1816,20 @@
     "path": "category/testing-unit-tdd/go-in-depth"
   },
   {
-    "id": "golang-testing",
-    "name": "golang-testing",
+    "id": "good-strategy-bad-strategy",
+    "name": "good-strategy-bad-strategy",
     "category": "testing-unit-tdd",
-    "repository": "affaan-m-ecc",
-    "description": "Go testing patterns including table-driven tests, subtests, benchmarks, fuzzing, and test coverage. Follows TDD methodology with idiomatic Go practices. Use when writing Go tests \u2014 table-driven cases, subtests, benchmarks, fuzzing, or coverage.",
-    "path": "category/testing-unit-tdd/golang-testing"
+    "repository": "wondelai-skills",
+    "description": "Formulate and audit real strategy using Richard Rumelt''s \"Good Strategy Bad Strategy\": an honest diagnosis, a guiding policy, and coherent action instead of goals, vision, and wishful thinking. Use when the user mentions \"good strategy bad strategy\", \"strategy kernel\", \"diagnosis guiding policy coherent action\", \"our strategy is just goals\", \"strategic planning\", \"mission vs strategy\", \"annual plan\", or \"is this actually a strategy\". Also trigger when auditing a strategy doc or pitch deck for fluff, turning a goal list into real strategy, formulating strategy for a product or company, or finding leverage and proximate objectives. Covers the kernel of strategy, bad-strategy detection, and sources of power. For product positioning, see obviously-awesome. For uncontested markets, see blue-ocean-strategy.",
+    "path": "category/testing-unit-tdd/good-strategy-bad-strategy"
   },
   {
-    "id": "golang-troubleshooting",
-    "name": "golang-troubleshooting",
+    "id": "google-ads-copy",
+    "name": "google-ads-copy",
     "category": "testing-unit-tdd",
-    "repository": "samber-cc-skills-golang",
-    "description": "Troubleshoot Golang programs systematically - find and fix the root cause. Use when encountering bugs, crashes, deadlocks, races, or unexpected behavior in Go code. Covers debugging methodology, common Go pitfalls, test-driven debugging, pprof setup and capture, Delve, race detection, GODEBUG tracing, and production debugging. Start here for any 'something is wrong' situation. Not for interpreting profiles or benchmarking (\u2192 See `samber/cc-skills-golang@golang-benchmark` skill), applying optimization patterns (\u2192 See `samber/cc-skills-golang@golang-performance` skill), or designing new code (\u2192 See `samber/cc-skills-golang@golang-safety` skill for defensive coding, `samber/cc-skills-golang@golang-concurrency` skill for concurrency design).",
-    "path": "category/testing-unit-tdd/golang-troubleshooting"
-  },
-  {
-    "id": "goofish-item-detail",
-    "name": "goofish-item-detail",
-    "category": "testing-unit-tdd",
-    "repository": "browser-act-skills",
-    "description": "Extracts full detail data from a single Goofish (\u95f2\u9c7c/xianyu, goofish.com) second-hand item page. Input: item URL or item ID. Output: title, price, seller info (name, labels), full description, image gallery, item tags/attributes, want-count. Use when user mentions goofish item detail, \u95f2\u9c7c\u5546\u54c1\u8be6\u60c5, xianyu item page, \u4e8c\u624b\u5546\u54c1\u8be6\u60c5, get goofish product info, \u91c7\u96c6\u95f2\u9c7c\u5355\u54c1\u6570\u636e, \u6293\u53d6\u95f2\u9c7c\u5546\u54c1, scrape goofish item, xianyu product detail, \u83b7\u53d6\u95f2\u9c7c\u5356\u5bb6\u4fe1\u606f, seller info goofish, item description goofish, \u95f2\u9c7c\u8be6\u60c5\u9875, \u60f3\u8981\u4eba\u6570, \u95f2\u9c7c\u56fe\u7247. Also applies to: verifying a specific listing before purchase, extracting seller contact/rating information, bulk item detail enrichment from a list of item IDs.",
-    "path": "category/testing-unit-tdd/goofish-item-detail"
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Generate and A/B test Google Ads copy. Use when asked to write ad copy, headlines, descriptions, create ad variants, test ad messaging, improve CTR, or generate RSA (Responsive Search Ad) components. Trigger on \"ad copy\", \"write ads\", \"headlines\", \"descriptions\", \"RSA\", \"responsive search ad\", \"ad text\", \"ad creative\", \"improve CTR\", \"ad A/B test\", \"ad variants\", \"write me an ad\", \"ad variation experiment\", or when the user wants to improve click-through rate on existing ads.",
+    "path": "category/testing-unit-tdd/google-ads-copy"
   },
   {
     "id": "google-cloud-recipe-onboarding",
@@ -1264,20 +1840,12 @@
     "path": "category/testing-unit-tdd/google-cloud-recipe-onboarding"
   },
   {
-    "id": "gravitas-perf",
-    "name": "gravitas-perf",
+    "id": "grade-tests",
+    "name": "grade-tests",
     "category": "testing-unit-tdd",
-    "repository": "udaysharmadev-gravitas",
-    "description": "Performance analysis mode for GRAVITAS. Adds profiling patterns, benchmark requirements, algorithmic complexity analysis, and before/after measurement protocol. Load for any performance optimization work.",
-    "path": "category/testing-unit-tdd/gravitas-perf"
-  },
-  {
-    "id": "gravitas-typescript",
-    "name": "gravitas-typescript",
-    "category": "testing-unit-tdd",
-    "repository": "udaysharmadev-gravitas",
-    "description": "GRAVITAS extension for TypeScript projects. Adds TypeScript-specific recon, strict mode patterns, Vitest/Jest integration, and common TS failure modes. Load in addition to the base GRAVITAS skill.",
-    "path": "category/testing-unit-tdd/gravitas-typescript"
+    "repository": "dotnet-skills",
+    "description": "Grade curated individual tests for readiness, A-F quality and improvements. ALWAYS USE FOR: grade tests, review only a named test, per-test readiness or quality bands for supplied methods, bodies, file spans or bounded PR diffs, including existing tests. Return Pass/Failed/Uncertain/Not applicable; unresolved/empty scopes omit grades. Compose read-only per-test evidence. Polyglot. DO NOT USE FOR: suite audits (test-engineer/test-anti-patterns), concrete fix/feature detection proof (test-value-evidence), writing/fixing tests, or coverage.",
+    "path": "category/testing-unit-tdd/grade-tests"
   },
   {
     "id": "grilling",
@@ -1296,12 +1864,12 @@
     "path": "category/testing-unit-tdd/harness-bench"
   },
   {
-    "id": "harness-security-bench",
-    "name": "harness-security-bench",
+    "id": "hash-attack-techniques",
+    "name": "hash-attack-techniques",
     "category": "testing-unit-tdd",
-    "repository": "ruvnet-ruflo",
-    "description": "Run `@metaharness/darwin security bench` (Darwin Shield): evolve a security-detection harness on a 10-vuln/9-decoy corpus and grade TPR/FPR/patch/repro against four baselines. Use when benchmarking security-harness detection. Degrades gracefully without darwin.",
-    "path": "category/testing-unit-tdd/harness-security-bench"
+    "repository": "yaklang-hack-skills",
+    "description": "Hash attack playbook. Use when exploiting length extension, MD5/SHA1 collisions, HMAC timing leaks, birthday attacks, or hash-based proof of work in CTF and authorized testing scenarios.",
+    "path": "category/testing-unit-tdd/hash-attack-techniques"
   },
   {
     "id": "holoscan-install-source",
@@ -1320,12 +1888,28 @@
     "path": "category/testing-unit-tdd/holoscan-module-lifecycle"
   },
   {
+    "id": "hsb-test",
+    "name": "hsb-test",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Execute QA test plans on Holoscan Sensor Bridge hardware. Reads a user-provided test document, filters tests by the user's setup, determines which tests can run automatically, executes them with pass/fail evaluation, and produces a structured test results report.",
+    "path": "category/testing-unit-tdd/hsb-test"
+  },
+  {
     "id": "http-status-code-tester",
     "name": "http-status-code-tester",
     "category": "testing-unit-tdd",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "HTTP Status Code Tester. Use when working with one or more HTTP(S) URLs.",
     "path": "category/testing-unit-tdd/http-status-code-tester"
+  },
+  {
+    "id": "httpclient-factory",
+    "name": "httpclient-factory",
+    "category": "testing-unit-tdd",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "IHttpClientFactory and typed HTTP clients for .NET 10 applications. Covers named/typed/keyed clients, DelegatingHandlers, resilience with Microsoft.Extensions.Http.Resilience, and testing patterns. Load this skill when configuring HTTP clients, adding retry/circuit breaker policies, or when the user mentions \"HttpClient\", \"IHttpClientFactory\", \"AddHttpClient\", \"typed client\", \"named client\", \"DelegatingHandler\", \"resilience\", \"retry\", \"circuit breaker\", \"hedging\", \"Polly\", \"AddStandardResilienceHandler\", \"socket exhaustion\", or \"Refit\".",
+    "path": "category/testing-unit-tdd/httpclient-factory"
   },
   {
     "id": "huawei-cloud-cce-chaos-experiment",
@@ -1358,6 +1942,14 @@
     "repository": "huaweicloud-huaweicloud-skills",
     "description": "Diagnose CDN origin server reachability and back-to-source failures using hcloud CLI. Query the origin configuration (origin_addr, origin_type, http_port, https_port, origin_protocol) of a CDN domain via ShowDomainFullConfig/v2, then probe origin server connectivity using the Python probe script (scripts/origin_probe.py) to identify the root cause of back-to-source failures, origin unreachable errors, and abnormal responses. Use when the user wants to: (1) diagnose CDN back-to-source failures, (2) check why origin server is unreachable, (3) troubleshoot origin configuration issues, (4) verify origin connectivity from the network perspective, (5) investigate abnormal HTTP responses from the origin. Triggers include: '\u6e90\u7ad9\u8bca\u65ad', '\u6e90\u7ad9\u4e0d\u53ef\u8fbe', '\u56de\u6e90\u5931\u8d25', 'origin diagnosis', 'origin unreachable', '\u56de\u6e90\u5f02\u5e38', '\u6e90\u7ad9\u914d\u7f6e' Do NOT use this skill for configuration changes, cache refresh/preheat, domain lifecycle management, or billing operations \u2014 this skill is strictly read-only diagnosis.",
     "path": "category/testing-unit-tdd/huawei-cloud-cdn-origin-diagnosis"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-robot",
+    "name": "huawei-cloud-cloudrobo-robot",
+    "category": "testing-unit-tdd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage CloudRobo robot instances \u2014 register robots, query robot lists and details, update robot metadata, delete offline robots, export robot certificates for secure access, and fetch the latest robot-side SDK package information. Robots are the physical carriers of embodied intelligence tasks and serve as execution targets for the robo-dispatcher (dispatch) and embodied services. Triggers include: robot registration, robot management, robot type, robot certificate, export certificate, robot SDK, latest SDK, robot_model, manufacturer, \u673a\u5668\u4eba\u6ce8\u518c, \u673a\u5668\u4eba\u7ba1\u7406, \u673a\u5668\u4eba\u7c7b\u578b, \u673a\u5668\u4eba\u8bc1\u4e66, \u5bfc\u51fa\u8bc1\u4e66, \u673a\u5668\u4ebaSDK, \u673a\u5668\u4eba\u578b\u53f7, \u5236\u9020\u5546.",
+    "path": "category/testing-unit-tdd/huawei-cloud-cloudrobo-robot"
   },
   {
     "id": "huawei-cloud-skill-audit",
@@ -1424,6 +2016,14 @@
     "path": "category/testing-unit-tdd/idea-discovery-robot"
   },
   {
+    "id": "idea-refine",
+    "name": "idea-refine",
+    "category": "testing-unit-tdd",
+    "repository": "addyosmani-agent-skills",
+    "description": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on \"ideate\", \"refine this idea\", or \"stress-test my plan\".",
+    "path": "category/testing-unit-tdd/idea-refine"
+  },
+  {
     "id": "idea-to-blueprint",
     "name": "idea-to-blueprint",
     "category": "testing-unit-tdd",
@@ -1456,6 +2056,14 @@
     "path": "category/testing-unit-tdd/identify-assumptions-existing"
   },
   {
+    "id": "idor-broken-object-authorization",
+    "name": "idor-broken-object-authorization",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "IDOR and broken object authorization testing playbook. Use when requests expose object identifiers, tenant boundaries, writable fields, or missing object-level authorization checks.",
+    "path": "category/testing-unit-tdd/idor-broken-object-authorization"
+  },
+  {
     "id": "idor-testing",
     "name": "idor-testing",
     "category": "testing-unit-tdd",
@@ -1480,12 +2088,28 @@
     "path": "category/testing-unit-tdd/implementing-log-integrity-with-blockchain"
   },
   {
+    "id": "implementing-patch-management-workflow",
+    "name": "implementing-patch-management-workflow",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Patch management is the systematic process of identifying, testing, deploying,",
+    "path": "category/testing-unit-tdd/implementing-patch-management-workflow"
+  },
+  {
     "id": "implementing-zero-knowledge-proof-for-authentication",
     "name": "implementing-zero-knowledge-proof-for-authentication",
     "category": "testing-unit-tdd",
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Implements the Schnorr identification protocol and a simplified Zero-Knowledge Password Proof (ZKPP) over the discrete logarithm problem, letting a prover authenticate by demonstrating knowledge of a secret without ever revealing it to the server. Use when designing or building password-less or password-secret-free authentication, or when a server must verify a user's credential without learning or storing the underlying secret.",
     "path": "category/testing-unit-tdd/implementing-zero-knowledge-proof-for-authentication"
+  },
+  {
+    "id": "insecure-source-code-management",
+    "name": "insecure-source-code-management",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "Source control and artifact exposure (.git, .svn, .hg, backups, .env). Use when recon finds VCS paths, 403 on hidden dirs, or backup/config leaks during authorized testing.",
+    "path": "category/testing-unit-tdd/insecure-source-code-management"
   },
   {
     "id": "integration-tests",
@@ -1542,6 +2166,14 @@
     "repository": "nvlabs-aspire",
     "description": "Run the baseline-free CaP iterative debugging (fix loop) pipeline on a user-supplied list of benchmark tasks: inspect one initial observed scene per task, generate task-level code, debug failures on development seeds using recorded run artifacts, validate on the held-out partition, grade the skill library against what actually worked, and promote only those patterns a verifier could reproduce the fix from.",
     "path": "category/testing-unit-tdd/iterative-debugging"
+  },
+  {
+    "id": "iv-estimation",
+    "name": "iv-estimation",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Econometrics skill for instrumental variables and treatment effect estimation. Activates when the user asks about: \"instrumental variables\", \"IV estimation\", \"2SLS\", \"two-stage least squares\", \"endogeneity\", \"weak instruments\", \"first stage\", \"Sargan test\", \"overidentification\", \"propensity score matching\", \"PSM\", \"average treatment effect\", \"ATT\", \"LATE\", \"local average treatment effect\", \"endogenous regressor\", \"instrument validity\", \"\u5de5\u5177\u53d8\u91cf\", \"\u4e24\u9636\u6bb5\u6700\u5c0f\u4e8c\u4e58\", \"\u5185\u751f\u6027\", \"\u5f31\u5de5\u5177\u53d8\u91cf\", \"\u503e\u5411\u5f97\u5206\u5339\u914d\", \"\u5e73\u5747\u5904\u7406\u6548\u5e94\", \"\u5904\u7406\u6548\u5e94\", \"\u5c40\u90e8\u5e73\u5747\u5904\u7406\u6548\u5e94",
+    "path": "category/testing-unit-tdd/iv-estimation"
   },
   {
     "id": "javascript-testing-patterns",
@@ -1624,6 +2256,14 @@
     "path": "category/testing-unit-tdd/launchdarkly-experiment-guide"
   },
   {
+    "id": "lead-dossier",
+    "name": "lead-dossier",
+    "category": "testing-unit-tdd",
+    "repository": "ericosiu-ai-marketing-skills",
+    "description": "Multi-source account research, cascade enrichment, and lead pipeline. Combines website scraping, tech stack detection, CRM enrichment, hiring/news signals into structured dossiers. Includes full lead sourcing pipeline: search \u2192 verify \u2192 dedupe \u2192 upload. Triggers on: \"research account\", \"build dossier\", \"enrich leads\", \"lead pipeline\", \"source leads\", \"prospect research\", \"account intel\", \"cascade enrichment\", \"lead scoring\", \"find leads\", \"verify emails\", \"upload leads\".",
+    "path": "category/testing-unit-tdd/lead-dossier"
+  },
+  {
     "id": "lean-analytics",
     "name": "lean-analytics",
     "category": "testing-unit-tdd",
@@ -1648,6 +2288,30 @@
     "path": "category/testing-unit-tdd/leiloeiro-mercado"
   },
   {
+    "id": "leiloeiro-risco",
+    "name": "leiloeiro-risco",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Analise de risco em leiloes de imoveis. Score 40 pontos, riscos juridicos/financeiros/operacionais, stress test 4 cenarios e ROI ponderado por risco.",
+    "path": "category/testing-unit-tdd/leiloeiro-risco"
+  },
+  {
+    "id": "libfuzzer",
+    "name": "libfuzzer",
+    "category": "testing-unit-tdd",
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs libFuzzer, the coverage-guided fuzzer built into LLVM, on C/C++ code that compiles with Clang. Covers harness structure, -fsanitize=fuzzer builds, corpus and dictionary management, sanitizer integration, and campaign triage. Use when writing or debugging an LLVMFuzzerTestOneInput harness, starting fuzzing on a C/C++ library, choosing between libFuzzer and AFL++, or working out why a libFuzzer run finds nothing.",
+    "path": "category/testing-unit-tdd/libfuzzer"
+  },
+  {
+    "id": "life-sciences-prerequisites-validate",
+    "name": "life-sciences-prerequisites-validate",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Validate Life Sciences Cloud for Customer Engagement org prerequisites. Use when an admin needs to verify that all required settings, permissions, OWD sharing rules, and feature toggles are correctly configured before deploying Life Sciences Cloud. Checks user profile, permission sets, Life Sciences CE settings, surveys, OWD, inventory, account plans, care plans, Chatter, data protection, multi-currency, state/country picklists, and person accounts. Reports pass/fail for each check with remediation steps. TRIGGER when: user says 'check prerequisites', 'verify org setup for Life Sciences', 'LSC readiness check', 'pre-requisites for Life Sciences Cloud', 'validate org for LSC'. DO NOT TRIGGER when: user wants to automatically enable or configure these settings, or when the user asks for the full end-to-end Life Sciences Cloud setup / orchestration (that is the `life-sciences-fieldsalesrep-coordinate` orchestrator's job \u2014 this skill runs only as a standalone prerequisites check).",
+    "path": "category/testing-unit-tdd/life-sciences-prerequisites-validate"
+  },
+  {
     "id": "lifecycle-crud",
     "name": "lifecycle-crud",
     "category": "testing-unit-tdd",
@@ -1656,12 +2320,44 @@
     "path": "category/testing-unit-tdd/lifecycle-crud"
   },
   {
+    "id": "list-hygiene-monitor",
+    "name": "list-hygiene-monitor",
+    "category": "testing-unit-tdd",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"watch my list health over time\", \"flag decaying / unengaged subscribers on a schedule\", \"why is my open rate drifting down / bounces creeping up\", or \"build me a re-permission and prune worklist\"; runs the scheduled SEND list-decay + suppression-drift watch \u2014 an engagement-recency cohort read (30/90/180/365-day), hard-bounce and spam-complaint trend vs benchmark, suppression-list growth/leakage check, and a segmented re-permission / sunset / prune worklist tied to SEND S (list hygiene) and E (engagement-decay) sub-items. Not for the one-time pre-send authentication pre-flight \u2014 use deliverability-qa; not for the consent/suppression record itself \u2014 use consent-registry; not for computing the EQS or enforcing vetoes \u2014 use email-quality-auditor. \u90ae\u4ef6\u5217\u8868\u5065\u5eb7\u5ea6\u76d1\u63a7/\u9000\u8ba2\u6f02\u79fb/\u6c89\u7761\u7528\u6237\u6e05\u7406",
+    "path": "category/testing-unit-tdd/list-hygiene-monitor"
+  },
+  {
+    "id": "literature-search",
+    "name": "literature-search",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Use when the user asks to search for papers, review literature, find references on a topic, verify a paper exists, or build a bibliography. Enforces web verification of every citation via web fetch to prevent hallucinated references.",
+    "path": "category/testing-unit-tdd/literature-search"
+  },
+  {
     "id": "live-data-forensics",
     "name": "live-data-forensics",
     "category": "testing-unit-tdd",
     "repository": "amplitude-mcp-marketplace",
     "description": "Investigates live product issues against Amplitude data \u2014 \"is X firing today\", \"did the release break Y\", \"which users are affected by Z\". Covers the verify-then-query loop, query_amplitude_data parameterization, and its common failure modes. Use for incident analysis, instrumentation checks, and affected-user discovery.",
     "path": "category/testing-unit-tdd/live-data-forensics"
+  },
+  {
+    "id": "ljg-paper",
+    "name": "ljg-paper",
+    "category": "testing-unit-tdd",
+    "repository": "lijigang-ljg-skills",
+    "description": "Explain research papers to readers without a specialist background: what the paper studies, what the authors contribute, how the findings follow, and what the evidence does not establish. USE WHEN the user shares an arXiv link, paper URL, PDF, local paper, or paper title, or asks to read, explain, analyze, or understand a paper. Defaults to a saved Markdown note. NOT FOR reproduction, formal peer review, benchmark tables, or literature surveys.",
+    "path": "category/testing-unit-tdd/ljg-paper"
+  },
+  {
+    "id": "llm-evaluation-guide",
+    "name": "llm-evaluation-guide",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Evaluate and benchmark large language models for research applications",
+    "path": "category/testing-unit-tdd/llm-evaluation-guide"
   },
   {
     "id": "localization-testing",
@@ -1696,6 +2392,22 @@
     "path": "category/testing-unit-tdd/m10-performance"
   },
   {
+    "id": "macos-security-bypass",
+    "name": "macos-security-bypass",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "macOS security bypass playbook. Use when targeting macOS endpoints and need to bypass TCC, Gatekeeper, SIP, sandbox, code signing, or entitlement-based protections during authorized red team or pentest engagements.",
+    "path": "category/testing-unit-tdd/macos-security-bypass"
+  },
+  {
+    "id": "mageck",
+    "name": "mageck",
+    "category": "testing-unit-tdd",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Analyzes pooled CRISPR screen FASTQ reads and guide-count matrices with MAGeCK, validates guide libraries and contrasts, measures replicate and library QC, and produces gene hit rankings with effect sizes and FDR. Use for new knockout, CRISPRi, or CRISPRa screen analysis, enrichment or depletion contrasts, and MAGeCK count/test workflows; existing public dependency-score lookup belongs to DepMap.",
+    "path": "category/testing-unit-tdd/mageck"
+  },
+  {
     "id": "mailtrap-setting-up-sending-domain",
     "name": "mailtrap-setting-up-sending-domain",
     "category": "testing-unit-tdd",
@@ -1720,6 +2432,14 @@
     "path": "category/testing-unit-tdd/marketing"
   },
   {
+    "id": "marketing-mindset",
+    "name": "marketing-mindset",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Use when a user asks how to win first customers, whether doing X will produce Y, how to write an ad or judge a marketing test \u2014 a marketer's decision framework, not a tactic library.",
+    "path": "category/testing-unit-tdd/marketing-mindset"
+  },
+  {
     "id": "matlab",
     "name": "matlab",
     "category": "testing-unit-tdd",
@@ -1736,20 +2456,20 @@
     "path": "category/testing-unit-tdd/mcore-testing"
   },
   {
-    "id": "measuring-pmf",
-    "name": "measuring-pmf",
-    "category": "testing-unit-tdd",
-    "repository": "refoundai-lenny-skills",
-    "description": "Help users objectively assess where their product stands on the PMF spectrum by triangulating qualitative feedback, quantitative retention benchmarks, and organic growth signals.",
-    "path": "category/testing-unit-tdd/measuring-pmf"
-  },
-  {
     "id": "mechanistic-interpretability-pyvene",
     "name": "mechanistic-interpretability-pyvene",
     "category": "testing-unit-tdd",
     "repository": "davila7-claude-code-templates",
     "description": "Provides guidance for performing causal interventions on PyTorch models using pyvene's declarative intervention framework. Use when conducting causal tracing, activation patching, interchange intervention training, or testing causal hypotheses about model behavior.",
     "path": "category/testing-unit-tdd/mechanistic-interpretability-pyvene"
+  },
+  {
+    "id": "message-test-designer",
+    "name": "message-test-designer",
+    "category": "testing-unit-tdd",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"test our messaging before we scale it\", \"design a message-market-fit panel\", or \"run a 5-second comprehension test on our new tagline\"; produces a message-test design spec \u2014 hypothesis, panel and recruit criteria, comprehension / 5-second / message-market-fit (Wynter-style) protocols, stimulus set drawn from the canon, success thresholds, and a stop/revise decision rule \u2014 for the TALE Evaluate phase so the message is validated before any paid scale. It designs the test; it never runs the experiment or adjudicates a claim. Not for running the panel or A/B experiment \u2014 use send-experiment-designer or ad-test-designer; not for analyzing the results \u2014 use performance-analyzer; not for authoring the message itself \u2014 use message-system-architect. \u6d88\u606f\u6d4b\u8bd5/\u7406\u89e3\u5ea6\u6d4b\u8bd5/\u9762\u677f\u8bbe\u8ba1/\u4e94\u79d2\u6d4b\u8bd5/\u6d88\u606f\u5e02\u573a\u5951\u5408",
+    "path": "category/testing-unit-tdd/message-test-designer"
   },
   {
     "id": "meta-ads-creative",
@@ -1832,6 +2552,38 @@
     "path": "category/testing-unit-tdd/momentic-result-classification"
   },
   {
+    "id": "monitoring-expert",
+    "name": "monitoring-expert",
+    "category": "testing-unit-tdd",
+    "repository": "jeffallan-claude-skills",
+    "description": "Configures monitoring systems, implements structured logging pipelines, creates Prometheus/Grafana dashboards, defines alerting rules, and instruments distributed tracing. Implements Prometheus/Grafana stacks, conducts load testing, performs application profiling, and plans infrastructure capacity. Use when setting up application monitoring, adding observability to services, debugging production issues with logs/metrics/traces, running load tests with k6 or Artillery, profiling CPU/memory bottlenecks, or forecasting capacity needs.",
+    "path": "category/testing-unit-tdd/monitoring-expert"
+  },
+  {
+    "id": "monorepo-management",
+    "name": "monorepo-management",
+    "category": "testing-unit-tdd",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Manage monorepo architectures using Lerna, Turborepo, and Nx. Configure workspaces, dependency versioning, and cross-package testing.",
+    "path": "category/testing-unit-tdd/monorepo-management"
+  },
+  {
+    "id": "monorepo-navigator",
+    "name": "monorepo-navigator",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Navigate, manage, and optimize monorepos. Covers Turborepo, Nx, pnpm workspaces, and Lerna. Cross-package impact analysis, selective builds/tests on affected packages, remote caching, dependency graph visualization, and structured multi-repo to monorepo migrations. Use when setting up a new monorepo, optimizing CI for a large workspace, debugging cross-package dependency issues, or planning a multi-repo consolidation.",
+    "path": "category/testing-unit-tdd/monorepo-navigator"
+  },
+  {
+    "id": "mtp-hot-reload",
+    "name": "mtp-hot-reload",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "Set up or recover MTP hot reload for a long-lived console-host edit/re-run loop in a Microsoft Testing Platform project. Use for explicit MTP console requests such as \"enable hot reload\", \"dotnet run to rerun on edit\", or unsupported/rude edits. Covers setup, run/watch, restarts, filters, and the VSTest no-mutation fallback. For one-time runs, exact commands, filter errors, TRX/dumps, or merely a failing test, use run-tests. Do not use when Test Explorer or an IDE should rerun tests without an MTP console host. Excludes editor integration, CI, and writing/debugging tests.",
+    "path": "category/testing-unit-tdd/mtp-hot-reload"
+  },
+  {
     "id": "mutation-testing",
     "name": "mutation-testing",
     "category": "testing-unit-tdd",
@@ -1846,6 +2598,22 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Select, verify, and safely switch n8n MCP instances across production, staging, teams, or clients, especially before credential writes.",
     "path": "category/testing-unit-tdd/n8n-multi-instance"
+  },
+  {
+    "id": "nature-academic-search",
+    "name": "nature-academic-search",
+    "category": "testing-unit-tdd",
+    "repository": "yuan1z0825-nature-skills",
+    "description": "Search literature across sources, verify or manage citations, and build MeSH strategies or citation-impact audits. Use for \u6587\u732e\u68c0\u7d22\u3001\u5f15\u6587\u6838\u5bf9\u3001\u53c2\u8003\u6587\u732e\u7ba1\u7406\u3001\u4e25\u683c\u4ed6\u5f15 and evidence-backed citer profiles; not for translating a paper or drafting manuscript prose.",
+    "path": "category/testing-unit-tdd/nature-academic-search"
+  },
+  {
+    "id": "nature-citation",
+    "name": "nature-citation",
+    "category": "testing-unit-tdd",
+    "repository": "yuan1z0825-nature-skills",
+    "description": "Find and verify Nature/CNS-family literature supporting manuscript claims, with claim-to-source mapping and reference-manager export. Use for Nature\u7cfb\u5217\u5f15\u7528\u3001CNS\u652f\u6491\u6587\u732e\u3001\u5206\u6bb5\u8865\u5f15\u7528 when this journal scope is requested; use broader literature search for unrestricted sources.",
+    "path": "category/testing-unit-tdd/nature-citation"
   },
   {
     "id": "nature-statistics",
@@ -1870,14 +2638,6 @@
     "repository": "nvidia-skills",
     "description": "Recommend and customize Megatron Bridge library and benchmark recipes for a user's model, GPU count, hardware, sequence length, and pretrain/SFT/PEFT goal. Use when selecting a starting recipe, comparing library and benchmark configs, resizing parallelism for a GPU allocation, or distinguishing convergence changes, semantics-preserving execution tuning, and benchmark-only shortcuts.",
     "path": "category/testing-unit-tdd/nemo-mbridge-recipe-recommender"
-  },
-  {
-    "id": "nemo-relay-get-started",
-    "name": "nemo-relay-get-started",
-    "category": "testing-unit-tdd",
-    "repository": "nvidia-skills",
-    "description": "Use this skill when first-time NeMo Relay users want help selecting and following an appropriate quick-start guide or verifying their first working integration. Do not use it for production rollout or broad integration development.",
-    "path": "category/testing-unit-tdd/nemo-relay-get-started"
   },
   {
     "id": "network-101",
@@ -1944,6 +2704,14 @@
     "path": "category/testing-unit-tdd/odoo-automated-tests"
   },
   {
+    "id": "odoo-backup-strategy",
+    "name": "odoo-backup-strategy",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures.",
+    "path": "category/testing-unit-tdd/odoo-backup-strategy"
+  },
+  {
     "id": "om-mockup-prototype",
     "name": "om-mockup-prototype",
     "category": "testing-unit-tdd",
@@ -1958,6 +2726,14 @@
     "repository": "open-mercato-skills",
     "description": "Prepare a reusable, technology-agnostic environment for local tests and QA. Compiles discovery into cross-platform launch scripts, provisions the configured browser provider autonomously, and writes the shared test-env descriptor consumed by UI and integration-test skills.",
     "path": "category/testing-unit-tdd/om-prepare-test-env"
+  },
+  {
+    "id": "om-troubleshooter",
+    "name": "om-troubleshooter",
+    "category": "testing-unit-tdd",
+    "repository": "open-mercato-skills",
+    "description": "Diagnose a failure from its symptom \u2014 reproduce, classify the broken invariant, route via the repo AGENTS.md Task Router, trace the smallest root cause, and on request land a minimal fix behind a regression test. Framework knowledge via om-framework-context. Use for \"why does this fail\", \"debug this\", \"fix this bug\", \"regression\", \"napraw b\u0142\u0105d\".",
+    "path": "category/testing-unit-tdd/om-troubleshooter"
   },
   {
     "id": "oneroster-csv-validator",
@@ -2016,6 +2792,14 @@
     "path": "category/testing-unit-tdd/orienting-to-an-inherited-seat"
   },
   {
+    "id": "ossfuzz",
+    "name": "ossfuzz",
+    "category": "testing-unit-tdd",
+    "repository": "trailofbits-skills",
+    "description": "Enrolls a project in OSS-Fuzz, Google's free continuous fuzzing service for open source, and drives it locally. Covers project.yaml, Dockerfile and build.sh setup, the helper scripts, reproducing OSS-Fuzz crash reports, and the acceptance criteria. Use when setting up continuous fuzzing for an open-source project, reproducing an OSS-Fuzz bug report, or testing an OSS-Fuzz build before submitting it.",
+    "path": "category/testing-unit-tdd/ossfuzz"
+  },
+  {
     "id": "paid-ads-creative",
     "name": "paid-ads-creative",
     "category": "testing-unit-tdd",
@@ -2038,6 +2822,14 @@
     "repository": "nowork-studio-notfair-plugin",
     "description": "Plan and prepare a new paid-media campaign or cross-channel test before it can spend. Use when asked to create, launch, start, set up, or allocate budget to an advertising campaign on any supported platform.",
     "path": "category/testing-unit-tdd/paid-ads-launch"
+  },
+  {
+    "id": "panel-data",
+    "name": "panel-data",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Econometrics skill for panel data models. Activates when the user asks about: \"panel data\", \"fixed effects\", \"random effects\", \"Hausman test\", \"within estimator\", \"between estimator\", \"two-way fixed effects\", \"clustered standard errors panel\", \"FE model\", \"RE model\", \"pooled OLS\", \"unobserved heterogeneity\", \"panel regression\", \"first difference estimator\", \"entity fixed effects\", \"time fixed effects\", \"\u9762\u677f\u6570\u636e\", \"\u56fa\u5b9a\u6548\u5e94\", \"\u968f\u673a\u6548\u5e94\", \"\u8c6a\u65af\u66fc\u68c0\u9a8c\", \"\u53cc\u5411\u56fa\u5b9a\u6548\u5e94\", \"\u9762\u677f\u56de\u5f52\", \"\u4e2a\u4f53\u6548\u5e94\", \"\u65f6\u95f4\u6548\u5e94\", \"\u4e00\u9636\u5dee\u5206",
+    "path": "category/testing-unit-tdd/panel-data"
   },
   {
     "id": "paper-claim-audit",
@@ -2078,6 +2870,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses Parallel or its connected tools for current information and URL extraction.",
     "path": "category/testing-unit-tdd/parallel-search-mcp"
+  },
+  {
+    "id": "pathway-enrichment",
+    "name": "pathway-enrichment",
+    "category": "testing-unit-tdd",
+    "repository": "k-dense-ai-scientific-agent-skills",
+    "description": "Performs pathway and gene-set enrichment analysis on gene lists or ranked gene data and interprets the results. Used when the user has a set of genes (differentially expressed genes from PyDESeq2/Scanpy, CRISPR-screen hits, cluster marker genes, proteomics hits) and wants to know which biological pathways, GO terms, or gene sets are over-represented or enriched. Covers over-representation analysis (ORA / Enrichr / Fisher / hypergeometric), ranked Gene Set Enrichment Analysis (GSEA / preranked), single-sample scoring (ssGSEA/GSVA), and functional profiling via gseapy, g:Profiler, Enrichr libraries, MSigDB, GO, KEGG, Reactome, and WikiPathways \u2014 plus gene-ID mapping, choosing the right background universe, multiple-testing correction, redundancy reduction, dotplots/enrichment maps, and publication-ready tables. Use this for \"pathway analysis\", \"enrichment analysis\", \"GO enrichment\", \"KEGG/Reactome pathways\", \"GSEA\", \"over-representation\", \"functional annotation\", or \"what pathways are my genes in\".",
+    "path": "category/testing-unit-tdd/pathway-enrichment"
   },
   {
     "id": "pentesting-with-aws-security-agent",
@@ -2136,12 +2936,12 @@
     "path": "category/testing-unit-tdd/performing-directory-traversal-testing"
   },
   {
-    "id": "performing-ssl-tls-security-assessment",
-    "name": "performing-ssl-tls-security-assessment",
+    "id": "performing-soap-web-service-security-testing",
+    "name": "performing-soap-web-service-security-testing",
     "category": "testing-unit-tdd",
     "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Assess SSL/TLS server configurations using the sslyze Python scanning library to evaluate supported protocol versions, cipher suite strength, certificate chain validation, HSTS enforcement, OCSP stapling, and known vulnerabilities such as Heartbleed and ROBOT. Use when conducting a security assessment of a server's TLS configuration or verifying remediation of cipher/certificate weaknesses.",
-    "path": "category/testing-unit-tdd/performing-ssl-tls-security-assessment"
+    "description": "Performs security testing of SOAP web services by analyzing WSDL definitions",
+    "path": "category/testing-unit-tdd/performing-soap-web-service-security-testing"
   },
   {
     "id": "performing-supply-chain-attack-simulation",
@@ -2168,6 +2968,38 @@
     "path": "category/testing-unit-tdd/perplexity"
   },
   {
+    "id": "personal-strategic-signal-intelligence",
+    "name": "personal-strategic-signal-intelligence",
+    "category": "testing-unit-tdd",
+    "repository": "ericosiu-ai-marketing-skills",
+    "description": "Turn an executive or operator's private reading, highlights, notes, social bookmarks, and applied work into source-grounded decision intelligence. Use when detecting attention drift, surfacing pre-decision signals, testing contradictions, converting bookmarks into builds, recombining founder IP, finding service-offer arbitrage, or mapping content negative space.",
+    "path": "category/testing-unit-tdd/personal-strategic-signal-intelligence"
+  },
+  {
+    "id": "physicsnemo-shard-tensor",
+    "name": "physicsnemo-shard-tensor",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Official NVIDIA-authored guidance for PhysicsNeMo ShardTensor domain parallelism \u2014 integrate domain parallelism into training/inference scripts (new or existing) with DDP or FSDP2, write and register shard patches to enable new layers/ops, and bootstrap multi-GPU correctness tests. Use when working with ShardTensor, scatter_tensor, domain parallelism, sequence/spatial sharding, ring attention, DeviceMesh + DDP/FSDP2 hybrid parallelism, or physicsnemo.domain_parallel. Do NOT use for generic PyTorch DDP/FSDP setup without domain parallelism, picking a PhysicsNeMo model or example (use physicsnemo-discover), or non-distributed training questions.",
+    "path": "category/testing-unit-tdd/physicsnemo-shard-tensor"
+  },
+  {
+    "id": "platform-apex-anonymous-run",
+    "name": "platform-apex-anonymous-run",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Runs anonymous Apex against the connected org (.apex file or pasted snippet), capturing the debug log, surfacing errors. Triggers on \\\"run this anonymous apex\\\", \\\"execute this script against my org\\\", \\\"what does this code return\\\", or \\\"execute scripts/foo.apex\\\". Wraps scripts in savepoint+rollback; warns before running in production. DO NOT TRIGGER for authoring .cls/.trigger files (platform-apex-generate), Apex unit tests (platform-apex-test-run), or debug-log analysis (platform-apex-logs-debug).",
+    "path": "category/testing-unit-tdd/platform-apex-anonymous-run"
+  },
+  {
+    "id": "platform-apex-logs-debug",
+    "name": "platform-apex-logs-debug",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Salesforce debug log analysis and troubleshooting with 100-point scoring. TRIGGER when: user analyzes debug logs, hits governor limits, reads stack traces, or touches .log files from Salesforce orgs. DO NOT TRIGGER when: running Apex tests (use platform-apex-test-run), generating or fixing Apex code (use platform-apex-generate), or Agentforce session tracing (use agentforce-observe).",
+    "path": "category/testing-unit-tdd/platform-apex-logs-debug"
+  },
+  {
     "id": "platform-apex-test-generate",
     "name": "platform-apex-test-generate",
     "category": "testing-unit-tdd",
@@ -2184,6 +3016,14 @@
     "path": "category/testing-unit-tdd/platform-apex-test-run"
   },
   {
+    "id": "play-policy-insights",
+    "name": "play-policy-insights",
+    "category": "testing-unit-tdd",
+    "repository": "android-skills",
+    "description": "Automated auditor designed to verify Android applications against Google Play Policy domains. It cross-references static code analysis with Play Store declarations to generate deterministic compliance reports, identifying undeclared data collection, architectural risks, and missing disclosures across Permissions and APIs Hygiene, User Account and Identity, and Data Safety and Privacy domains.",
+    "path": "category/testing-unit-tdd/play-policy-insights"
+  },
+  {
     "id": "playtest-report",
     "name": "playtest-report",
     "category": "testing-unit-tdd",
@@ -2198,6 +3038,22 @@
     "repository": "openai-skills",
     "description": "Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, and baseline placeholders you can edit before publishing or testing. Use when Codex needs to create a new local plugin, add optional plugin structure, or generate or update repo-root `.agents/plugins/marketplace.json` entries for plugin ordering and availability metadata.",
     "path": "category/testing-unit-tdd/plugin-creator"
+  },
+  {
+    "id": "pm-skills",
+    "name": "pm-skills",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when coordinating project-delivery work across the 8 project-management sub-skills \u2014 sprint/velocity analytics, portfolio health, Jira/JQL, Confluence, Atlassian admin, templates, meeting analysis, team comms. Triggers on 'our sprints feel off', 'project health report', 'audit our Jira permissions', 'when will it be done', 'run the delivery loop'. Forks context to route to one sub-skill via a deterministic signal router and returns a digest; can also drive a full goal\u2192plan\u2192execute\u2192verify\u2192close delivery loop through the repo-wide agent-harness with Jira MCP data bridged into the domain's analytics tools. Distinct from product-team (what to build vs how to deliver it), business-operations (internal ops), and engineering/agent-harness (the generic loop engine this orchestrator plugs into).",
+    "path": "category/testing-unit-tdd/pm-skills"
+  },
+  {
+    "id": "pol-probe",
+    "name": "pol-probe",
+    "category": "testing-unit-tdd",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Define a Proof of Life probe to test a risky hypothesis cheaply. Use when you need harsh truth before building real product.",
+    "path": "category/testing-unit-tdd/pol-probe"
   },
   {
     "id": "port-a-mod",
@@ -2264,12 +3120,36 @@
     "path": "category/testing-unit-tdd/product-brainstorming"
   },
   {
-    "id": "profiling-optimization",
-    "name": "profiling-optimization",
+    "id": "product-discovery",
+    "name": "product-discovery",
     "category": "testing-unit-tdd",
-    "repository": "aj-geddes-useful-ai-prompts",
-    "description": "Profile application performance, identify bottlenecks, and optimize hot paths using CPU profiling, flame graphs, and benchmarking. Use when investigating performance issues or optimizing critical code paths.",
-    "path": "category/testing-unit-tdd/profiling-optimization"
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when validating product opportunities, mapping assumptions, planning discovery sprints, or testing problem-solution fit before committing delivery resources.",
+    "path": "category/testing-unit-tdd/product-discovery"
+  },
+  {
+    "id": "product-lens",
+    "name": "product-lens",
+    "category": "testing-unit-tdd",
+    "repository": "affaan-m-ecc",
+    "description": "Validate the why before building through four product diagnostics \u2014 a YC-style product diagnostic that produces PRODUCT-BRIEF.md with a go/no-go recommendation, a founder review scoring product-market-fit signals, a user journey audit measuring time-to-value, and ICE feature prioritization. Use when pressure-testing product direction, choosing between features, sanity-checking a launch, or converting a vague idea into a product brief.",
+    "path": "category/testing-unit-tdd/product-lens"
+  },
+  {
+    "id": "product-research",
+    "name": "product-research",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when planning and synthesizing product/user research as a method-and-repository discipline \u2014 selecting the right method for the goal (generative interviews vs usability test vs concept test vs validation), computing method-based saturation/sample size with an explicit confidence level, or synthesizing coded observations into insights while flagging single-source anecdotes. Never fabricates user insight; an insight requires recurrence across independent participants. Distinct from product-team/ux-researcher-designer (persona/journey artifacts), product-discovery (discovery-sprint planning), and experiment-designer (live A/B) \u2014 this is the research-ops method + insight-repository layer.",
+    "path": "category/testing-unit-tdd/product-research"
+  },
+  {
+    "id": "product-skills",
+    "name": "product-skills",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when coordinating product work across the 12 bundled product sub-skills (RICE, OKRs, UX research, design tokens, competitive teardown, analytics, experiments, discovery, roadmaps, spec-to-repo, landing pages, SaaS scaffolding) or the 4 standalone product-team plugins (user stories, Apple HIG, code-to-PRD, research summarizer). Triggers on 'help me prioritize', 'plan a product experiment', 'we ship features nobody uses', 'run the discovery loop', 'is our OST sound'. Forks context to route to one sub-skill via a deterministic signal router and returns a digest; can also drive a continuous-discovery loop (Torres cadence tracker + OST linter as machine gates) or a full goal\u2192plan\u2192execute\u2192verify\u2192close run through the repo-wide agent-harness. Distinct from project-management (how to deliver vs what to build), marketing/landing (from-scratch pages), and engineering/agent-harness (the generic loop engine this orchestrator plugs into).",
+    "path": "category/testing-unit-tdd/product-skills"
   },
   {
     "id": "project-builder",
@@ -2294,6 +3174,22 @@
     "repository": "active",
     "description": "Writes, reviews, and debugs property-based tests \u2014 Hypothesis, fast-check, proptest, jqwik, rapid, and Echidna or Medusa for Solidity invariants. Use whenever tests should cover a whole input domain instead of a hand-picked list of examples: encode/decode and serialize/deserialize pairs, parsers, canonicalizers and normalizers, validators, numeric and Decimal types, comparators and sort order, data structures, and smart-contract state invariants. Also use when adding cases to an existing @given, fast-check, or proptest suite, when judging whether existing property tests assert anything real, and when a generator has shrunk a counterexample and you need to tell a wrong property from a genuine bug. Not for coverage-guided binary fuzzing (libFuzzer, AFL), mutation-testing campaigns, static analysis, benchmarking, or end-to-end UI tests.",
     "path": "category/testing-unit-tdd/property-based-testing"
+  },
+  {
+    "id": "prospecting",
+    "name": "prospecting",
+    "category": "testing-unit-tdd",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS, general B2B, or local small businesses. Also use when the user mentions \"prospecting,\" \"build a prospect list,\" \"find leads,\" \"lead list,\" \"outbound list,\" \"target account list,\" \"ICP-fit accounts,\" \"find local businesses,\" \"find my first customers,\" \"design partners,\" \"signal-based outbound,\" \"gap plays,\" \"buying signals,\" \"intent data,\" \"job change alerts,\" \"waterfall enrichment,\" \"Clay table,\" \"lookalike accounts,\" \"catch-all emails,\" \"account tiering,\" or \"research this account before I reach out.\" Always verify emails before they reach a sequence, and never scrape LinkedIn. Define audiences in Sales Navigator and pull contacts from licensed data. Covers list building, signals, enrichment, verification, and account research. For the outreach itself (copy, sending setup, LinkedIn, cadences, replies), see cold-email. For researching competitors, see competitor-profiling.",
+    "path": "category/testing-unit-tdd/prospecting"
+  },
+  {
+    "id": "prototype-pollution",
+    "name": "prototype-pollution",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "Prototype pollution testing for JavaScript stacks. Use when user input is merged into objects (query parsers, JSON bodies, deep assign), when configuring libraries via untrusted keys, or when hunting RCE gadgets via polluted Object.prototype in Node or the browser.",
+    "path": "category/testing-unit-tdd/prototype-pollution"
   },
   {
     "id": "prototype-strategy",
@@ -2328,12 +3224,12 @@
     "path": "category/testing-unit-tdd/pva-spec"
   },
   {
-    "id": "pymoo",
-    "name": "pymoo",
+    "id": "pydeseq2",
+    "name": "pydeseq2",
     "category": "testing-unit-tdd",
     "repository": "davila7-claude-code-templates",
-    "description": "Multi-objective optimization framework. NSGA-II, NSGA-III, MOEA/D, Pareto fronts, constraint handling, benchmarks (ZDT, DTLZ), for engineering design and optimization problems.",
-    "path": "category/testing-unit-tdd/pymoo"
+    "description": "Differential gene expression analysis (Python DESeq2). Identify DE genes from bulk RNA-seq counts, Wald tests, FDR correction, volcano/MA plots, for RNA-seq analysis.",
+    "path": "category/testing-unit-tdd/pydeseq2"
   },
   {
     "id": "pypict-skill",
@@ -2342,6 +3238,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Pairwise test generation",
     "path": "category/testing-unit-tdd/pypict-skill"
+  },
+  {
+    "id": "pytest-skill",
+    "name": "pytest-skill",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Generates production-grade pytest tests in Python with fixtures, parametrize, markers, mocking, and conftest patterns. Use when user mentions \\\"pytest\\\", \\\"conftest\\\", \\\"@pytest.fixture\\\", \\\"@pytest.mark\\\", \\\"Python test\\\".",
+    "path": "category/testing-unit-tdd/pytest-skill"
   },
   {
     "id": "python-cybersecurity-tool-development",
@@ -2384,20 +3288,12 @@
     "path": "category/testing-unit-tdd/quant-analyst"
   },
   {
-    "id": "quarkus-tdd",
-    "name": "quarkus-tdd",
+    "id": "quantized-export",
+    "name": "quantized-export",
     "category": "testing-unit-tdd",
-    "repository": "affaan-m-ecc",
-    "description": "Test-driven development for Quarkus 3.x LTS using JUnit 5, Mockito, REST Assured, Camel testing, and JaCoCo. Use when adding features, fixing bugs, or refactoring event-driven services.",
-    "path": "category/testing-unit-tdd/quarkus-tdd"
-  },
-  {
-    "id": "r-performance",
-    "name": "r-performance",
-    "category": "testing-unit-tdd",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "R performance best practices including profiling, benchmarking, vctrs, and optimization strategies. Use when optimizing R code.",
-    "path": "category/testing-unit-tdd/r-performance"
+    "repository": "wshobson-agents",
+    "description": "Export a promoted fine-tuned model in the right deployment format \u2014 merged safetensors, LoRA-only, GGUF with imatrix, or FP8. Use after a checkpoint passes promotion, when choosing a quantization format for a target device, or when an exported model fails its smoke test.",
+    "path": "category/testing-unit-tdd/quantized-export"
   },
   {
     "id": "race-condition",
@@ -2416,12 +3312,28 @@
     "path": "category/testing-unit-tdd/raffle-winner-picker"
   },
   {
-    "id": "react-testing",
-    "name": "react-testing",
+    "id": "react-components",
+    "name": "react-components",
     "category": "testing-unit-tdd",
-    "repository": "affaan-m-ecc",
-    "description": "React component testing with React Testing Library, Vitest/Jest, MSW for network mocking, accessibility assertions with axe, and the decision boundary between component tests and Playwright/Cypress end-to-end runs. Use when writing or fixing tests for React components, hooks, or pages.",
-    "path": "category/testing-unit-tdd/react-testing"
+    "repository": "google-labs-code-stitch-skills",
+    "description": "Converts Stitch designs into modular Vite and React components, or syncs/updates existing React components to align with the latest Stitch designs, using system-level networking and AST-based validation.",
+    "path": "category/testing-unit-tdd/react-components"
+  },
+  {
+    "id": "react-modernization",
+    "name": "react-modernization",
+    "category": "testing-unit-tdd",
+    "repository": "antigravity-awesome-skills",
+    "description": "Upgrade React applications to latest versions, migrate from class components to hooks, and adopt concurrent features. Use when modernizing React codebases, migrating to React Hooks, or upgrading to...",
+    "path": "category/testing-unit-tdd/react-modernization"
+  },
+  {
+    "id": "recon-and-methodology",
+    "name": "recon-and-methodology",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "Reconnaissance and methodology playbook. Use when mapping assets, discovering endpoints, fingerprinting technology, and building a structured testing plan for a new target.",
+    "path": "category/testing-unit-tdd/recon-and-methodology"
   },
   {
     "id": "red-green-proof",
@@ -2432,12 +3344,28 @@
     "path": "category/testing-unit-tdd/red-green-proof"
   },
   {
-    "id": "referee2",
-    "name": "referee2",
+    "id": "reference-verify",
+    "name": "reference-verify",
     "category": "testing-unit-tdd",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Systematic audit and review by Referee 2. Two modes \u2014 \"deck\" reviews slide presentations for rhetoric, visual quality, and compile cleanliness; \"code\" performs cross-language replication and econometric audit of empirical pipelines. Use when reviewing slides, auditing code, or verifying replication.",
-    "path": "category/testing-unit-tdd/referee2"
+    "description": "Verify references in an academic paper: check whether each BibTeX entry is real, whether in-text citations match the cited paper's actual content, and produce a structured verification report. Use when user says \\\"\u9a8c\u8bc1\u53c2\u8003\u6587\u732e\\\", \\\"ref verify\\\", \\\"check references\\\", \\\"\u6838\u5b9e\u5f15\u7528\\\", \\\"\u5f15\u7528\u662f\u5426\u6b63\u786e\\\", or wants to audit citations in a LaTeX manuscript.",
+    "path": "category/testing-unit-tdd/reference-verify"
+  },
+  {
+    "id": "regression-suite",
+    "name": "regression-suite",
+    "category": "testing-unit-tdd",
+    "repository": "donchitos-claude-code-game-studios",
+    "description": "Map test coverage to GDD critical paths, find fixed bugs lacking regression tests, flag drift from new features.",
+    "path": "category/testing-unit-tdd/regression-suite"
+  },
+  {
+    "id": "replica-diff",
+    "name": "replica-diff",
+    "category": "testing-unit-tdd",
+    "repository": "jakeschincariol-replica-skill",
+    "description": "Compares an app clone against the original: a feature parity score from the feature matrix (weighted by must, should, could) with the missing list in build order, plus a screenshot layout diff that ignores colour so a rebrand does not count against you. Two standard-library Python tools. Use when the user says \"how close is my clone\", \"compare it to the original\", \"what's missing\", \"parity check\", \"diff the screens\", \"is it ready\", or after /replica-test.",
+    "path": "category/testing-unit-tdd/replica-diff"
   },
   {
     "id": "replicate",
@@ -2464,6 +3392,14 @@
     "path": "category/testing-unit-tdd/report"
   },
   {
+    "id": "request-smuggling",
+    "name": "request-smuggling",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "HTTP request smuggling and desynchronization testing. Use when front proxies, CDNs, or load balancers disagree with the origin on message framing (Content-Length vs Transfer-Encoding), on HTTP/2\u2192HTTP/1 translation, or when exploring client-side desync via browser fetch pipelines.",
+    "path": "category/testing-unit-tdd/request-smuggling"
+  },
+  {
     "id": "requesting-code-review",
     "name": "requesting-code-review",
     "category": "testing-unit-tdd",
@@ -2488,12 +3424,44 @@
     "path": "category/testing-unit-tdd/risky-changes"
   },
   {
+    "id": "robot-framework-skill",
+    "name": "robot-framework-skill",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Generates Robot Framework tests in keyword-driven syntax with Python. Supports SeleniumLibrary, RequestsLibrary, and custom keywords. Use when user mentions \\\"Robot Framework\\\", \\\"*** Test Cases ***\\\", \\\"SeleniumLibrary\\\", \\\".robot file\\\".",
+    "path": "category/testing-unit-tdd/robot-framework-skill"
+  },
+  {
+    "id": "ros2-robotics",
+    "name": "ros2-robotics",
+    "category": "testing-unit-tdd",
+    "repository": "mindrally-skills",
+    "description": "Best practices for ROS 2 robotics development, covering package structure, nodes, topics/services/actions, launch files, QoS, tf2 transforms, and testing. Use when creating ROS 2 packages, writing nodes in rclpy or rclcpp, defining custom messages/services/actions, writing launch files, configuring QoS profiles, working with tf2 transforms, or building and testing a colcon workspace.",
+    "path": "category/testing-unit-tdd/ros2-robotics"
+  },
+  {
+    "id": "rspec",
+    "name": "rspec",
+    "category": "testing-unit-tdd",
+    "repository": "mindrally-skills",
+    "description": "RSpec testing best practices for Ruby and Rails applications, covering test organization, data management, and isolation patterns.",
+    "path": "category/testing-unit-tdd/rspec"
+  },
+  {
     "id": "ruby",
     "name": "ruby",
     "category": "testing-unit-tdd",
     "repository": "mindrally-skills",
     "description": "Ruby development guidelines covering idiomatic code style, Ruby 3.x features, testing with RSpec, and best practices for building maintainable Ruby applications.",
     "path": "category/testing-unit-tdd/ruby"
+  },
+  {
+    "id": "ruby-rails",
+    "name": "ruby-rails",
+    "category": "testing-unit-tdd",
+    "repository": "mindrally-skills",
+    "description": "Conventions and best practices for building web applications with Ruby on Rails. Use when scaffolding Rails apps or generators, designing ActiveRecord models and migrations, wiring up Hotwire/Turbo/Stimulus interactivity, setting up background jobs or caching, or writing RSpec/Minitest coverage for Rails code.",
+    "path": "category/testing-unit-tdd/ruby-rails"
   },
   {
     "id": "run-deep-swe",
@@ -2504,28 +3472,12 @@
     "path": "category/testing-unit-tdd/run-deep-swe"
   },
   {
-    "id": "running-placebo-analysis",
-    "name": "running-placebo-analysis",
+    "id": "ruzzy",
+    "name": "ruzzy",
     "category": "testing-unit-tdd",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Performs placebo-in-time sensitivity analysis with hierarchical null model and optional Bayesian assurance. Use when checking model robustness, verifying lack of pre-intervention effects, or estimating study power.",
-    "path": "category/testing-unit-tdd/running-placebo-analysis"
-  },
-  {
-    "id": "rust-testing",
-    "name": "rust-testing",
-    "category": "testing-unit-tdd",
-    "repository": "affaan-m-ecc",
-    "description": "Rust testing patterns including unit tests, integration tests, async testing, property-based testing, mocking, and coverage. Follows TDD methodology. Use when writing Rust tests \u2014 unit, integration, async, property-based, or coverage.",
-    "path": "category/testing-unit-tdd/rust-testing"
-  },
-  {
-    "id": "saas-valuation-compression",
-    "name": "saas-valuation-compression",
-    "category": "testing-unit-tdd",
-    "repository": "himself65-finance-skills",
-    "description": "Analyze how a private SaaS company's ARR valuation multiple changed across funding rounds, and attribute the compression or expansion to rate cycles and macro selloffs, growth deceleration, narrative shifts (including an AI premium), competition, and investor demand, benchmarked against private-market medians and peers. Use this skill whenever the user asks about valuation compression, ARR multiples, round-to-round valuation or multiple changes, down rounds, or wants to compare a VC-backed software company's funding rounds. Research the rounds rather than answering from memory.",
-    "path": "category/testing-unit-tdd/saas-valuation-compression"
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs Ruzzy, Trail of Bits' coverage-guided Ruby fuzzer and the only production-ready one for the language. Covers harness structure, fuzzing pure Ruby and the native C extensions in gems, and sanitizer builds. Use when fuzzing a Ruby library or gem, testing a Ruby C extension for memory safety, or asking how to fuzz Ruby at all.",
+    "path": "category/testing-unit-tdd/ruzzy"
   },
   {
     "id": "safety-stock-review",
@@ -2544,12 +3496,28 @@
     "path": "category/testing-unit-tdd/salary-benchmarking"
   },
   {
+    "id": "sales-agentforce-pipeline-management-configure",
+    "name": "sales-agentforce-pipeline-management-configure",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use to configure, set up, or repair the Sales Management agent and Agentforce Pipeline Management in a Salesforce org. Automates metadata creation for flows, prompt templates, permission sets, and data source configuration. TRIGGER when: user wants to enable Pipeline Management, configure Sales pipeline features, set up the Sales Management agent for opportunity field updates (including autonomous updates), connect enabled data sources like Einstein Conversation Insights or Einstein Activity Capture, customize opportunity stage descriptions, configure post-meeting suggestions, verify or audit configuration status, fix partially configured orgs, or troubleshoot Pipeline Management metadata issues. DO NOT TRIGGER when: user wants to build a custom agent (use agentforce-generate), configure general Agentforce tracing (use platform-tracing-agentforce-configure), work with non-Sales agents, or enable Einstein Conversation Insights or Einstein Activity Capture from scratch (provisioning is out of scope).",
+    "path": "category/testing-unit-tdd/sales-agentforce-pipeline-management-configure"
+  },
+  {
     "id": "sales-radar",
     "name": "sales-radar",
     "category": "testing-unit-tdd",
     "repository": "mbfinotti-sales-skills",
     "description": "Builds and maintains a personalized watch list of sales information sources - podcasts, newsletters, communities, benchmark reports, and sales people to follow - matched to the user's role, market, and time budget, shipped as a dated verified-source snapshot with per-source status and a freshness check that catches rebranded or dead sources. Covers B2B SaaS and B2C high-ticket as separate ecosystems. Use whenever the user mentions sales newsletters, sales podcasts, who to follow in sales, sales communities, staying current in sales, or refreshing a reading list, even without the word radar. Do NOT use for career or interview prep (mbfinotti/sales-skills@sales-career).",
     "path": "category/testing-unit-tdd/sales-radar"
+  },
+  {
+    "id": "saml-sso-assertion-attacks",
+    "name": "saml-sso-assertion-attacks",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "SAML SSO assertion attack playbook. Use when testing signature validation, assertion wrapping, audience restrictions, ACS handling, XML trust boundaries, and enterprise SSO flaws.",
+    "path": "category/testing-unit-tdd/saml-sso-assertion-attacks"
   },
   {
     "id": "sample-skill",
@@ -2592,6 +3560,30 @@
     "path": "category/testing-unit-tdd/sbti-personality-test"
   },
   {
+    "id": "scaffold-dotnet-test-project",
+    "name": "scaffold-dotnet-test-project",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "MUST USE when an existing .NET test project was excluded from a .slnf/CI solution filter, disappeared from .sln/.slnx discovery, or lost its production ProjectReference; also for requests to set up, create, reuse, add, register, include, or repair a test project. Handles \"tests pass directly but CI discovers zero\", exact solution wiring, xUnit/NUnit/MSTest, and central packages. DO NOT USE to only author tests in an already-wired project (code-testing), run tests, migrate, or correct MSTest syntax/configuration without changing project or CI files (writing-mstest-tests).",
+    "path": "category/testing-unit-tdd/scaffold-dotnet-test-project"
+  },
+  {
+    "id": "scenario-war-room",
+    "name": "scenario-war-room",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Cross-functional what-if modeling for cascading multi-variable scenarios. Unlike single-assumption stress testing, this models compound adversity across all business functions simultaneously. Use when facing complex risk scenarios, strategic decisions with major downside, or when the user asks 'what if X AND Y both happen?",
+    "path": "category/testing-unit-tdd/scenario-war-room"
+  },
+  {
+    "id": "screenshot-optimization",
+    "name": "screenshot-optimization",
+    "category": "testing-unit-tdd",
+    "repository": "appeeky-aso-skills",
+    "description": "When the user wants to design, optimize, or evaluate App Store screenshots and preview videos. Also use when the user mentions \"screenshots\", \"app preview\", \"product page design\", \"screenshot design\", \"creative assets\", or \"what should my screenshots show\". For A/B testing screenshots, see ab-test-store-listing. For full ASO audit, see aso-audit.",
+    "path": "category/testing-unit-tdd/screenshot-optimization"
+  },
+  {
     "id": "selenium-automation",
     "name": "selenium-automation",
     "category": "testing-unit-tdd",
@@ -2606,6 +3598,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specified target languages. Takes an existing rule and target languages as input, produces independent rule+test directories for each language.",
     "path": "category/testing-unit-tdd/semgrep-rule-variant-creator"
+  },
+  {
+    "id": "send-experiment-designer",
+    "name": "send-experiment-designer",
+    "category": "testing-unit-tdd",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"design an email A/B test\", \"set up a multivariate subject/CTA test\", \"run a send-time test\", \"build a hold-out group\", or \"is this email result statistically and practically material?\"; produces a falsifiable hypothesis, one-variable-per-cell matrix, sample-size/MDE/duration/power plan, and an effect/uncertainty read from own ESP data. Applies only a precommitted owner-approved action rule; the helper never chooses a business action. Not for EQS/vetoes or writing the email. \u90ae\u4ef6AB\u6d4b\u8bd5\u8bbe\u8ba1/\u591a\u53d8\u91cf\u6d4b\u8bd5/\u53d1\u9001\u65f6\u95f4\u6d4b\u8bd5/\u7559\u51fa\u7ec4/\u663e\u8457\u6027\u5224\u5b9a",
+    "path": "category/testing-unit-tdd/send-experiment-designer"
   },
   {
     "id": "sensitivity-analyst",
@@ -2672,6 +3672,30 @@
     "path": "category/testing-unit-tdd/session-handoff"
   },
   {
+    "id": "setup-cms",
+    "name": "setup-cms",
+    "category": "testing-unit-tdd",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Connect a CMS to notfair SEO tools. Guides users through configuring WordPress, Strapi, Contentful, or Ghost \u2014 tests the connection, and writes credentials to .env.local. Once set up, seo-analysis automatically cross- references CMS content against Google Search Console data. Use whenever the user says \"connect my CMS\", \"set up WordPress\", \"configure Strapi\", \"add Contentful\", \"connect Ghost\", or \"CMS setup\". Also trigger if the user asks why no CMS data appears in a seo-analysis report.",
+    "path": "category/testing-unit-tdd/setup-cms"
+  },
+  {
+    "id": "setup-local-sdk",
+    "name": "setup-local-sdk",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "Install a .NET SDK locally for safe preview testing, specific-version pinning, or reproducible team setups \u2014 without modifying the system-wide installation. USE FOR: trying .NET previews safely, testing specific SDK versions, installing MAUI or other workloads on a preview, updating or replacing an existing local SDK, creating reproducible team/CI install scripts, configuring global.json paths. DO NOT USE FOR: system-wide SDK installs, .NET hosts older than 10, runtime-only installs, or projects not using SDK-style commands.",
+    "path": "category/testing-unit-tdd/setup-local-sdk"
+  },
+  {
+    "id": "shannon-ai-pentester",
+    "name": "shannon-ai-pentester",
+    "category": "testing-unit-tdd",
+    "repository": "reason-machines-trending-skills",
+    "description": "Autonomous white-box AI pentester for web applications and APIs using source code analysis and live exploit execution",
+    "path": "category/testing-unit-tdd/shannon-ai-pentester"
+  },
+  {
     "id": "shopify-landing-page-builder",
     "name": "shopify-landing-page-builder",
     "category": "testing-unit-tdd",
@@ -2704,12 +3728,12 @@
     "path": "category/testing-unit-tdd/skill-optimizer"
   },
   {
-    "id": "social-media-analyzer",
-    "name": "social-media-analyzer",
+    "id": "social-proof-architect",
+    "name": "social-proof-architect",
     "category": "testing-unit-tdd",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Social media campaign analysis and performance tracking. Calculates engagement rates, ROI, and benchmarks across platforms. Use when analyzing social media performance, calculating engagement rate, measuring campaign ROI, comparing platform metrics, or benchmarking against industry standards. Also use when the user mentions \"social media audit,\" \"engagement rate,\" or \"which platform performs best.",
-    "path": "category/testing-unit-tdd/social-media-analyzer"
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Select and place genuine testimonials, case studies, and other proof when an audience needs evidence at specific trust barriers.",
+    "path": "category/testing-unit-tdd/social-proof-architect"
   },
   {
     "id": "source-driven-development",
@@ -2720,12 +3744,44 @@
     "path": "category/testing-unit-tdd/source-driven-development"
   },
   {
+    "id": "sparc-refine",
+    "name": "sparc-refine",
+    "category": "testing-unit-tdd",
+    "repository": "ruvnet-ruflo",
+    "description": "Run the SPARC Refinement and Completion phases \u2014 review code, improve test coverage, validate against specification, and generate documentation",
+    "path": "category/testing-unit-tdd/sparc-refine"
+  },
+  {
     "id": "spec",
     "name": "spec",
     "category": "testing-unit-tdd",
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Turn a vague feature or product idea into an agreed, persisted specification through relentless structured questioning. Never assumes \u2014 every gap, ambiguity, or \"probably\" becomes a question to the developer, and the spec cannot be approved while open questions remain. Produces docs/specs/<NNN>-<slug>.md with acceptance criteria that /plan, /scaffold, and /tdd consume. Use when: \"spec\", \"write a spec\", \"spec this out\", \"requirements\", \"PRD\", \"acceptance criteria\", \"define the feature\", \"user stories\", \"what should we build\", or before planning any feature too big to describe in one sentence.",
     "path": "category/testing-unit-tdd/spec"
+  },
+  {
+    "id": "spec-driven-workflow",
+    "name": "spec-driven-workflow",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices.",
+    "path": "category/testing-unit-tdd/spec-driven-workflow"
+  },
+  {
+    "id": "spring-boot",
+    "name": "spring-boot",
+    "category": "testing-unit-tdd",
+    "repository": "mindrally-skills",
+    "description": "Expert guidance for Spring Boot application development with best practices for RESTful APIs, testing, security, and deployment",
+    "path": "category/testing-unit-tdd/spring-boot"
+  },
+  {
+    "id": "spring-data-neo4j",
+    "name": "spring-data-neo4j",
+    "category": "testing-unit-tdd",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides Spring Data Neo4j integration patterns for Spring Boot applications. Use when you need to work with a graph database, Neo4j nodes and relationships, Cypher queries, or Spring Data Neo4j. Creates node entities with @Node annotation, defines relationships with @Relationship, writes Cypher queries using @Query, configures imperative and reactive Neo4j repositories, implements graph traversal patterns, and sets up testing with embedded databases.",
+    "path": "category/testing-unit-tdd/spring-data-neo4j"
   },
   {
     "id": "springboot-tdd",
@@ -2736,12 +3792,28 @@
     "path": "category/testing-unit-tdd/springboot-tdd"
   },
   {
+    "id": "spss-amos-sem",
+    "name": "spss-amos-sem",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Questionnaire structural equation modeling in the SPSS + AMOS workflow that Chinese management, psychology, education, nursing and tourism theses use \u2014 data cleaning of an SPSS .sav file, reverse coding, straight-lining, demographics, Harman common-method-bias test, Cronbach's alpha / CITC reliability, EFA (KMO, Bartlett), CFA convergent validity (standardized loadings, CR, AVE), discriminant validity (Fornell-Larcker, HTMT), model fit (chi2/df, CFI, TLI, RMSEA, SRMR), structural paths and hypothesis tests, bootstrap mediation with specific indirect effects, multi-group measurement invariance, and Hayes PROCESS models 1/4/6/7/8/14. One spec card drives an R/lavaan engine set to AMOS defaults and writes ready-to-run SPSS syntax (.sps), AMOS Program Editor VB.NET code, AMOS user-defined estimands, an AMOS drawing checklist with the numbers AMOS should show, Chinese three-line tables in Word, a results-chapter draft and a transparent model-modification log. Use when the user mentions SPSS, AMOS, SEM, structural equation model, CFA, confirmatory factor analysis, questionnaire / survey / Likert scale data, reliability and validity, CR / AVE, HTMT, common method bias, mediation, moderation, PROCESS, bootstrap indirect effect, multi-group analysis, measurement invariance, or Chinese terms \u7ed3\u6784\u65b9\u7a0b, \u7ed3\u6784\u65b9\u7a0b\u6a21\u578b, \u9a8c\u8bc1\u6027\u56e0\u5b50\u5206\u6790, \u63a2\u7d22\u6027\u56e0\u5b50\u5206\u6790, \u95ee\u5377, \u91cf\u8868, \u4fe1\u5ea6, \u6548\u5ea6, \u6536\u655b\u6548\u5ea6, \u533a\u5206\u6548\u5ea6, \u7ec4\u5408\u4fe1\u5ea6, \u5171\u540c\u65b9\u6cd5\u504f\u5dee, \u4e2d\u4ecb\u6548\u5e94, \u8c03\u8282\u6548\u5e94, \u6709\u8c03\u8282\u7684\u4e2d\u4ecb, \u591a\u7fa4\u7ec4, \u6d4b\u91cf\u4e0d\u53d8\u6027, \u6a21\u578b\u62df\u5408, \u4fee\u6b63\u6307\u6570, \u6bd5\u4e1a\u8bba\u6587\u95ee\u5377\u5206\u6790.",
+    "path": "category/testing-unit-tdd/spss-amos-sem"
+  },
+  {
     "id": "stata-setup",
     "name": "stata-setup",
     "category": "testing-unit-tdd",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Install, configure, update, or verify mcp-stata across Claude Code, Codex, Gemini CLI, Cursor, Windsurf, and VS Code. Activate when users ask to set up the Stata toolkit or troubleshoot the installation.",
     "path": "category/testing-unit-tdd/stata-setup"
+  },
+  {
+    "id": "statechart",
+    "name": "statechart",
+    "category": "testing-unit-tdd",
+    "repository": "backnotprop-pstack",
+    "description": "Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, or a service, and draw it as a Mermaid statechart. The report gives the shortest path to each state that breaks a rule. Use for /statechart, or to show a bug as a path through states.",
+    "path": "category/testing-unit-tdd/statechart"
   },
   {
     "id": "statistical-analysis",
@@ -2840,6 +3912,14 @@
     "path": "category/testing-unit-tdd/surgical-patch"
   },
   {
+    "id": "synthetic-control",
+    "name": "synthetic-control",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Econometrics skill for Synthetic Control Method (SCM). Activates when the user asks about: \"synthetic control\", \"SCM\", \"synthetic counterfactual\", \"donor pool\", \"placebo test\", \"in-space placebo\", \"in-time placebo\", \"MSPE ratio\", \"Abadie Diamond Hainmueller\", \"augmented synthetic control\", \"penalized SCM\", \"synthetic DID\", \"\u5408\u6210\u63a7\u5236\", \"\u5408\u6210\u63a7\u5236\u6cd5\", \"\u6350\u52a9\u6c60\", \"\u5b89\u6170\u5242\u68c0\u9a8c\", \"\u5408\u6210\u53cd\u4e8b\u5b9e\", \"\u5408\u6210DID\", \"\u653f\u7b56\u8bc4\u4f30",
+    "path": "category/testing-unit-tdd/synthetic-control"
+  },
+  {
     "id": "system-profile",
     "name": "system-profile",
     "category": "testing-unit-tdd",
@@ -2872,38 +3952,6 @@
     "path": "category/testing-unit-tdd/tao-run-deft-od-aoi"
   },
   {
-    "id": "tdd",
-    "name": "tdd",
-    "category": "testing-unit-tdd",
-    "repository": "active",
-    "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
-    "path": "category/testing-unit-tdd/tdd"
-  },
-  {
-    "id": "tdd-guide",
-    "name": "tdd-guide",
-    "category": "testing-unit-tdd",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows across Jest, Pytest, JUnit, Vitest, and Mocha. Use when the user asks to write tests, improve test coverage, practice TDD, generate mocks or stubs, or mentions testing frameworks like Jest, pytest, or JUnit.",
-    "path": "category/testing-unit-tdd/tdd-guide"
-  },
-  {
-    "id": "tdd-repair",
-    "name": "tdd-repair",
-    "category": "testing-unit-tdd",
-    "repository": "ruvnet-ruflo",
-    "description": "Test-Driven Repair: given a failing test, spawn a bounded headless `claude -p` (Read/Edit/Bash only, --max-budget-usd capped) that makes the test pass without modifying it. Use when a failing test should drive the fix to the code under test.",
-    "path": "category/testing-unit-tdd/tdd-repair"
-  },
-  {
-    "id": "tdd-workflow",
-    "name": "tdd-workflow",
-    "category": "testing-unit-tdd",
-    "repository": "active",
-    "description": "Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle.",
-    "path": "category/testing-unit-tdd/tdd-workflow"
-  },
-  {
     "id": "tdd-workflows",
     "name": "tdd-workflows",
     "category": "testing-unit-tdd",
@@ -2928,12 +3976,36 @@
     "path": "category/testing-unit-tdd/tdd-workflows-tdd-green"
   },
   {
+    "id": "team-level",
+    "name": "team-level",
+    "category": "testing-unit-tdd",
+    "repository": "donchitos-claude-code-game-studios",
+    "description": "Orchestrate the level team \u2014 level-designer, narrative-director, world-builder, art-director, systems-designer, qa-tester \u2014 for complete area creation.",
+    "path": "category/testing-unit-tdd/team-level"
+  },
+  {
+    "id": "template-validation",
+    "name": "template-validation",
+    "category": "testing-unit-tdd",
+    "repository": "dotnet-skills",
+    "description": "Validates custom dotnet new templates for correctness before publishing. Catches missing fields, parameter bugs, shortName conflicts, constraint issues, and common authoring mistakes that cause templates to fail silently. USE FOR: checking template.json files for errors before publishing or testing, diagnosing why a template doesn't appear after installation, reviewing template parameter definitions for type mismatches and missing defaults, finding shortName conflicts with dotnet CLI commands, validating post-action and constraint configuration. DO NOT USE FOR: finding or using existing templates (use template-discovery), creating projects from templates (use template-instantiation), creating templates from existing projects (use template-authoring).",
+    "path": "category/testing-unit-tdd/template-validation"
+  },
+  {
     "id": "temporal-python-testing",
     "name": "temporal-python-testing",
     "category": "testing-unit-tdd",
     "repository": "antigravity-awesome-skills",
     "description": "Test Temporal workflows with pytest, time-skipping, and mocking strategies. Covers unit testing, integration testing, replay testing, and local development setup. Use when implementing Temporal wor...",
     "path": "category/testing-unit-tdd/temporal-python-testing"
+  },
+  {
+    "id": "test-app-automation",
+    "name": "test-app-automation",
+    "category": "testing-unit-tdd",
+    "repository": "composio-community-awesome-codex-skills",
+    "description": "Automate Test App tasks via Rube MCP (Composio). Always search tools first for current schemas.",
+    "path": "category/testing-unit-tdd/test-app-automation"
   },
   {
     "id": "test-automator",
@@ -2952,12 +4024,12 @@
     "path": "category/testing-unit-tdd/test-data-generation"
   },
   {
-    "id": "test-detect",
-    "name": "test-detect",
+    "id": "test-evidence-review",
+    "name": "test-evidence-review",
     "category": "testing-unit-tdd",
-    "repository": "davila7-claude-code-templates",
-    "description": "Auto-detect testing framework and run relevant tests. Identifies Jest, Vitest, Playwright, Cypress, pytest, Go test, and others. Can run all tests, specific file tests, or generate basic tests for new code. Usage - /test-detect, /test-detect src/auth/login.ts, /test-detect generate src/utils.ts",
-    "path": "category/testing-unit-tdd/test-detect"
+    "repository": "donchitos-claude-code-game-studios",
+    "description": "Quality review of test files and evidence \u2014 goes beyond existence, evaluates assertion coverage. ADEQUATE/INCOMPLETE/MISSING/NOT ASSESSED per story.",
+    "path": "category/testing-unit-tdd/test-evidence-review"
   },
   {
     "id": "test-fixing",
@@ -2984,6 +4056,14 @@
     "path": "category/testing-unit-tdd/test-gap-analysis"
   },
   {
+    "id": "test-gaps",
+    "name": "test-gaps",
+    "category": "testing-unit-tdd",
+    "repository": "ruvnet-ruflo",
+    "description": "Detect missing test coverage and generate test suggestions. Use when the user asks about coverage gaps, untested code, or what tests to write next; also after adding a feature to find what still needs tests.",
+    "path": "category/testing-unit-tdd/test-gaps"
+  },
+  {
     "id": "test-guard",
     "name": "test-guard",
     "category": "testing-unit-tdd",
@@ -3000,6 +4080,22 @@
     "path": "category/testing-unit-tdd/test-helpers"
   },
   {
+    "id": "test-scenario",
+    "name": "test-scenario",
+    "category": "testing-unit-tdd",
+    "repository": "owl-listener-designer-skills",
+    "description": "Write realistic usability task scenarios with success criteria and facilitation notes. Use when you have a study and need the tasks. For the surrounding study design, use `usability-test-plan` (design-research).",
+    "path": "category/testing-unit-tdd/test-scenario"
+  },
+  {
+    "id": "test-scenarios",
+    "name": "test-scenarios",
+    "category": "testing-unit-tdd",
+    "repository": "phuryn-pm-skills",
+    "description": "Create comprehensive test scenarios from user stories with test objectives, starting conditions, user roles, step-by-step actions, and expected outcomes. Use when writing QA test cases, creating test plans, defining acceptance tests, or preparing for feature validation.",
+    "path": "category/testing-unit-tdd/test-scenarios"
+  },
+  {
     "id": "testimio",
     "name": "testimio",
     "category": "testing-unit-tdd",
@@ -3014,6 +4110,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Identifying and exploiting Cross-Origin Resource Sharing misconfigurations",
     "path": "category/testing-unit-tdd/testing-cors-misconfiguration"
+  },
+  {
+    "id": "testing-for-broken-access-control",
+    "name": "testing-for-broken-access-control",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Systematically tests web applications and APIs for broken access control",
+    "path": "category/testing-unit-tdd/testing-for-broken-access-control"
   },
   {
     "id": "testing-for-email-header-injection",
@@ -3038,6 +4142,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Identifies and exploits open redirect vulnerabilities by analyzing URL",
     "path": "category/testing-unit-tdd/testing-for-open-redirect-vulnerabilities"
+  },
+  {
+    "id": "testing-for-xml-injection-vulnerabilities",
+    "name": "testing-for-xml-injection-vulnerabilities",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Test web applications for XML injection vulnerabilities including XXE,",
+    "path": "category/testing-unit-tdd/testing-for-xml-injection-vulnerabilities"
   },
   {
     "id": "testing-for-xss-vulnerabilities",
@@ -3072,6 +4184,14 @@
     "path": "category/testing-unit-tdd/testing-handbook-generator"
   },
   {
+    "id": "testing-ransomware-recovery-procedures",
+    "name": "testing-ransomware-recovery-procedures",
+    "category": "testing-unit-tdd",
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Tests and validates ransomware recovery procedures - backup restore operations",
+    "path": "category/testing-unit-tdd/testing-ransomware-recovery-procedures"
+  },
+  {
     "id": "testmo",
     "name": "testmo",
     "category": "testing-unit-tdd",
@@ -3104,6 +4224,14 @@
     "path": "category/testing-unit-tdd/tg-bot-binding"
   },
   {
+    "id": "thick-client",
+    "name": "thick-client",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Authorized security testing of desktop thick clients: local storage, update channels, IPC, traffic interception, and client-side trust-boundary review.",
+    "path": "category/testing-unit-tdd/thick-client"
+  },
+  {
     "id": "tilegym-improve-cutile-kernel-perf",
     "name": "tilegym-improve-cutile-kernel-perf",
     "category": "testing-unit-tdd",
@@ -3118,6 +4246,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Econometrics skill for time series analysis. Activates when the user asks about: \"time series\", \"stationarity\", \"unit root test\", \"ADF test\", \"KPSS test\", \"ARIMA\", \"ARMA\", \"autocorrelation\", \"ACF\", \"PACF\", \"VAR model\", \"VECM\", \"Granger causality\", \"cointegration\", \"impulse response function\", \"forecast\", \"seasonal decomposition\", \"ARCH\", \"GARCH\", \"\u65f6\u95f4\u5e8f\u5217\", \"\u5e73\u7a33\u6027\u68c0\u9a8c\", \"\u5355\u4f4d\u6839\", \"\u81ea\u56de\u5f52\", \"\u683c\u5170\u6770\u56e0\u679c\", \"\u534f\u6574\", \"\u8109\u51b2\u54cd\u5e94\", \"\u9884\u6d4b\", \"\u5411\u91cf\u81ea\u56de\u5f52",
     "path": "category/testing-unit-tdd/time-series"
+  },
+  {
+    "id": "tokenwise",
+    "name": "tokenwise",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Measurement-driven model router for Claude Code. Routes Haiku/Sonnet/Opus per task class, logs every routed task with real $ numbers, and A/B tests cheaper tiers before you trust the savings.",
+    "path": "category/testing-unit-tdd/tokenwise"
   },
   {
     "id": "trader-cloud-backtest",
@@ -3158,14 +4294,6 @@
     "repository": "mengto-skills",
     "description": "Build, debug, balance, or test combat enemy AI for playable action games. Use for aggro, target selection, navigation, spacing, attack choices, telegraphs, retreats, boss behavior, behavior-state machines, and deterministic AI regression tests.",
     "path": "category/testing-unit-tdd/tune-enemy-ai"
-  },
-  {
-    "id": "turborepo-monorepo",
-    "name": "turborepo-monorepo",
-    "category": "testing-unit-tdd",
-    "repository": "giuseppe-trisciuoglio-developer-kit",
-    "description": "Provides comprehensive Turborepo monorepo management guidance for TypeScript/JavaScript projects. Use when creating Turborepo workspaces, configuring turbo.json tasks, setting up Next.js/NestJS apps, managing test pipelines (Vitest/Jest), configuring CI/CD, implementing remote caching, or optimizing build performance in monorepos",
-    "path": "category/testing-unit-tdd/turborepo-monorepo"
   },
   {
     "id": "ui-visual-validator",
@@ -3224,22 +4352,6 @@
     "path": "category/testing-unit-tdd/unit-test-scheduled-async"
   },
   {
-    "id": "unit-test-service-layer",
-    "name": "unit-test-service-layer",
-    "category": "testing-unit-tdd",
-    "repository": "giuseppe-trisciuoglio-developer-kit",
-    "description": "Provides patterns for unit testing service layer with Mockito. Creates isolated tests that mock repository calls, verify method invocations, test exception scenarios, and stub external API responses. Use when testing service behaviors and business logic without database or external services.",
-    "path": "category/testing-unit-tdd/unit-test-service-layer"
-  },
-  {
-    "id": "unit-test-utility-methods",
-    "name": "unit-test-utility-methods",
-    "category": "testing-unit-tdd",
-    "repository": "giuseppe-trisciuoglio-developer-kit",
-    "description": "Provides patterns for testing utility classes, static methods, and helper functions. Validates pure functions, null handling, edge cases, and boundary conditions. Generates AssertJ assertions and @ParameterizedTest for string utils, math utils, validators, and collection helpers. Use when testing utils, test helpers, helper functions, static methods, or verifying utility code correctness.",
-    "path": "category/testing-unit-tdd/unit-test-utility-methods"
-  },
-  {
     "id": "unit-testing-framework",
     "name": "unit-testing-framework",
     "category": "testing-unit-tdd",
@@ -3256,12 +4368,36 @@
     "path": "category/testing-unit-tdd/upgrade"
   },
   {
+    "id": "upload-insecure-files",
+    "name": "upload-insecure-files",
+    "category": "testing-unit-tdd",
+    "repository": "yaklang-hack-skills",
+    "description": "Insecure file upload playbook. Use when testing upload validation, storage paths, processing pipelines, preview behavior, overwrite risks, and upload-to-RCE chains.",
+    "path": "category/testing-unit-tdd/upload-insecure-files"
+  },
+  {
+    "id": "usability-test-plan",
+    "name": "usability-test-plan",
+    "category": "testing-unit-tdd",
+    "repository": "owl-listener-designer-skills",
+    "description": "Design a usability study \u2014 research questions, methodology, participant criteria, metrics, and facilitation guide. Use when planning the study as a whole. For writing the task scenarios inside it, use `test-scenario` (prototyping-testing).",
+    "path": "category/testing-unit-tdd/usability-test-plan"
+  },
+  {
     "id": "useosint",
     "name": "useosint",
     "category": "testing-unit-tdd",
     "repository": "useosint-skills",
     "description": "Entry point for open-source intelligence, investigation and verification work. Routes any identifier \u2014 a name, phone number, email address, username, domain, company, photo, crypto address, tail number or IMO \u2014 to the right investigation workflow, after setting an authorised scope. Use when asked to investigate, research, verify, vet, check out, look up, background-check, trace, attribute or find someone or something; when a request involves due diligence, KYC or KYB, counterparty or vendor risk, sanctions and PEP screening, AML, fraud, business email compromise, verifying a supplier before payment, recruitment or marketplace scams, insider threat, executive protection, attack-surface review, journalism or fact-checking; or when someone asks \"who is this\", \"who owns this\", \"is this real\", \"where did this come from\" or \"where do I start\". Reference at useosint.com/skills.",
     "path": "category/testing-unit-tdd/useosint"
+  },
+  {
+    "id": "using-n8n-mcp-skills",
+    "name": "using-n8n-mcp-skills",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Route n8n MCP workflow design, editing, validation, testing, deployment, credential, execution, and debugging tasks to specialist guidance.",
+    "path": "category/testing-unit-tdd/using-n8n-mcp-skills"
   },
   {
     "id": "ux-researcher-designer",
@@ -3320,6 +4456,14 @@
     "path": "category/testing-unit-tdd/verify-citations"
   },
   {
+    "id": "verify-document",
+    "name": "verify-document",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Check whether a document (PDF or image) shows signs of tampering or forgery before you rely on it. Use when the user asks to verify a payslip, invoice, bank statement, ID document, contract, or any document where authenticity matters.",
+    "path": "category/testing-unit-tdd/verify-document"
+  },
+  {
     "id": "verify-this",
     "name": "verify-this",
     "category": "testing-unit-tdd",
@@ -3328,36 +4472,12 @@
     "path": "category/testing-unit-tdd/verify-this"
   },
   {
-    "id": "verifying-build-provenance-with-slsa-sigstore",
-    "name": "verifying-build-provenance-with-slsa-sigstore",
-    "category": "testing-unit-tdd",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Verifies artifact signatures and SLSA provenance using Sigstore's",
-    "path": "category/testing-unit-tdd/verifying-build-provenance-with-slsa-sigstore"
-  },
-  {
     "id": "visual-regression-testing",
     "name": "visual-regression-testing",
     "category": "testing-unit-tdd",
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Detect unintended visual changes in UI by comparing screenshots across versions. Use for visual regression, screenshot diff, Percy, Chromatic, UI testing, and visual validation.",
     "path": "category/testing-unit-tdd/visual-regression-testing"
-  },
-  {
-    "id": "vitest",
-    "name": "vitest",
-    "category": "testing-unit-tdd",
-    "repository": "antfu-skills",
-    "description": "Vitest fast unit testing framework powered by Vite with Jest-compatible API. Use when writing tests, mocking, configuring coverage, or working with test filtering and fixtures.",
-    "path": "category/testing-unit-tdd/vitest"
-  },
-  {
-    "id": "vitest-skill",
-    "name": "vitest-skill",
-    "category": "testing-unit-tdd",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Generates Vitest tests in JavaScript/TypeScript with Vite-native speed. Jest-compatible API with ESM support and HMR. Use when user mentions \"Vitest\", \"vi.mock\", \"vitest.config\". Triggers on: \"Vitest\", \"vi.mock\", \"vi.fn\", \"Vite test\", \"vitest config\".",
-    "path": "category/testing-unit-tdd/vitest-skill"
   },
   {
     "id": "waza",
@@ -3376,6 +4496,14 @@
     "path": "category/testing-unit-tdd/weather-data-reproducibility"
   },
   {
+    "id": "webmcp-gen",
+    "name": "webmcp-gen",
+    "category": "testing-unit-tdd",
+    "repository": "browserbase-skills",
+    "description": "Create, compile, and validate site-specific WebMCP init scripts from a target URL and desired tool capability. Use when the user wants to author WebMCP tools for a website, produce a webmcp.init.js artifact, or test WebMCP registration and invocation through Stagehand.",
+    "path": "category/testing-unit-tdd/webmcp-gen"
+  },
+  {
     "id": "where-was-this-taken",
     "name": "where-was-this-taken",
     "category": "testing-unit-tdd",
@@ -3384,20 +4512,12 @@
     "path": "category/testing-unit-tdd/where-was-this-taken"
   },
   {
-    "id": "whose-number-is-this",
-    "name": "whose-number-is-this",
-    "category": "testing-unit-tdd",
-    "repository": "useosint-skills",
-    "description": "Investigate a phone number \u2014 E.164 normalisation with libphonenumber, phoneinfoga scanning, carrier and line-type identification, VoIP and burner detection, messaging-app registration checks, and reverse-lookup and caller-ID sources. Use for phone OSINT and reverse phone lookup, \"who owns this number\", identifying a burner or VoIP number, or checking whether a number is registered on WhatsApp, Telegram or Signal. Applies to vishing and business email compromise investigation, verifying a counterparty before sending payment, recruitment and marketplace scam checks, and fraud triage. Reference at useosint.com/skills/whose-number-is-this.",
-    "path": "category/testing-unit-tdd/whose-number-is-this"
-  },
-  {
-    "id": "windows-hardening",
-    "name": "windows-hardening",
+    "id": "wifi-wireless",
+    "name": "wifi-wireless",
     "category": "testing-unit-tdd",
     "repository": "sickn33-agentic-awesome-skills",
-    "description": "Harden Windows servers per security baselines and CIS benchmarks. Configure",
-    "path": "category/testing-unit-tdd/windows-hardening"
+    "description": "Authorized wireless security assessment: Wi-Fi capture, WPA handshake analysis, rogue AP detection research, and lab-only deauthentication testing.",
+    "path": "category/testing-unit-tdd/wifi-wireless"
   },
   {
     "id": "witness",
@@ -3406,6 +4526,14 @@
     "repository": "ruvnet-ruflo",
     "description": "Sign, verify and track fix-marker regressions over time with an Ed25519 witness manifest. Use when registering fixes or checking a release for regressed fixes. The default seed proves integrity only; set RUFLO_WITNESS_SEED/RUFLO_WITNESS_PUBLIC_KEY for authorship.",
     "path": "category/testing-unit-tdd/witness"
+  },
+  {
+    "id": "wjttc-builder",
+    "name": "wjttc-builder",
+    "category": "testing-unit-tdd",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "PLAN and GENERATE WJTTC (Championship-Grade) test suites for any project. Analyzes the codebase, classifies components across the WJTTC five tiers (Brake \u00b7 Engine \u00b7 Aero \u00b7 Tyre \u00b7 Pit), writes a tiered test plan, and scaffolds executable test files.",
+    "path": "category/testing-unit-tdd/wjttc-builder"
   },
   {
     "id": "wjttc-tester",

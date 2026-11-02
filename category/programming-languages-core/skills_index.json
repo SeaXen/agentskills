@@ -16,14 +16,6 @@
     "path": "category/programming-languages-core/acgti-anime-persona-quiz"
   },
   {
-    "id": "active-directory-certificate-services",
-    "name": "active-directory-certificate-services",
-    "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "AD Certificate Services attack playbook. Use when targeting misconfigured AD CS for privilege escalation via ESC1-ESC13 template abuse, NTLM relay to enrollment, CA officer abuse, and certificate-based persistence.",
-    "path": "category/programming-languages-core/active-directory-certificate-services"
-  },
-  {
     "id": "address-sanitizer",
     "name": "address-sanitizer",
     "category": "programming-languages-core",
@@ -32,20 +24,12 @@
     "path": "category/programming-languages-core/address-sanitizer"
   },
   {
-    "id": "agent-security-hardening",
-    "name": "agent-security-hardening",
+    "id": "agent-browser-automation",
+    "name": "agent-browser-automation",
     "category": "programming-languages-core",
-    "repository": "affaan-m-ecc",
-    "description": "Security hardening guidance for AI agent frameworks that process untrusted content, invoke tools, write workspace files, manage runtime identifiers, or handle credentials. Use when building or reviewing an agent runtime, autonomous worker, tool gateway, memory service, or multi-tenant agent deployment. Do not use for general web application security or offensive testing.",
-    "path": "category/programming-languages-core/agent-security-hardening"
-  },
-  {
-    "id": "agentforce-observe",
-    "name": "agentforce-observe",
-    "category": "programming-languages-core",
-    "repository": "forcedotcom-sf-skills",
-    "description": "Analyze production Agentforce agent behavior using session traces and Data Cloud, and manage Agent Health Monitoring (AHM) alerts. TRIGGER when: user queries STDM session data or Data Cloud trace records; investigates production agent failures, regressions, or performance issues; asks about session traces, conversation logs, or agent metrics; wants to reproduce a reported production issue in preview; runs findSessions or trace analysis queries; creates, lists, updates, or deletes an AHM data alert on an agent metric (escalation rate, deflection, etc.); asks why an alert is not firing or wants to check whether alerts have fired (notification counts, or the per-alert Incidents view). DO NOT TRIGGER when: user creates, modifies, or debugs .agent files during development (use agentforce-generate); writes or runs test specs (use agentforce-test); uses sf agent preview for local development iteration; deploys or publishes agents.",
-    "path": "category/programming-languages-core/agentforce-observe"
+    "repository": "reason-machines-trending-skills",
+    "description": "Headless browser automation CLI for AI agents using native Rust binary with Chrome DevTools Protocol",
+    "path": "category/programming-languages-core/agent-browser-automation"
   },
   {
     "id": "aglais-xqvm-quantum-vm",
@@ -56,22 +40,6 @@
     "path": "category/programming-languages-core/aglais-xqvm-quantum-vm"
   },
   {
-    "id": "ai-native-ux",
-    "name": "ai-native-ux",
-    "category": "programming-languages-core",
-    "repository": "refoundai-lenny-skills",
-    "description": "Help users interact with probabilistic models by designing interfaces that manage fluidity, intent, and agency while maintaining trust and control.",
-    "path": "category/programming-languages-core/ai-native-ux"
-  },
-  {
-    "id": "alert-management",
-    "name": "alert-management",
-    "category": "programming-languages-core",
-    "repository": "aj-geddes-useful-ai-prompts",
-    "description": "Implement comprehensive alert management with PagerDuty, escalation policies, and incident coordination. Use when setting up alerting systems, managing on-call schedules, or coordinating incident response.",
-    "path": "category/programming-languages-core/alert-management"
-  },
-  {
     "id": "alkahest-developer",
     "name": "alkahest-developer",
     "category": "programming-languages-core",
@@ -80,12 +48,12 @@
     "path": "category/programming-languages-core/alkahest-developer"
   },
   {
-    "id": "analyze-app",
-    "name": "analyze-app",
+    "id": "analyzing-android-malware-with-apktool",
+    "name": "analyzing-android-malware-with-apktool",
     "category": "programming-languages-core",
-    "repository": "ruvnet-ruflo",
-    "description": "Statically inspect a local JavaScript or Electron app you are authorized to study and explain how a feature works with file+line evidence. Use when the user wants to understand or reimplement a feature from an app whose source they have. Parses only; never executes the target.",
-    "path": "category/programming-languages-core/analyze-app"
+    "repository": "mukul975-anthropic-cybersecurity-skills",
+    "description": "Perform static analysis of Android APK malware using apktool for resource decompilation, jadx for Java source recovery, and androguard for manifest inspection, dangerous permission-combination detection, and identification of obfuscated code, dynamic code loading, and reflection-based API calls. Use to statically triage a suspicious APK without executing it or to build mobile malware detection rules.",
+    "path": "category/programming-languages-core/analyzing-android-malware-with-apktool"
   },
   {
     "id": "analyzing-golang-malware-with-ghidra",
@@ -94,6 +62,30 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Reverse engineer Go-compiled malware in Ghidra by parsing Go buildinfo",
     "path": "category/programming-languages-core/analyzing-golang-malware-with-ghidra"
+  },
+  {
+    "id": "android",
+    "name": "android",
+    "category": "programming-languages-core",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, native URL handling, support_handoff relay, and lifecycle-safe embedding.",
+    "path": "category/programming-languages-core/android"
+  },
+  {
+    "id": "android-dev",
+    "name": "android-dev",
+    "category": "programming-languages-core",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Production-grade Android app development guide covering native (Kotlin/Java), cross-platform (Flutter, RN, KMM), and hybrid architectures.",
+    "path": "category/programming-languages-core/android-dev"
+  },
+  {
+    "id": "android-tombstone-symbolication",
+    "name": "android-tombstone-symbolication",
+    "category": "programming-languages-core",
+    "repository": "dotnet-skills",
+    "description": "Symbolicate the .NET runtime frames in an Android tombstone file. Extracts BuildIds and PC offsets from the native backtrace, downloads debug symbols from the Microsoft symbol server, and runs llvm-symbolizer to produce function names with source file and line numbers. USE FOR triaging a .NET MAUI or Mono Android app crash from a tombstone, resolving native backtrace frames in libmonosgen-2.0.so or libcoreclr.so to .NET runtime source code, or investigating SIGABRT, SIGSEGV, or other native signals originating from the .NET runtime on Android. DO NOT USE FOR pure Java/Kotlin crashes, managed .NET exceptions that are already captured in logcat, or iOS crash logs. INVOKES Symbolicate-Tombstone.ps1 script, llvm-symbolizer, Microsoft symbol server.",
+    "path": "category/programming-languages-core/android-tombstone-symbolication"
   },
   {
     "id": "angular-development",
@@ -112,12 +104,28 @@
     "path": "category/programming-languages-core/antfu"
   },
   {
+    "id": "antigravity-manager",
+    "name": "antigravity-manager",
+    "category": "programming-languages-core",
+    "repository": "reason-machines-trending-skills",
+    "description": "AI coding agent skill for Antigravity Manager \u2014 a Tauri v2 + Rust desktop app and Docker service that manages multiple Google/Anthropic accounts and proxies them as standard OpenAI/Anthropic/Gemini API endpoints with intelligent account rotation.",
+    "path": "category/programming-languages-core/antigravity-manager"
+  },
+  {
     "id": "apk-reverse",
     "name": "apk-reverse",
     "category": "programming-languages-core",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Android APK reverse engineering: unpacking, Java decompilation, smali modification, repacking and signing, Frida dynamic hooking, and native .so analysis with jadx, apktool, adb, and related tools.",
     "path": "category/programming-languages-core/apk-reverse"
+  },
+  {
+    "id": "appium-skill",
+    "name": "appium-skill",
+    "category": "programming-languages-core",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Generates production-grade Appium mobile automation scripts for Android and iOS in Java, Python, or JavaScript. Supports real device and emulator testing locally and on TestMu AI cloud with 100+ real devices.",
+    "path": "category/programming-languages-core/appium-skill"
   },
   {
     "id": "apple-on-device-ai",
@@ -136,22 +144,6 @@
     "path": "category/programming-languages-core/apple-search-ads"
   },
   {
-    "id": "applicationinsights-web-ts",
-    "name": "applicationinsights-web-ts",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Instrument browser/web apps with the Application Insights JavaScript SDK (@microsoft/applicationinsights-web).",
-    "path": "category/programming-languages-core/applicationinsights-web-ts"
-  },
-  {
-    "id": "arboreto",
-    "name": "arboreto",
-    "category": "programming-languages-core",
-    "repository": "davila7-claude-code-templates",
-    "description": "Infer gene regulatory networks (GRNs) from gene expression data using scalable algorithms (GRNBoost2, GENIE3). Use when analyzing transcriptomics data (bulk RNA-seq, single-cell RNA-seq) to identify transcription factor-target gene relationships and regulatory interactions. Supports distributed computation for large-scale datasets.",
-    "path": "category/programming-languages-core/arboreto"
-  },
-  {
     "id": "aster-bot-trading",
     "name": "aster-bot-trading",
     "category": "programming-languages-core",
@@ -168,14 +160,6 @@
     "path": "category/programming-languages-core/async-python-patterns"
   },
   {
-    "id": "attack-chain",
-    "name": "attack-chain",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Authorized multi-stage attack-path planning and orchestration spanning reconnaissance, initial access, privilege escalation, lateral movement, and reporting. Entry point for full engagements and cross-phase operations.",
-    "path": "category/programming-languages-core/attack-chain"
-  },
-  {
     "id": "aube-package-manager",
     "name": "aube-package-manager",
     "category": "programming-languages-core",
@@ -184,12 +168,12 @@
     "path": "category/programming-languages-core/aube-package-manager"
   },
   {
-    "id": "audit-agent-run-evidence",
-    "name": "audit-agent-run-evidence",
+    "id": "aws-amplify",
+    "name": "aws-amplify",
     "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Use when an agent, harness, gateway, MCP workflow, or multi-step automation claims completion and the available traces, checkpoints, approvals, tool calls, or deployment records must be judged without trusting self-reported success.",
-    "path": "category/programming-languages-core/audit-agent-run-evidence"
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Build and deploy full-stack web and mobile apps with AWS Amplify Gen2 (TypeScript code-first). Covers auth (Cognito), data (AppSync/DynamoDB), storage (S3), functions, APIs, and AI (Amplify AI Kit with Bedrock). Supports React, Next.js, Vue, Angular, React Native, Flutter, Swift, and Android. Always use this skill for Amplify Gen2 topics \u2014 even for questions you think you know \u2014 it contains validated, version-specific patterns that prevent common mistakes. TRIGGER when: user mentions Amplify Gen2; project has amplify/ directory or amplify_outputs; code imports @aws-amplify packages; user asks about defineBackend, defineAuth, defineData, defineStorage, defineFunction, or npx ampx. SKIP: Amplify Gen1 (amplify CLI v6), standalone SAM/CDK without Amplify (use aws-serverless), direct Bedrock without Amplify AI Kit (use bedrock).",
+    "path": "category/programming-languages-core/aws-amplify"
   },
   {
     "id": "aws-cdk-development",
@@ -206,6 +190,14 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides AWS Lambda integration patterns for Java with cold start optimization. Use when deploying Java functions to AWS Lambda, choosing between Micronaut and Raw Java approaches, optimizing cold starts below 1 second, configuring API Gateway or ALB integration, or implementing serverless Java applications. Triggers include \"create lambda java\", \"deploy java lambda\", \"micronaut lambda aws\", \"java lambda cold start\", \"aws lambda java performance\", \"java serverless framework\".",
     "path": "category/programming-languages-core/aws-lambda-java-integration"
+  },
+  {
+    "id": "aws-lambda-typescript-integration",
+    "name": "aws-lambda-typescript-integration",
+    "category": "programming-languages-core",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides AWS Lambda integration patterns for TypeScript with cold start optimization. Use when creating or deploying TypeScript Lambda functions, choosing between NestJS framework and raw TypeScript approaches, optimizing cold starts, configuring API Gateway or ALB integration, or implementing serverless TypeScript applications. Triggers include \"create lambda typescript\", \"deploy typescript lambda\", \"nestjs lambda aws\", \"raw typescript lambda\", \"aws lambda typescript performance\".",
+    "path": "category/programming-languages-core/aws-lambda-typescript-integration"
   },
   {
     "id": "aws-sdk-java-v2-bedrock",
@@ -328,14 +320,6 @@
     "path": "category/programming-languages-core/azure-ai-projects-java"
   },
   {
-    "id": "azure-ai-projects-ts",
-    "name": "azure-ai-projects-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Build AI applications using Azure AI Projects SDK for JavaScript (@azure/ai-projects). Use when working with Foundry project clients, agents, connections, deployments, datasets, indexes, evaluation...",
-    "path": "category/programming-languages-core/azure-ai-projects-ts"
-  },
-  {
     "id": "azure-ai-vision-imageanalysis-java",
     "name": "azure-ai-vision-imageanalysis-java",
     "category": "programming-languages-core",
@@ -344,20 +328,28 @@
     "path": "category/programming-languages-core/azure-ai-vision-imageanalysis-java"
   },
   {
+    "id": "azure-ai-voicelive-java",
+    "name": "azure-ai-voicelive-java",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure AI VoiceLive SDK for Java. Real-time bidirectional voice conversations with AI assistants using WebSocket. Triggers: \"VoiceLiveClient java\", \"voice assistant java\", \"real-time voice java\", \"audio streaming java\", \"voice activity detection java\".",
+    "path": "category/programming-languages-core/azure-ai-voicelive-java"
+  },
+  {
+    "id": "azure-ai-voicelive-ts",
+    "name": "azure-ai-voicelive-ts",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure AI Voice Live SDK for JavaScript/TypeScript. Build real-time voice AI applications with bidirectional WebSocket communication. Use for voice assistants, conversational AI, real-time speech-to-speech, and voice-enabled chatbots in Node.js or browser environments. Triggers: \"voice live\", \"real-time voice\", \"VoiceLiveClient\", \"VoiceLiveSession\", \"voice assistant TypeScript\", \"bidirectional audio\", \"speech-to-speech JavaScript\".",
+    "path": "category/programming-languages-core/azure-ai-voicelive-ts"
+  },
+  {
     "id": "azure-appconfiguration-java",
     "name": "azure-appconfiguration-java",
     "category": "programming-languages-core",
     "repository": "antigravity-awesome-skills",
     "description": "Azure App Configuration SDK for Java. Centralized application configuration management with key-value settings, feature flags, and snapshots. Triggers: \"ConfigurationClient java\", \"app configuration java\", \"feature flag java\", \"configuration setting java\", \"azure config java\".",
     "path": "category/programming-languages-core/azure-appconfiguration-java"
-  },
-  {
-    "id": "azure-appconfiguration-ts",
-    "name": "azure-appconfiguration-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Build applications using Azure App Configuration SDK for JavaScript (@azure/app-configuration). Use when working with configuration settings, feature flags, Key Vault references, dynamic refresh, o...",
-    "path": "category/programming-languages-core/azure-appconfiguration-ts"
   },
   {
     "id": "azure-communication-callautomation-java",
@@ -408,6 +400,38 @@
     "path": "category/programming-languages-core/azure-compute-batch-java"
   },
   {
+    "id": "azure-cosmos-java",
+    "name": "azure-cosmos-java",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure Cosmos DB SDK for Java. NoSQL database operations with global distribution, multi-model support, and reactive patterns. Triggers: \"CosmosClient java\", \"CosmosAsyncClient\", \"cosmos database java\", \"cosmosdb java\", \"document database java\".",
+    "path": "category/programming-languages-core/azure-cosmos-java"
+  },
+  {
+    "id": "azure-cosmos-rust",
+    "name": "azure-cosmos-rust",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure Cosmos DB SDK for Rust (NoSQL API). Use for document CRUD, queries, containers, and globally distributed data. Triggers: \"cosmos db rust\", \"CosmosClient rust\", \"container\", \"document rust\", \"NoSQL rust\", \"partition key\".",
+    "path": "category/programming-languages-core/azure-cosmos-rust"
+  },
+  {
+    "id": "azure-cosmos-ts",
+    "name": "azure-cosmos-ts",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure Cosmos DB JavaScript/TypeScript SDK (@azure/cosmos) for data plane operations. Use for CRUD operations on documents, queries, bulk operations, and container management. Triggers: \"Cosmos DB\", \"@azure/cosmos\", \"CosmosClient\", \"document CRUD\", \"NoSQL queries\", \"bulk operations\", \"partition key\", \"container.items\".",
+    "path": "category/programming-languages-core/azure-cosmos-ts"
+  },
+  {
+    "id": "azure-data-tables-java",
+    "name": "azure-data-tables-java",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Build table storage applications with Azure Tables SDK for Java. Use when working with Azure Table Storage or Cosmos DB Table API for NoSQL key-value data, schemaless storage, or structured data at...",
+    "path": "category/programming-languages-core/azure-data-tables-java"
+  },
+  {
     "id": "azure-eventgrid-java",
     "name": "azure-eventgrid-java",
     "category": "programming-languages-core",
@@ -432,28 +456,12 @@
     "path": "category/programming-languages-core/azure-eventhub-rust"
   },
   {
-    "id": "azure-eventhub-ts",
-    "name": "azure-eventhub-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Build event streaming applications using Azure Event Hubs SDK for JavaScript (@azure/event-hubs). Use when implementing high-throughput event ingestion, real-time analytics, IoT telemetry, or event...",
-    "path": "category/programming-languages-core/azure-eventhub-ts"
-  },
-  {
     "id": "azure-identity-rust",
     "name": "azure-identity-rust",
     "category": "programming-languages-core",
     "repository": "antigravity-awesome-skills",
     "description": "Azure Identity SDK for Rust authentication. Use for DeveloperToolsCredential, ManagedIdentityCredential, ClientSecretCredential, and token-based authentication. Triggers: \"azure-identity\", \"DeveloperToolsCredential\", \"authentication rust\", \"managed identity rust\", \"credential rust\".",
     "path": "category/programming-languages-core/azure-identity-rust"
-  },
-  {
-    "id": "azure-identity-ts",
-    "name": "azure-identity-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Authenticate to Azure services using Azure Identity SDK for JavaScript (@azure/identity). Use when configuring authentication with DefaultAzureCredential, managed identity, service principals, or i...",
-    "path": "category/programming-languages-core/azure-identity-ts"
   },
   {
     "id": "azure-keyvault-certificates-rust",
@@ -472,28 +480,12 @@
     "path": "category/programming-languages-core/azure-keyvault-keys-rust"
   },
   {
-    "id": "azure-keyvault-keys-ts",
-    "name": "azure-keyvault-keys-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Manage cryptographic keys using Azure Key Vault Keys SDK for JavaScript (@azure/keyvault-keys). Use when creating, encrypting/decrypting, signing, or rotating keys.",
-    "path": "category/programming-languages-core/azure-keyvault-keys-ts"
-  },
-  {
     "id": "azure-keyvault-secrets-rust",
     "name": "azure-keyvault-secrets-rust",
     "category": "programming-languages-core",
     "repository": "antigravity-awesome-skills",
     "description": "Azure Key Vault Secrets SDK for Rust. Use for storing and retrieving secrets, passwords, and API keys. Triggers: \"keyvault secrets rust\", \"SecretClient rust\", \"get secret rust\", \"set secret rust\".",
     "path": "category/programming-languages-core/azure-keyvault-secrets-rust"
-  },
-  {
-    "id": "azure-keyvault-secrets-ts",
-    "name": "azure-keyvault-secrets-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Manage secrets using Azure Key Vault Secrets SDK for JavaScript (@azure/keyvault-secrets). Use when storing and retrieving application secrets or configuration values.",
-    "path": "category/programming-languages-core/azure-keyvault-secrets-ts"
   },
   {
     "id": "azure-messaging",
@@ -528,20 +520,20 @@
     "path": "category/programming-languages-core/azure-monitor-opentelemetry-exporter-java"
   },
   {
-    "id": "azure-monitor-opentelemetry-ts",
-    "name": "azure-monitor-opentelemetry-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Instrument applications with Azure Monitor and OpenTelemetry for JavaScript (@azure/monitor-opentelemetry). Use when adding distributed tracing, metrics, and logs to Node.js applications with Appli...",
-    "path": "category/programming-languages-core/azure-monitor-opentelemetry-ts"
-  },
-  {
     "id": "azure-monitor-query-java",
     "name": "azure-monitor-query-java",
     "category": "programming-languages-core",
     "repository": "antigravity-awesome-skills",
     "description": "Azure Monitor Query SDK for Java. Execute Kusto queries against Log Analytics workspaces and query metrics from Azure resources. Triggers: \"LogsQueryClient java\", \"MetricsQueryClient java\", \"kusto query java\", \"log analytics java\", \"azure monitor query java\". Note: This package is deprecated. Migrate to azure-monitor-query-logs and azure-monitor-query-metrics.",
     "path": "category/programming-languages-core/azure-monitor-query-java"
+  },
+  {
+    "id": "azure-postgres-ts",
+    "name": "azure-postgres-ts",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Connect to Azure Database for PostgreSQL Flexible Server from Node.js/TypeScript using the pg (node-postgres) package. Use for PostgreSQL queries, connection pooling, transactions, and Microsoft Entra ID (passwordless) authentication. Triggers: \"PostgreSQL\", \"postgres\", \"pg client\", \"node-postgres\", \"Azure PostgreSQL connection\", \"PostgreSQL TypeScript\", \"pg Pool\", \"passwordless postgres\".",
+    "path": "category/programming-languages-core/azure-postgres-ts"
   },
   {
     "id": "azure-security-keyvault-keys-java",
@@ -568,14 +560,6 @@
     "path": "category/programming-languages-core/azure-servicebus-rust"
   },
   {
-    "id": "azure-servicebus-ts",
-    "name": "azure-servicebus-ts",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Build messaging applications using Azure Service Bus SDK for JavaScript (@azure/service-bus). Use when implementing queues, topics/subscriptions, message sessions, dead-letter handling, or enterpri...",
-    "path": "category/programming-languages-core/azure-servicebus-ts"
-  },
-  {
     "id": "azure-storage-blob-java",
     "name": "azure-storage-blob-java",
     "category": "programming-languages-core",
@@ -592,12 +576,36 @@
     "path": "category/programming-languages-core/azure-storage-blob-rust"
   },
   {
+    "id": "azure-storage-blob-ts",
+    "name": "azure-storage-blob-ts",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure Blob Storage JavaScript/TypeScript SDK (@azure/storage-blob) for blob operations. Use for uploading, downloading, listing, and managing blobs and containers. Supports block blobs, append blobs, page blobs, SAS tokens, and streaming. Triggers: \"blob storage\", \"@azure/storage-blob\", \"BlobServiceClient\", \"ContainerClient\", \"upload blob\", \"download blob\", \"SAS token\", \"block blob\".",
+    "path": "category/programming-languages-core/azure-storage-blob-ts"
+  },
+  {
+    "id": "azure-storage-file-share-ts",
+    "name": "azure-storage-file-share-ts",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure File Share JavaScript/TypeScript SDK (@azure/storage-file-share) for SMB file share operations. Use for creating shares, managing directories, uploading/downloading files, and handling file metadata. Supports Azure Files SMB protocol scenarios. Triggers: \"file share\", \"@azure/storage-file-share\", \"ShareServiceClient\", \"ShareClient\", \"SMB\", \"Azure Files\".",
+    "path": "category/programming-languages-core/azure-storage-file-share-ts"
+  },
+  {
     "id": "azure-storage-queue-rust",
     "name": "azure-storage-queue-rust",
     "category": "programming-languages-core",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Azure Queue Storage library for Rust. Send, receive, and manage queue messages. Triggers: \"queue storage rust\", \"QueueClient rust\", \"send message rust\", \"receive messages rust\", \"QueueServiceClient rust\", \"queue rust\".",
     "path": "category/programming-languages-core/azure-storage-queue-rust"
+  },
+  {
+    "id": "azure-storage-queue-ts",
+    "name": "azure-storage-queue-ts",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue) for message queue operations. Use for sending, receiving, peeking, and deleting messages in queues. Supports visibility timeout, message encoding, and batch operations. Triggers: \"queue storage\", \"@azure/storage-queue\", \"QueueServiceClient\", \"QueueClient\", \"send message\", \"receive message\", \"dequeue\", \"visibility timeout\".",
+    "path": "category/programming-languages-core/azure-storage-queue-ts"
   },
   {
     "id": "azure-upgrade",
@@ -608,12 +616,12 @@
     "path": "category/programming-languages-core/azure-upgrade"
   },
   {
-    "id": "azure-web-pubsub-ts",
-    "name": "azure-web-pubsub-ts",
+    "id": "bb-local-toolkit",
+    "name": "bb-local-toolkit",
     "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Build real-time messaging applications using Azure Web PubSub SDKs for JavaScript (@azure/web-pubsub, @azure/web-pubsub-client). Use when implementing WebSocket-based real-time features, pub/sub me...",
-    "path": "category/programming-languages-core/azure-web-pubsub-ts"
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Local-tooling companion to the bug-bounty orchestrator \u2014 carries the SAME complete bug-bounty workflow, but reach for THIS variant when you also need to resolve where tools, wordlists, and clones are installed on the local machine (jhaddix, SecLists, trufflehog, ffuf, dalfox, ghauri); for pure orchestration/routing use the bug-bounty skill. Workflow it covers \u2014 recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack research, mind maps, threat modeling), vulnerability hunting (IDOR, SSRF, XSS, auth bypass, CSRF, race conditions, SQLi, XXE, file upload, business logic, GraphQL, HTTP smuggling, cache poisoning, OAuth, timing side-channels, OIDC, SSTI, subdomain takeover, cloud misconfig, ATO chains, agentic AI), LLM/AI security testing (chatbot IDOR, prompt injection, indirect injection, ASCII smuggling, exfil channels, RCE via code tools, system prompt extraction, ASI01-ASI10), A-to-B bug chaining (IDOR\u2192auth bypass, SSRF\u2192cloud metadata, XSS\u2192ATO, open redirect\u2192OAuth theft, S3\u2192bundle\u2192secret\u2192OAuth), bypass tables (SSRF IP bypass, open redirect bypass, file upload bypass), language-specific grep (JS prototype pollution, Python pickle, PHP type juggling, Go template.HTML, Ruby YAML.load, Rust unwrap), and reporting (7-Question Gate, 4 validation gates, human-tone writing, templates by vuln class, CVSS 3.1, PoC generation, always-rejected list, conditional chain table, submission checklist). Use when you need the local install path of a tool / wordlist / clone for a hunt, or as the full-workflow variant when operating from this local toolkit; for general routing use the bug-bounty skill. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a",
+    "path": "category/programming-languages-core/bb-local-toolkit"
   },
   {
     "id": "bevy-ecs-expert",
@@ -624,28 +632,28 @@
     "path": "category/programming-languages-core/bevy-ecs-expert"
   },
   {
-    "id": "blast-radius",
-    "name": "blast-radius",
+    "id": "bigtable-basics",
+    "name": "bigtable-basics",
     "category": "programming-languages-core",
-    "repository": "backnotprop-pstack",
-    "description": "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a small diff you don't trust.",
-    "path": "category/programming-languages-core/blast-radius"
+    "repository": "google-skills",
+    "description": "Assists in provisioning instances/tables, designing performant schemas, and querying data in Bigtable. Use when designing Bigtable row keys, configuring column families, writing SQL queries or client library code (Java, Go, Python) for Bigtable, or diagnosing performance/hotspotting issues. Also use when provisioning Bigtable clusters using gcloud or cbt CLIs. Don't use for generic Cloud SQL administration.",
+    "path": "category/programming-languages-core/bigtable-basics"
   },
   {
-    "id": "browser-exploitation-v8",
-    "name": "browser-exploitation-v8",
+    "id": "browser-use-to-stagehand",
+    "name": "browser-use-to-stagehand",
     "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "Browser and V8 exploitation playbook. Use when exploiting JavaScript engine vulnerabilities including JIT type confusion, incorrect bounds elimination, and V8 sandbox bypass to achieve renderer RCE and sandbox escape in Chrome/Chromium.",
-    "path": "category/programming-languages-core/browser-exploitation-v8"
+    "repository": "browserbase-skills",
+    "description": "Migrate browser-use (Python) browser-automation scripts to Stagehand v3 (TypeScript) on Browserbase. Use when the user wants to convert, port, rewrite, or migrate a browser-use Agent script to Stagehand, map browser-use features/APIs to Stagehand primitives (act/extract/observe/agent), or move agentic browser automation onto Browserbase with more determinism. Triggers on \"browser-use\", \"browser_use\", or \"Agent(task=...)\".",
+    "path": "category/programming-languages-core/browser-use-to-stagehand"
   },
   {
-    "id": "building-soc-escalation-matrix",
-    "name": "building-soc-escalation-matrix",
+    "id": "bug-bounty",
+    "name": "bug-bounty",
     "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Build a structured SOC escalation matrix defining severity tiers, response",
-    "path": "category/programming-languages-core/building-soc-escalation-matrix"
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Complete bug bounty workflow \u2014 recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack research, mind maps, threat modeling), vulnerability hunting (IDOR, SSRF, XSS, auth bypass, CSRF, race conditions, SQLi, XXE, file upload, business logic, GraphQL, HTTP smuggling, cache poisoning, OAuth, timing side-channels, OIDC, SSTI, subdomain takeover, cloud misconfig, ATO chains, agentic AI), LLM/AI security testing (chatbot IDOR, prompt injection, indirect injection, ASCII smuggling, exfil channels, RCE via code tools, system prompt extraction, ASI01-ASI10), A-to-B bug chaining (IDOR\u2192auth bypass, SSRF\u2192cloud metadata, XSS\u2192ATO, open redirect\u2192OAuth theft, S3\u2192bundle\u2192secret\u2192OAuth), bypass tables (SSRF IP bypass, open redirect bypass, file upload bypass), language-specific grep (JS prototype pollution, Python pickle, PHP type juggling, Go template.HTML, Ruby YAML.load, Rust unwrap), and reporting (7-Question Gate, 4 validation gates, human-tone writing, templates by vuln class, CVSS 3.1, PoC generation, always-rejected list, conditional chain table, submission checklist). Use for ANY bug bounty task \u2014 starting a new target, doing recon, hunting specific vulns, auditing source code, testing AI features, validating findings, or writing reports. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a",
+    "path": "category/programming-languages-core/bug-bounty"
   },
   {
     "id": "bullmq-specialist",
@@ -670,6 +678,14 @@
     "repository": "trailofbits-skills",
     "description": "Sets up and runs cargo-fuzz, the standard fuzzing tool for Cargo-based Rust projects. Covers cargo fuzz init, the nightly toolchain requirement, fuzz_target! harnesses, Arbitrary-derived structured inputs, sanitizer options, cargo fuzz coverage, and reproducing a crash artifact. Use when fuzzing a Rust crate, writing a fuzz_target!, exercising unsafe blocks or FFI in Rust, or triaging a cargo fuzz crash.",
     "path": "category/programming-languages-core/cargo-fuzz"
+  },
+  {
+    "id": "cargo-project",
+    "name": "cargo-project",
+    "category": "programming-languages-core",
+    "repository": "getcargohq-cargo-skills",
+    "description": "Declare a whole Cargo workspace in a project, GTM as Code \u2014 connectors, models, plays, tools, agents, MCP servers, segments, context, folders, files, workers, and apps in TypeScript, reconciled with `cargo-ai project` (init \u2192 types \u2192 plan \u2192 deploy), the way you would run Pulumi or Terraform. Triggers: \\\"as code\\\", \\\"in git\\\", \\\"version-controlled\\\", \\\"reproducible\\\", \\\"Terraform for Cargo\\\", \\\"set up a whole workspace\\\", \\\"staging and production\\\", \\\"deploy the workspace from CI\\\", \\\"review this in a PR\\\", \\\"cargo.json\\\", \\\"cargo.state.json\\\", \\\"scaffold from a template\\\", \\\"is there a cookbook for this\\\", \\\"start from a cookbook\\\". Skills with a worked project example (TAM building, account scoring, call capture, inbound qualification, CRM enrichment, standup) live in gtm-skills; menu in references/cookbooks.md. Skip when: it is a one-off operation, a read, or an ad-hoc query \u2014 use the matching capability skill.",
+    "path": "category/programming-languages-core/cargo-project"
   },
   {
     "id": "cc-skill-coding-standards",
@@ -704,12 +720,20 @@
     "path": "category/programming-languages-core/claurst-claude-code-rust"
   },
   {
-    "id": "cli-to-js-api-wrapper",
-    "name": "cli-to-js-api-wrapper",
+    "id": "club-3090-llm-serving",
+    "name": "club-3090-llm-serving",
     "category": "programming-languages-core",
     "repository": "reason-machines-trending-skills",
-    "description": "Turn any CLI tool into a fully typed JavaScript/TypeScript API using cli-to-js",
-    "path": "category/programming-languages-core/cli-to-js-api-wrapper"
+    "description": "Recipes and configs for serving LLMs locally on RTX 3090 GPUs using vLLM, llama.cpp, and SGLang with OpenAI-compatible API",
+    "path": "category/programming-languages-core/club-3090-llm-serving"
+  },
+  {
+    "id": "cmux-backend",
+    "name": "cmux-backend",
+    "category": "programming-languages-core",
+    "repository": "manaflow-ai-cmux",
+    "description": "Backend TypeScript and Cloud VM development rules for cmux. Use when editing web/app/api, web/services, backend scripts, Cloud VM lifecycle, provider integrations, Postgres, Stack Auth pricing gates, migrations, or provider image build scripts.",
+    "path": "category/programming-languages-core/cmux-backend"
   },
   {
     "id": "code-flow-visualizer",
@@ -720,60 +744,12 @@
     "path": "category/programming-languages-core/code-flow-visualizer"
   },
   {
-    "id": "code-reviewer",
-    "name": "code-reviewer",
-    "category": "programming-languages-core",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Use for any code review: a pull request, a diff, a commit, or a pasted function, handler or file in TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#/.NET, Java, C, C++, Rust, Ruby, PHP or Dart/Flutter. Applies per-language rule packs (security such as SQL injection and missing auth, async and resource handling, error handling, performance) and scripts that score a PR's risk and complexity, then gives a merge verdict with blocking and non-blocking findings. Use whenever the user asks to review, check or look over code, says 'code review', 'review this PR', 'review this diff' or 'is this safe to merge', or asks what is wrong with a snippet, even a single function.",
-    "path": "category/programming-languages-core/code-reviewer"
-  },
-  {
     "id": "code-testing-extensions",
     "name": "code-testing-extensions",
     "category": "programming-languages-core",
     "repository": "dotnet-skills",
     "description": "Provides file paths to language-specific extension files for the code-testing pipeline. Read this reference-only catalog for extension guidance files (e.g., dotnet.md for .NET, cpp.md for C++). Agents and skills read its bundled files directly; do not invoke this catalog through the model's skill tool.",
     "path": "category/programming-languages-core/code-testing-extensions"
-  },
-  {
-    "id": "codeql",
-    "name": "codeql",
-    "category": "programming-languages-core",
-    "repository": "trailofbits-skills",
-    "description": "Scans a codebase for security vulnerabilities using CodeQL's interprocedural data flow and taint tracking analysis. Triggers on \"run codeql\", \"codeql scan\", \"build codeql database\", \"SAST scan\", \"taint analysis\", \"dataflow analysis\", or \"find vulnerabilities in this repo\". Covers Python, JavaScript/TypeScript, Go, Java/Kotlin, C/C++, C#, Ruby, and Swift. Supports \"run all\" (security-and-quality + security-experimental) and \"important only\" (high-precision) scan modes, and creates data extension models for project-specific sources and sinks. For fast single-file pattern matching, or when no build is available for a compiled language, use the semgrep skill; to parse SARIF that already exists rather than produce it, use the sarif-parsing skill.",
-    "path": "category/programming-languages-core/codeql"
-  },
-  {
-    "id": "conducting-internal-reconnaissance-with-bloodhound-ce",
-    "name": "conducting-internal-reconnaissance-with-bloodhound-ce",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Conduct internal Active Directory reconnaissance using BloodHound Community Edition's graph database with the SharpHound (AD) and AzureHound (Entra ID) collectors, mapping ACLs, sessions, and group memberships into attack paths from a low-privileged foothold to Domain Admin. Use after an initial AD foothold to identify privilege escalation chains, or to validate that AD hardening closed known attack paths.",
-    "path": "category/programming-languages-core/conducting-internal-reconnaissance-with-bloodhound-ce"
-  },
-  {
-    "id": "conducting-pass-the-ticket-attack",
-    "name": "conducting-pass-the-ticket-attack",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Perform Pass-the-Ticket (PtT) lateral movement by extracting Kerberos TGT/TGS tickets from LSASS memory on a compromised host and injecting them into another session to impersonate the ticket owner without knowing their password. Use during authorized post-exploitation to move laterally or escalate access via stolen Kerberos tickets, or to validate detections for Kerberos ticket theft and reuse.",
-    "path": "category/programming-languages-core/conducting-pass-the-ticket-attack"
-  },
-  {
-    "id": "configuring-aws-verified-access-for-ztna",
-    "name": "configuring-aws-verified-access-for-ztna",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Configure AWS Verified Access to provide VPN-less zero trust network",
-    "path": "category/programming-languages-core/configuring-aws-verified-access-for-ztna"
-  },
-  {
-    "id": "configuring-microsegmentation-for-zero-trust",
-    "name": "configuring-microsegmentation-for-zero-trust",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Configures microsegmentation policies to enforce least-privilege workload-to-workload",
-    "path": "category/programming-languages-core/configuring-microsegmentation-for-zero-trust"
   },
   {
     "id": "convex",
@@ -808,36 +784,12 @@
     "path": "category/programming-languages-core/core-fix-skill-docs"
   },
   {
-    "id": "cors-cross-origin-misconfiguration",
-    "name": "cors-cross-origin-misconfiguration",
-    "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "CORS misconfiguration testing playbook. Use when analyzing cross-origin trust, credentialed browser reads, origin reflection, preflight policy bugs, and browser-based access to authenticated APIs.",
-    "path": "category/programming-languages-core/cors-cross-origin-misconfiguration"
-  },
-  {
-    "id": "cost-counterfactual",
-    "name": "cost-counterfactual",
-    "category": "programming-languages-core",
-    "repository": "ruvnet-ruflo",
-    "description": "Multi-baseline counterfactual cost analysis. Compares actual session spend to hypothetical always-haiku / always-sonnet / always-opus routing baselines. Answers \"is the routing earning its keep?\" Negative savings flag over-escalation; positive savings quantify the router's win.",
-    "path": "category/programming-languages-core/cost-counterfactual"
-  },
-  {
     "id": "cost-local",
     "name": "cost-local",
     "category": "programming-languages-core",
     "repository": "ruvnet-ruflo",
     "description": "Cost per million tokens on hardware you own (Ollama, llama.cpp, vLLM, LM Studio) from watts, electricity price, hardware price and measured tokens/second, and the utilisation at which local beats a hosted model. Use for local-vs-API break-even questions.",
     "path": "category/programming-languages-core/cost-local"
-  },
-  {
-    "id": "cost-session",
-    "name": "cost-session",
-    "category": "programming-languages-core",
-    "repository": "ruvnet-ruflo",
-    "description": "Per-message cost breakdown within a single session. The drill-down companion to cost-anomaly \u2014 when an outlier session is flagged, this surfaces the specific expensive messages so operators can see whether the cost came from output tokens, cache writes, or model escalations.",
-    "path": "category/programming-languages-core/cost-session"
   },
   {
     "id": "cpp",
@@ -864,6 +816,14 @@
     "path": "category/programming-languages-core/cpp-testing"
   },
   {
+    "id": "create-auth",
+    "name": "create-auth",
+    "category": "programming-languages-core",
+    "repository": "better-auth-skills",
+    "description": "Scaffold and implement authentication in TypeScript/JavaScript apps using Better Auth. Detect frameworks, configure database adapters, set up route handlers, add OAuth providers, and create auth UI pages. Use when users want to add login, sign-up, or authentication to a new or existing project with Better Auth.",
+    "path": "category/programming-languages-core/create-auth"
+  },
+  {
     "id": "create-toolset",
     "name": "create-toolset",
     "category": "programming-languages-core",
@@ -872,12 +832,12 @@
     "path": "category/programming-languages-core/create-toolset"
   },
   {
-    "id": "crustdata-automation",
-    "name": "crustdata-automation",
+    "id": "csharp-developer",
+    "name": "csharp-developer",
     "category": "programming-languages-core",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Crustdata tasks via Rube MCP (Composio). Always search tools first for current schemas.",
-    "path": "category/programming-languages-core/crustdata-automation"
+    "repository": "jeffallan-claude-skills",
+    "description": "Use when building C# applications with .NET 8+, ASP.NET Core APIs, or Blazor web apps. Builds REST APIs using minimal or controller-based routing, configures database access with Entity Framework Core, implements async patterns and cancellation, structures applications with CQRS via MediatR, and scaffolds Blazor components with state management. Invoke for C#, .NET, ASP.NET Core, Blazor, Entity Framework, EF Core, Minimal API, MAUI, SignalR.",
+    "path": "category/programming-languages-core/csharp-developer"
   },
   {
     "id": "csharp-expert",
@@ -894,14 +854,6 @@
     "repository": "affaan-m-ecc",
     "description": "C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test organization best practices. Use when writing or reviewing xUnit tests, mocks, or integration tests in a C# / .NET project.",
     "path": "category/programming-languages-core/csharp-testing"
-  },
-  {
-    "id": "cubesandbox-ai-sandbox",
-    "name": "cubesandbox-ai-sandbox",
-    "category": "programming-languages-core",
-    "repository": "reason-machines-trending-skills",
-    "description": "CubeSandbox \u2014 instant, hardware-isolated, E2B-compatible sandbox service for AI agents built on RustVMM/KVM",
-    "path": "category/programming-languages-core/cubesandbox-ai-sandbox"
   },
   {
     "id": "cucumber-skill",
@@ -928,28 +880,20 @@
     "path": "category/programming-languages-core/cypress-skill"
   },
   {
-    "id": "dark-gritty-mood",
-    "name": "dark-gritty-mood",
+    "id": "database-migrations",
+    "name": "database-migrations",
     "category": "programming-languages-core",
-    "repository": "arjun988-blender-skills",
-    "description": "Dark, grim, gritty, rusty, abandoned, decayed, industrial, lonely, and melancholic mood direction for Blender.",
-    "path": "category/programming-languages-core/dark-gritty-mood"
+    "repository": "affaan-m-ecc",
+    "description": "Safe, reversible database migration patterns: forward-only production changes, expand-contract zero-downtime renames, concurrent indexes, batched backfills, and per-tool workflows for PostgreSQL, Prisma, Drizzle, Kysely, Django, and golang-migrate. Use when writing a schema or data migration, adding a column or index to a large table, planning a rollback, or preparing a zero-downtime deploy.",
+    "path": "category/programming-languages-core/database-migrations"
   },
   {
-    "id": "data-engineer",
-    "name": "data-engineer",
+    "id": "db-seed",
+    "name": "db-seed",
     "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Build scalable data pipelines, modern data warehouses, and",
-    "path": "category/programming-languages-core/data-engineer"
-  },
-  {
-    "id": "data-processing-ray-data",
-    "name": "data-processing-ray-data",
-    "category": "programming-languages-core",
-    "repository": "davila7-claude-code-templates",
-    "description": "Scalable data processing for ML workloads. Streaming execution across CPU/GPU, supports Parquet/CSV/JSON/images. Integrates with Ray Train, PyTorch, TensorFlow. Scales from single machine to 100s of nodes. Use for batch inference, data preprocessing, multi-modal data loading, or distributed ETL pipelines.",
-    "path": "category/programming-languages-core/data-processing-ray-data"
+    "repository": "jezweb-claude-skills",
+    "description": "Generate database seed scripts with realistic sample data. Reads Drizzle schemas or SQL migrations, respects foreign key ordering, produces idempotent TypeScript or SQL seed files. Handles D1 batch limits, unique constraints, and domain-appropriate data. Use when populating dev/demo/test databases. Triggers: 'seed database', 'seed data', 'sample data', 'populate database', 'db seed', 'test data', 'demo data', 'generate fixtures'.",
+    "path": "category/programming-languages-core/db-seed"
   },
   {
     "id": "dbos-golang",
@@ -966,6 +910,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "DBOS TypeScript SDK for building reliable, fault-tolerant applications with durable workflows. Use this skill when writing TypeScript code with DBOS, creating workflows and steps, using queues, usi...",
     "path": "category/programming-languages-core/dbos-typescript"
+  },
+  {
+    "id": "dbx-database-client",
+    "name": "dbx-database-client",
+    "category": "programming-languages-core",
+    "repository": "reason-machines-trending-skills",
+    "description": "Open-source lightweight cross-platform database management tool built with Tauri, Vue 3, and Rust supporting MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, ClickHouse, and SQL Server.",
+    "path": "category/programming-languages-core/dbx-database-client"
   },
   {
     "id": "deepagents-typescript-quickstart",
@@ -992,14 +944,6 @@
     "path": "category/programming-languages-core/deno-typescript"
   },
   {
-    "id": "deploying-tailscale-for-zero-trust-vpn",
-    "name": "deploying-tailscale-for-zero-trust-vpn",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Deploys and configures Tailscale (or self-hosted Headscale) as a WireGuard-based zero trust mesh VPN, setting up identity-aware ACLs, exit nodes, subnet routers, and MagicDNS for encrypted peer-to-peer connectivity. Use when replacing traditional VPN servers with an identity-authenticated mesh network or enforcing granular per-device access control lists.",
-    "path": "category/programming-languages-core/deploying-tailscale-for-zero-trust-vpn"
-  },
-  {
     "id": "deserialization-insecure",
     "name": "deserialization-insecure",
     "category": "programming-languages-core",
@@ -1024,52 +968,12 @@
     "path": "category/programming-languages-core/devcontainer-setup"
   },
   {
-    "id": "developer-community-moderation",
-    "name": "developer-community-moderation",
-    "category": "programming-languages-core",
-    "repository": "samber-developer-relations-skills",
-    "description": "Writes a developer community's code of conduct and the moderation playbook behind it - scope, enforcement ladder, reporting channels, incident-response runbook, moderator roster, platform controls. Use whenever the user mentions a code of conduct, CODE_OF_CONDUCT.md, community moderation, moderator recruitment, an escalation ladder, banning or suspending a member, harassment, trolls, brigading, spam or AI-slop floods, or a conduct report they need to handle - including vaguer phrasings like \"our Discord is getting out of hand\", \"we need community rules\", or \"someone reported a maintainer\". Covers company-run and volunteer open-source communities. Do NOT use to pick the platform - use samber/developer-relations-skills@developer-community-launch.",
-    "path": "category/programming-languages-core/developer-community-moderation"
-  },
-  {
     "id": "developing-genkit-js",
     "name": "developing-genkit-js",
     "category": "programming-languages-core",
     "repository": "google-skills",
     "description": "Develop AI-powered applications using Genkit in Node.js/TypeScript. Use when the user asks about Genkit, AI agents, flows, or tools in JavaScript/TypeScript, or when encountering Genkit errors, validation issues, type errors, or API problems.",
     "path": "category/programming-languages-core/developing-genkit-js"
-  },
-  {
-    "id": "diagnose-errors",
-    "name": "diagnose-errors",
-    "category": "programming-languages-core",
-    "repository": "amplitude-mcp-marketplace",
-    "description": "Investigates errors across network failures, JavaScript errors, and error clicks to identify what's broken, where, and why. Use when the user says \"what's broken\", \"errors are up\", \"why are users seeing errors\", \"JS errors\", \"network failures\", \"5xx spike\", \"something is broken\", or wants to triage product reliability issues.",
-    "path": "category/programming-languages-core/diagnose-errors"
-  },
-  {
-    "id": "discourse-forums-playbook",
-    "name": "discourse-forums-playbook",
-    "category": "programming-languages-core",
-    "repository": "samber-developer-relations-skills",
-    "description": "Runs a developer-tools vendor's own Discourse forum as its operator - categories and tags, trust levels, spam controls, seeding without sock puppets, Solved support categories, what Hot, Top and the summary email reward, and forum SEO (Q&A markup, login-required trap). Use whenever a community team sets up, restructures or revives a product forum on Discourse or a similar self-hosted forum, asks about trust levels or the Solved plugin, why topics go unanswered, or whether threads rank on Google - even if they only say 'our Discourse is dead'. Not for members of someone else's forum. Do NOT use to pick the venue - use samber/developer-relations-skills@developer-community-launch; for a code of conduct or incident, samber/developer-relations-skills@developer-community-moderation.",
-    "path": "category/programming-languages-core/discourse-forums-playbook"
-  },
-  {
-    "id": "dns-rebinding-attacks",
-    "name": "dns-rebinding-attacks",
-    "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "DNS rebinding attack playbook. Use when testing applications that trust DNS resolution for origin checks, interact with internal services from browser context, or when SSRF is not possible server-side but the target has client-side fetch/XHR to attacker-controlled domains.",
-    "path": "category/programming-languages-core/dns-rebinding-attacks"
-  },
-  {
-    "id": "doca-common",
-    "name": "doca-common",
-    "category": "programming-languages-core",
-    "repository": "nvidia-skills",
-    "description": "Use this skill whenever the user is doing hands-on DOCA programming on a BlueField DPU or ConnectX NIC and needs the foundation primitives every per-library context rests on \u2014 walking the doca_ctx lifecycle, discovering doca_dev / doca_devinfo and gating on doca_*_cap_* before trusting a feature, wiring doca_mmap / doca_buf_inventory / doca_buf for zero-copy I/O across libraries, driving doca_pe for completions, or DOCA Log's two-tier (--sdk-log-level vs app-side) model. Trigger even when the user does not say \"DOCA Common\" \u2014 typical implicit phrasings include \"my tasks submit but nothing completes\", \"DOCA_ERROR_BAD_STATE from doca_ctx_start\", \"--sdk-log-level does nothing for my DOCA_LOG_DBG lines\", \"share a buf between doca_dma and doca_rdma\", or \"crashes far from the offending line\". Refuse and route elsewhere for per-library questions in isolation (load doca-flow / doca-rdma / doca-eth alongside), installing DOCA (doca-setup), or doc lookup (doca-public-knowledge-map).",
-    "path": "category/programming-languages-core/doca-common"
   },
   {
     "id": "doca-programming-guide",
@@ -1096,28 +1000,20 @@
     "path": "category/programming-languages-core/domain-ml"
   },
   {
-    "id": "ecommerce-checkout-optimization",
-    "name": "ecommerce-checkout-optimization",
+    "id": "drizzle-orm",
+    "name": "drizzle-orm",
     "category": "programming-languages-core",
-    "repository": "nexscope-ai-ecommerce-skills",
-    "description": "Optimize e-commerce checkout flow to reduce cart abandonment. Friction analysis, payment method optimization, trust signals, and checkout UX best practices.",
-    "path": "category/programming-languages-core/ecommerce-checkout-optimization"
+    "repository": "mindrally-skills",
+    "description": "Guidelines for developing with Drizzle ORM, a lightweight type-safe TypeScript ORM with SQL-like syntax",
+    "path": "category/programming-languages-core/drizzle-orm"
   },
   {
-    "id": "ecommerce-landing-page",
-    "name": "ecommerce-landing-page",
+    "id": "drizzle-orm-expert",
+    "name": "drizzle-orm-expert",
     "category": "programming-languages-core",
-    "repository": "nexscope-ai-ecommerce-skills",
-    "description": "Audit and optimize e-commerce landing pages for conversion. CTA placement, trust signals, page structure, copy optimization, and A/B testing strategy for product pages, collection pages, and campaign landing pages.",
-    "path": "category/programming-languages-core/ecommerce-landing-page"
-  },
-  {
-    "id": "editorial-service-booking",
-    "name": "editorial-service-booking",
-    "category": "programming-languages-core",
-    "repository": "mengto-skills",
-    "description": "Create or redesign appointment-based service websites for salons, barbers, spas, wellness studios, clinics, and hospitality brands. Use for warm editorial layouts, serif-led identity, documentary portrait crops, calm treatment selectors, location-aware booking, and operational states that remain elegant and trustworthy.",
-    "path": "category/programming-languages-core/editorial-service-booking"
+    "repository": "davila7-claude-code-templates",
+    "description": "Expert in Drizzle ORM for TypeScript \u2014 schema design, relational queries, migrations, and serverless database integration. Use when building type-safe database layers with Drizzle.",
+    "path": "category/programming-languages-core/drizzle-orm-expert"
   },
   {
     "id": "emdash-cms",
@@ -1126,14 +1022,6 @@
     "repository": "reason-machines-trending-skills",
     "description": "AI coding agent skill for building with EmDash, the full-stack TypeScript CMS built on Astro and Cloudflare",
     "path": "category/programming-languages-core/emdash-cms"
-  },
-  {
-    "id": "entrust-datacard",
-    "name": "entrust-datacard",
-    "category": "programming-languages-core",
-    "repository": "membranedev-application-skills",
-    "description": "Entrust Datacard integration. Manage data, records, and automate workflows. Use when the user wants to interact with Entrust Datacard data.",
-    "path": "category/programming-languages-core/entrust-datacard"
   },
   {
     "id": "entry-point-analyzer",
@@ -1160,28 +1048,44 @@
     "path": "category/programming-languages-core/esbuild-bundler"
   },
   {
-    "id": "exploiting-nopac-cve-2021-42278-42287",
-    "name": "exploiting-nopac-cve-2021-42278-42287",
+    "id": "experience-lwc-typescript-migrate",
+    "name": "experience-lwc-typescript-migrate",
     "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Exploits the noPac Active Directory privilege-escalation chain (CVE-2021-42278",
-    "path": "category/programming-languages-core/exploiting-nopac-cve-2021-42278-42287"
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use when converting an existing JavaScript Lightning Web Component (.js, .html, .css) to TypeScript with full type annotations and a matching `.d.ts` file that exposes only the component's `@api` surface. TRIGGER when the user says \\\"convert LWC to TypeScript\\\", \\\"migrate LWC to TS\\\", \\\"rename .js to .ts for this component\\\", \\\"add types to my LWC\\\", \\\"generate .d.ts for this LWC\\\", \\\"type-annotate @api properties\\\", or \\\"produce declare module 'c/componentName' definitions\\\". DO NOT TRIGGER when the user is authoring a brand-new LWC from scratch (use experience-lwc-generate), generating Jest tests for an existing LWC (use experience-lwc-generate), or migrating an Aura component to LWC.",
+    "path": "category/programming-languages-core/experience-lwc-typescript-migrate"
   },
   {
-    "id": "exploiting-prototype-pollution-in-javascript",
-    "name": "exploiting-prototype-pollution-in-javascript",
+    "id": "expo-migrate-module",
+    "name": "expo-migrate-module",
     "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Detects and exploits JavaScript prototype pollution vulnerabilities",
-    "path": "category/programming-languages-core/exploiting-prototype-pollution-in-javascript"
+    "repository": "expo-skills",
+    "description": "Migrate an existing Apple/Swift Expo native module from the Expo Modules API 1.0 definition DSL to the 2.0 macro API (sometimes called v2) while preserving its JavaScript and TypeScript contract. Use when converting or incrementally adopting @ExpoModule, @JS, @Event, @SharedObject, or @Record in an existing module. Do not use for creating a new module, general Expo SDK upgrades, or Android/Kotlin migrations.",
+    "path": "category/programming-languages-core/expo-migrate-module"
   },
   {
-    "id": "explore-run",
-    "name": "explore-run",
+    "id": "expo-module",
+    "name": "expo-module",
     "category": "programming-languages-core",
-    "repository": "lllllllama-rigorpilot-skills",
-    "description": "Rigor Improve / Rigor Explore run leaf skill for bounded exploratory evidence in deep learning research repositories. Use when the researcher explicitly authorizes exploratory runs such as small-subset validation, short-cycle guess-and-check, batch sweeps, idle-GPU search, or quick transfer-learning trials, with fair-comparison caveats and no-overclaim summaries in `explore_outputs/`. Do not use for end-to-end exploration orchestration on top of `current_research`, trusted baseline execution, conservative training verification, default routing, verified SOTA claims, or implicit experimentation.",
-    "path": "category/programming-languages-core/explore-run"
+    "repository": "expo-skills",
+    "description": "Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift, Kotlin, TypeScript). Covers module definition DSL, native views, shared objects, config plugins, lifecycle hooks, autolinking, and type system. Use when building or modifying native modules for Expo. Not for migrating an existing Swift module from the definition DSL to the Expo Modules API 2.0 macros; use expo-migrate-module (from the expo-experiments plugin) for that.",
+    "path": "category/programming-languages-core/expo-module"
+  },
+  {
+    "id": "expo-react-native-typescript",
+    "name": "expo-react-native-typescript",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "Expert in Expo React Native TypeScript mobile development with best practices",
+    "path": "category/programming-languages-core/expo-react-native-typescript"
+  },
+  {
+    "id": "express-typescript",
+    "name": "express-typescript",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "Guidelines for building robust APIs with Express.js and TypeScript, covering middleware patterns, routing, and security best practices",
+    "path": "category/programming-languages-core/express-typescript"
   },
   {
     "id": "expression-language-injection",
@@ -1192,6 +1096,14 @@
     "path": "category/programming-languages-core/expression-language-injection"
   },
   {
+    "id": "fastify",
+    "name": "fastify",
+    "category": "programming-languages-core",
+    "repository": "mcollina-skills",
+    "description": "Guides development of Fastify Node.js backend servers and REST APIs using TypeScript or JavaScript. Use when building, configuring, or debugging a Fastify application \u2014 including defining routes, implementing plugins, setting up JSON Schema validation, handling errors, optimising performance, managing authentication, configuring CORS and security headers, integrating databases, working with WebSockets, and deploying to production. Covers the full Fastify request lifecycle (hooks, serialization, logging with Pino) and TypeScript integration via strip types. Trigger terms: Fastify, Node.js server, REST API, API routes, backend framework, fastify.config, server.ts, app.ts.",
+    "path": "category/programming-languages-core/fastify"
+  },
+  {
     "id": "fastify-typescript",
     "name": "fastify-typescript",
     "category": "programming-languages-core",
@@ -1200,36 +1112,12 @@
     "path": "category/programming-languages-core/fastify-typescript"
   },
   {
-    "id": "federation-status",
-    "name": "federation-status",
+    "id": "firebase-development",
+    "name": "firebase-development",
     "category": "programming-languages-core",
-    "repository": "ruvnet-ruflo",
-    "description": "Show federation health \u2014 peers, sessions, trust levels, and message metrics. Use when the user asks \"is federation healthy?\", \"show peers\", \"federation status\", or wants to inspect cross-installation agent connectivity.",
-    "path": "category/programming-languages-core/federation-status"
-  },
-  {
-    "id": "feedback",
-    "name": "feedback",
-    "category": "programming-languages-core",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "Submit anonymous feedback to monskills when the agent is stuck, hits the same error repeatedly, finds incorrect or missing information in a skill, or the user expresses frustration with monskills. Use this proactively so the maintainers can improve the skills.",
-    "path": "category/programming-languages-core/feedback"
-  },
-  {
-    "id": "find-untested-sources",
-    "name": "find-untested-sources",
-    "category": "programming-languages-core",
-    "repository": "dotnet-skills",
-    "description": "MANDATORY for static source-to-test pairing: find or list source files/modules without corresponding tests, or suggest test locations from repository structure. Invoke even for a tiny package; do not substitute manual globbing. Uses Roslyn for C#/.NET and tree-sitter for Python, TS/JS, Go, Java, Rust, Ruby, Kotlin, Swift, PowerShell, and C++. DO NOT USE FOR: real line/branch/Cobertura data, coverage-backed test priorities, CRAP risk, or grading existing tests.",
-    "path": "category/programming-languages-core/find-untested-sources"
-  },
-  {
-    "id": "first-b2b-customers",
-    "name": "first-b2b-customers",
-    "category": "programming-languages-core",
-    "repository": "refoundai-lenny-skills",
-    "description": "Help users navigate the manual, unscalable journey of finding and closing their first B2B customers. This guide focuses on leveraging personal networks, co-creating with design partners, and obsessing over early user success.",
-    "path": "category/programming-languages-core/first-b2b-customers"
+    "repository": "mindrally-skills",
+    "description": "Firebase development guidelines for Firestore, Authentication, Functions, and Storage with TypeScript and Angular.",
+    "path": "category/programming-languages-core/firebase-development"
   },
   {
     "id": "fix-errors",
@@ -1264,14 +1152,6 @@
     "path": "category/programming-languages-core/fp-react"
   },
   {
-    "id": "fp-refactor",
-    "name": "fp-refactor",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Comprehensive guide for refactoring imperative TypeScript code to fp-ts functional patterns",
-    "path": "category/programming-languages-core/fp-refactor"
-  },
-  {
     "id": "fp-ts-errors",
     "name": "fp-ts-errors",
     "category": "programming-languages-core",
@@ -1304,6 +1184,14 @@
     "path": "category/programming-languages-core/fp-types-ref"
   },
   {
+    "id": "front-end-developer",
+    "name": "front-end-developer",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "Senior Front-End Developer expertise in ReactJS, NextJS, JavaScript, TypeScript, HTML, CSS, and modern UI/UX frameworks",
+    "path": "category/programming-languages-core/front-end-developer"
+  },
+  {
     "id": "gemini-api",
     "name": "gemini-api",
     "category": "programming-languages-core",
@@ -1318,6 +1206,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Guides the usage of the Gemini API on Agent Platform with the Google Gen AI SDK for enterprise AI applications. Covers SDK usage (Python, JS/TS, Go, Java, C#), capabilities like Live API, tools, multimedia generation, caching, and batch prediction.",
     "path": "category/programming-languages-core/gemini-api-agent-platform"
+  },
+  {
+    "id": "gemini-live-api-dev",
+    "name": "gemini-live-api-dev",
+    "category": "programming-languages-core",
+    "repository": "google-gemini-gemini-skills",
+    "description": "Use this skill when building real-time, bidirectional streaming applications with the Gemini Live API, or migrating legacy Live models (2.0/2.5/3.1) to Gemini 3.8 Live. Covers WebSocket-based audio/video/text streaming, voice activity detection (VAD), background reasoning (extended thinking), asynchronous function calling, session management, ephemeral tokens, live transcription, and live translation. SDKs covered - google-genai (Python), @google/genai (JavaScript/TypeScript).",
+    "path": "category/programming-languages-core/gemini-live-api-dev"
   },
   {
     "id": "geomaster",
@@ -1336,12 +1232,12 @@
     "path": "category/programming-languages-core/ghost-bits-cast-attack"
   },
   {
-    "id": "gke-productionize",
-    "name": "gke-productionize",
+    "id": "glam",
+    "name": "glam",
     "category": "programming-languages-core",
-    "repository": "google-skills",
-    "description": "Orchestrates comprehensive production readiness reviews and assessments for GKE clusters and workloads across scalability, security, reliability, observability, backup/DR, and cost optimization. Use when asked to productionize, prepare, assess, audit, or review a GKE cluster or workload before going live to production. Don't use for deep-dive single-domain implementation (use specific domain skills like gke-workload-scaling, gke-platform-security, gke-workload-security, gke-service-networking, gke-reliability instead).",
-    "path": "category/programming-languages-core/gke-productionize"
+    "repository": "internet-court-internet-court-skill",
+    "description": "Solana vault management via GLAM Protocol. Triggers: glam, glam-cli, glam-sdk, vault create/manage, tokenized vault, share class, DeFi vault, treasury, asset management, access control, delegate permissions, Jupiter swap, Kamino lending/borrow/vaults/farms, staking (Marinade/native/SPL/Sanctum/LST), cross-chain USDC (CCTP), timelock, subscription/redemption, NAV pricing, token transfer. Supports CLI and TypeScript SDK.",
+    "path": "category/programming-languages-core/glam"
   },
   {
     "id": "go-rust-reverse",
@@ -1382,6 +1278,14 @@
     "repository": "samber-cc-skills-golang",
     "description": "Golang data structures \u2014 slices (internals, capacity growth, preallocation, slices package), maps (internals, hash buckets, maps package), arrays, container/list/heap/ring, strings.Builder vs bytes.Buffer, generic collections, pointers (unsafe.Pointer, weak.Pointer), and copy semantics. Use when choosing or optimizing Go data structures, implementing generic containers, using container/ packages, unsafe or weak pointers, or questioning slice/map internals. Not for applying optimization patterns once profiling has identified a bottleneck (\u2192 See `samber/cc-skills-golang@golang-performance` skill).",
     "path": "category/programming-languages-core/golang-data-structures"
+  },
+  {
+    "id": "golang-database",
+    "name": "golang-database",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Comprehensive guide for Go database access \u2014 parameterized queries, struct scanning, NULLable columns, transactions, isolation levels, SELECT FOR UPDATE, connection pool, batch processing, context propagation, and migration tooling. Use when writing, reviewing, or debugging Golang code that interacts with PostgreSQL, MariaDB, MySQL, or SQLite; for database testing; or for questions about database/sql, sqlx, or pgx. Does NOT generate database schemas or migration SQL.",
+    "path": "category/programming-languages-core/golang-database"
   },
   {
     "id": "golang-dependency-management",
@@ -1480,6 +1384,22 @@
     "path": "category/programming-languages-core/golang-structs-interfaces"
   },
   {
+    "id": "golang-testing",
+    "name": "golang-testing",
+    "category": "programming-languages-core",
+    "repository": "affaan-m-ecc",
+    "description": "Go testing patterns including table-driven tests, subtests, benchmarks, fuzzing, and test coverage. Follows TDD methodology with idiomatic Go practices. Use when writing Go tests \u2014 table-driven cases, subtests, benchmarks, fuzzing, or coverage.",
+    "path": "category/programming-languages-core/golang-testing"
+  },
+  {
+    "id": "golang-troubleshooting",
+    "name": "golang-troubleshooting",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Troubleshoot Golang programs systematically - find and fix the root cause. Use when encountering bugs, crashes, deadlocks, races, or unexpected behavior in Go code. Covers debugging methodology, common Go pitfalls, test-driven debugging, pprof setup and capture, Delve, race detection, GODEBUG tracing, and production debugging. Start here for any 'something is wrong' situation. Not for interpreting profiles or benchmarking (\u2192 See `samber/cc-skills-golang@golang-benchmark` skill), applying optimization patterns (\u2192 See `samber/cc-skills-golang@golang-performance` skill), or designing new code (\u2192 See `samber/cc-skills-golang@golang-safety` skill for defensive coding, `samber/cc-skills-golang@golang-concurrency` skill for concurrency design).",
+    "path": "category/programming-languages-core/golang-troubleshooting"
+  },
+  {
     "id": "golang-uber-dig",
     "name": "golang-uber-dig",
     "category": "programming-languages-core",
@@ -1504,6 +1424,14 @@
     "path": "category/programming-languages-core/google-chat-messages"
   },
   {
+    "id": "google-cloud-storage-bucket-architect",
+    "name": "google-cloud-storage-bucket-architect",
+    "category": "programming-languages-core",
+    "repository": "google-skills",
+    "description": "Creates Cloud Storage on Google Cloud (also known colloquially as GCS) buckets. Analyzes the workload (sensitive data, media hosting, ingestion, web hosting, archiving, backup, logging, analytics, AI/ML, or general-purpose), validates project-level security settings, and designs a secure-by-default, cost-effective configuration (location, storage class, uniform bucket-level access, public access prevention, soft delete, lifecycle) before creating it. Use whenever a user wants to create, make, set up, provision, or spin up a bucket, or needs object storage for an app, service, pipeline, or dataset \u2014 even a \"simple\" or \"default\" bucket, or when bucket creation is one step in a larger workflow. Outputs or executes the creation via gcloud, the JSON/REST API, Terraform, or SDK client libraries (C++, Java, Python, Go). Don't use for anything other than creating new buckets \u2014 for uploads, downloads, access changes, or reconfiguring existing buckets, use google-cloud-storage-basics.",
+    "path": "category/programming-languages-core/google-cloud-storage-bucket-architect"
+  },
+  {
     "id": "gpt-image-playground",
     "name": "gpt-image-playground",
     "category": "programming-languages-core",
@@ -1526,6 +1454,14 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides expert guidance for building GraalVM Native Image executables from Java applications. Use when converting JVM applications to native binaries, optimizing cold start times, reducing memory footprint, configuring native build tools for Maven or Gradle, resolving reflection and resource issues in native builds, or implementing framework-specific native support for Spring Boot, Quarkus, and Micronaut. Triggers include \"graalvm native image\", \"native executable java\", \"java cold start optimization\", \"native build tools\", \"ahead of time compilation java\", \"reflection config graalvm\", \"native image build failure\".",
     "path": "category/programming-languages-core/graalvm-native-image"
+  },
+  {
+    "id": "gravitas-typescript",
+    "name": "gravitas-typescript",
+    "category": "programming-languages-core",
+    "repository": "udaysharmadev-gravitas",
+    "description": "GRAVITAS extension for TypeScript projects. Adds TypeScript-specific recon, strict mode patterns, Vitest/Jest integration, and common TS failure modes. Load in addition to the base GRAVITAS skill.",
+    "path": "category/programming-languages-core/gravitas-typescript"
   },
   {
     "id": "grpc-golang",
@@ -1560,36 +1496,12 @@
     "path": "category/programming-languages-core/harness-writing"
   },
   {
-    "id": "hexagonal-architecture",
-    "name": "hexagonal-architecture",
+    "id": "hono-typescript",
+    "name": "hono-typescript",
     "category": "programming-languages-core",
-    "repository": "affaan-m-ecc",
-    "description": "Design, implement, and refactor Ports & Adapters systems with clear domain boundaries, dependency inversion, and testable use-case orchestration across TypeScript, Java, Kotlin, and Go services. Use when introducing or refactoring toward Ports and Adapters, or when domain logic has become entangled with I/O.",
-    "path": "category/programming-languages-core/hexagonal-architecture"
-  },
-  {
-    "id": "homelab-network-readiness",
-    "name": "homelab-network-readiness",
-    "category": "programming-languages-core",
-    "repository": "affaan-m-ecc",
-    "description": "Readiness checklist for homelab VLAN segmentation, local DNS filtering (Pi-hole, AdGuard Home), and WireGuard-style remote access. Use when planning or reviewing home network changes \u2014 splitting a flat network into trusted, IoT, guest, or management VLANs, moving DHCP to a local resolver, or adding VPN access \u2014 before changing router, firewall, DHCP, or VPN configuration.",
-    "path": "category/programming-languages-core/homelab-network-readiness"
-  },
-  {
-    "id": "homelab-vlan-segmentation",
-    "name": "homelab-vlan-segmentation",
-    "category": "programming-languages-core",
-    "repository": "affaan-m-ecc",
-    "description": "Segmenting home networks into VLANs for IoT, guest, trusted, and server traffic using UniFi, pfSense/OPNsense, and MikroTik \u2014 including switch trunk config, firewall rules, and wireless SSID mapping. Use when splitting a home network into IoT, guest, trusted, and server VLANs on UniFi, pfSense/OPNsense, or MikroTik.",
-    "path": "category/programming-languages-core/homelab-vlan-segmentation"
-  },
-  {
-    "id": "http-host-header-attacks",
-    "name": "http-host-header-attacks",
-    "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "HTTP Host header injection and routing abuse playbook. Use when the application trusts the Host header for generating URLs, routing requests, or access control \u2014 enabling password reset poisoning, web cache poisoning, SSRF via routing, and virtual host bypass.",
-    "path": "category/programming-languages-core/http-host-header-attacks"
+    "repository": "mindrally-skills",
+    "description": "Guidelines for building edge-first, high-performance APIs with Hono and TypeScript for Cloudflare Workers, Deno, Bun, and Node.js",
+    "path": "category/programming-languages-core/hono-typescript"
   },
   {
     "id": "huawei-cloud-agentarts-otel-ingestion",
@@ -1600,12 +1512,12 @@
     "path": "category/programming-languages-core/huawei-cloud-agentarts-otel-ingestion"
   },
   {
-    "id": "huawei-cloud-kunpeng-source-code-migrate",
-    "name": "huawei-cloud-kunpeng-source-code-migrate",
+    "id": "huawei-cloud-ecs-vulnerability-auditor",
+    "name": "huawei-cloud-ecs-vulnerability-auditor",
     "category": "programming-languages-core",
     "repository": "huaweicloud-huaweicloud-skills",
-    "description": "Analyze the migrability of C/C++/ASM/Fortran/Go/Java/Python/Scala source code to Kunpeng (ARM64) platform using Huawei DevKit CLI tool. Connect to the source server via SSH, install DevKit, scan source code, and generate a migration assessment report. If the user does not have a remote server, this skill can automatically provision a Kunpeng ECS instance on Huawei Cloud (Guiyang Region 1) using hcloud CLI. Use this skill when the user wants to: (1) assess source code portability/migrability to Kunpeng ARM platform, (2) scan C/C++/ASM/Fortran/Go/Java/Python/Scala code for migration issues, (3) generate a Kunpeng migration report for their software project, (4) check source code compatibility with ARM64/Kunpeng architecture, (5) provision a Kunpeng server on Huawei Cloud for migration assessment. Trigger: user mentions \"\u9cb2\u9e4f\u79fb\u690d\", \"\u9cb2\u9e4f\u8fc1\u79fb\", \"Kunpeng migration\", \"Kunpeng porting\", \"\u6e90\u7801\u8fc1\u79fb\", \"\u6e90\u7801\u79fb\u690d\", \"ARM64\u8fc1\u79fb\", \"ARM\u79fb\u690d\u8bc4\u4f30\", \"DevKit\", \"\u53ef\u8fc1\u79fb\u6027\u5206\u6790\", \"migrability\", \"porting assessment\", \"migration report\", \"\u9cb2\u9e4f\u8bc4\u4f30\", \"\u8d2d\u4e70\u9cb2\u9e4f\u670d\u52a1\u5668\", \"\u9cb2\u9e4f\u4e91\u670d\u52a1\u5668\", \"Kunpeng ECS",
-    "path": "category/programming-languages-core/huawei-cloud-kunpeng-source-code-migrate"
+    "description": "Audit Huawei Cloud ECS instances for security vulnerabilities across host OS packages, running services, application dependencies (Java, Python, Node.js, PHP, Go), and container environments (Docker, containerd, Podman). Collects asset inventories remotely via Cloud Operations Center (COC), matches components against Known Exploited Vulnerabilities (KEVs) via the public db.gcve.eu API, and outputs an actionable remediation report. \u89e6\u53d1\u8bcd: ECS\u6f0f\u6d1e\u626b\u63cf, ECS\u6f0f\u6d1e\u53d1\u73b0, \u4e3b\u673a\u6f0f\u6d1e\u626b\u63cf, \u5bb9\u5668\u6f0f\u6d1e\u53d1\u73b0, ECS\u8d44\u4ea7\u6536\u96c6, KEV\u6f0f\u6d1e\u68c0\u6d4b, ecs vulnerability audit, ecs vuln scan, gcve vulnerability auditor",
+    "path": "category/programming-languages-core/huawei-cloud-ecs-vulnerability-auditor"
   },
   {
     "id": "huawei-cloud-openviking-agent-integration",
@@ -1624,28 +1536,20 @@
     "path": "category/programming-languages-core/huggingface-local-models"
   },
   {
-    "id": "human-in-the-loop",
-    "name": "human-in-the-loop",
-    "category": "programming-languages-core",
-    "repository": "mvschwarz-openrig",
-    "description": "Use when classifying a slice closeout (auto-continue / human gate / park), routing a real decision to a human, or designing a human queue/dashboard surface. Treats humans as durable network participants with attention surfaces, queues, and decision records \u2014 escalation lands as a durable attention item, not a chat message. Approval is NOT required for every clean closeout; the default RSI conveyor continues unless an explicit human gate is reached.",
-    "path": "category/programming-languages-core/human-in-the-loop"
-  },
-  {
-    "id": "humanode-agentlink",
-    "name": "humanode-agentlink",
-    "category": "programming-languages-core",
-    "repository": "internet-court-internet-court-skill",
-    "description": "AgentLink gives an AI agent a verified, human-backed on-chain identity. With this skill the agent can sign any HTTP request, appear in the on-chain registry as a trusted agent, and access free partner endpoints on Base mainnet.",
-    "path": "category/programming-languages-core/humanode-agentlink"
-  },
-  {
     "id": "hunt-deserialization",
     "name": "hunt-deserialization",
     "category": "programming-languages-core",
     "repository": "elementalsouls-claude-bughunter",
     "description": "Hunt Insecure Deserialization \u2014 Java gadget chains (ysoserial), PHP object injection (phpggc), Python pickle RCE, .NET BinaryFormatter, Ruby Marshal.load, JNDI/Log4Shell. RCE via deserialization is almost always Critical. Use when target runs Java, PHP serialization, Python pickle, .NET, or Ruby on Rails.",
     "path": "category/programming-languages-core/hunt-deserialization"
+  },
+  {
+    "id": "hunt-source-leak",
+    "name": "hunt-source-leak",
+    "category": "programming-languages-core",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Hunt source code and build artifact leakage \u2014 JavaScript source maps (.js.map) reconstructing TypeScript/ES6 source, Swagger/OpenAPI JSON endpoint discovery, .env/.git exposure, webpack chunks with hardcoded secrets, robots.txt/security.txt recon, build-info files, asset-manifest.json API route discovery, .DS_Store file listing. Use at the START of every recon session \u2014 these findings often unlock the entire attack surface.",
+    "path": "category/programming-languages-core/hunt-source-leak"
   },
   {
     "id": "hunt-springboot",
@@ -1680,78 +1584,6 @@
     "path": "category/programming-languages-core/hyperliquid-trading-bot"
   },
   {
-    "id": "implementing-beyondcorp-zero-trust-access-model",
-    "name": "implementing-beyondcorp-zero-trust-access-model",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Implement Google''s BeyondCorp zero trust access model using Cloud",
-    "path": "category/programming-languages-core/implementing-beyondcorp-zero-trust-access-model"
-  },
-  {
-    "id": "implementing-cisa-zero-trust-maturity-model",
-    "name": "implementing-cisa-zero-trust-maturity-model",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Assess, gap-analyze, and progressively implement the CISA Zero Trust",
-    "path": "category/programming-languages-core/implementing-cisa-zero-trust-maturity-model"
-  },
-  {
-    "id": "implementing-device-posture-assessment-in-zero-trust",
-    "name": "implementing-device-posture-assessment-in-zero-trust",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Implements device posture assessment as a zero trust access control",
-    "path": "category/programming-languages-core/implementing-device-posture-assessment-in-zero-trust"
-  },
-  {
-    "id": "implementing-identity-verification-for-zero-trust",
-    "name": "implementing-identity-verification-for-zero-trust",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Implements continuous, risk-adaptive identity verification for zero trust",
-    "path": "category/programming-languages-core/implementing-identity-verification-for-zero-trust"
-  },
-  {
-    "id": "implementing-just-in-time-access-provisioning",
-    "name": "implementing-just-in-time-access-provisioning",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Implements Just-In-Time (JIT) access provisioning to eliminate standing privileges by granting temporary, time-bound access, covering approval workflows, automatic expiration/revocation, and PAM/IGA integration. Use when designing access approval workflows or replacing standing privileged accounts with time-bound, zero-trust-aligned grants.",
-    "path": "category/programming-languages-core/implementing-just-in-time-access-provisioning"
-  },
-  {
-    "id": "implementing-zero-trust-in-cloud",
-    "name": "implementing-zero-trust-in-cloud",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Guides zero trust implementation across AWS, Azure, and GCP per NIST SP 800-207 and BeyondCorp principles, covering identity-centric access, micro-segmentation, continuous verification, device trust assessment, and Identity-Aware Proxy deployment. Use when migrating from perimeter security to identity-centric access, removing VPN dependency, or designing micro-segmentation for multi-cloud workloads.",
-    "path": "category/programming-languages-core/implementing-zero-trust-in-cloud"
-  },
-  {
-    "id": "incident-management",
-    "name": "incident-management",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Implement incident management processes and escalation procedures. Configure",
-    "path": "category/programming-languages-core/incident-management"
-  },
-  {
-    "id": "incident-response",
-    "name": "incident-response",
-    "category": "programming-languages-core",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Use when a security incident has been detected or declared and needs classification, triage, escalation path determination, and forensic evidence collection. Covers SEV1-SEV4 classification, false positive filtering, incident taxonomy, and NIST SP 800-61 lifecycle.",
-    "path": "category/programming-languages-core/incident-response"
-  },
-  {
-    "id": "incident-runbook-templates",
-    "name": "incident-runbook-templates",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Create structured incident response runbooks with step-by-step procedures, escalation paths, and recovery actions. Use when building runbooks, responding to incidents, or establishing incident resp...",
-    "path": "category/programming-languages-core/incident-runbook-templates"
-  },
-  {
     "id": "inference-serving-llama-cpp",
     "name": "inference-serving-llama-cpp",
     "category": "programming-languages-core",
@@ -1760,20 +1592,20 @@
     "path": "category/programming-languages-core/inference-serving-llama-cpp"
   },
   {
-    "id": "internet-court",
-    "name": "internet-court",
-    "category": "programming-languages-core",
-    "repository": "davila7-claude-code-templates",
-    "description": "The trust layer for agent-to-agent commerce \u2014 natural-language mandates, delegated permissions (ERC-7710), x402 payments, escrow, and dispute resolution as one open, catch-all skill. Use for agent mandates, delegated permissions, GenLayer supervision, revocation, x402 payments, escrow, verification, dispute resolution, and agent-to-agent commerce.",
-    "path": "category/programming-languages-core/internet-court"
-  },
-  {
     "id": "java",
     "name": "java",
     "category": "programming-languages-core",
     "repository": "mindrally-skills",
     "description": "Expert in Java development with Spring Boot and enterprise patterns",
     "path": "category/programming-languages-core/java"
+  },
+  {
+    "id": "java-architect",
+    "name": "java-architect",
+    "category": "programming-languages-core",
+    "repository": "jeffallan-claude-skills",
+    "description": "Use when building, configuring, or debugging enterprise Java applications with Spring Boot 3.x, microservices, or reactive programming. Invoke to implement WebFlux endpoints, optimize JPA queries and database performance, configure Spring Security with OAuth2/JWT, or resolve authentication issues and async processing challenges in cloud-native Spring applications.",
+    "path": "category/programming-languages-core/java-architect"
   },
   {
     "id": "java-quarkus-development",
@@ -1798,14 +1630,6 @@
     "repository": "101-skills-superpowers",
     "description": "JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate with all models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, human approval. Use for: JavaScript integration, TypeScript, Node.js, React, Next.js, frontend apps. Triggers: javascript sdk, typescript sdk, npm install, node.js api, js client, react ai, next.js ai, frontend sdk, @inferencesh/sdk, typescript agent, browser sdk, js integration",
     "path": "category/programming-languages-core/javascript-sdk"
-  },
-  {
-    "id": "javascript-typescript-typescript-scaffold",
-    "name": "javascript-typescript-typescript-scaffold",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.js and frontend applications. Generate complete project structures with modern tooling (pnpm, Vite, N",
-    "path": "category/programming-languages-core/javascript-typescript-typescript-scaffold"
   },
   {
     "id": "jest",
@@ -1904,6 +1728,30 @@
     "path": "category/programming-languages-core/langchain4j-mcp-server-patterns"
   },
   {
+    "id": "langchain4j-rag-implementation-patterns",
+    "name": "langchain4j-rag-implementation-patterns",
+    "category": "programming-languages-core",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides Retrieval-Augmented Generation (RAG) implementation patterns with LangChain4j for Java. Generates document ingestion pipelines, embedding stores, vector search, and semantic search capabilities. Use when building chat-with-documents systems, document Q&A over PDFs or text files, AI assistants with knowledge bases, semantic search over document repositories, or knowledge-enhanced AI applications with source attribution.",
+    "path": "category/programming-languages-core/langchain4j-rag-implementation-patterns"
+  },
+  {
+    "id": "langchain4j-spring-boot-integration",
+    "name": "langchain4j-spring-boot-integration",
+    "category": "programming-languages-core",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides integration patterns for LangChain4j with Spring Boot. Configures AI model beans, sets up chat memory with Spring context, integrates RAG pipelines with Spring Data, and handles auto-configuration, dependency injection, and Spring ecosystem integration. Use when embedding LangChain4j into Spring Boot applications, building Java LLM applications with @Bean configuration, or setting up Spring AI patterns.",
+    "path": "category/programming-languages-core/langchain4j-spring-boot-integration"
+  },
+  {
+    "id": "langchain4j-testing-strategies",
+    "name": "langchain4j-testing-strategies",
+    "category": "programming-languages-core",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides unit test, integration test, and mock AI patterns for LangChain4j applications. Creates mock LLM responses, tests retrieval chains, validates RAG workflows, and implements Testcontainers-based integration tests for Java AI services. Use when unit testing AI services, integration testing LangChain4j components, mocking AI models, or testing LLM-based Java applications.",
+    "path": "category/programming-languages-core/langchain4j-testing-strategies"
+  },
+  {
     "id": "langgraph-typescript-quickstart",
     "name": "langgraph-typescript-quickstart",
     "category": "programming-languages-core",
@@ -1920,36 +1768,12 @@
     "path": "category/programming-languages-core/launchdarkly-flag-qualitative-feedback-setup"
   },
   {
-    "id": "levels",
-    "name": "levels",
-    "category": "programming-languages-core",
-    "repository": "bergside-awesome-design-skills",
-    "description": "Conversion-focused design that removes friction and guides users toward action through clarity, trust, and speed.",
-    "path": "category/programming-languages-core/levels"
-  },
-  {
-    "id": "linting-neostandard-eslint9",
-    "name": "linting-neostandard-eslint9",
-    "category": "programming-languages-core",
-    "repository": "mcollina-skills",
-    "description": "Configures ESLint v9 flat config and neostandard for JavaScript and TypeScript projects, including migrating from legacy `.eslintrc*` files or the `standard` package. Use when you need to set up or fix linting with `eslint.config.js` or `eslint.config.mjs`, troubleshoot lint errors, configure neostandard rules, migrate from `.eslintrc` to flat config, or integrate linting into CI pipelines and pre-commit hooks.",
-    "path": "category/programming-languages-core/linting-neostandard-eslint9"
-  },
-  {
     "id": "local-llm-expert",
     "name": "local-llm-expert",
     "category": "programming-languages-core",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Master local LLM inference, model selection, VRAM optimization, and local deployment using Ollama, llama.cpp, vLLM, and LM Studio. Expert in quantization formats (GGUF, EXL2) and local AI privacy.",
     "path": "category/programming-languages-core/local-llm-expert"
-  },
-  {
-    "id": "logistics-exception-management",
-    "name": "logistics-exception-management",
-    "category": "programming-languages-core",
-    "repository": "affaan-m-ecc",
-    "description": "Codified freight-exception handling expertise for shipment delays, damages, losses, shortages, and carrier disputes, with escalation protocols, carrier-specific behaviors by mode, claims procedures, and eat-the-cost vs fight-the-claim judgment frameworks. Use when handling shipping exceptions, freight claims, delivery issues, or carrier disputes.",
-    "path": "category/programming-languages-core/logistics-exception-management"
   },
   {
     "id": "m14-mental-model",
@@ -1968,14 +1792,6 @@
     "path": "category/programming-languages-core/m365-agents-ts"
   },
   {
-    "id": "mac-storage-cleaner",
-    "name": "mac-storage-cleaner",
-    "category": "programming-languages-core",
-    "repository": "davila7-claude-code-templates",
-    "description": "Safely reclaim disk space on a Mac \u2014 the trustworthy, transparent, reversible alternative to CleanMyMac and similar tools. Use whenever the user says their Mac disk or storage is full or nearly full, gets a \"startup disk almost full\" / low-storage warning, asks to free up space, clean/clear caches, remove junk, delete leftover files from apps they uninstalled, or find what's eating their disk \u2014 in any language (e.g. English \"my mac is out of space\", \"free up disk\", \"clear caches\", \"what's taking up my storage\"; Georgian \"\u10e5\u10d4\u10e8\u10d8 \u10d2\u10d0\u10d0\u10e1\u10e3\u10e4\u10d7\u10d0\u10d5\u10d4\", \"\u10db\u10d4\u10ee\u10e1\u10d8\u10d4\u10e0\u10d4\u10d1\u10d0 \u10d2\u10d0\u10d3\u10d0\u10db\u10d4\u10d5\u10e1\u10dd\", \"\u10d0\u10d3\u10d2\u10d8\u10da\u10d8 \u10d0\u10e6\u10d0\u10e0 \u10db\u10d0\u10e5\u10d5\u10e1\"). Surveys usage first, auto-clears only pure caches, moves anything riskier to the Trash (restorable), asks before anything expensive, logs every deletion, and reports what was freed. Do NOT use for cloud storage, RAM/memory-pressure, or a single named app's own in-app cache button.",
-    "path": "category/programming-languages-core/mac-storage-cleaner"
-  },
-  {
     "id": "makepad-skills",
     "name": "makepad-skills",
     "category": "programming-languages-core",
@@ -1990,14 +1806,6 @@
     "repository": "tradermonty-claude-trading-skills",
     "description": "Runs a declarative strategy spec over OHLCV bars with the manifoldbt Rust engine, pairs the fill log into round trips, and emits the eight inputs the backtest-expert skill scores. Use when the user wants to execute a backtest, measure a rule they have described, obtain win rate / average win / average loss / max drawdown from real bars, or feed backtest-expert with measured numbers instead of estimates.",
     "path": "category/programming-languages-core/manifoldbt-backtester"
-  },
-  {
-    "id": "marketing-org-and-stack",
-    "name": "marketing-org-and-stack",
-    "category": "programming-languages-core",
-    "repository": "refoundai-lenny-skills",
-    "description": "Help users design their marketing organizational structure and select the foundational technology stack needed to drive scalable growth.",
-    "path": "category/programming-languages-core/marketing-org-and-stack"
   },
   {
     "id": "masterhttprelayvpn-rust",
@@ -2080,14 +1888,6 @@
     "path": "category/programming-languages-core/migrate-dotnet9-to-dotnet10"
   },
   {
-    "id": "migrate-to-rust",
-    "name": "migrate-to-rust",
-    "category": "programming-languages-core",
-    "repository": "google-skills",
-    "description": "Clones, analyzes, plans, and migrates legacy codebases (C++, Fortran, Java, Python, C, Shell) from a GitHub URL or local directory to a modern, high-performance, deterministic, 100% Safe Rust architecture, tracking live telemetry across every task bucket, test failure/fix cycle, and Profile-Guided Optimization (PGO) stage, and producing a first-person AI storytelling report and interactive HTML infographic. Use when migrating a GitHub repository or local codebase to Rust, porting legacy C++, Fortran, Python, or Java workloads to memory-safe Rust, designing Struct-of-Arrays (SoA) or SIMD Rust architectures, or optimizing Rust ports with LLVM PGO. Don't use for unrelated non-Rust refactoring or single-line syntax questions.",
-    "path": "category/programming-languages-core/migrate-to-rust"
-  },
-  {
     "id": "migrate-to-shoehorn",
     "name": "migrate-to-shoehorn",
     "category": "programming-languages-core",
@@ -2102,6 +1902,14 @@
     "repository": "trailofbits-skills",
     "description": "Guides C++ code toward modern idioms (C++20/23/26). Use when writing new C++ code, modernizing legacy patterns, or working on security-critical C++. Replaces raw pointers with smart pointers, SFINAE with concepts, printf with std::print, error codes with std::expected.",
     "path": "category/programming-languages-core/modern-cpp"
+  },
+  {
+    "id": "modern-web-development",
+    "name": "modern-web-development",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "Modern web development best practices for TypeScript, Next.js 14, React Server Components, Supabase, GraphQL, and Tailwind CSS.",
+    "path": "category/programming-languages-core/modern-web-development"
   },
   {
     "id": "mongodb-development",
@@ -2120,6 +1928,14 @@
     "path": "category/programming-languages-core/monorepo"
   },
   {
+    "id": "motion-canvas",
+    "name": "motion-canvas",
+    "category": "programming-languages-core",
+    "repository": "davila7-claude-code-templates",
+    "description": "Complete production-ready guide for Motion Canvas with ESM/CommonJS workarounds, full setup templates, and troubleshooting for programmatic video creation using TypeScript",
+    "path": "category/programming-languages-core/motion-canvas"
+  },
+  {
     "id": "mppx",
     "name": "mppx",
     "category": "programming-languages-core",
@@ -2136,14 +1952,6 @@
     "path": "category/programming-languages-core/msbuild-modernization"
   },
   {
-    "id": "mtls-configuration",
-    "name": "mtls-configuration",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing zero-trust networking, certificate management, or securing internal service communication.",
-    "path": "category/programming-languages-core/mtls-configuration"
-  },
-  {
     "id": "mybatis-patterns",
     "name": "mybatis-patterns",
     "category": "programming-languages-core",
@@ -2152,20 +1960,20 @@
     "path": "category/programming-languages-core/mybatis-patterns"
   },
   {
-    "id": "n8n-code-javascript",
-    "name": "n8n-code-javascript",
+    "id": "near-api-js",
+    "name": "near-api-js",
     "category": "programming-languages-core",
-    "repository": "davila7-claude-code-templates",
-    "description": "Write JavaScript code in n8n Code nodes. Use when writing JavaScript in n8n, using $input/$json/$node syntax, making HTTP requests with $helpers, working with dates using DateTime, troubleshooting Code node errors, or choosing between Code node modes.",
-    "path": "category/programming-languages-core/n8n-code-javascript"
+    "repository": "internet-court-internet-court-skill",
+    "description": "Guide for developing with near-api-js v7 - the JavaScript/TypeScript library for NEAR blockchain interaction. Use when: (1) building apps that interact with NEAR blockchain, (2) creating/signing transactions, (3) calling smart contracts, (4) managing accounts and keys, (5) working with NEAR RPC API, (6) handling FT/NFT tokens on NEAR, (7) using NEAR cryptographic operations (KeyPair, signing), (8) converting between NEAR units (yocto, gas), (9) gasless/meta transactions with relayers, (10) NEP-413 message signing for authentication, (11) storage deposit management for FT contracts. Triggers on any NEAR blockchain development tasks.",
+    "path": "category/programming-languages-core/near-api-js"
   },
   {
-    "id": "n8n-code-tool",
-    "name": "n8n-code-tool",
+    "id": "near-kit",
+    "name": "near-kit",
     "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sandbox limits, and return formats.",
-    "path": "category/programming-languages-core/n8n-code-tool"
+    "repository": "internet-court-internet-court-skill",
+    "description": "TypeScript library for NEAR Protocol blockchain interaction. Use this skill when writing code that interacts with NEAR Protocol, including viewing contract data, calling contract methods, sending NEAR tokens, building transactions, creating type-safe contract wrappers, integrating wallets (Wallet Selector, HOT Connect), React hooks and providers (@near-kit/react), managing keys, testing with sandbox, meta-transactions (NEP-366), and message signing (NEP-413).",
+    "path": "category/programming-languages-core/near-kit"
   },
   {
     "id": "near-smart-contracts",
@@ -2182,6 +1990,14 @@
     "repository": "nvidia-skills",
     "description": "Use this skill when migrating applications, examples, integrations, documentation, manifests, or repository code from NeMo Flow to NeMo Relay across Python, Rust, Node.js, Go, C FFI, CLI, configuration, and observability surfaces.",
     "path": "category/programming-languages-core/nemo-relay-migrate-from-flow"
+  },
+  {
+    "id": "nextjs-react-typescript",
+    "name": "nextjs-react-typescript",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "Expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, Radix UI and Tailwind",
+    "path": "category/programming-languages-core/nextjs-react-typescript"
   },
   {
     "id": "nextjs-typescript-tailwindcss-supabase",
@@ -2224,12 +2040,12 @@
     "path": "category/programming-languages-core/nodejs-keccak256"
   },
   {
-    "id": "ntlm-relay-coercion",
-    "name": "ntlm-relay-coercion",
+    "id": "nuxtjs-vue-typescript",
+    "name": "nuxtjs-vue-typescript",
     "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "NTLM relay and authentication coercion playbook. Use when capturing and relaying NTLM authentication to escalate privileges via SMB, LDAP, HTTP, or MSSQL relay targets, combined with PetitPotam, PrinterBug, and other coercion methods.",
-    "path": "category/programming-languages-core/ntlm-relay-coercion"
+    "repository": "mindrally-skills",
+    "description": "Best practices for building Nuxt 3 and Vue 3 applications with TypeScript, the Composition API, and Tailwind CSS. Use when structuring Nuxt/Vue projects, writing composables, typing components and props, wiring up server routes and plugins, or optimizing Nuxt builds and Web Vitals.",
+    "path": "category/programming-languages-core/nuxtjs-vue-typescript"
   },
   {
     "id": "nx-monorepo",
@@ -2238,22 +2054,6 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides comprehensive Nx monorepo management guidance for TypeScript/JavaScript projects. Use when creating Nx workspaces, generating apps/libraries/components, running affected commands, setting up CI/CD, configuring Module Federation, or implementing NestJS backends within Nx",
     "path": "category/programming-languages-core/nx-monorepo"
-  },
-  {
-    "id": "onetrust",
-    "name": "onetrust",
-    "category": "programming-languages-core",
-    "repository": "membranedev-application-skills",
-    "description": "OneTrust integration. Manage data, records, and automate workflows. Use when the user wants to interact with OneTrust data.",
-    "path": "category/programming-languages-core/onetrust"
-  },
-  {
-    "id": "online-shopping",
-    "name": "online-shopping",
-    "category": "programming-languages-core",
-    "repository": "davidondrej-skills",
-    "description": "Research online purchases, prices, and shop trust. Use for buying advice, subscriptions, or shopping photos, links, and checkout screens.",
-    "path": "category/programming-languages-core/online-shopping"
   },
   {
     "id": "open-agent-sdk-typescript",
@@ -2272,14 +2072,6 @@
     "path": "category/programming-languages-core/open-multi-agent-orchestration"
   },
   {
-    "id": "open-redirect",
-    "name": "open-redirect",
-    "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "Open redirect playbook. Use when URL parameters, form actions, or JavaScript sinks control navigation targets and may redirect users to attacker-controlled destinations.",
-    "path": "category/programming-languages-core/open-redirect"
-  },
-  {
     "id": "openapi-to-typescript",
     "name": "openapi-to-typescript",
     "category": "programming-languages-core",
@@ -2294,62 +2086,6 @@
     "repository": "davila7-claude-code-templates",
     "description": "GGUF format and llama.cpp quantization for efficient CPU/GPU inference. Use when deploying models on consumer hardware, Apple Silicon, or when needing flexible quantization from 2-8 bit without GPU requirements.",
     "path": "category/programming-languages-core/optimization-gguf"
-  },
-  {
-    "id": "oss-distribution-strategy",
-    "name": "oss-distribution-strategy",
-    "category": "programming-languages-core",
-    "repository": "samber-developer-relations-skills",
-    "description": "Designs an open-source project's ongoing distribution mix after the launch window - registry metadata, code-host discovery surfaces, curated lists, downstream packaging, extension and connector marketplaces, the release stream, dependency-graph position, creator seeding, and procurement trust signals - ranked against real maintainer capacity. Use whenever a maintainer asks how people will keep finding the project, which registries or awesome lists to target, why adoption flattened after launch, how often to release for visibility, or how to spend limited maintainer hours on distribution - even if they only say nobody is using it. Not the launch itself - use samber/developer-relations-skills@oss-launch. Not the build-in-public practice.",
-    "path": "category/programming-languages-core/oss-distribution-strategy"
-  },
-  {
-    "id": "oss-monetization",
-    "name": "oss-monetization",
-    "category": "programming-languages-core",
-    "repository": "samber-developer-relations-skills",
-    "description": "Chooses how one open-source project earns money for its own maintainers (solo or a small unfunded team) - paid add-on on a free core, support, paid content, sponsorware, hosting, a commercial license on the next major - with hours, copyright and user trust as constraints. Use whenever a maintainer asks how to make a living from their library, whether to sell a Pro version, go open core or dual-license, or how to charge companies using it for free - even if they only say nobody pays. Not a funded company's model (samber/developer-relations-skills@devtools-business-model), license text (samber/developer-relations-skills@oss-license-strategy), sponsor tiers (samber/developer-relations-skills@oss-sponsors-fundraising) or burnout (samber/developer-relations-skills@oss-maintainer-sustainability).",
-    "path": "category/programming-languages-core/oss-monetization"
-  },
-  {
-    "id": "pagerduty-automation",
-    "name": "pagerduty-automation",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "Automate PagerDuty tasks via Rube MCP (Composio): manage incidents, services, schedules, escalation policies, and on-call rotations. Always search tools first for current schemas.",
-    "path": "category/programming-languages-core/pagerduty-automation"
-  },
-  {
-    "id": "performing-active-directory-forest-trust-attack",
-    "name": "performing-active-directory-forest-trust-attack",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Enumerate and audit Active Directory forest trust relationships using",
-    "path": "category/programming-languages-core/performing-active-directory-forest-trust-attack"
-  },
-  {
-    "id": "performing-aws-privilege-escalation-assessment",
-    "name": "performing-aws-privilege-escalation-assessment",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Performing authorized privilege escalation assessments in AWS environments",
-    "path": "category/programming-languages-core/performing-aws-privilege-escalation-assessment"
-  },
-  {
-    "id": "performing-indicator-lifecycle-management",
-    "name": "performing-indicator-lifecycle-management",
-    "category": "programming-languages-core",
-    "repository": "mukul975-anthropic-cybersecurity-skills",
-    "description": "Tracks IOCs through discovery, enrichment/validation (VirusTotal, Shodan,",
-    "path": "category/programming-languages-core/performing-indicator-lifecycle-management"
-  },
-  {
-    "id": "phoenix",
-    "name": "phoenix",
-    "category": "programming-languages-core",
-    "repository": "mindrally-skills",
-    "description": "Phoenix framework development guidelines covering LiveView, Ecto, real-time features, and best practices for building scalable web applications with Elixir.",
-    "path": "category/programming-languages-core/phoenix"
   },
   {
     "id": "pixi-js",
@@ -2376,6 +2112,14 @@
     "path": "category/programming-languages-core/playwright-cursor-rules"
   },
   {
+    "id": "playwright-java",
+    "name": "playwright-java",
+    "category": "programming-languages-core",
+    "repository": "davila7-claude-code-templates",
+    "description": "Scaffold, write, debug, and enhance enterprise-grade Playwright E2E tests in Java using Page Object Model, JUnit 5, Allure reporting, and parallel execution.",
+    "path": "category/programming-languages-core/playwright-java"
+  },
+  {
     "id": "polymarket-arbitrage-bot",
     "name": "polymarket-arbitrage-bot",
     "category": "programming-languages-core",
@@ -2390,6 +2134,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "TypeScript bot that monitors a Polymarket wallet and mirrors BUY trades to your own account via the Polymarket CLOB API on Polygon.",
     "path": "category/programming-languages-core/polymarket-copy-trading-bot"
+  },
+  {
+    "id": "portable-deploy-qa",
+    "name": "portable-deploy-qa",
+    "category": "programming-languages-core",
+    "repository": "#searex-skill",
+    "description": "(Legacy alias for app-production-readiness) Build portable apps (any stack - TypeScript, Python, Go, Rust) for localhost, Docker, Vercel, Netlify, Railway, Render, Fly.io, Cloudflare Free plan, then run an adaptive 21-gate production-readiness review. Automatically forwards to the full 21-gate app-production-readiness skill.",
+    "path": "category/programming-languages-core/portable-deploy-qa"
   },
   {
     "id": "pretext-text-measurement",
@@ -2408,28 +2160,20 @@
     "path": "category/programming-languages-core/principle-type-system-discipline"
   },
   {
-    "id": "privilege-escalation-methods",
-    "name": "privilege-escalation-methods",
+    "id": "prisma-development",
+    "name": "prisma-development",
     "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "This skill should be used when the user asks to \\\"escalate privileges\\\", \\\"get root access\\\", \\\"become administrator\\\", \\\"privesc techniques\\\", \\\"abuse sudo\\\", \\\"exploit SUID binaries\\\", \\\"K...",
-    "path": "category/programming-languages-core/privilege-escalation-methods"
+    "repository": "mindrally-skills",
+    "description": "Comprehensive Prisma ORM development guidelines with TypeScript, schema design, migrations, and best practices.",
+    "path": "category/programming-languages-core/prisma-development"
   },
   {
-    "id": "prototype-pollution",
-    "name": "prototype-pollution",
+    "id": "prisma-patterns",
+    "name": "prisma-patterns",
     "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "Prototype pollution testing for JavaScript stacks. Use when user input is merged into objects (query parsers, JSON bodies, deep assign), when configuring libraries via untrusted keys, or when hunting RCE gadgets via polluted Object.prototype in Node or the browser.",
-    "path": "category/programming-languages-core/prototype-pollution"
-  },
-  {
-    "id": "prototype-pollution-advanced",
-    "name": "prototype-pollution-advanced",
-    "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "Advanced prototype pollution playbook \u2014 server-side RCE, client-side gadgets, filter bypasses, and detection techniques. Companion to ../prototype-pollution/ for basics. Use when you've confirmed pollution and need to escalate to code execution or find framework-specific gadgets.",
-    "path": "category/programming-languages-core/prototype-pollution-advanced"
+    "repository": "affaan-m-ecc",
+    "description": "Prisma ORM patterns for TypeScript backends \u2014 schema design, query optimization, transactions, pagination, and critical traps like updateMany returning count not records, $transaction timeouts, migrate dev resetting the DB, @updatedAt skipped on bulk writes, and serverless connection exhaustion. Use when writing a Prisma schema or query, or debugging transactions, migrations, or serverless connection limits.",
+    "path": "category/programming-languages-core/prisma-patterns"
   },
   {
     "id": "python-patterns",
@@ -2440,20 +2184,12 @@
     "path": "category/programming-languages-core/python-patterns"
   },
   {
-    "id": "pytorch-lightning",
-    "name": "pytorch-lightning",
+    "id": "qdrant",
+    "name": "qdrant",
     "category": "programming-languages-core",
-    "repository": "davila7-claude-code-templates",
-    "description": "Deep learning framework (PyTorch Lightning). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callbacks, logging (W&B, TensorBoard), distributed training (DDP, FSDP, DeepSpeed), for scalable neural network training.",
-    "path": "category/programming-languages-core/pytorch-lightning"
-  },
-  {
-    "id": "pytorch-lightning-guide",
-    "name": "pytorch-lightning-guide",
-    "category": "programming-languages-core",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "PyTorch Lightning framework for scalable model training and research",
-    "path": "category/programming-languages-core/pytorch-lightning-guide"
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides Qdrant vector database integration patterns with LangChain4j. Handles embedding storage, similarity search, and vector management for Java applications. Use when implementing vector-based retrieval for RAG systems, semantic search, or recommendation engines.",
+    "path": "category/programming-languages-core/qdrant"
   },
   {
     "id": "quip-node-manager",
@@ -2472,12 +2208,44 @@
     "path": "category/programming-languages-core/rag-qdrant"
   },
   {
+    "id": "rds-sqlserver",
+    "name": "rds-sqlserver",
+    "category": "programming-languages-core",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provides connectivity, authentication, and troubleshooting guidance for Amazon RDS for SQL Server. Applicable when users ask about SSMS times out connecting from EC2, Cannot generate SSPI context with Windows auth, connect RDS SQL Server from Lambda with pymssql, auth_scheme shows NTLM instead of KERBEROS on ECS Fargate, SSM tunnel to RDS SQL Server from laptop, port 1433 security group, TrustServerCertificate=True for localhost tunnels, SPN MSSQLSvc, AWS Managed Microsoft AD, CNAME not RDS endpoint for Kerberos, tds_version='7.4', encryption='require', port-as-string for pymssql, Secrets Manager credential caching in Lambda, error 18456 login failed. Covers Python (pymssql, pyodbc), .NET (Microsoft.Data.SqlClient), Java (JDBC mssql-jdbc), Node.js (tedious), IAM auth via RDS Proxy, and VPC/ECS/EKS/Lambda deployment.",
+    "path": "category/programming-languages-core/rds-sqlserver"
+  },
+  {
     "id": "react-dev",
     "name": "react-dev",
     "category": "programming-languages-core",
     "repository": "davila7-claude-code-templates",
     "description": "This skill should be used when building React components with TypeScript, typing hooks, handling events, or when React TypeScript, React 19, Server Components are mentioned. Covers type-safe patterns for React 18-19 including generic components, proper event typing, and routing integration (TanStack Router, React Router).",
     "path": "category/programming-languages-core/react-dev"
+  },
+  {
+    "id": "react-flow-node-ts",
+    "name": "react-flow-node-ts",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Create React Flow node components with TypeScript types, handles, and Zustand integration. Use when building custom nodes for React Flow canvas, creating visual workflow editors, or implementing no...",
+    "path": "category/programming-languages-core/react-flow-node-ts"
+  },
+  {
+    "id": "react-native-cursor-rules",
+    "name": "react-native-cursor-rules",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "React Native development best practices for TypeScript, functional components, performance optimization, and styling guidelines.",
+    "path": "category/programming-languages-core/react-native-cursor-rules"
+  },
+  {
+    "id": "react-nextjs-development",
+    "name": "react-nextjs-development",
+    "category": "programming-languages-core",
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "React and Next.js 14+ application development with App Router, Server Components, TypeScript, Tailwind CSS, and modern frontend patterns.",
+    "path": "category/programming-languages-core/react-nextjs-development"
   },
   {
     "id": "redux-toolkit",
@@ -2494,22 +2262,6 @@
     "repository": "mindrally-skills",
     "description": "Expert guidance for Remix development with TypeScript, loaders/actions, nested routes, and full-stack web application best practices",
     "path": "category/programming-languages-core/remix"
-  },
-  {
-    "id": "replica-entrepreneur",
-    "name": "replica-entrepreneur",
-    "category": "programming-languages-core",
-    "repository": "jakeschincariol-replica-skill",
-    "description": "Researches the app being cloned and reads what its real users say in public reviews (App Store, Google Play, G2, Capterra, Trustpilot, Reddit, Hacker News, its own feature-request board), then ranks what they hate, what is missing and what is unsolved, turns it into a fix plan for the clone and a positioning angle you can sell. Every quote is real, verbatim and linked. Use when the user says \"what do people hate about X\", \"read the reviews\", \"how do I make mine better\", \"find the gap\", \"what features are missing\", \"how do I position this\", \"make it sellable\", or after /replica-diff.",
-    "path": "category/programming-languages-core/replica-entrepreneur"
-  },
-  {
-    "id": "responsible-ai-guide",
-    "name": "responsible-ai-guide",
-    "category": "programming-languages-core",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Resources for trustworthy, fair, and ethical AI research",
-    "path": "category/programming-languages-core/responsible-ai-guide"
   },
   {
     "id": "reverse-engineering",
@@ -2534,14 +2286,6 @@
     "repository": "nomadamas-k-skill",
     "description": "Debug HWP layout, dump document IR, compare versions, extract thumbnails, and unlock read-only HWPs with the upstream rhwp Rust CLI (export-svg/dump/dump-pages/ir-diff/thumbnail/convert).",
     "path": "category/programming-languages-core/rhwp-advanced"
-  },
-  {
-    "id": "ros2-robotics",
-    "name": "ros2-robotics",
-    "category": "programming-languages-core",
-    "repository": "mindrally-skills",
-    "description": "Best practices for ROS 2 robotics development, covering package structure, nodes, topics/services/actions, launch files, QoS, tf2 transforms, and testing. Use when creating ROS 2 packages, writing nodes in rclpy or rclcpp, defining custom messages/services/actions, writing launch files, configuring QoS profiles, working with tf2 transforms, or building and testing a colcon workspace.",
-    "path": "category/programming-languages-core/ros2-robotics"
   },
   {
     "id": "rust",
@@ -2656,6 +2400,14 @@
     "path": "category/programming-languages-core/rust-symbol-analyzer"
   },
   {
+    "id": "rust-testing",
+    "name": "rust-testing",
+    "category": "programming-languages-core",
+    "repository": "affaan-m-ecc",
+    "description": "Rust testing patterns including unit tests, integration tests, async testing, property-based testing, mocking, and coverage. Follows TDD methodology. Use when writing Rust tests \u2014 unit, integration, async, property-based, or coverage.",
+    "path": "category/programming-languages-core/rust-testing"
+  },
+  {
     "id": "rust-trait-explorer",
     "name": "rust-trait-explorer",
     "category": "programming-languages-core",
@@ -2664,12 +2416,20 @@
     "path": "category/programming-languages-core/rust-trait-explorer"
   },
   {
-    "id": "saml-sso-assertion-attacks",
-    "name": "saml-sso-assertion-attacks",
+    "id": "saas-multi-tenant",
+    "name": "saas-multi-tenant",
     "category": "programming-languages-core",
-    "repository": "yaklang-hack-skills",
-    "description": "SAML SSO assertion attack playbook. Use when testing signature validation, assertion wrapping, audience restrictions, ACS handling, XML trust boundaries, and enterprise SSO flaws.",
-    "path": "category/programming-languages-core/saml-sso-assertion-attacks"
+    "repository": "davila7-claude-code-templates",
+    "description": "Design and implement multi-tenant SaaS architectures with row-level security, tenant-scoped queries, shared-schema isolation, and safe cross-tenant admin patterns in PostgreSQL and TypeScript.",
+    "path": "category/programming-languages-core/saas-multi-tenant"
+  },
+  {
+    "id": "saas-scaffolder",
+    "name": "saas-scaffolder",
+    "category": "programming-languages-core",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Generates complete, production-ready SaaS project boilerplate including authentication, database schemas, billing integration, API routes, and a working dashboard using Next.js 14+ App Router, TypeScript, Tailwind CSS, shadcn/ui, Drizzle ORM, and Stripe. Use when the user wants to create a new SaaS app, start a subscription-based web project, scaffold a Next.js application, or mentions terms like starter template, boilerplate, new project, or wiring up auth and payments.",
+    "path": "category/programming-languages-core/saas-scaffolder"
   },
   {
     "id": "sanity",
@@ -2704,14 +2464,6 @@
     "path": "category/programming-languages-core/sdk-package-publishing"
   },
   {
-    "id": "security-best-practices",
-    "name": "security-best-practices",
-    "category": "programming-languages-core",
-    "repository": "active",
-    "description": "Perform language and framework specific security best-practice reviews and suggest improvements. Trigger only when the user explicitly requests security best practices guidance, a security review/report, or secure-by-default coding help. Trigger only for supported languages (python, javascript/typescript, go). Do not trigger for general code review, debugging, or non-security tasks.",
-    "path": "category/programming-languages-core/security-best-practices"
-  },
-  {
     "id": "selenium-skill",
     "name": "selenium-skill",
     "category": "programming-languages-core",
@@ -2720,12 +2472,12 @@
     "path": "category/programming-languages-core/selenium-skill"
   },
   {
-    "id": "sentry-browser-sdk",
-    "name": "sentry-browser-sdk",
+    "id": "sentry-android-sdk",
+    "name": "sentry-android-sdk",
     "category": "programming-languages-core",
     "repository": "getsentry-sentry-for-ai",
-    "description": "Full Sentry SDK setup for browser JavaScript. Use when asked to \"add Sentry to a website\", \"install @sentry/browser\", or configure error monitoring, tracing, session replay, or logging for vanilla JavaScript, jQuery, static sites, or WordPress.",
-    "path": "category/programming-languages-core/sentry-browser-sdk"
+    "description": "Full Sentry SDK setup for Android. Use when asked to \"add Sentry to Android\", \"install sentry-android\", \"setup Sentry in Android\", or configure error monitoring, tracing, profiling, session replay, or logging for Android applications. Supports Kotlin and Java codebases.",
+    "path": "category/programming-languages-core/sentry-android-sdk"
   },
   {
     "id": "sentry-fix-stack-traces",
@@ -2744,38 +2496,6 @@
     "path": "category/programming-languages-core/sentry-node-sdk"
   },
   {
-    "id": "sentry-sdk-upgrade",
-    "name": "sentry-sdk-upgrade",
-    "category": "programming-languages-core",
-    "repository": "getsentry-sentry-for-ai",
-    "description": "Upgrade the Sentry JavaScript SDK across major versions. Use when asked to upgrade Sentry, migrate to a newer version, fix deprecated Sentry APIs, or resolve breaking changes after a Sentry version bump.",
-    "path": "category/programming-languages-core/sentry-sdk-upgrade"
-  },
-  {
-    "id": "sequence-psychologist",
-    "name": "sequence-psychologist",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Plan email nurture and multi-touch communication sequences when each message should build trust and prepare the next decision.",
-    "path": "category/programming-languages-core/sequence-psychologist"
-  },
-  {
-    "id": "service-itsm-agentic-setup-agentforce-coordinate",
-    "name": "service-itsm-agentic-setup-agentforce-coordinate",
-    "category": "programming-languages-core",
-    "repository": "forcedotcom-sf-skills",
-    "description": "Orchestrator for setting up Agentforce in Salesforce Service Cloud ITSM \u2014 Agentforce Studio enablement, the IT Service Fulfiller agent, the IT Service Employee agent, specialized employee agents, and human escalation. Use when the user asks to set up Agentforce for ITSM, enable Studio and the Fulfiller/Employee agents together, configure employee-agent escalation, wants a guided Agentforce ITSM walkthrough, or asks what Agentforce features are available for IT Service. Presents available Agentforce capabilities and delegates each selection to a specialized child skill while tracking progress. Triggers on: set up agentforce for itsm, configure agentforce studio and fulfiller, agentforce itsm walkthrough, what agentforce features for it service. DO NOT TRIGGER when: the user asks to enable Agentforce Studio alone, asks to create or activate the Fulfiller or Employee agent alone, asks to configure escalation alone, or asks about CMDB, Incident Management, Teams, or general ITSM setup without Agentforce intent.",
-    "path": "category/programming-languages-core/service-itsm-agentic-setup-agentforce-coordinate"
-  },
-  {
-    "id": "service-itsm-agentic-setup-incident-management",
-    "name": "service-itsm-agentic-setup-incident-management",
-    "category": "programming-languages-core",
-    "repository": "forcedotcom-sf-skills",
-    "description": "Orchestrator for Incident Management setup in Service Cloud ITSM: presents the features, tracks progress, and configures each \u2014 Incident preferences, Incident persona PSG assignment, Priority Matrix, SLA & Milestones, Incident dashboards, Email-to-Incident, Major Incident Management (approval group + MIM preferences), Broadcast Communications, Manage Incidents with AI, Service Management Privilege (privilege escalation), and audit tracking. Use for: set up or configure incident management, a walkthrough, what incident features can I configure; the incident preference toggles (default field validations, auto-close child incidents, auto-triage, assign with Einstein, restrict assigned group, rich text descriptions); assigning the Incident Fulfiller or Incident Manager persona PSG. DO NOT TRIGGER for: the master on/off switch alone (use the IncidentMgmt SOR), the Priority Matrix, SLA, or field history tracking alone, the Major Incident Manager PSG, creating/editing PSGs, or Problem/Change/Case Management.",
-    "path": "category/programming-languages-core/service-itsm-agentic-setup-incident-management"
-  },
-  {
     "id": "setup-ts-deep-modules",
     "name": "setup-ts-deep-modules",
     "category": "programming-languages-core",
@@ -2784,12 +2504,20 @@
     "path": "category/programming-languages-core/setup-ts-deep-modules"
   },
   {
-    "id": "social-proof-architect",
-    "name": "social-proof-architect",
+    "id": "sign-in-with-google-web",
+    "name": "sign-in-with-google-web",
     "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Select and place genuine testimonials, case studies, and other proof when an audience needs evidence at specific trust barriers.",
-    "path": "category/programming-languages-core/social-proof-architect"
+    "repository": "google-skills",
+    "description": "Implement, configure, and secure Sign In With Google (SiwG) using Google Identity Services (GIS / `https://accounts.google.com/gsi/client`) across web architectures. Use when creating Google sign-in buttons, implementing Google One Tap with FedCM, integrating GIS in React/Next.js/Angular/HTML, verifying ID tokens on backend runtimes (Python/Node.js/Go/Java), enforcing Google Workspace domain restrictions (`hd`), securing client-side ID tokens via WebCrypto nonces or encrypted IndexedDB, embedding in cross-origin iframes via the Intermediate Iframe API (`https://accounts.google.com/gsi/intermediate`), configuring Content Security Policy (CSP), COOP, and Permissions Policy (`identity-credentials-get`) headers, or handling sign-out and revocation. Don't use for legacy Google Sign-In (`gapi.auth2`), Google Cloud IAM service accounts, or Android/iOS native Credential Manager.",
+    "path": "category/programming-languages-core/sign-in-with-google-web"
+  },
+  {
+    "id": "slack-bot-builder",
+    "name": "slack-bot-builder",
+    "category": "programming-languages-core",
+    "repository": "antigravity-awesome-skills",
+    "description": "Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for rich UIs, interactive components, slash commands, event handling, OAuth installation flows, and W...",
+    "path": "category/programming-languages-core/slack-bot-builder"
   },
   {
     "id": "solana",
@@ -2808,20 +2536,20 @@
     "path": "category/programming-languages-core/spec-to-repo"
   },
   {
+    "id": "spring-framework",
+    "name": "spring-framework",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "Expert guidance for Spring Framework and Spring Boot development with Java best practices, dependency injection, and RESTful API design",
+    "path": "category/programming-languages-core/spring-framework"
+  },
+  {
     "id": "springboot-security",
     "name": "springboot-security",
     "category": "programming-languages-core",
     "repository": "affaan-m-ecc",
     "description": "Spring Security best practices for authn/authz, validation, CSRF, secrets, headers, rate limiting, and dependency security in Java Spring Boot services. Use when reviewing Spring Security authn/authz, validation, CSRF, secrets, headers, or rate limiting.",
     "path": "category/programming-languages-core/springboot-security"
-  },
-  {
-    "id": "starknet-identity",
-    "name": "starknet-identity",
-    "category": "programming-languages-core",
-    "repository": "internet-court-internet-court-skill",
-    "description": "Register AI agents on-chain using the ERC-8004 Trustless Agents standard. Manage agent identity as NFTs, build reputation through feedback, and request third-party validation.",
-    "path": "category/programming-languages-core/starknet-identity"
   },
   {
     "id": "structural-modeling",
@@ -2864,36 +2592,12 @@
     "path": "category/programming-languages-core/test-analysis-extensions"
   },
   {
-    "id": "test-smell-detection",
-    "name": "test-smell-detection",
-    "category": "programming-languages-core",
-    "repository": "dotnet-skills",
-    "description": "Audits existing tests in any language using formal, research-backed test smell names and the testsmells.org 19-smell academic taxonomy. Use when the caller asks for an academic or citable test-smell review, named smell categories, or a formal severity-ranked smell assessment. Covers Assertion Roulette, Conditional Test Logic, Mystery Guest, Eager Test, Sleepy Test, Unknown Test, Sensitive Equality, and the rest of the catalog across .NET, Python, JavaScript/TypeScript, Java, Go, Ruby, Rust, Swift, Kotlin, PowerShell, and C++. DO NOT USE FOR a quick pragmatic test review (use test-anti-patterns), writing or running tests, framework migration, coverage, or assertion-diversity metrics.",
-    "path": "category/programming-languages-core/test-smell-detection"
-  },
-  {
     "id": "testng-skill",
     "name": "testng-skill",
     "category": "programming-languages-core",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Generates TestNG tests in Java with groups, data providers, parallel execution, XML suite configuration, and listeners. Use when user mentions \"TestNG\", \"@DataProvider\", \"testng.xml\", \"groups\". Triggers on: \"TestNG\", \"@DataProvider\", \"testng.xml\", \"TestNG suite\", \"parallel tests Java\".",
     "path": "category/programming-languages-core/testng-skill"
-  },
-  {
-    "id": "the-media-trust",
-    "name": "the-media-trust",
-    "category": "programming-languages-core",
-    "repository": "membranedev-application-skills",
-    "description": "The Media Trust integration. Manage data, records, and automate workflows. Use when the user wants to interact with The Media Trust data.",
-    "path": "category/programming-languages-core/the-media-trust"
-  },
-  {
-    "id": "thick-client",
-    "name": "thick-client",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Authorized security testing of desktop thick clients: local storage, update channels, IPC, traffic interception, and client-side trust-boundary review.",
-    "path": "category/programming-languages-core/thick-client"
   },
   {
     "id": "three-js",
@@ -2920,20 +2624,12 @@
     "path": "category/programming-languages-core/tokenization-huggingface-tokenizers"
   },
   {
-    "id": "tokenwise",
-    "name": "tokenwise",
+    "id": "transformers-js",
+    "name": "transformers-js",
     "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Measurement-driven model router for Claude Code. Routes Haiku/Sonnet/Opus per task class, logs every routed task with real $ numbers, and A/B tests cheaper tiers before you trust the savings.",
-    "path": "category/programming-languages-core/tokenwise"
-  },
-  {
-    "id": "triage-frontend-issues",
-    "name": "triage-frontend-issues",
-    "category": "programming-languages-core",
-    "repository": "getsentry-skills",
-    "description": "Triage new issues in the Sentry `javascript` project by archiving non-actionable noise. Use when asked to \"triage issues\", \"triage the javascript project\", \"archive non-actionable issues\", \"triage new frontend issues\", or \"clean up the sentry/javascript queue\". Operates only on the sentry/javascript project, only archives (never resolves), and always archives with `untilEscalating`.",
-    "path": "category/programming-languages-core/triage-frontend-issues"
+    "repository": "huggingface-skills",
+    "description": "Use Transformers.js to run state-of-the-art machine learning models directly in JavaScript/TypeScript. Supports NLP (text classification, translation, summarization), computer vision (image classification, object detection), audio (speech recognition, audio classification), and multimodal tasks. Works in browsers and server-side runtimes (Node.js, Bun, Deno) with WebGPU/WASM using pre-trained models from Hugging Face Hub.",
+    "path": "category/programming-languages-core/transformers-js"
   },
   {
     "id": "trigger-dev",
@@ -2944,28 +2640,20 @@
     "path": "category/programming-languages-core/trigger-dev"
   },
   {
-    "id": "trust-calibrator",
-    "name": "trust-calibrator",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Diagnose audience trust barriers and calibrate proof, certainty, and credibility signals when messaging overclaims or fails to reassure.",
-    "path": "category/programming-languages-core/trust-calibrator"
-  },
-  {
-    "id": "trustless-agents",
-    "name": "trustless-agents",
-    "category": "programming-languages-core",
-    "repository": "internet-court-internet-court-skill",
-    "description": "ERC-8004 Trustless Agents \u2014 on-chain agent identity + reputation. Resolve an agent by id (Identity Registry ERC-721 \u2192 owner + AgentCard), list the canonical registry addresses, and generate a spec-compliant agent registration card (registration-v1, with x402 support + trust models). Custody-free, read + scaffolding. Triggers: ERC-8004, trustless agent, agent identity, agent registry, AgentCard, agent reputation, on-chain agent, A2A, agent discovery, agent card, 8004.",
-    "path": "category/programming-languages-core/trustless-agents"
-  },
-  {
     "id": "turbopack-bundler",
     "name": "turbopack-bundler",
     "category": "programming-languages-core",
     "repository": "mindrally-skills",
     "description": "Best practices and guidelines for Turbopack, the Rust-powered incremental bundler for Next.js and modern web development",
     "path": "category/programming-languages-core/turbopack-bundler"
+  },
+  {
+    "id": "turborepo-monorepo",
+    "name": "turborepo-monorepo",
+    "category": "programming-languages-core",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides comprehensive Turborepo monorepo management guidance for TypeScript/JavaScript projects. Use when creating Turborepo workspaces, configuring turbo.json tasks, setting up Next.js/NestJS apps, managing test pipelines (Vitest/Jest), configuring CI/CD, implementing remote caching, or optimizing build performance in monorepos",
+    "path": "category/programming-languages-core/turborepo-monorepo"
   },
   {
     "id": "typeorm",
@@ -2990,6 +2678,14 @@
     "repository": "backnotprop-pstack",
     "description": "TypeScript best practices. Use when reading or editing any .ts or .tsx file.",
     "path": "category/programming-languages-core/typescript-best-practices"
+  },
+  {
+    "id": "typescript-docs",
+    "name": "typescript-docs",
+    "category": "programming-languages-core",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Generates comprehensive TypeScript documentation using JSDoc, TypeDoc, and multi-layered documentation patterns for different audiences. Use when creating API documentation, architectural decision records (ADRs), code examples, and framework-specific patterns for NestJS, Express, React, Angular, and Vue.",
+    "path": "category/programming-languages-core/typescript-docs"
   },
   {
     "id": "typescript-expert",
@@ -3024,6 +2720,14 @@
     "path": "category/programming-languages-core/typescript-pro"
   },
   {
+    "id": "typescript-security-review",
+    "name": "typescript-security-review",
+    "category": "programming-languages-core",
+    "repository": "giuseppe-trisciuoglio-developer-kit",
+    "description": "Provides security review capability for TypeScript/Node.js applications, validates code against XSS, injection, CSRF, JWT/OAuth2 flaws, dependency CVEs, and secrets exposure. Use when performing security audits, before deployment, reviewing authentication/authorization implementations, or ensuring OWASP compliance for Express, NestJS, and Next.js. Triggers on \"security review\", \"check for security issues\", \"TypeScript security audit\".",
+    "path": "category/programming-languages-core/typescript-security-review"
+  },
+  {
     "id": "ui5-typescript-conversion",
     "name": "ui5-typescript-conversion",
     "category": "programming-languages-core",
@@ -3056,12 +2760,20 @@
     "path": "category/programming-languages-core/unreal-engine-cpp-pro"
   },
   {
-    "id": "virustotal-automation",
-    "name": "virustotal-automation",
+    "id": "vitest-skill",
+    "name": "vitest-skill",
     "category": "programming-languages-core",
-    "repository": "composio-community-awesome-codex-skills",
-    "description": "Automate Virustotal tasks via Rube MCP (Composio). Always search tools first for current schemas.",
-    "path": "category/programming-languages-core/virustotal-automation"
+    "repository": "sickn33-agentic-awesome-skills",
+    "description": "Generates Vitest tests in JavaScript/TypeScript with Vite-native speed. Jest-compatible API with ESM support and HMR. Use when user mentions \"Vitest\", \"vi.mock\", \"vitest.config\". Triggers on: \"Vitest\", \"vi.mock\", \"vi.fn\", \"Vite test\", \"vitest config\".",
+    "path": "category/programming-languages-core/vitest-skill"
+  },
+  {
+    "id": "vue-application-structure",
+    "name": "vue-application-structure",
+    "category": "programming-languages-core",
+    "repository": "aj-geddes-useful-ai-prompts",
+    "description": "Structure Vue 3 applications using Composition API, component organization, and TypeScript. Use when building scalable Vue applications with proper separation of concerns.",
+    "path": "category/programming-languages-core/vue-application-structure"
   },
   {
     "id": "vue-best-practices",
@@ -3070,6 +2782,14 @@
     "repository": "vuejs-ai-skills",
     "description": "MUST be used for Vue.js tasks. Strongly recommends Composition API with `<script setup>` and TypeScript as the standard approach. Covers Vue 3, SSR, Volar, vue-tsc. Load for any Vue, .vue files, Vue Router, Pinia, or Vite with Vue work. ALWAYS use Composition API unless the project explicitly requires Options API.",
     "path": "category/programming-languages-core/vue-best-practices"
+  },
+  {
+    "id": "vue-expert",
+    "name": "vue-expert",
+    "category": "programming-languages-core",
+    "repository": "jeffallan-claude-skills",
+    "description": "Builds Vue 3 components with Composition API patterns, configures Nuxt 3 SSR/SSG projects, sets up Pinia stores, scaffolds Quasar/Capacitor mobile apps, implements PWA features, and optimises Vite builds. Use when creating Vue 3 applications with Composition API, writing reusable composables, managing state with Pinia, building hybrid mobile apps with Quasar or Capacitor, configuring service workers, or tuning Vite configuration and TypeScript integration.",
+    "path": "category/programming-languages-core/vue-expert"
   },
   {
     "id": "vue-expert-js",
@@ -3088,6 +2808,22 @@
     "path": "category/programming-languages-core/vue-typescript"
   },
   {
+    "id": "vuejs-typescript-best-practices",
+    "name": "vuejs-typescript-best-practices",
+    "category": "programming-languages-core",
+    "repository": "mindrally-skills",
+    "description": "Vue.js and TypeScript best practices for building performant applications with Vite, Pinia, VueUse, and Tailwind CSS.",
+    "path": "category/programming-languages-core/vuejs-typescript-best-practices"
+  },
+  {
+    "id": "web3-audit",
+    "name": "web3-audit",
+    "category": "programming-languages-core",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Smart contract security audit \u2014 10 DeFi bug classes (accounting desync, access control, incomplete path, off-by-one, oracle, ERC4626, reentrancy, flash loan, signature replay, proxy), pre-dive kill signals (TVL < $500K etc), Foundry PoC template, grep patterns for each class, and real Immunefi paid examples. Use for any Solidity/Rust contract audit or when deciding whether a DeFi target is worth hunting.",
+    "path": "category/programming-languages-core/web3-audit"
+  },
+  {
     "id": "webdriverio-skill",
     "name": "webdriverio-skill",
     "category": "programming-languages-core",
@@ -3104,44 +2840,12 @@
     "path": "category/programming-languages-core/weft-ai-language"
   },
   {
-    "id": "windows-ad",
-    "name": "windows-ad",
-    "category": "programming-languages-core",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Authorized Active Directory and Windows identity attacks: Kerberos abuse, AD CS escalation, BloodHound path analysis, NTLM relay, and domain privilege-escalation research.",
-    "path": "category/programming-languages-core/windows-ad"
-  },
-  {
-    "id": "windows-privilege-escalation",
-    "name": "windows-privilege-escalation",
-    "category": "programming-languages-core",
-    "repository": "antigravity-awesome-skills",
-    "description": "This skill should be used when the user asks to \\\"escalate privileges on Windows,\\\" \\\"find Windows privesc vectors,\\\" \\\"enumerate Windows for privilege escalation,\\\" \\\"exploit Windows miscon...",
-    "path": "category/programming-languages-core/windows-privilege-escalation"
-  },
-  {
-    "id": "x1",
-    "name": "x1",
-    "category": "programming-languages-core",
-    "repository": "brycewang-stanford-auto-empirical-research-skills",
-    "description": "Research Guardian - Ethics Advisory & Bias Detection across all research stages Enhanced VS 3-Phase process: Surface-level screening, deep contextual analysis, constructive recommendations Use when: reviewing research ethics, checking for bias, assessing trustworthiness, QRP screening Triggers: ethics review, IRB, bias detection, QRP, trustworthiness, research integrity, p-hacking, HARKing",
-    "path": "category/programming-languages-core/x1"
-  },
-  {
     "id": "xslt-injection",
     "name": "xslt-injection",
     "category": "programming-languages-core",
     "repository": "yaklang-hack-skills",
     "description": "XSLT injection testing: processor fingerprinting, XXE and document() SSRF, EXSLT write primitives, PHP/Java/.NET extension RCE surfaces. Use when user-controlled XSLT/stylesheet input or transform endpoints are in scope.",
     "path": "category/programming-languages-core/xslt-injection"
-  },
-  {
-    "id": "yellow-settlement-room",
-    "name": "yellow-settlement-room",
-    "category": "programming-languages-core",
-    "repository": "internet-court-internet-court-skill",
-    "description": "Yellow Network Protocol app sessions for AI agents - a shared room where several agents pool funds, reallocate off-chain at machine speed, and settle one final split. Use for multiparty settlement among agents. Covers connecting, the funded-account prerequisite, creating a session with participants + weights + quorum, deposit, operate, withdraw, close, and the trust boundary. Grounded in the official @yellow-org/sdk lifecycle example.",
-    "path": "category/programming-languages-core/yellow-settlement-room"
   },
   {
     "id": "zeroize-audit",

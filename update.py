@@ -18,6 +18,7 @@ import shutil
 import stat
 import json
 import subprocess
+import re
 import time
 from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor
@@ -245,7 +246,7 @@ def sync_all_upstreams(force=False):
         return repo_id, url, '', last_commit, False
 
     t0 = time.time()
-    with ThreadPoolExecutor(max_workers=24) as executor:
+    with ThreadPoolExecutor(max_workers=36) as executor:
         checked_repos = list(executor.map(check_remote, check_list))
     t1 = time.time()
     print(f"✓ Checked {len(check_list)} remotes in {t1-t0:.2f}s.", flush=True)
@@ -253,7 +254,7 @@ def sync_all_upstreams(force=False):
     to_update = [r for r in checked_repos if r[4]]
     if not to_update:
         print(f"✓ All {len(check_list)} repository upstreams are already up to date with remote HEAD.", flush=True)
-        return
+        return []
 
     print(f"⬇️  Updating {len(to_update)} repositories in parallel with fresh upstream commits...", flush=True)
     temp_dir = os.path.join(repo_root, '.temp_upstream_clones')
@@ -322,9 +323,10 @@ def sync_all_upstreams(force=False):
 
         # Fallback: if repo already has local skills, update commit watermark so it doesn't repeatedly stall future runs
         skills_dir = os.path.join(target_repo_dir, 'skills')
-        if os.path.exists(skills_dir) and len(os.listdir(skills_dir)) > 0 and remote_commit:
+        if os.path.exists(skills_dir) and len(os.listdir(skills_dir)) > 0:
+            watermark = remote_commit or "cached-local-v1"
             with open(commit_file, 'w', encoding='utf-8') as cf:
-                cf.write(f"{remote_commit}\n")
+                cf.write(f"{watermark}\n")
             print(f"  ✓ {repo_id:32}: preserved existing skills & updated watermark", flush=True)
             return True
 
@@ -332,10 +334,13 @@ def sync_all_upstreams(force=False):
         return False
 
     with ThreadPoolExecutor(max_workers=8) as executor:
-        list(executor.map(sync_single_upstream, to_update))
+        results = list(executor.map(sync_single_upstream, to_update))
 
     if os.path.exists(temp_dir):
         shutil.rmtree(temp_dir, onerror=remove_readonly)
+
+    updated_ids = [to_update[i][0] for i, success in enumerate(results) if success]
+    return updated_ids
 
 # 2. Sync Active Skills
 def sync_active_skills():
@@ -370,20 +375,39 @@ def sync_active_skills():
     else:
         print("✓ Active workspace skills are already up to date.", flush=True)
 
-# 3. Re-index all library repositories and Master Index
-def rebuild_all_indexes():
+# 3. Incremental Indexing for all library repositories and Master Index
+def rebuild_all_indexes(updated_repo_ids=None, force=False):
     print("\n[3/6] Re-indexing skills_index.json across all repositories and Master Index...", flush=True)
     if not os.path.exists(library_dir):
-        return
+        return 0
 
     all_vault_skills = []
     repo_folders = sorted([d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.') and d != '__pycache__'])
 
+    updated_set = set(updated_repo_ids or [])
+    cached_count = 0
+    rebuilt_count = 0
+
     for repo_folder in repo_folders:
         repo_path = os.path.join(library_dir, repo_folder)
+        idx_path = os.path.join(repo_path, 'skills_index.json')
         skills_folder = os.path.join(repo_path, 'skills')
-        repo_skills = []
 
+        # Fast Incremental Path: Load cached JSON if repo was not modified
+        if not force and repo_folder not in updated_set and os.path.exists(idx_path):
+            try:
+                with open(idx_path, 'r', encoding='utf-8') as f:
+                    repo_skills = json.load(f)
+                if repo_skills and isinstance(repo_skills, list):
+                    all_vault_skills.extend(repo_skills)
+                    cached_count += 1
+                    continue
+            except Exception:
+                pass
+
+        # Full Parse Path (only for new or updated repositories)
+        rebuilt_count += 1
+        repo_skills = []
         if os.path.exists(skills_folder):
             for s_name in sorted(os.listdir(skills_folder)):
                 s_path = os.path.join(skills_folder, s_name)
@@ -417,13 +441,13 @@ def rebuild_all_indexes():
                 repo_skills.append(entry)
                 all_vault_skills.append(entry)
 
-        with open(os.path.join(repo_path, 'skills_index.json'), 'w', encoding='utf-8') as f:
+        with open(idx_path, 'w', encoding='utf-8') as f:
             json.dump(repo_skills, f, indent=2)
 
     with open(os.path.join(library_dir, 'skills_index.json'), 'w', encoding='utf-8') as f:
         json.dump(all_vault_skills, f, indent=2)
 
-    print(f"✓ Re-indexed {len(repo_folders)} repository indexes and Master index ({len(all_vault_skills)} skills).", flush=True)
+    print(f"✓ Re-indexed Master index ({len(all_vault_skills)} skills across {len(repo_folders)} repos: {cached_count} cached, {rebuilt_count} parsed).", flush=True)
     return len(all_vault_skills)
 
 # 4. Synchronize lockfiles
@@ -464,7 +488,7 @@ def sync_lockfiles():
         print(f"✓ Synchronized {lf}: {len(synced)} skills tracked.", flush=True)
 
 # 5. Rebuild real category system and provenance
-def rebuild_categories_and_provenance():
+def rebuild_categories_and_provenance(has_changes=False, force=False):
     print("\n[5/6] Rebuilding real category system & provenance documentation...", flush=True)
     try:
         from category_system import rebuild_category_system
@@ -478,10 +502,13 @@ def rebuild_categories_and_provenance():
     except Exception as e:
         print(f"⚠️ Provenance rebuild encountered error: {e}", flush=True)
 
-    rebuild_skill_sea_catalog()
+    rebuild_skill_sea_catalog(has_changes=has_changes, force=force)
 
-def rebuild_skill_sea_catalog():
+def rebuild_skill_sea_catalog(has_changes=False, force=False):
     print("\n[5.5/6] Rebuilding Skill.Sea web catalog, categories & stats JSON...", flush=True)
+    catalog_path = os.path.join(agents_dir, 'Skill.Sea', 'data', 'catalog.json')
+    old_size = os.path.getsize(catalog_path) if os.path.exists(catalog_path) else 0
+
     script_path = os.path.join(agents_dir, 'Skill.Sea', 'scripts', 'build-catalog.js')
     if os.path.exists(script_path):
         try:
@@ -489,6 +516,13 @@ def rebuild_skill_sea_catalog():
             print("✓ Skill.Sea web catalog successfully synced.", flush=True)
         except Exception as e:
             print(f"⚠️ Skill.Sea catalog rebuild error: {e}", flush=True)
+
+        new_size = os.path.getsize(catalog_path) if os.path.exists(catalog_path) else 0
+        data_changed = has_changes or (old_size != new_size) or force
+
+        if not data_changed:
+            print("✓ Skill.Sea catalog data is identical; skipping redundant Cloudflare R2 upload & Pages deploy.", flush=True)
+            return
 
         sync_script = os.path.join(agents_dir, 'Skill.Sea', 'scripts', 'sync-r2.js')
         if os.path.exists(sync_script):
@@ -516,7 +550,7 @@ def git_commit_and_push():
     subprocess.run(['git', 'add', '-A'], cwd=agents_dir, check=True)
     ts = datetime.now().strftime('%Y-%m-%d %H:%M')
     subprocess.run(['git', 'commit', '-m', f"chore(skills): automated update of skills & library ({ts})"], cwd=agents_dir, check=True)
-    push_res = subprocess.run(['git', 'push', 'origin', 'main'], cwd=agents_dir, capture_output=True, text=True)
+    push_res = subprocess.run(['git', 'push', 'origin', 'main'], cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace')
     if push_res.stdout:
         print(push_res.stdout, flush=True)
     if push_res.stderr:
