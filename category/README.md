@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 18722 standalone modular skills  
+> **Total Unique Skills**: 18723 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -13,7 +13,7 @@
 | :--- | :--- | :---: | :--- |
 | **[`data-engineering-ml`](./data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **2650** | [Open Catalog](./data-engineering-ml/README.md) |
 | **[`code-quality-refactoring`](./code-quality-refactoring)** | 🧹 Code Quality, Refactoring & Clean Code | **2634** | [Open Catalog](./code-quality-refactoring/README.md) |
-| **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **1357** | [Open Catalog](./backend-api-design/README.md) |
+| **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **1358** | [Open Catalog](./backend-api-design/README.md) |
 | **[`database-sql-relational`](./database-sql-relational)** | 🗄️ SQL Databases, ORMs & Indexing | **1124** | [Open Catalog](./database-sql-relational/README.md) |
 | **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **1060** | [Open Catalog](./frontend-ui-components/README.md) |
 | **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **913** | [Open Catalog](./business-sales-crm/README.md) |

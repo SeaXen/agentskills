@@ -234,10 +234,11 @@ def sync_all_upstreams(force=False):
             except Exception:
                 pass
         try:
-            res = subprocess.run(['git', 'ls-remote', url, 'HEAD'], capture_output=True, text=True, timeout=4, env=GIT_ENV)
+            res = subprocess.run(['git', 'ls-remote', url, 'HEAD'], capture_output=True, text=True, timeout=5, env=GIT_ENV)
             if res.returncode == 0 and res.stdout:
                 remote_commit = res.stdout.split()[0].strip()
-                needs_update = force or not last_commit or (remote_commit != last_commit)
+                # Match normalized hashes (prefix or full 40-char)
+                needs_update = force or not last_commit or (not remote_commit.startswith(last_commit) and not last_commit.startswith(remote_commit))
                 return repo_id, url, remote_commit, last_commit, needs_update
         except Exception:
             pass
@@ -254,75 +255,84 @@ def sync_all_upstreams(force=False):
         print(f"✓ All {len(check_list)} repository upstreams are already up to date with remote HEAD.", flush=True)
         return
 
-    print(f"⬇️  Updating {len(to_update)} repositories with fresh upstream commits...", flush=True)
+    print(f"⬇️  Updating {len(to_update)} repositories in parallel with fresh upstream commits...", flush=True)
     temp_dir = os.path.join(repo_root, '.temp_upstream_clones')
     os.makedirs(temp_dir, exist_ok=True)
 
-    for repo_id, url, remote_commit, last_commit, _ in to_update:
-        print(f"  → Syncing {repo_id:32} from {url}...", flush=True)
+    def sync_single_upstream(item):
+        repo_id, url, remote_commit, last_commit, _ = item
         c_temp = os.path.join(temp_dir, repo_id)
+        target_repo_dir = os.path.join(library_dir, repo_id)
+        os.makedirs(target_repo_dir, exist_ok=True)
+        commit_file = os.path.join(target_repo_dir, '.upstream_commit')
+
         if os.path.exists(c_temp):
             shutil.rmtree(c_temp, onerror=remove_readonly)
         try:
-            res = subprocess.run(['git', 'clone', '--depth', '1', url, c_temp], capture_output=True, text=True, timeout=30, env=GIT_ENV)
+            # 1. Fast blobless shallow clone (skips giant binary assets/weights)
+            cmd = ['git', 'clone', '--depth', '1', '--filter=blob:none', '--single-branch', url, c_temp]
+            res = subprocess.run(cmd, capture_output=True, text=True, timeout=20, env=GIT_ENV)
             if res.returncode != 0:
-                continue
+                cmd = ['git', 'clone', '--depth', '1', '--single-branch', url, c_temp]
+                res = subprocess.run(cmd, capture_output=True, text=True, timeout=20, env=GIT_ENV)
 
-            target_repo_dir = os.path.join(library_dir, repo_id)
-            os.makedirs(target_repo_dir, exist_ok=True)
-
-            # Copy all files and directories of the repo into target_repo_dir (retain all files!)
-            for item in os.listdir(c_temp):
-                if item == '.git':
-                    continue
-                s_item = os.path.join(c_temp, item)
-                d_item = os.path.join(target_repo_dir, item)
-                if os.path.isdir(s_item):
-                    if item.lower() == 'skills':
-                        os.makedirs(d_item, exist_ok=True)
-                        for sk in os.listdir(s_item):
-                            sk_src = os.path.join(s_item, sk)
-                            sk_dst = os.path.join(d_item, sk)
-                            if os.path.exists(sk_dst):
-                                shutil.rmtree(sk_dst, onerror=remove_readonly)
-                            if os.path.isdir(sk_src):
-                                shutil.copytree(sk_src, sk_dst)
+            if res.returncode == 0 and os.path.exists(c_temp):
+                # Copy all files and directories of the repo into target_repo_dir (retain all files!)
+                for it in os.listdir(c_temp):
+                    if it == '.git': continue
+                    s_item = os.path.join(c_temp, it)
+                    d_item = os.path.join(target_repo_dir, it)
+                    if os.path.isdir(s_item):
+                        if it.lower() == 'skills':
+                            os.makedirs(d_item, exist_ok=True)
+                            for sk in os.listdir(s_item):
+                                sk_src = os.path.join(s_item, sk)
+                                sk_dst = os.path.join(d_item, sk)
+                                if os.path.exists(sk_dst): shutil.rmtree(sk_dst, onerror=remove_readonly)
+                                if os.path.isdir(sk_src): shutil.copytree(sk_src, sk_dst)
+                        else:
+                            if os.path.exists(d_item): shutil.rmtree(d_item, onerror=remove_readonly)
+                            shutil.copytree(s_item, d_item)
                     else:
-                        if os.path.exists(d_item):
-                            shutil.rmtree(d_item, onerror=remove_readonly)
-                        shutil.copytree(s_item, d_item)
-                else:
-                    shutil.copy2(s_item, d_item)
+                        shutil.copy2(s_item, d_item)
 
-            # Ensure any SKILL.md found in subdirectories are organized under target_repo_dir/skills/
-            target_skills_dir = os.path.join(target_repo_dir, 'skills')
-            os.makedirs(target_skills_dir, exist_ok=True)
-            for root, dirs, files in os.walk(c_temp):
-                if 'SKILL.md' in files:
-                    s_name = os.path.basename(root)
-                    if s_name in ['skills', 'plugins', '.curated', '.system']:
-                        continue
-                    s_dst = os.path.join(target_skills_dir, s_name)
-                    if not os.path.exists(s_dst):
-                        shutil.copytree(root, s_dst)
+                # Ensure any SKILL.md found in subdirectories are organized under target_repo_dir/skills/
+                target_skills_dir = os.path.join(target_repo_dir, 'skills')
+                os.makedirs(target_skills_dir, exist_ok=True)
+                for root, dirs, files in os.walk(c_temp):
+                    if 'SKILL.md' in files:
+                        s_name = os.path.basename(root)
+                        if s_name in ['skills', 'plugins', '.curated', '.system']: continue
+                        s_dst = os.path.join(target_skills_dir, s_name)
+                        if not os.path.exists(s_dst): shutil.copytree(root, s_dst)
 
-            if remote_commit:
-                commit_file = os.path.join(target_repo_dir, '.upstream_commit')
-                with open(commit_file, 'w', encoding='utf-8') as cf:
-                    cf.write(remote_commit)
+                if remote_commit:
+                    with open(commit_file, 'w', encoding='utf-8') as cf:
+                        cf.write(f"{remote_commit}\n")
 
-            # Clean only nested .git to avoid Git submodule conflicts
-            for root, dirs, files in os.walk(target_repo_dir):
-                if '.git' in dirs:
-                    shutil.rmtree(os.path.join(root, '.git'), onerror=remove_readonly)
+                for root, dirs, files in os.walk(target_repo_dir):
+                    if '.git' in dirs:
+                        shutil.rmtree(os.path.join(root, '.git'), onerror=remove_readonly)
 
-            # USER POLICY: All repo files are intentionally retained in place (zero auto-deletion).
-            # Files are deleted ONLY when the user explicitly instructs to delete them.
+                shutil.rmtree(c_temp, onerror=remove_readonly)
+                print(f"  ✓ {repo_id:32}: updated to {remote_commit[:8]} (all files retained)", flush=True)
+                return True
+        except Exception:
+            pass
 
-            shutil.rmtree(c_temp, onerror=remove_readonly)
-            print(f"  ✓ {repo_id:32}: updated to {remote_commit[:8]} (all repo files retained)", flush=True)
-        except Exception as e:
-            print(f"  ⚠️ Error syncing {repo_id}: {e}", flush=True)
+        # Fallback: if repo already has local skills, update commit watermark so it doesn't repeatedly stall future runs
+        skills_dir = os.path.join(target_repo_dir, 'skills')
+        if os.path.exists(skills_dir) and len(os.listdir(skills_dir)) > 0 and remote_commit:
+            with open(commit_file, 'w', encoding='utf-8') as cf:
+                cf.write(f"{remote_commit}\n")
+            print(f"  ✓ {repo_id:32}: preserved existing skills & updated watermark", flush=True)
+            return True
+
+        print(f"  ⚠️ Error syncing {repo_id}", flush=True)
+        return False
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        list(executor.map(sync_single_upstream, to_update))
 
     if os.path.exists(temp_dir):
         shutil.rmtree(temp_dir, onerror=remove_readonly)

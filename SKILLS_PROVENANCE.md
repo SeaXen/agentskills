@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 370 repositories  
-> **Total Skills in Reserve**: 23,453 skills  
+> **Total Skills in Reserve**: 23,454 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -71,7 +71,7 @@
 | `brycewang-stanford-auto-empirical-research-skills` | [brycewang-stanford/Auto-Empirical-Research-Skills](https://github.com/brycewang-stanford/Auto-Empirical-Research-Skills) | **1123** | `python .agents/library/activate_skill.py activate 00-Full-empirical-analysis-skill_StatsPAI` |
 | `builderio-skills` | [BuilderIO/skills](https://github.com/BuilderIO/skills) | **26** | `python .agents/library/activate_skill.py activate adding-a-skill` |
 | `buzzbysolcex-buzz-bd-agent` | [buzzbysolcex/buzz-bd-agent](https://github.com/buzzbysolcex/buzz-bd-agent) | **38** | `python .agents/library/activate_skill.py activate agent-contexts` |
-| `caffeinelabs-skills` | [caffeinelabs/skills](https://github.com/caffeinelabs/skills) | **36** | `python .agents/library/activate_skill.py activate connector-googlecalendar` |
+| `caffeinelabs-skills` | [caffeinelabs/skills](https://github.com/caffeinelabs/skills) | **37** | `python .agents/library/activate_skill.py activate connector-googlecalendar` |
 | `career-ops-hq-career-ops` | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | **5** | `python .agents/library/activate_skill.py activate apify` |
 | `charlie947-social-media-skills` | [charlie947/social-media-skills](https://github.com/charlie947/social-media-skills) | **17** | `python .agents/library/activate_skill.py activate analytics-dashboard` |
 | `chezou-productivity-skills` | [chezou/skills](https://github.com/chezou/skills) | **3** | `python .agents/library/activate_skill.py activate company-research` |

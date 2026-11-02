@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1357 skills  
+> **Total Curated Skills**: 1358 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -532,6 +532,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`extension-core-infrastructure`](../../library/caffeinelabs-skills/skills/extension-core-infrastructure) | ⚪ Reserve | `caffeinelabs-skills` | Core infrastructure providing backend connection configuration, storage client, and React app e... |
 | [`extension-http-endpoints`](../../library/caffeinelabs-skills/skills/extension-http-endpoints) | ⚪ Reserve | `caffeinelabs-skills` | Serve inbound HTTP from a Motoko canister (webhooks, curl POST/GET, bot callbacks, ingest/healt... |
 | [`extension-http-outcalls`](../../library/caffeinelabs-skills/skills/extension-http-outcalls) | ⚪ Reserve | `caffeinelabs-skills` | HTTP outcalls performed by the backend canister (not in the frontend), including mandatory loca... |
+| [`extension-mcp-server`](../../library/caffeinelabs-skills/skills/extension-mcp-server) | ⚪ Reserve | `caffeinelabs-skills` | Let users connect the app to Claude (or any MCP client such as Claude Code or Cursor) as a cust... |
 | [`extension-oql`](../../library/caffeinelabs-skills/skills/extension-oql) | ⚪ Reserve | `caffeinelabs-skills` | Make a canister's data queryable by the Caffeine Data Intelligence agent. Use whenever an app s... |
 | [`extension-posting-to-x`](../../library/caffeinelabs-skills/skills/extension-posting-to-x) | ⚪ Reserve | `caffeinelabs-skills` | MANDATORY recipe for every Caffeine build that posts to X (Twitter). The ONLY supported path is... |
 | [`extension-querying-oql`](../../library/caffeinelabs-skills/skills/extension-querying-oql) | ⚪ Reserve | `caffeinelabs-skills` | Quick reference for the Caffeine Data Intelligence agent to query an OQL-exposing canister (sch... |

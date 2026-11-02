@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "total_unique_skills": 18722,
+  "total_unique_skills": 18723,
   "total_categories": 38,
   "categories": {
     "code-quality-refactoring": {
@@ -37349,7 +37349,7 @@
     },
     "backend-api-design": {
       "title": "⚡ Backend Systems, REST & Microservices",
-      "count": 1357,
+      "count": 1358,
       "skills": [
         {
           "name": "00-andruia-consultant",
@@ -40428,6 +40428,12 @@
           "is_active": false,
           "repo": "caffeinelabs-skills",
           "description": "HTTP outcalls performed by the backend canister (not in the frontend), including mandatory local verification of external REST API requests. Canister → internet only. For inbound webhooks / curl endpoints served by the canister, use extension-http-endpoints instead."
+        },
+        {
+          "name": "extension-mcp-server",
+          "is_active": false,
+          "repo": "caffeinelabs-skills",
+          "description": "Let users connect the app to Claude (or any MCP client such as Claude Code or Cursor) as a custom connector, so an AI assistant can read and change their data through tools the backend defines. Serves an MCP server from the backend canister; users sign in with Internet Identity on the app's own site and approve the client (OAuth 2.1 with PKCE). Load whenever the user or spec mentions MCP, a Claude connector, \"connect to Claude/ChatGPT\", or letting an AI agent use the app. NOT for calling an LLM from the app (use `extension-inference`); NOT for webhooks (use `extension-http-endpoints`)."
         },
         {
           "name": "extension-oql",
