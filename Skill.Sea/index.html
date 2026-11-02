@@ -110,6 +110,7 @@
           <div class="mc-left">
             <div class="mc-header">
               <span class="mc-label"><i class="ti ti-folders" aria-hidden="true"></i> Total Skills Tracked</span>
+              <span class="mc-badge">Catalog</span>
             </div>
             <div class="mc-sub" id="sub-total-skills">
               <span class="status-dot"></span> All 18,722 Ingested & Verified
@@ -117,7 +118,6 @@
           </div>
           <div class="mc-right">
             <b id="stat-total-skills">18,722</b>
-            <span class="mc-badge">Catalog</span>
           </div>
         </button>
 
@@ -125,6 +125,7 @@
           <div class="mc-left">
             <div class="mc-header">
               <span class="mc-label"><i class="ti ti-category" aria-hidden="true"></i> Functional Categories</span>
+              <span class="mc-badge">Taxonomy</span>
             </div>
             <div class="mc-sub" id="sub-total-cats">
               <span class="status-dot"></span> All 38 Domains Synchronized
@@ -132,7 +133,6 @@
           </div>
           <div class="mc-right">
             <b id="stat-total-cats">38</b>
-            <span class="mc-badge">Taxonomy</span>
           </div>
         </button>
 
@@ -140,6 +140,7 @@
           <div class="mc-left">
             <div class="mc-header">
               <span class="mc-label"><i class="ti ti-git-branch" aria-hidden="true"></i> Git Origin Repositories</span>
+              <span class="mc-badge">Sources</span>
             </div>
             <div class="mc-sub" id="sub-total-repos">
               <span class="status-dot"></span> All 370 Repositories Active
@@ -147,7 +148,6 @@
           </div>
           <div class="mc-right">
             <b id="stat-total-repos">370</b>
-            <span class="mc-badge">Sources</span>
           </div>
         </button>
 
@@ -155,6 +155,7 @@
           <div class="mc-left">
             <div class="mc-header">
               <span class="mc-label"><i class="ti ti-flame" aria-hidden="true" style="color:#f59e0b"></i> Active Hot-Set Skills</span>
+              <span class="mc-badge mc-badge-hot">Zero-Latency</span>
             </div>
             <div class="mc-sub" id="sub-active-hot">
               <span class="status-dot status-dot-hot"></span> 130 Live in Hot-Set
@@ -162,7 +163,6 @@
           </div>
           <div class="mc-right">
             <b id="stat-active-hot">130</b>
-            <span class="mc-badge mc-badge-hot">Zero-Latency</span>
           </div>
         </button>
       </section>
@@ -172,10 +172,19 @@
            ================================================================== -->
       <div id="view-skill-hub" class="page-view active" style="padding:0;gap:0">
         
-        <!-- Category Horizontal Scroll Rail -->
-        <section class="rail-container" aria-label="Category Rail">
+        <!-- Category Horizontal Scroll Rail & Top Page Switcher -->
+        <section class="rail-container" aria-label="Category Navigation & Page Controls">
           <div class="category-rail" id="category-rail">
             <!-- Populated dynamically by app.js -->
+          </div>
+          <div class="rail-pagination" id="top-pagination" aria-label="Top page navigation">
+            <button type="button" class="page-btn rail-page-btn" id="top-prev-page-btn" aria-label="Previous page" title="Previous page" disabled>
+              <i class="ti ti-chevron-left" aria-hidden="true"></i>
+            </button>
+            <span id="top-page-indicator" class="rail-page-indicator">Page 1 of 375</span>
+            <button type="button" class="page-btn rail-page-btn" id="top-next-page-btn" aria-label="Next page" title="Next page">
+              <i class="ti ti-chevron-right" aria-hidden="true"></i>
+            </button>
           </div>
         </section>
 
@@ -223,17 +232,6 @@
                 <i class="ti ti-layout-grid" aria-hidden="true"></i>
               </button>
             </div>
-
-            <!-- Top Page Switcher Controls -->
-            <div class="top-pagination-controls" id="top-pagination" aria-label="Top Pagination Controls">
-              <button type="button" class="page-btn top-page-btn" id="top-prev-page-btn" aria-label="Previous page" title="Previous page" disabled>
-                <i class="ti ti-chevron-left" aria-hidden="true"></i>
-              </button>
-              <span id="top-page-indicator" class="top-page-indicator">Page 1</span>
-              <button type="button" class="page-btn top-page-btn" id="top-next-page-btn" aria-label="Next page" title="Next page">
-                <i class="ti ti-chevron-right" aria-hidden="true"></i>
-              </button>
-            </div>
           </div>
         </section>
 
@@ -279,18 +277,9 @@
 
         <!-- Pagination Bar -->
         <footer class="pagination-bar">
-          <div id="item-count">Loading skills…</div>
-          <div class="pagination-controls">
-            <button type="button" class="page-btn" id="prev-page-btn" aria-label="Previous page" disabled>
-              <i class="ti ti-chevron-left" aria-hidden="true"></i> Previous
-            </button>
-            <span id="page-indicator" style="font-family:var(--font-mono);font-size:11.5px">Page 1</span>
-            <button type="button" class="page-btn" id="next-page-btn" aria-label="Next page">
-              Next <i class="ti ti-chevron-right" aria-hidden="true"></i>
-            </button>
-          </div>
+          <!-- Left: Page Size Selector -->
           <div class="pagination-page-size">
-            <label for="page-size-select"><i class="ti ti-list-numbers" style="color:var(--teal)"></i> Show:</label>
+            <label for="page-size-select"><i class="ti ti-list-numbers" style="color:var(--teal)" aria-hidden="true"></i> Show:</label>
             <select id="page-size-select" class="page-size-select" aria-label="Select skills per page">
               <option value="25">25 / page</option>
               <option value="50" selected>50 / page</option>
@@ -298,6 +287,20 @@
               <option value="200">200 / page</option>
             </select>
           </div>
+
+          <!-- Middle / Center: Page Switch Controls -->
+          <div class="pagination-controls">
+            <button type="button" class="page-btn" id="prev-page-btn" aria-label="Previous page" disabled>
+              <i class="ti ti-chevron-left" aria-hidden="true"></i> Previous
+            </button>
+            <span id="page-indicator" style="font-family:var(--font-mono);font-size:11.5px;font-variant-numeric:tabular-nums;font-weight:500">Page 1 of 375</span>
+            <button type="button" class="page-btn" id="next-page-btn" aria-label="Next page">
+              Next <i class="ti ti-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- Right: Item Count (e.g. Showing 51–100 of 18,722 skills) -->
+          <div id="item-count" class="pagination-item-count">Showing 1–50 of 18,722 skills</div>
         </footer>
       </div>
 
@@ -847,7 +850,7 @@
   </div>
 
   <!-- App Script -->
-  <script src="src/app.js?v=2.3"></script>
+  <script src="src/app.js?v=2.4"></script>
   <script>
     if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
       window.addEventListener('load', () => {

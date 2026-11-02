@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import json
 
 if sys.stdout.encoding != 'utf-8':
     try:
@@ -191,6 +192,24 @@ def run_tests():
         prev_btn.click()
         page.wait_for_timeout(300)
         record("Returned to Page 1", "Page 1" in page_indicator.text_content())
+
+        # Top Pagination Controls in Category Rail
+        top_prev_btn = page.locator('#top-prev-page-btn')
+        top_next_btn = page.locator('#top-next-page-btn')
+        top_page_indicator = page.locator('#top-page-indicator')
+
+        record("Top Previous Button Disabled on Page 1", top_prev_btn.is_disabled())
+        record("Top Next Button Enabled on Page 1", not top_next_btn.is_disabled())
+
+        top_next_btn.click()
+        page.wait_for_timeout(300)
+        record("Top Next Button Advances to Page 2", "Page 2" in top_page_indicator.text_content(), f"Got: {top_page_indicator.text_content()}")
+        item_count_p2 = page.locator('#item-count').text_content()
+        record("Item Count on Page 2 Shows 51-100", "51–100" in item_count_p2 or "51-100" in item_count_p2, f"Got: {item_count_p2}")
+
+        top_prev_btn.click()
+        page.wait_for_timeout(300)
+        record("Top Prev Button Returns to Page 1", "Page 1" in top_page_indicator.text_content())
 
         # -----------------------------------------------------------------
         # TEST 9: SPA Navigation (Hot-Set, Categories, Library, Guide)

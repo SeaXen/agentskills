@@ -1,5 +1,5 @@
 // Skill.Sea Lightweight Offline-First Service Worker
-const CACHE_NAME = 'skill-sea-v2.3';
+const CACHE_NAME = 'skill-sea-v2.4';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',

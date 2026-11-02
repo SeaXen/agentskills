@@ -335,9 +335,9 @@
   }
 
   function renderStats() {
-    const totalSkills = Number(state.stats.totalSkills || state.catalog.length || 18647);
+    const totalSkills = Number(state.stats.totalSkills || state.catalog.length || 18722);
     const totalCats = Number(state.stats.totalCategories || state.categories.length || 38);
-    const totalRepos = Number(state.stats.totalRepositories || state.repositories.length || 369);
+    const totalRepos = Number(state.stats.totalRepositories || state.repositories.length || 370);
     const hotCount = Number(state.stats.activeHotSetCount || 130);
 
     if (el.statTotalSkills) el.statTotalSkills.textContent = totalSkills.toLocaleString();
@@ -672,7 +672,7 @@
       el.pageIndicator.textContent = `Page ${state.currentPage} of ${totalPages}`;
     }
     if (el.topPageIndicator) {
-      el.topPageIndicator.textContent = `${state.currentPage} / ${totalPages}`;
+      el.topPageIndicator.textContent = `Page ${state.currentPage} of ${totalPages}`;
     }
     if (el.prevPageBtn) el.prevPageBtn.disabled = state.currentPage <= 1;
     if (el.nextPageBtn) el.nextPageBtn.disabled = state.currentPage >= totalPages;
@@ -1744,7 +1744,10 @@
       if (state.currentPage > 1) {
         state.currentPage--;
         renderResults();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const target = document.getElementById('table-container');
+        if (target && window.scrollY > target.offsetTop + 60) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     };
 
@@ -1753,9 +1756,16 @@
       if (state.currentPage < totalPages) {
         state.currentPage++;
         renderResults();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const target = document.getElementById('table-container');
+        if (target && window.scrollY > target.offsetTop + 60) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     };
+
+    // Expose globally for inline onclick triggers
+    window.goToPrevPage = goToPrevPage;
+    window.goToNextPage = goToNextPage;
 
     if (el.prevPageBtn) el.prevPageBtn.addEventListener('click', goToPrevPage);
     if (el.nextPageBtn) el.nextPageBtn.addEventListener('click', goToNextPage);
@@ -1772,7 +1782,10 @@
           localStorage.setItem('skill_sea_page_size', String(val));
           state.currentPage = 1;
           renderResults();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          const target = document.getElementById('table-container');
+          if (target && window.scrollY > target.offsetTop + 60) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       });
     }
@@ -1804,9 +1817,9 @@
     // Sync button
     if (el.syncBtn) {
       el.syncBtn.addEventListener('click', () => {
-        const totalSkills = Number(state.stats.totalSkills || state.catalog.length || 7401);
+        const totalSkills = Number(state.stats.totalSkills || state.catalog.length || 18722);
         const totalCats = Number(state.stats.totalCategories || state.categories.length || 38);
-        const totalRepos = Number(state.stats.totalRepositories || state.repositories.length || 212);
+        const totalRepos = Number(state.stats.totalRepositories || state.repositories.length || 370);
         showToast(`✓ All Updated: ${totalSkills.toLocaleString()} skills across ${totalCats} categories & ${totalRepos} repositories fully synchronized.`);
       });
     }
