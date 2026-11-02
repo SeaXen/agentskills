@@ -1,11 +1,11 @@
 // Skill.Sea Lightweight Offline-First Service Worker
-const CACHE_NAME = 'skill-sea-v2.5';
+const CACHE_NAME = 'skill-sea-v3.0';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/styles/design-tokens.css',
-  '/styles/main.css',
-  '/src/app.js',
+  '/styles/design-tokens.css?v=3.0',
+  '/styles/main.css?v=3.0',
+  '/src/app.js?v=3.0',
   '/data/stats.json',
   '/data/categories.json',
   '/manifest.json'
@@ -30,34 +30,26 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Stale-while-revalidate for local app shell and data
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
 
-  // Network first for catalog if online, fallback to cache
-  if (url.pathname.includes('/data/catalog.json')) {
+  // Network first for all local HTML, CSS, JS, and JSON data
+  if (url.origin === location.origin) {
     event.respondWith(
-      fetch(event.request).then((res) => {
-        if (res.ok) {
-          const clone = res.clone();
+      fetch(event.request).then((networkRes) => {
+        if (networkRes.ok) {
+          const clone = networkRes.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
-        return res;
+        return networkRes;
       }).catch(() => caches.match(event.request))
     );
     return;
   }
 
-  // Cache first with network update for static assets
+  // Fallback for external assets (CDN fonts/icons)
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      const fetchPromise = fetch(event.request).then((networkRes) => {
-        if (networkRes.ok && url.origin === location.origin) {
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkRes.clone()));
-        }
-        return networkRes;
-      }).catch(() => cached);
-      return cached || fetchPromise;
-    })
+    caches.match(event.request).then((cached) => cached || fetch(event.request))
   );
 });
+

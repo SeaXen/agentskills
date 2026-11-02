@@ -38,8 +38,8 @@
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192' fill='%230b0b0b'><rect width='192' height='192' rx='36'/><path d='M40 96c14-20 28-20 42 0s28 20 42 0 28-20 42 0' stroke='%231d9e75' stroke-width='14' stroke-linecap='round' fill='none'/></svg>">
 
   <!-- ExamForge Design Tokens & Main Styles -->
-  <link rel="stylesheet" href="styles/design-tokens.css?v=2.3">
-  <link rel="stylesheet" href="styles/main.css?v=2.3">
+  <link rel="stylesheet" href="styles/design-tokens.css?v=3.0">
+  <link rel="stylesheet" href="styles/main.css?v=3.0">
 </head>
 <body>
 
@@ -304,6 +304,9 @@
               Next <i class="ti ti-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
+
+          <!-- Right: Spacer balancing the left side so controls stay centered -->
+          <div class="pagination-right-spacer" aria-hidden="true"></div>
         </footer>
       </div>
 
@@ -853,11 +856,13 @@
   </div>
 
   <!-- App Script -->
-  <script src="src/app.js?v=2.5"></script>
+  <script src="src/app.js?v=3.0"></script>
   <script>
     if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
+        navigator.serviceWorker.register('/sw.js').then((reg) => {
+          reg.update();
+        }).catch(() => {});
       });
     }
   </script>

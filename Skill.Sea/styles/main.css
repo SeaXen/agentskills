@@ -1649,7 +1649,7 @@ select option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-top: 0.5px solid var(--border);
   background: var(--surface-1);
   font-size: 12px;
@@ -1664,6 +1664,10 @@ select option {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  flex-wrap: nowrap;
   z-index: 1;
 }
 
@@ -1728,14 +1732,20 @@ select option {
 
 /* Middle / Screen Center Pagination Switcher */
 .pagination-controls {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
   z-index: 2;
+}
+
+.pagination-right-spacer {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media (max-width: 900px) {
@@ -1746,17 +1756,17 @@ select option {
     text-align: center;
   }
   .pagination-controls {
-    position: static;
-    transform: none;
     order: 1;
   }
   .pagination-left {
     order: 2;
-    flex-direction: column;
-    gap: 6px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
     margin: 0 auto;
   }
-  .pagination-divider {
+  .pagination-right-spacer {
     display: none;
   }
 }
