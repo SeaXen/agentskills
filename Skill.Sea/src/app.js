@@ -31,7 +31,7 @@
     currentView: 'table',
     installCmdMode: 'npx', // 'npx', 'python', 'myrepo'
     currentPage: 1,
-    pageSize: 50,
+    pageSize: parseInt(localStorage.getItem('skill_sea_page_size') || '50', 10),
     theme: localStorage.getItem('skill-sea-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
     activeSkill: null,
     stack: new Set(),
@@ -71,6 +71,10 @@
     prevPageBtn: document.getElementById('prev-page-btn'),
     nextPageBtn: document.getElementById('next-page-btn'),
     pageIndicator: document.getElementById('page-indicator'),
+    topPrevPageBtn: document.getElementById('top-prev-page-btn'),
+    topNextPageBtn: document.getElementById('top-next-page-btn'),
+    topPageIndicator: document.getElementById('top-page-indicator'),
+    pageSizeSelect: document.getElementById('page-size-select'),
     toast: document.getElementById('toast'),
     toastMessage: document.getElementById('toast-message'),
     drawerBackdrop: document.getElementById('drawer-backdrop'),
@@ -667,8 +671,13 @@
     if (el.pageIndicator) {
       el.pageIndicator.textContent = `Page ${state.currentPage} of ${totalPages}`;
     }
+    if (el.topPageIndicator) {
+      el.topPageIndicator.textContent = `${state.currentPage} / ${totalPages}`;
+    }
     if (el.prevPageBtn) el.prevPageBtn.disabled = state.currentPage <= 1;
     if (el.nextPageBtn) el.nextPageBtn.disabled = state.currentPage >= totalPages;
+    if (el.topPrevPageBtn) el.topPrevPageBtn.disabled = state.currentPage <= 1;
+    if (el.topNextPageBtn) el.topNextPageBtn.disabled = state.currentPage >= totalPages;
 
     if (state.currentView === 'table') {
       renderTable(pageItems);
@@ -1730,22 +1739,38 @@
       });
     }
 
-    // Pagination
-    if (el.prevPageBtn) {
-      el.prevPageBtn.addEventListener('click', () => {
-        if (state.currentPage > 1) {
-          state.currentPage--;
-          renderResults();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      });
-    }
+    // Pagination (Bottom & Top Controls Synchronized)
+    const goToPrevPage = () => {
+      if (state.currentPage > 1) {
+        state.currentPage--;
+        renderResults();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
 
-    if (el.nextPageBtn) {
-      el.nextPageBtn.addEventListener('click', () => {
-        const totalPages = Math.ceil(state.filteredCatalog.length / state.pageSize);
-        if (state.currentPage < totalPages) {
-          state.currentPage++;
+    const goToNextPage = () => {
+      const totalPages = Math.ceil(state.filteredCatalog.length / state.pageSize) || 1;
+      if (state.currentPage < totalPages) {
+        state.currentPage++;
+        renderResults();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    if (el.prevPageBtn) el.prevPageBtn.addEventListener('click', goToPrevPage);
+    if (el.nextPageBtn) el.nextPageBtn.addEventListener('click', goToNextPage);
+    if (el.topPrevPageBtn) el.topPrevPageBtn.addEventListener('click', goToPrevPage);
+    if (el.topNextPageBtn) el.topNextPageBtn.addEventListener('click', goToNextPage);
+
+    // Page Size Selector
+    if (el.pageSizeSelect) {
+      el.pageSizeSelect.value = String(state.pageSize);
+      el.pageSizeSelect.addEventListener('change', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (val > 0) {
+          state.pageSize = val;
+          localStorage.setItem('skill_sea_page_size', String(val));
+          state.currentPage = 1;
           renderResults();
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
