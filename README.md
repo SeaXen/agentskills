@@ -8,7 +8,8 @@
 [![Categories](https://img.shields.io/badge/Categories-38_Domains-10B981?style=for-the-badge)](./category)
 [![Repositories](https://img.shields.io/badge/Upstream_Origins-370_Repositories-D97706?style=for-the-badge)](./SKILLS_PROVENANCE.md)
 [![Master Reserve Library](https://img.shields.io/badge/Master_Library-23,454_Skills-DC2626?style=for-the-badge)](./library)
-[![Web Dashboard](https://img.shields.io/badge/Skill.Sea-Interactive_Dashboard-0EA5E9?style=for-the-badge)](./Skill.Sea)
+[![Live Web App](https://img.shields.io/badge/Live_App-skill.drsea.top-0f6e56?style=for-the-badge&logo=cloudflare)](https://skill.drsea.top)
+[![Web Dashboard](https://img.shields.io/badge/Skill.Sea-Local_Dashboard-0EA5E9?style=for-the-badge)](./Skill.Sea)
 
 **The premier, production-grade intelligence suite and modular skill repository for autonomous AI agents.**  
 Compatible with **Antigravity IDE**, **Claude Code**, **Cursor**, **Windsurf**, and **Cline**.
@@ -29,7 +30,7 @@ Instead of dumping thousands of skills into an AI session—which exhausts token
 
 1. **⚡ Active Hot-Set (`.agents/skills/`)**: A lean, razor-sharp active tier of **90 battle-tested core skills** loaded into your active session.
 2. **🏛️ Master Reserve Warehouse (`.agents/library/`)**: An offline, zero-token reserve of **23,454 modular skills across 370 repositories**, organized into **38 human-navigable domain categories** in [`.agents/category/`](./category).
-3. **🌊 Skill.Sea Visual Dashboard (`.agents/Skill.Sea/`)**: An ultra-fast, local web dashboard running at `http://localhost:8080` to search, filter, preview, and 1-click activate skills on demand.
+3. **🌊 Skill.Sea Visual Dashboard (`.agents/Skill.Sea/`)**: An ultra-fast web catalog running live at **[https://skill.drsea.top](https://skill.drsea.top)** (Cloudflare Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev), and local dev server at `http://localhost:8080`) to search, filter, preview, and 1-click activate skills on demand.
 4. **🔄 Unified Automated Multi-Repo Updater (`.agents/update.py`)**: A parallel-threaded update engine that checks all 370 GitHub remotes in ~25 seconds, downloads new skills, rebuilds taxonomy indexes, and pushes updates to GitHub.
 
 ---
@@ -73,7 +74,7 @@ Skill.Sea is the standalone, high-performance web directory and leaderboard for 
 ```text
        ┌─────────────────────────────────────────────────────────────┐
        │  🌊 Skill.Sea — Autonomous Agent Skills Vault & Leaderboard  │
-       │  [ 🔍 Search 7,300+ skills... ]    [ 🏷️ 38 Categories ▾ ]   │
+       │  [ 🔍 Search 18,722+ skills... ]    [ 🏷️ 38 Categories ▾ ]   │
        ├─────────────────────────────────────────────────────────────┤
        │  🟢 Active (90)  │  📦 All Skills (23,454)  │  🏆 Leaderboard │
        ├─────────────────────────────────────────────────────────────┤
@@ -85,12 +86,14 @@ Skill.Sea is the standalone, high-performance web directory and leaderboard for 
        └─────────────────────────────────────────────────────────────┘
 ```
 
-### Starting the Skill.Sea Web Dashboard:
-```powershell
-cd .agents/Skill.Sea
-npm start
-# Open browser at http://localhost:8080
-```
+### Accessing Skill.Sea:
+- 🌐 **Live Production Web App**: **[https://skill.drsea.top](https://skill.drsea.top)** *(Cloudflare Pages Mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev))*
+- 💻 **Local Development Server**:
+  ```powershell
+  cd .agents/Skill.Sea
+  npm start
+  # Open browser at http://localhost:8080
+  ```
 - **Instant Search**: Sub-millisecond client-side filtering across 23,454 skills.
 - **Category Matrix**: Browse and filter through all 38 functional domains.
 - **One-Click Activation**: Toggle skills between Active Hot-Set and Offline Reserve.
@@ -331,7 +334,7 @@ The vault aggregates high-signal skills from **370 curated GitHub upstream repos
 
 We deeply respect the creative efforts, intellectual property, and autonomy of all open-source developers, contributors, and research organizations.
 
-- **Non-Commercial Open Index**: This repository and the [Skill.Sea](https://skill-sea.pages.dev) directory operate strictly for non-commercial educational discovery, research, and developer productivity across the decentralized AI agent ecosystem.
+- **Non-Commercial Open Index**: This repository and the [Skill.Sea](https://skill.drsea.top) directory operate strictly for non-commercial educational discovery, research, and developer productivity across the decentralized AI agent ecosystem.
 - **Upstream Credit & Provenance**: Every skill in this catalog preserves its original upstream metadata, source repository URL, author attribution, and license terms.
 - **Unconditional Opt-Out / Removal**: If you are the author or copyright holder of any included repository or skill and wish to be excluded from this index, we will honor your request promptly and unconditionally:
   1. **[Submit an Opt-Out Request](https://github.com/SeaXen/agentskills/issues/new?title=Opt-Out+Request&body=Please+remove+my+repository/skill:+[Repository+or+Skill+URL])** on GitHub with your repository URL or skill name.

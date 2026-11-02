@@ -2,19 +2,22 @@
 
 <div align="center">
 
-[![Skill.Sea Version](https://img.shields.io/badge/Version-v2.1_Production-0f6e56?style=for-the-badge&logo=waves)](https://github.com/SeaXen/agentskills)
-[![Skills Tracked](https://img.shields.io/badge/Skills-7,401_Tracked-1d9e75?style=for-the-badge)](./data/catalog.json)
+[![Live Custom Domain](https://img.shields.io/badge/Live_Domain-skill.drsea.top-0f6e56?style=for-the-badge&logo=cloudflare)](https://skill.drsea.top)
+[![Cloudflare Pages](https://img.shields.io/badge/Pages_Mirror-skill--sea.pages.dev-1d9e75?style=for-the-badge)](https://skill.drsea.top)
+[![Skills Tracked](https://img.shields.io/badge/Skills-18,723_Tracked-1d9e75?style=for-the-badge)](https://skill.drsea.top)
 [![Categories](https://img.shields.io/badge/Categories-38_Disciplines-1d9e75?style=for-the-badge)](./data/categories.json)
-[![Repositories](https://img.shields.io/badge/Origin_Repos-212_Upstreams-2563EB?style=for-the-badge)](./data/repositories.json)
+[![Repositories](https://img.shields.io/badge/Origin_Repos-370_Upstreams-2563EB?style=for-the-badge)](./data/repositories.json)
 [![Active Hot-Set](https://img.shields.io/badge/Active_HotSet-130_Skills-D97706?style=for-the-badge)](../skills)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=for-the-badge)](./LICENSE)
 
 <br/>
 
-**An ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for 7,400+ AI Agent Skills across 38 functional disciplines.**  
+**An ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for 18,722+ AI Agent Skills across 38 functional disciplines from 370 open repositories.**  
 *Inspired by [skillleaderboard.com](https://www.skillleaderboard.com/) • Engineered with the **ExamForge Design System** • 100% Zero Runtime Dependencies.*
 
-[Live Demo (Localhost)](#-quick-start) • [Multi-Cloud Deployment](#-multi-platform-deployment-guides) • [Cloudflare R2 Sync](#-cloudflare-r2-remote-storage-sync) • [CLI Workflows](#-cli-activation-workflows) • [38-Domain Taxonomy](#-38-domain-category-taxonomy) • [Architecture](#-system-architecture)
+🌐 **Live Web Endpoint**: **[https://skill.drsea.top](https://skill.drsea.top)** *(Mirror: [https://skill.drsea.top](https://skill.drsea.top))*
+
+[Live Web App](https://skill.drsea.top) • [Localhost Quick Start](#-quick-start) • [Multi-Cloud Deployment](#-multi-platform-deployment-guides) • [Cloudflare R2 Sync](#-cloudflare-r2-remote-storage-sync) • [CLI Workflows](#-cli-activation-workflows) • [38-Domain Taxonomy](#-38-domain-category-taxonomy) • [Architecture](#-system-architecture)
 
 </div>
 
@@ -26,7 +29,7 @@ Modern autonomous AI agents (Google Antigravity, Claude Code, Cursor, Windsurf, 
 
 **Skill.Sea** addresses this by providing an independent, high-performance visual interface, search index, and activation engine for the **SeaXen AgentSkills Vault**:
 
-- **⚡ 7,401 Ingested Skills**: Discovered and cataloged from 212 official and community GitHub repositories.
+- **⚡ 18,722 Ingested Skills**: Discovered and cataloged from 212 official and community GitHub repositories.
 - **🏛️ 38 Functional Disciplines**: Structured classification from backend systems, databases, and Docker/DevOps to web security, web3, and machine learning.
 - **🔥 130 Hot-Set Skills**: Lean, pre-linked daily-driver skills available in the local session with zero token latency.
 - **🖱️ 1-Click Activation**: Instant copy commands for Python CLI, symbolic linking, or cURL installation into any workspace.

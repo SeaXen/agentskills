@@ -9,7 +9,7 @@
 
 `Skill.Sea` is the zero-dependency web interface, leaderboard, and interactive exploration portal for the **17,145 Antigravity Agent Skills** indexed across 339 open-source repositories in 38 categories.
 
-* **Live Production URL:** [https://skill-sea.pages.dev](https://skill-sea.pages.dev)
+* **Live Production URL:** **[https://skill.drsea.top](https://skill.drsea.top)** (Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev))
 * **Local Development Server:** `http://127.0.0.1:8080`
 * **Edge Storage:** Cloudflare R2 bucket `skill-sea-vault`
 * **Cloudflare Binding:** `env.SKILLS_BUCKET` inside `functions/data/[[path]].js`
@@ -104,7 +104,7 @@ npm run deploy
 
 ## 5. Live R2 Edge Data Flow
 
-Requests from live visitors to `https://skill-sea.pages.dev/data/<fileName>` are intercepted by `functions/data/[[path]].js`:
+Requests from live visitors to `https://skill.drsea.top/data/<fileName>` are intercepted by `functions/data/[[path]].js`:
 1. It queries Cloudflare R2 bucket `skill-sea-vault` (`SKILLS_BUCKET.get('data/<fileName>')`).
 2. If found, it streams the object with `ETag` and HTTP 304 conditional request support.
 3. If R2 is offline or missing, it falls back seamlessly to the static CDN copy in `Skill.Sea/data/`.

@@ -14,7 +14,7 @@ Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in 
 
 1. **AI Systems & Autonomous Agents**: Autonomous coding agents running in Google Antigravity, Claude Code, Cursor, Windsurf, and Codex that require targeted, on-demand skill activation without inflating LLM context windows or incurring token bloat.
 2. **AI Engineers & Developers**: Builders configuring local agent environments who need to discover, evaluate, and 1-click activate production-tested skills across 38 technical domains (backend, frontend, security, data, DevOps, web3, academic research).
-3. **Open-Source Community**: Visitors browsing the catalog online at [https://skill-sea.pages.dev](https://skill-sea.pages.dev) to explore agent capabilities, compare upstream implementations, and clone curated skill libraries.
+3. **Open-Source Community**: Visitors browsing the catalog online at **[https://skill.drsea.top](https://skill.drsea.top)** (Cloudflare mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev)) to explore agent capabilities, compare upstream implementations, and clone curated skill libraries.
 
 ## Product Purpose
 
@@ -31,7 +31,7 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 ## Operating Context
 
 - **Local Development Workbench**: Served on `http://127.0.0.1:8080` inside `D:/Repo/.agents/Skill.Sea`, mounted directly alongside the `.agents/library/` master repository and active `.agents/skills/` directory.
-- **Production Edge Endpoint**: Live on [https://skill-sea.pages.dev](https://skill-sea.pages.dev), streaming master datasets from Cloudflare R2 bucket `skill-sea-vault` with HTTP ETags and 304 conditional request caching.
+- **Production Edge Endpoint**: Live on **[https://skill.drsea.top](https://skill.drsea.top)** (Cloudflare Pages fallback: [https://skill-sea.pages.dev](https://skill-sea.pages.dev)), streaming master datasets from Cloudflare R2 bucket `skill-sea-vault` with HTTP ETags and 304 conditional request caching.
 - **Git Hook Automation**: Automatically synchronized via Git hooks (`.git/hooks/pre-commit` and `.git/hooks/pre-push`), ensuring datasets (`catalog.json`, `categories.json`, `repositories.json`, `stats.json`) stay synchronized on every commit and push.
 - **Dual Display Modes**: Seamless switching between light (warm paper `#f9f9f7`) and dark (deep graphite `#0b0b0b`) themes.
 - **Responsive Environments**: Full desktop multi-column data views, tablet grid views, and mobile-native bottom sheet drawer views with notch/Dynamic Island safe-area accommodation.

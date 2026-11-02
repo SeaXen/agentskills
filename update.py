@@ -670,6 +670,16 @@ def sync_documentation_metrics(agents_dir):
         g = re.sub(r'How to Pull Upstream Updates for All \d+ Repositories', f'How to Pull Upstream Updates for All {total_repos} Repositories', g)
         write_if_changed(ag_path, g)
 
+    # 5. Update Skill.Sea/README.md & index.html
+    skillsea_readme = os.path.join(agents_dir, "Skill.Sea", "README.md")
+    if os.path.exists(skillsea_readme):
+        with open(skillsea_readme, "r", encoding="utf-8", errors="ignore") as f:
+            sr = f.read()
+        sr = re.sub(r'badge/Skills-[\d,]+_Tracked', f'badge/Skills-{unique_categorized:,}_Tracked', sr)
+        sr = re.sub(r'badge/Categories-\d+_Disciplines', f'badge/Categories-{total_categories}_Disciplines', sr)
+        sr = re.sub(r'badge/Origin_Repos-\d+_Upstreams', f'badge/Origin_Repos-{total_repos}_Upstreams', sr)
+        write_if_changed(skillsea_readme, sr)
+
     print(f"✓ Synchronized documentation metrics across README.md, ARCHITECTURE.md, PRODUCT.md, and AGENTS.md.", flush=True)
 
 def rebuild_categories_and_provenance(has_changes=False, force=False, deploy=False):

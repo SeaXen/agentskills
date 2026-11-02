@@ -7,14 +7,14 @@
 
 ## 1. Executive Summary & Ground Truth Metrics
 
-This repository (`D:/Repo/.agents` / `https://github.com/SeaXen/agentskills.git`) is the master archive and operational engine for **Antigravity Agent Skills** and its companion public web application, **[Skill.Sea](https://skill-sea.pages.dev)**.
+This repository (`D:/Repo/.agents` / `https://github.com/SeaXen/agentskills.git`) is the master archive and operational engine for **Antigravity Agent Skills** and its companion public web application, **[Skill.Sea](https://skill.drsea.top)**.
 
 ### Verified Production Metrics
 * **Total Catalog Skills:** `23,454` validated skills
 * **Total Upstream Repositories:** `370` indexed libraries
 * **Taxonomy Categories:** `38` engineering & domain disciplines
 * **Active Hot-Set Skills:** `90` curated skills pre-linked into `.agents/skills/`
-* **Live Web Endpoint:** [https://skill-sea.pages.dev](https://skill-sea.pages.dev)
+* **Live Web Endpoint:** **[https://skill.drsea.top](https://skill.drsea.top)** (Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev))
 * **Cloudflare R2 Storage Bucket:** `skill-sea-vault`
 * **Cloudflare Account ID:** `dd110134ac07f1ddaf0ca47023e7c831` (`02. drsea@drhrs`)
 
@@ -124,7 +124,7 @@ The repository utilizes a 4-tier zero-friction automation pipeline. When you or 
                             ▼
 ┌────────────────────────────────────────────────────────┐
 │ 4. Cloudflare Pages Function (functions/data/[[path]]) │
-│    Live site https://skill-sea.pages.dev intercepts    │
+│    Live site https://skill.drsea.top (and https://skill-sea.pages.dev) intercepts    │
 │    requests to /data/*. Streams object from R2 with    │
 │    HTTP ETags (304 support). Live visitors see updates │
 │    instantly with ZERO build time or frontend redeploy!│
@@ -233,7 +233,7 @@ npm run sync
      ```
   3. Verify live stats:
      ```powershell
-     node -e "fetch('https://skill-sea.pages.dev/data/stats.json').then(r=>r.json()).then(console.log)"
+     node -e "fetch('https://skill.drsea.top/data/stats.json').then(r=>r.json()).then(console.log)"
      ```
   4. If Cloudflare Pages static files were also modified, deploy static assets:
      ```powershell

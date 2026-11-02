@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Skill.Sea — Agent Skills Vault & Leaderboard</title>
-  <meta name="description" content="An independent directory, leaderboard, and one-click activation suite for 18,647+ AI Agent Skills across 38 functional categories from open GitHub repositories.">
+  <meta name="description" content="An independent directory, leaderboard, and one-click activation suite for 18,722+ AI Agent Skills across 38 functional categories from 370 open GitHub repositories.">
   <meta name="keywords" content="AI Agent Skills, Antigravity, Claude Code, Agent Leaderboard, Tool Calling, MCP, Skills Vault, GitHub">
 
   <!-- Mobile Native & PWA Capabilities -->
@@ -16,10 +16,18 @@
   <meta name="apple-mobile-web-app-title" content="Skill.Sea">
   <link rel="manifest" href="manifest.json">
 
-  <!-- Open Graph -->
+  <!-- Canonical & Open Graph -->
+  <link rel="canonical" href="https://skill.drsea.top">
   <meta property="og:title" content="Skill.Sea — Agent Skills Vault & Leaderboard">
-  <meta property="og:description" content="Discover, inspect, and install 18,647+ agent skills across 38 categories from 369 open repositories.">
+  <meta property="og:description" content="Discover, inspect, and install 18,722+ agent skills across 38 categories from 370 open repositories.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skill.drsea.top">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Skill.Sea — Agent Skills Vault & Leaderboard">
+  <meta name="twitter:description" content="Discover, inspect, and install 18,722+ agent skills across 38 categories from 370 open repositories.">
+  <meta name="twitter:url" content="https://skill.drsea.top">
 
   <!-- CDN Warmup -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -69,7 +77,7 @@
           </button>
           <button class="nv" id="tab-library" onclick="switchView('library')">
             <i class="ti ti-books" aria-hidden="true"></i>
-            <span>Library & Git Repos (369)</span>
+            <span>Library & Git Repos (370)</span>
           </button>
           <button class="nv" id="tab-guide" onclick="switchView('guide')">
             <i class="ti ti-terminal-2" aria-hidden="true"></i>
@@ -80,7 +88,7 @@
         <div class="spacer"></div>
 
         <!-- Sync Indicator -->
-        <button type="button" class="pill" id="sync-btn" title="Vault Status: All 18,647 skills & 369 repositories updated" aria-label="Check vault synchronization status">
+        <button type="button" class="pill" id="sync-btn" title="Vault Status: All 18,722 skills & 370 repositories updated" aria-label="Check vault synchronization status">
           <span class="status-dot" aria-hidden="true"></span>
           <span>All Updated</span>
         </button>
@@ -103,9 +111,9 @@
             <span class="mc-label"><i class="ti ti-folders" aria-hidden="true"></i> Total Skills Tracked</span>
             <span class="mc-badge">Catalog</span>
           </div>
-          <b id="stat-total-skills">18,647</b>
+          <b id="stat-total-skills">18,722</b>
           <div class="mc-sub" id="sub-total-skills">
-            <span class="status-dot"></span> All 18,647 Ingested & Verified
+            <span class="status-dot"></span> All 18,722 Ingested & Verified
           </div>
         </button>
         <button type="button" class="mc" onclick="switchView('categories')" aria-label="View 38 functional categories">
@@ -118,14 +126,14 @@
             <span class="status-dot"></span> All 38 Domains Synchronized
           </div>
         </button>
-        <button type="button" class="mc" onclick="switchView('library')" aria-label="View 369 git origin repositories">
+        <button type="button" class="mc" onclick="switchView('library')" aria-label="View 370 git origin repositories">
           <div class="mc-header">
             <span class="mc-label"><i class="ti ti-git-branch" aria-hidden="true"></i> Git Origin Repositories</span>
             <span class="mc-badge">Sources</span>
           </div>
-          <b id="stat-total-repos">369</b>
+          <b id="stat-total-repos">370</b>
           <div class="mc-sub" id="sub-total-repos">
-            <span class="status-dot"></span> All 369 Repositories Active
+            <span class="status-dot"></span> All 370 Repositories Active
           </div>
         </button>
         <button type="button" class="mc mc-hot" onclick="switchView('hotset')" aria-label="View 130 active hot-set skills">
@@ -156,7 +164,7 @@
         <section class="toolbar" aria-label="Skill Hub Controls">
           <div class="search-box">
             <i class="ti ti-search" aria-hidden="true"></i>
-            <input type="text" id="search-input" name="search" placeholder="Search 18,647+ skills, commands, repos (Press /)" aria-label="Search 18,647+ skills by name, description, category, or command" autocomplete="off">
+            <input type="text" id="search-input" name="search" placeholder="Search 18,722+ skills, commands, repos (Press /)" aria-label="Search 18,722+ skills by name, description, category, or command" autocomplete="off">
             <span class="kbd-shortcut" aria-hidden="true">/</span>
           </div>
 
@@ -168,7 +176,7 @@
 
             <!-- Filter by Library / Repository -->
             <select id="library-filter-select" name="library" class="filter-select" aria-label="Filter by Library / Repository">
-              <option value="all">Library: All (369)</option>
+              <option value="all">Library: All (370)</option>
             </select>
 
             <!-- Filter by Tier -->
@@ -284,7 +292,7 @@
       <div id="view-categories" class="page-view">
         <div class="page-hero">
           <h2><i class="ti ti-layout-grid" style="color:var(--teal)" aria-hidden="true"></i> 38 Functional Skill Categories</h2>
-          <p>Explore the complete ecosystem of 18,647+ specialized skills organized into 38 distinct engineering and operational disciplines.</p>
+          <p>Explore the complete ecosystem of 18,722+ specialized skills organized into 38 distinct engineering and operational disciplines.</p>
         </div>
 
         <div class="search-box" style="width:340px;margin-bottom:8px">
@@ -302,17 +310,17 @@
            ================================================================== -->
       <div id="view-library" class="page-view">
         <div class="page-hero">
-          <h2><i class="ti ti-books" style="color:var(--teal)" aria-hidden="true"></i> Library & Git Origin Repositories (369 Vaults)</h2>
+          <h2><i class="ti ti-books" style="color:var(--teal)" aria-hidden="true"></i> Library & Git Origin Repositories (370 Vaults)</h2>
           <p>Every skill is mapped to its original upstream GitHub repository. Inspect origins, copy clone commands, and browse repository contents.</p>
         </div>
 
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
           <div class="search-box" style="width:360px">
             <i class="ti ti-search" aria-hidden="true"></i>
-            <input type="text" id="repo-search-input" name="repo-search" placeholder="Search 369 repositories by name or author…" aria-label="Search repositories" autocomplete="off">
+            <input type="text" id="repo-search-input" name="repo-search" placeholder="Search 370 repositories by name or author…" aria-label="Search repositories" autocomplete="off">
           </div>
           <div id="repo-count-badge" class="pill">
-            <span>369 Repositories</span>
+            <span>370 Repositories</span>
           </div>
         </div>
 
@@ -332,7 +340,7 @@
           
           <div class="guide-hero">
             <h2><i class="ti ti-terminal-2" style="color:var(--teal)"></i> Universal Installation & Integration Hub</h2>
-            <p>Activate any of the 18,647+ curated agent skills in Google Antigravity, Claude Code, Cursor, Windsurf, or custom agent setups. Install individual skills, full category packs, entire upstream repositories, or clone the full vault.</p>
+            <p>Activate any of the 18,722+ curated agent skills in Google Antigravity, Claude Code, Cursor, Windsurf, or custom agent setups. Install individual skills, full category packs, entire upstream repositories, or clone the full vault.</p>
             <div class="guide-quick-nav">
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-full-vault').scrollIntoView({behavior:'smooth'})"><i class="ti ti-folder-star"></i> 1. Full Vault Repo</button>
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-single-skill').scrollIntoView({behavior:'smooth'})"><i class="ti ti-bolt"></i> 2. Single Skill</button>
@@ -353,10 +361,10 @@
                   <i class="ti ti-folder-star" style="color:var(--teal)"></i>
                   <span>1. Install Entire AgentSkills Vault (My Repo)</span>
                 </div>
-                <span class="guide-card-badge badge-teal">Recommended · All 18,647+ Skills</span>
+                <span class="guide-card-badge badge-teal">Recommended · All 18,722+ Skills</span>
               </div>
               <div class="guide-card-desc">
-                Clone the complete vault directly into your project's <code>.agents</code> directory. Includes all 38 categories, 369 curated repositories, automation tools, and catalog data.
+                Clone the complete vault directly into your project's <code>.agents</code> directory. Includes all 38 categories, 370 curated repositories, automation tools, and catalog data.
               </div>
 
               <div class="guide-code-block">
@@ -487,7 +495,7 @@
                   <i class="ti ti-books" style="color:var(--teal)"></i>
                   <span>4. Install Full Upstream Repository</span>
                 </div>
-                <span class="guide-card-badge">369 Verified Libraries</span>
+                <span class="guide-card-badge">370 Verified Libraries</span>
               </div>
               <div class="guide-card-desc">
                 Install or activate an entire upstream collection (e.g. Cline skills, Antigravity Awesome Skills, or Anthropic Knowledge Work).
@@ -524,7 +532,7 @@
               </div>
 
               <div class="guide-notes">
-                Tip: Browse the Library tab to view all 369 repositories with skill counts and direct links.
+                Tip: Browse the Library tab to view all 370 repositories with skill counts and direct links.
               </div>
             </div>
 
@@ -581,9 +589,16 @@
               <div class="guide-card-hd">
                 <div class="guide-card-title">
                   <i class="ti ti-cloud-upload" style="color:var(--teal)"></i>
-                  <span>6. Cloudflare R2 Sync & Cloud Deployment</span>
+                  <span>6. Cloudflare R2 Sync & Custom Domain Deployment</span>
                 </div>
-                <span class="guide-card-badge">8 Targets Supported</span>
+                <span class="guide-card-badge">Live: skill.drsea.top</span>
+              </div>
+              <div style="background:var(--bg-subtle); border:1px solid var(--border); border-radius:8px; padding:10px 14px; margin-bottom:12px; font-size:12.5px; display:flex; align-items:center; justify-content:space-between;">
+                <div>
+                  <span style="font-weight:600; color:var(--text);"><i class="ti ti-world" style="color:var(--teal); margin-right:4px;"></i> Production Domain:</span>
+                  <a href="https://skill.drsea.top" target="_blank" rel="noopener noreferrer" style="color:var(--teal); font-weight:600; text-decoration:underline; margin-left:6px;">https://skill.drsea.top</a>
+                </div>
+                <span style="font-size:11px; color:var(--text-muted);">Cloudflare Pages Mirror: skill-sea.pages.dev</span>
               </div>
               <div class="guide-card-desc">
                 Host your private or community Skill.Sea catalog across Cloudflare Pages, Vercel, Docker, Render, Fly.io, or Railway with S3-compatible R2 storage.
