@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 231 skills  
+> **Total Curated Skills**: 236 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -160,6 +160,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`masked-reveal`](../../library/mengto-skills/skills/masked-reveal) | ⚪ Reserve | `mengto-skills` | Create masked staggered word reveals on scroll with GSAP ScrollTrigger. Use when headings, hero... |
 | [`material`](../../library/bergside-awesome-design-skills/skills/material) | ⚪ Reserve | `bergside-awesome-design-skills` | Google's Material Design with layered surfaces, dynamic theming, built-in motion, and responsiv... |
 | [`maui-collectionview`](../../library/dotnet-skills/skills/maui-collectionview) | ⚪ Reserve | `dotnet-skills` | Guidance for implementing CollectionView in .NET MAUI apps — data display, layouts (list & grid... |
+| [`melonjs-3d-assets`](../../library/melonjs-melonjs/skills/melonjs-3d-assets) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when loading 3D models into melonJS — glTF and GLB scenes, OBJ/MTL models, mater... |
+| [`melonjs-display-and-scaling`](../../library/melonjs-melonjs/skills/melonjs-display-and-scaling) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when a melonJS game looks blurry, soft, shimmering or cropped, or when choosing ... |
+| [`melonjs-particles-and-trails`](../../library/melonjs-melonjs/skills/melonjs-particles-and-trails) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for particle effects and motion trails in melonJS — ParticleEmitter configuratio... |
+| [`melonjs-plugins`](../../library/melonjs-melonjs/skills/melonjs-plugins) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when adding a melonJS plugin or adapter — the debug panel, Spine skeletal animat... |
+| [`melonjs-scenes-and-state`](../../library/melonjs-melonjs/skills/melonjs-scenes-and-state) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for scene structure and game flow in melonJS — Stage subclasses, the state manag... |
 | [`memory-review`](../../library/alirezarezvani-claude-skills/skills/memory-review) | ⚪ Reserve | `alirezarezvani-claude-skills` | Analyze auto-memory for promotion candidates, stale entries, consolidation opportunities, and h... |
 | [`micro-interaction-spec`](../../library/owl-listener-designer-skills/skills/micro-interaction-spec) | ⚪ Reserve | `owl-listener-designer-skills` | Specify one micro-interaction completely — trigger, rules, feedback, loops, and modes. Use when... |
 | [`microinteractions`](../../library/wondelai-skills/skills/microinteractions) | ⚪ Reserve | `wondelai-skills` | Design the small details -- triggers, rules, feedback, loops and modes -- that separate good pr... |

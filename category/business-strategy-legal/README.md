@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Curated Skills**: 505 skills  
+> **Total Curated Skills**: 506 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -353,6 +353,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`notion-template-business`](../../library/antigravity-awesome-skills/skills/notion-template-business) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in building and selling Notion templates as a business - not just making templates, but ... |
 | [`od-next-media-inputs`](../../library/nexu-io-open-design/skills/od-next-media-inputs) | ⚪ Reserve | `nexu-io-open-design` | Prepare required media inputs within an existing OD Next plan. Reuse capability evidence, acqui... |
 | [`odoo-edi-connector`](../../library/sickn33-agentic-awesome-skills/skills/odoo-edi-connector) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guide for implementing EDI (Electronic Data Interchange) with Odoo: X12, EDIFACT document mappi... |
+| [`oh-my-issues`](../../library/thedotmack-claude-mem/skills/oh-my-issues) | ⚪ Reserve | `thedotmack-claude-mem` | Cluster a GitHub issue backlog by root cause into a small set of plan-master issues, redirect c... |
 | [`om-synthetic-users`](../../library/open-mercato-skills/skills/om-synthetic-users) | ⚪ Reserve | `open-mercato-skills` | Builds a panel of personas from real material, interviews them under decision pressure (never s... |
 | [`onboarding`](../../library/anthropics-knowledge-work/skills/onboarding) | ⚪ Reserve | `anthropics-knowledge-work` | Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a sta... |
 | [`onboarding-cro`](../../library/alirezarezvani-claude-skills/skills/onboarding-cro) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to optimize post-signup onboarding, user activation, first-run experience, ... |

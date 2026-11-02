@@ -1,0 +1,113 @@
+# Changelog
+
+## 16.2.0
+
+### Added
+- The hitbox overlay draws a `Sphere` collision shape, which melonJS 20.8 makes a body shape. A circle under a 2D camera, three great circles under a `Camera3d`, and not the box that contains it, whose corners stick out 73% past the radius and cannot be told from a `Box3d`. Both are drawn directly rather than through `Renderer#stroke`, which only learned the shape in 20.8, so the overlay keeps working on older engines
+
+## 16.1.2
+
+### Fixed
+- A `Box3d` body no longer throws `Invalid geometry` from the hitbox overlay on melonJS 20.0–20.4. `Renderer#stroke` only learned that shape in 20.5, so the overlay draws its XY footprint itself rather than depending on which engine is underneath
+- The hitbox overlay now draws **collision shapes in a 3D scene**, for models as well as meshes. Under a `Camera3d` the renderer is mid-perspective-projection, so the flat 2D overlay draws nothing viewable — only the mesh geometry box was projecting. A mesh returned before drawing what it collides as, and a `GLTFModel` (a `Container`, not a `Mesh`) drew nothing at all. Body shapes now stroke as red wireframes beside the green geometry box
+
+## 16.1.1
+
+### Fixed
+- The panel now reads engine state from **the application it was registered against** (`BasePlugin`'s `this.app`) rather than the global `game` singleton. `game` is whichever `Application` was constructed last, while the frame events are broadcast by all of them, so on a page running more than one application the panel could report another one's numbers. `plugin.register()` forwards extra arguments to the constructor, so a specific application can now be named — `plugin.register(DebugPanelPlugin, "debugPanel", input.KEY.S, myApp)` — and omitting it keeps the previous behaviour.
+- The minimum-engine-version gate is derived from the package's own `peerDependencies` range instead of a hardcoded string. The two had drifted: the gate still said 19.5.0 (what 16.0.0's physics overlay needed) while the peer range said 19.8.0 (what 16.1.0's 3D bounding-box overlay needs), so melonJS 19.6/19.7 loaded the plugin and then failed inside the mesh overlay. This gate is what actually enforces the requirement — `plugin.register()` throws — whereas the peer range only warns at install time, and not at all for CDN or pre-bundled use.
+- The **update** readout showed a meaningless number — in practice a near-constant that ignored the scene entirely. It was derived by subtracting the `GAME_BEFORE_UPDATE` timestamp from the `GAME_AFTER_UPDATE` one, but those are not a matched pair: the latter carries the engine's `lastUpdate`, which is only assigned inside the fixed-timestep loop, so on any frame that runs no logic step it still holds a value from an earlier frame and the difference comes out negative. The panel now reads the elapsed time the engine already measures for its own timestep smoothing — `lastUpdateDelta` on melonJS 20.0.0+, falling back to `updateAverageDelta` on 19.x, so this release still works across the whole supported engine range. The readout responds to scene load again (measured: ~0.02ms on a four-mesh scene vs ~0.13ms on the sprite benchmark, where it previously reported the same figure for both), and the update trace in the frame-time graph is fixed with it.
+- The **update / draw frame times** now display a mean over the last 30 frames rather than the latest frame alone. Those readouts are `performance.now()` deltas, and browsers clamp that clock to 100µs in a page that isn't cross-origin isolated (5µs when it is) — so a single frame's timing could only land on multiples of 0.1ms, and the two decimals the panel prints were never able to move. A sub-millisecond draw phase read as a value flickering between neighbouring ticks (e.g. `0.00` / `1.00`) instead of the figure in between. Averaging pushes the effective resolution below the tick, so both decimals now carry information and the digits hold still enough to read. The frame-time sparkline still plots raw per-frame values, so spikes remain visible.
+
+## 16.1.0
+
+### Requirements
+- Requires melonJS **19.8.0 or later** — the 3D mesh bounding-box overlay uses the new `Mesh.getBounds3d()` and `Camera3d.worldToScreen()` APIs (and the exported `AABB3d` type) introduced in 19.8.
+
+### Improvements
+- The hitbox overlay now draws a correct **3D bounding-box wireframe** for `Mesh` renderables under a `Camera3d`. Previously a mesh only got the inherited flat 2D `getBounds()` rectangle — screen-flat, oversized, and unrelated to the 3D geometry. The new overlay projects the 8 corners of the mesh's world-space `AABB3d` through the camera (`Camera3d.worldToScreen`) and strokes the 12 edges in a screen-space pass, so the box tracks the mesh in perspective. Meshes under a `Camera2d` (the self-projected 2D path) keep the existing 2D box.
+
+## 16.0.0
+
+### Breaking Changes
+- Requires melonJS **19.5.0 or later** — the hitbox overlay now goes through the new `PhysicsAdapter.getBodyAABB` / `getBodyShapes` adapter API (and the velocity overlay through the existing `adapter.getVelocity`) rather than reading `renderable.body.*` directly. Older engines don't expose those methods and the plugin will refuse to load. 19.5 also moved the FPS estimate into `timer.update()` (was previously driven by this plugin's `timer.countFPS()` call) and removed the debug-only `Container.drawCount` field, both of which this version is aware of.
+
+### Improvements
+- `#draws` stat is now self-computed by counting per-frame `postDraw` calls on direct children of `game.world`, instead of reading the now-removed `Container.drawCount` field. Same number, no API surface bleeding back into the engine.
+- Help-text key label (`[X] show/hide` in the panel footer) now reverse-looks-up the key name from `input.KEY`, so a custom `debugToggle` like `KEY.SPACE` or `KEY.F1` displays correctly instead of producing garbage from a fixed `String.fromCharCode(32 + keycode)` assumption.
+- Hitbox/body overlays render correctly regardless of which physics adapter is active. Each adapter owns its own coordinate-system conversion (builtin returns local-space directly; matter subtracts world-space → local), so the debug plugin no longer relies on duck-typed body shims and is automatically compatible with future adapters.
+- Velocity vector overlay now works on **any** renderable with a body (not just `Entity`), and works under both builtin and matter physics. Previously the overlay was Entity-only and read `body.vel` directly — a builtin-only field that doesn't exist on matter bodies.
+- Velocity overlay is now independent of the hitbox option for general renderables. Previously, toggling the hitbox option off would also suppress the velocity arrow on non-`Entity` renderables (`Entity` already had the two flags independent); now both flags can be toggled independently for any renderable.
+- Overlay rendering (hitbox / velocity / quadtree) is no longer tied to panel visibility. Each overlay's checkbox in the panel is the source of truth; hiding the panel keeps any enabled overlays rendering in the world. The panel's HTML UI (FPS, draw-call counts, frame-time graph) still pauses while hidden — that's just a stats readout. Workflow: open the panel, tick the overlays you want, close the panel, keep playing with the overlays still on.
+
+## 15.0.3
+
+### Improvements
+- Console log now links to the npm package page instead of the GitHub readme
+
+## 15.0.2
+
+### Bug Fixes
+- Fixed quadtree debug visualization not rendering — draw calls were issued after `renderer.flush()`, so the quadtree lines were never submitted to the GPU
+
+## 15.0.1
+
+### Bug Fixes
+- Fixed Entity debug overlay drawing in local coordinate space instead of attempting world-coordinate conversion
+  - Green box (renderable bounds) now correctly uses `strokeRect` with the renderable's anchor and dimensions
+  - Orange/red boxes (body bounds and collision shapes) translate from anchor point to body origin before drawing
+  - Fixes overlays being mispositioned for entities with non-zero anchor points or trimmed atlas sprites
+
+## 15.0.0
+
+### Breaking Changes
+- Major version bump to align with melonJS versioning
+- Debug panel rewritten from canvas-drawn to HTML overlay
+
+### New Features
+- HTML overlay panel with native checkboxes (replaces custom canvas hit-detection)
+- Retro CRT green terminal aesthetic with PressStart2P pixel font
+- Frame-time sparkline graph with stacked update/draw bars and target frame line
+- Density-based QuadTree visualization (green → yellow → red wireframes)
+- Panel inserted as canvas sibling — no longer modifies parent element layout
+
+### Improvements
+- Switched from bitmap font (.fnt/.png) to TTF web font via @font-face (better scaling)
+- Counters class now extends Map (ES6 built-in)
+- CSS grid layout with flexbox-aligned stat values
+- Proper event listener cleanup on destroy (fixes memory leaks)
+- `Float32Array` ring buffer for frame time history (120 samples)
+
+### Code Cleanup
+- Renamed snake_case variables to camelCase
+- Replaced deprecated API calls (`setLineWidth()` → `renderer.lineWidth`)
+- Removed unused fields, dead code, and stale comments
+- Modernized to ES6+ (destructuring, `for...of`, nullish coalescing)
+- Plugin now passes eslint
+
+## 14.9.0
+### Bug Fixes
+- Fixed checkbox init bug: quadtree URL hash flag was toggling the wrong checkbox
+- Fixed memory leak: event listeners not properly unregistered on destroy
+- Fixed `onClick.bind(this)` creating a new reference on each `show()`, preventing proper cleanup on `hide()`
+- Removed unused `canvas` allocation (`video.createCanvas`)
+- Removed duplicate `frameUpdateTime`/`frameDrawTime` declarations
+- Fixed deprecated `setLineWidth()` call, replaced with `renderer.lineWidth`
+
+### Improvements
+- QuadTree visualization: wireframe-only with density-based coloring (green → yellow → red)
+- Cached `this.body.getBounds()` in Entity patch (was called multiple times)
+- Removed unused `math` import, `font_size` and `fps_str_len` fields
+- Removed dead commented-out code
+
+### Code Cleanup
+- Renamed snake_case variables to camelCase (`help_str` → `helpText`, `fps_str` → `fpsText`, etc.)
+- Replaced `typeof x !== "undefined"` with `x !== undefined`
+- Replaced `~~(value)` with `Math.trunc(value)`
+- Replaced `math.round(x, 2)` with `Number(x.toFixed(2))`
+- Removed stale/obvious comments
+- Refactored hitbox patches to use early returns and always-paired save/restore
+- Used destructuring and `for...in` where appropriate
+- Inline `export default class` in counters.js
+- Fixed typo in JSDoc (`show()` and `show()` → `show()` and `hide()`)
+- Plugin now passes eslint (removed from global ignore list)

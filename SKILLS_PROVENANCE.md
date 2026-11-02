@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 370 repositories  
-> **Total Skills in Reserve**: 23,369 skills  
+> **Total Skills in Reserve**: 23,453 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -139,7 +139,7 @@
 | `forcedotcom-sf-skills` | [forcedotcom/sf-skills](https://github.com/forcedotcom/sf-skills) | **268** | `python .agents/library/activate_skill.py activate agentforce-architecture-analyze` |
 | `gamedev-skills-awesome-gamedev-agent-skills` | [gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills) | **9** | `python .agents/library/activate_skill.py activate disciplines` |
 | `gencraft-labs-skills` | [gencraft-labs/skills](https://github.com/gencraft-labs/skills) | **33** | `python .agents/library/activate_skill.py activate ace-step` |
-| `genspark-ai-genoffice` | [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) | **43** | `python .agents/library/activate_skill.py activate brand-copy` |
+| `genspark-ai-genoffice` | [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) | **44** | `python .agents/library/activate_skill.py activate brand-copy` |
 | `getcargohq-cargo-skills` | [getcargohq/cargo-skills](https://github.com/getcargohq/cargo-skills) | **20** | `python .agents/library/activate_skill.py activate cargo` |
 | `getsentry-sentry-for-ai` | [getsentry/sentry-for-ai](https://github.com/getsentry/sentry-for-ai) | **34** | `python .agents/library/activate_skill.py activate sentry-android-sdk` |
 | `getsentry-skills` | [getsentry/sentry-for-ai](https://github.com/getsentry/sentry-for-ai) | **65** | `python .agents/library/activate_skill.py activate agents-md` |
@@ -198,7 +198,7 @@
 | `larksuite-cli` | [larksuite/cli](https://github.com/larksuite/cli) | **37** | `python .agents/library/activate_skill.py activate bad-skill` |
 | `latent-spaces-brag` | [latent-spaces/brag](https://github.com/latent-spaces/brag) | **2** | `python .agents/library/activate_skill.py activate brag` |
 | `launchdarkly-ai-tooling` | [launchdarkly/ai-tooling](https://github.com/launchdarkly/ai-tooling) | **60** | `python .agents/library/activate_skill.py activate agent-graphs` |
-| `lemomo-opuscar` | [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | **1** | `python .agents/library/activate_skill.py activate lemo-opuscar` |
+| `lemomo-opuscar` | [lemomo-ai/lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar) | **2** | `python .agents/library/activate_skill.py activate directory` |
 | `leonxlnx-cinetic` | [Leonxlnx/cinetic](https://github.com/Leonxlnx/cinetic) | **1** | `python .agents/library/activate_skill.py activate cinetic` |
 | `lewislulu-html-ppt-skill` | [lewislulu/html-ppt-skill](https://github.com/lewislulu/html-ppt-skill) | **3** | `python .agents/library/activate_skill.py activate html-ppt` |
 | `liarjsdev-liarjs-skills` | [liarjsdev/liarjs-skills](https://github.com/liarjsdev/liarjs-skills) | **4** | `python .agents/library/activate_skill.py activate browser-fingerprint-audit` |
@@ -224,7 +224,7 @@
 | `mbfinotti-sales-skills` | [mbfinotti/sales-skills](https://github.com/mbfinotti/sales-skills) | **27** | `python .agents/library/activate_skill.py activate cold-call-opener` |
 | `mcncarl-yichen-skills` | [mcncarl/yichen-skills](https://github.com/mcncarl/yichen-skills) | **17** | `python .agents/library/activate_skill.py activate yichen-agent-memory` |
 | `mcollina-skills` | [mcollina/skills](https://github.com/mcollina/skills) | **11** | `python .agents/library/activate_skill.py activate documentation` |
-| `melonjs-melonjs` | [melonjs/melonJS](https://github.com/melonjs/melonJS) | **1** | `python .agents/library/activate_skill.py activate melonjs` |
+| `melonjs-melonjs` | [melonjs/melonJS](https://github.com/melonjs/melonJS) | **25** | `python .agents/library/activate_skill.py activate melonjs` |
 | `membranedev-application-skills` | [membranedev/application-skills](https://github.com/membranedev/application-skills) | **3074** | `python .agents/library/activate_skill.py activate 0codekit` |
 | `mengto-skills` | [MengTo/Skills](https://github.com/MengTo/Skills) | **179** | `python .agents/library/activate_skill.py activate 3d-cloth-material` |
 | `metalbear-co-mirrord` | [metalbear-co/mirrord](https://github.com/metalbear-co/mirrord) | **13** | `python .agents/library/activate_skill.py activate mirrord` |
@@ -291,7 +291,7 @@
 | `rebelytics-one-skill-to-rule-them-all` | [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) | **2** | `python .agents/library/activate_skill.py activate one-skill-to-rule-them-all` |
 | `refoundai-lenny-skills` | [refoundai/lenny-skills](https://github.com/refoundai/lenny-skills) | **76** | `python .agents/library/activate_skill.py activate acquisition-channels` |
 | `rehan-remade-universal-modder` | [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) | **13** | `python .agents/library/activate_skill.py activate asset-pipeline` |
-| `remotion-dev-skills` | [remotion-dev/skills](https://github.com/remotion-dev/skills) | **12** | `python .agents/library/activate_skill.py activate remotion-best-practices` |
+| `remotion-dev-skills` | [remotion-dev/skills](https://github.com/remotion-dev/skills) | **13** | `python .agents/library/activate_skill.py activate remotion-best-practices` |
 | `riekelt-principal-engineer` | [riekelt/principal-engineer](https://github.com/riekelt/principal-engineer) | **11** | `python .agents/library/activate_skill.py activate adding-dependencies` |
 | `riekelt-technical-writer` | [riekelt/technical-writer](https://github.com/riekelt/technical-writer) | **11** | `python .agents/library/activate_skill.py activate diagramming-processes` |
 | `robmitt-grill-me-skill` | [RobMitt/grill-me-skill](https://github.com/RobMitt/grill-me-skill) | **1** | `python .agents/library/activate_skill.py activate grill-me` |
@@ -321,7 +321,7 @@
 | `skills-shell-superpowers` | [skills-shell/superpowers](https://github.com/skills-shell/superpowers) | **86** | `python .agents/library/activate_skill.py activate affirmations` |
 | `slavingia-skills` | [slavingia/skills](https://github.com/slavingia/skills) | **10** | `python .agents/library/activate_skill.py activate company-values` |
 | `sleekdotdesign-agent-skills` | [sleekdotdesign/agent-skills](https://github.com/sleekdotdesign/agent-skills) | **1** | `python .agents/library/activate_skill.py activate design-mobile-apps` |
-| `snailsploit-claude-red` | [SnailSploit/Claude-Red](https://github.com/SnailSploit/Claude-Red) | **0** | `python .agents/library/activate_skill.py activate skill-name` |
+| `snailsploit-claude-red` | [SnailSploit/Claude-Red](https://github.com/SnailSploit/Claude-Red) | **23** | `python .agents/library/activate_skill.py activate active-directory` |
 | `softaworks-agent-toolkit` | [softaworks/agent-toolkit](https://github.com/softaworks/agent-toolkit) | **43** | `python .agents/library/activate_skill.py activate agent-md-refactor` |
 | `software-mansion-argent` | [software-mansion-argent](https://github.com/software-mansion-argent) | **1** | `python .agents/library/activate_skill.py activate argent` |
 | `solana-foundation-solana-dev-skill` | [solana-foundation/solana-dev-skill](https://github.com/solana-foundation/solana-dev-skill) | **1** | `python .agents/library/activate_skill.py activate solana-dev` |
@@ -333,7 +333,7 @@
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | **2** | `python .agents/library/activate_skill.py activate design-taste-frontend` |
 | `tavily-ai-skills` | [tavily-ai/skills](https://github.com/tavily-ai/skills) | **13** | `python .agents/library/activate_skill.py activate core` |
 | `tejashmakwana-motionmaxxing` | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) | **1** | `python .agents/library/activate_skill.py activate motionmaxxing` |
-| `thedotmack-claude-mem` | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | **1** | `python .agents/library/activate_skill.py activate claude-mem` |
+| `thedotmack-claude-mem` | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | **35** | `python .agents/library/activate_skill.py activate agent-cost-report` |
 | `tigerless-labs-autoharness` | [tigerless-labs/autoharness](https://github.com/tigerless-labs/autoharness) | **2** | `python .agents/library/activate_skill.py activate autoharness` |
 | `tigerless-labs-seo-ops` | [tigerless-labs/seo-ops](https://github.com/tigerless-labs/seo-ops) | **2** | `python .agents/library/activate_skill.py activate seo-ops` |
 | `titanwings-distilly` | [titanwings/distilly](https://github.com/titanwings/distilly) | **2** | `python .agents/library/activate_skill.py activate distilly` |

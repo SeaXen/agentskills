@@ -1,0 +1,481 @@
+import type Container from "../renderable/container.js";
+import type ParticleEmitter from "./emitter.ts";
+
+/**
+ * Configuration shape for {@link ParticleEmitter}.
+ * Every field has a sensible default; users typically pass a `Partial<ParticleEmitterSettings>`
+ * to the constructor or {@link ParticleEmitter#reset}.
+ * @category Particles
+ * @see {@link ParticleEmitter}
+ * @see [Particle Editor](https://melonjs.github.io/melonJS/examples/#/particle-editor) — every setting on a slider, with the code or JSON to copy
+ */
+export interface ParticleEmitterSettings {
+	/**
+	 * Width of the particle spawn area. The constructor centres the area on
+	 * the point it is given; `pos` is then its top left corner.
+	 * @default 1
+	 */
+	width: number;
+
+	/**
+	 * Height of the particle spawn area.
+	 * @default 1
+	 */
+	height: number;
+
+	/**
+	 * Depth of the particle spawn area, along Z: each particle is born at a
+	 * random depth within it, centered on the emitter. With
+	 * {@link ParticleEmitterSettings.width} and
+	 * {@link ParticleEmitterSettings.height} it makes the area a box, so under
+	 * a {@link Camera3d} rain falls through a volume instead of a sheet facing
+	 * the viewer. A 2D camera does not show the depth itself; with an order
+	 * dependent blend mode, the particles are then sorted by it.
+	 * <br><br>
+	 * Not {@link Renderable#depth}, the emitter's own position along Z.
+	 * @default 0
+	 */
+	depth: number;
+
+	/**
+	 * Image used for particles texture. Without one, particles are white
+	 * squares of {@link textureSize} pixels, colored by `tint`: every such
+	 * emitter draws the renderer's one shared white pixel, stretched, so none
+	 * makes a texture of its own.
+	 * @default undefined
+	 * @see {@link textureSize}
+	 */
+	image: HTMLCanvasElement | HTMLImageElement | undefined;
+
+	/**
+	 * Width of one sprite-sheet frame in pixels. Defaults to the image width.
+	 * Must be a positive integer no larger than the image width.
+	 * Only whole cells are used; partial cells at the right edge are ignored.
+	 * @default undefined
+	 */
+	framewidth?: number | undefined;
+
+	/**
+	 * Height of one sprite-sheet frame in pixels. Defaults to the image height.
+	 * Must be a positive integer no larger than the image height.
+	 * Only whole cells are used; partial cells at the bottom are ignored.
+	 * @default undefined
+	 */
+	frameheight?: number | undefined;
+
+	/**
+	 * Frame indices, numbered from zero left-to-right, then top-to-bottom.
+	 * Defaults to every whole cell. An explicit sequence must be nonempty and
+	 * contain only in-range integers; repeated indices hold a frame longer.
+	 * Each particle plays the sequence once over its own lifetime, with equal
+	 * time per entry. The sequence is copied on emitter construction/reset;
+	 * changing settings through reset affects only particles emitted afterwards.
+	 * @default undefined
+	 */
+	frames?: readonly number[] | undefined;
+
+	/**
+	 * Pick one entry from frames uniformly at birth and keep it for the whole
+	 * lifetime, instead of animating. Useful for debris from a shared sheet.
+	 *
+	 * Needs a grid to choose from, so it does nothing on its own: pair it
+	 * with `framewidth`/`frameheight` (and optionally `frames`). The variety
+	 * it gives is in the frame alone, since `tint` is one value for the whole
+	 * emitter.
+	 * @default false
+	 */
+	randomFrame?: boolean;
+
+	/**
+	 * Size, in pixels, of the white square particles are drawn as when the
+	 * emitter has no {@link image}.
+	 * @default 8
+	 * @see {@link image}
+	 */
+	textureSize: number;
+
+	/**
+	 * Tint to be applied to particles.
+	 * @default "#fff"
+	 * @see {@link tintOverLife} for a tint that changes over each particle's life
+	 */
+	tint: string;
+
+	/**
+	 * The tints a particle takes over its life: the first at birth, the last
+	 * at the end, evenly spaced and blended in between, such as a flame that
+	 * starts white hot and dies deep red. Give as many CSS colors as you like
+	 * (one is a plain tint), and repeat a color to hold it longer. When set,
+	 * it replaces {@link tint}.
+	 * <br><br>
+	 * It changes the color only: a particle still fades out over its life,
+	 * and the alpha of a color given here is ignored. However many colors
+	 * there are, the blend is taken in 32 steps, the same on every renderer,
+	 * so a particle changes color at most 32 times; on the Canvas renderer,
+	 * which keeps a tinted copy of the texture per color, that bounds the
+	 * copies to 32.
+	 * <br><br>
+	 * Set it through the constructor or {@link ParticleEmitter#reset}.
+	 * @default undefined
+	 * @throws {TypeError} from the emitter, if not a non-empty array of strings
+	 * @example
+	 * new ParticleEmitter(x, y, {
+	 *     image: spark,
+	 *     tintOverLife: ["#fff3b0", "#ffb04a", "#e45414", "#501408"],
+	 * });
+	 */
+	tintOverLife?: readonly string[] | undefined;
+
+	/**
+	 * Total number of particles in the emitter.
+	 * @default 50
+	 */
+	totalParticles: number;
+
+	/**
+	 * Start angle for particle launch in Radians.
+	 *
+	 * This is the AZIMUTH: the direction within the emitter's XY plane. With
+	 * {@link ParticleEmitterSettings.elevation} left at its default of `0`
+	 * every particle stays in that plane, which is how all 2D emitters behave.
+	 * @default Math.PI / 2
+	 */
+	angle: number;
+
+	/**
+	 * Variation in the start angle for particle launch in Radians.
+	 * @default 0
+	 */
+	angleVariation: number;
+
+	/**
+	 * Launch angle OUT of the emitter's plane, in radians.
+	 *
+	 * `0` fires along the plane, `Math.PI / 2` straight toward the viewer,
+	 * `-Math.PI / 2` straight away. Combined with
+	 * {@link ParticleEmitterSettings.elevationVariation} this is what turns a
+	 * burst from a flat disc facing the camera into a sphere: without it a
+	 * particle keeps the depth it was born at for its whole life, so no effect
+	 * can expand along Z or trail away.
+	 *
+	 * Zero by default, and zero is not merely a value: an emitter with no
+	 * elevation and no variation takes the same two trig call launch path it
+	 * always did and never touches a Z component, so no existing effect pays
+	 * anything for this.
+	 * @default 0
+	 * @example
+	 * // a spherical burst rather than a disc
+	 * new ParticleEmitter(x, y, {
+	 *     angle: 0, angleVariation: Math.PI * 2,
+	 *     elevation: 0, elevationVariation: Math.PI / 2,
+	 * });
+	 */
+	elevation: number;
+
+	/**
+	 * Variation in the launch elevation, in radians.
+	 *
+	 * `Math.PI / 2` with an `elevation` of `0` spreads particles over the
+	 * whole sphere; a small value gives a cone around the azimuth.
+	 * @default 0
+	 */
+	elevationVariation: number;
+
+	/**
+	 * Narrowest angle off the launch axis a particle may be thrown, in radians.
+	 *
+	 * Together with {@link ParticleEmitterSettings.maxSpread} this selects a
+	 * different way of aiming. Normally `angleVariation` and
+	 * `elevationVariation` are sampled INDEPENDENTLY, which spreads particles
+	 * over a rectangle of azimuth x elevation. That cannot describe a shape
+	 * defined relative to a direction: a ring of debris leaving a point on a
+	 * sphere is the set of directions at 90 degrees to that point's normal,
+	 * and on a rectangle the required elevation is a function of the azimuth
+	 * rather than independent of it.
+	 *
+	 * So when `maxSpread` is greater than zero, {@link
+	 * ParticleEmitterSettings.angle} and {@link
+	 * ParticleEmitterSettings.elevation} stop being a rectangle's centre and
+	 * become an AXIS, and each particle is thrown at a polar angle between
+	 * `minSpread` and `maxSpread` from it, around a uniformly random azimuth.
+	 * `angleVariation` and `elevationVariation` are then unused.
+	 *
+	 * - `0` to `0.5` is a tight cone along the axis
+	 * - either value at `Math.PI / 2` is a flat disc perpendicular to it
+	 * - `0` to `Math.PI` is the whole sphere
+	 * @default 0
+	 */
+	minSpread: number;
+
+	/**
+	 * Widest angle off the launch axis a particle may be thrown, in radians.
+	 *
+	 * Zero, the default, leaves the emitter on the independent
+	 * azimuth/elevation path it has always used. See {@link
+	 * ParticleEmitterSettings.minSpread} for what a non-zero value switches to.
+	 * @default 0
+	 */
+	maxSpread: number;
+
+	/**
+	 * Minimum time each particle lives once it is emitted in ms.
+	 * If greater than `maxLife`, it is clamped to `maxLife` at reset.
+	 * @default 1000
+	 */
+	minLife: number;
+
+	/**
+	 * Maximum time each particle lives once it is emitted in ms.
+	 * @default 3000
+	 */
+	maxLife: number;
+
+	/**
+	 * Start speed of particles.
+	 * @default 2
+	 */
+	speed: number;
+
+	/**
+	 * Variation in the start speed of particles.
+	 * @default 1
+	 */
+	speedVariation: number;
+
+	/**
+	 * Minimum start rotation for particle sprites in Radians.
+	 * @default 0
+	 */
+	minRotation: number;
+
+	/**
+	 * Maximum start rotation for particle sprites in Radians.
+	 * @default 0
+	 */
+	maxRotation: number;
+
+	/**
+	 * Minimum start scale ratio for particles (1 = no scaling).
+	 * @default 1
+	 */
+	minStartScale: number;
+
+	/**
+	 * Maximum start scale ratio for particles (1 = no scaling).
+	 * @default 1
+	 */
+	maxStartScale: number;
+
+	/**
+	 * Minimum end scale ratio for particles.
+	 * @default 0
+	 */
+	minEndScale: number;
+
+	/**
+	 * Maximum end scale ratio for particles.
+	 * @default 0
+	 */
+	maxEndScale: number;
+
+	/**
+	 * Vertical force (Gravity) for each particle.
+	 * @default 0
+	 * @see {@link World.gravity}
+	 */
+	gravity: number;
+
+	/**
+	 * Horizontal force (like a Wind) for each particle.
+	 * @default 0
+	 */
+	wind: number;
+
+	/**
+	 * Update the rotation of particle in accordance with the particle trajectory.
+	 * The particle sprite should aim at zero angle (draw from left to right).
+	 * Overrides the particle `minRotation` and `maxRotation`.
+	 * @default false
+	 */
+	followTrajectory: boolean;
+
+	/**
+	 * Enable the Texture Additive by composite operation ("additive" blendMode).
+	 * @default false
+	 * @see {@link blendMode}
+	 */
+	textureAdditive: boolean;
+
+	/**
+	 * Blend mode applied when rendering particles. If different than "normal",
+	 * supersedes the `textureAdditive` setting.
+	 *
+	 * Each particle copies this when it is BORN, so changing it here affects
+	 * particles emitted from that point on. To change the mode of particles
+	 * already alive as well, assign {@link ParticleEmitter#blendMode} instead —
+	 * it updates this setting and every live particle together.
+	 * @default "normal"
+	 * @see {@link CanvasRenderer#setBlendMode} for the full list of modes
+	 */
+	blendMode: string;
+
+	/**
+	 * Only repaint particles while they are inside the viewport (off-screen
+	 * particles keep simulating and living out their lifetime, but do not
+	 * mark the scene dirty).
+	 * @default true
+	 */
+	onlyInViewport: boolean;
+
+	/**
+	 * Render particles in screen space.
+	 * @default false
+	 */
+	floating: boolean;
+
+	/**
+	 * What a particle's position is measured against.
+	 *
+	 * A particle stores a position, and this decides what that position is
+	 * relative to. The difference is whether an effect is *attached* to the
+	 * emitter or *emitted and abandoned* by it.
+	 *
+	 * | value | measured from | use |
+	 * | --- | --- | --- |
+	 * | `"local"` | the emitter | a flame, an aura, anything welded on |
+	 * | `"world"` | the container the emitter sits in | trails, smoke, exhaust, dust |
+	 * | a {@link Container} | that container | a moving frame of reference |
+	 *
+	 * With `"local"` a moving emitter drags its whole cloud along, because a
+	 * particle's stored position never named a place in the level — it meant
+	 * "this far from my emitter". With `"world"` the position is a place, so
+	 * the emitter moves away and leaves the particles behind; only newly
+	 * emitted ones appear at the new location. Passing a `Container` measures
+	 * from that instead, for the case where the right frame is neither: snow
+	 * drifting inside a moving carriage travels with the carriage without
+	 * being welded to the vent that emits it.
+	 *
+	 * `"world"` resolves to the emitter's parent container rather than the
+	 * root, so a level that moves carries its own trails with it. Pass the
+	 * container explicitly if you want a different one.
+	 *
+	 * Changing this at runtime re-bases the particles already alive, so
+	 * nothing jumps — only their subsequent motion differs.
+	 * @default "local"
+	 * @example
+	 * // exhaust that stays where it was emitted
+	 * const emitter = new ParticleEmitter(x, y, { referenceSpace: "world" });
+	 */
+	referenceSpace: "local" | "world" | Container;
+
+	/**
+	 * Maximum number of particles launched each tick (stream mode only).
+	 * @default 10
+	 */
+	maxParticles: number;
+
+	/**
+	 * How often a particle is emitted in ms (stream mode only).
+	 * @default 100
+	 */
+	frequency: number;
+
+	/**
+	 * Duration that the emitter releases particles in ms (stream mode only).
+	 * After this period, the emitter stops launching particles.
+	 * @default Infinity
+	 */
+	duration: number;
+
+	/**
+	 * Skip n frames after updating the particle system once.
+	 * Reduces the performance impact of emitters with many particles.
+	 * @default 0
+	 */
+	framesToSkip: number;
+
+	/**
+	 * No longer has any effect, and kept only so existing configurations keep
+	 * working.
+	 *
+	 * It used to trade hitbox accuracy for speed, because bounds were
+	 * recomputed eagerly on every position write — twice per particle per
+	 * frame, from a transform that had not been rebuilt yet. Particles now
+	 * invalidate on write and recompute once on read, so the bounds a reader
+	 * gets are always current.
+	 * @default false
+	 * @deprecated since 20.2.0 — bounds are always up to date; remove it
+	 */
+	accurateBounds: boolean;
+
+	/**
+	 * When `true`, the emitter automatically removes itself from its parent
+	 * container once all particles have died. Useful for fire-and-forget
+	 * `burstParticles()` use cases (explosions, pickups, impact effects) where
+	 * there is no natural cleanup hook.
+	 * @default false
+	 */
+	autoDestroyOnComplete: boolean;
+
+	/**
+	 * Optional callback fired when the emitter completes (all particles dead
+	 * after at least one particle has been spawned, and — for stream mode —
+	 * the duration has elapsed). Fires regardless of `autoDestroyOnComplete`,
+	 * and runs *before* the emitter is removed from its parent. The callback
+	 * is invoked with the emitter as its `this` context.
+	 * @default undefined
+	 */
+	onComplete: ((this: ParticleEmitter) => void) | undefined;
+}
+
+/**
+ * Default values for every {@link ParticleEmitterSettings} field.
+ * @category Particles
+ */
+const defaultParticleEmitterSettings: ParticleEmitterSettings = {
+	width: 1,
+	height: 1,
+	depth: 0,
+	image: undefined,
+	framewidth: undefined,
+	frameheight: undefined,
+	frames: undefined,
+	randomFrame: false,
+	textureSize: 8,
+	tint: "#fff",
+	tintOverLife: undefined,
+	totalParticles: 50,
+	angle: Math.PI / 2,
+	angleVariation: 0,
+	elevation: 0,
+	elevationVariation: 0,
+	minSpread: 0,
+	maxSpread: 0,
+	minLife: 1000,
+	maxLife: 3000,
+	speed: 2,
+	speedVariation: 1,
+	minRotation: 0,
+	maxRotation: 0,
+	minStartScale: 1,
+	maxStartScale: 1,
+	minEndScale: 0,
+	maxEndScale: 0,
+	gravity: 0,
+	wind: 0,
+	followTrajectory: false,
+	textureAdditive: false,
+	blendMode: "normal",
+	onlyInViewport: true,
+	floating: false,
+	referenceSpace: "local",
+	maxParticles: 10,
+	frequency: 100,
+	duration: Infinity,
+	framesToSkip: 0,
+	accurateBounds: false,
+	autoDestroyOnComplete: false,
+	onComplete: undefined,
+};
+
+export default defaultParticleEmitterSettings;

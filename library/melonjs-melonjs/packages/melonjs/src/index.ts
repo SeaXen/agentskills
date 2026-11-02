@@ -1,0 +1,390 @@
+// ES5/ES6 polyfills
+import "./polyfill/index.ts";
+
+import Application from "./application/application.ts";
+import Camera2d from "./camera/camera2d.ts";
+import Camera3d from "./camera/camera3d.ts";
+import CameraEffect from "./camera/effects/camera_effect.ts";
+import FadeEffect from "./camera/effects/fade_effect.ts";
+import MaskEffect from "./camera/effects/mask_effect.ts";
+import PixelateTransitionEffect from "./camera/effects/pixelate_transition_effect.ts";
+import ShakeEffect from "./camera/effects/shake_effect.ts";
+import Frustum from "./camera/frustum.ts";
+import Pointer from "./input/pointer.ts";
+import GLTFModel from "./level/gltf/GLTFModel.js";
+import TMXHexagonalRenderer from "./level/tiled/renderer/TMXHexagonalRenderer.js";
+import TMXIsometricRenderer from "./level/tiled/renderer/TMXIsometricRenderer.js";
+import TMXOrthogonalRenderer from "./level/tiled/renderer/TMXOrthogonalRenderer.js";
+import TMXRenderer from "./level/tiled/renderer/TMXRenderer.js";
+import TMXStaggeredRenderer from "./level/tiled/renderer/TMXStaggeredRenderer.js";
+import TMXLayer from "./level/tiled/TMXLayer.js";
+import Tile from "./level/tiled/TMXTile.js";
+import TMXTileMap from "./level/tiled/TMXTileMap.js";
+import TMXTileset from "./level/tiled/TMXTileset.js";
+import TMXTilesetGroup from "./level/tiled/TMXTilesetGroup.js";
+import * as TMXUtils from "./level/tiled/TMXUtils.js";
+import Light2d from "./lighting/light2d.ts";
+import { ColorMatrix } from "./math/color_matrix.ts";
+import ParticleEmitter from "./particles/emitter.ts";
+import Particle from "./particles/particle.ts";
+import ParticleEmitterSettings from "./particles/settings.js";
+// class definition
+import Body from "./physics/builtin/body.js";
+import World from "./physics/world.js";
+// utility classes
+import { cache as plugins } from "./plugin/plugin.ts";
+import Collectable from "./renderable/collectable.js";
+import ColorLayer from "./renderable/colorlayer.js";
+import Container from "./renderable/container.js";
+import { Draggable } from "./renderable/draggable.js";
+import { DropTarget } from "./renderable/dragndrop.js";
+import Entity from "./renderable/entity/entity.js";
+import FrameAnimation from "./renderable/frameAnimation.js";
+import ImageLayer from "./renderable/imagelayer.js";
+import InstancedMesh from "./renderable/instanced_mesh.js";
+import Mesh from "./renderable/mesh.js";
+import NineSliceSprite from "./renderable/nineslicesprite.js";
+import Renderable from "./renderable/renderable.js";
+import Sprite from "./renderable/sprite.js";
+import Sprite3d from "./renderable/sprite3d.js";
+import BitmapText from "./renderable/text/bitmaptext.js";
+import BitmapTextData from "./renderable/text/bitmaptextdata.ts";
+import Text from "./renderable/text/text.js";
+import Trail from "./renderable/trail.js";
+import Trail3d from "./renderable/trail3d.js";
+import Trigger from "./renderable/trigger.js";
+import ProgressBar from "./renderable/ui/progressbar.ts";
+import UIBaseElement from "./renderable/ui/uibaseelement.ts";
+import UICheckbox from "./renderable/ui/uicheckbox.ts";
+import UIPanel from "./renderable/ui/uipanel.ts";
+import UISlider from "./renderable/ui/uislider.ts";
+import UISpriteElement from "./renderable/ui/uispriteelement.ts";
+import UITextButton from "./renderable/ui/uitextbutton.ts";
+import Stage from "./state/stage.ts";
+import state from "./state/state.ts";
+import { boot } from "./system/bootstrap.ts";
+import { DOMContentLoaded } from "./system/dom.ts";
+import pool from "./system/legacy_pool.js";
+import save from "./system/save.ts";
+import timer from "./system/timer.ts";
+import Tween from "./tweens/tween.ts";
+import CanvasRenderer from "./video/canvas/canvas_renderer.js";
+import BloomEffect from "./video/effects/bloom.js";
+import BlurEffect from "./video/effects/blur.js";
+import ChromaticAberrationEffect from "./video/effects/chromaticAberration.js";
+import ColorMatrixEffect from "./video/effects/colorMatrix.js";
+import DesaturateEffect from "./video/effects/desaturate.js";
+import DissolveEffect from "./video/effects/dissolve.js";
+import DropShadowEffect from "./video/effects/dropShadow.js";
+import FlashEffect from "./video/effects/flash.js";
+import GlowEffect from "./video/effects/glow.js";
+import HologramEffect from "./video/effects/hologram.js";
+import InvertEffect from "./video/effects/invert.js";
+import OutlineEffect from "./video/effects/outline.js";
+import PixelateEffect from "./video/effects/pixelate.js";
+import RadialGradientEffect from "./video/effects/radialGradient.js";
+import ScanlineEffect from "./video/effects/scanline.js";
+import SepiaEffect from "./video/effects/sepia.js";
+import ShaderEffect from "./video/effects/shadereffect.js";
+import ShineEffect from "./video/effects/shine.js";
+import SquishEffect from "./video/effects/squish.js";
+import SwayEffect from "./video/effects/sway.js";
+import TintPulseEffect from "./video/effects/tintPulse.js";
+import ToneMappingEffect from "./video/effects/tonemap.js";
+import VignetteEffect from "./video/effects/vignette.js";
+import WaveEffect from "./video/effects/wave.js";
+import { Batcher } from "./video/gpu/batcher.js";
+import {
+	isPortableTopology,
+	isTopology,
+	PORTABLE_TOPOLOGIES,
+} from "./video/gpu/topology.ts";
+import {
+	isVertexFormat,
+	resolveVertexFormat,
+} from "./video/gpu/vertexformat.ts";
+import { Gradient } from "./video/gradient.js";
+import Renderer from "./video/renderer.js";
+import RenderState from "./video/renderstate.js";
+import CanvasRenderTarget from "./video/rendertarget/canvasrendertarget.js";
+import RenderTarget from "./video/rendertarget/rendertarget.ts";
+import { TextureAtlas } from "./video/texture/atlas.js";
+import NoiseTexture2d from "./video/texture/noise_texture2d.js";
+import Texture2d from "./video/texture/texture2d.ts";
+import { WebGLBatcher } from "./video/webgl/batchers/batcher.js";
+import PrimitiveBatcher from "./video/webgl/batchers/primitive_batcher.js";
+import QuadBatcher from "./video/webgl/batchers/quad_batcher.js";
+import GLShader from "./video/webgl/glshader.js";
+import WebGLRenderer from "./video/webgl/webgl_renderer.js";
+import WebGPUPrimitiveBatcher from "./video/webgpu/batchers/primitive_batcher.js";
+import WebGPUQuadBatcher from "./video/webgpu/batchers/quad_batcher.js";
+import WebGPUBatcher from "./video/webgpu/batchers/webgpu_batcher.js";
+import WebGPURenderer from "./video/webgpu/webgpu_renderer.js";
+
+export * from "./application/scaleMethods.ts";
+export * from "./application/settings.ts";
+// export all utility function
+export * as audio from "./audio/audio.ts";
+export type {
+	PannerAttributes,
+	PlayOptions,
+	SoundEvents,
+	TrackOptions,
+} from "./audio/types.ts";
+// export all public constants
+export * from "./const.ts";
+export { Box3d } from "./geometries/box3d.ts";
+export { Ellipse } from "./geometries/ellipse.ts";
+export { Line } from "./geometries/line.ts";
+export { ObservablePoint } from "./geometries/observablePoint.ts";
+export { Point } from "./geometries/point.ts";
+export { Polygon } from "./geometries/polygon.ts";
+export { Rect } from "./geometries/rectangle.ts";
+export { RoundRect } from "./geometries/roundrect.ts";
+export { Sphere } from "./geometries/sphere.ts";
+export * as input from "./input/input.ts";
+// Backward compatibility for deprecated method or properties
+export * from "./lang/deprecated.js";
+export type { LevelLoadOptions } from "./level/level.js";
+export { level } from "./level/level.js";
+export type { default as TMXObject } from "./level/tiled/TMXObject.js";
+export {
+	registerTiledObjectClass,
+	registerTiledObjectFactory,
+} from "./level/tiled/TMXObjectFactory.js";
+export { Light3d } from "./lighting/light3d.ts";
+
+export * as loader from "./loader/loader.js";
+export { Color } from "./math/color.ts";
+export * as math from "./math/math.ts";
+export { Matrix2d } from "./math/matrix2d.ts";
+export { Matrix3d } from "./math/matrix3d.ts";
+export type { FractalType, NoiseSettings, NoiseType } from "./math/noise.ts";
+export { Noise } from "./math/noise.ts";
+export { ObservableVector2d } from "./math/observableVector2d.ts";
+export { ObservableVector3d } from "./math/observableVector3d.ts";
+export { Vector2d } from "./math/vector2d.ts";
+export { Vector3d } from "./math/vector3d.ts";
+export type {
+	AdapterCapabilities,
+	AdapterOptions,
+	BodyDefinition,
+	BodyDefinitionInit,
+	BodyShape,
+	BodyType,
+	CollisionResponse,
+	PhysicsAdapter,
+	PhysicsBody,
+	RaycastHit,
+	RaycastHit3d,
+	ShapeCollisionContact,
+	ShapeEntry,
+} from "./physics/adapter.ts";
+export { Bounds } from "./physics/bounds.ts";
+export { AABB3d } from "./physics/broadphase/aabb3d.ts";
+export { default as BuiltinAdapter } from "./physics/builtin/builtin-adapter.ts";
+export { collision } from "./physics/collision.js";
+export * as plugin from "./plugin/plugin.ts";
+// `createPool` is public because the deprecation path needs it: a game moving
+// off `pool.register(name, Class, true)` has to be able to build a pool for
+// its own class. `getPool` only reaches the ones the engine ships.
+export { createPool, getPool } from "./pool.ts";
+export type {
+	AnimationOptions,
+	AnimationOptionsInput,
+} from "./renderable/animation.ts";
+export type {
+	InstancedMeshOwnSettings,
+	InstancedMeshSettings,
+} from "./renderable/instanced_mesh.js";
+export type { MeshSettings } from "./renderable/mesh.js";
+export type { Paint } from "./renderable/ui/panelpaint.js";
+export type {
+	ProgressBarDirection,
+	ProgressBarSettings,
+} from "./renderable/ui/progressbar.js";
+export type { UIJuiceSettings } from "./renderable/ui/uibaseelement.js";
+export type {
+	UICheckboxSettings,
+	UICheckboxSkin,
+} from "./renderable/ui/uicheckbox.js";
+export type { UINavAction } from "./renderable/ui/uifocus.js";
+export type { UILabel } from "./renderable/ui/uilabel.js";
+export type {
+	UIPanelAlign,
+	UIPanelLayout,
+	UIPanelScroll,
+	UIPanelSettings,
+	UIPanelSkin,
+} from "./renderable/ui/uipanel.js";
+export type { UISkin } from "./renderable/ui/uiskin.js";
+export type {
+	UISliderSettings,
+	UISliderSkin,
+} from "./renderable/ui/uislider.js";
+export type { UISpriteElementSettings } from "./renderable/ui/uispriteelement.js";
+export type {
+	UITextButtonSettings,
+	UITextButtonSkin,
+} from "./renderable/ui/uitextbutton.js";
+export * as device from "./system/device.js";
+export * as event from "./system/event.ts";
+// and the two types it names, so a game can declare a field holding one
+export type { CreatePoolOptions, Pool } from "./system/pool.ts";
+export * as utils from "./utils/utils.ts";
+export * from "./version.ts";
+export type {
+	NoiseTexture2dBakeSettings,
+	NoiseTexture2dSettings,
+} from "./video/texture/noise_texture2d.js";
+export * as video from "./video/video.js";
+// export all class definition
+export {
+	Application,
+	Batcher,
+	BitmapText,
+	BitmapTextData,
+	BloomEffect,
+	BlurEffect,
+	Body,
+	Camera2d,
+	Camera3d,
+	CameraEffect,
+	CanvasRenderer,
+	CanvasRenderTarget,
+	ChromaticAberrationEffect,
+	Collectable,
+	ColorLayer,
+	ColorMatrix,
+	ColorMatrixEffect,
+	Container,
+	DesaturateEffect,
+	DissolveEffect,
+	Draggable,
+	DropShadowEffect,
+	DropTarget,
+	Entity, // eslint-disable-line @typescript-eslint/no-deprecated
+	FadeEffect,
+	FlashEffect,
+	FrameAnimation,
+	Frustum,
+	GLShader,
+	GLTFModel,
+	GlowEffect,
+	Gradient,
+	HologramEffect,
+	ImageLayer,
+	InstancedMesh,
+	InvertEffect,
+	isPortableTopology,
+	isTopology,
+	isVertexFormat,
+	Light2d,
+	MaskEffect,
+	Mesh,
+	NineSliceSprite,
+	NoiseTexture2d,
+	OutlineEffect,
+	Particle,
+	ParticleEmitter,
+	ParticleEmitterSettings,
+	PixelateEffect,
+	PixelateTransitionEffect,
+	PORTABLE_TOPOLOGIES,
+	Pointer,
+	PrimitiveBatcher,
+	ProgressBar,
+	plugins,
+	pool,
+	QuadBatcher,
+	RadialGradientEffect,
+	Renderable,
+	Renderer,
+	RenderState,
+	RenderTarget,
+	resolveVertexFormat,
+	ScanlineEffect,
+	SepiaEffect,
+	ShaderEffect,
+	ShakeEffect,
+	ShineEffect,
+	Sprite,
+	Sprite3d,
+	SquishEffect,
+	Stage,
+	SwayEffect,
+	save,
+	state,
+	Text,
+	Texture2d,
+	TextureAtlas,
+	Tile,
+	TintPulseEffect,
+	TMXHexagonalRenderer,
+	TMXIsometricRenderer,
+	TMXLayer,
+	TMXOrthogonalRenderer,
+	TMXRenderer,
+	TMXStaggeredRenderer,
+	TMXTileMap,
+	TMXTileset,
+	TMXTilesetGroup,
+	TMXUtils,
+	ToneMappingEffect,
+	Trail,
+	Trail3d,
+	Trigger,
+	Tween,
+	timer,
+	UIBaseElement,
+	UICheckbox,
+	UIPanel,
+	UISlider,
+	UISpriteElement,
+	UITextButton,
+	VignetteEffect,
+	WaveEffect,
+	WebGLBatcher,
+	WebGLRenderer,
+	WebGPUBatcher,
+	WebGPUPrimitiveBatcher,
+	WebGPUQuadBatcher,
+	WebGPURenderer,
+	World,
+};
+
+/**
+ * disable melonJS auto-initialization
+ * @see {@link boot}
+ */
+// eslint-disable-next-line prefer-const
+export let skipAutoInit = false;
+
+// the default application: the most recently *initialized* `Application`
+// registers itself here at the end of `init()`, so `game` is undefined
+// until the first `init()` resolves
+export { game } from "./application/application.ts";
+/**
+ * initialize the melonJS library.
+ * this is automatically called unless skipAutoInit is set to true,
+ * to allow asynchronous loaders to work.
+ * @see {@link skipAutoInit}
+ */
+export { boot, initialized } from "./system/bootstrap.ts";
+
+// call the library init function when ready
+DOMContentLoaded(() => {
+	if (!skipAutoInit) {
+		boot();
+	}
+});
+
+export type {
+	GlyphEffect,
+	GlyphEffectContext,
+	GlyphEffectOutput,
+} from "./renderable/text/glypheffect.ts";
+export type { EasingFunction } from "./tweens/easing.ts";
+export type { InterpolationFunction } from "./tweens/interpolation.ts";
+export type { Topology } from "./video/gpu/topology.ts";
+export type { VertexFormat } from "./video/gpu/vertexformat.ts";

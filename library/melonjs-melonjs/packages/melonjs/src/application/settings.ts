@@ -1,0 +1,649 @@
+/**
+ * additional import for TypeScript
+ * @import Renderer from "./../video/renderer.js";
+ */
+
+// `Camera2d` is type-only here — `cameraClass` accepts the constructor
+// shape but this file never instantiates one. Importing as a value
+// would pull the Camera module into the runtime graph along the
+// `application → defaultApplicationSettings → settings` chain, opening
+// a circular-import surface. Type-only import compiles away.
+import type Camera2d from "../camera/camera2d";
+import { RendererType } from "../const";
+import { PhysicsAdapter } from "../physics/adapter";
+import Renderer from "../video/renderer";
+import { WebGLBatcher } from "../video/webgl/batchers/batcher.js";
+import { ScaleMethod } from "./scaleMethods";
+
+type BlendMode =
+	| "normal"
+	| "multiply"
+	| "lighter"
+	| "additive"
+	| "screen"
+	| "darken"
+	| "lighten"
+	| "exclusion"
+	| "none"
+	| "overlay"
+	| "hard-light"
+	| "color-dodge"
+	| "color-burn"
+	| "soft-light"
+	| "difference";
+
+/**
+ * How the application's physics is configured.
+ *
+ * - `"builtin"` (default): auto-construct a {@link BuiltinAdapter} with default options.
+ * - `"none"`: keep an adapter for API compatibility but skip the per-frame `step()` call (frozen world).
+ * - `PhysicsAdapter` instance: use the given adapter (e.g. `new BuiltinAdapter({ gravity })`,
+ *   or `new MatterAdapter()` from `@melonjs/matter-adapter`).
+ * - `{ adapter: PhysicsAdapter }`: explicit form, reserved for future per-app physics options.
+ */
+type PhysicsType =
+	| "builtin"
+	| "none"
+	| PhysicsAdapter
+	| { adapter: PhysicsAdapter };
+
+type PowerPreference = "default" | "low-power" | "high-performance";
+
+export type ApplicationSettings = {
+	/**
+	 * Renderer to use. Four built-in modes (constants from `me.video`):
+	 *
+	 * - {@link AUTO} — negotiate the best available backend:
+	 *   **WebGPU → WebGL 2 → Canvas**. `await app.init()` always
+	 *   resolves under AUTO; the WebGPU attempt is a full adapter/device
+	 *   negotiation awaited inside `init()`, falling through to the
+	 *   synchronous candidates when it rejects. Under the Canvas tail the
+	 *   GPU-only subsystems (Camera3d, retained meshes, ShaderEffect,
+	 *   Light2d/Light3d shading, GPU tilemap) degrade or disable — gate on
+	 *   the renderer capability flags (`supportsDepthBuffer`,
+	 *   `shaderLanguage`, …) if your scene depends on them.
+	 * - {@link WEBGPU} — require the WebGPU backend. `app.init()`
+	 *   **rejects** when no adapter/device can be acquired — it never
+	 *   substitutes another backend.
+	 * - {@link WEBGL} — **requires WebGL 2** (the WebGL renderer is
+	 *   WebGL 2 only since 20.0). `app.init()` **rejects** if a WebGL 2
+	 *   context is unavailable (WebGL-1-only device, driver-blocklisted
+	 *   GPU, perf-caveat failure, etc.) — fail fast rather than render a
+	 *   stuck blank canvas.
+	 * - {@link CANVAS} — the HTML5 Canvas backend. No programmable
+	 *   pipeline: no shaders/lighting, no Camera3d/depth path (meshes
+	 *   only render on the CPU-projected 2D-camera path).
+	 *
+	 * Or pass a custom `Renderer` subclass instance for full control.
+	 * @default AUTO
+	 */
+	renderer: RendererType | Renderer;
+
+	/**
+	 * how the canvas is scaled to the page. A number is a fixed multiplier applied to the design resolution and nothing is measured; `"auto"` scales to the available space every time the window changes, using {@link ApplicationSettings.scaleMethod} to decide how and {@link ApplicationSettings.scaleTarget} to decide what is measured.
+	 *
+	 * `scaleMethod`, `scaleTarget` and {@link ApplicationSettings.scaleRounding} apply to `"auto"` only. With a fixed number they are ignored.
+	 * @default 1
+	 * @see ApplicationSettings.scaleMethod
+	 * @see ApplicationSettings.scaleTarget
+	 * @see ApplicationSettings.scaleRounding
+	 */
+	scale: number | "auto";
+
+	/**
+	 * how automatic scaling uses the space available to it. Applies when {@link ApplicationSettings.scale} is `"auto"`.
+	 *
+	 * The distinction that decides which to pick is whether the DESIGN RESOLUTION moves. `"fit"` keeps it and scales the whole frame to the largest factor that fits, leaving the rest as margin, so the game always sees exactly the world it was authored for. Every other mode calls `renderer.resize()`, so the design resolution follows the container and the game sees MORE or LESS of the world on a different window: `"fill-min"` / `"fill-max"` keep the aspect ratio while doing so, `"flex"` / `"flex-width"` / `"flex-height"` resize one or both axes, and `"stretch"` scales each axis independently so the aspect ratio is not preserved. `"manual"` does nothing automatic.
+	 *
+	 * A game whose layout assumes a known frame wants `"fit"`. A game that should reveal more world on a larger window wants one of the others, and has to cope with a viewport whose size it did not choose.
+	 * @default "manual"
+	 * @see ApplicationSettings.scale
+	 */
+	scaleMethod: ScaleMethod;
+
+	/**
+	 * whether the automatically computed scale factor may be fractional, or must be a whole number of device pixels. `"fractional"` (the default) lets the canvas fill its container exactly, at the cost of source pixels landing on uneven numbers of device pixels: at a 2.667 factor some are 3 device pixels wide and some are 2, which browsers resolve differently and which pixel art shows as shimmering or uneven stems. `"integer"` rounds the factor DOWN so every source pixel covers the same whole number of device pixels, and letterboxes with whatever space is left over.
+	 *
+	 * Only `scaleMethod: "fit"` is affected: every other method resizes the renderer to the container, so the design resolution changes and there is no fixed factor to round. The rounding is applied in DEVICE pixels, so `devicePixelRatio` cannot reintroduce a fraction.
+	 *
+	 * **What it costs depends on the container, and on `devicePixelRatio`, far more than it looks.** A higher ratio has more device pixels to round among, so it lands closer to the factor it wanted. For a 480x270 design, which is exactly a quarter of 1920x1080:
+	 *
+	 * | container | ratio | fit | integer | presented | area lost |
+	 * |---|---|---|---|---|---|
+	 * | 1920x1080 | 1 or 2 | 4.000 | 4 / 8 | 1920x1080 | none |
+	 * | 1440x810 | 1 | 3.000 | 3 | 1440x810 | none |
+	 * | 1280x720 | 2 | 2.667 | 5 | 1200x675 | 12% |
+	 * | 1280x720 | 1 | 2.667 | 2 | 960x540 | 44% |
+	 * | 1366x768 | 1 | 2.844 | 2 | 960x540 | 51% |
+	 *
+	 * A design resolution that divides the sizes you expect costs nothing at all; one that does not can give up half the screen on a 1x display. Choose the design resolution with this in mind rather than reaching for the setting afterwards.
+	 * @default "fractional"
+	 */
+	scaleRounding: "fractional" | "integer";
+
+	/**
+	 * the element automatic scaling measures to decide how much space it has. By default it is the PARENT of the container the canvas was mounted in, which is one level further out than most callers expect and is the usual cause of a canvas that does not fit its box.
+	 *
+	 * The case to watch for: a container that is `position: fixed` or `absolute` contributes no height to its parent, so that parent measures only whatever else it holds. If it measures `<body>`, the window size is used instead, and the canvas comes out larger than the box it lives in, cropped by whatever sits above it, by exactly the height of that other content on every resize.
+	 *
+	 * Name the element here when the default does not land on the box you meant, or give the canvas container a parent whose box IS that area.
+	 * @see ApplicationSettings.scale
+	 */
+	scaleTarget: HTMLElement;
+
+	/**
+	 * A hint to the user agent about which GPU to use on multi-GPU systems
+	 * (discrete vs integrated). Browsers generally favour the low-power GPU
+	 * unless asked otherwise, to preserve battery life.
+	 *
+	 * - `"default"` — no hint; let the user agent decide.
+	 * - `"low-power"` — prefer the integrated GPU.
+	 * - `"high-performance"` — prefer the discrete GPU. Note that browsers
+	 *   only honour this for pages that handle context loss, since switching
+	 *   GPU can drop the context; melonJS registers those handlers itself,
+	 *   so the request is respected.
+	 *
+	 * The same hint (and the same values, minus `"default"`) is used by
+	 * WebGPU's adapter request, so this setting is backend-neutral.
+	 * @default "default"
+	 */
+	powerPreference: PowerPreference;
+
+	/**
+	 * whether the canvas composites with the page behind it. `false`, the default, makes the front buffer opaque: the clear alpha is 1, WebGPU is configured `alphaMode: "opaque"`, and the canvas renderer clears rather than erases.
+	 *
+	 * Turn it on only when the page is meant to show through, since an opaque surface is the cheaper one to composite and is what a game filling its container wants. With it on the clear alpha becomes 0 and WebGPU switches to `"premultiplied"`, so anything drawn at partial alpha blends with the page rather than with a known background.
+	 * @default false
+	 */
+	transparent: boolean;
+
+	/**
+	 * whether to enable or not video scaling interpolation.
+	 * On the GPU backends this drives polygon-edge antialiasing (up to
+	 * 4× MSAA) — on the canvas itself, and equally through post-effect
+	 * chains, whose scene capture targets are multisampled to match, so
+	 * adding a camera effect never switches edge smoothing off. Texture
+	 * sampling smoothness is controlled separately by `textureFilter`.
+	 * Multisampled capture targets cost GPU memory (roughly 30 bytes per
+	 * pixel at 4×, ~55 MB at 1080p on WebGL) — with `antiAlias: false`
+	 * no multisampled storage is ever allocated.
+	 * @default false
+	 */
+	antiAlias: boolean;
+
+	/**
+	 * Let the post-effect chain carry color values above 1 instead of
+	 * clamping at every write.
+	 *
+	 * Render targets become half-float rather than 8 bits per channel, which
+	 * is what gives {@link BloomEffect} genuinely over-bright pixels to
+	 * threshold on and {@link ToneMappingEffect} a range to compress. Off by
+	 * default, for the same reasons `antiAlias` is: it costs GPU memory, and
+	 * a game gets a different pipeline depending on the driver underneath.
+	 *
+	 * The cost is narrow. Render targets exist only while something is
+	 * actually running a multi-pass effect chain, and only the CAMERA pair
+	 * takes the half-float format, at 8 bytes per pixel instead of 4. Sprite
+	 * chains and the advanced-blend target stay 8-bit whatever this says. A
+	 * game with no camera post-effects allocates nothing either way.
+	 *
+	 * **Not HDR output on its own.** This is headroom THROUGH the chain:
+	 * the frame is presented in SDR, so anything still above 1 at the end
+	 * clamps on the blit, exactly as it did before this setting existed. See
+	 * `hdrOutput` to remove that last clamp as well, on the backends that
+	 * can. Nothing is added to your effect
+	 * chain, so turning this on does not restyle your game. Add a
+	 * `ToneMappingEffect` to the camera if you want a curve rather than that
+	 * clamp, bearing in mind that every curve maps 1 to less than 1, so a
+	 * look built on clipped whites will change.
+	 *
+	 * Ignored where it cannot be honoured: the Canvas renderer has no render
+	 * targets, and a WebGL2 driver missing either half-float extension warns
+	 * once, naming which half, and stays at 8 bits. Read
+	 * {@link Renderer#supportsHDR} for what you actually got, and branch a
+	 * grade on that rather than on this, which is only the request.
+	 * @default false
+	 */
+	hdr: boolean;
+
+	/**
+	 * Tone curve applied to the camera at the very end of its effect chain,
+	 * or `"none"` to leave the frame alone.
+	 *
+	 * `"none"` by default, and that default is deliberate. Every curve maps 1
+	 * to less than 1, so a 2D look built on clipped whites and saturated
+	 * colour goes matte the moment one is applied, at any exposure. Turn it
+	 * on when your art is authored in linear light and you want the
+	 * highlights rolled off, not as a companion to `hdr`.
+	 *
+	 * Independent of `hdr`: a curve without headroom is a grade on an
+	 * already-clamped frame, which is a legitimate thing to want, and
+	 * headroom without a curve is the additive-accumulation win on its own.
+	 * @default "none"
+	 */
+	/**
+	 * Present the frame in the display's full dynamic range, instead of
+	 * clamping it to SDR on the way to the screen.
+	 *
+	 * `hdr` gives the effect chain headroom and then clamps at the very last
+	 * step, because the surface the browser presents is 8 bits per channel.
+	 * This changes that surface: values above 1 reach the compositor and, on
+	 * a display that has the range, are actually shown brighter.
+	 *
+	 * **Requires `hdr`, and changes how your game looks on an HDR display.**
+	 * A 2D look built on clipped whites relies on that final clamp; remove it
+	 * and everything you drove above 1 gets brighter rather than saturating.
+	 * That is the point, and it is why this is a separate opt-in rather than
+	 * part of `hdr`.
+	 *
+	 * **WebGPU only.** The WebGL2 equivalent is an unapproved specification
+	 * change that no browser implements, so that backend reports `false` and
+	 * presents in SDR as it always has. Query
+	 * {@link Renderer#supportsHDROutput} for what was granted, and expect it
+	 * to differ per backend on the same machine.
+	 * @default false
+	 */
+	hdrOutput: boolean;
+
+	/**
+	 * the tone curve applied at the end of the camera's chain, or `"none"` for no curve. `"aces"` is the filmic one, `"reinhard"` the gentlest, `"exponential"` the simplest.
+	 *
+	 * **A curve is a look decision, not a companion to {@link ApplicationSettings.hdr}.** Every curve maps 1 to less than 1, so switching one on changes a game whose art was authored against a clamp: the clipped white goes matte and the picture flattens. Turn it on for art authored in linear light, or when a deliberate grade is wanted.
+	 *
+	 * Changing the mode rebuilds one shader, since the curve is baked into it; {@link ApplicationSettings.toneMappingExposure} and {@link ApplicationSettings.toneMappingWhite} are uniform writes and can be driven per frame, which is what makes a settings screen or a hit flash cheap. `renderer.setToneMapping()` is the runtime entry point.
+	 * @default "none"
+	 * @see ApplicationSettings.toneMappingExposure
+	 * @see ApplicationSettings.toneMappingWhite
+	 */
+	toneMapping: "none" | "aces" | "reinhard" | "exponential";
+
+	/**
+	 * Multiplier applied before the tone curve. Above `1` lifts the image
+	 * into the curve's shoulder; below `1` pulls it down. Ignored while
+	 * `toneMapping` is `"none"`.
+	 * @default 1
+	 */
+	toneMappingExposure: number;
+
+	/**
+	 * The post-exposure value the tone curve should map to display white, or
+	 * `0` to leave the curve its own shoulder. This is what a "brightness" or
+	 * "peak" slider in a settings screen drives. Ignored while `toneMapping`
+	 * is `"none"`.
+	 * @default 0
+	 */
+	toneMappingWhite: number;
+
+	/**
+	 * Warm the renderer up during `loader.preload()`, behind the loading
+	 * screen, instead of paying for it on the frame that first draws (GPU
+	 * backends — the Canvas renderer has nothing to warm and ignores this).
+	 *
+	 * Named for the intent rather than the contents: anything worth doing
+	 * before the first frame belongs behind this one switch. Today that is
+	 * {@link Renderer#prewarm} during `loader.preload()` (the built-in shader
+	 * programs, and the shaders declared as assets), and then, as the game
+	 * runs, warming each renderable when it gains a post effect or is added
+	 * to the world: its effect pipelines, its own draw, the render targets an
+	 * effect chain composites through. That second part needs no preload.
+	 *
+	 * A GPU backend does not finish a shader when handed the source; it
+	 * finishes it the first time something is drawn with it. That puts the
+	 * whole cost on the frame a scene first appears, which is the moment a
+	 * level or stage comes up and its geometry arrives a beat late. Warming
+	 * up moves it to where a progress bar is already on screen.
+	 *
+	 * **On by default.** The cost is small and it is paid where nothing is
+	 * waiting on a frame: a purely 2D game links the mesh-tier programs
+	 * it will never bind — both the unlit tier and the lit one that inherits
+	 * from it — measured at about 60ms on a fast desktop GPU, inside a preload
+	 * that is already showing a progress bar. A tiny 2D game with a near-empty
+	 * preload is the one case that pays without any possible benefit. Set it to
+	 * `false` for a target where linking is slow enough that the preload
+	 * itself would suffer.
+	 *
+	 * The loading-screen warm-up is run by `loader.preload()` — every call,
+	 * not just the first — so a game that preloads gets it automatically and
+	 * a game that never calls `preload()` does not. Call
+	 * {@link Renderer#prewarm} directly in that case. It runs again on its
+	 * own after a lost context or device is restored.
+	 *
+	 * Shaders declared as assets (`{type: "shader"}`) are covered too, so a
+	 * level's own effects are warmed by declaring them alongside that level's
+	 * assets rather than building them inline when the level starts.
+	 * @default true
+	 * @see {@link Renderer#prewarm}
+	 */
+	prewarm: boolean;
+
+	/**
+	 * Default texture magnification/minification filter, **decoupled from
+	 * `antiAlias`** (GPU backends — WebGL and WebGPU; the 2D Canvas
+	 * renderer has no per-texture filtering and ignores this).
+	 *
+	 * `antiAlias` conflates two separate concerns: polygon-edge antialiasing
+	 * (MSAA) *and* texture sampling smoothness. This setting separates the
+	 * texture half out, so you can choose them independently — e.g. smooth
+	 * textures with no MSAA, or crisp pixel-art textures *with* MSAA edges.
+	 *
+	 * - `"auto"` (default) — follow `antiAlias` (`linear` when `true`, `nearest`
+	 *   when `false`): unchanged behavior.
+	 * - `"nearest"` — crisp/pixelated upscaling, regardless of `antiAlias`.
+	 * - `"linear"` — smooth, regardless of `antiAlias`.
+	 * - `"linear-mipmap"` — smooth, and a sprite, a tile or a text drawn
+	 *   smaller than its texture (a scaled-down sprite, or anything under a
+	 *   zoomed-out camera) takes its colour from the texture's mipmaps, its
+	 *   pre-shrunk copies, instead of shimmering as it moves. A sprite cut
+	 *   from an atlas or a tileset keeps its samples inside its own frame,
+	 *   so the neighbouring frames do not streak along its edges (a frame
+	 *   whose edges are not on a power of two can still mix a little of its
+	 *   neighbour into its outermost pixel at the smallest sizes, and a
+	 *   sprite drawn through a {@link ShaderEffect} is not kept to its
+	 *   frame); otherwise, drawn at its size or larger, a texture is the same
+	 *   as under `"linear"`. Not for the
+	 *   textures the engine renders into, nor a video, which keep to their
+	 *   full size. On WebGPU each texture it applies to takes about a third
+	 *   more memory.
+	 *
+	 * This is the **default** for every texture; a {@link Mesh} can still override
+	 * it per-mesh via its own `textureFilter` setting (which wins).
+	 * @default "auto"
+	 * @example
+	 * // smooth textures but NO polygon-edge MSAA
+	 * const app = new Application(1024, 768, {
+	 *     renderer: video.WEBGL,
+	 *     antiAlias: false,        // MSAA off
+	 *     textureFilter: "linear", // textures still filtered smooth
+	 * });
+	 *
+	 * // crisp pixel-art textures WITH MSAA-smoothed edges
+	 * new Application(1024, 768, {
+	 *     renderer: video.WEBGL,
+	 *     antiAlias: true,          // MSAA on
+	 *     textureFilter: "nearest", // textures stay crisp
+	 * });
+	 *
+	 * // smooth, and smooth again when zoomed out
+	 * new Application(1280, 720, {
+	 *     textureFilter: "linear-mipmap",
+	 * });
+	 */
+	textureFilter: "auto" | "nearest" | "linear" | "linear-mipmap";
+
+	/**
+	 * How many texture units the WebGL multi-texture batchers may use
+	 * ([#1585](https://github.com/melonjs/melonJS/issues/1585)).
+	 *
+	 * A batch can draw sprites from this many distinct textures before it has
+	 * to flush and start over, so a scene with more textures in flight than
+	 * this loses batching sharply. The pool used to be hardcoded to 16 — the
+	 * WebGL 2 spec *floor* for `MAX_TEXTURE_IMAGE_UNITS`, and roughly half
+	 * what current desktop and mobile hardware reports.
+	 *
+	 * - `"auto"` (default) — the device's reported limit, capped at 32.
+	 * - a number — that many units, clamped to what the device actually has
+	 *   (asking for more than exists would fail to link the shader).
+	 *
+	 * Raising it costs fragment-shader compile time and register pressure,
+	 * because the batcher's shader unrolls one sampler and one branch per
+	 * unit. Lowering it is the escape hatch if a driver misbehaves on wide
+	 * sampler ladders.
+	 *
+	 * **Read at initialization only** — the batchers compile their shaders
+	 * against this value, so unlike `textureFilter` there is no runtime setter.
+	 * WebGL only; the WebGPU backend sizes its own slot budget from its
+	 * per-stage binding limits, and the Canvas renderer has no batching.
+	 * @default "auto"
+	 * @example
+	 * // cap the pool on a device with a known-bad wide sampler ladder
+	 * const app = new Application(1024, 768, {
+	 *     renderer: video.WEBGL,
+	 *     maxTextures: 16,
+	 * });
+	 */
+	maxTextures: "auto" | number;
+
+	/**
+	 * whether 3D objects cast a soft "blob" shadow on the ground by default
+	 * ([#1515](https://github.com/melonjs/melonJS/issues/1515)).
+	 *
+	 * A ground shadow is what stops a character or prop reading as *floating*
+	 * in a 2.5D scene — it answers "where is this standing", not "where is the
+	 * light". It is deliberately not a simulated shadow; see
+	 * {@link Mesh#castGroundShadow}.
+	 *
+	 * This is the **default** for every {@link Mesh}, {@link Sprite3d} and
+	 * {@link InstancedMesh}; each can override it with its own
+	 * `castGroundShadow` (which wins), and {@link level.load} takes the same
+	 * option for one glTF scene (which wins over this).
+	 *
+	 * Because it is a blanket opt-in, it skips meshes with **no vertical
+	 * extent** — a flat plane lying on the floor *is* the floor, and shadowing
+	 * it with itself would smear a blob across the whole ground. A per-object
+	 * `castGroundShadow: true` bypasses that safeguard, being an explicit
+	 * instruction.
+	 *
+	 * **On by default.** Requires a GPU backend *and* a {@link Camera3d}, so a
+	 * 2D game is untouched whatever this says — the Canvas renderer has no
+	 * depth buffer and the 2D-camera path draws none. Set it `false` to opt a
+	 * 3D game out wholesale (a scene with baked lighting, or one bringing its
+	 * own shadows, would otherwise get two).
+	 * @default true
+	 * @example
+	 * // opt a 3D game out — e.g. its lighting is already baked into the models
+	 * const app = new Application(1024, 768, {
+	 *     cameraClass: Camera3d,
+	 *     castGroundShadow: false,
+	 * });
+	 * await app.init();
+	 */
+	castGroundShadow: boolean;
+
+	/**
+	 * whether to display melonJS version and basic device information in the console
+	 * @default true
+	 */
+	consoleHeader: boolean;
+
+	/**
+	 * the default blend mode to use. Both GPU renderers support the full set;
+	 * the Canvas fallback supports every mode except `"none"` — see
+	 * {@link CanvasRenderer#setBlendMode} for the list.
+	 * @default "normal"
+	 */
+	blendMode: BlendMode;
+
+	/**
+	 * The physics system to use. Accepts:
+	 * - `"builtin"` (default) — the built-in SAT physics adapter
+	 * - `"none"` — disables physics; `World.step` skips the simulation,
+	 *   the world container behaves like a pure scene graph
+	 * - a `PhysicsAdapter` instance — e.g. `new MatterAdapter()` from
+	 *   `@melonjs/matter-adapter`, or any third-party adapter
+	 * - `{ adapter: PhysicsAdapter }` — explicit form, reserved for
+	 *   future per-app physics options
+	 *
+	 * The adapter's `physicLabel` becomes `world.physic` so user code
+	 * can branch on the active engine without importing the concrete
+	 * adapter class (`app.world.physic === "matter"`, etc.).
+	 * @default "builtin"
+	 */
+	physic: PhysicsType;
+
+	/**
+	 * Enable the GPU procedural shader path for orthogonal tile layers
+	 * (backends advertising `renderer.supportsShaderTileLayers` — WebGL 2
+	 * and WebGPU). When `true` (default), eligible layers render via a
+	 * single quad per tileset + a fragment shader doing per-fragment GID
+	 * lookup, bypassing the per-tile draw loop entirely. Layers that
+	 * don't qualify (Canvas renderer, non-orthogonal,
+	 * collection-of-image tilesets, tilerendersize "grid", non-zero
+	 * tileoffset, oversampled beyond the shader's overflow window) fall
+	 * back to the legacy path automatically.
+	 * Set to `false` to disable globally.
+	 * @default true
+	 */
+	gpuTilemap: boolean;
+	/**
+	 * If true, treat WebGL as unavailable when the browser warns that a
+	 * context would perform dramatically worse than a native application
+	 * (a software rasterizer, a blocklisted driver). Note this is stricter
+	 * than the WebGL default, which is `false`.
+	 *
+	 * The WebGPU backend honors it too, by rejecting a fallback
+	 * (software) adapter. The effect: under {@link AUTO} such a machine
+	 * gets the Canvas renderer, and under {@link WEBGL} / {@link WEBGPU}
+	 * `app.init()` rejects. Set to `false` to accept a software or
+	 * blocklisted context instead.
+	 * @default true
+	 */
+	failIfMajorPerformanceCaveat: boolean;
+
+	/**
+	 * enable high precision shaders (WebGL only).
+	 * When false, shaders prefer "mediump" precision for better performance on
+	 * some mobile GPUs, falling back to "lowp" if "mediump" is not supported.
+	 * When true (default), the highest precision supported by the device is used.
+	 * This setting is ignored by the Canvas renderer.
+	 * @default true
+	 * @example
+	 * import { Application, device } from "melonjs";
+	 * const app = new Application(800, 600, {
+	 *     parent: "screen",
+	 *     // prefer lower shader precision on mobile for better performance
+	 *     highPrecisionShader: !device.isMobile,
+	 * });
+	 */
+	highPrecisionShader: boolean;
+
+	/**
+	 * whether a renderable may sit on a fractional position WITHIN the frame. `false`, the default, draws everything on whole pixels, which is what stops a slowly moving or transformed sprite shimmering along its edges.
+	 *
+	 * The snap happens once, where a draw lands, and the same way on every renderer: each edge of what is drawn (a sprite, a shape, a clip) is rounded to the nearest pixel after every translation and scale it is drawn under. So nested containers add their positions up exactly before anything is rounded, a flipped sprite covers the pixels it covers unflipped, a sprite and a `fillRect` at the same position cover the same pixels, a shape has no half-grey edge on the Canvas renderer, and a position that floating point error leaves a hair short of a whole pixel (a body resting on the floor at 223.99999999999997 after a collision push-out) lands on that pixel.
+	 *
+	 * The camera's view starts on a whole pixel too, in world units (zoomed 2x, it moves in 2 px steps), and the world is culled and the pointer read from that same position: things standing still stay still against each other while the view scrolls, and a click lands on what is drawn under it. The camera's `pos` keeps its fraction, so a damped follow still settles.
+	 *
+	 * A rotated or skewed draw cannot sit on the pixel grid and is drawn where it is, as is anything a perspective `Camera3d` draws.
+	 *
+	 * It says nothing about how the frame reaches the screen. A game that snaps positions here and is then presented at a fractional scale has undone the work at the last step; {@link ApplicationSettings.scaleRounding} is what addresses that half.
+	 * @default false
+	 * @see ApplicationSettings.scaleRounding
+	 */
+	subPixel: boolean;
+
+	/**
+	 * Run the game's updates in a steady pattern on a display that refreshes
+	 * at `maxfps`, or a whole multiple or fraction of it: one update every
+	 * frame at 60 Hz, one every other frame at 120 Hz, for the default
+	 * `maxfps` of 60.
+	 *
+	 * The game updates in fixed steps, as many as the time since the last
+	 * frame holds. That time jitters around the display's refresh by up to a
+	 * millisecond, so on a 60 Hz display a frame can get no update and the
+	 * next one two: anything that scrolls or moves steadily stutters. With
+	 * this on, the time is counted in whole display frames, the rest carried
+	 * to the next frame, so the steps fall evenly and the game keeps its
+	 * speed. A display within 2% of `maxfps`, or of 2, 3 or 4 times it, or a
+	 * half, a third or a quarter of it, is counted at exactly that rate (a
+	 * 59.94 Hz screen runs the game 0.1% slower than the wall clock). The
+	 * display's rate is learned as the game runs, and learned again when it
+	 * changes, such as when the window moves to another screen.
+	 *
+	 * It sets `timer.syncToDisplay` when the application is initialized.
+	 * The timer is shared, so with more than one application the last one
+	 * initialized decides, and a game can turn it on or off later through
+	 * `timer.syncToDisplay`.
+	 * @default false
+	 * @example
+	 * // steady updates on a 60 or 120 Hz display
+	 * const app = new Application(1280, 720, { syncToDisplay: true });
+	 */
+	syncToDisplay: boolean;
+
+	/**
+	 * whether to enable verbose mode (additional console output for debugging)
+	 * @default false
+	 */
+	verbose: boolean;
+
+	/**
+	 * the CSS background color of the parent element that holds the canvas.
+	 * Applied during initialization to prevent a white flash before the first render.
+	 * Set to `"transparent"` to disable, or any valid CSS color value.
+	 * @default "#000000"
+	 */
+	backgroundColor: string;
+
+	/**
+	 * a custom batcher class (extend the active backend's base:
+	 * `WebGLBatcher` / `WebGPUBatcher`)
+	 * @deprecated since 18.1.0 — use `batcher` instead
+	 */
+	compositor?: (new (renderer: any) => WebGLBatcher) | undefined;
+
+	/**
+	 * a custom batcher class, riding the quad/primitive slots on either
+	 * GPU backend — extend `WebGLBatcher` under WebGL, `WebGPUBatcher`
+	 * under WebGPU (`addBatcher` rejects a wrong-backend class loudly)
+	 */
+	batcher?: (new (renderer: any) => WebGLBatcher) | undefined;
+
+	/**
+	 * Default camera class instantiated for any {@link Stage} that does not
+	 * explicitly provide its own cameras. Set to {@link Camera3d} to opt
+	 * every stage in the app into perspective rendering by default. Stages
+	 * can still override per-instance via `super({ cameras: [...] })` or
+	 * per-class via `super({ cameraClass: Camera2d })`. Built-in stages
+	 * (e.g. the loader screen) explicitly use {@link Camera2d} regardless
+	 * of this setting.
+	 *
+	 * **GPU-backend requirement.** Camera classes whose
+	 * `static defaultSortOn === "depth"` (Camera3d and any subclass) need
+	 * a renderer with a depth buffer (`renderer.supportsDepthBuffer` —
+	 * WebGL 2 or WebGPU). Pairing such a `cameraClass` with
+	 * `renderer: video.AUTO` on a system where AUTO falls back to Canvas
+	 * emits a `console.warn` and produces a non-functional render. Pin
+	 * `renderer: video.WEBGL` (or `WEBGPU`) to make `app.init()` reject
+	 * instead.
+	 * @default Camera2d
+	 */
+	cameraClass?: new (
+		minX: number,
+		minY: number,
+		maxX: number,
+		maxY: number,
+	) => Camera2d;
+} & (
+	| {
+			/**
+			 * the DOM parent element (or its string ID) to hold the canvas in the HTML file
+			 */
+			parent: string | HTMLElement;
+			canvas?: never;
+	  }
+	| {
+			parent?: never;
+			/**
+			 * an existing canvas element to use as the renderer target
+			 * (by default melonJS will create its own canvas based on given parameters)
+			 */
+			canvas: HTMLCanvasElement;
+	  }
+);
+
+/**
+ * Resolved application settings after init() has processed the input.
+ * Includes computed properties not present in the user-facing settings.
+ * Hidden from the docs but deliberately kept in the emitted `.d.ts`: another
+ * emitted declaration imports this type, so removing it would leave a dangling
+ * import in the published types.
+ * @ignore
+ */
+export type ResolvedApplicationSettings = ApplicationSettings & {
+	width: number;
+	height: number;
+	autoScale: boolean;
+	zoomX: number;
+	zoomY: number;
+	scale: number;
+};

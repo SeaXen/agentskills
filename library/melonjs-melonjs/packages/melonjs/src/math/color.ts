@@ -1,0 +1,835 @@
+import { createPool } from "../system/pool.ts";
+import { clamp, random } from "./math.ts";
+
+// pre-computed lookup table for byte-to-hex conversion (0–255 → "00"–"FF")
+const hexLookup: string[] = new Array(256);
+{
+	const chars = "0123456789ABCDEF";
+	for (let i = 0; i < 256; i++) {
+		hexLookup[i] = chars[(i & 0xf0) >> 4] + chars[i & 0x0f];
+	}
+}
+
+function toHex(component: number) {
+	return hexLookup[component];
+}
+
+function hue2rgb(p: number, q: number, t: number) {
+	if (t < 0) {
+		t += 1;
+	}
+	if (t > 1) {
+		t -= 1;
+	}
+	if (t < 1 / 6) {
+		return p + (q - p) * 6 * t;
+	}
+	if (t < 1 / 2) {
+		return q;
+	}
+	if (t < 2 / 3) {
+		return p + (q - p) * (2 / 3 - t) * 6;
+	}
+	return p;
+}
+
+const rgbaRx = /^rgba?\((\d+), ?(\d+), ?(\d+)(, ?([\d.]+))?\)$/;
+const hex3Rx = /^#([\da-fA-F])([\da-fA-F])([\da-fA-F])$/;
+const hex4Rx = /^#([\da-fA-F])([\da-fA-F])([\da-fA-F])([\da-fA-F])$/;
+const hex6Rx = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
+const hex8Rx =
+	/^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
+
+const CSS_COLORS = [
+	// CSS1
+	["black", [0, 0, 0]],
+	["silver", [192, 192, 192]],
+	["gray", [128, 128, 128]],
+	["white", [255, 255, 255]],
+	["maroon", [128, 0, 0]],
+	["red", [255, 0, 0]],
+	["purple", [128, 0, 128]],
+	["fuchsia", [255, 0, 255]],
+	["green", [0, 128, 0]],
+	["lime", [0, 255, 0]],
+	["olive", [128, 128, 0]],
+	["yellow", [255, 255, 0]],
+	["navy", [0, 0, 128]],
+	["blue", [0, 0, 255]],
+	["teal", [0, 128, 128]],
+	["aqua", [0, 255, 255]],
+
+	// CSS2
+	["orange", [255, 165, 0]],
+
+	// CSS3
+	["aliceblue", [240, 248, 255]],
+	["antiquewhite", [250, 235, 215]],
+	["aquamarine", [127, 255, 212]],
+	["azure", [240, 255, 255]],
+	["beige", [245, 245, 220]],
+	["bisque", [255, 228, 196]],
+	["blanchedalmond", [255, 235, 205]],
+	["blueviolet", [138, 43, 226]],
+	["brown", [165, 42, 42]],
+	["burlywood", [222, 184, 135]],
+	["cadetblue", [95, 158, 160]],
+	["chartreuse", [127, 255, 0]],
+	["chocolate", [210, 105, 30]],
+	["coral", [255, 127, 80]],
+	["cornflowerblue", [100, 149, 237]],
+	["cornsilk", [255, 248, 220]],
+	["crimson", [220, 20, 60]],
+	["cyan", [0, 255, 255]],
+	["darkblue", [0, 0, 139]],
+	["darkcyan", [0, 139, 139]],
+	["darkgoldenrod", [184, 134, 11]],
+	["darkgray", [169, 169, 169]],
+	["darkgreen", [0, 100, 0]],
+	["darkgrey", [169, 169, 169]],
+	["darkkhaki", [189, 183, 107]],
+	["darkmagenta", [139, 0, 139]],
+	["darkolivegreen", [85, 107, 47]],
+	["darkorange", [255, 140, 0]],
+	["darkorchid", [153, 50, 204]],
+	["darkred", [139, 0, 0]],
+	["darksalmon", [233, 150, 122]],
+	["darkseagreen", [143, 188, 143]],
+	["darkslateblue", [72, 61, 139]],
+	["darkslategray", [47, 79, 79]],
+	["darkslategrey", [47, 79, 79]],
+	["darkturquoise", [0, 206, 209]],
+	["darkviolet", [148, 0, 211]],
+	["deeppink", [255, 20, 147]],
+	["deepskyblue", [0, 191, 255]],
+	["dimgray", [105, 105, 105]],
+	["dimgrey", [105, 105, 105]],
+	["dodgerblue", [30, 144, 255]],
+	["firebrick", [178, 34, 34]],
+	["floralwhite", [255, 250, 240]],
+	["forestgreen", [34, 139, 34]],
+	["gainsboro", [220, 220, 220]],
+	["ghostwhite", [248, 248, 255]],
+	["gold", [255, 215, 0]],
+	["goldenrod", [218, 165, 32]],
+	["greenyellow", [173, 255, 47]],
+	["grey", [128, 128, 128]],
+	["honeydew", [240, 255, 240]],
+	["hotpink", [255, 105, 180]],
+	["indianred", [205, 92, 92]],
+	["indigo", [75, 0, 130]],
+	["ivory", [255, 255, 240]],
+	["khaki", [240, 230, 140]],
+	["lavender", [230, 230, 250]],
+	["lavenderblush", [255, 240, 245]],
+	["lawngreen", [124, 252, 0]],
+	["lemonchiffon", [255, 250, 205]],
+	["lightblue", [173, 216, 230]],
+	["lightcoral", [240, 128, 128]],
+	["lightcyan", [224, 255, 255]],
+	["lightgoldenrodyellow", [250, 250, 210]],
+	["lightgray", [211, 211, 211]],
+	["lightgreen", [144, 238, 144]],
+	["lightgrey", [211, 211, 211]],
+	["lightpink", [255, 182, 193]],
+	["lightsalmon", [255, 160, 122]],
+	["lightseagreen", [32, 178, 170]],
+	["lightskyblue", [135, 206, 250]],
+	["lightslategray", [119, 136, 153]],
+	["lightslategrey", [119, 136, 153]],
+	["lightsteelblue", [176, 196, 222]],
+	["lightyellow", [255, 255, 224]],
+	["limegreen", [50, 205, 50]],
+	["linen", [250, 240, 230]],
+	["magenta", [255, 0, 255]],
+	["mediumaquamarine", [102, 205, 170]],
+	["mediumblue", [0, 0, 205]],
+	["mediumorchid", [186, 85, 211]],
+	["mediumpurple", [147, 112, 219]],
+	["mediumseagreen", [60, 179, 113]],
+	["mediumslateblue", [123, 104, 238]],
+	["mediumspringgreen", [0, 250, 154]],
+	["mediumturquoise", [72, 209, 204]],
+	["mediumvioletred", [199, 21, 133]],
+	["midnightblue", [25, 25, 112]],
+	["mintcream", [245, 255, 250]],
+	["mistyrose", [255, 228, 225]],
+	["moccasin", [255, 228, 181]],
+	["navajowhite", [255, 222, 173]],
+	["oldlace", [253, 245, 230]],
+	["olivedrab", [107, 142, 35]],
+	["orangered", [255, 69, 0]],
+	["orchid", [218, 112, 214]],
+	["palegoldenrod", [238, 232, 170]],
+	["palegreen", [152, 251, 152]],
+	["paleturquoise", [175, 238, 238]],
+	["palevioletred", [219, 112, 147]],
+	["papayawhip", [255, 239, 213]],
+	["peachpuff", [255, 218, 185]],
+	["peru", [205, 133, 63]],
+	["pink", [255, 192, 203]],
+	["plum", [221, 160, 221]],
+	["powderblue", [176, 224, 230]],
+	["rosybrown", [188, 143, 143]],
+	["royalblue", [65, 105, 225]],
+	["saddlebrown", [139, 69, 19]],
+	["salmon", [250, 128, 114]],
+	["sandybrown", [244, 164, 96]],
+	["seagreen", [46, 139, 87]],
+	["seashell", [255, 245, 238]],
+	["sienna", [160, 82, 45]],
+	["skyblue", [135, 206, 235]],
+	["slateblue", [106, 90, 205]],
+	["slategray", [112, 128, 144]],
+	["slategrey", [112, 128, 144]],
+	["snow", [255, 250, 250]],
+	["springgreen", [0, 255, 127]],
+	["steelblue", [70, 130, 180]],
+	["tan", [210, 180, 140]],
+	["thistle", [216, 191, 216]],
+	["tomato", [255, 99, 71]],
+	["turquoise", [64, 224, 208]],
+	["violet", [238, 130, 238]],
+	["wheat", [245, 222, 179]],
+	["whitesmoke", [245, 245, 245]],
+	["yellowgreen", [154, 205, 50]],
+
+	// CSS4
+	["rebeccapurple", [102, 51, 153]],
+] as const;
+
+type ColorName = (typeof CSS_COLORS)[number][0];
+
+const cssToRGB = new Map<ColorName, readonly [number, number, number]>();
+for (const [name, rgb] of CSS_COLORS) {
+	cssToRGB.set(name, rgb);
+}
+
+/**
+ * A color manipulation object.
+ * @category Math
+ */
+/**
+ * Encode one LINEAR colour channel to sRGB.
+ *
+ * The standard sRGB transfer function. Kept at `0..1` rather than `0..255`
+ * because that is what {@link Color} stores internally, so nothing is rounded
+ * through 8 bits on the way in.
+ * `@internal`, so it is stripped from the published declarations;
+ * {@link Color#setLinear} is the public way in.
+ * @param c - linear channel value, clamped to `0..1`
+ * @returns the sRGB-encoded channel, `0..1`
+ * @internal
+ */
+export function linearToSrgb(c: number) {
+	// clamp first: exporters emit slightly out-of-range factors, and a
+	// negative base under a fractional power is NaN, which would poison the
+	// whole colour rather than just one channel
+	const v = c <= 0 ? 0 : c >= 1 ? 1 : c;
+	return v <= 0.0031308 ? v * 12.92 : 1.055 * v ** (1 / 2.4) - 0.055;
+}
+
+export class Color {
+	private normalizedRGBA: Float32Array;
+
+	/**
+	 * Creates a new Color instance.
+	 * @param r - A Color object or the red component [0 .. 255]. Defaults to 0.
+	 * @param g - The green component [0 .. 255]. Defaults to 0.
+	 * @param b - The blue component [0 .. 255]. Defaults to 0.
+	 * @param alpha - The alpha value [0.0 .. 1.0]. Defaults to 1.
+	 */
+	constructor(r: Color | string | number = 0, g = 0, b = 0, alpha = 1.0) {
+		if (typeof r === "number") {
+			this.normalizedRGBA = new Float32Array([0, 0, 0, 1]);
+			this.setColor(r, g, b, alpha);
+		} else if (typeof r === "string") {
+			this.normalizedRGBA = new Float32Array([0, 0, 0, 1]);
+			this.parseCSS(r);
+		} else if (typeof r === "object") {
+			this.normalizedRGBA = r.normalizedRGBA.slice();
+		} else {
+			throw new Error("Color: invalid parameter");
+		}
+	}
+
+	/**
+	 * Gets the red component of the color.
+	 * @returns The red component [0 .. 255].
+	 */
+	get r() {
+		return ~~(this.normalizedRGBA[0] * 255);
+	}
+
+	/**
+	 * Sets the red component of the color.
+	 * @param value - The red component [0 .. 255].
+	 */
+	set r(value) {
+		this.normalizedRGBA[0] = clamp(value, 0, 255) / 255.0;
+	}
+
+	/**
+	 * Gets the green component of the color.
+	 * @returns The green component [0 .. 255].
+	 */
+	get g() {
+		return ~~(this.normalizedRGBA[1] * 255);
+	}
+
+	/**
+	 * Sets the green component of the color.
+	 * @param value - The green component [0 .. 255].
+	 */
+	set g(value) {
+		this.normalizedRGBA[1] = clamp(value, 0, 255) / 255.0;
+	}
+
+	/**
+	 * Gets the blue component of the color.
+	 * @returns The blue component [0 .. 255].
+	 */
+	get b() {
+		return ~~(this.normalizedRGBA[2] * 255);
+	}
+
+	/**
+	 * Sets the blue component of the color.
+	 * @param value - The blue component [0 .. 255].
+	 */
+	set b(value) {
+		this.normalizedRGBA[2] = clamp(value, 0, 255) / 255.0;
+	}
+
+	/**
+	 * Gets the alpha component of the color.
+	 * @returns The alpha component [0.0 .. 1.0].
+	 */
+	get alpha() {
+		return this.normalizedRGBA[3];
+	}
+
+	/**
+	 * Sets the alpha component of the color.
+	 * @param value - The alpha component [0.0 .. 1.0].
+	 */
+	set alpha(value) {
+		this.normalizedRGBA[3] = clamp(value, 0, 1.0);
+	}
+
+	/**
+	 * Sets the color to the specified values.
+	 * @param r - The red component [0 .. 255].
+	 * @param g - The green component [0 .. 255].
+	 * @param b - The blue component [0 .. 255].
+	 * @param [alpha] - The alpha value [0.0 .. 1.0]. Defaults to 1.
+	 * @returns Reference to this object for method chaining.
+	 */
+	setColor(r: number = 0, g: number = 0, b: number = 0, alpha = 1.0) {
+		this.r = r;
+		this.g = g;
+		this.b = b;
+		this.alpha = alpha;
+
+		return this;
+	}
+
+	/**
+	 * Sets the color to the specified normalized float values.
+	 * @param r - The red component [0.0 .. 1.0].
+	 * @param g - The green component [0.0 .. 1.0].
+	 * @param b - The blue component [0.0 .. 1.0].
+	 * @param [alpha=1.0] - The alpha value [0.0 .. 1.0]. Defaults to 1.
+	 * @returns Reference to this object for method chaining.
+	 */
+	setFloat(r: number, g: number, b: number, alpha = 1.0) {
+		const a = this.normalizedRGBA;
+		a[0] = clamp(r, 0, 1.0);
+		a[1] = clamp(g, 0, 1.0);
+		a[2] = clamp(b, 0, 1.0);
+		a[3] = clamp(alpha, 0, 1.0);
+		return this;
+	}
+
+	/**
+	 * Sets the color from LINEAR values, encoding them to sRGB.
+	 *
+	 * The sibling of {@link Color#setFloat}, which takes the same `0..1` range
+	 * but treats it as already-sRGB. Which one you want depends entirely on
+	 * where the numbers came from, and the two are NOT interchangeable: a
+	 * linear `0.42` is sRGB `0.68`, not `0.42`.
+	 *
+	 * Reach for this whenever a value arrives from a renderer's own colour
+	 * space rather than from a CSS string or an image. The common case is
+	 * glTF, which defines `baseColorFactor` and `emissiveFactor` as linear
+	 * (spec 3.9.2) — handing those straight to `setFloat` or scaling them by
+	 * 255 into `setColor` renders every untextured material markedly too
+	 * DARK, by 60 to 70 counts per channel in the midtones. It is an easy
+	 * mistake to leave in, because the result still looks coherent, just
+	 * moody, so lighting gets tuned against the wrong values.
+	 * @param r - The red component [0.0 .. 1.0], linear.
+	 * @param g - The green component [0.0 .. 1.0], linear.
+	 * @param b - The blue component [0.0 .. 1.0], linear.
+	 * @param [alpha=1.0] - The alpha value [0.0 .. 1.0]. Alpha is NOT a colour
+	 * and carries no transfer function, so it is taken as-is.
+	 * @returns Reference to this object for method chaining.
+	 * @example
+	 * // a glTF material factor, which the spec defines as linear
+	 * mesh.tint.setLinear(...node.baseColorFactor);
+	 */
+	setLinear(r: number, g: number, b: number, alpha = 1.0) {
+		const a = this.normalizedRGBA;
+		a[0] = linearToSrgb(r);
+		a[1] = linearToSrgb(g);
+		a[2] = linearToSrgb(b);
+		a[3] = clamp(alpha, 0, 1.0);
+		return this;
+	}
+
+	/**
+	 * Sets the color to the specified HSV values.
+	 * @param h - The hue [0 .. 1].
+	 * @param s - The saturation [0 .. 1].
+	 * @param v - The value [0 .. 1].
+	 * @returns Reference to this object for method chaining.
+	 */
+	setHSV(h: number, s: number, v: number) {
+		let r: number;
+		let g: number;
+		let b: number;
+
+		const i = Math.floor(h * 6);
+		const f = h * 6 - i;
+		const p = v * (1 - s);
+		const q = v * (1 - f * s);
+		const t = v * (1 - (1 - f) * s);
+
+		switch ((i % 6) as 0 | 1 | 2 | 3 | 4 | 5) {
+			case 0:
+				r = v;
+				g = t;
+				b = p;
+				break;
+			case 1:
+				r = q;
+				g = v;
+				b = p;
+				break;
+			case 2:
+				r = p;
+				g = v;
+				b = t;
+				break;
+			case 3:
+				r = p;
+				g = q;
+				b = v;
+				break;
+			case 4:
+				r = t;
+				g = p;
+				b = v;
+				break;
+			case 5:
+				r = v;
+				g = p;
+				b = q;
+				break;
+		}
+		return this.setColor(r * 255, g * 255, b * 255);
+	}
+
+	/**
+	 * Sets the color from HSL values, **with hue in `[0..1]`** (the
+	 * GLSL / WebGL shader convention — `0 = red`, `1/3 = green`,
+	 * `2/3 = blue`, `1` = back to red). If you're coming from CSS /
+	 * Photoshop / D3 and have a hue in degrees (`0..360`), divide by
+	 * 360 first — or call {@link Color#setHSLDeg} which does it for you.
+	 *
+	 * Hue wraps at integer boundaries, so `h = 1` and `h = 0` produce
+	 * the same red. Saturation `0` short-circuits to a grey at the
+	 * requested lightness, ignoring hue. Lightness `0` or `1` produce
+	 * pure black or pure white regardless of the other two.
+	 * @param h - The hue, normalized to `[0..1]` (NOT degrees).
+	 * @param s - The saturation `[0..1]`.
+	 * @param l - The lightness `[0..1]`.
+	 * @returns Reference to this object for method chaining.
+	 * @see {@link Color#setHSLDeg} for the degrees-based variant.
+	 * @example
+	 * // pure green (hue 1/3, full saturation, mid lightness)
+	 * color.setHSL(1 / 3, 1, 0.5);
+	 * // CSS hsl(200deg, 80%, 60%) — divide hue by 360 first
+	 * color.setHSL(200 / 360, 0.8, 0.6);
+	 */
+	setHSL(h: number, s: number, l: number) {
+		let r;
+		let g;
+		let b;
+
+		if (s === 0) {
+			r = g = b = l; // achromatic
+		} else {
+			const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+			const p = 2 * l - q;
+
+			r = hue2rgb(p, q, h + 1 / 3);
+			g = hue2rgb(p, q, h);
+			b = hue2rgb(p, q, h - 1 / 3);
+		}
+
+		return this.setColor(r * 255, g * 255, b * 255);
+	}
+
+	/**
+	 * Sets the color from HSL values with **hue in degrees `[0..360]`**
+	 * — the CSS / Photoshop / D3 convention. Thin convenience wrapper
+	 * over {@link Color#setHSL}: divides `hDeg` by 360 and delegates.
+	 * Saturation and lightness stay in `[0..1]` (the same units CSS
+	 * percentages would normalize to).
+	 *
+	 * Use this when you're working from CSS color values, color-picker
+	 * output, or any standard color reference. Prefer {@link Color#setHSL}
+	 * when your hue is already normalized (e.g. from `Math.random()`,
+	 * a noise function, or a shader uniform).
+	 * @param hDeg - The hue in degrees `[0..360]`. Values outside the
+	 *   range are accepted (the underlying hue calc wraps).
+	 * @param s - The saturation `[0..1]`.
+	 * @param l - The lightness `[0..1]`.
+	 * @returns Reference to this object for method chaining.
+	 * @example
+	 * // CSS hsl(200deg, 80%, 60%)
+	 * color.setHSLDeg(200, 0.8, 0.6);
+	 * // 360° wraps back to red — same as setHSLDeg(0, ...)
+	 * color.setHSLDeg(360, 1, 0.5);
+	 */
+	setHSLDeg(hDeg: number, s: number, l: number) {
+		// Normalize hDeg into `[0, 360)` before dividing. `setHSL`'s
+		// internal `hue2rgb` adjusts by at most one turn (`t < 0 → +1`,
+		// `t > 1 → -1`), so multi-turn inputs like `720` or `-360`
+		// would otherwise leave the per-channel `t` value outside the
+		// valid range and land in `hue2rgb`'s fallthrough (returning
+		// `p`), which is wrong for any non-zero saturation. Modulo +
+		// add-then-modulo keeps negatives well-defined.
+		const normalized = ((hDeg % 360) + 360) % 360;
+		return this.setHSL(normalized / 360, s, l);
+	}
+
+	/**
+	 * Creates a new copy of this color object.
+	 * @returns Reference to the newly cloned object.
+	 */
+	clone() {
+		return colorPool.get(this);
+	}
+
+	/**
+	 * Copies a color object or CSS color into this one.
+	 * @param color - The color to copy.
+	 * @returns Reference to this object for method chaining.
+	 */
+	copy(color: Color | string) {
+		if (typeof color === "string") {
+			return this.parseCSS(color);
+		} else {
+			this.normalizedRGBA.set(color.normalizedRGBA);
+			return this;
+		}
+	}
+
+	/**
+	 * Blends this color with the given one using addition.
+	 * @param color - The color to blend with.
+	 * @returns Reference to this object for method chaining.
+	 */
+	add(color: Color) {
+		this.normalizedRGBA[0] = clamp(
+			this.normalizedRGBA[0] + color.normalizedRGBA[0],
+			0,
+			1,
+		);
+		this.normalizedRGBA[1] = clamp(
+			this.normalizedRGBA[1] + color.normalizedRGBA[1],
+			0,
+			1,
+		);
+		this.normalizedRGBA[2] = clamp(
+			this.normalizedRGBA[2] + color.normalizedRGBA[2],
+			0,
+			1,
+		);
+		this.normalizedRGBA[3] =
+			(this.normalizedRGBA[3] + color.normalizedRGBA[3]) / 2;
+
+		return this;
+	}
+
+	/**
+	 * Darkens this color value by a given scale.
+	 * @param scale - The scale to darken the color by [0 .. 1].
+	 * @returns Reference to this object for method chaining.
+	 */
+	darken(scale: number) {
+		scale = clamp(scale, 0, 1);
+		this.normalizedRGBA[0] *= scale;
+		this.normalizedRGBA[1] *= scale;
+		this.normalizedRGBA[2] *= scale;
+
+		return this;
+	}
+
+	/**
+	 * Linearly interpolates between this color and the given one.
+	 * @param color - The color to interpolate with.
+	 * @param alpha - The interpolation factor, with alpha = 0 being this color, and alpha = 1 being the given one.
+	 * @returns Reference to this object for method chaining.
+	 */
+	lerp(color: Color, alpha: number) {
+		alpha = clamp(alpha, 0, 1);
+		this.normalizedRGBA[0] +=
+			(color.normalizedRGBA[0] - this.normalizedRGBA[0]) * alpha;
+		this.normalizedRGBA[1] +=
+			(color.normalizedRGBA[1] - this.normalizedRGBA[1]) * alpha;
+		this.normalizedRGBA[2] +=
+			(color.normalizedRGBA[2] - this.normalizedRGBA[2]) * alpha;
+
+		return this;
+	}
+
+	/**
+	 * Lightens this color value by a given scale
+	 * @param scale - The scale to lighten the color by [0 .. 1].
+	 * @returns Reference to this object for method chaining.
+	 */
+	lighten(scale: number) {
+		scale = clamp(scale, 0, 1);
+		this.normalizedRGBA[0] = clamp(
+			this.normalizedRGBA[0] + (1 - this.normalizedRGBA[0]) * scale,
+			0,
+			1,
+		);
+		this.normalizedRGBA[1] = clamp(
+			this.normalizedRGBA[1] + (1 - this.normalizedRGBA[1]) * scale,
+			0,
+			1,
+		);
+		this.normalizedRGBA[2] = clamp(
+			this.normalizedRGBA[2] + (1 - this.normalizedRGBA[2]) * scale,
+			0,
+			1,
+		);
+
+		return this;
+	}
+
+	/**
+	 * Generate random r,g,b values for this color object
+	 * @param [min] - minimum value for the random range
+	 * @param [max] - maxmium value for the random range
+	 * @returns Reference to this object for method chaining
+	 */
+	random(min = 0, max = 255) {
+		if (min < 0) {
+			min = 0;
+		}
+		if (max > 255) {
+			max = 255;
+		}
+
+		return this.setColor(
+			random(min, max),
+			random(min, max),
+			random(min, max),
+			this.alpha,
+		);
+	}
+
+	/**
+	 * Checks if this color is equal to another.
+	 * @param color - The color to compare with.
+	 * @returns True if the colors are equal, otherwise false.
+	 */
+	equals(color: Color) {
+		return (
+			this.normalizedRGBA[0] === color.normalizedRGBA[0] &&
+			this.normalizedRGBA[1] === color.normalizedRGBA[1] &&
+			this.normalizedRGBA[2] === color.normalizedRGBA[2] &&
+			this.normalizedRGBA[3] === color.normalizedRGBA[3]
+		);
+	}
+
+	/**
+	 * Parse a CSS color name and set this color to the corresponding r,g,b values
+	 * @param cssColor - The CSS color name
+	 * @returns Reference to this object for method chaining
+	 */
+	parseCSS(cssColor: string) {
+		const rgb = cssToRGB.get(cssColor as ColorName);
+		if (!rgb) {
+			return this.parseRGB(cssColor);
+		}
+		return this.setColor(...rgb);
+	}
+
+	/**
+	 * Parse an RGB or RGBA CSS color string
+	 * @param rgbColor - The RGB or RGBA color string to parse
+	 * @returns Reference to this object for method chaining
+	 */
+	parseRGB(rgbColor: string) {
+		const match = rgbaRx.exec(rgbColor);
+		if (!match) {
+			return this.parseHex(rgbColor as `#${string}`);
+		}
+		return this.setColor(
+			+match[1],
+			+match[2],
+			+match[3],
+			typeof match[5] !== "undefined" ? +match[5] : 1,
+		);
+	}
+
+	/**
+	 * Parse a Hex color ("#RGB", "#RGBA" or "#RRGGBB", "#RRGGBBAA" format) and set this color to
+	 * the corresponding r,g,b,a values
+	 * @param hexColor - The Hex color string to parse
+	 * @param [argb] - true if format is #ARGB, or #AARRGGBB (as opposed to #RGBA or #RGGBBAA)
+	 * @returns Reference to this object for method chaining
+	 */
+	parseHex(hexColor: `#${string}`, argb = false) {
+		let match: RegExpExecArray | null;
+		if ((match = hex8Rx.exec(hexColor))) {
+			// #AARRGGBB or #RRGGBBAA
+			return this.setColor(
+				parseInt(match[!argb ? 1 : 2], 16), // r
+				parseInt(match[!argb ? 2 : 3], 16), // g
+				parseInt(match[!argb ? 3 : 4], 16), // b
+				clamp(parseInt(match[!argb ? 4 : 1], 16), 0, 255) / 255.0, // a
+			);
+		}
+
+		if ((match = hex6Rx.exec(hexColor))) {
+			// #RRGGBB
+			return this.setColor(
+				parseInt(match[1], 16),
+				parseInt(match[2], 16),
+				parseInt(match[3], 16),
+			);
+		}
+
+		if ((match = hex4Rx.exec(hexColor))) {
+			// #ARGB or #RGBA
+			const r = match[!argb ? 1 : 2];
+			const g = match[!argb ? 2 : 3];
+			const b = match[!argb ? 3 : 4];
+			const a = match[!argb ? 4 : 1];
+			return this.setColor(
+				parseInt(r + r, 16), // r
+				parseInt(g + g, 16), // g
+				parseInt(b + b, 16), // b
+				clamp(parseInt(a + a, 16), 0, 255) / 255.0, // a
+			);
+		}
+
+		if ((match = hex3Rx.exec(hexColor))) {
+			// #RGB
+			return this.setColor(
+				parseInt(match[1] + match[1], 16),
+				parseInt(match[2] + match[2], 16),
+				parseInt(match[3] + match[3], 16),
+			);
+		}
+
+		throw new Error(`invalid parameter: ${hexColor}`);
+	}
+
+	/**
+	 * Pack this color RGB components into a Uint32 ARGB representation
+	 * @param [alpha] - alpha value [0.0 .. 1.0]
+	 * @returns A Uint32 ARGB representation of this color
+	 */
+	toUint32(alpha = 1.0) {
+		const a = this.normalizedRGBA;
+
+		const ur = (a[0] * 255) >> 0;
+		const ug = (a[1] * 255) >> 0;
+		const ub = (a[2] * 255) >> 0;
+
+		// `>>> 0` and not `| 0`: any alpha at or above 0.5 sets bit 31, and the
+		// bitwise operators above yield a SIGNED int32 — so a method named
+		// `toUint32` was handing back a negative number for most colors. Every
+		// consumer writes it into a `Uint32Array` or a shader attribute, where
+		// the bit pattern is identical either way; what broke was reading it
+		// back, comparing it, or printing it.
+		return ((((alpha * 255) >> 0) << 24) | (ur << 16) | (ug << 8) | ub) >>> 0;
+	}
+
+	/**
+	 * return a Float Array representation of this object
+	 * @returns A Float Array representation of this color
+	 */
+	toArray() {
+		return this.normalizedRGBA;
+	}
+
+	/**
+	 * return the color in "#RRGGBB" format
+	 * @returns The color in "#RRGGBB" format
+	 */
+	toHex() {
+		const a = this.normalizedRGBA;
+		return `#${toHex((a[0] * 255) >> 0)}${toHex((a[1] * 255) >> 0)}${toHex((a[2] * 255) >> 0)}`;
+	}
+
+	/**
+	 * Get the color in "#RRGGBBAA" format
+	 * @param alpha - The alpha value [0.0 .. 1.0] to use in the output string.
+	 * @returns The color in "#RRGGBBAA" format
+	 */
+	toHex8(alpha = this.normalizedRGBA[3]) {
+		const a = this.normalizedRGBA;
+		return `#${toHex((a[0] * 255) >> 0)}${toHex((a[1] * 255) >> 0)}${toHex((a[2] * 255) >> 0)}${toHex((alpha * 255) >> 0)}`;
+	}
+
+	/**
+	 * Get the color in "rgb(R,G,B)" format
+	 * @returns The color in "rgb(R,G,B)" format
+	 */
+	toRGB() {
+		return `rgb(${this.r},${this.g},${this.b})` as const;
+	}
+
+	/**
+	 * Get the color in "rgba(R,G,B,A)" format
+	 * @param [alpha] - alpha value [0.0 .. 1.0]
+	 * @returns The color in "rgba(R,G,B,A)" format
+	 */
+	toRGBA(alpha = this.alpha) {
+		return `rgba(${this.r},${this.g},${this.b},${alpha})` as const;
+	}
+}
+
+export const colorPool = createPool<
+	Color,
+	[
+		r?: number | string | Color | undefined,
+		g?: number | undefined,
+		b?: number | undefined,
+		alpha?: number | undefined,
+	]
+>((r, g, b, alpha) => {
+	const color = new Color(r, g, b, alpha);
+	return {
+		instance: color,
+		reset(r, g, b, alpha) {
+			if (arguments.length === 0) {
+				color.setColor();
+			} else {
+				if (typeof r === "number") {
+					color.setColor(r, g, b, alpha);
+				} else {
+					color.copy(r as Color | string);
+				}
+			}
+		},
+	};
+});

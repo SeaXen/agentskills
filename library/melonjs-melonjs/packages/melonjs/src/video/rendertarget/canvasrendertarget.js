@@ -1,0 +1,410 @@
+import { clamp } from "../../math/math.ts";
+import { setPrefixed } from "../../utils/agent.ts";
+import { createCanvas } from "../canvas_factory.js";
+import RenderTarget from "./rendertarget.ts";
+
+/**
+ * additional import for TypeScript
+ * @import CanvasRenderer from "./../canvas/canvas_renderer.js";
+ * @import WebGLRenderer from "./../webgl/webgl_renderer.js";
+ * @import Renderer from "../renderer.js";
+ */
+
+// default canvas settings
+const defaultAttributes = {
+	offscreenCanvas: false,
+	willReadFrequently: false,
+	antiAlias: false,
+	context: "2d",
+	transparent: false,
+	premultipliedAlpha: true,
+	stencil: true,
+	blendMode: "normal",
+	failIfMajorPerformanceCaveat: true,
+	powerPreference: "default",
+};
+
+// a helper function to create the 2d/webgl context
+function createContext(canvas, attributes) {
+	let context;
+
+	if (attributes.context === "2d") {
+		// 2d/canvas mode
+		context = canvas.getContext(attributes.context, {
+			willReadFrequently: attributes.willReadFrequently,
+		});
+	} else if (attributes.context === "webgl") {
+		const attr = {
+			alpha: attributes.transparent,
+			antialias: attributes.antiAlias,
+			depth: true,
+			stencil: true,
+			preserveDrawingBuffer: false,
+			premultipliedAlpha: attributes.transparent
+				? attributes.premultipliedAlpha
+				: false,
+			powerPreference: attributes.powerPreference,
+			failIfMajorPerformanceCaveat: attributes.failIfMajorPerformanceCaveat,
+		};
+
+		// WebGL 2 only since 20.0 (#1509) — no WebGL 1 fallback; callers
+		// (autoDetectRenderer / Application) fall back to the Canvas
+		// renderer instead when this throws
+		context = canvas.getContext("webgl2", attr);
+
+		if (!context) {
+			throw new Error("A WebGL 2 context could not be created.");
+		}
+	} else if (attributes.context === "webgpu") {
+		// the GPUCanvasContext handle is acquired synchronously; configuring
+		// it against a device happens later, in `WebGPURenderer.init()`, once
+		// the (inherently asynchronous) adapter/device negotiation completed
+		context = canvas.getContext("webgpu");
+
+		if (!context) {
+			throw new Error(
+				"A WebGPU context could not be created (WebGPU is not supported in this environment).",
+			);
+		}
+	} else {
+		throw new Error(
+			"Invalid context type. Must be one of '2d', 'webgl' or 'webgpu'",
+		);
+	}
+
+	// set the context size
+	return context;
+}
+
+/**
+ * A 2D canvas render target: draw into it once and reuse it, as a texture,
+ * a baked background or a fog map. Make one and keep it rather than making
+ * a new one each time. The engine uses it too, for text, gradients,
+ * particle textures and tinted images. Drawn with the WebGL or WebGPU
+ * renderer, its canvas is uploaded to the GPU, and uploaded again after
+ * {@link CanvasRenderTarget#invalidate}.
+ * @augments RenderTarget
+ * @category Rendering
+ */
+class CanvasRenderTarget extends RenderTarget {
+	/**
+	 * @param {number} width - the desired width of the canvas
+	 * @param {number} height - the desired height of the canvas
+	 * @param {object} attributes - The attributes to create both the canvas and context
+	 * @param {string} [attributes.context="2d"] - the context type to be created ("2d", "webgl" — a "webgl" request creates a WebGL 2 context — or "webgpu")
+	 * @param {boolean} [attributes.transparent=false] - specify if the canvas contains an alpha channel
+	 * @param {boolean} [attributes.offscreenCanvas=false] - will create an offscreenCanvas if true instead of a standard canvas
+	 * @param {boolean} [attributes.willReadFrequently=false] - Indicates whether or not a lot of read-back operations are planned
+	 * @param {boolean} [attributes.antiAlias=false] - Whether to enable anti-aliasing, use false (default) for a pixelated effect.
+	 */
+	constructor(width, height, attributes = defaultAttributes) {
+		super();
+		// clean up the given attributes
+		this.attributes = Object.assign({}, defaultAttributes, attributes);
+
+		// make sure context is defined
+		if (typeof attributes.context === "undefined") {
+			attributes.context = "2d";
+		}
+
+		// used the given canvas if any
+		if (typeof attributes.canvas !== "undefined") {
+			this.canvas = attributes.canvas;
+		} else {
+			this.canvas = createCanvas(
+				width,
+				height,
+				this.attributes.offscreenCanvas,
+			);
+		}
+
+		// create the context
+		this.context = createContext(this.canvas, this.attributes);
+
+		if (this.attributes.context === "webgl") {
+			/**
+			 * The WebGL version of the created context.
+			 * @type {number}
+			 * @deprecated since 20.0.0 — the WebGL renderer is WebGL 2 only, this is always `2`
+			 */
+			this.WebGLVersion = 2;
+		}
+
+		// enable or disable antiAlias if specified
+		this.setAntiAlias(this.attributes.antiAlias);
+	}
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	onResetEvent(width, height) {
+		this.clear();
+		this.resize(width, height);
+	}
+
+	/**
+	 * Clears the content of the canvas texture
+	 */
+	clear() {
+		this.context.setTransform(1, 0, 0, 1, 0, 0);
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	}
+
+	/**
+	 * enable/disable image smoothing (scaling interpolation)
+	 * @param {boolean} [enable=false] - whether to enable or not image smoothing (scaling interpolation)
+	 */
+	setAntiAlias(enable = false) {
+		const canvas = this.canvas;
+
+		// enable/disable antialias on the given Context2d object
+		setPrefixed("imageSmoothingEnabled", enable, this.context);
+
+		// set antialias CSS property on the main canvas
+		if (typeof canvas.style !== "undefined") {
+			if (enable !== true) {
+				// https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering
+				canvas.style["image-rendering"] = "optimizeSpeed"; // legal fallback
+				canvas.style["image-rendering"] = "-moz-crisp-edges"; // Firefox
+				canvas.style["image-rendering"] = "-o-crisp-edges"; // Opera
+				canvas.style["image-rendering"] = "-webkit-optimize-contrast"; // Safari
+				canvas.style["image-rendering"] = "optimize-contrast"; // CSS 3
+				canvas.style["image-rendering"] = "crisp-edges"; // CSS 4
+				canvas.style["image-rendering"] = "pixelated"; // CSS 4
+				canvas.style.msInterpolationMode = "nearest-neighbor"; // IE8+
+			} else {
+				canvas.style["image-rendering"] = "auto";
+			}
+		}
+	}
+
+	/**
+	 * Resizes the canvas texture to the given width and height.
+	 * @param {number} width - the desired width
+	 * @param {number} height - the desired height
+	 */
+	resize(width, height) {
+		this.canvas.width = Math.round(width);
+		this.canvas.height = Math.round(height);
+	}
+
+	/**
+	 * Read back pixel data from this render target.
+	 *
+	 * The canvas backend can read back synchronously, so this resolves
+	 * immediately; it exists so code that must work on every backend has one
+	 * method to call. See {@link RenderTarget#toImageData}.
+	 * @param {number} [x=0] - x coordinate of the top-left corner
+	 * @param {number} [y=0] - y coordinate of the top-left corner
+	 * @param {number} [width=this.width] - width of the area to read
+	 * @param {number} [height=this.height] - height of the area to read
+	 * @returns {Promise<ImageData>} the pixel data
+	 */
+	toImageData(x, y, width, height) {
+		return Promise.resolve(this.getImageData(x, y, width, height));
+	}
+
+	/**
+	 * Returns an ImageData object representing the underlying pixel data for a specified portion of this canvas texture.
+	 * (Note: when using getImageData(), it is highly recommended to use the `willReadFrequently` attribute when creating the corresponding canvas texture)
+	 * @param {number} x - The x-axis coordinate of the top-left corner of the rectangle from which the ImageData will be extracted
+	 * @param {number} y - The y-axis coordinate of the top-left corner of the rectangle from which the ImageData will be extracted
+	 * @param {number} width - The width of the rectangle from which the ImageData will be extracted. Positive values are to the right, and negative to the left
+	 * @param {number} height - The height of the rectangle from which the ImageData will be extracted. Positive values are down, and negative are up
+	 * @returns {ImageData} The ImageData extracted from this CanvasRenderTarget.
+	 */
+	getImageData(x, y, width, height) {
+		// clamp values
+		x = clamp(Math.floor(x), 0, this.canvas.width - 1);
+		y = clamp(Math.floor(y), 0, this.canvas.height - 1);
+		width = clamp(width, 1, this.canvas.width - x);
+		height = clamp(height, 1, this.canvas.height - y);
+		// return imageData
+		return this.context.getImageData(x, y, width, height);
+	}
+
+	/**
+	 * Returns a data URL directly from the canvas (avoids the getImageData/Blob round-trip).
+	 * Note: not supported by OffscreenCanvas — falls back to the base implementation.
+	 * @param {string} [type="image/png"] - A string indicating the image format
+	 * @param {number} [quality] - A number between 0 and 1 for lossy formats (image/jpeg, image/webp)
+	 * @returns {Promise<string>} A Promise resolving to a data URL string
+	 */
+	toDataURL(type = "image/png", quality) {
+		if (typeof this.canvas.toDataURL === "function") {
+			return Promise.resolve(this.canvas.toDataURL(type, quality));
+		}
+		// OffscreenCanvas doesn't have toDataURL — use base implementation
+		return super.toDataURL(type, quality);
+	}
+
+	/**
+	 * Creates a Blob directly from the canvas (avoids the getImageData round-trip).
+	 * @param {string} [type="image/png"] - A string indicating the image format
+	 * @param {number} [quality] - A number between 0 and 1 for lossy formats (image/jpeg, image/webp)
+	 * @returns {Promise<Blob>} A Promise resolving to a Blob
+	 */
+	toBlob(type = "image/png", quality) {
+		if (typeof this.canvas.convertToBlob === "function") {
+			// OffscreenCanvas path
+			return this.canvas.convertToBlob({ type, quality });
+		}
+		// HTMLCanvasElement path
+		return new Promise((resolve, reject) => {
+			this.canvas.toBlob(
+				(blob) => {
+					if (blob) {
+						resolve(blob);
+					} else {
+						reject(new Error(`toBlob failed for type "${type}"`));
+					}
+				},
+				type,
+				quality,
+			);
+		});
+	}
+
+	/**
+	 * Creates an ImageBitmap directly from the canvas (avoids the getImageData round-trip).
+	 * @returns {Promise<ImageBitmap>} A Promise resolving to an ImageBitmap
+	 */
+	toImageBitmap() {
+		return globalThis.createImageBitmap(this.canvas);
+	}
+
+	/**
+	 * invalidate the current CanvasRenderTarget, and force a reupload of the corresponding texture
+	 * (call this if you modify the canvas content between two draw calls)
+	 * @param {Renderer} renderer - the renderer to which this canvas texture is attached
+	 */
+	invalidate(renderer) {
+		// Refreshing a texture is engine plumbing, not a scene draw, and the
+		// GPU backends must not mistake it for one: `setBatcher` is where an
+		// advanced blend mode opens its per-draw compositing bracket, so an
+		// unguarded call here brackets the INVALIDATION — capturing the
+		// destination and redirecting to an offscreen before the real draw
+		// has even started, which then composites a second time and blends
+		// the scene against itself. Reached from every gradient fill, since
+		// baking the gradient invalidates its shared canvas.
+		const busy = renderer._advancedBlendBusy;
+		if (typeof busy === "number") {
+			renderer._advancedBlendBusy = busy + 1;
+		}
+		try {
+			this.#invalidate(renderer);
+		} finally {
+			if (typeof busy === "number") {
+				renderer._advancedBlendBusy = busy;
+			}
+		}
+	}
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	#invalidate(renderer) {
+		if (renderer.type.startsWith("WebGL")) {
+			// flush pending draws referencing the current texture data
+			renderer.flush();
+			renderer.setBatcher("quad");
+			// mark the content stale so the next upload refreshes the pixels
+			// IN PLACE (same texture object — with immutable storage a
+			// same-shape re-upload is a pure texSubImage2D, no reallocation)
+			this.glTextureUnit = renderer.cache.getUnit(
+				renderer.cache.get(this.canvas),
+			);
+			renderer.currentBatcher.markTextureDirty(this.glTextureUnit);
+			// the new pixels may come at a new size, and UVs are worked out
+			// from the size of the pixels on the GPU
+			renderer.cache.sizeChanged(this.canvas);
+		} else if (renderer.type === "WebGPU" && renderer.cache.has(this.canvas)) {
+			// drain pending vertices, then re-upload the canvas. The store
+			// gives the new pixels a fresh GPUTexture when draws recorded
+			// earlier this frame reference the old ones (queue writes execute
+			// before every recorded draw, so an in-place re-upload would
+			// apply retroactively); otherwise it re-uploads in place.
+			renderer.currentBatcher?.flush();
+			renderer.textureStore.getBinding(renderer.cache.get(this.canvas), {
+				force: true,
+			});
+			renderer.cache.sizeChanged(this.canvas);
+		}
+	}
+
+	/**
+	 * Release this render target: its canvas, and the copy of it the
+	 * renderer uploaded to the GPU. It must not be used afterwards.
+	 * @param {Renderer} [renderer] - the renderer it was drawn with, so the
+	 * copy uploaded to the GPU is freed too
+	 */
+	destroy(renderer) {
+		// Look up the cached texture by SOURCE identity (the `canvas`
+		// itself), NOT by `this.glTextureUnit`. The previous code
+		// path passed `getTexture2D(this.glTextureUnit)` into
+		// `deleteTexture2D`, but the `QuadBatcher` recycles texture
+		// units LRU under pressure (typically 8–16 hardware units),
+		// so the unit stored at upload time may now reference a
+		// different texture entirely — leading to either a crash
+		// (`getTexture2D` returns `undefined` → `texture.getTexture`
+		// throws) or, worse, silently deleting an unrelated texture
+		// that now occupies the recycled unit. Resolving via
+		// `renderer.cache.get(canvas)` is unit-recycling-safe: the
+		// cache map is keyed on the source image, so the lookup
+		// always returns the entry that actually belongs to *this*
+		// render target.
+		if (
+			renderer &&
+			renderer.type.startsWith("WebGL") &&
+			this.canvas &&
+			renderer.cache.has(this.canvas)
+		) {
+			renderer.setBatcher("quad");
+			renderer.currentBatcher.deleteTexture2D(renderer.cache.get(this.canvas));
+		} else if (
+			renderer &&
+			renderer.type === "WebGPU" &&
+			this.canvas &&
+			renderer.cache.has(this.canvas)
+		) {
+			// destroy the resident GPUTexture(s) for this canvas source
+			renderer.textureStore.destroyTexture(renderer.cache.get(this.canvas));
+		}
+		if (renderer) {
+			renderer.cache.delete(this.canvas);
+		}
+		this.glTextureUnit = undefined;
+		this.context = undefined;
+		this.canvas = undefined;
+	}
+
+	/**
+	 * The width of this canvas texture in pixels
+	 * @public
+	 * @type {number}
+	 */
+	get width() {
+		return this.canvas.width;
+	}
+
+	set width(val) {
+		this.canvas.width = Math.round(val);
+	}
+
+	/**
+	 * The height of this canvas texture in pixels
+	 * @public
+	 * @type {number}
+	 */
+	get height() {
+		return this.canvas.height;
+	}
+
+	set height(val) {
+		this.canvas.height = Math.round(val);
+	}
+}
+
+export default CanvasRenderTarget;

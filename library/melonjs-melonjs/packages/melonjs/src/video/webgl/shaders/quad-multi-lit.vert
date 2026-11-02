@@ -1,0 +1,48 @@
+#version 300 es
+// Lit-aware vertex shader used by `LitQuadBatcher` (the SpriteIlluminator
+// path). Carries a paired `aNormalTextureId` per vertex so the fragment
+// shader knows which `uNormalSampler<n>` to read, and `vWorldPos` so the
+// lit math can compute per-fragment `lightPos - pos` deltas.
+// `aVertex.z` carries per-sprite depth (renderable.depth) — a no-op under
+// the default ortho projection, used by perspective (Camera3d).
+in vec3 aVertex;
+in vec2 aRegion;
+in vec4 aColor;
+in float aTextureId;
+// the UV of the quad's opposite corner: with this vertex's own, the frame of
+// the texture the quad draws (see shaders/frameclamp.js). Far below zero for
+// a quad with no frame to keep to. Fifth, as in every sprite layout.
+in vec2 aFrame;
+in float aNormalTextureId;
+// specular exponent for this quad, 0 = matte (the default for every sprite
+// that does not opt in)
+in float aShininess;
+
+uniform mat4 uProjectionMatrix;
+
+out vec2 vRegion;
+out vec4 vColor;
+out float vTextureId;
+out float vNormalTextureId;
+out float vShininess;
+// Pre-projection vertex position (in the renderer's pre-projection
+// space — typically camera-local for default cameras with the world
+// container's translate applied). Used by the lit fragment path to
+// compute `lightPos - fragmentPos` for each Light2d. 2D — light math is
+// in the screen plane, depth doesn't participate.
+out vec2 vWorldPos;
+// the frame (left, top, right, bottom), the same at all four corners
+out vec4 vFrame;
+
+void main(void) {
+    gl_Position = uProjectionMatrix * vec4(aVertex, 1.0);
+    vColor = vec4(aColor.bgr * aColor.a, aColor.a);
+    vRegion = aRegion;
+    vTextureId = aTextureId;
+    vNormalTextureId = aNormalTextureId;
+    vShininess = aShininess;
+    vWorldPos = aVertex.xy;
+    vFrame = aFrame.x < -5.0e5
+        ? vec4(-1.0e6, -1.0e6, 1.0e6, 1.0e6)
+        : vec4(min(aRegion, aFrame), max(aRegion, aFrame));
+}

@@ -1,7 +1,7 @@
 # 🧮 Algorithms, Logic & Math
 
 > **Category**: `algorithms-logic`  
-> **Total Curated Skills**: 216 skills  
+> **Total Curated Skills**: 217 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -139,6 +139,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`md-preview-app-macos`](../../library/reason-machines-trending-skills/skills/md-preview-app-macos) | ⚪ Reserve | `reason-machines-trending-skills` | Native macOS Markdown viewer app with Quick Look extension, Mermaid diagrams, KaTeX math, docum... |
 | [`md-to-pdf-academic`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/md-to-pdf-academic) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Convert Markdown to publication-quality PDF with LaTeX math rendering |
 | [`mediamath`](../../library/membranedev-application-skills/skills/mediamath) | ⚪ Reserve | `membranedev-application-skills` | MediaMath integration. Manage data, records, and automate workflows. Use when the user wants to... |
+| [`melonjs-math`](../../library/melonjs-melonjs/skills/melonjs-math) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for vector and matrix maths in melonJS — Vector2d, Vector3d, their observable va... |
 | [`msw-scripting`](../../library/msw-git-msw-ai-coding-plugins-official/skills/msw-scripting) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | Authoring MSW scripts (.mlua) plus integrated playtest and debugging. Covers mlua syntax, annot... |
 | [`narrative-building`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/narrative-building) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Draft scientific introductions: argument logic, framing, multi-experiment coherence. |
 | [`neuropixels-analysis`](../../library/davila7-claude-code-templates/skills/neuropixels-analysis) | ⚪ Reserve | `davila7-claude-code-templates` | Neuropixels neural recording analysis. Load SpikeGLX/OpenEphys data, preprocess, motion correct... |

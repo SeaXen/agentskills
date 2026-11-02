@@ -1,0 +1,914 @@
+import { Color } from "./../math/color.ts";
+import { randomFloat } from "./../math/math.ts";
+import { Matrix3d } from "../math/matrix3d.ts";
+import { Vector2d } from "../math/vector2d.ts";
+import Container from "./../renderable/container.js";
+import timer from "../system/timer.ts";
+import type CanvasRenderer from "../video/canvas/canvas_renderer.js";
+import type WebGLRenderer from "../video/webgl/webgl_renderer.js";
+import { particlePool } from "./particle.ts";
+import defaultEmitterSettings, {
+	type ParticleEmitterSettings,
+} from "./settings.ts";
+
+/**
+ * Scratch matrices for the reference-space correction. Shared across every
+ * emitter rather than held per instance: the values are consumed within the
+ * call that produces them, and a `Matrix3d` is a `Float32Array(16)`. Two
+ * distinct ones because a single scratch reused twice would clobber the first
+ * operand mid-computation.
+ * @ignore
+ * @internal
+ */
+const _m1 = new Matrix3d();
+/**
+ * @ignore
+ * @internal
+ */
+const _m2 = new Matrix3d();
+/**
+ * @ignore
+ * @internal
+ */
+const _correction = new Matrix3d();
+/**
+ * @ignore
+ * @internal
+ */
+const _rebase = new Vector2d();
+
+/**
+ * If `settings[minKey] > settings[maxKey]`, lower `min` to `max`.
+ * Guards against the partial-override footgun where a user sets only the
+ * `max` half of a range-style setting and the default of `min` ends up larger.
+ * @ignore
+ * @internal
+ */
+function clampMinToMax<K extends keyof ParticleEmitterSettings>(
+	settings: ParticleEmitterSettings,
+	minKey: K,
+	maxKey: K,
+): void {
+	if ((settings[minKey] as number) > (settings[maxKey] as number)) {
+		(settings as Record<K, number>)[minKey] = settings[maxKey] as number;
+	}
+}
+
+/**
+ * Resolve source rectangles once per reset, not once per particle or draw.
+ * The snapshot stays alive with existing particles when the emitter resets.
+ * @ignore
+ * @internal
+ */
+/**
+ * How many steps a {@link ParticleEmitterSettings.tintOverLife} blend is taken
+ * in, whatever the number of colors.
+ * @ignore
+ * @internal
+ */
+const TINT_STEPS = 32;
+
+/**
+ * The tint of each step of a particle's life, blended from the
+ * `tintOverLife` colors (undefined without them). Checked before the
+ * settings change, like the sheet settings.
+ * @ignore
+ * @internal
+ */
+function tintOverLifeSteps(
+	settings: ParticleEmitterSettings,
+): readonly Color[] | undefined {
+	const colors = settings.tintOverLife;
+	if (colors === undefined) {
+		return undefined;
+	}
+	if (!Array.isArray(colors) || colors.length === 0) {
+		throw new TypeError(
+			"ParticleEmitter: tintOverLife must be a non-empty array of CSS colors",
+		);
+	}
+	const stops = colors.map((css: unknown) => {
+		if (typeof css !== "string") {
+			throw new TypeError(
+				`ParticleEmitter: tintOverLife colors must be CSS strings, not ${String(css)}`,
+			);
+		}
+		return new Color().parseCSS(css);
+	});
+	const steps: Color[] = [];
+	for (let i = 0; i < TINT_STEPS; i++) {
+		// the first step is the first color, the last one the last color
+		const at = (i / (TINT_STEPS - 1)) * (stops.length - 1);
+		const from = Math.floor(at);
+		const to = Math.min(from + 1, stops.length - 1);
+		const step = stops[from].clone().lerp(stops[to], at - from);
+		// the color only: opacity is the particle's fade
+		step.alpha = 1;
+		steps.push(step);
+	}
+	return steps;
+}
+
+function particleFrames(
+	settings: ParticleEmitterSettings,
+): ReadonlyArray<readonly [number, number]> | undefined {
+	if (
+		settings.framewidth === undefined &&
+		settings.frameheight === undefined &&
+		settings.frames === undefined
+	) {
+		return undefined;
+	}
+	const imageWidth = settings.image?.width ?? settings.textureSize;
+	const imageHeight = settings.image?.height ?? settings.textureSize;
+	const width = settings.framewidth ?? imageWidth;
+	const height = settings.frameheight ?? imageHeight;
+	if (
+		!Number.isInteger(width) ||
+		width <= 0 ||
+		width > imageWidth ||
+		!Number.isInteger(height) ||
+		height <= 0 ||
+		height > imageHeight
+	) {
+		throw new RangeError(
+			"ParticleEmitter: frame dimensions must be positive integers within the image",
+		);
+	}
+	const columns = Math.floor(imageWidth / width);
+	const count = columns * Math.floor(imageHeight / height);
+	const indices = settings.frames;
+	if (indices !== undefined && indices.length === 0) {
+		throw new RangeError(
+			"ParticleEmitter: frames must be a nonempty sequence of valid frame indices",
+		);
+	}
+	return Array.from({ length: indices?.length ?? count }, (_, i) => {
+		const index = indices === undefined ? i : indices[i];
+		// Reading every slot also rejects sparse sequences; Array.some skips holes.
+		if (!Number.isInteger(index) || index < 0 || index >= count) {
+			throw new RangeError(
+				"ParticleEmitter: frames must be a nonempty sequence of valid frame indices",
+			);
+		}
+		return [
+			(index % columns) * width,
+			Math.floor(index / columns) * height,
+		] as const;
+	});
+}
+
+/**
+ * Particle Emitter Object.
+ *
+ * ### Blend modes
+ *
+ * An emitter draws no pixels of its own: every {@link Particle} is a
+ * renderable in its own right and carries its own blend mode. Assigning
+ * `emitter.blendMode` applies the mode to the particles — both the ones
+ * already alive and, through {@link ParticleEmitterSettings.blendMode}, the
+ * ones emitted afterwards. The change is picked up on the emitter's next
+ * `update`, so within the same frame.
+ *
+ * ```js
+ * emitter.blendMode = "overlay";   // live particles AND future ones
+ * ```
+ *
+ * ### Visibility layers
+ *
+ * Particles are on their emitter's {@link Renderable#visibilityLayer}: they
+ * are born on it, and follow a change to it on the emitter's next `update`.
+ * So a camera whose {@link Camera2d#cullMask} draws only the emitter's layer
+ * draws the emitter's particles as well.
+ *
+ * ### Reference space
+ *
+ * A particle stores a position, and
+ * {@link ParticleEmitterSettings.referenceSpace} decides what that position is
+ * measured against. By default it is the emitter, so a moving emitter carries
+ * its whole cloud along — right for a flame or an aura, wrong for anything
+ * emitted and then abandoned. Set it to `"world"` and the position names a
+ * place in the level instead, so the emitter moves away and leaves the
+ * particles behind; that is a trail. Pass a {@link Container} to measure from
+ * something else entirely.
+ *
+ * Changing it at runtime — by assigning the property or through
+ * {@link ParticleEmitter#reset} — re-bases the particles already alive, so the
+ * cloud does not jump; only its subsequent motion changes.
+ *
+ * Two things are worth knowing before reaching for a non-local space. The
+ * emitter is treated as always visible while it has live particles, because
+ * otherwise a trail would vanish the moment the emitter that made it scrolled
+ * off-screen (the particles themselves are still culled individually). And
+ * `clipping` or a `backgroundColor` on the emitter would be applied in the
+ * emitter's own frame rather than the particles', so neither composes with
+ * this.
+ *
+ * ```js
+ * // exhaust that stays where it was emitted
+ * const emitter = new ParticleEmitter(x, y, { referenceSpace: "world" });
+ * ```
+ * @category Particles
+ * @see [Particle Editor](https://melonjs.github.io/melonJS/examples/#/particle-editor) — tune an emitter live, in 2D or 3D, and copy the matching code
+ */
+export default class ParticleEmitter extends Container {
+	/**
+	 * the current (active) emitter settings (with defaults merged in)
+	 */
+	settings: ParticleEmitterSettings;
+
+	/**
+	 * Shared source-coordinate snapshot for particles emitted after reset.
+	 * @ignore
+	 * @internal
+	 */
+	_particleFrames: ReadonlyArray<readonly [number, number]> | undefined;
+
+	/**
+	 * The tint of each step of a particle's life (`tintOverLife`), shared by
+	 * the particles emitted after reset.
+	 * @ignore
+	 * @internal
+	 */
+	_tintSteps: readonly Color[] | undefined;
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	_stream: boolean;
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	_frequencyTimer: number;
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	_durationTimer: number;
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	_enabled: boolean;
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	_updateCount: number;
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	_dt: number;
+
+	/**
+	 * The blend mode last fanned out to the particles, so a change to
+	 * {@link ParticleEmitter#blendMode} can be detected per frame.
+	 * @ignore
+	 * @internal
+	 */
+	#appliedBlendMode: string = "normal";
+
+	/**
+	 * The visibility layers last fanned out to the particles, so a change to
+	 * the emitter's {@link Renderable#visibilityLayer} can be detected per
+	 * frame.
+	 * @ignore
+	 * @internal
+	 */
+	#appliedVisibilityLayer = 1;
+
+	/**
+	 * Decide whether this emitter's particles have to be depth sorted.
+	 *
+	 * Sorting is off by default and should stay off: while every particle
+	 * shares the emitter's depth there is nothing to order, and an emitter is
+	 * exactly the place where a per-frame sort of hundreds of children is
+	 * worth avoiding.
+	 *
+	 * Two things have to be true before it is needed. The particles must
+	 * actually move independently along Z, which happens once an `elevation`
+	 * or a `maxSpread` is asked for. AND the blend must be order dependent:
+	 * additive blending is commutative, so an additive burst looks identical
+	 * however it is ordered and pays nothing. `"normal"` is the default and is
+	 * NOT commutative, so a 3D burst drawn with it needs back to front or near
+	 * particles are overdrawn by far ones.
+	 *
+	 * Keyed off the blend mode rather than off the 3D flag for that reason:
+	 * most 3D bursts are additive and want no sort at all.
+	 */
+	#refreshSorting() {
+		// `maxSpread` counts too, and independently of the other two: aiming
+		// off an axis throws particles out of the emitter's plane whatever
+		// the axis itself is, so a ring with `elevation` left at 0 still
+		// moves in Z.
+		// So does a spawn `depth`: particles born at different depths overlap
+		// in a different order from each side, even flying flat.
+		const moves3d =
+			this.settings.elevation !== 0 ||
+			this.settings.elevationVariation !== 0 ||
+			this.settings.maxSpread !== 0 ||
+			this.settings.depth > 0;
+		const commutative =
+			this.blendMode === "additive" ||
+			(this.blendMode === "normal" && this.settings.textureAdditive);
+		const sorted = moves3d && !commutative;
+		if (sorted !== this.autoSort) {
+			this.autoSort = sorted;
+			if (sorted) {
+				this.sortOn = "depth";
+			}
+		}
+	}
+
+	/**
+	 * whether at least one particle has been spawned by this emitter — used as
+	 * the precondition for completion detection (a brand-new emitter with zero
+	 * children must not count as "complete")
+	 * @ignore
+	 * @internal
+	 */
+	_hasSpawned: boolean;
+
+	/**
+	 * cached `timer.maxfps / 1000` — particles read this directly instead of
+	 * recomputing it on every spawn.
+	 * @ignore
+	 * @internal
+	 */
+	_deltaInv: number;
+
+	/**
+	 * Maps an emitter-local spawn point into the reference frame the particles
+	 * live in, so a particle is BORN where the emitter is even though its
+	 * position is thereafter measured from somewhere else. `undefined` in
+	 * local mode, where the two frames coincide and no mapping is needed.
+	 *
+	 * Held per emitter (not a module scratch) because particles read it during
+	 * their own reset, after `addParticles` has computed it. One matrix per
+	 * emitter that actually uses a non-local space — emitters are few, unlike
+	 * particles, which allocate nothing.
+	 * @ignore
+	 * @internal
+	 */
+	_spawnMap: Matrix3d | undefined;
+
+	/**
+	 * The spawn area (`settings.width` by `settings.height`) is centred on
+	 * (x, y). After construction `pos` is the area's top left corner, as on
+	 * any renderable: to move the emitter to a new point, offset by half the
+	 * area.
+	 * @param x - x position of the centre of the spawn area
+	 * @param y - y position of the centre of the spawn area
+	 * @param [settings=ParticleEmitterSettings] - the settings for the particle emitter.
+	 * @example
+	 * // Create a particle emitter centred on 100, 100
+	 * let emitter = new ParticleEmitter(100, 100, {
+	 *     width: 16,
+	 *     height : 16,
+	 *     tint: "#f00",
+	 *     totalParticles: 32,
+	 *     angle: 0,
+	 *     angleVariation: 6.283185307179586,
+	 *     maxLife: 5,
+	 *     speed: 3
+	 * });
+	 *
+	 * // Add the emitter to the game world
+	 * app.world.addChild(emitter);
+	 *
+	 * // Launch all particles one time and stop, like an explosion
+	 * emitter.burstParticles();
+	 *
+	 * // Launch constantly the particles, like a fountain
+	 * emitter.streamParticles();
+	 *
+	 * // At the end, remove emitter from the game world
+	 * // call this in onDestroyEvent function
+	 * app.world.removeChild(emitter);
+	 */
+	constructor(
+		x: number,
+		y: number,
+		settings: Partial<ParticleEmitterSettings> = {},
+	) {
+		// call the super constructor — `??` (not `||`) so a deliberate width/height
+		// of 0 (point emitter) survives, only `undefined` falls back to 1.
+		super(x, y, settings.width ?? 1, settings.height ?? 1);
+
+		// settings will be fully populated by reset() below; start with defaults
+		this.settings = { ...defaultEmitterSettings };
+
+		// center the emitter around the given coordinates
+		this.centerOn(x, y);
+
+		// stream mode flag
+		this._stream = false;
+		// frequency timer (ms) — stream mode only
+		this._frequencyTimer = 0;
+		// duration timer (ms) — stream mode only
+		this._durationTimer = 0;
+		// whether the emitter is currently emitting
+		this._enabled = false;
+		// emitter ticks regardless of viewport
+		this.alwaysUpdate = true;
+		// Preserve insertion order. A particle z-sort is wasted work while
+		// every particle in an emitter shares the emitter's depth, which was
+		// true of all of them until `elevation` let particles move along Z.
+		// `#refreshSorting` re-decides this whenever the settings or the blend
+		// mode change: see it for why the answer keys off the BLEND MODE.
+		this.autoSort = false;
+		// frame-skip bookkeeping
+		this._updateCount = 0;
+		this._dt = 0;
+		// completion tracking
+		this._hasSpawned = false;
+		// per-spawn delta inverse — populated by reset()
+		this._deltaInv = timer.maxfps / 1000;
+
+		// Apply user overrides + clamp range pairs
+		this.reset(settings);
+	}
+
+	override reset(settings: Partial<ParticleEmitterSettings> = {}): void {
+		// captured before the wholesale assign below, so a reference space
+		// arriving through `reset()` re-bases live particles exactly as the
+		// accessor does rather than teleporting them. `#frameOf` needs the
+		// settings intact, hence reading it here.
+		const previousFrame = this.#frameOf(this.settings?.referenceSpace);
+
+		// Reject invalid sheet settings before changing settings or destroying the
+		// fallback texture. Live particles retain the previous frame snapshot.
+		const nextSettings = { ...defaultEmitterSettings, ...settings };
+		const frames = particleFrames(nextSettings);
+		const tintSteps = tintOverLifeSteps(nextSettings);
+		Object.assign(this.settings, nextSettings);
+		this._particleFrames = frames;
+		this._tintSteps = tintSteps;
+
+		// Clamp range-style settings: if `min > max`, lower `min` to `max`.
+		// Catches the common footgun where a user overrides only one half of
+		// a min/max pair (e.g. `maxLife: 5` while `minLife` keeps its 1000 ms
+		// default), which would otherwise produce a wide unintended range.
+		clampMinToMax(this.settings, "minLife", "maxLife");
+		clampMinToMax(this.settings, "minStartScale", "maxStartScale");
+		clampMinToMax(this.settings, "minEndScale", "maxEndScale");
+		clampMinToMax(this.settings, "minRotation", "maxRotation");
+
+		// refresh the cached delta inverse — `timer.maxfps` is constant after
+		// boot but reset() runs after VIDEO_INIT, so this is the safest place.
+		this._deltaInv = timer.maxfps / 1000;
+
+		// Without an image, the particles draw a white square of their own:
+		// no texture is made here, and `settings.image` stays as it was given
+		// (see `particleLook` in particle.ts). Each emitter used to paint a
+		// square canvas into it, rebuilt on every reset() and never freed from
+		// the renderer: one texture per reset() or emitter on WebGL and
+		// WebGPU, and on Canvas the tinted copies of each (#1807).
+
+		this.floating = this.settings.floating;
+		// keep the property in step with the setting, so constructing (or
+		// resetting) with `{ blendMode }` leaves `emitter.blendMode` reporting
+		// it rather than the "normal" the Renderable constructor assigned
+		this.blendMode = this.settings.blendMode;
+		this.#appliedBlendMode = this.settings.blendMode;
+		this.#refreshSorting();
+
+		// no-op from the constructor (no children yet) and whenever the
+		// reference space is unchanged
+		this.#rebase(previousFrame);
+
+		this.isDirty = true;
+	}
+
+	/**
+	 * What a particle's position is measured against — see
+	 * {@link ParticleEmitterSettings.referenceSpace}.
+	 *
+	 * Assigning this re-bases every particle already alive into the new frame,
+	 * so nothing jumps: the cloud stays exactly where it is on screen and only
+	 * its subsequent motion differs. Passing it through
+	 * {@link ParticleEmitter#reset} does the same.
+	 * @default "local"
+	 * @example
+	 * emitter.referenceSpace = "world";   // start leaving a trail
+	 */
+	get referenceSpace(): "local" | "world" | Container {
+		return this.settings.referenceSpace;
+	}
+
+	set referenceSpace(space: "local" | "world" | Container) {
+		if (space === this.settings.referenceSpace) {
+			return;
+		}
+
+		const previous = this.#frameOf(this.settings.referenceSpace);
+		this.settings.referenceSpace = space;
+		this.#rebase(previous);
+	}
+
+	/**
+	 * Map the particles already alive out of the frame they were simulating
+	 * in and into the current one, so a change of reference space is
+	 * invisible at the instant it happens: the cloud stays exactly where it
+	 * is on screen and only its subsequent motion differs.
+	 *
+	 * Called from the accessor and from {@link ParticleEmitter#reset} alike —
+	 * `reset()` assigns `settings` wholesale and would otherwise leave live
+	 * particles holding coordinates measured against a frame that is no
+	 * longer theirs, teleporting the lot.
+	 * @ignore
+	 * @internal
+	 * @param previous - the frame the live particles are currently in
+	 */
+	#rebase(previous: Container): void {
+		const next = this.#frameOf(this.settings.referenceSpace);
+
+		if (previous !== next) {
+			// p_new = inv(W_next) · W_previous · p_old
+			_m1.identity();
+			_m1.multiply(this.#worldFrame(next, _m2).invert());
+			_m1.multiply(this.#worldFrame(previous, _m2));
+			for (const particle of this.getChildren()) {
+				_rebase.set(particle.pos.x, particle.pos.y);
+				_m1.apply(_rebase);
+				// assigned component-wise rather than through `set()`, which
+				// would default the z component to 0 and flatten the depth
+				// `addParticles` gave this particle
+				particle.pos.x = _rebase.x;
+				particle.pos.y = _rebase.y;
+			}
+		}
+
+		this._spawnMap = undefined;
+		this.isDirty = true;
+	}
+
+	/**
+	 * Resolve a reference-space value to the container whose frame the
+	 * particles live in. Returns `this` whenever the answer is "the emitter
+	 * itself" — including the degenerate cases (`"world"` on an emitter with no
+	 * parent, or a custom target that IS the emitter), which then take the
+	 * local fast path with no correction at all.
+	 * @ignore
+	 * @internal
+	 */
+	#frameOf(space: "local" | "world" | Container): Container {
+		if (space === "local") {
+			return this;
+		}
+		if (space === "world") {
+			return (this.ancestor as Container) ?? this;
+		}
+		// A destroyed container has had its `pos` cleared, so measuring
+		// against it would throw from inside the render loop. Nothing can be
+		// salvaged from a frame that no longer exists, but falling back to
+		// local keeps the particles on screen instead of taking the frame
+		// down with them.
+		if (!space || typeof space.pos === "undefined") {
+			return this;
+		}
+		return space;
+	}
+
+	/**
+	 * The world transform of a reference frame — i.e. of the space that
+	 * container's children are drawn in.
+	 * @ignore
+	 * @internal
+	 */
+	#worldFrame(frame: Container, out: Matrix3d): Matrix3d {
+		return frame.getWorldTransform(out);
+	}
+
+	/**
+	 * The transform to insert before walking the children so they are drawn in
+	 * the reference frame instead of the emitter's own.
+	 *
+	 * At the insertion point the renderer holds `W_ancestor · preContrib`, and
+	 * `Container.draw` appends `T(pos)` afterwards, so what we need is
+	 *
+	 * ```
+	 * K = inv(preContrib) · inv(W_ancestor) · W_target · T(−pos)
+	 * ```
+	 *
+	 * expressed below via `inv(preContrib) = T(pos) · inv(L)`. Note this is
+	 * NOT `inv(W_emitter) · W_target` — matrices do not commute, and that form
+	 * only coincides with this one when both chains share the same linear
+	 * part, which hides the difference until something upstream is rotated.
+	 *
+	 * When the target is the emitter's own parent — the `"world"` case — the
+	 * whole ancestor chain cancels and no walk happens at all.
+	 * @ignore
+	 * @internal
+	 * @returns the correction, or `undefined` in local mode
+	 */
+	#correctionMatrix(): Matrix3d | undefined {
+		const target = this.#frameOf(this.settings.referenceSpace);
+		if (target === this) {
+			return undefined;
+		}
+
+		_correction.identity();
+		_correction.translate(this.pos.x, this.pos.y);
+		_correction.multiply(this.getLocalTransform(_m1).invert());
+
+		if (target !== this.ancestor) {
+			if (this.ancestor) {
+				_correction.multiply(
+					(this.ancestor as Container).getWorldTransform(_m1).invert(),
+				);
+			}
+			_correction.multiply(target.getWorldTransform(_m2));
+		}
+
+		_correction.translate(-this.pos.x, -this.pos.y);
+		return _correction;
+	}
+
+	/**
+	 * returns a random point on the x axis within the bounds of this emitter
+	 * @returns a random x position within the emitter bounds
+	 */
+	getRandomPointX(): number {
+		return randomFloat(0, this.getBounds().width);
+	}
+
+	/**
+	 * returns a random point on the y axis within the bounds this emitter
+	 * @returns a random y position within the emitter bounds
+	 */
+	getRandomPointY(): number {
+		return randomFloat(0, this.getBounds().height);
+	}
+
+	/**
+	 * Draw the particles in their reference frame rather than the emitter's.
+	 *
+	 * The correction goes in before `super.draw()` because that is where the
+	 * child walk happens; translations and the correction compose, and in
+	 * local mode there is no correction and this is the inherited path
+	 * untouched.
+	 * @ignore
+	 * @internal
+	 */
+	override draw(
+		renderer: CanvasRenderer | WebGLRenderer,
+		viewport?: Parameters<Container["draw"]>[1],
+	): void {
+		const correction = this.#correctionMatrix();
+		if (correction !== undefined) {
+			renderer.transform(correction);
+		}
+		super.draw(renderer, viewport);
+	}
+
+	// Add count particles in the game world
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	addParticles(count: number): void {
+		// Refresh the spawn mapping once for the whole batch, not per
+		// particle: every particle in this call is born in the same frame.
+		// `S = inv(W_target) · W_emitter` takes an emitter-local point to the
+		// place in the reference frame where the emitter currently is, which
+		// is what freezes a trail behind a moving emitter.
+		const target = this.#frameOf(this.settings.referenceSpace);
+		if (target === this) {
+			this._spawnMap = undefined;
+		} else {
+			const map = this._spawnMap ?? (this._spawnMap = new Matrix3d());
+			if (target === this.ancestor) {
+				// `"world"`: the ancestor chain cancels outright, since
+				// `W_emitter = W_ancestor · L_emitter` leaves
+				// `S = inv(W_ancestor) · W_ancestor · L_emitter = L_emitter`.
+				// Worth the branch — a streaming emitter runs this every few
+				// frames, and the general form walks the chain twice.
+				map.copy(this.getLocalTransform(_m1));
+			} else {
+				map.identity();
+				map.multiply(target.getWorldTransform(_m1).invert());
+				map.multiply(this.getWorldTransform(_m2));
+			}
+		}
+
+		const depth = this.settings.depth;
+		for (let i = 0; i < count; i++) {
+			// A particle's z is local to its emitter, like the rest of its
+			// `pos`: 0, or a random depth within the spawn `depth`.
+			// {@link Particle#preDraw} adds the emitter's own depth. Always
+			// pass a z: left out, `Container.autoDepth` would number the
+			// particles 1, 2, 3...
+			this.addChild(
+				particlePool.get(this),
+				depth > 0 ? randomFloat(-depth / 2, depth / 2) : 0,
+			);
+		}
+		if (count > 0) {
+			this._hasSpawned = true;
+		}
+		this.isDirty = true;
+	}
+
+	/**
+	 * Emitter is of type stream and is launching particles
+	 * @returns Emitter is Stream and is launching particles
+	 */
+	isRunning(): boolean {
+		return this._enabled && this._stream;
+	}
+
+	/**
+	 * Launch particles from emitter constantly (e.g. for stream)
+	 * @param [duration] - time that the emitter releases particles in ms
+	 */
+	streamParticles(duration?: number): void {
+		this._enabled = true;
+		this._stream = true;
+		this.settings.frequency = Math.max(1, this.settings.frequency);
+		this._durationTimer =
+			typeof duration === "number" ? duration : this.settings.duration;
+	}
+
+	/**
+	 * Stop the emitter from generating new particles (used only if emitter is Stream)
+	 */
+	stopStream(): void {
+		this._enabled = false;
+	}
+
+	/**
+	 * Launch all particles from emitter and stop (e.g. for explosion)
+	 * @param [total] - number of particles to launch
+	 */
+	burstParticles(total?: number): void {
+		this._enabled = true;
+		this._stream = false;
+		this.addParticles(
+			typeof total === "number" ? total : this.settings.totalParticles,
+		);
+		this._enabled = false;
+	}
+
+	/**
+	 * @ignore
+	 * @internal
+	 */
+	override update(dt: number): boolean {
+		// Fan a changed blend mode out to the particles.
+		//
+		// An emitter draws no pixels of its own — each Particle is a
+		// renderable that carries its own blend mode, copied from
+		// `settings.blendMode` when it is BORN. So assigning
+		// `emitter.blendMode` (the plain `Renderable` field) reaches nothing
+		// on its own, which reads as "particles do not support blend modes".
+		// Detect the change here instead: one string compare per emitter per
+		// frame, rather than an accessor on `Renderable` that every renderable
+		// in the scene would pay for on every `preDraw`.
+		if (this.blendMode !== this.#appliedBlendMode) {
+			this.#appliedBlendMode = this.blendMode;
+			this.#refreshSorting();
+			// future particles inherit it at birth...
+			this.settings.blendMode = this.blendMode;
+			// ...and the ones already alive switch now, rather than the mode
+			// fading in over a particle lifetime
+			for (const particle of this.children ?? []) {
+				particle.blendMode = this.blendMode;
+			}
+			this.isDirty = true;
+		}
+
+		// The same for the visibility layers. A camera draws a particle only
+		// if the particle AND its emitter are on a layer it draws, and a
+		// particle is born on the emitter's layers (see `Particle`), so the
+		// ones alive have to follow a change too: or a camera that draws
+		// only the emitter's new layer would leave every one of them out.
+		if (this.visibilityLayer !== this.#appliedVisibilityLayer) {
+			this.#appliedVisibilityLayer = this.visibilityLayer;
+			for (const particle of this.children ?? []) {
+				particle.visibilityLayer = this.visibilityLayer;
+			}
+			this.isDirty = true;
+		}
+
+		// frame-skip: only do the bookkeeping when actually configured.
+		// Defaults to 0 (every frame), and that path is the hot one.
+		if (this.settings.framesToSkip > 0) {
+			if (++this._updateCount > this.settings.framesToSkip) {
+				this._updateCount = 0;
+			}
+			if (this._updateCount > 0) {
+				this._dt += dt;
+				return this.isDirty;
+			}
+			dt += this._dt;
+			this._dt = 0;
+		}
+
+		// Update particles. `super.update(dt)` walks every child
+		// (each Particle) through Container.update — visibility check,
+		// per-particle `update(dt)`, etc. CRITICAL: assign it to a
+		// local first, then OR into `this.isDirty`. Writing this as
+		// `this.isDirty = this.isDirty || super.update(dt)` would
+		// short-circuit when `isDirty` is already true (very common),
+		// silently skipping the whole child walk — particles would
+		// keep `inViewport = false` and never draw.
+		const childrenDirty = super.update(dt);
+		this.isDirty = this.isDirty || childrenDirty;
+
+		// Particles left behind in another frame outlive the emitter's own
+		// position, but `Container.draw` gates every child on the PARENT's
+		// `inViewport` and an emitter's bounds do not cover its children. So
+		// a trail would vanish the instant the emitter it came from scrolled
+		// off-screen. Re-assert visibility here — the parent assigns
+		// `inViewport` just before calling this, and draw happens after, so
+		// this is the last word for the frame. Particles are still culled
+		// individually inside our own child walk, so nothing extra rasterizes.
+		if (
+			this.#frameOf(this.settings.referenceSpace) !== this &&
+			this.getChildren().length > 0
+		) {
+			this.inViewport = true;
+		}
+
+		// Launch new particles, if emitter is Stream
+		if (this._enabled && this._stream) {
+			// Check if the emitter has duration set
+			if (this._durationTimer !== Infinity) {
+				this._durationTimer -= dt;
+
+				if (this._durationTimer <= 0) {
+					this.stopStream();
+					return this.isDirty;
+				}
+			}
+
+			// Increase the emitter launcher timer
+			this._frequencyTimer += dt;
+
+			// Check for new particles launch
+			const particlesCount = this.getChildren().length;
+			if (
+				particlesCount < this.settings.totalParticles &&
+				this._frequencyTimer >= this.settings.frequency
+			) {
+				this.addParticles(
+					Math.min(
+						this.settings.maxParticles,
+						this.settings.totalParticles - particlesCount,
+					),
+				);
+				this._frequencyTimer = 0;
+				this.isDirty = true;
+			}
+		}
+
+		// completion detection — fires once after at least one particle has
+		// been spawned, the emitter is no longer producing new ones, and all
+		// children have died. Covers both burst (instant _enabled = false) and
+		// stream (duration elapsed → stopStream()).
+		if (this._hasSpawned && !this._enabled && this.getChildren().length === 0) {
+			// guard against re-entry: clear the flag so we only fire once
+			this._hasSpawned = false;
+			if (typeof this.settings.onComplete === "function") {
+				this.settings.onComplete.call(this);
+			}
+			if (this.settings.autoDestroyOnComplete && this.ancestor) {
+				(this.ancestor as Container).removeChild(this);
+			}
+		}
+
+		return this.isDirty;
+	}
+
+	/**
+	 * Destroy function
+	 * @ignore
+	 * @internal
+	 */
+	override destroy(): void {
+		super.destroy();
+		// nothing to free for the built-in square: the white pixel is shared
+		// by every emitter, and by everything else drawn without a texture
+		// Clear the image reference so a discarded emitter doesn't pin a
+		// (potentially large) image / canvas alive via `settings.image`.
+		// `this.settings = undefined` was here too but offered no GC win
+		// — once the emitter itself is unreferenced, `settings` follows —
+		// and it required a `as unknown as ParticleEmitterSettings` cast
+		// that lied about the field type. Dropped.
+		this.settings.image = undefined;
+		// a custom reference space holds a reference to a whole container —
+		// release it for the same reason, so a discarded emitter cannot pin
+		// an entire subtree alive
+		this.settings.referenceSpace = "local";
+		this._spawnMap = undefined;
+	}
+}

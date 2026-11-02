@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 56 skills  
+> **Total Curated Skills**: 57 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -50,6 +50,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`lightning-energy-skill-vfx`](../../library/mengto-skills/skills/lightning-energy-skill-vfx) | ⚪ Reserve | `mengto-skills` | Build the effects of a close-combat energy skill as one visual language in Three.js. Lightning ... |
 | [`makepad-shaders`](../../library/sickn33-agentic-awesome-skills/skills/makepad-shaders) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CRITICAL: Use for Makepad shader system. Triggers on: makepad shader, makepad draw_bg, Sdf2d, m... |
 | [`melonjs`](../../library/melonjs-melonjs/skills/melonjs) | ⚪ Reserve | `melonjs-melonjs` | Provides migration guidance for melonJS 20.x, covering async initialization, WebGL 2/WebGPU bac... |
+| [`melonjs-renderables`](../../library/melonjs-melonjs/skills/melonjs-renderables) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when subclassing Renderable, writing a custom draw() method, handling pointer or... |
 | [`optimize-threejs-games`](../../library/mengto-skills/skills/optimize-threejs-games) | ⚪ Reserve | `mengto-skills` | Profile, diagnose, and improve Three.js or WebGL game performance without regressing gameplay. ... |
 | [`optimize-web`](../../library/unity-technologies-skills/skills/optimize-web) | ⚪ Reserve | `unity-technologies-skills` | Optimizes Unity WebGL and WebGPU builds for smaller downloads, faster loading, and smoother bro... |
 | [`premium-3d-website`](../../library/sickn33-agentic-awesome-skills/skills/premium-3d-website) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing,... |

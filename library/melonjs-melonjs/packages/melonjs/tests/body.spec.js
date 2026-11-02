@@ -1,0 +1,1243 @@
+import { beforeEach, describe, expect, it } from "vitest";
+import {
+	Body,
+	Bounds,
+	Box3d,
+	collision,
+	Ellipse,
+	Line,
+	Point,
+	Polygon,
+	Rect,
+	Renderable,
+	RoundRect,
+	Sphere,
+} from "../src/index.js";
+
+describe("Physics : Body", () => {
+	describe("Constructor", () => {
+		it("should create a body with a Rect shape", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const shape = new Rect(0, 0, 32, 64);
+			const body = new Body(parent, shape);
+			expect(body.shapes.length).toEqual(1);
+			expect(body.ancestor).toEqual(parent);
+		});
+
+		it("should create a body with an Ellipse shape", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const shape = new Ellipse(16, 32, 32, 64);
+			const body = new Body(parent, shape);
+			expect(body.shapes.length).toEqual(1);
+		});
+
+		it("should create a body with a Polygon shape", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const shape = new Polygon(0, 0, [
+				{ x: 0, y: 0 },
+				{ x: 32, y: 0 },
+				{ x: 32, y: 64 },
+				{ x: 0, y: 64 },
+			]);
+			const body = new Body(parent, shape);
+			expect(body.shapes.length).toEqual(1);
+		});
+
+		it("should create a body with an array of shapes", () => {
+			const parent = new Renderable(0, 0, 64, 64);
+			const shapes = [new Rect(0, 0, 32, 32), new Rect(32, 0, 32, 32)];
+			const body = new Body(parent, shapes);
+			expect(body.shapes.length).toEqual(2);
+		});
+
+		it("should create a body with no initial shape", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			expect(body.shapes.length).toEqual(0);
+		});
+
+		it("should have correct default property values", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			expect(body.vel.x).toEqual(0);
+			expect(body.vel.y).toEqual(0);
+			expect(body.force.x).toEqual(0);
+			expect(body.force.y).toEqual(0);
+			expect(body.friction.x).toEqual(0);
+			expect(body.friction.y).toEqual(0);
+			expect(body.mass).toEqual(1);
+			expect(body.bounce).toEqual(0);
+			expect(body.gravityScale).toEqual(1.0);
+			expect(body.ignoreGravity).toEqual(false);
+			expect(body.isStatic).toEqual(false);
+			expect(body.falling).toEqual(false);
+			expect(body.jumping).toEqual(false);
+			expect(body.maxVel.x).toEqual(490);
+			expect(body.maxVel.y).toEqual(490);
+		});
+
+		it("should set ancestor.isKinematic to false", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			parent.isKinematic = true;
+			// eslint-disable-next-line no-new
+			new Body(parent);
+			expect(parent.isKinematic).toEqual(false);
+		});
+
+		it("should set the onBodyUpdate callback when provided", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			let callbackCalled = false;
+			const callback = () => {
+				callbackCalled = true;
+			};
+			// eslint-disable-next-line no-new
+			new Body(parent, new Rect(0, 0, 10, 10), callback);
+			expect(callbackCalled).toEqual(true);
+		});
+	});
+
+	describe("addShape / removeShape / removeShapeAt / getShape", () => {
+		let parent;
+		let body;
+
+		beforeEach(() => {
+			parent = new Renderable(0, 0, 64, 64);
+			body = new Body(parent);
+		});
+
+		it("addShape should add a Rect and return the new length", () => {
+			const result = body.addShape(new Rect(0, 0, 32, 32));
+			expect(result).toEqual(1);
+			expect(body.shapes.length).toEqual(1);
+		});
+
+		it("addShape should add an Ellipse and return the new length", () => {
+			const result = body.addShape(new Ellipse(16, 16, 32, 32));
+			expect(result).toEqual(1);
+			expect(body.shapes.length).toEqual(1);
+		});
+
+		it("addShape should add a Polygon and return the new length", () => {
+			const poly = new Polygon(0, 0, [
+				{ x: 0, y: 0 },
+				{ x: 32, y: 0 },
+				{ x: 16, y: 32 },
+			]);
+			const result = body.addShape(poly);
+			expect(result).toEqual(1);
+		});
+
+		it("addShape should add multiple shapes", () => {
+			body.addShape(new Rect(0, 0, 16, 16));
+			body.addShape(new Rect(16, 0, 16, 16));
+			body.addShape(new Rect(0, 16, 16, 16));
+			expect(body.shapes.length).toEqual(3);
+		});
+
+		// The next block targets every shape type the JSDoc on
+		// `Body.addShape` and `Body` constructor advertise. Each branch
+		// of the conditional in `body.js#addShape` should be hit at least
+		// once — a regression on any branch would otherwise slip past CI.
+		it("addShape accepts a Bounds — converts to polygon via inline AABB", () => {
+			// Regression: `Body.addShape(bounds)` used to call
+			// `bounds.toPolygon()`. `Bounds.toPolygon` was removed in 19.5;
+			// body.js inlines the conversion now to avoid the
+			// bounds.ts ↔ polygon.ts cycle. Pin that the path still works.
+			const b = new Bounds();
+			b.setMinMax(0, 0, 24, 16);
+			const result = body.addShape(b);
+			expect(result).toEqual(1);
+			expect(body.shapes.length).toEqual(1);
+			expect(body.shapes[0]).toBeInstanceOf(Polygon);
+			// Body bounds should match the source AABB.
+			const out = body.getBounds();
+			expect(out.width).toEqual(24);
+			expect(out.height).toEqual(16);
+		});
+
+		it("addShape accepts a Line — Line extends Polygon so hits the Polygon branch", () => {
+			const line = new Line(0, 0, [
+				{ x: 0, y: 0 },
+				{ x: 32, y: 16 },
+			]);
+			const result = body.addShape(line);
+			expect(result).toEqual(1);
+			expect(body.shapes[0]).toBe(line);
+		});
+
+		it("addShape accepts a Point", () => {
+			const p = new Point(8, 12);
+			const result = body.addShape(p);
+			expect(result).toEqual(1);
+			expect(body.shapes[0]).toBe(p);
+		});
+
+		it("addShape accepts a PhysicEditor-style JSON shape", () => {
+			// `addShape` routes objects without a known prototype to
+			// `fromJSON`, which expects an array of `{ shape: [x0,y0, x1,y1, …] }`
+			// entries (the PhysicEditor export format). One triangle:
+			const json = [
+				{
+					shape: [0, 0, 32, 0, 16, 32],
+				},
+			];
+			const result = body.addShape(json);
+			expect(result).toBeGreaterThanOrEqual(1);
+			expect(body.shapes.length).toBeGreaterThanOrEqual(1);
+		});
+
+		it("Body constructor accepts a Bounds shape", () => {
+			// Mirror the addShape Bounds test on the constructor path —
+			// the bug Copilot caught originated in `new Body(r, bounds)`
+			// just as much as `body.addShape(bounds)`.
+			const b = new Bounds();
+			b.setMinMax(0, 0, 32, 32);
+			const r = new Renderable(0, 0, 32, 32);
+			const built = new Body(r, b);
+			expect(built.shapes.length).toEqual(1);
+			expect(built.shapes[0]).toBeInstanceOf(Polygon);
+		});
+
+		it("Body constructor accepts a mixed array of shape types", () => {
+			// Multi-shape compound body with one of every supported type
+			// in a single array — the path most likely to surface a
+			// branch-ordering bug in `addShape`.
+			const b = new Bounds();
+			b.setMinMax(0, 0, 8, 8);
+			const r = new Renderable(0, 0, 64, 64);
+			const built = new Body(r, [
+				new Rect(0, 0, 16, 16),
+				new Ellipse(8, 8, 16, 16),
+				new Polygon(0, 0, [
+					{ x: 0, y: 0 },
+					{ x: 16, y: 0 },
+					{ x: 8, y: 16 },
+				]),
+				b,
+			]);
+			expect(built.shapes.length).toEqual(4);
+		});
+
+		it("getShape should return the shape at the given index", () => {
+			const poly = new Polygon(0, 0, [
+				{ x: 0, y: 0 },
+				{ x: 32, y: 0 },
+				{ x: 32, y: 32 },
+				{ x: 0, y: 32 },
+			]);
+			body.addShape(new Rect(0, 0, 16, 16));
+			body.addShape(poly);
+			expect(body.getShape(1)).toEqual(poly);
+		});
+
+		it("getShape with no argument should return the first shape", () => {
+			body.addShape(new Rect(0, 0, 16, 16));
+			body.addShape(new Rect(16, 0, 16, 16));
+			const shape = body.getShape();
+			expect(shape).toEqual(body.shapes[0]);
+		});
+
+		it("removeShapeAt should remove shape at the given index", () => {
+			body.addShape(new Rect(0, 0, 16, 16));
+			body.addShape(new Rect(16, 0, 16, 16));
+			expect(body.shapes.length).toEqual(2);
+			const remaining = body.removeShapeAt(1);
+			expect(remaining).toEqual(1);
+			expect(body.shapes.length).toEqual(1);
+		});
+
+		it("removeShape should remove a specific shape instance", () => {
+			const poly = new Polygon(0, 0, [
+				{ x: 0, y: 0 },
+				{ x: 20, y: 0 },
+				{ x: 20, y: 20 },
+				{ x: 0, y: 20 },
+			]);
+			body.addShape(new Rect(0, 0, 16, 16));
+			body.addShape(poly);
+			expect(body.shapes.length).toEqual(2);
+			const remaining = body.removeShape(poly);
+			expect(remaining).toEqual(1);
+		});
+
+		it("removeShapeAt should update the bounds", () => {
+			body.addShape(new Rect(0, 0, 16, 16));
+			const boundsWithOne = body.getBounds();
+			expect(boundsWithOne.width).toEqual(16);
+			expect(boundsWithOne.height).toEqual(16);
+
+			body.addShape(new Rect(0, 0, 32, 32));
+			const boundsWithTwo = body.getBounds();
+			expect(boundsWithTwo.width).toEqual(32);
+			expect(boundsWithTwo.height).toEqual(32);
+
+			body.removeShapeAt(1);
+			const boundsAfter = body.getBounds();
+			expect(boundsAfter.width).toEqual(16);
+			expect(boundsAfter.height).toEqual(16);
+		});
+	});
+
+	describe("getBounds", () => {
+		it("should return correct bounds for a single Rect shape", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const shape = new Rect(10, 10, 32, 64);
+			const body = new Body(parent, shape);
+			const bounds = body.getBounds();
+			expect(bounds.left).toEqual(10);
+			expect(bounds.top).toEqual(10);
+			expect(bounds.width).toEqual(32);
+			expect(bounds.height).toEqual(64);
+		});
+
+		it("should return correct bounds for a single Ellipse shape", () => {
+			const parent = new Renderable(0, 0, 32, 32);
+			const shape = new Ellipse(16, 16, 32, 32);
+			const body = new Body(parent, shape);
+			const bounds = body.getBounds();
+			expect(bounds.width).toEqual(32);
+			expect(bounds.height).toEqual(32);
+		});
+
+		it("should return correct bounds after adding multiple shapes", () => {
+			const parent = new Renderable(0, 0, 64, 64);
+			const body = new Body(parent);
+			body.addShape(new Rect(0, 0, 20, 20));
+			body.addShape(new Rect(0, 0, 50, 50));
+			const bounds = body.getBounds();
+			expect(bounds.left).toEqual(0);
+			expect(bounds.top).toEqual(0);
+			expect(bounds.width).toEqual(50);
+			expect(bounds.height).toEqual(50);
+		});
+
+		it("should recalculate bounds after removing a shape", () => {
+			const parent = new Renderable(0, 0, 64, 64);
+			const body = new Body(parent);
+			body.addShape(new Rect(0, 0, 10, 10));
+			body.addShape(new Rect(0, 0, 60, 60));
+			expect(body.getBounds().width).toEqual(60);
+			body.removeShapeAt(1);
+			expect(body.getBounds().width).toEqual(10);
+		});
+
+		// Each added shape used to translate the bounds accumulated so far by
+		// its own offset, so any body with several off-origin shapes reported
+		// an AABB bigger than (and shifted from) the union of its shapes.
+		const expectBounds = (bounds, left, top, right, bottom) => {
+			expect(bounds.left).toEqual(left);
+			expect(bounds.top).toEqual(top);
+			expect(bounds.right).toEqual(right);
+			expect(bounds.bottom).toEqual(bottom);
+		};
+
+		it("should return the union of two offset Rect shapes", () => {
+			// the alex4 player shapes
+			const body = new Body(new Renderable(0, 0, 192, 192));
+			body.addShape(new Rect(76, 36, 40, 60));
+			body.addShape(new Rect(76, 36, 40, 76));
+			expectBounds(body.getBounds(), 76, 36, 116, 112);
+		});
+
+		it("should return the union of two identical offset Rect shapes", () => {
+			const body = new Body(new Renderable(0, 0, 64, 64));
+			body.addShape(new Rect(8, 8, 48, 56));
+			body.addShape(new Rect(8, 8, 48, 56));
+			expectBounds(body.getBounds(), 8, 8, 56, 64);
+		});
+
+		it("should return the union of offset Polygon and Bounds shapes", () => {
+			const body = new Body(new Renderable(0, 0, 100, 100));
+			body.addShape(
+				new Polygon(10, 20, [
+					{ x: 0, y: 0 },
+					{ x: 10, y: 0 },
+					{ x: 10, y: 10 },
+				]),
+			);
+			const b = new Bounds();
+			b.setMinMax(40, 50, 60, 70);
+			body.addShape(b);
+			expectBounds(body.getBounds(), 10, 20, 60, 70);
+		});
+
+		it("should not translate an offset Ellipse twice", () => {
+			const body = new Body(new Renderable(0, 0, 100, 100));
+			body.addShape(new Ellipse(50, 50, 20, 20));
+			expectBounds(body.getBounds(), 40, 40, 60, 60);
+			body.addShape(new Rect(70, 10, 10, 10));
+			expectBounds(body.getBounds(), 40, 10, 80, 60);
+		});
+
+		it("should rebuild the union of offset shapes after removeShape", () => {
+			const body = new Body(new Renderable(0, 0, 100, 100));
+			body.addShape(new Rect(10, 10, 10, 10));
+			body.addShape(new Ellipse(50, 50, 20, 20));
+			body.addShape(new Rect(70, 70, 10, 10));
+			expectBounds(body.getBounds(), 10, 10, 80, 80);
+			body.removeShapeAt(2);
+			expectBounds(body.getBounds(), 10, 10, 60, 60);
+			body.removeShapeAt(0);
+			expectBounds(body.getBounds(), 40, 40, 60, 60);
+		});
+
+		it("should keep the other shapes in the bounds after setVertices", () => {
+			const body = new Body(new Renderable(0, 0, 100, 100));
+			body.addShape(new Rect(10, 10, 10, 10));
+			body.addShape(new Rect(50, 50, 10, 10));
+			body.setVertices(
+				[
+					{ x: 0, y: 0 },
+					{ x: 30, y: 0 },
+					{ x: 30, y: 5 },
+				],
+				1,
+			);
+			expectBounds(body.getBounds(), 0, 0, 30, 20);
+		});
+	});
+
+	describe("bounds of multi-shape bodies", () => {
+		const expectBounds = (bounds, left, top, right, bottom) => {
+			expect(bounds.left).toEqual(left);
+			expect(bounds.top).toEqual(top);
+			expect(bounds.right).toEqual(right);
+			expect(bounds.bottom).toEqual(bottom);
+		};
+		const triangle = () => {
+			return [
+				{ x: 0, y: 0 },
+				{ x: 10, y: 0 },
+				{ x: 10, y: 10 },
+			];
+		};
+		const box = (w, h) => {
+			return [
+				{ x: 0, y: 0 },
+				{ x: w, y: 0 },
+				{ x: w, y: h },
+				{ x: 0, y: h },
+			];
+		};
+		let body;
+
+		beforeEach(() => {
+			body = new Body(new Renderable(0, 0, 100, 100));
+		});
+
+		it("adds offset Polygon, Line and RoundRect shapes after another shape", () => {
+			body.addShape(new Rect(0, 0, 10, 10));
+			body.addShape(new Polygon(30, 40, triangle()));
+			expectBounds(body.getBounds(), 0, 0, 40, 50);
+			body.addShape(
+				new Line(60, 70, [
+					{ x: 0, y: 0 },
+					{ x: 10, y: 5 },
+				]),
+			);
+			expectBounds(body.getBounds(), 0, 0, 70, 75);
+			body.addShape(new RoundRect(80, 5, 10, 10, 2));
+			expectBounds(body.getBounds(), 0, 0, 90, 75);
+		});
+
+		it("handles negative offsets", () => {
+			body.addShape(new Rect(-30, -20, 10, 10));
+			body.addShape(new Rect(5, 5, 10, 10));
+			expectBounds(body.getBounds(), -30, -20, 15, 15);
+		});
+
+		it("places a lone Ellipse at a negative offset once", () => {
+			body.addShape(new Ellipse(-50, -50, 20, 20));
+			expectBounds(body.getBounds(), -60, -60, -40, -40);
+		});
+
+		it("picks up a Polygon pos changed directly", () => {
+			body.addShape(new Rect(0, 0, 10, 10));
+			const poly = new Polygon(0, 0, triangle());
+			poly.pos.set(30, 40);
+			body.addShape(poly);
+			expectBounds(body.getBounds(), 0, 0, 40, 50);
+		});
+
+		it("picks up a Polygon pos changed directly when removeShape rebuilds", () => {
+			body.addShape(new Rect(0, 0, 10, 10));
+			const poly = new Polygon(0, 0, triangle());
+			body.addShape(poly);
+			poly.pos.set(30, 40);
+			body.removeShapeAt(0);
+			expectBounds(body.getBounds(), 30, 40, 40, 50);
+		});
+
+		it("picks up an Ellipse pos changed directly", () => {
+			const ellipse = new Ellipse(0, 0, 20, 20);
+			ellipse.pos.set(50, 50);
+			body.addShape(ellipse);
+			expectBounds(body.getBounds(), 40, 40, 60, 60);
+		});
+
+		it("setVertices replacing a non-polygon keeps the other shapes", () => {
+			body.addShape(new Rect(10, 10, 10, 10));
+			const ellipse = new Ellipse(80, 80, 20, 20);
+			body.addShape(ellipse);
+			body.setVertices(box(30, 5), 1);
+			expect(body.shapes.length).toEqual(2);
+			expect(body.shapes[1]).toBeInstanceOf(Polygon);
+			expect(body.shapes.includes(ellipse)).toEqual(false);
+			expectBounds(body.getBounds(), 0, 0, 30, 20);
+		});
+
+		it("setVertices replacing the only Box3d clears hasDepth", () => {
+			body.addShape(new Rect(10, 10, 10, 10));
+			body.addShape(new Box3d(50, 50, 0, 10, 10, 10));
+			expect(body.hasDepth).toEqual(true);
+			body.setVertices(box(5, 5), 1);
+			expect(body.hasDepth).toEqual(false);
+			expectBounds(body.getBounds(), 0, 0, 20, 20);
+		});
+
+		it("setVertices on another shape keeps hasDepth for a Box3d", () => {
+			body.addShape(new Rect(10, 10, 10, 10));
+			body.addShape(new Box3d(50, 50, 0, 10, 10, 10));
+			body.setVertices(box(5, 5), 0);
+			expect(body.hasDepth).toEqual(true);
+			// a Box3d x/y is its center
+			expectBounds(body.getBounds(), 0, 0, 55, 55);
+		});
+
+		it("setVertices on another shape keeps hasDepth for a Sphere", () => {
+			body.addShape(new Rect(10, 10, 10, 10));
+			body.addShape(new Sphere(50, 50, 0, 10));
+			body.setVertices(box(5, 5), 0);
+			expect(body.hasDepth).toEqual(true);
+			expectBounds(body.getBounds(), 0, 0, 60, 60);
+		});
+
+		it("setVertices recomputes pseudoInertia from the new bounds", () => {
+			body.addShape(new Rect(0, 0, 60, 80));
+			expect(body.pseudoInertia).toBeCloseTo((60 * 60 + 80 * 80) / 12);
+			body.setVertices(box(6, 8));
+			expect(body.pseudoInertia).toBeCloseTo((6 * 6 + 8 * 8) / 12);
+		});
+
+		it("setVertices at the end of the shape list appends a shape", () => {
+			body.addShape(new Rect(10, 10, 10, 10));
+			body.setVertices(box(5, 5), 1);
+			expect(body.shapes.length).toEqual(2);
+			expectBounds(body.getBounds(), 0, 0, 20, 20);
+		});
+
+		it("setVertices past the end of the shape list throws", () => {
+			body.addShape(new Rect(10, 10, 10, 10));
+			expect(() => {
+				body.setVertices(box(5, 5), 3);
+			}).toThrow(RangeError);
+			// nothing changed, and no gap was left in the shape list
+			expect(body.shapes.length).toEqual(1);
+			expectBounds(body.getBounds(), 10, 10, 20, 20);
+		});
+	});
+
+	describe("setStatic", () => {
+		it("should set the body as static when called with no arguments", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setStatic();
+			expect(body.isStatic).toEqual(true);
+		});
+
+		it("should set the body as static when called with true", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setStatic(true);
+			expect(body.isStatic).toEqual(true);
+		});
+
+		it("should set the body as non-static when called with false", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setStatic(true);
+			expect(body.isStatic).toEqual(true);
+			body.setStatic(false);
+			expect(body.isStatic).toEqual(false);
+		});
+	});
+
+	describe("setVelocity / getVelocity", () => {
+		it("setVelocity writes to body.vel", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setVelocity(3, -4);
+			expect(body.vel.x).toEqual(3);
+			expect(body.vel.y).toEqual(-4);
+		});
+
+		it("getVelocity returns a copy by default", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setVelocity(1, 2);
+			const v = body.getVelocity();
+			expect(v.x).toEqual(1);
+			expect(v.y).toEqual(2);
+			// mutating the returned vector must not touch body.vel
+			v.set(99, 99);
+			expect(body.vel.x).toEqual(1);
+			expect(body.vel.y).toEqual(2);
+		});
+
+		it("getVelocity writes into the provided output vector", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setVelocity(5, 6);
+			const out = body.vel.clone().set(0, 0);
+			const r = body.getVelocity(out);
+			expect(r).toBe(out);
+			expect(out.x).toEqual(5);
+			expect(out.y).toEqual(6);
+		});
+	});
+
+	describe("applyForce", () => {
+		it("accumulates onto body.force across calls", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.applyForce(1, 2);
+			body.applyForce(3, -1);
+			expect(body.force.x).toEqual(4);
+			expect(body.force.y).toEqual(1);
+		});
+
+		it("does not mutate body.vel", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setVelocity(7, 8);
+			body.applyForce(5, 5);
+			expect(body.vel.x).toEqual(7);
+			expect(body.vel.y).toEqual(8);
+		});
+	});
+
+	describe("applyImpulse", () => {
+		it("updates vel by impulse / mass on a dynamic body", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.mass = 2;
+			body.applyImpulse(10, -6);
+			// dv = J / m → vel becomes (5, -3)
+			expect(body.vel.x).toEqual(5);
+			expect(body.vel.y).toEqual(-3);
+		});
+
+		it("accumulates onto body.vel across calls", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.mass = 1;
+			body.applyImpulse(3, 4);
+			body.applyImpulse(-1, 2);
+			expect(body.vel.x).toEqual(2);
+			expect(body.vel.y).toEqual(6);
+		});
+
+		it("is a no-op on a static (mass 0) body", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.mass = 0;
+			body.applyImpulse(100, 100);
+			expect(body.vel.x).toEqual(0);
+			expect(body.vel.y).toEqual(0);
+		});
+
+		it("adds to existing velocity rather than replacing it", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.mass = 1;
+			body.vel.set(2, -3);
+			body.applyImpulse(5, 5);
+			expect(body.vel.x).toEqual(7);
+			expect(body.vel.y).toEqual(2);
+		});
+
+		it("scales the velocity delta correctly with mass — heavier = slower", () => {
+			const a = new Body(new Renderable(0, 0, 32, 64));
+			const b = new Body(new Renderable(0, 0, 32, 64));
+			a.mass = 1;
+			b.mass = 10;
+			a.applyImpulse(10, 0);
+			b.applyImpulse(10, 0);
+			// same impulse → b moves 10× slower
+			expect(a.vel.x).toEqual(10);
+			expect(b.vel.x).toEqual(1);
+		});
+
+		it("does not cross-contaminate vel between bodies", () => {
+			const a = new Body(new Renderable(0, 0, 32, 64));
+			const b = new Body(new Renderable(0, 0, 32, 64));
+			a.mass = 1;
+			b.mass = 1;
+			a.applyImpulse(5, 0);
+			expect(b.vel.x).toEqual(0);
+			expect(b.vel.y).toEqual(0);
+		});
+	});
+
+	describe("setMass / setBounce / setGravityScale", () => {
+		it("setMass updates body.mass", () => {
+			const body = new Body(new Renderable(0, 0, 32, 64));
+			body.setMass(5);
+			expect(body.mass).toEqual(5);
+		});
+
+		it("setMass + applyImpulse interact via dv = J / m", () => {
+			const body = new Body(new Renderable(0, 0, 32, 64));
+			body.setMass(4);
+			body.applyImpulse(8, 0);
+			expect(body.vel.x).toEqual(2);
+		});
+
+		it("setBounce updates body.bounce (matches bodyDef.restitution)", () => {
+			const body = new Body(new Renderable(0, 0, 32, 64));
+			body.setBounce(0.6);
+			expect(body.bounce).toEqual(0.6);
+		});
+
+		it("setGravityScale updates body.gravityScale", () => {
+			const body = new Body(new Renderable(0, 0, 32, 64));
+			body.setGravityScale(0);
+			expect(body.gravityScale).toEqual(0);
+			body.setGravityScale(2);
+			expect(body.gravityScale).toEqual(2);
+		});
+	});
+
+	describe("setSensor", () => {
+		it("defaults to true when called with no arguments", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			expect(body.isSensor).toEqual(false);
+			body.setSensor();
+			expect(body.isSensor).toEqual(true);
+		});
+
+		it("toggles isSensor on and off", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setSensor(true);
+			expect(body.isSensor).toEqual(true);
+			body.setSensor(false);
+			expect(body.isSensor).toEqual(false);
+		});
+	});
+
+	describe("setMaxVelocity", () => {
+		it("should set the maximum velocity", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setMaxVelocity(100, 200);
+			expect(body.maxVel.x).toEqual(100);
+			expect(body.maxVel.y).toEqual(200);
+		});
+
+		it("should override the default max velocity", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			expect(body.maxVel.x).toEqual(490);
+			expect(body.maxVel.y).toEqual(490);
+			body.setMaxVelocity(5, 15);
+			expect(body.maxVel.x).toEqual(5);
+			expect(body.maxVel.y).toEqual(15);
+		});
+	});
+
+	describe("setFriction", () => {
+		it("should set the friction values", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setFriction(0.5, 0.3);
+			expect(body.friction.x).toEqual(0.5);
+			expect(body.friction.y).toEqual(0.3);
+		});
+
+		it("should default to 0 when called with no arguments", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setFriction(0.5, 0.3);
+			body.setFriction();
+			expect(body.friction.x).toEqual(0);
+			expect(body.friction.y).toEqual(0);
+		});
+	});
+
+	describe("setCollisionMask", () => {
+		it("should default to ALL_OBJECT", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			expect(body.collisionMask).toEqual(collision.types.ALL_OBJECT);
+		});
+
+		it("should set a custom collision mask", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setCollisionMask(
+				collision.types.PLAYER_OBJECT | collision.types.ENEMY_OBJECT,
+			);
+			expect(body.collisionMask).toEqual(
+				collision.types.PLAYER_OBJECT | collision.types.ENEMY_OBJECT,
+			);
+		});
+
+		it("should reset to ALL_OBJECT when called with no arguments", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setCollisionMask(collision.types.NO_OBJECT);
+			expect(body.collisionMask).toEqual(collision.types.NO_OBJECT);
+			body.setCollisionMask();
+			expect(body.collisionMask).toEqual(collision.types.ALL_OBJECT);
+		});
+
+		it("should set NO_OBJECT mask to disable collisions", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setCollisionMask(collision.types.NO_OBJECT);
+			expect(body.collisionMask).toEqual(collision.types.NO_OBJECT);
+		});
+	});
+
+	describe("setCollisionType", () => {
+		it("should default to ENEMY_OBJECT", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			expect(body.collisionType).toEqual(collision.types.ENEMY_OBJECT);
+		});
+
+		it("should set a collision type by key name", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setCollisionType("PLAYER_OBJECT");
+			expect(body.collisionType).toEqual(collision.types.PLAYER_OBJECT);
+		});
+
+		it("should set collision type directly via property", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.collisionType = collision.types.PLAYER_OBJECT;
+			expect(body.collisionType).toEqual(collision.types.PLAYER_OBJECT);
+		});
+
+		it("should set a collision type by numeric value", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			body.setCollisionType(collision.types.PLAYER_OBJECT);
+			expect(body.collisionType).toEqual(collision.types.PLAYER_OBJECT);
+		});
+
+		it("should throw for an invalid type", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent);
+			expect(() => {
+				return body.setCollisionType("INVALID_TYPE");
+			}).toThrow();
+			expect(() => {
+				return body.setCollisionType(true);
+			}).toThrow();
+		});
+	});
+
+	describe("contains", () => {
+		let body;
+
+		beforeEach(() => {
+			const parent = new Renderable(0, 0, 32, 64);
+			body = new Body(parent, new Rect(0, 0, 32, 64));
+		});
+
+		it("should return true for a point inside the body", () => {
+			expect(body.contains(16, 32)).toEqual(true);
+		});
+
+		it("should return false for a point outside the body", () => {
+			expect(body.contains(100, 100)).toEqual(false);
+		});
+
+		it("should return true for a point at the origin of the shape", () => {
+			expect(body.contains(1, 1)).toEqual(true);
+		});
+
+		it("should return false for negative coordinates outside bounds", () => {
+			expect(body.contains(-5, -5)).toEqual(false);
+		});
+
+		it("should accept a vector-like object as argument", () => {
+			expect(body.contains({ x: 16, y: 32 })).toEqual(true);
+			expect(body.contains({ x: 100, y: 100 })).toEqual(false);
+		});
+	});
+
+	describe("forEach", () => {
+		it("should iterate over all shapes", () => {
+			const parent = new Renderable(0, 0, 64, 64);
+			const body = new Body(parent);
+			body.addShape(new Rect(0, 0, 16, 16));
+			body.addShape(new Rect(16, 0, 16, 16));
+			body.addShape(new Rect(32, 0, 16, 16));
+
+			let count = 0;
+			body.forEach(() => {
+				count++;
+			});
+			expect(count).toEqual(3);
+		});
+
+		it("should provide shape, index, and array arguments", () => {
+			const parent = new Renderable(0, 0, 64, 64);
+			const body = new Body(parent);
+			body.addShape(new Rect(0, 0, 16, 16));
+			body.addShape(new Rect(16, 0, 16, 16));
+
+			const indices = [];
+			body.forEach((shape, index, array) => {
+				indices.push(index);
+				expect(shape).toEqual(array[index]);
+			});
+			expect(indices).toEqual([0, 1]);
+		});
+
+		it("should use the provided thisArg", () => {
+			const parent = new Renderable(0, 0, 32, 32);
+			const body = new Body(parent, new Rect(0, 0, 16, 16));
+
+			const context = { value: 42 };
+			body.forEach(function () {
+				expect(this.value).toEqual(42);
+			}, context);
+		});
+
+		it("should throw if callback is not a function", () => {
+			const parent = new Renderable(0, 0, 32, 32);
+			const body = new Body(parent, new Rect(0, 0, 16, 16));
+			expect(() => {
+				return body.forEach("not a function");
+			}).toThrow();
+		});
+	});
+
+	describe("rotate", () => {
+		it("should return the body for method chaining", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent, new Rect(0, 0, 32, 64));
+			const result = body.rotate(Math.PI / 4);
+			expect(result).toEqual(body);
+		});
+
+		it("should not modify the body when angle is 0", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent, new Rect(0, 0, 32, 64));
+			const widthBefore = body.getBounds().width;
+			const heightBefore = body.getBounds().height;
+			body.rotate(0);
+			expect(body.getBounds().width).toEqual(widthBefore);
+			expect(body.getBounds().height).toEqual(heightBefore);
+		});
+
+		it("should update bounds after rotation", () => {
+			const parent = new Renderable(0, 0, 32, 64);
+			const body = new Body(parent, new Rect(0, 0, 32, 64));
+			const widthBefore = body.getBounds().width;
+			const heightBefore = body.getBounds().height;
+			body.rotate(Math.PI / 2);
+			const boundsAfter = body.getBounds();
+			// after 90 degree rotation, width and height should approximately swap
+			expect(Math.abs(boundsAfter.width - heightBefore)).toBeLessThan(1);
+			expect(Math.abs(boundsAfter.height - widthBefore)).toBeLessThan(1);
+		});
+	});
+
+	describe("respondToCollision", () => {
+		it("should move ancestor out of overlap", () => {
+			const parent = new Renderable(50, 50, 32, 32);
+			parent.anchorPoint.set(0, 0);
+			const body = new Body(parent, new Rect(0, 0, 32, 32));
+			parent.body = body;
+
+			const response = {
+				overlapV: { x: 5, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			body.respondToCollision(response);
+			expect(parent.pos.x).toEqual(45);
+			expect(parent.pos.y).toEqual(50);
+		});
+
+		it("should preserve z position (draw order) after collision", () => {
+			const parent = new Renderable(50, 50, 32, 32);
+			parent.anchorPoint.set(0, 0);
+			parent.pos.z = 5;
+			const body = new Body(parent, new Rect(0, 0, 32, 32));
+			parent.body = body;
+
+			const response = {
+				overlapV: { x: 5, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			body.respondToCollision(response);
+			expect(parent.pos.z).toEqual(5);
+		});
+
+		it("should cancel velocity component along collision normal", () => {
+			const parent = new Renderable(0, 0, 32, 32);
+			parent.anchorPoint.set(0, 0);
+			const body = new Body(parent, new Rect(0, 0, 32, 32));
+			parent.body = body;
+
+			body.vel.set(3, 4);
+			const response = {
+				overlapV: { x: 1, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			body.respondToCollision(response);
+			// x velocity into the normal should be cancelled
+			expect(body.vel.x).toBeCloseTo(0);
+			// y velocity (tangent) should be preserved
+			expect(body.vel.y).toBeCloseTo(4);
+		});
+
+		it("should not cancel velocity when moving away from normal", () => {
+			const parent = new Renderable(0, 0, 32, 32);
+			parent.anchorPoint.set(0, 0);
+			const body = new Body(parent, new Rect(0, 0, 32, 32));
+			parent.body = body;
+
+			// velocity pointing away from the collision normal
+			body.vel.set(-3, 0);
+			const response = {
+				overlapV: { x: 1, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			body.respondToCollision(response);
+			// velocity should be unchanged (already moving away)
+			expect(body.vel.x).toBeCloseTo(-3);
+		});
+
+		it("should reflect velocity when bounce > 0", () => {
+			const parent = new Renderable(0, 0, 32, 32);
+			parent.anchorPoint.set(0, 0);
+			const body = new Body(parent, new Rect(0, 0, 32, 32));
+			parent.body = body;
+			body.bounce = 1;
+
+			body.vel.set(5, 0);
+			const response = {
+				overlapV: { x: 2, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			body.respondToCollision(response);
+			// full bounce should reverse velocity along normal
+			expect(body.vel.x).toBeCloseTo(-5);
+		});
+
+		it("should apply full overlap when other body is static", () => {
+			const parentA = new Renderable(50, 50, 32, 32);
+			parentA.anchorPoint.set(0, 0);
+			const bodyA = new Body(parentA, new Rect(0, 0, 32, 32));
+			parentA.body = bodyA;
+
+			const parentB = new Renderable(40, 50, 32, 32);
+			parentB.anchorPoint.set(0, 0);
+			const bodyB = new Body(parentB, new Rect(0, 0, 32, 32));
+			parentB.body = bodyB;
+			bodyB.setStatic(true);
+
+			const response = {
+				a: parentA,
+				b: parentB,
+				overlapV: { x: 10, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			bodyA.respondToCollision(response);
+			// static other → full overlap applied (ratio = 1)
+			expect(parentA.pos.x).toBeCloseTo(40);
+		});
+
+		it("should split overlap proportionally when both bodies are dynamic with equal mass", () => {
+			const parentA = new Renderable(50, 50, 32, 32);
+			parentA.anchorPoint.set(0, 0);
+			parentA.pos.z = 7;
+			const bodyA = new Body(parentA, new Rect(0, 0, 32, 32));
+			parentA.body = bodyA;
+			bodyA.mass = 1;
+
+			const parentB = new Renderable(40, 50, 32, 32);
+			parentB.anchorPoint.set(0, 0);
+			parentB.pos.z = 3;
+			const bodyB = new Body(parentB, new Rect(0, 0, 32, 32));
+			parentB.body = bodyB;
+			bodyB.mass = 1;
+
+			const response = {
+				a: parentA,
+				b: parentB,
+				overlapV: { x: 10, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			bodyA.respondToCollision(response);
+			// equal mass → ratio = 0.5, move half the overlap
+			expect(parentA.pos.x).toBeCloseTo(45);
+			// z must be preserved
+			expect(parentA.pos.z).toEqual(7);
+		});
+
+		it("should move lighter body more than heavier body", () => {
+			const parentA = new Renderable(50, 50, 32, 32);
+			parentA.anchorPoint.set(0, 0);
+			parentA.pos.z = 10;
+			const bodyA = new Body(parentA, new Rect(0, 0, 32, 32));
+			parentA.body = bodyA;
+			bodyA.mass = 1;
+
+			const parentB = new Renderable(40, 50, 32, 32);
+			parentB.anchorPoint.set(0, 0);
+			parentB.pos.z = 2;
+			const bodyB = new Body(parentB, new Rect(0, 0, 32, 32));
+			parentB.body = bodyB;
+			bodyB.mass = 3;
+
+			const response = {
+				a: parentA,
+				b: parentB,
+				overlapV: { x: 10, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			// bodyA (mass 1) vs bodyB (mass 3): ratio = 3/(1+3) = 0.75
+			bodyA.respondToCollision(response);
+			expect(parentA.pos.x).toBeCloseTo(42.5);
+			expect(parentA.pos.z).toEqual(10);
+
+			// bodyB responds: ratio = 1/(1+3) = 0.25
+			const responseB = {
+				a: parentB,
+				b: parentA,
+				overlapV: { x: -10, y: 0 },
+				overlapN: { x: -1, y: 0 },
+			};
+			bodyB.respondToCollision(responseB);
+			expect(parentB.pos.x).toBeCloseTo(42.5);
+			expect(parentB.pos.z).toEqual(2);
+		});
+
+		it("should scale velocity response by mass ratio for dynamic bodies", () => {
+			const parentA = new Renderable(0, 0, 32, 32);
+			parentA.anchorPoint.set(0, 0);
+			const bodyA = new Body(parentA, new Rect(0, 0, 32, 32));
+			parentA.body = bodyA;
+			bodyA.mass = 1;
+
+			const parentB = new Renderable(0, 0, 32, 32);
+			parentB.anchorPoint.set(0, 0);
+			const bodyB = new Body(parentB, new Rect(0, 0, 32, 32));
+			parentB.body = bodyB;
+			bodyB.mass = 3;
+
+			bodyA.vel.set(8, 0);
+			const response = {
+				a: parentA,
+				b: parentB,
+				overlapV: { x: 2, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			// ratio = 3/4 = 0.75
+			bodyA.respondToCollision(response);
+			// vel.x = 8 - 8 * 0.75 = 2
+			expect(bodyA.vel.x).toBeCloseTo(2);
+		});
+
+		it("should use 50/50 split when both dynamic bodies have zero mass", () => {
+			const parentA = new Renderable(50, 50, 32, 32);
+			parentA.anchorPoint.set(0, 0);
+			const bodyA = new Body(parentA, new Rect(0, 0, 32, 32));
+			parentA.body = bodyA;
+			bodyA.mass = 0;
+
+			const parentB = new Renderable(40, 50, 32, 32);
+			parentB.anchorPoint.set(0, 0);
+			const bodyB = new Body(parentB, new Rect(0, 0, 32, 32));
+			parentB.body = bodyB;
+			bodyB.mass = 0;
+
+			const response = {
+				a: parentA,
+				b: parentB,
+				overlapV: { x: 10, y: 0 },
+				overlapN: { x: 1, y: 0 },
+			};
+			bodyA.respondToCollision(response);
+			// zero mass fallback → ratio = 0.5, move half the overlap
+			expect(parentA.pos.x).toBeCloseTo(45);
+		});
+
+		it("should handle diagonal collision normals", () => {
+			const parent = new Renderable(0, 0, 32, 32);
+			parent.anchorPoint.set(0, 0);
+			const body = new Body(parent, new Rect(0, 0, 32, 32));
+			parent.body = body;
+
+			body.vel.set(4, 4);
+			const n = 1 / Math.sqrt(2);
+			const response = {
+				overlapV: { x: 1, y: 1 },
+				overlapN: { x: n, y: n },
+			};
+			body.respondToCollision(response);
+			// velocity projected onto the diagonal normal should be removed
+			// projVel = 4*n + 4*n = 8*n ≈ 5.66
+			// vel.x = 4 - projVel*n ≈ 4 - 4 = 0
+			expect(body.vel.x).toBeCloseTo(0);
+			expect(body.vel.y).toBeCloseTo(0);
+		});
+	});
+
+	describe("vel, force, mass, bounce, gravityScale, ignoreGravity properties", () => {
+		let body;
+
+		beforeEach(() => {
+			const parent = new Renderable(0, 0, 32, 64);
+			body = new Body(parent);
+		});
+
+		it("vel should be settable", () => {
+			body.vel.set(5, 10);
+			expect(body.vel.x).toEqual(5);
+			expect(body.vel.y).toEqual(10);
+		});
+
+		it("force should be settable", () => {
+			body.force.set(2, 3);
+			expect(body.force.x).toEqual(2);
+			expect(body.force.y).toEqual(3);
+		});
+
+		it("mass should be settable", () => {
+			body.mass = 5;
+			expect(body.mass).toEqual(5);
+		});
+
+		it("bounce should be settable between 0 and 1", () => {
+			body.bounce = 0;
+			expect(body.bounce).toEqual(0);
+			body.bounce = 0.5;
+			expect(body.bounce).toEqual(0.5);
+			body.bounce = 1;
+			expect(body.bounce).toEqual(1);
+		});
+
+		it("gravityScale should be settable", () => {
+			body.gravityScale = 0;
+			expect(body.gravityScale).toEqual(0);
+			body.gravityScale = 2.0;
+			expect(body.gravityScale).toEqual(2.0);
+		});
+
+		it("ignoreGravity should be settable", () => {
+			expect(body.ignoreGravity).toEqual(false);
+			body.ignoreGravity = true;
+			expect(body.ignoreGravity).toEqual(true);
+		});
+	});
+});

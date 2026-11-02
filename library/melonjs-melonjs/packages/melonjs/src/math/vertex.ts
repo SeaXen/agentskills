@@ -1,0 +1,635 @@
+import type { XYPoint, XYZPoint } from "../utils/types.ts";
+import type { Vector2d } from "./vector2d.ts";
+
+/**
+ * Normalize a vertex array to fit within a unit cube centered at the origin.
+ * Vertices are scaled uniformly so that the largest axis spans [-0.5, 0.5].
+ * Modifies the array in place.
+ * @param vertices - vertex positions as x,y,z triplets
+ */
+export function normalizeVertices(vertices: Float32Array) {
+	const len = vertices.length;
+	let minX = Infinity;
+	let minY = Infinity;
+	let minZ = Infinity;
+	let maxX = -Infinity;
+	let maxY = -Infinity;
+	let maxZ = -Infinity;
+
+	// single pass to find bounds — cache indexed reads
+	for (let i = 0; i < len; i += 3) {
+		const x = vertices[i];
+		const y = vertices[i + 1];
+		const z = vertices[i + 2];
+		if (x < minX) {
+			minX = x;
+		}
+		if (x > maxX) {
+			maxX = x;
+		}
+		if (y < minY) {
+			minY = y;
+		}
+		if (y > maxY) {
+			maxY = y;
+		}
+		if (z < minZ) {
+			minZ = z;
+		}
+		if (z > maxZ) {
+			maxZ = z;
+		}
+	}
+
+	const cx = (minX + maxX) * 0.5;
+	const cy = (minY + maxY) * 0.5;
+	const cz = (minZ + maxZ) * 0.5;
+	// precompute reciprocal to replace division with multiplication in the loop
+	const invScale =
+		1.0 / Math.max(maxX - minX || 1, maxY - minY || 1, maxZ - minZ || 1);
+
+	for (let i = 0; i < len; i += 3) {
+		vertices[i] = (vertices[i] - cx) * invScale;
+		vertices[i + 1] = (vertices[i + 1] - cy) * invScale;
+		vertices[i + 2] = (vertices[i + 2] - cz) * invScale;
+	}
+}
+
+/**
+ * Project 3D vertices through a 4x4 matrix with perspective divide,
+ * mapping the result to a 2D display area.
+ * @param src - source vertex positions (x,y,z triplets)
+ * @param dst - destination array (x,y,z triplets, written in place)
+ * @param count - number of vertices to project
+ * @param matrix - 4x4 matrix values (column-major, 16 elements)
+ * @param width - display width to map projected x to
+ * @param height - display height to map projected y to
+ * @param offsetX - x offset added to each projected vertex
+ * @param offsetY - y offset added to each projected vertex
+ * @param zScale - scale factor for Z output (0 = don't compute Z)
+ */
+export function projectVertices(
+	src: Float32Array,
+	dst: Float32Array,
+	count: number,
+	matrix: Float32Array,
+	width: number,
+	height: number,
+	offsetX = 0,
+	offsetY = 0,
+	zScale = 0,
+) {
+	// hoist all constants out of the loop
+	const centerX = width * 0.5 + offsetX;
+	const centerY = height * 0.5 + offsetY;
+	const negHeight = -height;
+
+	// extract matrix elements once (avoids repeated indexed access)
+	const m0 = matrix[0];
+	const m1 = matrix[1];
+	const m2 = matrix[2];
+	const m3 = matrix[3];
+	const m4 = matrix[4];
+	const m5 = matrix[5];
+	const m6 = matrix[6];
+	const m7 = matrix[7];
+	const m8 = matrix[8];
+	const m9 = matrix[9];
+	const m10 = matrix[10];
+	const m11 = matrix[11];
+	const m12 = matrix[12];
+	const m13 = matrix[13];
+	const m14 = matrix[14];
+	const m15 = matrix[15];
+
+	if (zScale !== 0) {
+		const negZScale = -zScale;
+		for (let i = 0; i < count; i++) {
+			const i3 = i * 3;
+			const vx = src[i3];
+			const vy = src[i3 + 1];
+			const vz = src[i3 + 2];
+
+			const tw = m3 * vx + m7 * vy + m11 * vz + m15;
+			const invW = tw !== 0 ? 1.0 / tw : 1.0;
+
+			dst[i3] = (m0 * vx + m4 * vy + m8 * vz + m12) * invW * width + centerX;
+			dst[i3 + 1] =
+				(m1 * vx + m5 * vy + m9 * vz + m13) * invW * negHeight + centerY;
+			dst[i3 + 2] = (m2 * vx + m6 * vy + m10 * vz + m14) * invW * negZScale;
+		}
+	} else {
+		// fast path: skip Z computation entirely
+		for (let i = 0; i < count; i++) {
+			const i3 = i * 3;
+			const vx = src[i3];
+			const vy = src[i3 + 1];
+			const vz = src[i3 + 2];
+
+			const tw = m3 * vx + m7 * vy + m11 * vz + m15;
+			const invW = tw !== 0 ? 1.0 / tw : 1.0;
+
+			dst[i3] = (m0 * vx + m4 * vy + m8 * vz + m12) * invW * width + centerX;
+			dst[i3 + 1] =
+				(m1 * vx + m5 * vy + m9 * vz + m13) * invW * negHeight + centerY;
+			dst[i3 + 2] = 0;
+		}
+	}
+}
+
+/**
+ * Extend an axis-aligned bounding box by a set of 3D vertices transformed
+ * through a 4x4 matrix (translation included). `min` / `max` are updated in
+ * place, so the function can be called repeatedly to accumulate the bounds of
+ * many transformed vertex sets (e.g. every node of a scene graph). Seed `min`
+ * with `+Infinity` and `max` with `-Infinity` before the first call.
+ * @param src - source vertex positions (x,y,z triplets)
+ * @param count - number of vertices to read from `src`
+ * @param matrix - 4x4 matrix values (column-major, 16 elements)
+ * @param min - `[x,y,z]` lower corner, extended in place
+ * @param max - `[x,y,z]` upper corner, extended in place
+ */
+export function transformedBounds(
+	src: Float32Array,
+	count: number,
+	matrix: ArrayLike<number>,
+	min: number[],
+	max: number[],
+) {
+	const m0 = matrix[0];
+	const m1 = matrix[1];
+	const m2 = matrix[2];
+	const m4 = matrix[4];
+	const m5 = matrix[5];
+	const m6 = matrix[6];
+	const m8 = matrix[8];
+	const m9 = matrix[9];
+	const m10 = matrix[10];
+	const m12 = matrix[12];
+	const m13 = matrix[13];
+	const m14 = matrix[14];
+
+	for (let i = 0; i < count; i++) {
+		const i3 = i * 3;
+		const vx = src[i3];
+		const vy = src[i3 + 1];
+		const vz = src[i3 + 2];
+
+		const wx = m0 * vx + m4 * vy + m8 * vz + m12;
+		const wy = m1 * vx + m5 * vy + m9 * vz + m13;
+		const wz = m2 * vx + m6 * vy + m10 * vz + m14;
+
+		if (wx < min[0]) {
+			min[0] = wx;
+		}
+		if (wy < min[1]) {
+			min[1] = wy;
+		}
+		if (wz < min[2]) {
+			min[2] = wz;
+		}
+		if (wx > max[0]) {
+			max[0] = wx;
+		}
+		if (wy > max[1]) {
+			max[1] = wy;
+		}
+		if (wz > max[2]) {
+			max[2] = wz;
+		}
+	}
+}
+
+/**
+ * Compute the bounding-sphere radius of a set of 3D vertices around the local
+ * origin — the distance to the farthest vertex. When a matrix is supplied,
+ * each vertex is taken through its rotation/scale columns (the translation is
+ * ignored, so the radius stays centered on the transform's own origin). Handy
+ * for frustum / culling bounds on a transformed mesh.
+ * @param src - source vertex positions (x,y,z triplets)
+ * @param count - number of vertices to read from `src`
+ * @param [matrix] - optional 4x4 matrix (column-major); only the upper 3x3 rotation/scale is applied
+ * @returns the radius of the smallest origin-centered sphere enclosing the vertices
+ */
+export function boundingRadius(
+	src: Float32Array,
+	count: number,
+	matrix?: ArrayLike<number>,
+): number {
+	let maxLenSq = 0;
+	if (matrix === undefined) {
+		for (let i = 0; i < count; i++) {
+			const i3 = i * 3;
+			const vx = src[i3];
+			const vy = src[i3 + 1];
+			const vz = src[i3 + 2];
+			const lenSq = vx * vx + vy * vy + vz * vz;
+			if (lenSq > maxLenSq) {
+				maxLenSq = lenSq;
+			}
+		}
+		return Math.sqrt(maxLenSq);
+	}
+
+	const m0 = matrix[0];
+	const m1 = matrix[1];
+	const m2 = matrix[2];
+	const m4 = matrix[4];
+	const m5 = matrix[5];
+	const m6 = matrix[6];
+	const m8 = matrix[8];
+	const m9 = matrix[9];
+	const m10 = matrix[10];
+
+	for (let i = 0; i < count; i++) {
+		const i3 = i * 3;
+		const vx = src[i3];
+		const vy = src[i3 + 1];
+		const vz = src[i3 + 2];
+		const ox = m0 * vx + m4 * vy + m8 * vz;
+		const oy = m1 * vx + m5 * vy + m9 * vz;
+		const oz = m2 * vx + m6 * vy + m10 * vz;
+		const lenSq = ox * ox + oy * oy + oz * oz;
+		if (lenSq > maxLenSq) {
+			maxLenSq = lenSq;
+		}
+	}
+	return Math.sqrt(maxLenSq);
+}
+
+const _defaultNormal: XYPoint = { x: 0, y: 0 };
+
+/**
+ * Compute the averaged perpendicular normal at a vertex in a 2D polyline.
+ * At interior vertices, normals from both adjacent edges are averaged
+ * to produce a smooth miter direction.
+ * @param points - the polyline vertices
+ * @param index - the vertex index
+ * @param out - output object to write into (avoids allocation)
+ * @returns unit normal
+ */
+export function computeVertexNormal(
+	points: XYPoint[],
+	index: number,
+	out: XYPoint = _defaultNormal,
+): XYPoint {
+	let nx = 0;
+	let ny = 0;
+	const last = points.length - 1;
+	const p = points[index];
+
+	if (index < last) {
+		const dx = points[index + 1].x - p.x;
+		const dy = points[index + 1].y - p.y;
+		const len = Math.sqrt(dx * dx + dy * dy);
+		if (len > 0) {
+			const invLen = 1 / len;
+			nx -= dy * invLen;
+			ny += dx * invLen;
+		}
+	}
+	if (index > 0) {
+		const dx = p.x - points[index - 1].x;
+		const dy = p.y - points[index - 1].y;
+		const len = Math.sqrt(dx * dx + dy * dy);
+		if (len > 0) {
+			const invLen = 1 / len;
+			nx -= dy * invLen;
+			ny += dx * invLen;
+		}
+	}
+
+	const nlen = Math.sqrt(nx * nx + ny * ny);
+	if (nlen > 0) {
+		const invNlen = 1 / nlen;
+		nx *= invNlen;
+		ny *= invNlen;
+	} else {
+		nx = 0;
+		ny = 1;
+	}
+
+	out.x = nx;
+	out.y = ny;
+	return out;
+}
+
+/**
+ * The angle below which a ribbon segment is treated as pointing at the eye.
+ *
+ * `|T x N|` is `sin(angle)` once both are unit length, so this is an ANGULAR
+ * test, about 0.006 degrees, rather than one that scales with world units.
+ * That is the whole reason both vectors are normalized before the cross
+ * rather than after: the same constant then means the same thing whether a
+ * game is measured in pixels or in metres. Matches the threshold `Sprite3d`
+ * uses for its own degenerate cross.
+ */
+const RIBBON_PARALLEL_EPSILON = 1e-4;
+
+/**
+ * Compute the side vector at every vertex of a 3D ribbon.
+ *
+ * The 3D sibling of {@link computeVertexNormal}, and deliberately shaped like
+ * it: the tangent at a vertex is the sum of the NORMALIZED adjacent edge
+ * directions, which is the angle bisector rather than a raw central
+ * difference. That difference matters wherever samples bunch up, because a
+ * raw `p[i + 1] - p[i - 1]` lets a long edge outvote a short one and the
+ * ribbon kinks.
+ *
+ * The side vector is `tangent x facing`, in that order, so with the eye on
+ * -Z and the tangent running screen-right the side comes out `(0, 1, 0)`:
+ * screen-DOWN, since render space is y-down. The two vertices a caller then
+ * emits are `p - side * halfWidth` and `p + side * halfWidth`, which is the
+ * same order a 2D trail lays its quad in.
+ *
+ * Degeneracies cascade rather than throw, because every one of them is a
+ * frame a game will actually hit: a stalled object produces coincident
+ * points, and anything flying straight at the camera produces a tangent
+ * parallel to the facing vector. In both cases the previous vertex's side is
+ * carried forward, which keeps the ribbon stable between frames instead of
+ * flickering; a ribbon seen exactly end-on is genuinely edge-on and projects
+ * to zero width, so any stable choice looks right.
+ * @param points - the path, newest first, at least `count` long
+ * @param count - how many of them are live
+ * @param out - 3 floats per point, written in place; at least `count * 3` long
+ * @param eye - the camera position in world space, ignored when `normal` is given
+ * @param normal - a fixed facing to use instead of the eye, or null to face `eye`
+ * @param fallback - the side vector for vertex 0 when everything else degenerates
+ * @ignore
+ * @internal
+ */
+export function ribbonSides(
+	points: ReadonlyArray<XYZPoint>,
+	count: number,
+	out: Float32Array,
+	eye: XYZPoint,
+	normal: XYZPoint | null,
+	fallback: XYZPoint,
+): void {
+	if (count < 2) {
+		return;
+	}
+	// the previous vertex's side, carried across a degenerate one
+	let px = 0;
+	let py = 0;
+	let pz = 0;
+	let hasPrev = false;
+
+	for (let i = 0; i < count; i++) {
+		const p = points[i];
+		// THE BISECTOR, not a central difference: each adjacent edge
+		// contributes its unit direction, so spacing cannot bias the result
+		let tx = 0;
+		let ty = 0;
+		let tz = 0;
+		if (i < count - 1) {
+			const q = points[i + 1];
+			const dx = q.x - p.x;
+			const dy = q.y - p.y;
+			const dz = q.z - p.z;
+			const len = Math.sqrt(dx * dx + dy * dy + dz * dz);
+			// a zero-length edge drops out rather than contributing NaN,
+			// which is what two coincident samples produce
+			if (len > 0) {
+				tx += dx / len;
+				ty += dy / len;
+				tz += dz / len;
+			}
+		}
+		if (i > 0) {
+			const q = points[i - 1];
+			const dx = p.x - q.x;
+			const dy = p.y - q.y;
+			const dz = p.z - q.z;
+			const len = Math.sqrt(dx * dx + dy * dy + dz * dz);
+			if (len > 0) {
+				tx += dx / len;
+				ty += dy / len;
+				tz += dz / len;
+			}
+		}
+
+		let sx = 0;
+		let sy = 0;
+		let sz = 0;
+		const tlen = Math.sqrt(tx * tx + ty * ty + tz * tz);
+		if (tlen > 0) {
+			tx /= tlen;
+			ty /= tlen;
+			tz /= tlen;
+
+			let nx: number;
+			let ny: number;
+			let nz: number;
+			if (normal !== null) {
+				nx = normal.x;
+				ny = normal.y;
+				nz = normal.z;
+			} else {
+				nx = eye.x - p.x;
+				ny = eye.y - p.y;
+				nz = eye.z - p.z;
+			}
+			const nlen = Math.sqrt(nx * nx + ny * ny + nz * nz);
+			if (nlen > 0) {
+				nx /= nlen;
+				ny /= nlen;
+				nz /= nlen;
+				// tangent x facing, in that order: see the sign note above
+				sx = ty * nz - tz * ny;
+				sy = tz * nx - tx * nz;
+				sz = tx * ny - ty * nx;
+				const slen = Math.sqrt(sx * sx + sy * sy + sz * sz);
+				// `slen` is sin(angle between them), so this is the
+				// "pointing at the eye" case
+				if (slen > RIBBON_PARALLEL_EPSILON) {
+					sx /= slen;
+					sy /= slen;
+					sz /= slen;
+				} else {
+					sx = 0;
+					sy = 0;
+					sz = 0;
+				}
+			}
+		}
+
+		if (sx === 0 && sy === 0 && sz === 0) {
+			if (hasPrev) {
+				sx = px;
+				sy = py;
+				sz = pz;
+			} else {
+				sx = fallback.x;
+				sy = fallback.y;
+				sz = fallback.z;
+			}
+		} else if (hasPrev && sx * px + sy * py + sz * pz < 0) {
+			// A HAIRPIN. The cross product has no idea which of the two
+			// opposite perpendiculars a caller wanted, so a path that doubles
+			// back flips the side vector and the strip crosses itself into a
+			// bowtie. Continuity with the previous vertex is the only thing
+			// that disambiguates it.
+			sx = -sx;
+			sy = -sy;
+			sz = -sz;
+		}
+
+		const o = i * 3;
+		out[o] = sx;
+		out[o + 1] = sy;
+		out[o + 2] = sz;
+		px = sx;
+		py = sy;
+		pz = sz;
+		hasPrev = true;
+	}
+}
+
+/**
+ * 2D cross product of vectors (p1-p0) and (p2-p0).
+ * Positive = CCW, negative = CW, zero = collinear.
+ * @ignore
+ * @internal
+ */
+function cross2d(p0: XYPoint, p1: XYPoint, p2: XYPoint): number {
+	return (p1.x - p0.x) * (p2.y - p0.y) - (p1.y - p0.y) * (p2.x - p0.x);
+}
+
+/**
+ * Squared distance between two 2D points.
+ * @ignore
+ * @internal
+ */
+function dist2(a: XYPoint, b: XYPoint): number {
+	const dx = a.x - b.x;
+	const dy = a.y - b.y;
+	return dx * dx + dy * dy;
+}
+
+/**
+ * Compute the convex hull of a set of 2D points using the Graham scan algorithm.
+ * The input array is sorted in place. Returns a subset of the input points
+ * forming the convex hull in counter-clockwise order.
+ * @param points - array of 2D points (modified in place by sorting)
+ * @returns convex hull vertices in CCW order
+ */
+export function convexHull(points: Vector2d[]): Vector2d[] {
+	const len = points.length;
+	if (len <= 3) {
+		return points;
+	}
+
+	// find the bottom-most (then left-most) point as pivot
+	let pivotIdx = 0;
+	let pivotY = points[0].y;
+	let pivotX = points[0].x;
+
+	for (let i = 1; i < len; i++) {
+		const py = points[i].y;
+		const px = points[i].x;
+		if (py > pivotY || (py === pivotY && px < pivotX)) {
+			pivotIdx = i;
+			pivotY = py;
+			pivotX = px;
+		}
+	}
+
+	// swap pivot to index 0
+	[points[0], points[pivotIdx]] = [points[pivotIdx], points[0]];
+	const p0 = points[0];
+
+	// sort remaining points by polar angle relative to pivot
+	points.sort((a, b) => {
+		if (a === p0) {
+			return -1;
+		}
+		if (b === p0) {
+			return 1;
+		}
+		const c = cross2d(p0, a, b);
+		return c !== 0 ? -c : dist2(p0, a) - dist2(p0, b);
+	});
+
+	// build hull using a stack
+	const hull: Vector2d[] = [points[0], points[1]];
+	for (let i = 2; i < len; i++) {
+		const pt = points[i];
+		while (
+			hull.length > 1 &&
+			cross2d(hull[hull.length - 2], hull[hull.length - 1], pt) <= 0
+		) {
+			hull.pop();
+		}
+		hull.push(pt);
+	}
+
+	return hull;
+}
+
+/**
+ * Compute per-vertex surface normals for indexed triangle geometry.
+ *
+ * Each triangle's normal is accumulated into its three vertices weighted by
+ * the triangle's area — that falls out of using the raw cross product rather
+ * than a normalized one — and the result is normalized at the end. Area
+ * weighting keeps a large face from being outvoted by a fan of slivers meeting
+ * at the same vertex.
+ *
+ * One algorithm covers both shading styles, because the answer depends on the
+ * geometry rather than on a flag: where vertices are shared between faces the
+ * accumulation averages them and the surface shades smoothly, and where every
+ * triangle carries its own three vertices (a triangle soup, which is how most
+ * hand-built geometry comes out) each vertex belongs to exactly one face, so
+ * the average IS that face's normal and the surface shades flat.
+ *
+ * Degenerate triangles contribute a zero-length cross product and so drop out
+ * on their own; a vertex touched only by degenerate faces is left at zero
+ * rather than becoming NaN.
+ * @param vertices - vertex positions as x,y,z triplets
+ * @param indices - triangle vertex indices
+ * @param out - optional destination, sized `vertices.length`
+ * @returns unit normals as x,y,z triplets, one per vertex
+ */
+export function generateNormals(
+	vertices: Float32Array,
+	indices: Uint16Array | Uint32Array | number[],
+	out: Float32Array = new Float32Array(vertices.length),
+): Float32Array {
+	out.fill(0);
+
+	for (let i = 0; i + 2 < indices.length; i += 3) {
+		const ia = indices[i] * 3;
+		const ib = indices[i + 1] * 3;
+		const ic = indices[i + 2] * 3;
+
+		const ux = vertices[ib] - vertices[ia];
+		const uy = vertices[ib + 1] - vertices[ia + 1];
+		const uz = vertices[ib + 2] - vertices[ia + 2];
+		const wx = vertices[ic] - vertices[ia];
+		const wy = vertices[ic + 1] - vertices[ia + 1];
+		const wz = vertices[ic + 2] - vertices[ia + 2];
+
+		// left un-normalized on purpose: its length is twice the triangle's
+		// area, which is the weight we want
+		const nx = uy * wz - uz * wy;
+		const ny = uz * wx - ux * wz;
+		const nz = ux * wy - uy * wx;
+
+		for (const at of [ia, ib, ic]) {
+			out[at] += nx;
+			out[at + 1] += ny;
+			out[at + 2] += nz;
+		}
+	}
+
+	for (let at = 0; at + 2 < out.length; at += 3) {
+		const len = Math.hypot(out[at], out[at + 1], out[at + 2]);
+		if (len > 0) {
+			out[at] /= len;
+			out[at + 1] /= len;
+			out[at + 2] /= len;
+		}
+	}
+	return out;
+}

@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Curated Skills**: 554 skills  
+> **Total Curated Skills**: 555 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -71,6 +71,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`auditing-kubernetes-rbac-privilege-escalation`](../../library/mukul975-anthropic-cybersecurity-skills/skills/auditing-kubernetes-rbac-privilege-escalation) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Finds over-permissive RBAC roles and service-account token abuse paths in a Kubernetes cluster ... |
 | [`auditing-mcp-servers-for-tool-poisoning`](../../library/mukul975-anthropic-cybersecurity-skills/skills/auditing-mcp-servers-for-tool-poisoning) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Audit MCP servers for tool poisoning, tool shadowing, rug pulls, SSRF, and unauthenticated expo... |
 | [`auditing-tls-certificate-transparency-logs`](../../library/mukul975-anthropic-cybersecurity-skills/skills/auditing-tls-certificate-transparency-logs) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Monitors Certificate Transparency (CT) logs to detect unauthorized certificate |
+| [`auth`](../../library/snailsploit-claude-red/skills/auth) | ⚪ Reserve | `snailsploit-claude-red` |  |
 | [`auth-guide`](../../library/makenotion-notion-cookbook/skills/auth-guide) | ⚪ Reserve | `makenotion-notion-cookbook` | Guide to setting up third-party authentication for a Notion Worker. Covers brokered credentials... |
 | [`auth-implementation-patterns`](../../library/antigravity-awesome-skills/skills/auth-implementation-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Master authentication and authorization patterns including JWT, OAuth2, session management, and... |
 | [`auth-sec`](../../library/yaklang-hack-skills/skills/auth-sec) | ⚪ Reserve | `yaklang-hack-skills` | Entry P1 category router for authentication and authorization. Use when testing login flows, se... |

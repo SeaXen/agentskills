@@ -1,0 +1,2540 @@
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import {
+	Application,
+	boot,
+	Container,
+	collision,
+	ImageLayer,
+	pool,
+	Renderable,
+	registerTiledObjectClass,
+	registerTiledObjectFactory,
+	Sprite,
+	Text,
+	TMXLayer,
+	TMXTileMap,
+	video,
+} from "../src/index.js";
+import {
+	applyObjectOpacity,
+	parse,
+	parseTintColor,
+	propagateBlendMode,
+	tiledBlendMode,
+} from "../src/level/tiled/TMXUtils.js";
+import { imgList } from "../src/loader/cache.js";
+
+// create a small canvas to use as a fake tile image
+function fakeImage(name, w = 64, h = 64) {
+	const canvas = document.createElement("canvas");
+	canvas.width = w;
+	canvas.height = h;
+	imgList[name] = canvas;
+	return canvas;
+}
+
+// tileset JSON for tile object tests
+const tilesetData = {
+	firstgid: 1,
+	name: "testtiles",
+	tilewidth: 32,
+	tileheight: 32,
+	spacing: 0,
+	margin: 0,
+	tilecount: 4,
+	columns: 2,
+	image: "testtiles.png",
+};
+
+// map with a tile object (gid reference)
+const tileObjectMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [tilesetData],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "TileObjects",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 200,
+					name: "",
+					type: "",
+					gid: 1,
+					x: 64,
+					y: 96,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with a tile layer nested inside an object group (TMXLayer passthrough)
+const nestedLayerMap = {
+	width: 2,
+	height: 2,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [tilesetData],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "GroupWithLayer",
+			opacity: 0.7,
+			visible: true,
+			mode: "multiply",
+			objects: [],
+			layers: [
+				{
+					type: "tilelayer",
+					name: "NestedTileLayer",
+					width: 2,
+					height: 2,
+					data: [1, 2, 1, 2],
+					visible: true,
+					opacity: 1,
+				},
+			],
+		},
+	],
+};
+
+// minimal JSON map with an object group that has a blend mode
+const minimalMap = {
+	width: 2,
+	height: 2,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "TestGroup",
+			opacity: 0.8,
+			visible: true,
+			mode: "multiply",
+			objects: [
+				{
+					id: 1,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+				{
+					id: 2,
+					name: "",
+					type: "",
+					x: 32,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+		{
+			type: "objectgroup",
+			name: "NormalGroup",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 3,
+					name: "",
+					type: "",
+					x: 0,
+					y: 32,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with text objects
+const textMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "TextGroup",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 10,
+					name: "label",
+					type: "",
+					x: 10,
+					y: 20,
+					width: 100,
+					height: 32,
+					text: {
+						text: "Hello World",
+						fontfamily: "Arial",
+						pixelsize: 24,
+						color: "#ff0000",
+						halign: "center",
+						valign: "top",
+					},
+				},
+			],
+		},
+	],
+};
+
+// map with named objects (pulled from pool by name)
+const namedObjectMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "Entities",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 20,
+					name: "TestEntity",
+					type: "enemy",
+					x: 50,
+					y: 100,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with collision group
+const collisionMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "collision",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 30,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 64,
+					height: 16,
+				},
+				{
+					id: 31,
+					name: "",
+					type: "platform",
+					x: 0,
+					y: 64,
+					width: 128,
+					height: 16,
+				},
+			],
+		},
+	],
+};
+
+// map with per-object opacity and visibility
+const opacityVisibilityMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "Objects",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 40,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+					opacity: 0.5,
+					visible: true,
+				},
+				{
+					id: 41,
+					name: "",
+					type: "",
+					x: 32,
+					y: 0,
+					width: 32,
+					height: 32,
+					visible: false,
+				},
+				{
+					id: 42,
+					name: "",
+					type: "",
+					x: 64,
+					y: 0,
+					width: 32,
+					height: 32,
+					opacity: 1,
+					visible: true,
+				},
+			],
+		},
+	],
+};
+
+// map with multiple groups for flatten=false testing
+const multiGroupMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "GroupA",
+			opacity: 0.5,
+			visible: true,
+			mode: "screen",
+			objects: [
+				{
+					id: 50,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+		{
+			type: "objectgroup",
+			name: "GroupB",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 51,
+					name: "",
+					type: "",
+					x: 32,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+				{
+					id: 52,
+					name: "",
+					type: "",
+					x: 64,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with case-insensitive collision group name
+const collisionCaseMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "CollisionShapes",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 60,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with a named object inside a collision group
+const collisionNamedMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "collision",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 70,
+					name: "TestEntity",
+					type: "enemy",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with tint color on objects
+const tintMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "TintGroup",
+			opacity: 1,
+			visible: true,
+			tintcolor: "#ff0000",
+			objects: [
+				{
+					id: 80,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with invisible group (visible=false)
+const invisibleGroupMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "HiddenGroup",
+			opacity: 1,
+			visible: false,
+			objects: [
+				{
+					id: 90,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with per-object opacity combined with group opacity
+const combinedOpacityMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "SemiGroup",
+			opacity: 0.5,
+			visible: true,
+			objects: [
+				{
+					id: 100,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+					opacity: 0.5,
+					visible: true,
+				},
+			],
+		},
+	],
+};
+
+// map with an empty group (no objects)
+const emptyGroupMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "EmptyGroup",
+			opacity: 1,
+			visible: true,
+			objects: [],
+		},
+		{
+			type: "objectgroup",
+			name: "NonEmptyGroup",
+			opacity: 1,
+			visible: true,
+			objects: [
+				{
+					id: 110,
+					name: "",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// map with an object that already has a non-normal blend mode set
+const presetBlendMap = {
+	width: 4,
+	height: 4,
+	tilewidth: 32,
+	tileheight: 32,
+	orientation: "orthogonal",
+	renderorder: "right-down",
+	infinite: false,
+	version: "1.10",
+	tiledversion: "1.12.0",
+	tilesets: [],
+	layers: [
+		{
+			type: "objectgroup",
+			name: "BlendGroup",
+			opacity: 1,
+			visible: true,
+			mode: "multiply",
+			objects: [
+				{
+					id: 120,
+					name: "PresetBlendEntity",
+					type: "",
+					x: 0,
+					y: 0,
+					width: 32,
+					height: 32,
+				},
+			],
+		},
+	],
+};
+
+// simple test class for named object pool registration
+class TestEntity extends Renderable {
+	constructor(x, y, settings) {
+		super(x, y, settings.width, settings.height);
+		this.settings = settings;
+	}
+}
+
+// entity with a child renderable to test blend/opacity propagation
+class EntityWithRenderable extends Renderable {
+	constructor(x, y, settings) {
+		super(x, y, settings.width, settings.height);
+		this.renderable = new Renderable(0, 0, settings.width, settings.height);
+		this.renderable.isRenderable = true;
+	}
+}
+
+// entity with a preset non-normal blend mode
+class PresetBlendEntity extends Renderable {
+	constructor(x, y, settings) {
+		super(x, y, settings.width, settings.height);
+		this.blendMode = "screen";
+	}
+}
+
+describe("TMXTileMap", () => {
+	let app;
+	beforeAll(async () => {
+		boot();
+		app = new Application(128, 128, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.CANVAS,
+		});
+		await app.init();
+		// pre-register fake images for tileset tests
+		fakeImage("testtiles", 64, 64);
+		// register test classes as Tiled object classes
+		registerTiledObjectClass("TestEntity", TestEntity);
+		registerTiledObjectClass("EntityWithRenderable", EntityWithRenderable);
+		registerTiledObjectClass("PresetBlendEntity", PresetBlendEntity);
+	});
+
+	afterAll(() => {
+		// release the WebGL context this describe owns — browsers cap
+		// live contexts, and a leak surfaces as UNRELATED specs failing
+		app?.destroy();
+	});
+
+	// ---------------------------------------------------------------
+	// Unnamed shape objects
+	// ---------------------------------------------------------------
+	describe("getObjects: unnamed shape objects", () => {
+		it("should create Renderable instances for unnamed objects", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(3);
+			for (const obj of objects) {
+				expect(obj.isRenderable).toEqual(true);
+			}
+		});
+
+		it("should assign a static body definition to unnamed objects", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(true);
+
+			for (const obj of objects) {
+				expect(obj.bodyDef).toBeDefined();
+				expect(obj.bodyDef.type).toEqual("static");
+				// the body itself is constructed when the renderable is
+				// added to a World (adapter auto-registration). At this
+				// point we only have the declarative definition.
+			}
+		});
+
+		it("should set position from settings", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(true);
+
+			// first object at (0,0), second at (32,0)
+			expect(objects[0].pos.x).toEqual(0);
+			expect(objects[0].pos.y).toEqual(0);
+			expect(objects[1].pos.x).toEqual(32);
+			expect(objects[1].pos.y).toEqual(0);
+		});
+
+		it("should preserve object type and class", () => {
+			const map = new TMXTileMap("test", collisionMap);
+			const objects = map.getObjects(true);
+
+			const platform = objects.find((obj) => {
+				return obj.type === "platform";
+			});
+			expect(platform).toBeDefined();
+			expect(platform.class).toEqual("platform");
+		});
+
+		it("should set anchorPoint to (0,0)", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(true);
+
+			for (const obj of objects) {
+				expect(obj.anchorPoint.x).toEqual(0);
+				expect(obj.anchorPoint.y).toEqual(0);
+			}
+		});
+
+		it("should cover the projected shape of a rectangle on an isometric map", () => {
+			// projected, a rectangle reaches left of its origin; the bounds
+			// box (what the broadphase files it by) must still cover it
+			const map = new TMXTileMap("test", {
+				...minimalMap,
+				orientation: "isometric",
+				width: 4,
+				height: 4,
+				tilewidth: 64,
+				tileheight: 32,
+				layers: [
+					{
+						type: "objectgroup",
+						name: "collision",
+						opacity: 1,
+						visible: true,
+						objects: [
+							{ id: 1, name: "", type: "", x: 32, y: 0, width: 8, height: 96 },
+						],
+					},
+				],
+			});
+			const [obj] = map.getObjects(true);
+			const shape = obj.bodyDef.shapes[0];
+			const xs = shape.points.map((p) => {
+				return obj.pos.x + shape.pos.x + p.x;
+			});
+			const ys = shape.points.map((p) => {
+				return obj.pos.y + shape.pos.y + p.y;
+			});
+			const b = obj.getBounds();
+			expect(Math.min(...xs)).toBeLessThan(obj.pos.x + 8);
+			expect([b.left, b.top, b.right, b.bottom]).toEqual([
+				Math.min(...xs),
+				Math.min(...ys),
+				Math.max(...xs),
+				Math.max(...ys),
+			]);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Text objects
+	// ---------------------------------------------------------------
+	describe("getObjects: text objects", () => {
+		it("should create Text instances for text objects", () => {
+			const map = new TMXTileMap("test", textMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			expect(objects[0]).toBeInstanceOf(Text);
+		});
+
+		it("should position text objects correctly", () => {
+			const map = new TMXTileMap("test", textMap);
+			const objects = map.getObjects(true);
+
+			expect(objects[0].pos.x).toEqual(10);
+			expect(objects[0].pos.y).toEqual(20);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Named objects (pool.pull by name)
+	// ---------------------------------------------------------------
+	describe("getObjects: named objects", () => {
+		it("should pull named objects from the pool", () => {
+			const map = new TMXTileMap("test", namedObjectMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			expect(objects[0]).toBeInstanceOf(TestEntity);
+		});
+
+		it("should pass settings to the named object constructor", () => {
+			const map = new TMXTileMap("test", namedObjectMap);
+			const objects = map.getObjects(true);
+
+			const entity = objects[0];
+			expect(entity.settings.type).toEqual("enemy");
+			expect(entity.settings.width).toEqual(32);
+			expect(entity.settings.height).toEqual(32);
+		});
+
+		it("should position named objects correctly", () => {
+			const map = new TMXTileMap("test", namedObjectMap);
+			const objects = map.getObjects(true);
+
+			expect(objects[0].pos.x).toEqual(50);
+			expect(objects[0].pos.y).toEqual(100);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Collision group handling
+	// ---------------------------------------------------------------
+	describe("getObjects: collision groups", () => {
+		it("should set WORLD_SHAPE collision type on unnamed collision objects", () => {
+			const map = new TMXTileMap("test", collisionMap);
+			const objects = map.getObjects(true);
+
+			for (const obj of objects) {
+				expect(obj.bodyDef.collisionType).toEqual(collision.types.WORLD_SHAPE);
+			}
+		});
+
+		it("should mark collision objects as static", () => {
+			const map = new TMXTileMap("test", collisionMap);
+			const objects = map.getObjects(true);
+
+			for (const obj of objects) {
+				expect(obj.bodyDef.type).toEqual("static");
+			}
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Per-object opacity & visibility (Tiled 1.12+)
+	// ---------------------------------------------------------------
+	describe("getObjects: per-object opacity and visibility", () => {
+		it("should apply per-object opacity", () => {
+			const map = new TMXTileMap("test", opacityVisibilityMap);
+			const objects = map.getObjects(true);
+
+			// object with opacity 0.5
+			const halfOpaque = objects.find((obj) => {
+				return obj.pos.x === 0;
+			});
+			expect(halfOpaque.getOpacity()).toBeCloseTo(0.5);
+		});
+
+		it("should set opacity to 0 for invisible objects", () => {
+			const map = new TMXTileMap("test", opacityVisibilityMap);
+			const objects = map.getObjects(true);
+
+			// object with visible=false
+			const hidden = objects.find((obj) => {
+				return obj.pos.x === 32;
+			});
+			expect(hidden.getOpacity()).toEqual(0);
+		});
+
+		it("should keep full opacity for visible objects with opacity 1", () => {
+			const map = new TMXTileMap("test", opacityVisibilityMap);
+			const objects = map.getObjects(true);
+
+			const full = objects.find((obj) => {
+				return obj.pos.x === 64;
+			});
+			expect(full.getOpacity()).toBeCloseTo(1);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// flatten=false (Container mode)
+	// ---------------------------------------------------------------
+	describe("getObjects: flatten=false", () => {
+		it("should return Container instances for each group", () => {
+			const map = new TMXTileMap("test", multiGroupMap);
+			const objects = map.getObjects(false);
+
+			expect(objects.length).toEqual(2);
+			for (const obj of objects) {
+				expect(obj).toBeInstanceOf(Container);
+			}
+		});
+
+		it("should name containers after groups", () => {
+			const map = new TMXTileMap("test", multiGroupMap);
+			const objects = map.getObjects(false);
+
+			expect(objects[0].name).toEqual("GroupA");
+			expect(objects[1].name).toEqual("GroupB");
+		});
+
+		it("should set container opacity from group", () => {
+			const map = new TMXTileMap("test", multiGroupMap);
+			const objects = map.getObjects(false);
+
+			const groupA = objects.find((obj) => {
+				return obj.name === "GroupA";
+			});
+			expect(groupA.getOpacity()).toBeCloseTo(0.5);
+		});
+
+		it("should set container blend mode from group", () => {
+			const map = new TMXTileMap("test", multiGroupMap);
+			const objects = map.getObjects(false);
+
+			const groupA = objects.find((obj) => {
+				return obj.name === "GroupA";
+			});
+			expect(groupA.blendMode).toEqual("screen");
+		});
+
+		it("should add objects as children of the container", () => {
+			const map = new TMXTileMap("test", multiGroupMap);
+			const objects = map.getObjects(false);
+
+			const groupB = objects.find((obj) => {
+				return obj.name === "GroupB";
+			});
+			expect(groupB.children.length).toEqual(2);
+		});
+
+		it("should propagate blend mode to children", () => {
+			const map = new TMXTileMap("test", multiGroupMap);
+			const objects = map.getObjects(false);
+
+			const groupA = objects.find((obj) => {
+				return obj.name === "GroupA";
+			});
+			for (const child of groupA.children) {
+				if (child.isRenderable === true) {
+					expect(child.blendMode).toEqual("screen");
+				}
+			}
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Group blend mode (original tests, flatten=true)
+	// ---------------------------------------------------------------
+	describe("getObjects with group blend mode (flatten=true)", () => {
+		it("should propagate group blend mode to children when flattened", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(true);
+
+			// objects from TestGroup should inherit "multiply" blend mode
+			const groupObjects = objects.filter((obj) => {
+				return obj.blendMode === "multiply";
+			});
+			expect(groupObjects.length).toEqual(2);
+		});
+
+		it("should not set blend mode on children of groups without mode", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(true);
+
+			// object from NormalGroup should have default "normal" blend mode
+			const normalObjects = objects.filter((obj) => {
+				return obj.blendMode === "normal";
+			});
+			expect(normalObjects.length).toBeGreaterThanOrEqual(1);
+		});
+
+		it("should apply group opacity multiplied with blend mode", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(true);
+
+			// TestGroup has opacity 0.8, objects should have opacity <= 0.8
+			const blendedObjects = objects.filter((obj) => {
+				return obj.blendMode === "multiply";
+			});
+			for (const obj of blendedObjects) {
+				expect(obj.getOpacity()).toBeLessThanOrEqual(0.8);
+			}
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Group blend mode (original tests, flatten=false)
+	// ---------------------------------------------------------------
+	describe("getObjects with group blend mode (flatten=false)", () => {
+		it("should set blend mode on the container", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(false);
+
+			const container = objects.find((obj) => {
+				return obj.name === "TestGroup";
+			});
+			expect(container).toBeDefined();
+			expect(container.blendMode).toEqual("multiply");
+		});
+
+		it("should set opacity on the container", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(false);
+
+			const container = objects.find((obj) => {
+				return obj.name === "TestGroup";
+			});
+			expect(container.getOpacity()).toBeCloseTo(0.8);
+		});
+
+		it("should propagate blend mode to children in non-flattened mode", () => {
+			const map = new TMXTileMap("test", minimalMap);
+			const objects = map.getObjects(false);
+
+			const container = objects.find((obj) => {
+				return obj.name === "TestGroup";
+			});
+			expect(container).toBeDefined();
+			expect(container.children.length).toBeGreaterThan(0);
+
+			// children should inherit the group blend mode
+			for (const child of container.children) {
+				if (child.isRenderable === true) {
+					expect(child.blendMode).toEqual("multiply");
+				}
+			}
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Collision group name detection (case-insensitive, includes)
+	// ---------------------------------------------------------------
+	describe("getObjects: collision group name detection", () => {
+		it("should detect collision group with mixed case", () => {
+			const map = new TMXTileMap("test", collisionCaseMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			expect(objects[0].bodyDef.collisionType).toEqual(
+				collision.types.WORLD_SHAPE,
+			);
+		});
+
+		it("should NOT set WORLD_SHAPE on named objects in collision groups", () => {
+			const map = new TMXTileMap("test", collisionNamedMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			// named objects should not have their collision type overridden
+			expect(objects[0].body).toBeUndefined();
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Tint color conversion
+	// ---------------------------------------------------------------
+	describe("getObjects: tint color", () => {
+		it("should convert tintcolor to a tint Color object on settings", () => {
+			const map = new TMXTileMap("test", tintMap);
+			// access objectGroups after parsing to inspect settings
+			map.getObjects(true);
+			const settings = map.objectGroups[0].objects[0];
+			expect(settings.tint).toBeDefined();
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Invisible group
+	// ---------------------------------------------------------------
+	describe("getObjects: invisible group", () => {
+		it("should apply zero group opacity to objects in invisible groups", () => {
+			const map = new TMXTileMap("test", invisibleGroupMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			expect(objects[0].getOpacity()).toEqual(0);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Per-object + group opacity combination
+	// ---------------------------------------------------------------
+	describe("getObjects: combined object and group opacity", () => {
+		it("should multiply per-object opacity with group opacity", () => {
+			const map = new TMXTileMap("test", combinedOpacityMap);
+			const objects = map.getObjects(true);
+
+			// object opacity 0.5 * group opacity 0.5 = 0.25
+			expect(objects[0].getOpacity()).toBeCloseTo(0.25);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Empty group in flatten=false
+	// ---------------------------------------------------------------
+	describe("getObjects: empty groups", () => {
+		it("should not create containers for empty groups (flatten=false)", () => {
+			const map = new TMXTileMap("test", emptyGroupMap);
+			const objects = map.getObjects(false);
+
+			// only NonEmptyGroup should produce a container
+			expect(objects.length).toEqual(1);
+			expect(objects[0].name).toEqual("NonEmptyGroup");
+		});
+
+		it("should return no objects for empty groups (flatten=true)", () => {
+			const map = new TMXTileMap("test", {
+				...emptyGroupMap,
+				layers: [emptyGroupMap.layers[0]], // only the empty group
+			});
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(0);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Default flatten behavior (no argument)
+	// ---------------------------------------------------------------
+	describe("getObjects: default flatten behavior", () => {
+		it("should default to flatten=true when no argument is passed", () => {
+			const map = new TMXTileMap("test", multiGroupMap);
+			const objects = map.getObjects();
+
+			// should return flat array of renderables, not containers
+			expect(objects.length).toEqual(3);
+			for (const obj of objects) {
+				expect(obj).not.toBeInstanceOf(Container);
+			}
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Child renderable blend mode and opacity propagation
+	// ---------------------------------------------------------------
+	describe("getObjects: child renderable propagation", () => {
+		it("should propagate group blend mode to child renderable", () => {
+			const childRenderableMap = {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				renderorder: "right-down",
+				infinite: false,
+				version: "1.10",
+				tiledversion: "1.12.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "BlendGroup",
+						opacity: 0.5,
+						visible: true,
+						mode: "multiply",
+						objects: [
+							{
+								id: 130,
+								name: "EntityWithRenderable",
+								type: "",
+								x: 0,
+								y: 0,
+								width: 32,
+								height: 32,
+							},
+						],
+					},
+				],
+			};
+
+			const map = new TMXTileMap("test", childRenderableMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			const entity = objects[0];
+
+			// blend mode should propagate to both entity and its child renderable
+			expect(entity.blendMode).toEqual("multiply");
+			expect(entity.renderable).toBeDefined();
+			expect(entity.renderable.blendMode).toEqual("multiply");
+
+			// group opacity should propagate to child renderable
+			expect(entity.renderable.getOpacity()).toBeCloseTo(0.5);
+		});
+
+		it("should set child renderable opacity to 0 for invisible objects", () => {
+			const invisibleEntityMap = {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				renderorder: "right-down",
+				infinite: false,
+				version: "1.10",
+				tiledversion: "1.12.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "Objects",
+						opacity: 1,
+						visible: true,
+						objects: [
+							{
+								id: 140,
+								name: "EntityWithRenderable",
+								type: "",
+								x: 0,
+								y: 0,
+								width: 32,
+								height: 32,
+								visible: false,
+							},
+						],
+					},
+				],
+			};
+
+			const map = new TMXTileMap("test", invisibleEntityMap);
+			const objects = map.getObjects(true);
+
+			expect(objects[0].getOpacity()).toEqual(0);
+			expect(objects[0].renderable.getOpacity()).toEqual(0);
+		});
+
+		it("should apply per-object opacity to child renderable", () => {
+			const semiEntityMap = {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				renderorder: "right-down",
+				infinite: false,
+				version: "1.10",
+				tiledversion: "1.12.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "Objects",
+						opacity: 1,
+						visible: true,
+						objects: [
+							{
+								id: 150,
+								name: "EntityWithRenderable",
+								type: "",
+								x: 0,
+								y: 0,
+								width: 32,
+								height: 32,
+								opacity: 0.6,
+								visible: true,
+							},
+						],
+					},
+				],
+			};
+
+			const map = new TMXTileMap("test", semiEntityMap);
+			const objects = map.getObjects(true);
+
+			expect(objects[0].getOpacity()).toBeCloseTo(0.6);
+			expect(objects[0].renderable.getOpacity()).toBeCloseTo(0.6);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Blend mode should not override non-normal blend mode on objects
+	// ---------------------------------------------------------------
+	describe("getObjects: blend mode should not override preset", () => {
+		it("should not override an object's non-normal blend mode with group blend mode", () => {
+			const map = new TMXTileMap("test", presetBlendMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			// PresetBlendEntity sets blendMode = "screen" in constructor
+			// group has "multiply" — should NOT override since entity already has non-normal
+			expect(objects[0].blendMode).toEqual("screen");
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Object id assignment
+	// ---------------------------------------------------------------
+	describe("getObjects: object id", () => {
+		it("should assign object id from settings on unnamed objects", () => {
+			const map = new TMXTileMap("test", collisionMap);
+			const objects = map.getObjects(true);
+
+			// collisionMap has objects with id 30 and 31
+			expect(objects[0].id).toEqual(30);
+			expect(objects[1].id).toEqual(31);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Tile objects (with gid)
+	// ---------------------------------------------------------------
+	describe("getObjects: tile objects (gid)", () => {
+		it("should create a renderable from tile gid", () => {
+			const map = new TMXTileMap("test", tileObjectMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			expect(objects[0].isRenderable).toEqual(true);
+		});
+
+		it("should assign a static body definition to tile objects", () => {
+			const map = new TMXTileMap("test", tileObjectMap);
+			const objects = map.getObjects(true);
+
+			expect(objects[0].bodyDef).toBeDefined();
+			expect(objects[0].bodyDef.type).toEqual("static");
+		});
+
+		it("should not project the body of a tile object on an isometric map", () => {
+			// Tiled draws a tile object upright, so the default body covers
+			// the image box rather than a projected diamond
+			const map = new TMXTileMap("test", {
+				...tileObjectMap,
+				orientation: "isometric",
+				tilewidth: 64,
+				tileheight: 32,
+			});
+			const shape = map.getObjects(true)[0].bodyDef.shapes[0];
+			expect(
+				shape.points.map((p) => {
+					return [p.x, p.y];
+				}),
+			).toEqual([
+				[0, 0],
+				[32, 0],
+				[32, 32],
+				[0, 32],
+			]);
+		});
+
+		it("should position tile objects correctly", () => {
+			const map = new TMXTileMap("test", tileObjectMap);
+			const objects = map.getObjects(true);
+
+			expect(objects[0].pos.x).toEqual(64);
+			// Tiled tile objects have y adjusted (anchor at bottom-left)
+			expect(objects[0].pos.y).toBeDefined();
+		});
+	});
+
+	describe("getObjects: tile object size and alignment, as Tiled draws them", () => {
+		// one tile object at (64, 96) over the 32x32 test tiles
+		function tileObject(object, tileset = {}) {
+			const map = new TMXTileMap("test", {
+				...tileObjectMap,
+				tilesets: [{ ...tilesetData, ...tileset }],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "TileObjects",
+						opacity: 1,
+						visible: true,
+						objects: [
+							{ id: 300, name: "", type: "", gid: 1, x: 64, y: 96, ...object },
+						],
+					},
+				],
+			});
+			return map.getObjects(true)[0];
+		}
+
+		it("draws a tile object resized in Tiled at its own size, with a body to match", () => {
+			const obj = tileObject({ width: 64, height: 48 });
+			expect(obj.getBounds().width).toBeCloseTo(64);
+			expect(obj.getBounds().height).toBeCloseTo(48);
+			// anchored at its bottom left: Tiled's y is the bottom of the 48px box
+			expect([obj.pos.x, obj.pos.y]).toEqual([64, 48]);
+			const body = obj.bodyDef.shapes[0].getBounds();
+			expect([body.width, body.height]).toEqual([64, 48]);
+		});
+
+		it("draws a tile object at the tile's size when it has that size or none", () => {
+			for (const size of [{ width: 32, height: 32 }, {}]) {
+				const obj = tileObject(size);
+				expect(obj.getBounds().width).toBeCloseTo(32);
+				expect(obj.getBounds().height).toBeCloseTo(32);
+				expect([obj.pos.x, obj.pos.y]).toEqual([64, 64]);
+				const body = obj.bodyDef.shapes[0].getBounds();
+				expect([body.width, body.height]).toEqual([32, 32]);
+			}
+		});
+
+		it("stretches a flipped tile object without moving it off its box", () => {
+			// gid with the horizontal flip bit: flipped around the tile's own
+			// center, then stretched, it covers the same box as unflipped.
+			// Stretched first, then flipped, it would sit 32px to the left
+			const plain = tileObject({ width: 64, height: 48 }).getBounds();
+			const flipped = tileObject({
+				gid: (0x80000000 | 1) >>> 0,
+				width: 64,
+				height: 48,
+			}).getBounds();
+			expect(flipped.left).toBeCloseTo(plain.left);
+			expect(flipped.top).toBeCloseTo(plain.top);
+			expect(flipped.width).toBeCloseTo(64);
+			expect(flipped.height).toBeCloseTo(48);
+		});
+
+		it("keeps a resized or flipped image-collection tile on its box", () => {
+			// a collection tile is its own 32x48 image. Scaled or flipped about
+			// a centered anchor, it would sit off the box: a quarter of the
+			// lost size up and left, or a whole width to the right
+			const image = fakeImage("tallblock", 32, 48);
+			const collection = {
+				name: "blocks",
+				tilewidth: 32,
+				tileheight: 48,
+				tilecount: 1,
+				columns: 0,
+				image: undefined,
+				tiles: [{ id: 0, image: "tallblock.png" }],
+			};
+			for (const object of [
+				{ width: 16, height: 24 },
+				{ width: 48, height: 36 },
+				{ gid: (0x80000000 | 1) >>> 0, width: 32, height: 48 },
+				{ gid: (0x40000000 | 1) >>> 0, width: 16, height: 24 },
+			]) {
+				const obj = tileObject(object, collection);
+				expect(obj.image).toBe(image);
+				// the world does this on its first update
+				const bounds = obj.updateBounds();
+				const box = [64, 96 - object.height, object.width, object.height];
+				[bounds.left, bounds.top, bounds.width, bounds.height].forEach(
+					(value, i) => {
+						expect(value, JSON.stringify(object)).toBeCloseTo(box[i]);
+					},
+				);
+			}
+		});
+
+		it("turns a rotated tile object about its anchor, sprite and body alike", () => {
+			// [object, the box Tiled draws it in]: Tiled turns a tile object
+			// about the point its tileset aligns, here the bottom left (64, 96)
+			const tallblock = {
+				name: "blocks",
+				tilewidth: 32,
+				tileheight: 48,
+				tilecount: 1,
+				columns: 0,
+				image: undefined,
+				tiles: [{ id: 0, image: "tallblock.png" }],
+			};
+			fakeImage("tallblock", 32, 48);
+			const cases = [
+				// a quarter turn: the box hangs below and right of the corner
+				[{ width: 32, height: 32, rotation: 90 }, {}, [64, 96, 32, 32]],
+				// half a turn: it hangs below and left of it
+				[{ width: 64, height: 48, rotation: 180 }, {}, [0, 96, 64, 48]],
+				// a collection tile, stretched and turned
+				[{ width: 32, height: 48, rotation: 90 }, tallblock, [64, 96, 48, 32]],
+				// centered by its tileset: it turns about its own center
+				[
+					{ width: 64, height: 32, rotation: 90 },
+					{ objectalignment: "center" },
+					[48, 64, 32, 64],
+				],
+			];
+			for (const [object, tileset, box] of cases) {
+				const obj = tileObject(object, tileset);
+				// the world does this on its first update
+				const drawn = obj.updateBounds();
+				const shape = obj.bodyDef.shapes[0].getBounds();
+				const body = [
+					obj.pos.x + shape.left,
+					obj.pos.y + shape.top,
+					shape.width,
+					shape.height,
+				];
+				const label = JSON.stringify(object);
+				[drawn.left, drawn.top, drawn.width, drawn.height].forEach((v, i) => {
+					expect(v, label + " drawn").toBeCloseTo(box[i]);
+				});
+				body.forEach((v, i) => {
+					expect(v, label + " body").toBeCloseTo(box[i]);
+				});
+			}
+		});
+
+		it("loads an animated tile object and shows its frames in order", () => {
+			// frames 0 then 3 of the 2x2 test tiles: by position, not by id
+			const obj = tileObject(
+				{ width: 32, height: 32 },
+				{
+					tiles: [
+						{
+							id: 0,
+							animation: [
+								{ tileid: 0, duration: 100 },
+								{ tileid: 3, duration: 100 },
+							],
+						},
+					],
+				},
+			);
+			expect(obj.current.length).toEqual(2);
+			expect([obj.current.offset.x, obj.current.offset.y]).toEqual([0, 0]);
+			obj.setAnimationFrame(1);
+			expect([obj.current.offset.x, obj.current.offset.y]).toEqual([32, 32]);
+		});
+
+		it("loads an animated image-collection tile object and shows each image", () => {
+			// two 32x48 images, red then blue: the second frame must show blue
+			for (const [name, colour] of [
+				["redblock", "#ff0000"],
+				["blueblock", "#0000ff"],
+			]) {
+				const context = fakeImage(name, 32, 48).getContext("2d");
+				context.fillStyle = colour;
+				context.fillRect(0, 0, 32, 48);
+			}
+			const obj = tileObject(
+				{ width: 32, height: 48 },
+				{
+					name: "animblocks",
+					tilewidth: 32,
+					tileheight: 48,
+					tilecount: 2,
+					columns: 0,
+					image: undefined,
+					tiles: [
+						{
+							id: 0,
+							image: "redblock.png",
+							animation: [
+								{ tileid: 0, duration: 100 },
+								{ tileid: 1, duration: 100 },
+							],
+						},
+						{ id: 1, image: "blueblock.png" },
+					],
+				},
+			);
+			const pixel = () => {
+				const { x, y } = obj.current.offset;
+				return Array.from(
+					obj.image.getContext("2d").getImageData(x + 1, y + 1, 1, 1).data,
+				);
+			};
+			expect(obj.current.length).toEqual(2);
+			expect(pixel()).toEqual([255, 0, 0, 255]);
+			obj.setAnimationFrame(1);
+			expect(pixel()).toEqual([0, 0, 255, 255]);
+		});
+
+		it("places a tile object by its tileset's objectalignment", () => {
+			// [x, y] of the top left of a 64x48 object whose anchor is at (64, 96)
+			const expected = {
+				unspecified: [64, 48],
+				topleft: [64, 96],
+				top: [32, 96],
+				topright: [0, 96],
+				left: [64, 72],
+				center: [32, 72],
+				right: [0, 72],
+				bottomleft: [64, 48],
+				bottom: [32, 48],
+				bottomright: [0, 48],
+			};
+			for (const [objectalignment, position] of Object.entries(expected)) {
+				const obj = tileObject({ width: 64, height: 48 }, { objectalignment });
+				expect([obj.pos.x, obj.pos.y], objectalignment).toEqual(position);
+			}
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// a tile object and its tile's class and properties, as in Tiled
+	// ---------------------------------------------------------------
+	describe("getObjects: a tile object's tile class and properties, as in Tiled", () => {
+		// the settings each registered class was built with
+		const built = [];
+		class TileClassChest extends Renderable {
+			constructor(x, y, settings) {
+				super(x, y, settings.width, settings.height);
+				built.push(settings);
+			}
+		}
+		class TileClassOwn extends Renderable {
+			constructor(x, y, settings) {
+				super(x, y, settings.width, settings.height);
+			}
+		}
+		class TileClassNamed extends Renderable {
+			constructor(x, y, settings) {
+				super(x, y, settings.width, settings.height);
+			}
+		}
+
+		beforeAll(() => {
+			registerTiledObjectClass("TileClassChest", TileClassChest);
+			registerTiledObjectClass("TileClassOwn", TileClassOwn);
+			registerTiledObjectClass("TileClassNamed", TileClassNamed);
+		});
+
+		// tile 0 of the 32x32 test tiles carries `tile`: a class, properties
+		function objectsOf(objects, tile = {}) {
+			const map = new TMXTileMap("test", {
+				...tileObjectMap,
+				tilesets: [{ ...tilesetData, tiles: [{ id: 0, ...tile }] }],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "TileObjects",
+						opacity: 1,
+						visible: true,
+						objects: objects.map((object, i) => {
+							return {
+								id: 400 + i,
+								name: "",
+								type: "",
+								gid: 1,
+								x: 64,
+								y: 96,
+								width: 32,
+								height: 32,
+								...object,
+							};
+						}),
+					},
+				],
+			});
+			built.length = 0;
+			return map.getObjects(true);
+		}
+
+		describe("class", () => {
+			it("builds a tile object with no class by its tile's registered class", () => {
+				const [obj] = objectsOf([{}], { type: "TileClassChest" });
+				expect(obj).toBeInstanceOf(TileClassChest);
+			});
+
+			it("reads the tile's class in its Tiled 1.9 spelling too", () => {
+				const [obj] = objectsOf([{}], { class: "TileClassChest" });
+				expect(obj).toBeInstanceOf(TileClassChest);
+			});
+
+			it("matches a flipped tile object by its tile's class", () => {
+				// the flip flags live in the high bits of the gid
+				const [obj] = objectsOf([{ gid: 1 | 0x80000000 }], {
+					type: "TileClassChest",
+				});
+				expect(obj).toBeInstanceOf(TileClassChest);
+			});
+
+			it("leaves the object's own class alone", () => {
+				objectsOf([{}], { type: "TileClassChest" });
+				expect(built.length).toBe(1);
+				// the JSON format writes an empty class for an object with none
+				expect(built[0].class).toBe("");
+			});
+
+			it("keeps an object's own registered class first", () => {
+				const [obj] = objectsOf([{ type: "TileClassOwn" }], {
+					type: "TileClassChest",
+				});
+				expect(obj).toBeInstanceOf(TileClassOwn);
+			});
+
+			it("keeps an object's registered name first", () => {
+				const [obj] = objectsOf([{ name: "TileClassNamed" }], {
+					type: "TileClassChest",
+				});
+				expect(obj).toBeInstanceOf(TileClassNamed);
+			});
+
+			it("makes a plain tile sprite when the tile's class is not registered", () => {
+				const [obj] = objectsOf([{}], { type: "NothingRegisteredUnderThis" });
+				expect(obj).toBeInstanceOf(Sprite);
+				expect(obj).not.toBeInstanceOf(TileClassChest);
+			});
+
+			it("never turns a tile into a built-in by its class", () => {
+				// structural types and the engine's own classes stay tiles: a map
+				// whose tiles were classed like them loads as it always did
+				for (const type of [
+					"shape",
+					"text",
+					"tile",
+					"Trigger",
+					"Collectable",
+				]) {
+					const [obj] = objectsOf([{}], { type });
+					expect(obj.constructor, type).toBe(Sprite);
+				}
+			});
+		});
+
+		describe("properties", () => {
+			const tile = {
+				type: "TileClassChest",
+				properties: [
+					{ name: "opens", type: "int", value: 3 },
+					{ name: "gold", type: "int", value: 5 },
+					{ name: "loot", type: "class", value: { coins: 2 } },
+				],
+			};
+
+			it("resolves a property from the tile when the object has none", () => {
+				objectsOf([{}], tile);
+				expect(built[0].resolvedProperty("opens")).toBe(3);
+			});
+
+			it("resolves the object's own property over its tile's", () => {
+				objectsOf(
+					[{ properties: [{ name: "gold", type: "int", value: 9 }] }],
+					tile,
+				);
+				expect(built[0].resolvedProperty("gold")).toBe(9);
+				expect(built[0].resolvedProperties()).toEqual({
+					opens: 3,
+					gold: 9,
+					loot: { coins: 2 },
+				});
+			});
+
+			it("resolves undefined for a property neither sets", () => {
+				objectsOf([{}], tile);
+				expect(built[0].resolvedProperty("missing")).toBeUndefined();
+			});
+
+			it("resolves only custom properties, not the object's fields", () => {
+				objectsOf([{ name: "chest" }], tile);
+				expect(built[0].name).toBe("chest");
+				expect(built[0].resolvedProperty("name")).toBeUndefined();
+				expect(Object.keys(built[0].resolvedProperties()).sort()).toEqual([
+					"gold",
+					"loot",
+					"opens",
+				]);
+			});
+
+			it("returns a new object every time, leaving the tileset as it was", () => {
+				objectsOf([{}], tile);
+				const resolved = built[0].resolvedProperties();
+				resolved.opens = 99;
+				expect(built[0].resolvedProperties()).not.toBe(resolved);
+				expect(built[0].resolvedProperty("opens")).toBe(3);
+			});
+
+			it("resolves the properties of an object that is not a tile", () => {
+				const map = new TMXTileMap("test", {
+					...tileObjectMap,
+					layers: [
+						{
+							type: "objectgroup",
+							name: "Shapes",
+							opacity: 1,
+							visible: true,
+							objects: [
+								{
+									id: 500,
+									name: "zone",
+									type: "TileClassChest",
+									x: 0,
+									y: 0,
+									width: 16,
+									height: 16,
+									properties: [{ name: "depth", type: "int", value: 4 }],
+								},
+							],
+						},
+					],
+				});
+				built.length = 0;
+				map.getObjects(true);
+				expect(built[0].resolvedProperty("depth")).toBe(4);
+				expect(built[0].resolvedProperties()).toEqual({ depth: 4 });
+			});
+
+			// what existing maps rely on
+			it("still sets the object's own properties on it by name", () => {
+				objectsOf(
+					[{ properties: [{ name: "gold", type: "int", value: 9 }] }],
+					tile,
+				);
+				expect(built[0].gold).toBe(9);
+			});
+
+			it("sets none of its tile's properties on the object", () => {
+				objectsOf([{}], tile);
+				expect("opens" in built[0]).toBe(false);
+				expect(built[0].gold).toBeUndefined();
+			});
+
+			it("does not hand a tile's properties to a plain tile sprite", () => {
+				// a tile property named like a sprite setting must not reach the
+				// sprite, or existing maps would draw differently
+				const [obj] = objectsOf([{}], {
+					properties: [
+						{ name: "flipX", type: "bool", value: true },
+						{ name: "anchorPoint", type: "string", value: "0.5" },
+					],
+				});
+				expect(obj).toBeInstanceOf(Sprite);
+				expect(obj.isFlippedX).toBe(false);
+				expect([obj.anchorPoint.x, obj.anchorPoint.y]).toEqual([0, 0]);
+			});
+		});
+
+		it("reads a tile's class and properties from a TMX file", () => {
+			const tmx = new DOMParser().parseFromString(
+				`<map version="1.10" orientation="orthogonal" renderorder="right-down" width="4" height="4" tilewidth="32" tileheight="32" infinite="0">
+					<tileset firstgid="1" name="testtiles" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+						<image source="testtiles.png" width="64" height="64"/>
+						<tile id="0" type="TileClassChest">
+							<properties>
+								<property name="opens" type="int" value="3"/>
+								<property name="facing" value="W"/>
+							</properties>
+						</tile>
+					</tileset>
+					<objectgroup id="1" name="TileObjects">
+						<object id="1" gid="1" x="64" y="96" width="32" height="32"/>
+					</objectgroup>
+				</map>`,
+				"text/xml",
+			).documentElement;
+			const map = new TMXTileMap("test", parse(tmx));
+			built.length = 0;
+			const [obj] = map.getObjects(true);
+			expect(obj).toBeInstanceOf(TileClassChest);
+			expect(built[0].resolvedProperty("opens")).toBe(3);
+			expect(built[0].resolvedProperty("facing")).toBe("W");
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// TMXLayer passthrough
+	// ---------------------------------------------------------------
+	describe("getObjects: TMXLayer passthrough", () => {
+		it("should pass TMXLayer instances through directly", () => {
+			const map = new TMXTileMap("test", nestedLayerMap);
+			const objects = map.getObjects(true);
+
+			// the nested layer should be included as-is
+			const layer = objects.find((obj) => {
+				return obj instanceof TMXLayer;
+			});
+			expect(layer).toBeDefined();
+			expect(layer.name).toEqual("NestedTileLayer");
+		});
+
+		it("should skip per-object opacity but apply group opacity to TMXLayer", () => {
+			const map = new TMXTileMap("test", nestedLayerMap);
+			const objects = map.getObjects(true);
+
+			const layer = objects.find((obj) => {
+				return obj instanceof TMXLayer;
+			});
+			// TMXLayer skips per-object opacity processing but still gets
+			// group opacity applied in flatten mode (group opacity is 0.7)
+			expect(layer.getOpacity()).toBeCloseTo(0.7);
+		});
+
+		it("should include TMXLayer in container when flatten=false", () => {
+			const map = new TMXTileMap("test", nestedLayerMap);
+			const objects = map.getObjects(false);
+
+			expect(objects.length).toEqual(1);
+			expect(objects[0]).toBeInstanceOf(Container);
+			expect(objects[0].name).toEqual("GroupWithLayer");
+
+			// the container should have the layer as a child
+			const layer = objects[0].getChildren().find((child) => {
+				return child instanceof TMXLayer;
+			});
+			expect(layer).toBeDefined();
+			expect(layer.name).toEqual("NestedTileLayer");
+		});
+
+		it("should propagate group blend mode to TMXLayer in flatten mode", () => {
+			const map = new TMXTileMap("test", nestedLayerMap);
+			const objects = map.getObjects(true);
+
+			const layer = objects.find((obj) => {
+				return obj instanceof TMXLayer;
+			});
+			// TMXLayer is Renderable but is skipped for per-object opacity
+			// Group blend mode should still propagate since flatten=true
+			// However, TMXLayer already has its own blendMode from its data
+			// The group has "multiply" mode, layer has "normal" → should inherit "multiply"
+			expect(layer.blendMode).toEqual("multiply");
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// registerTiledObjectFactory API
+	// ---------------------------------------------------------------
+	describe("registerTiledObjectFactory", () => {
+		it("should dispatch to a custom factory based on object class", () => {
+			let factoryCalled = false;
+
+			// register a factory for the "CustomClass" Tiled class
+			registerTiledObjectFactory("CustomClass", (settings) => {
+				factoryCalled = true;
+				const obj = new Renderable(
+					settings.x,
+					settings.y,
+					settings.width,
+					settings.height,
+				);
+				obj.name = "custom";
+				obj.pos.z = settings.z;
+				return obj;
+			});
+
+			const customClassMap = {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				renderorder: "right-down",
+				infinite: false,
+				version: "1.10",
+				tiledversion: "1.12.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "Objects",
+						opacity: 1,
+						visible: true,
+						objects: [
+							{
+								id: 200,
+								name: "myObject",
+								type: "CustomClass",
+								class: "CustomClass",
+								x: 10,
+								y: 20,
+								width: 32,
+								height: 32,
+							},
+						],
+					},
+				],
+			};
+
+			const map = new TMXTileMap("test", customClassMap);
+			const objects = map.getObjects(true);
+
+			expect(factoryCalled).toEqual(true);
+			expect(objects.length).toEqual(1);
+			expect(objects[0].name).toEqual("custom");
+		});
+
+		it("should fall through to named factory when class has no registered factory", () => {
+			const map = new TMXTileMap("test", namedObjectMap);
+			const objects = map.getObjects(true);
+
+			// namedObjectMap uses name "TestEntity" with no class-based factory
+			// should still use the "named" factory and pull from pool
+			expect(objects.length).toEqual(1);
+			expect(objects[0]).toBeInstanceOf(TestEntity);
+		});
+
+		it("should throw when registering a non-function factory", () => {
+			expect(() => {
+				registerTiledObjectFactory("bad", "not a function");
+			}).toThrow("invalid factory function for bad");
+		});
+
+		it("should allow overriding a built-in factory", () => {
+			let shapeFactoryCalled = false;
+
+			// save original behavior via a wrapper
+			const originalShapeFactory = (settings) => {
+				// constructed directly: the built-in classes are no longer
+				// registered in the legacy name-keyed pool
+				const obj = new Renderable(
+					settings.x,
+					settings.y,
+					settings.width,
+					settings.height,
+				);
+				obj.anchorPoint.set(0, 0);
+				obj.pos.z = settings.z;
+				return obj;
+			};
+
+			registerTiledObjectFactory("shape", (settings) => {
+				shapeFactoryCalled = true;
+				return originalShapeFactory(settings);
+			});
+
+			const map = new TMXTileMap("test", collisionMap);
+			map.getObjects(true);
+
+			expect(shapeFactoryCalled).toEqual(true);
+
+			// restore default
+			registerTiledObjectFactory("shape", originalShapeFactory);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// pool.register auto-registration
+	// ---------------------------------------------------------------
+	describe("pool.register auto-registration", () => {
+		it("should auto-register pool classes as Tiled object factories", () => {
+			class PoolRegisteredEntity extends Renderable {
+				constructor(x, y, settings) {
+					super(x, y, settings.width, settings.height);
+					this.isPoolEntity = true;
+				}
+			}
+
+			// register via pool (should auto-register Tiled factory)
+			pool.register("PoolRegisteredEntity", PoolRegisteredEntity);
+
+			const poolEntityMap = {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				renderorder: "right-down",
+				infinite: false,
+				version: "1.10",
+				tiledversion: "1.12.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "Objects",
+						opacity: 1,
+						visible: true,
+						objects: [
+							{
+								id: 300,
+								name: "PoolRegisteredEntity",
+								type: "",
+								x: 50,
+								y: 75,
+								width: 32,
+								height: 32,
+							},
+						],
+					},
+				],
+			};
+
+			const map = new TMXTileMap("test", poolEntityMap);
+			const objects = map.getObjects(true);
+
+			expect(objects.length).toEqual(1);
+			expect(objects[0]).toBeInstanceOf(PoolRegisteredEntity);
+			expect(objects[0].isPoolEntity).toEqual(true);
+			expect(objects[0].pos.x).toEqual(50);
+			expect(objects[0].pos.y).toEqual(75);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// registerTiledObjectClass safeguards
+	// ---------------------------------------------------------------
+	describe("registerTiledObjectClass", () => {
+		it("should silently ignore duplicate registration with same constructor", () => {
+			// TestEntity is already registered in beforeAll — re-registering should not throw
+			expect(() => {
+				registerTiledObjectClass("TestEntity", TestEntity);
+			}).not.toThrow();
+		});
+
+		it("should throw when registering a different constructor for the same name", () => {
+			// TestEntity is already registered — registering a different class should throw
+			expect(() => {
+				registerTiledObjectClass("TestEntity", Renderable);
+			}).toThrow(
+				"a different class is already registered for Tiled type: TestEntity",
+			);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// pool.autoRegisterTiled flag
+	// ---------------------------------------------------------------
+	describe("pool.autoRegisterTiled", () => {
+		it("should not register Tiled factory when autoRegisterTiled is false", () => {
+			class NonTiledClass extends Renderable {
+				constructor(x, y, settings) {
+					super(x, y, settings.width, settings.height);
+				}
+			}
+
+			pool.autoRegisterTiled = false;
+			pool.register("NonTiledClass", NonTiledClass);
+			pool.autoRegisterTiled = true;
+
+			const map = new TMXTileMap("test", {
+				width: 2,
+				height: 2,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				renderorder: "right-down",
+				infinite: false,
+				version: "1.10",
+				tiledversion: "1.12.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "objectgroup",
+						name: "Objects",
+						opacity: 1,
+						visible: true,
+						objects: [
+							{
+								id: 400,
+								name: "NonTiledClass",
+								type: "",
+								x: 0,
+								y: 0,
+								width: 32,
+								height: 32,
+							},
+						],
+					},
+				],
+			});
+			const objects = map.getObjects(true);
+
+			expect(objects[0]).not.toBeInstanceOf(NonTiledClass);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// TMXUtils: tiledBlendMode
+	// ---------------------------------------------------------------
+	describe("tiledBlendMode", () => {
+		it("should return 'normal' for undefined", () => {
+			expect(tiledBlendMode(undefined)).toEqual("normal");
+		});
+
+		it("should return 'normal' for 'normal'", () => {
+			expect(tiledBlendMode("normal")).toEqual("normal");
+		});
+
+		it("should convert 'add' to 'lighter'", () => {
+			expect(tiledBlendMode("add")).toEqual("lighter");
+		});
+
+		it("should pass through other blend modes", () => {
+			expect(tiledBlendMode("multiply")).toEqual("multiply");
+			expect(tiledBlendMode("screen")).toEqual("screen");
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// TMXUtils: parseTintColor
+	// ---------------------------------------------------------------
+	describe("parseTintColor", () => {
+		it("should return a Color object for valid hex", () => {
+			const color = parseTintColor("#ff0000");
+			expect(color).toBeDefined();
+			expect(color.r).toEqual(255);
+			expect(color.g).toEqual(0);
+			expect(color.b).toEqual(0);
+		});
+
+		it("should return undefined when tintcolor is undefined", () => {
+			expect(parseTintColor(undefined)).toBeUndefined();
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// TMXUtils: applyObjectOpacity
+	// ---------------------------------------------------------------
+	describe("applyObjectOpacity", () => {
+		it("should multiply opacity on object", () => {
+			const obj = new Renderable(0, 0, 32, 32);
+			obj.setOpacity(1);
+			applyObjectOpacity(obj, 0.5);
+			expect(obj.getOpacity()).toBeCloseTo(0.5);
+		});
+
+		it("should multiply opacity on child renderable", () => {
+			const obj = new Renderable(0, 0, 32, 32);
+			obj.renderable = new Renderable(0, 0, 32, 32);
+			obj.renderable.isRenderable = true;
+			applyObjectOpacity(obj, 0.4);
+			expect(obj.getOpacity()).toBeCloseTo(0.4);
+			expect(obj.renderable.getOpacity()).toBeCloseTo(0.4);
+		});
+
+		it("should skip child renderable when isRenderable is false", () => {
+			const obj = new Renderable(0, 0, 32, 32);
+			obj.renderable = {
+				isRenderable: false,
+				getOpacity: () => {
+					return 1;
+				},
+			};
+			applyObjectOpacity(obj, 0.5);
+			expect(obj.getOpacity()).toBeCloseTo(0.5);
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// TMXUtils: propagateBlendMode
+	// ---------------------------------------------------------------
+	describe("propagateBlendMode", () => {
+		it("should set blend mode on object with 'normal' default", () => {
+			const obj = new Renderable(0, 0, 32, 32);
+			propagateBlendMode(obj, "multiply");
+			expect(obj.blendMode).toEqual("multiply");
+		});
+
+		it("should not override existing non-normal blend mode", () => {
+			const obj = new Renderable(0, 0, 32, 32);
+			obj.blendMode = "screen";
+			propagateBlendMode(obj, "multiply");
+			expect(obj.blendMode).toEqual("screen");
+		});
+
+		it("should not propagate 'normal' blend mode", () => {
+			const obj = new Renderable(0, 0, 32, 32);
+			propagateBlendMode(obj, "normal");
+			expect(obj.blendMode).toEqual("normal");
+		});
+
+		it("should not override child renderable with non-normal blend mode", () => {
+			const obj = new Renderable(0, 0, 32, 32);
+			obj.renderable = new Renderable(0, 0, 32, 32);
+			obj.renderable.isRenderable = true;
+			obj.renderable.blendMode = "screen";
+			propagateBlendMode(obj, "multiply");
+			expect(obj.blendMode).toEqual("multiply");
+			expect(obj.renderable.blendMode).toEqual("screen");
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// registerTiledObjectFactory validation
+	// ---------------------------------------------------------------
+	describe("registerTiledObjectFactory validation", () => {
+		it("should throw when registering a non-function", () => {
+			expect(() => {
+				registerTiledObjectFactory("invalid", "not a function");
+			}).toThrow("invalid factory function for invalid");
+		});
+	});
+
+	// ---------------------------------------------------------------
+	// Image layers
+	// ---------------------------------------------------------------
+	describe("image layers", () => {
+		// Both image-layer constructions had no coverage at all. They matter
+		// for more than the class: `readImageLayer` hands the constructor a
+		// positional (ox, oy) pair ahead of its settings object, which is the
+		// kind of argument order an edit silently gets wrong.
+		beforeAll(() => {
+			fakeImage("bg", 128, 128);
+		});
+
+		it("builds an ImageLayer for an imagelayer, with its offset and parallax", () => {
+			const map = new TMXTileMap("imagelayer-test", {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				version: "1.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "imagelayer",
+						name: "clouds",
+						image: "bg",
+						offsetx: 12,
+						offsety: 34,
+						parallaxx: 0.5,
+						parallaxy: 0.25,
+						opacity: 1,
+						visible: true,
+					},
+				],
+			});
+			const layer = map.getLayers().find((l) => {
+				return l.name === "clouds";
+			});
+
+			expect(layer).toBeInstanceOf(ImageLayer);
+			// the positional pair: offset x then y, not swapped
+			expect(layer.pos.x).toEqual(12);
+			expect(layer.pos.y).toEqual(34);
+			expect(layer.ratio.x).toBeCloseTo(0.5, 5);
+			expect(layer.ratio.y).toBeCloseTo(0.25, 5);
+		});
+
+		it("honours repeatx / repeaty on an image layer", () => {
+			const map = new TMXTileMap("imagelayer-repeat", {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				version: "1.0",
+				tilesets: [],
+				layers: [
+					{
+						type: "imagelayer",
+						name: "banner",
+						image: "bg",
+						repeatx: true,
+						repeaty: false,
+						opacity: 1,
+						visible: true,
+					},
+				],
+			});
+			const layer = map.getLayers().find((l) => {
+				return l.name === "banner";
+			});
+			expect(layer.repeat).toEqual("repeat-x");
+		});
+
+		const mapWith = (layers, props) => {
+			return {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				version: "1.0",
+				tilesets: [],
+				layers,
+				...(props ?? {}),
+			};
+		};
+
+		it("carries tint, blend mode and opacity onto the layer", () => {
+			const map = new TMXTileMap(
+				"il-style",
+				mapWith([
+					{
+						type: "imagelayer",
+						name: "lit",
+						image: "bg",
+						opacity: 0.5,
+						visible: true,
+						mode: "multiply",
+						tintcolor: "#ff0000",
+					},
+					{
+						type: "imagelayer",
+						name: "hidden",
+						image: "bg",
+						opacity: 0.5,
+						visible: false,
+					},
+					// no `visible` key at all: the default is visible
+					{ type: "imagelayer", name: "default", image: "bg", opacity: 1 },
+				]),
+			);
+			const byName = (n) => {
+				return map.getLayers().find((l) => {
+					return l.name === n;
+				});
+			};
+
+			expect(byName("lit").getOpacity()).toBeCloseTo(0.5, 5);
+			expect(byName("lit").blendMode).toEqual("multiply");
+			expect(byName("lit").tint.toHex()).toEqual("#FF0000");
+			// `visible: false` is expressed as zero opacity, not a flag
+			expect(byName("hidden").getOpacity()).toEqual(0);
+			expect(byName("default").getOpacity()).toEqual(1);
+		});
+
+		it("derives the repeat mode from every repeatx / repeaty combination", () => {
+			const cases = [
+				["both", { repeatx: true, repeaty: true }, "repeat"],
+				["x-only", { repeatx: true }, "repeat-x"],
+				["y-only", { repeaty: true }, "repeat-y"],
+				// the XML path gives strings rather than booleans
+				["strings", { repeatx: "1", repeaty: "1" }, "repeat"],
+				[
+					// the legacy custom property takes precedence over the
+					// Tiled 1.8+ native flags
+					"legacy-wins",
+					{ repeatx: true, properties: { repeat: "no-repeat" } },
+					"no-repeat",
+				],
+			];
+			for (const [name, flags, expected] of cases) {
+				const map = new TMXTileMap(
+					"il-repeat-" + name,
+					mapWith([
+						{
+							type: "imagelayer",
+							name,
+							image: "bg",
+							opacity: 1,
+							visible: true,
+							...flags,
+						},
+					]),
+				);
+				const layer = map.getLayers().find((l) => {
+					return l.name === name;
+				});
+				expect(layer.repeat, name).toEqual(expected);
+			}
+		});
+
+		it("folds the map-level parallax origin into the offset, scaled by the ratio", () => {
+			const map = new TMXTileMap(
+				"il-origin",
+				mapWith(
+					[
+						{
+							type: "imagelayer",
+							name: "scaled",
+							image: "bg",
+							offsetx: 10,
+							offsety: 20,
+							parallaxx: 0.5,
+							parallaxy: 0.25,
+							opacity: 1,
+							visible: true,
+						},
+						// x / y as the offset, which is the older Tiled spelling
+						{
+							type: "imagelayer",
+							name: "legacy-offset",
+							image: "bg",
+							x: 7,
+							y: 9,
+							opacity: 1,
+							visible: true,
+						},
+					],
+					{ parallaxoriginx: 100, parallaxoriginy: 200 },
+				),
+			);
+			const byName = (n) => {
+				return map.getLayers().find((l) => {
+					return l.name === n;
+				});
+			};
+			// offset + origin * ratio, not offset + origin
+			expect(byName("scaled").pos.x).toBeCloseTo(10 + 100 * 0.5, 5);
+			expect(byName("scaled").pos.y).toBeCloseTo(20 + 200 * 0.25, 5);
+			expect(byName("legacy-offset").pos.x).toBeCloseTo(7 + 100, 5);
+			expect(byName("legacy-offset").pos.y).toBeCloseTo(9 + 200, 5);
+		});
+
+		it("builds an ImageLayer for a map-level background image", () => {
+			const map = new TMXTileMap("bg-test", {
+				width: 4,
+				height: 4,
+				tilewidth: 32,
+				tileheight: 32,
+				orientation: "orthogonal",
+				version: "1.0",
+				tilesets: [],
+				layers: [],
+				properties: { background_image: "bg" },
+			});
+			const layer = map.getLayers().find((l) => {
+				return l.name === "background_image";
+			});
+
+			expect(layer).toBeInstanceOf(ImageLayer);
+			expect(layer.pos.x).toEqual(0);
+			expect(layer.pos.y).toEqual(0);
+		});
+
+		it("the background image takes z 0 and pushes the other layers up", () => {
+			const map = new TMXTileMap(
+				"bg-z",
+				mapWith(
+					[
+						{
+							type: "imagelayer",
+							name: "second",
+							image: "bg",
+							opacity: 1,
+							visible: true,
+						},
+					],
+					{ properties: { background_image: "bg" } },
+				),
+			);
+			const byName = (n) => {
+				return map.getLayers().find((l) => {
+					return l.name === n;
+				});
+			};
+			expect(byName("background_image").pos.z).toEqual(0);
+			expect(byName("second").pos.z).toEqual(1);
+		});
+	});
+});

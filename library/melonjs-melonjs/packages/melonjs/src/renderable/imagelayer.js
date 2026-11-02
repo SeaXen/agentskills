@@ -1,0 +1,425 @@
+import { vector2dPool } from "../math/vector2d.ts";
+import {
+	LEVEL_LOADED,
+	ONCONTEXT_RESTORED,
+	off,
+	on,
+	VIEWPORT_ONCHANGE,
+	VIEWPORT_ONRESIZE,
+} from "../system/event.ts";
+import * as stringUtil from "./../utils/string.ts";
+import { resolveAnchorPoint } from "./anchorPoint.ts";
+import Sprite from "./sprite.js";
+
+/**
+ * Wrap a parallax offset on a tiling axis into `(-size, 0]`, so that the
+ * pattern drawn from there covers the viewport whatever the camera position.
+ * The layer itself is `Infinity` wide/high on a tiling axis, so the wrap has
+ * to use the size of the pattern (the source image), not the layer's.
+ * @param {number} value - unwrapped offset
+ * @param {number} size - pattern size on that axis
+ * @returns {number} the wrapped offset
+ * @ignore
+ */
+function wrapOffset(value, size) {
+	if (!(size > 0) || !Number.isFinite(value)) {
+		return value;
+	}
+	const v = value % size;
+	return v > 0 ? v - size : v;
+}
+
+/**
+ * Where the camera's view starts on one axis: on a whole pixel unless
+ * `subPixel` is set, as the world is drawn from it (see
+ * `Camera2d#_viewOrigin`), so a layer scrolling with the world (a ratio of 1)
+ * keeps to it.
+ * @ignore
+ * @param {Camera2d} viewport - the camera
+ * @param {number} value - its position plus its offset, on one axis
+ * @returns {number} where its view starts
+ */
+function viewOrigin(viewport, value) {
+	return typeof viewport._viewOrigin === "function"
+		? viewport._viewOrigin(value)
+		: value;
+}
+
+/**
+ * additional import for TypeScript
+ * @import {Vector2d} from "../math/vector2d.ts";
+ * @import Camera2d from "../camera/camera2d.ts";
+ * @import CanvasRenderer from "../video/canvas/canvas_renderer.js";
+ * @import {CompressedImage} from "../loader/parsers/compressed_textures/compressed_image.js";
+ * @import WebGLRenderer from "../video/webgl/webgl_renderer.js";
+ * @import Renderer from "../video/renderer.js";
+ */
+
+/**
+ * a generic Image Layer Object
+ * @category Game Objects
+ */
+export default class ImageLayer extends Sprite {
+	/**
+	 * @param {number} x - x coordinate
+	 * @param {number} y - y coordinate
+	 * @param {object} settings - ImageLayer properties
+	 * @param {HTMLImageElement|HTMLCanvasElement|CompressedImage|string} settings.image - Image reference. See {@link loader.getImage}
+	 * @param {string} [settings.name="me.ImageLayer"] - layer name
+	 * @param {number} [settings.z=0] - z-index position
+	 * @param {number|Vector2d} [settings.ratio=1.0] - Scrolling ratio to be applied. See {@link ImageLayer#ratio}
+	 * @param {"repeat"|"repeat-x"|"repeat-y"|"no-repeat"} [settings.repeat="repeat"] - define if and how an Image Layer should be repeated. See {@link ImageLayer#repeat}
+	 * @param {number|string|Vector2d|{x:number,y:number}} [settings.anchorPoint=<0.0,0.0>] - Define how the image is anchored to the viewport bound. By default, its upper-left corner is anchored to the viewport bounds upper left corner. Also accepts the named presets `"center"`, `"top"`, `"bottom"`, `"left"`, `"right"`, `"top-left"`, `"top-right"`, `"bottom-left"`, `"bottom-right"` (anchored relative to the viewport, e.g. `"bottom"` = bottom-center of the viewport); a bare number anchors both axes.
+	 * @example
+	 * // create a repetitive background pattern on the X axis using the citycloud image asset
+	 * app.world.addChild(new me.ImageLayer(0, 0, {
+	 *     image:"citycloud",
+	 *     repeat :"repeat-x"
+	 * }), 1);
+	 */
+	constructor(x, y, settings) {
+		// bare-number shorthand (anchors both axes) — normalize BEFORE super():
+		// the Sprite base constructor consumes the same settings.anchorPoint,
+		// and the shared resolver doesn't accept bare numbers (pre-super
+		// settings mutation has precedent, e.g. Entity / TMXTileMap)
+		if (typeof settings.anchorPoint === "number") {
+			settings.anchorPoint = {
+				x: settings.anchorPoint,
+				y: settings.anchorPoint,
+			};
+		}
+		// call the constructor
+		super(x, y, settings);
+
+		// render in screen coordinates
+		this.floating = true;
+
+		// background layers should render in all cameras (e.g. minimap, split-screen)
+		this.visibleInAllCameras = true;
+
+		// image drawing offset
+		this.offset.set(x, y);
+
+		/**
+		 * Define the image scrolling ratio<br>
+		 * Scrolling speed is defined by multiplying the viewport delta position by the specified ratio.
+		 * Setting this vector to &lt;0.0,0.0&gt; will disable automatic scrolling.<br>
+		 * To specify a value through Tiled, use one of the following format : <br>
+		 * - a number, to change the value for both axis <br>
+		 * - a json expression like `json:{"x":0.5,"y":0.5}` if you wish to specify a different value for both x and y
+		 * @type {Vector2d}
+		 * @default <1.0,1.0>
+		 */
+		this.ratio = vector2dPool.get(1.0, 1.0);
+
+		if (typeof settings.ratio !== "undefined") {
+			// little hack for backward compatibility
+			if (stringUtil.isNumeric(settings.ratio)) {
+				this.ratio.set(settings.ratio, +settings.ratio);
+			} /* vector */ else {
+				this.ratio.setV(settings.ratio);
+			}
+		}
+
+		if (typeof settings.anchorPoint === "undefined") {
+			this.anchorPoint.set(0, 0);
+		} else {
+			// preset name or {x, y} (bare numbers were normalized pre-super);
+			// invalid values warn + keep the historical silent (0, 0) outcome
+			const anchor = resolveAnchorPoint(settings.anchorPoint, "ImageLayer", {
+				x: 0,
+				y: 0,
+			});
+			this.anchorPoint.set(anchor.x, anchor.y);
+		}
+
+		this.repeat = settings.repeat || "repeat";
+	}
+
+	/**
+	 * Define if and how an Image Layer should be repeated.<br>
+	 * By default, an Image Layer is repeated both vertically and horizontally.<br>
+	 * Acceptable values : <br>
+	 * - 'repeat' - The background image will be repeated both vertically and horizontally <br>
+	 * - 'repeat-x' - The background image will be repeated only horizontally.<br>
+	 * - 'repeat-y' - The background image will be repeated only vertically.<br>
+	 * - 'no-repeat' - The background-image will not be repeated.<br>
+	 * @type {string}
+	 * @default 'repeat'
+	 */
+	get repeat() {
+		return this._repeat;
+	}
+
+	set repeat(value) {
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._repeat = value;
+		switch (this._repeat) {
+			case "no-repeat":
+				this.repeatX = false;
+				this.repeatY = false;
+				break;
+			case "repeat-x":
+				this.repeatX = true;
+				this.repeatY = false;
+				break;
+			case "repeat-y":
+				this.repeatX = false;
+				this.repeatY = true;
+				break;
+			default: // "repeat"
+				this.repeatX = true;
+				this.repeatY = true;
+				break;
+		}
+	}
+
+	// called when the layer is added to the game world or a container
+	onActivateEvent() {
+		if (!this.parentApp) {
+			throw new Error(
+				"ImageLayer requires a parent Application (must be added to an app's world container)",
+			);
+		}
+		const viewport = this.parentApp.viewport;
+		// set the initial size to match the viewport
+		this.resize(viewport.width, viewport.height);
+		this.createPattern();
+		// register to the viewport change notification and context restore
+		on(VIEWPORT_ONCHANGE, this.updateLayer, this);
+		on(VIEWPORT_ONRESIZE, this.resize, this);
+		on(ONCONTEXT_RESTORED, this.createPattern, this);
+		// force a first refresh when the level is loaded
+		on(LEVEL_LOADED, this.updateLayer, this);
+		// in case the level is not added to the root container,
+		// the onActivateEvent call happens after the LEVEL_LOADED event
+		// so we need to force a first update
+		if (this.ancestor.root !== true) {
+			this.updateLayer();
+		}
+	}
+
+	/**
+	 * resize the Image Layer to match the given size
+	 * @param {number} w - new width
+	 * @param {number} h - new height
+	 */
+	resize(w, h) {
+		return super.resize(
+			this.repeatX ? Infinity : w,
+			this.repeatY ? Infinity : h,
+		);
+	}
+
+	/**
+	 * createPattern function
+	 * @ignore
+	 * @internal
+	 */
+	createPattern() {
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._pattern = this.parentApp.renderer.createPattern(
+			this.image,
+			this._repeat,
+		);
+	}
+
+	/**
+	 * updateLayer function
+	 * @ignore
+	 * @internal
+	 */
+	updateLayer() {
+		const rx = this.ratio.x;
+		const ry = this.ratio.y;
+
+		const viewport = this.parentApp.viewport;
+
+		if (rx === 0 && ry === 0) {
+			// static image
+			return;
+		}
+
+		const bw = viewport.bounds.width;
+		const bh = viewport.bounds.height;
+		const ax = this.anchorPoint.x;
+		const ay = this.anchorPoint.y;
+		/*
+		 * Automatic positioning
+		 *
+		 * See https://github.com/melonjs/melonJS/issues/741#issuecomment-138431532
+		 * for a thorough description of how this works. The camera looks
+		 * where its position, shifted by its offset, puts it.
+		 */
+		const x =
+			ax * (rx - 1) * (bw - viewport.width) +
+			this.offset.x -
+			rx * viewOrigin(viewport, viewport.pos.x + viewport.offset.x);
+		const y =
+			ay * (ry - 1) * (bh - viewport.height) +
+			this.offset.y -
+			ry * viewOrigin(viewport, viewport.pos.y + viewport.offset.y);
+
+		// Repeat horizontally; start drawing from left boundary
+		this.pos.x = this.repeatX ? wrapOffset(x, this.image.width) : x;
+
+		// Repeat vertically; start drawing from top boundary
+		this.pos.y = this.repeatY ? wrapOffset(y, this.image.height) : y;
+
+		this.isDirty = true;
+	}
+
+	/**
+	 * Override the default preDraw to skip the base class's anchor offset
+	 * translation and `autoTransform` application — `ImageLayer.draw()`
+	 * computes its own world-space position from the viewport, the parallax
+	 * `ratio`, anchor, and zoom, so applying anchor/transform here would
+	 * double-translate the layer.
+	 *
+	 * Coordinate-sensitive setup (flip, stencil mask) is intentionally
+	 * deferred to `draw()` where it runs *after* the per-camera zoom
+	 * translate/scale — that way it stays correctly aligned at any
+	 * `viewport.zoom` and across multiple cameras. Coordinate-independent
+	 * setup (alpha, post-effects, tint, blend) stays here. The inherited
+	 * `Renderable.postDraw` cleans up symmetrically (`clearTint` /
+	 * `clearMask` / `endPostEffect` / `restore`).
+	 * @ignore
+	 * @internal
+	 */
+	preDraw(renderer) {
+		// save the context
+		renderer.save();
+
+		// apply the defined alpha value
+		renderer.setGlobalAlpha(renderer.globalAlpha() * this.getOpacity());
+
+		// delegate post-effect setup to the renderer (custom shader / postEffects)
+		if (!this._postEffectManaged) {
+			renderer.beginPostEffect(this);
+		}
+
+		// apply the defined tint
+		renderer.setTint(this.tint);
+
+		// apply blending if different from "normal"
+		if (this.blendMode !== renderer.getBlendMode()) {
+			renderer.setBlendMode(this.blendMode);
+		}
+	}
+
+	/**
+	 * draw this ImageLayer (automatically called by melonJS)
+	 * @param {Renderer} renderer - a renderer instance
+	 * @param {Camera2d} [viewport] - the viewport to (re)draw
+	 */
+	draw(renderer, viewport) {
+		const width = this.width;
+		const height = this.height;
+		const bw = viewport.bounds.width;
+		const bh = viewport.bounds.height;
+		const ax = this.anchorPoint.x;
+		const ay = this.anchorPoint.y;
+		const rx = this.ratio.x;
+		const ry = this.ratio.y;
+		const vZoom = viewport.zoom;
+
+		let x, y;
+
+		if (rx === 0 && ry === 0) {
+			// static image
+			x = this.pos.x + ax * (bw - width);
+			y = this.pos.y + ay * (bh - height);
+		} else {
+			// parallax — compute position from the current viewport passed to
+			// draw(), where it looks: its position shifted by its offset
+			x =
+				ax * (rx - 1) * (bw - viewport.width) +
+				this.offset.x -
+				rx * viewOrigin(viewport, viewport.pos.x + viewport.offset.x);
+			y =
+				ay * (ry - 1) * (bh - viewport.height) +
+				this.offset.y -
+				ry * viewOrigin(viewport, viewport.pos.y + viewport.offset.y);
+
+			// wrap by the pattern size (the layer is Infinity wide/high on a
+			// tiling axis), into (-size, 0] so the pattern covers the viewport
+			if (this.repeatX) {
+				x = wrapOffset(x, this.image.width);
+			}
+			if (this.repeatY) {
+				y = wrapOffset(y, this.image.height);
+			}
+		}
+
+		// for zoomed cameras, scale positions and pattern to match the world view
+		renderer.translate(x * vZoom, y * vZoom);
+		renderer.scale(vZoom, vZoom);
+
+		// Clamp the draw extent to the source dimensions on any axis we
+		// are NOT tiling. Asking the renderer to fill past the source on
+		// a non-tiling axis is what makes Canvas (transparent fill per
+		// HTML spec) and WebGL (GL_CLAMP_TO_EDGE stretches the edge
+		// pixel) diverge — Canvas leaves the overflow transparent while
+		// WebGL stretches the bottom row (repeat-x) or right column
+		// (repeat-y) to fill it. By drawing exactly the source extent on
+		// the non-tiling axis, neither renderer enters its overflow path
+		// and the two outputs converge (issue #1290).
+		// On a tiling axis the offset is wrapped into (-imageSize, 0], so
+		// the pattern must reach at least `viewport + imageSize` to cover
+		// the viewport, also when the image is larger than the viewport
+		// (and never less than the historical `viewport * 2`).
+		const drawW = this.repeatX
+			? viewport.width + Math.max(viewport.width, this.image.width)
+			: width;
+		const drawH = this.repeatY
+			? viewport.height + Math.max(viewport.height, this.image.height)
+			: height;
+
+		// apply flip — pivot at the centre of the drawn pattern in the
+		// post-zoom local frame, so the mirror lands in the visible viewport
+		// regardless of `viewport.zoom`. Done here (not in preDraw) because
+		// preDraw runs before this translate/scale and would misalign.
+		if (this._flip.x || this._flip.y) {
+			const px = this.repeatX ? drawW / 2 : viewport.width;
+			const py = this.repeatY ? drawH / 2 : viewport.height;
+			renderer.translate(px, py);
+			renderer.scale(this._flip.x ? -1 : 1, this._flip.y ? -1 : 1);
+			renderer.translate(-px, -py);
+		}
+
+		// stencil mask — also applied in the post-zoom local frame so the
+		// mask shape's coordinates are interpreted relative to the layer's
+		// drawn area, matching `drawPattern` below.
+		if (this.mask) {
+			renderer.setMask(this.mask);
+		}
+
+		renderer.drawPattern(this._pattern, 0, 0, drawW, drawH);
+	}
+
+	// called when the layer is removed from the game world or a container
+	onDeactivateEvent() {
+		// cancel all event subscriptions
+		off(VIEWPORT_ONCHANGE, this.updateLayer, this);
+		off(VIEWPORT_ONRESIZE, this.resize, this);
+		off(LEVEL_LOADED, this.updateLayer, this);
+		off(ONCONTEXT_RESTORED, this.createPattern, this);
+	}
+
+	/**
+	 * Destroy function
+	 * @ignore
+	 * @internal
+	 */
+	destroy() {
+		vector2dPool.release(this.ratio);
+		this.ratio = undefined;
+		super.destroy();
+	}
+}

@@ -1,0 +1,93 @@
+import { FRAME_GLSL, FRAME_WGSL, FRAME_WGSL_MEMBERS } from "./frame.js";
+import ShaderEffect from "./shadereffect.js";
+
+/**
+ * additional import for TypeScript
+ * @import CanvasRenderer from "../canvas/canvas_renderer.js";
+ * @import WebGLRenderer from "../webgl/webgl_renderer.js";
+ * @import WebGPURenderer from "../webgpu/webgpu_renderer.js";
+ * @import Renderer from "../renderer.js";
+ */
+// the WGSL twin of the GLSL body below — same logic, same uniform
+// names, picked by the ShaderEffect base per renderer.shaderLanguage
+const wgslFragment = `
+struct AberrationUniforms {
+	uOffset : f32,
+	uTextureSize : vec2f,${FRAME_WGSL_MEMBERS}
+};
+@group(3) @binding(0) var<uniform> fx : AberrationUniforms;
+${FRAME_WGSL}
+fn apply(color : vec4f, uv : vec2f) -> vec4f {
+	let texel = fx.uOffset / fx.uTextureSize;
+	let r = frameTexel(uv + vec2f(texel.x, 0.0)).r;
+	let g = textureSample(uTexture, uSampler, uv).g;
+	let b = frameTexel(uv - vec2f(texel.x, 0.0)).b;
+	let a = textureSample(uTexture, uSampler, uv).a;
+	return vec4f(r, g, b, a) * vColor;
+}
+`;
+
+/**
+ * A shader effect that offsets the RGB color channels to create a
+ * chromatic aberration (color fringe) effect. Commonly used for
+ * impact feedback, glitch effects, or damage indicators.
+ * @category Effects
+ * @see {@link Renderable#addPostEffect} for usage
+ * @example
+ * // subtle chromatic aberration
+ * mySprite.addPostEffect(new ChromaticAberrationEffect(renderer, { offset: 2.0 }));
+ * @example
+ * // strong glitch effect
+ * mySprite.addPostEffect(new ChromaticAberrationEffect(renderer, { offset: 5.0 }));
+ */
+export default class ChromaticAberrationEffect extends ShaderEffect {
+	/**
+	 * @param {Renderer} renderer - the current renderer instance
+	 * @param {object} [options] - effect options
+	 * @param {number} [options.offset=3.0] - channel offset in texels
+	 * @param {number[]} [options.textureSize] - the size, `[width, height]`, of the texture its offset is measured in; by default the texture it draws: a sprite's own, alone or with other effects and at any scale or zoom, the screen for a camera's effect
+	 */
+	constructor(renderer, options = {}) {
+		super(renderer, {
+			glsl: `
+			uniform float uOffset;
+			uniform vec2 uTextureSize;
+			${FRAME_GLSL}
+			vec4 apply(vec4 color, vec2 uv) {
+				vec2 texel = uOffset / uTextureSize;
+				float r = frameTexel(uv + vec2(texel.x, 0.0)).r;
+				float g = texture2D(uSampler, uv).g;
+				float b = frameTexel(uv - vec2(texel.x, 0.0)).b;
+				float a = texture2D(uSampler, uv).a;
+				return vec4(r, g, b, a) * vColor;
+			}
+			`,
+			wgsl: wgslFragment,
+		});
+
+		this.offset = options.offset ?? 3.0;
+
+		this.setUniform("uOffset", this.offset);
+		// its offset is in texels: of the texture it draws, unless given one
+		this._initTextureSize(options.textureSize, [256, 256]);
+	}
+
+	/**
+	 * set the channel offset
+	 * @param {number} offset - offset in texels
+	 */
+	setOffset(offset) {
+		this.offset = Math.max(0, offset);
+		this.setUniform("uOffset", this.offset);
+	}
+
+	/**
+	 * Measure the effect's offset in the texels of a texture of this size,
+	 * rather than of the texture it draws (the default)
+	 * @param {number} width - texture width in pixels
+	 * @param {number} height - texture height in pixels
+	 */
+	setTextureSize(width, height) {
+		this.setUniform("uTextureSize", new Float32Array([width, height]));
+	}
+}

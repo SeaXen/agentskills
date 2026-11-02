@@ -1,7 +1,7 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Curated Skills**: 117 skills  
+> **Total Curated Skills**: 118 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -133,6 +133,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`vibe-delegate`](../../library/sickn33-agentic-awesome-skills/skills/vibe-delegate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate coding tasks to the Mistral Vibe CLI (`vibe`) only when the |
 | [`warp-delegate`](../../library/sickn33-agentic-awesome-skills/skills/warp-delegate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user |
 | [`web-research`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/web-research) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Searches multiple web sources, synthesizes findings, and produces cited research reports using ... |
+| [`weekly-digests`](../../library/thedotmack-claude-mem/skills/weekly-digests) | ⚪ Reserve | `thedotmack-claude-mem` | Generate a serial week-by-week narrative digest of a project's full claude-mem timeline. Splits... |
 | [`workflow-run`](../../library/ruvnet-ruflo/skills/workflow-run) | ⚪ Reserve | `ruvnet-ruflo` | Run a workflow — drive an MCP workflow lifecycle (execute/pause/resume/cancel) or invoke + resu... |
 | [`workspace-orchestration`](../../library/davila7-claude-code-templates/skills/workspace-orchestration) | ⚪ Reserve | `davila7-claude-code-templates` | Use when working in a persistent-slot workspace that uses docko. Covers slot claims, delegated ... |
 | [`zcode-delegate`](../../library/sickn33-agentic-awesome-skills/skills/zcode-delegate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate coding tasks to the Z.AI ZCode CLI only when the user explicitly |

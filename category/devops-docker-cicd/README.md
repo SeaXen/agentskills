@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 665 skills  
+> **Total Curated Skills**: 668 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -468,6 +468,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`managing-cloud-identity-with-okta`](../../library/mukul975-anthropic-cybersecurity-skills/skills/managing-cloud-identity-with-okta) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implement Okta as a centralized cloud identity provider: configure SSO with AWS, Azure, and GCP... |
 | [`markdown-rendering`](../../library/sickn33-agentic-awesome-skills/skills/markdown-rendering) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Open Markdown reliably in cmux panes and recover from blank rendered surfaces. |
 | [`mcore-run-on-slurm`](../../library/nvidia-skills/skills/mcore-run-on-slurm) | ⚪ Reserve | `nvidia-skills` | How to launch distributed Megatron-LM training jobs on a SLURM cluster. Covers a minimal sbatch... |
+| [`melonjs-getting-started`](../../library/melonjs-melonjs/skills/melonjs-getting-started) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when starting or bootstrapping a melonJS game, creating the Application, choosin... |
+| [`melonjs-performance`](../../library/melonjs-melonjs/skills/melonjs-performance) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when a melonJS game drops frames, allocates heavily, or needs to scale to many o... |
 | [`metaclaw-evolving-agent`](../../library/reason-machines-trending-skills/skills/metaclaw-evolving-agent) | ⚪ Reserve | `reason-machines-trending-skills` | Deploy and configure MetaClaw — an agent that meta-learns and evolves from live conversations u... |
 | [`metrics`](../../library/davila7-claude-code-templates/skills/metrics) | ⚪ Reserve | `davila7-claude-code-templates` | Query resource usage metrics for Railway services. Use when user asks about resource usage, CPU... |
 | [`migrate-dotnet10-to-dotnet11`](../../library/dotnet-skills/skills/migrate-dotnet10-to-dotnet11) | ⚪ Reserve | `dotnet-skills` | Migrate a .NET 10 project or solution to .NET 11 and resolve all breaking changes. This is a MI... |
@@ -680,6 +682,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`web`](../../library/anthropics-knowledge-work/skills/web) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Virtual Agent SDK for web embeds. Use for campaign or entry ID chat launch, event-driven c... |
 | [`web-to-markdown`](../../library/davila7-claude-code-templates/skills/web-to-markdown) | ⚪ Reserve | `davila7-claude-code-templates` | Use ONLY when the user explicitly says: 'use the skill web-to-markdown ...' (or 'use a skill we... |
 | [`wiremock-standalone-docker`](../../library/giuseppe-trisciuoglio-developer-kit/skills/wiremock-standalone-docker) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides patterns and configurations for running WireMock as a standalone Docker container. Gen... |
+| [`wowerpoint`](../../library/thedotmack-claude-mem/skills/wowerpoint) | ⚪ Reserve | `thedotmack-claude-mem` | Turn one document into a kawaii NotebookLM slide deck. Use for "wowerpoint this", "make a deck ... |
 | [`xata-postgres-platform`](../../library/reason-machines-trending-skills/skills/xata-postgres-platform) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for Xata open-source cloud-native Postgres platform with copy-on-write branching, ... |
 | [`xstate`](../../library/vercel-labs-json-render/skills/xstate) | ⚪ Reserve | `vercel-labs-json-render` | XState Store adapter for json-render's StateStore interface. Use when integrating json-render w... |
 | [`yaml`](../../library/vercel-labs-json-render/skills/yaml) | ⚪ Reserve | `vercel-labs-json-render` | YAML wire format for json-render with streaming parser, prompt generation, and AI SDK transform... |

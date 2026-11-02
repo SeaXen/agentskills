@@ -1,0 +1,87 @@
+import { rgba } from "./rgba.js";
+import ShaderEffect from "./shadereffect.js";
+
+/**
+ * additional import for TypeScript
+ * @import CanvasRenderer from "../canvas/canvas_renderer.js";
+ * @import WebGLRenderer from "../webgl/webgl_renderer.js";
+ * @import WebGPURenderer from "../webgpu/webgpu_renderer.js";
+ * @import Renderer from "../renderer.js";
+ */
+// the WGSL twin of the GLSL body below — same logic, same uniform
+// names, picked by the ShaderEffect base per renderer.shaderLanguage
+const wgslFragment = `
+struct TintPulseUniforms {
+	uPulseColor : vec4f,
+	uPulseSpeed : f32,
+	uPulseIntensity : f32,
+	uTime : f32,
+};
+@group(3) @binding(0) var<uniform> fx : TintPulseUniforms;
+
+fn apply(color : vec4f, uv : vec2f) -> vec4f {
+	let pulse = (sin(fx.uTime * fx.uPulseSpeed * 6.2832) * 0.5 + 0.5) * fx.uPulseIntensity;
+	// the color's alpha scales how far the pulse tints the sprite
+	return vec4f(mix(color.rgb, fx.uPulseColor.rgb * color.a, pulse * fx.uPulseColor.a), color.a);
+}
+`;
+
+/**
+ * A shader effect that pulses a color overlay on the sprite.
+ * Commonly used for status effects — poison green, freeze blue, fire red.
+ * The `time` uniform should be updated each frame for the pulse animation.
+ * @category Effects
+ * @see {@link Renderable#addPostEffect} for usage
+ * @example
+ * // poison pulse
+ * const poison = new TintPulseEffect(renderer, {
+ *     color: [0.0, 1.0, 0.0],
+ *     speed: 3.0,
+ * });
+ * mySprite.addPostEffect(poison);
+ *
+ * // update each frame
+ * poison.setTime(timer.getTime() / 1000);
+ * @example
+ * // a subtle pulse: the color's alpha caps how far it tints
+ * mySprite.addPostEffect(new TintPulseEffect(renderer, { color: [1.0, 0.8, 0.0, 0.35] }));
+ */
+export default class TintPulseEffect extends ShaderEffect {
+	/**
+	 * @param {Renderer} renderer - the current renderer instance
+	 * @param {object} [options] - effect options
+	 * @param {number[]} [options.color=[1.0, 0.0, 0.0]] - pulse color as [r, g, b] or [r, g, b, a] (0.0–1.0); the alpha scales the intensity
+	 * @param {number} [options.speed=2.0] - pulse speed (oscillations per second)
+	 * @param {number} [options.intensity=0.3] - maximum tint strength (0.0–1.0)
+	 */
+	constructor(renderer, options = {}) {
+		super(renderer, {
+			glsl: `
+			uniform vec4 uPulseColor;
+			uniform float uPulseSpeed;
+			uniform float uPulseIntensity;
+			uniform float uTime;
+			vec4 apply(vec4 color, vec2 uv) {
+				float pulse = (sin(uTime * uPulseSpeed * 6.2832) * 0.5 + 0.5) * uPulseIntensity;
+				// the color's alpha scales how far the pulse tints the sprite
+				return vec4(mix(color.rgb, uPulseColor.rgb * color.a, pulse * uPulseColor.a), color.a);
+			}
+			`,
+			wgsl: wgslFragment,
+		});
+
+		const color = options.color ?? [1.0, 0.0, 0.0];
+		this.setUniform("uPulseColor", rgba(color));
+		this.setUniform("uPulseSpeed", options.speed ?? 2.0);
+		this.setUniform("uPulseIntensity", options.intensity ?? 0.3);
+		this.setUniform("uTime", 0.0);
+	}
+
+	/**
+	 * set the pulse color
+	 * @param {number[]} color - pulse color as [r, g, b] or [r, g, b, a] (0.0–1.0); the alpha scales the intensity
+	 */
+	setColor(color) {
+		this.setUniform("uPulseColor", rgba(color));
+	}
+}

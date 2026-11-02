@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 119 skills  
+> **Total Curated Skills**: 120 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -75,6 +75,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`lifecycle-play-advisor`](../../library/deanpeters-product-manager-skills/skills/lifecycle-play-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Diagnose where a product sits in its lifecycle and which play fits — extend, replace, or retire... |
 | [`lifelines`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/lifelines) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Complete survival analysis library in Python. Handles right-censored data, Kaplan-Meier curves,... |
 | [`medtech-model-evidence-export`](../../library/nvidia-skills/skills/medtech-model-evidence-export) | ⚪ Reserve | `nvidia-skills` | Exports sanitized metadata, parameters, reproducibility details, quality metrics, and optional ... |
+| [`melonjs-physics`](../../library/melonjs-melonjs/skills/melonjs-physics) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for collision, physics bodies, movement, and spatial queries in melonJS — the bu... |
 | [`methodology`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/methodology) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 13 research methodology skills. Trigger: study design, methodology selection, scientific reason... |
 | [`molecular-dynamics`](../../library/k-dense-ai-scientific-agent-skills/skills/molecular-dynamics) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Runs and analyzes molecular dynamics simulations with OpenMM and MDAnalysis. Sets up protein/sm... |
 | [`molecular-dynamics-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/molecular-dynamics-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Molecular dynamics simulation setup, execution, and trajectory analysis |

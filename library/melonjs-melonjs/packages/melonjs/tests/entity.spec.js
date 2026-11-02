@@ -1,0 +1,210 @@
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import {
+	Application,
+	boot,
+	Entity,
+	loader,
+	Rect,
+	Sprite,
+	video,
+} from "../src/index.js";
+import Renderer from "../src/video/renderer.js";
+
+describe("Entity", () => {
+	let entity;
+	let defaultRectShape;
+
+	let app;
+	beforeAll(async () => {
+		boot();
+		app = new Application(800, 600, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.CANVAS,
+		});
+		await app.init();
+
+		loader.setOptions({ crossOrigin: "anonymous" });
+
+		// a dummy sprite object
+		const entity_sprite = new Sprite(0, 0, {
+			framewidth: 32,
+			frameheight: 64,
+			image: Renderer.createCanvas(32, 64),
+			anchorPoint: { x: 0, y: 0 },
+		});
+
+		// a test entity object
+		entity = new Entity(0, 0, {
+			width: 32,
+			height: 64,
+			image: entity_sprite,
+			shapes: [],
+		});
+
+		// all current test are based on anchorpoint being 0, 0
+		entity.renderable.anchorPoint.set(0, 0);
+
+		// a default rect shape
+		defaultRectShape = new Rect(10, 10, 32, 64);
+	});
+
+	afterAll(() => {
+		// release the WebGL context this describe owns — browsers cap
+		// live contexts, and a leak surfaces as UNRELATED specs failing
+		app?.destroy();
+	});
+
+	it("has an empty set of shapes", () => {
+		expect(entity.body.shapes.length).toEqual(0);
+	});
+
+	it("has a first shape", () => {
+		entity.body.addShape(defaultRectShape);
+		expect(entity.body.shapes.length).toEqual(1);
+	});
+
+	it("has the correct body bounds: A", () => {
+		const bounds = entity.body.getBounds();
+		expect(
+			bounds.x === 10 &&
+				bounds.y === 10 &&
+				bounds.width === 32 &&
+				bounds.height === 64,
+		).toEqual(true);
+	});
+
+	it("has the correct renderable bounds: A", () => {
+		const bounds = entity.renderable.getBounds();
+		expect(
+			bounds.x === 0 &&
+				bounds.y === 0 &&
+				bounds.width === 32 &&
+				bounds.height === 64,
+		).toEqual(true);
+	});
+
+	it("has the correct entity bounds: A", () => {
+		const bounds = entity.getBounds();
+		expect(
+			bounds.x === 0 &&
+				bounds.y === 0 &&
+				bounds.width === 42 &&
+				bounds.height === 74,
+		).toEqual(true);
+	});
+
+	it("has a second shape", () => {
+		entity.body.addShape(defaultRectShape.clone().setShape(-10, -10, 32, 64));
+		expect(entity.body.shapes.length).toEqual(2);
+	});
+
+	// the union of shape A (10,10 → 42,74) and shape B (-10,-10 → 22,54)
+	it("has the correct body bounds: B", () => {
+		const bounds = entity.body.getBounds();
+		expect(
+			bounds.x === -10 &&
+				bounds.y === -10 &&
+				bounds.width === 52 &&
+				bounds.height === 84,
+		).toEqual(true);
+	});
+
+	it("has the correct renderable bounds: B", () => {
+		const { renderable } = entity;
+		expect(
+			renderable.pos.x === 0 &&
+				renderable.pos.y === 0 &&
+				renderable.width === 32 &&
+				renderable.height === 64,
+		).toEqual(true);
+	});
+
+	it("has the correct entity bounds: B", () => {
+		const bounds = entity.getBounds();
+		expect(
+			bounds.x === -10 &&
+				bounds.y === -10 &&
+				bounds.width === 52 &&
+				bounds.height === 84,
+		).toEqual(true);
+	});
+
+	it("removes the second shape", () => {
+		expect(entity.body.removeShapeAt(1)).toEqual(1);
+	});
+
+	it("has the correct body bounds: C", () => {
+		const bounds = entity.body.getBounds();
+		expect(
+			bounds.x === 10 &&
+				bounds.y === 10 &&
+				bounds.width === 32 &&
+				bounds.height === 64,
+		).toEqual(true);
+	});
+
+	it("has the correct renderable bounds: C", () => {
+		const { renderable } = entity;
+		expect(
+			renderable.pos.x === 0 &&
+				renderable.pos.y === 0 &&
+				renderable.width === 32 &&
+				renderable.height === 64,
+		).toEqual(true);
+	});
+
+	it("has the correct entity bounds: C", () => {
+		const bounds = entity.getBounds();
+		expect(
+			bounds.x === 0 &&
+				bounds.y === 0 &&
+				bounds.width === 42 &&
+				bounds.height === 74,
+		).toEqual(true);
+	});
+
+	it("has the correct entity geometry: C", () => {
+		expect(
+			entity.pos.x === 0 &&
+				entity.pos.y === 0 &&
+				entity.width === 32 &&
+				entity.height === 64,
+		).toEqual(true);
+	});
+
+	it("moves properly", () => {
+		entity.pos.set(120, 150);
+		expect(entity.pos.x === 120 && entity.pos.y === 150).toEqual(true);
+	});
+
+	it("has the correct body bounds: D", () => {
+		const bounds = entity.body.getBounds();
+		expect(
+			bounds.x === 10 &&
+				bounds.y === 10 &&
+				bounds.width === 32 &&
+				bounds.height === 64,
+		).toEqual(true);
+	});
+
+	it("has the correct renderable bounds: D", () => {
+		const renderable = entity.renderable;
+		expect(
+			renderable.pos.x === 0 &&
+				renderable.pos.y === 0 &&
+				renderable.width === 32 &&
+				renderable.height === 64,
+		).toEqual(true);
+	});
+
+	it("has the correct entity bounds: D", () => {
+		const bounds = entity.getBounds();
+		expect(
+			bounds.x === 120 &&
+				bounds.y === 150 &&
+				bounds.width === 42 &&
+				bounds.height === 74,
+		).toEqual(true);
+	});
+});

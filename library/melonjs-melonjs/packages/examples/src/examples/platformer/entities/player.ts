@@ -1,0 +1,378 @@
+/**
+ * melonJS — Platformer (built-in SAT physics) example.
+ * Copyright (C) 2011 - 2026 AltByte Pte Ltd — MIT License.
+ * See `packages/examples/LICENSE.md` for full license + asset credits.
+ */
+import {
+	audio,
+	Body,
+	collision,
+	game,
+	input,
+	level,
+	Rect,
+	Sprite,
+	SquishEffect,
+	Tween,
+	timer,
+} from "melonjs";
+import { gameState } from "../gameState";
+
+// falling faster than this, then stopping, is a landing worth a squash
+const LANDING_SPEED = 3;
+// the most a landing squashes the player, at full falling speed
+const MAX_SQUASH = 0.25;
+
+export class PlayerEntity extends Sprite {
+	dying: boolean;
+	multipleJump: number;
+	squish: SquishEffect | undefined;
+	// the height the player is stretched (above 1) or squashed (below 1) to
+	stretch = { scaleY: 1 };
+	stretchTween: Tween | undefined;
+	lastVelY: number;
+
+	constructor(x, y, settings) {
+		// create the sprite using atlas animation frames
+		super(x, y, {
+			...gameState.texture.getAnimationSettings([
+				"walk0001.png",
+				"walk0002.png",
+				"walk0003.png",
+				"walk0004.png",
+				"walk0005.png",
+				"walk0006.png",
+				"walk0007.png",
+				"walk0008.png",
+				"walk0009.png",
+				"walk0010.png",
+				"walk0011.png",
+			]),
+			anchorPoint: { x: 0, y: 0 },
+		});
+
+		// add a physic body using the Tiled object dimensions,
+		// centered horizontally and bottom-aligned within the sprite frame
+		this.body = new Body(
+			this,
+			new Rect(
+				(this.width - settings.width) / 2,
+				this.height - settings.height,
+				settings.width,
+				settings.height,
+			),
+		);
+
+		// set a "player object" type
+		this.body.collisionType = collision.types.PLAYER_OBJECT;
+
+		// player can exit the viewport (jumping, falling into a hole, etc.)
+		this.alwaysUpdate = true;
+
+		// walking & jumping speed
+		this.body.setMaxVelocity(3, 15);
+		this.body.setFriction(0.4, 0);
+
+		this.dying = false;
+
+		this.multipleJump = 1;
+
+		this.lastVelY = 0;
+
+		// enable keyboard
+		input.bindKey(input.KEY.LEFT, "left");
+		input.bindKey(input.KEY.RIGHT, "right");
+		input.bindKey(input.KEY.X, "jump", true);
+		input.bindKey(input.KEY.UP, "jump", true);
+		input.bindKey(input.KEY.SPACE, "jump", true);
+		input.bindKey(input.KEY.DOWN, "down");
+
+		input.bindKey(input.KEY.A, "left");
+		input.bindKey(input.KEY.D, "right");
+		input.bindKey(input.KEY.W, "jump", true);
+		input.bindKey(input.KEY.S, "down");
+
+		input.bindGamepad(
+			0,
+			{ type: "buttons", code: input.GAMEPAD.BUTTONS.FACE_1 },
+			input.KEY.UP,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "buttons", code: input.GAMEPAD.BUTTONS.FACE_2 },
+			input.KEY.UP,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "buttons", code: input.GAMEPAD.BUTTONS.DOWN },
+			input.KEY.DOWN,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "buttons", code: input.GAMEPAD.BUTTONS.FACE_3 },
+			input.KEY.DOWN,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "buttons", code: input.GAMEPAD.BUTTONS.FACE_4 },
+			input.KEY.DOWN,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "buttons", code: input.GAMEPAD.BUTTONS.LEFT },
+			input.KEY.LEFT,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "buttons", code: input.GAMEPAD.BUTTONS.RIGHT },
+			input.KEY.RIGHT,
+		);
+
+		// map axes
+		input.bindGamepad(
+			0,
+			{ type: "axes", code: input.GAMEPAD.AXES.LX, threshold: -0.5 },
+			input.KEY.LEFT,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "axes", code: input.GAMEPAD.AXES.LX, threshold: 0.5 },
+			input.KEY.RIGHT,
+		);
+		input.bindGamepad(
+			0,
+			{ type: "axes", code: input.GAMEPAD.AXES.LY, threshold: -0.5 },
+			input.KEY.UP,
+		);
+
+		// define a basic walking animation
+		this.addAnimation("stand", [{ name: "walk0001.png", delay: 100 }]);
+		this.addAnimation("walk", [
+			{ name: "walk0001.png", delay: 100 },
+			{ name: "walk0002.png", delay: 100 },
+			{ name: "walk0003.png", delay: 100 },
+		]);
+		this.addAnimation("jump", [
+			{ name: "walk0004.png", delay: 150 },
+			{ name: "walk0005.png", delay: 150 },
+			{ name: "walk0006.png", delay: 150 },
+			{ name: "walk0002.png", delay: 150 },
+			{ name: "walk0001.png", delay: 150 },
+		]);
+
+		// set as default
+		this.setCurrentAnimation("walk");
+	}
+
+	/**
+	 * called when added to the game world
+	 */
+	onActivateEvent() {
+		const app = this.parentApp;
+		// set the viewport to follow this renderable on both axis, and enable damping
+		app.viewport.follow(this, app.viewport.AXIS.BOTH, 0.1);
+		// the bulge that keeps a stretched or squashed player's volume is a
+		// shader effect: on the Canvas renderer it does nothing
+		if (this.squish === undefined) {
+			this.squish = new SquishEffect(app.renderer);
+			this.addPostEffect(this.squish);
+		}
+	}
+
+	/**
+	 * stretch (above 1) or squash (below 1) the player to `scaleY` of its
+	 * height, then ease back to rest with a single small overshoot
+	 */
+	stretchTo(scaleY: number) {
+		this.stretchTween?.stop();
+		this.stretch.scaleY = scaleY;
+		this.stretchTween = new Tween(this.stretch)
+			.to({ scaleY: 1 }, { duration: 300, easing: Tween.Easing.Back.Out })
+			.onComplete(() => {
+				this.stretchTween = undefined;
+			})
+			.start();
+	}
+
+	/**
+	 * scale the player's height about its feet, and bulge it the other way
+	 * so it keeps its volume: pinched in when stretched, bulging out when
+	 * squashed. Called from update(), after the physics step.
+	 */
+	applyStretch(scaleY: number) {
+		const feet = this.height * (1 - this.anchorPoint.y);
+		this.currentTransform
+			.identity()
+			.translate(0, feet)
+			.scale(1, scaleY)
+			.translate(0, -feet);
+		this.updateBounds();
+		this.squish?.setBulge(1 - scaleY);
+	}
+
+	/**
+	 * update the force applied
+	 */
+	update(dt) {
+		if (input.isKeyPressed("left")) {
+			if (this.body.vel.y === 0) {
+				this.setCurrentAnimation("walk");
+			}
+			this.body.force.x = -this.body.maxVel.x;
+			this.flipX(true);
+		} else if (input.isKeyPressed("right")) {
+			if (this.body.vel.y === 0) {
+				this.setCurrentAnimation("walk");
+			}
+			this.body.force.x = this.body.maxVel.x;
+			this.flipX(false);
+		}
+
+		let jumped = false;
+		if (input.isKeyPressed("jump")) {
+			this.setCurrentAnimation("jump");
+			this.body.jumping = true;
+			if (this.multipleJump <= 2) {
+				jumped = true;
+				// easy "math" for double jump
+				this.body.force.y = -this.body.maxVel.y * this.multipleJump++;
+				audio.stop("jump");
+				audio.play("jump", false);
+				// stretch on take-off
+				this.stretchTo(1.25);
+			}
+		} else {
+			if (!this.body.falling && !this.body.jumping) {
+				// reset the multipleJump flag if on the ground
+				this.multipleJump = 1;
+			} else if (this.body.falling && this.multipleJump < 2) {
+				// reset the multipleJump flag if falling
+				this.multipleJump = 2;
+			}
+		}
+
+		if (this.body.force.x === 0 && this.body.force.y === 0) {
+			this.setCurrentAnimation("stand");
+		}
+
+		// squash on landing, harder the faster we came down. A landing stops the
+		// fall; a double jump turns it upward, which is not a landing, and a
+		// jump on the frame we land wins over the squash
+		const velY = this.body.vel.y;
+		if (!jumped && this.lastVelY > LANDING_SPEED && Math.abs(velY) < 1) {
+			this.stretchTo(
+				1 - MAX_SQUASH * Math.min(this.lastVelY / this.body.maxVel.y, 1),
+			);
+		}
+		this.lastVelY = velY;
+		this.applyStretch(this.stretch.scaleY);
+
+		// check if we fell into a hole
+		if (!this.inViewport && this.getBounds().top > game.renderer.height) {
+			const app = this.parentApp;
+			// if yes reset the game
+			app.world.removeChild(this);
+			app.viewport.fadeIn("#fff", 150, () => {
+				audio.play("die", false);
+				level.reload();
+				app.viewport.fadeOut("#fff", 150);
+			});
+			return true;
+		}
+
+		// check if we moved (an "idle" animation would definitely be cleaner),
+		// or are still wobbling from a squash
+		if (
+			this.body.vel.x !== 0 ||
+			this.body.vel.y !== 0 ||
+			this.isFlickering() ||
+			this.stretchTween !== undefined
+		) {
+			super.update(dt);
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * collision handler
+	 */
+	onCollision(response, other) {
+		switch (other.body.collisionType) {
+			case collision.types.WORLD_SHAPE:
+				// Simulate a platform object
+				if (other.type === "platform") {
+					if (
+						this.body.falling &&
+						!input.isKeyPressed("down") &&
+						// Shortest overlap would move the player upward
+						response.overlapV.y > 0 &&
+						// The velocity is reasonably fast enough to have penetrated to the overlap depth
+						~~this.body.vel.y >= ~~response.overlapV.y
+					) {
+						// Disable collision on the x axis
+						response.overlapV.x = 0;
+						// Respond to the platform (it is solid)
+						return true;
+					}
+					// Do not respond to the platform (pass through)
+					return false;
+				}
+
+				// Custom collision response for slopes
+				if (other.type === "slope") {
+					// Always adjust the collision response upward
+					response.overlapV.y = Math.abs(response.overlap);
+					response.overlapV.x = 0;
+
+					// Respond to the slope (it is solid)
+					return true;
+				}
+				break;
+
+			case collision.types.ENEMY_OBJECT:
+				if (!other.isMovingEnemy) {
+					// spike or any other fixed danger
+					this.body.vel.y -= this.body.maxVel.y * timer.tick;
+					this.hurt();
+				} else {
+					// a regular moving enemy entity
+					if (response.overlapV.y > 0 && this.body.falling) {
+						// jump
+						this.body.vel.y -= this.body.maxVel.y * 1.5 * timer.tick;
+					} else {
+						this.hurt();
+					}
+					// Not solid
+					return false;
+				}
+				break;
+
+			default:
+				// Do not respond to other objects (e.g. coins)
+				return false;
+		}
+
+		// Make the object solid
+		return true;
+	}
+
+	/**
+	 * ouch
+	 */
+	hurt() {
+		if (!this.isFlickering()) {
+			// tint to red and flicker
+			this.tint.setColor(255, 192, 192);
+			this.flicker(750, () => {
+				// clear the tint once the flickering effect is over
+				this.tint.setColor(255, 255, 255);
+			});
+
+			// flash the screen and shake the camera
+			this.parentApp.viewport.fadeIn("#FFFFFF", 75);
+			this.parentApp.viewport.shake(4, 200);
+			audio.play("die", false);
+		}
+	}
+}

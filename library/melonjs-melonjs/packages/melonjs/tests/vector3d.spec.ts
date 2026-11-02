@@ -1,0 +1,567 @@
+import { describe, expect, it } from "vitest";
+import { math, Vector2d, Vector3d } from "../src/index.js";
+
+describe("Vector3d", () => {
+	const x = 1;
+	const y = 2;
+	const z = 3;
+
+	let a: Vector3d;
+	let b: Vector3d;
+	let c: Vector3d;
+	let d: Vector3d;
+
+	it("should be initialized to a (0, 0, 0) 3d vector", () => {
+		a = new Vector3d();
+		b = new Vector3d();
+		c = new Vector3d();
+		d = new Vector3d();
+
+		expect(a.toString()).toEqual("x:0,y:0,z:0");
+	});
+
+	it("a(1, 2, 3) should be copied into b", () => {
+		a.set(x, y, z);
+		b.copy(a);
+
+		expect(b.equals(a)).toEqual(true);
+		// this should be true too
+		expect(b.equals(a.x, a.y, a.z)).toEqual(true);
+		// and also this one
+		expect(b.equals(a.x, a.y)).toEqual(true);
+	});
+
+	it("set (1, 2, 3) into a defined vector", () => {
+		a.set(x, y, z);
+
+		expect(a.toString()).toEqual(`x:${x},y:${y},z:${z}`);
+	});
+
+	it("use a 2d vector to set this vector", () => {
+		const vec2 = new Vector2d(x, y);
+		a.setV(vec2);
+		expect(a.toString()).toEqual(`x:${x},y:${y},z:0`);
+
+		a.set(y, x);
+		expect(a.toString()).toEqual(`x:${y},y:${x},z:0`);
+	});
+
+	it("add (1, 2, 3) to (-1, -2, -3)", () => {
+		a.set(x, y, z);
+		b.set(-x, -y, -z);
+
+		expect(a.add(b).toString()).toEqual("x:0,y:0,z:0");
+	});
+
+	it("sub (1, 2, 3) to (-1, -2, -3)", () => {
+		a.set(x, y, z);
+		b.set(-x, -y, -z);
+
+		expect(a.sub(b).toString()).toEqual(`x:${x - -x},y:${y - -y},z:${z - -z}`);
+	});
+
+	it("scale (1, 2, 3) by (-1, -2, -3)", () => {
+		a.set(x, y, z);
+		b.set(-x, -y, -z);
+
+		expect(a.scaleV(b).toString()).toEqual(
+			`x:${x * -x},y:${y * -y},z:${z * -z}`,
+		);
+
+		a.set(x, y, z);
+
+		expect(a.scale(-1, -1, -1).equals(b)).toEqual(true);
+	});
+
+	it("negate (1, 2, 3)", () => {
+		a.set(x, y, z);
+
+		expect(a.negateSelf().toString()).toEqual(`x:${-x},y:${-y},z:${-z}`);
+	});
+
+	it("dot Product (1, 2, 3) and (-1, -2, -3)", () => {
+		a.set(x, y, z);
+		b.set(-x, -y, -z);
+
+		// calculate the dot product
+		expect(a.dot(b)).toEqual(-x * x - y * y - z * z);
+	});
+
+	it("cross Product(2, 3, 4) and (5, 6, 7)", () => {
+		a.set(2, 3, 4);
+		b.set(5, 6, 7);
+
+		const crossed = new Vector3d(-3, 6, -3);
+
+		// calculate the cross product
+		a.cross(b);
+		expect(Math.abs(a.x - crossed.x)).toBeCloseTo(0, 4);
+		expect(Math.abs(a.y - crossed.y)).toBeCloseTo(0, 4);
+		expect(Math.abs(a.z - crossed.z)).toBeCloseTo(0, 4);
+	});
+
+	it("length/lengthSqrt functions", () => {
+		a.set(x, 0, 0);
+		b.set(0, -y, 0);
+		c.set(0, 0, z);
+		d.set(0, 0, 0);
+
+		expect(a.length()).toEqual(x);
+		expect(a.length2()).toEqual(x * x);
+		expect(b.length()).toEqual(y);
+		expect(b.length2()).toEqual(y * y);
+		expect(c.length()).toEqual(z);
+		expect(c.length2()).toEqual(z * z);
+		expect(d.length()).toEqual(0);
+		expect(d.length2()).toEqual(0);
+
+		a.set(x, y, z);
+
+		expect(a.length()).toEqual(Math.sqrt(x * x + y * y + z * z));
+		expect(a.length2()).toEqual(x * x + y * y + z * z);
+	});
+
+	it("lerp functions", () => {
+		a.set(x, 0, z);
+		b.set(0, -y, 0);
+
+		expect(a.clone().lerp(a, 0).equals(a.lerp(a, 0.5))).toEqual(true);
+		expect(a.clone().lerp(a, 0).equals(a.lerp(a, 1))).toEqual(true);
+
+		expect(a.clone().lerp(b, 0).equals(a)).toEqual(true);
+
+		expect(a.clone().lerp(b, 0.5).x).toEqual(x * 0.5);
+		expect(a.clone().lerp(b, 0.5).y).toEqual(-y * 0.5);
+		expect(a.clone().lerp(b, 0.5).z).toEqual(z * 0.5);
+
+		expect(a.clone().lerp(b, 1).equals(b)).toEqual(true);
+	});
+
+	it("damp — dt=0 leaves vector unchanged", () => {
+		a.set(10, 20, 30);
+		b.set(100, 200, 300);
+		const before = a.clone();
+		a.damp(b, 5, 0);
+		expect(a.equals(before)).toEqual(true);
+	});
+
+	it("damp — lambda=0 leaves vector unchanged", () => {
+		a.set(10, 20, 30);
+		b.set(100, 200, 300);
+		const before = a.clone();
+		a.damp(b, 0, 0.5);
+		expect(a.equals(before)).toEqual(true);
+	});
+
+	it("damp — lambda=Infinity snaps to target", () => {
+		a.set(0, 0, 0);
+		b.set(100, 200, 300);
+		a.damp(b, Number.POSITIVE_INFINITY, 1 / 60);
+		expect(a.equals(b)).toEqual(true);
+	});
+
+	it("damp — equal target = no movement (idempotent)", () => {
+		a.set(10, 20, 30);
+		a.damp(a, 5, 1 / 60);
+		expect(a.x).toEqual(10);
+		expect(a.y).toEqual(20);
+		expect(a.z).toEqual(30);
+	});
+
+	it("damp — frame-rate independence on all 3 components over 1 second", () => {
+		// Same total elapsed dt, same result regardless of cadence.
+		const target = new Vector3d(100, 200, 300);
+		const lambda = 5;
+		const sim = (steps: number, dt: number) => {
+			const v = new Vector3d(0, 0, 0);
+			for (let i = 0; i < steps; i++) v.damp(target, lambda, dt);
+			return v;
+		};
+		const v60 = sim(60, 1 / 60);
+		const v30 = sim(30, 1 / 30);
+		expect(v60.x).toBeCloseTo(v30.x, 9);
+		expect(v60.y).toBeCloseTo(v30.y, 9);
+		expect(v60.z).toBeCloseTo(v30.z, 9);
+		// Matches the closed form per axis.
+		expect(v60.x).toBeCloseTo(100 * (1 - Math.exp(-5)), 6);
+		expect(v60.y).toBeCloseTo(200 * (1 - Math.exp(-5)), 6);
+		expect(v60.z).toBeCloseTo(300 * (1 - Math.exp(-5)), 6);
+	});
+
+	it("damp — Vector2d target treats z as 0 (Camera3d ergonomics)", () => {
+		// A 2D target should pull the z component toward 0, not crash
+		// or leave z unchanged. Matches Vector3d.add's Vector2d
+		// handling.
+		const v3 = new Vector3d(10, 10, 100);
+		const v2 = new Vector2d(0, 0);
+		v3.damp(v2, Number.POSITIVE_INFINITY, 1 / 60);
+		expect(v3.x).toEqual(0);
+		expect(v3.y).toEqual(0);
+		expect(v3.z).toEqual(0);
+	});
+
+	it("damp — returns `this` for chaining", () => {
+		a.set(0, 0, 0);
+		const r = a.damp(b, 5, 1 / 60);
+		expect(r).toBe(a);
+	});
+
+	it("damp — monotonic approach, no overshoot", () => {
+		a.set(0, 0, 0);
+		b.set(100, 100, 100);
+		for (let i = 0; i < 1000; i++) {
+			a.damp(b, 5, 1 / 60);
+			expect(a.x).toBeLessThanOrEqual(100);
+			expect(a.y).toBeLessThanOrEqual(100);
+			expect(a.z).toBeLessThanOrEqual(100);
+		}
+	});
+
+	it("normalize function", () => {
+		a.set(x, 0, 0);
+		b.set(0, -y, 0);
+		c.set(0, 0, z);
+
+		a.normalize();
+		expect(a.length()).toEqual(1);
+		expect(a.x).toEqual(1);
+
+		b.normalize();
+		expect(b.length()).toEqual(1);
+		expect(b.y).toEqual(-1);
+
+		c.normalize();
+		expect(c.length()).toEqual(1);
+		expect(c.z).toEqual(1);
+	});
+
+	it("distance function", () => {
+		a.set(x, 0, 0);
+		b.set(0, -y, 0);
+		c.set(0, 0, z);
+		d.set(0, 0, 0);
+
+		expect(a.distance(d)).toEqual(x);
+		expect(b.distance(d)).toEqual(y);
+		expect(c.distance(d)).toEqual(z);
+	});
+
+	it("min/max/clamp", () => {
+		a.set(x, y, z);
+		b.set(-x, -y, -z);
+		c.set(0, 0, 0);
+
+		c.copy(a).minV(b);
+		expect(c.x).toEqual(-x);
+		expect(c.y).toEqual(-y);
+		expect(c.z).toEqual(-z);
+
+		c.copy(a).maxV(b);
+		expect(c.x).toEqual(x);
+		expect(c.y).toEqual(y);
+		expect(c.z).toEqual(z);
+
+		c.set(-2 * x, 2 * x, 2 * z);
+		c.clampSelf(-x, x);
+		expect(c.x).toEqual(-x);
+		expect(c.y).toEqual(x);
+		expect(c.z).toEqual(x);
+	});
+
+	it("ceil/floor", () => {
+		expect(
+			a
+				.set(-0.1, 0.1, 0.3)
+				.floorSelf()
+				.equals(new Vector3d(-1, 0, 0)),
+		).toEqual(true);
+		expect(
+			a
+				.set(-0.5, 0.5, 0.6)
+				.floorSelf()
+				.equals(new Vector3d(-1, 0, 0)),
+		).toEqual(true);
+		expect(
+			a
+				.set(-0.9, 0.9, 0.8)
+				.floorSelf()
+				.equals(new Vector3d(-1, 0, 0)),
+		).toEqual(true);
+
+		expect(
+			a
+				.set(-0.1, 0.1, 0.3)
+				.ceilSelf()
+				.equals(new Vector3d(0, 1, 1)),
+		).toEqual(true);
+		expect(
+			a
+				.set(-0.5, 0.5, 0.6)
+				.ceilSelf()
+				.equals(new Vector3d(0, 1, 1)),
+		).toEqual(true);
+		expect(
+			a
+				.set(-0.9, 0.9, 0.9)
+				.ceilSelf()
+				.equals(new Vector3d(0, 1, 1)),
+		).toEqual(true);
+	});
+
+	it("project a on b", () => {
+		a.set(x, y, z);
+		b.set(-x, -y, -z);
+
+		// the following only works with (-)1, (-)2, (-)3 style of values
+		expect(a.project(b).equals(b)).toEqual(true);
+	});
+
+	it("projectN onto a unit vector skips the division", () => {
+		// `projectN` exists to skip the `/ v.length2()` that `project` pays,
+		// because the target is already unit. On a unit target the two must
+		// agree exactly, which is what makes it a safe substitution.
+		//
+		// Note melonJS scales THIS by the ratio rather than returning the
+		// component along `v`, so the result points along `a`, not along `b`.
+		const unit = new Vector3d(1, 2, 2).normalize(); // length 3 -> unit
+		const byProject = new Vector3d(1, 2, 3).project(unit);
+		const byProjectN = new Vector3d(1, 2, 3).projectN(unit);
+		expect(byProjectN.x).toBeCloseTo(byProject.x, 12);
+		expect(byProjectN.y).toBeCloseTo(byProject.y, 12);
+		expect(byProjectN.z).toBeCloseTo(byProject.z, 12);
+
+		// and the value itself: `a` scaled by `a . b`
+		const dot = 1 * unit.x + 2 * unit.y + 3 * unit.z;
+		expect(byProjectN.x).toBeCloseTo(1 * dot, 12);
+		expect(byProjectN.y).toBeCloseTo(2 * dot, 12);
+		expect(byProjectN.z).toBeCloseTo(3 * dot, 12);
+	});
+
+	it("projectN does NOT divide by the target's length", () => {
+		// The contract is that the caller supplies a unit vector. Handed one
+		// that is not, `projectN` must scale by the RAW dot product, which is
+		// the whole point of it being cheaper; it must not quietly behave
+		// like `project`.
+		//
+		// This is the assertion that was missing. Both 3D classes carried a
+		// copy of `project`, division and all, under `projectN`'s name and
+		// its "slightly more efficient" doc comment. Nothing in the engine
+		// called it and nothing tested it, which is how it survived.
+		const long = new Vector3d(0, 10, 0);
+		const n = new Vector3d(1, 2, 3).projectN(long); // dot 20 -> (20, 40, 60)
+		const pr = new Vector3d(1, 2, 3).project(long); // /100 -> (0.2, 0.4, 0.6)
+		expect(n.x).toBeCloseTo(20, 12);
+		expect(n.y).toBeCloseTo(40, 12);
+		expect(n.z).toBeCloseTo(60, 12);
+		expect(pr.x).toBeCloseTo(0.2, 12);
+		expect(pr.y).toBeCloseTo(0.4, 12);
+		expect(pr.z).toBeCloseTo(0.6, 12);
+		expect(n.y).not.toBeCloseTo(pr.y, 6);
+	});
+
+	it("angle between a and b", () => {
+		a.set(0, -0.18851655680720186, 0.9820700116639124);
+		b.set(0, 0.18851655680720186, -0.9820700116639124);
+
+		expect(a.angle(a)).toEqual(0);
+		expect(a.angle(b)).toEqual(Math.PI);
+
+		a.set(x, y, 0);
+		b.set(-x, -y, 0);
+
+		// why is this not perfectly 180 degrees ?
+		expect(math.round(math.radToDeg(a.angle(b)))).toEqual(180);
+
+		b.set(4 * x, -y, 0);
+		expect(a.angle(b)).toEqual(Math.PI / 2);
+	});
+
+	it("rotate around its origin point", () => {
+		a.set(1, 0, 1);
+		// rotate the vector by 90 degree clockwise
+		a.rotate(Math.PI / 2);
+
+		expect(a.x).toBeCloseTo(0, 5);
+		expect(a.y).toBeCloseTo(1, 5);
+	});
+
+	it("rotate around a given 2d point", () => {
+		a.set(1, 0, 1);
+		// rotate the vector by 90 degree clockwise on the z axis
+		a.rotate(Math.PI / 2, { x: 1, y: 1 });
+
+		expect(a.x).toBeCloseTo(2, 5);
+		expect(a.y).toBeCloseTo(1, 5);
+	});
+
+	it("perp and rotate function", () => {
+		a.set(x, y, z);
+		b.copy(a).perp();
+		// perp rotate the vector by 90 degree clockwise on the z axis
+		c.copy(a).rotate(Math.PI / 2);
+
+		expect(a.angle(b)).toEqual(a.angle(c));
+	});
+
+	it("convert vector to iso coordinates", () => {
+		a.set(32, 32, 1);
+
+		a.toIso();
+		expect(a.toString()).toEqual("x:0,y:32,z:1");
+
+		a.to2d();
+		expect(a.toString()).toEqual("x:32,y:32,z:1");
+	});
+
+	it("angle function", () => {
+		a.set(6, 3, 1);
+		b.set(5, 13, 1);
+		expect(math.radToDeg(a.angle(b))).toBeCloseTo(42, -1);
+
+		a.set(3, -6, 1);
+		b.set(8, 4, 1);
+		expect(math.radToDeg(a.angle(b))).toBeCloseTo(90, -1);
+	});
+
+	describe("equals", () => {
+		it("should return true when comparing with the same vector", () => {
+			const vector = new Vector3d(1, 2, 3);
+			expect(vector.equals(vector)).toEqual(true);
+		});
+
+		it("should return true when comparing with a vector with the same values", () => {
+			const vector1 = new Vector3d(1, 2, 3);
+			const vector2 = new Vector3d(1, 2, 3);
+			expect(vector1.equals(vector2)).toEqual(true);
+		});
+
+		it("should return true when comparing with a 2d vector with the same values for x and y", () => {
+			const vector1 = new Vector3d(1, 2, 3);
+			const vector2 = new Vector2d(1, 2);
+			expect(vector1.equals(vector2)).toEqual(true);
+		});
+
+		it("should return true when comparing with vector components", () => {
+			const vector = new Vector3d(1, 2, 3);
+			expect(vector.equals(1, 2, 3)).toEqual(true);
+		});
+
+		it("should return false when comparing with a vector with different values", () => {
+			const vector1 = new Vector3d(1, 2, 3);
+			const vector2 = new Vector3d(4, 5, 6);
+			expect(vector1.equals(vector2)).toEqual(false);
+		});
+
+		it("should return false when comparing with different vector components", () => {
+			const vector = new Vector3d(1, 2, 3);
+			expect(vector.equals(4, 5, 6)).toEqual(false);
+		});
+	});
+
+	describe("slerp", () => {
+		const unit = (v: Vector3d) => Math.hypot(v.x, v.y, v.z);
+		const angleBetween = (a: Vector3d, b: Vector3d) =>
+			Math.acos(
+				Math.min(
+					1,
+					Math.max(
+						-1,
+						(a.x * b.x + a.y * b.y + a.z * b.z) / (unit(a) * unit(b)),
+					),
+				),
+			);
+
+		it("turns at a constant angular rate, where lerp does not", () => {
+			// A quarter turn from +X to +Y. At the halfway point a slerp is
+			// 45 degrees from each end; a lerp cuts the chord and lands short.
+			const a = new Vector3d(1, 0, 0);
+			const b = new Vector3d(0, 1, 0);
+			const half = new Vector3d(1, 0, 0).slerp(b, 0.5);
+			expect(angleBetween(a, half)).toBeCloseTo(Math.PI / 4, 6);
+			expect(angleBetween(half, b)).toBeCloseTo(Math.PI / 4, 6);
+			// and it stayed on the sphere, where a lerp would have shortened
+			expect(unit(half)).toBeCloseTo(1, 6);
+			expect(unit(new Vector3d(1, 0, 0).lerp(b, 0.5))).toBeLessThan(0.95);
+		});
+
+		it("reaches both ends exactly", () => {
+			const b = new Vector3d(0, 0, 1);
+			const atZero = new Vector3d(1, 0, 0).slerp(b, 0);
+			expect(atZero.x).toBeCloseTo(1, 6);
+			const atOne = new Vector3d(1, 0, 0).slerp(b, 1);
+			expect(atOne.x).toBeCloseTo(0, 6);
+			expect(atOne.z).toBeCloseTo(1, 6);
+		});
+
+		it("interpolates length alongside direction", () => {
+			const out = new Vector3d(2, 0, 0).slerp(new Vector3d(0, 4, 0), 0.5);
+			expect(unit(out)).toBeCloseTo(3, 6);
+			expect(angleBetween(new Vector3d(1, 0, 0), out)).toBeCloseTo(
+				Math.PI / 4,
+				6,
+			);
+		});
+
+		it("survives a dot product that floats past 1", () => {
+			// `acos(1.0000000000000002)` is NaN, and normalized vectors land
+			// there routinely. Two directions as near identical as doubles get.
+			const a = new Vector3d(
+				0.5773502691896258,
+				0.5773502691896258,
+				0.5773502691896258,
+			);
+			const b = new Vector3d(
+				0.5773502691896257,
+				0.5773502691896258,
+				0.5773502691896258,
+			);
+			const out = a.clone().slerp(b, 0.5);
+			expect(Number.isFinite(out.x)).toBe(true);
+			expect(Number.isFinite(out.y)).toBe(true);
+			expect(Number.isFinite(out.z)).toBe(true);
+			expect(unit(out)).toBeCloseTo(1, 6);
+		});
+
+		it("turns a half circle between exactly opposite directions", () => {
+			// Infinitely many great circles pass through both, so there is no
+			// right answer — but there is a wrong one, and it is NaN. The
+			// example that prompted this method returned (0, 0, 0) here.
+			const a = new Vector3d(0, 0, 1);
+			const b = new Vector3d(0, 0, -1);
+			const half = a.clone().slerp(b, 0.5);
+			expect(Number.isFinite(half.x)).toBe(true);
+			expect(unit(half)).toBeCloseTo(1, 6);
+			// halfway round is square to both ends
+			expect(angleBetween(a, half)).toBeCloseTo(Math.PI / 2, 5);
+			// and it still arrives
+			expect(a.clone().slerp(b, 1).z).toBeCloseTo(-1, 5);
+		});
+
+		it("picks a stable axis whichever way the opposite pair points", () => {
+			// A fixed perpendicular collapses when the input lies along it,
+			// so each of the three world axes has to work.
+			for (const [x, y, z] of [
+				[1, 0, 0],
+				[0, 1, 0],
+				[0, 0, 1],
+			]) {
+				const a = new Vector3d(x, y, z);
+				const out = a.clone().slerp(new Vector3d(-x, -y, -z), 0.5);
+				expect(unit(out)).toBeCloseTo(1, 6);
+				expect(angleBetween(a, out)).toBeCloseTo(Math.PI / 2, 5);
+			}
+		});
+
+		it("falls back to a straight interpolation for a zero vector", () => {
+			// nothing has a direction to turn from
+			const out = new Vector3d(0, 0, 0).slerp(new Vector3d(0, 0, 2), 0.5);
+			expect(out.z).toBeCloseTo(1, 6);
+			expect(Number.isFinite(out.x)).toBe(true);
+		});
+
+		it("returns itself, for chaining", () => {
+			const v = new Vector3d(1, 0, 0);
+			expect(v.slerp(new Vector3d(0, 1, 0), 0.5)).toBe(v);
+		});
+	});
+});

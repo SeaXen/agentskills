@@ -1,0 +1,1043 @@
+import Camera3d from "../camera/camera3d.ts";
+import { warnOnce } from "../lang/console.js";
+import { Matrix3d } from "../math/matrix3d.ts";
+import { AABB3d } from "../physics/broadphase/aabb3d.ts";
+import {
+	instanceRecordLayout,
+	readInstanceTransform,
+	writeIdentityTransform,
+	writeInstanceTransform,
+} from "../video/gpu/instancerecord.ts";
+import {
+	clampShadowTilt,
+	getInstancedShadowQuad,
+	resolveShadowStretch,
+	stretchAlong,
+	tiltOntoPlane,
+} from "./groundshadow.js";
+import Mesh from "./mesh.js";
+
+/**
+ * additional import for TypeScript
+ * @import Camera2d from "../camera/camera2d.ts";
+ * @import CanvasRenderer from "../video/canvas/canvas_renderer.js";
+ * @import {Color} from "../math/color.ts";
+ * @import WebGLRenderer from "../video/webgl/webgl_renderer.js";
+ * @import {Bounds} from "../physics/bounds.ts";
+ * @import Renderer from "../video/renderer.js";
+ */
+// scratch reused by getBounds3d(); never handed out
+const _instanceMatrix = new Matrix3d();
+
+// scratch for the flattened group matrix a shadow pass draws with —
+// synchronous, single-use per draw, never held
+/** scratch for the shadow throw, turned onto the plane */
+const _THROW = new Float64Array(3);
+
+const _SHADOW_MATRIX = new Matrix3d();
+/** scratch for the clamped floor normal of an instanced shadow */
+const _shadowNormal = new Float64Array(3);
+/** scratch for one blob axis lengthened along the light */
+const _STRETCHED = new Float64Array(2);
+const _instanceBounds = new AABB3d();
+// scratch for dirtyRange() — read synchronously and never retained
+const _dirtySpan = [0, 0];
+
+/**
+ * A {@link Mesh} drawn many times from one copy of its geometry.
+ *
+ * Ordinary meshes pay for every repeat: a forest of five thousand trees is
+ * five thousand geometries on the GPU, each re-uploaded when it changes. An
+ * `InstancedMesh` uploads the geometry **once** and stamps out copies from a
+ * small per-instance record, so cost scales with the number of instances
+ * rather than with `instances × vertices`, and the whole thing draws in a
+ * single call.
+ *
+ * Every `Mesh` setting works unchanged — `model` + `material` from an OBJ,
+ * raw `vertices`/`uvs`/`indices`, `lit`, `cullBackFaces`, `rightHanded`,
+ * `tint`, `textureRepeat`, the lot. What an instanced mesh adds is the
+ * instance buffer:
+ *
+ * - a **transform** per instance, always present;
+ * - a **colour** per instance, when `instanceColors` is declared, multiplied
+ *   into the mesh tint;
+ * - an opaque **`vec4`** per instance, when `instanceData` is declared. The
+ *   built-in lit shading reads its `rgb` as emissive; a custom
+ *   {@link Mesh#shader} may read it as a wind phase, an atlas offset, a
+ *   random seed — whatever the shader wants.
+ *
+ * The mesh's own position, rotation and scale keep their ordinary meaning and
+ * act as the **group** transform: moving an `InstancedMesh` moves every
+ * instance with one uniform write and re-uploads nothing.
+ *
+ * Requires a GPU backend (`renderer.supportsInstancing`). Under the Canvas
+ * renderer the instances are drawn one at a time through the ordinary CPU
+ * mesh path — correct, but without any of the benefit.
+ *
+ * ### When a plain {@link Mesh} each is the better answer
+ *
+ * One `InstancedMesh` is **one geometry and one material**, and four things
+ * move from per-object to per-group:
+ *
+ * - **Depth sorting.** The set has a single sort key — its own `pos` — so it
+ *   orders against the rest of the scene as one object. Opaque instances still
+ *   resolve against each other per pixel through the depth buffer; blended
+ *   ones cannot be sorted among themselves at all.
+ * - **Ground shadows.** {@link Mesh#castGroundShadow} becomes one instanced
+ *   shadow draw covering the whole set, not a blob computed per object.
+ * - **Removal.** {@link InstancedMesh#removeInstance} swaps the last instance
+ *   into the hole, so any index a caller was holding now refers to a different
+ *   object.
+ * - **Colour.** {@link Mesh#tint} applies to the set; per-instance colour has
+ *   to be declared up front with `instanceColors` and set through
+ *   {@link InstancedMesh#setInstanceColor}.
+ *
+ * So the question is not how many there are, but whether the game addresses
+ * them **individually**. Scenery — trees, rocks, grass, debris — instances
+ * cleanly, because nothing ever asks about one of them. Collision-tested props
+ * are fine too: the positions are yours either way and instancing only changes
+ * how they are drawn. Collectibles and enemies usually are not, because
+ * removing them one at a time makes the index swap the caller's problem, and
+ * at small counts a pooled `Mesh` each is less code and no slower.
+ * @augments Mesh
+ * @category Rendering
+ * @example
+ * const forest = new me.InstancedMesh(0, 0, {
+ *     model: "tree",
+ *     material: "tree",
+ *     width: 64,
+ *     lit: true,
+ *     instanceCount: 5000,     // pre-allocate
+ *     instanceColors: true,
+ *     instanceData: true,
+ * });
+ *
+ * const placement = new me.Matrix3d();   // one scratch — zero allocation
+ * for (let i = 0; i < forest.instanceCount; i++) {
+ *     placement.identity().translate(x, y, z).scale(s);
+ *     forest.setInstance(i, placement);
+ *     forest.setInstanceColor(i, autumnTint);
+ *     forest.setInstanceData(i, windPhase, seed, 0, 0);
+ * }
+ *
+ * // draw only the nearest 1200 — no re-upload, just a smaller draw
+ * forest.visibleInstanceCount = 1200;
+ * app.world.addChild(forest, 10);
+ */
+/**
+ * Everything {@link InstancedMesh} takes: the instancing settings, plus every
+ * {@link MeshSettings} — they are handed to {@link Mesh} whole, so the type
+ * says so by intersection rather than by copying the list.
+ * @typedef {object} InstancedMeshOwnSettings
+ * @property {number} [instanceCount=0] - number of instances to pre-allocate. Instances start at the group origin (identity transform) until placed; `addInstance` grows past this.
+ * @property {boolean} [instanceColors=false] - give each instance its own colour (16 bytes per instance), multiplied into the mesh tint
+ * @property {boolean} [instanceData=false] - give each instance an opaque `vec4` (16 bytes per instance). Read as emissive by the built-in lit shading, or as anything at all by a custom mesh shader.
+ */
+
+/**
+ * @typedef {InstancedMeshOwnSettings & import("./mesh.js").MeshSettings} InstancedMeshSettings
+ */
+
+export default class InstancedMesh extends Mesh {
+	/**
+	 * @param {number} x - the x coordinate of the group origin
+	 * @param {number} y - the y coordinate of the group origin
+	 * @param {InstancedMeshSettings} settings - every {@link Mesh} setting, plus the instancing ones
+	 */
+	constructor(x, y, settings) {
+		super(x, y, settings);
+
+		/**
+		 * How this mesh's per-instance records are laid out — record width and
+		 * the offset of each opt-in slot. Consumed by the batchers to describe
+		 * the instance vertex buffer.
+		 * @type {object}
+		 * @ignore
+		 * @internal
+		 */
+		this.instanceLayout = instanceRecordLayout(
+			settings.instanceColors === true,
+			settings.instanceData === true,
+		);
+
+		/**
+		 * The packed instance records, `instanceLayout.floats` per instance.
+		 * Editable in place for bulk updates — announce those with
+		 * {@link InstancedMesh#needsInstanceUpdate} or
+		 * {@link InstancedMesh#markInstancesDirty}, since writing here bypasses
+		 * the setters that track the dirty range.
+		 * @type {Float32Array}
+		 */
+		this.instanceBuffer = new Float32Array(0);
+
+		/**
+		 * bumped whenever the buffer is reallocated, so a renderer holding a
+		 * GPU copy knows its capacity assumption is stale
+		 * @type {number}
+		 * @ignore
+		 * @internal
+		 */
+		this._instanceVersion = 0;
+
+		// dirty span in floats, as [first, lastExclusive); empty when first
+		// exceeds last
+		// Monotonic revision of the record CONTENTS. The dirty span alone is
+		// not enough once more than one GPU buffer holds a copy (the unlit and
+		// lit batchers keep separate ones, and `lit` is a public field): the
+		// first consumer to drain the span would leave the second stuck on
+		// stale records forever. Each buffer records the revision it reached,
+		// so a consumer that missed an edit re-uploads in full.
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._instanceRevision = 0;
+		// the revision the CURRENT span started from — a consumer at exactly
+		// this revision can take the cheap partial upload
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._spanFromRevision = 0;
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._dirtyFirst = Infinity;
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._dirtyLast = 0;
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._instanceCount = 0;
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._visibleInstanceCount = -1;
+		// revision the cull box was last sized for
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._cullRevision = -1;
+
+		if (settings.instanceCount > 0) {
+			this.instanceCount = settings.instanceCount;
+		}
+	}
+
+	/**
+	 * How many instances this mesh holds.
+	 *
+	 * Growing pre-allocates the new records as identity transforms (an
+	 * unplaced instance sits at the group origin rather than collapsing onto
+	 * a zero matrix); shrinking keeps the allocation, so a count that
+	 * oscillates does not thrash it.
+	 * @type {number}
+	 */
+	get instanceCount() {
+		return this._instanceCount;
+	}
+
+	set instanceCount(count) {
+		// `| 0` alone wraps anything past 2^31 to a negative and NaN to 0, so
+		// an accidental `1e10` would silently empty the mesh rather than fail
+		const wanted = Number.isFinite(count) ? Math.max(0, Math.trunc(count)) : 0;
+		const floats = this.instanceLayout.floats;
+		if (wanted * floats > this.instanceBuffer.length) {
+			// grow geometrically so building a large set one addInstance at a
+			// time stays linear overall rather than quadratic
+			const capacity = Math.max(wanted, this._instanceCount * 2, 8);
+			const grown = new Float32Array(capacity * floats);
+			grown.set(this.instanceBuffer);
+			this.instanceBuffer = grown;
+			this._instanceVersion++;
+		}
+		// initialize whatever is newly in range
+		for (let i = this._instanceCount; i < wanted; i++) {
+			writeIdentityTransform(this.instanceBuffer, i * floats);
+			if (this.instanceLayout.hasColor) {
+				const at = i * floats + this.instanceLayout.colorOffset;
+				this.instanceBuffer[at] = 1;
+				this.instanceBuffer[at + 1] = 1;
+				this.instanceBuffer[at + 2] = 1;
+				this.instanceBuffer[at + 3] = 1;
+			}
+			if (this.instanceLayout.hasData) {
+				// a recycled slot still holds the dead instance's vec4, and the
+				// built-in shading reads its rgb as emissive — so a brand-new
+				// instance would inherit the old one's glow
+				const at = i * floats + this.instanceLayout.dataOffset;
+				this.instanceBuffer[at] = 0;
+				this.instanceBuffer[at + 1] = 0;
+				this.instanceBuffer[at + 2] = 0;
+				this.instanceBuffer[at + 3] = 0;
+			}
+		}
+		if (wanted > this._instanceCount) {
+			this.markInstancesDirty(
+				this._instanceCount,
+				wanted - this._instanceCount,
+			);
+		}
+		this._instanceCount = wanted;
+	}
+
+	/**
+	 * How many instances are actually drawn, counted from the first.
+	 *
+	 * The cheap culling and level-of-detail knob: sort the instances by
+	 * distance once, then draw fewer of them by moving this single number —
+	 * no re-upload, no rebuild. Defaults to every instance (`-1`).
+	 * @type {number}
+	 * @example
+	 * forest.visibleInstanceCount = playerIsIndoors ? 0 : 1200;
+	 */
+	get visibleInstanceCount() {
+		return this._visibleInstanceCount < 0
+			? this._instanceCount
+			: Math.min(this._visibleInstanceCount, this._instanceCount);
+	}
+
+	set visibleInstanceCount(count) {
+		// NaN would read as 0 and silently stop the mesh drawing
+		if (!Number.isFinite(count)) {
+			this._visibleInstanceCount = -1;
+			return;
+		}
+		this._visibleInstanceCount = count < 0 ? -1 : Math.trunc(count);
+	}
+
+	/**
+	 * Append an instance, growing the buffer as needed.
+	 * @param {Matrix3d} [transform] - where this instance sits, relative to the group. Defaults to the group origin.
+	 * @param {object} [options] - optional per-instance slots
+	 * @param {Color} [options.color] - instance colour (requires `instanceColors`)
+	 * @param {number[]} [options.data] - four numbers for the custom slot (requires `instanceData`)
+	 * @returns {number} the new instance's index
+	 */
+	addInstance(transform, options) {
+		const index = this._instanceCount;
+		this.instanceCount = index + 1;
+		if (transform !== undefined) {
+			this.setInstance(index, transform);
+		}
+		if (options !== undefined) {
+			if (options.color !== undefined) {
+				this.setInstanceColor(index, options.color);
+			}
+			if (options.data !== undefined) {
+				// a short array would leave components undefined, and
+				// `Float32Array[i] = undefined` is NaN — which propagates
+				// through the shader as black or discarded fragments
+				const [x = 0, y = 0, z = 0, w = 0] = options.data;
+				this.setInstanceData(index, x, y, z, w);
+			}
+		}
+		return index;
+	}
+
+	/**
+	 * Remove an instance by moving the last one into its place.
+	 *
+	 * Swapping is what keeps this O(1) instead of shifting every record after
+	 * the hole — but it means **indices are not stable across a removal**: the
+	 * instance that was last now answers to `index`. Callers holding indices
+	 * must re-read them, or avoid removal in favour of
+	 * {@link InstancedMesh#visibleInstanceCount}.
+	 * @param {number} index - the instance to remove
+	 */
+	removeInstance(index) {
+		const last = this._instanceCount - 1;
+		if (index < 0 || index > last) {
+			return;
+		}
+		const floats = this.instanceLayout.floats;
+		if (index !== last) {
+			this.instanceBuffer.copyWithin(
+				index * floats,
+				last * floats,
+				(last + 1) * floats,
+			);
+			this.markInstancesDirty(index, 1);
+		}
+		this._instanceCount = last;
+	}
+
+	/**
+	 * Place one instance.
+	 * @param {number} index - the instance to place
+	 * @param {Matrix3d} transform - where it sits, relative to the group
+	 */
+	setInstance(index, transform) {
+		if (index < 0 || index >= this._instanceCount) {
+			return;
+		}
+		writeInstanceTransform(
+			this.instanceBuffer,
+			index * this.instanceLayout.floats,
+			transform,
+		);
+		this.markInstancesDirty(index, 1);
+	}
+
+	/**
+	 * Read one instance's transform back.
+	 * @param {number} index - the instance to read
+	 * @param {Matrix3d} [out] - matrix to write into; a new one is allocated when omitted
+	 * @returns {Matrix3d|undefined} the transform, or `undefined` for an out-of-range index
+	 */
+	getInstance(index, out = new Matrix3d()) {
+		if (index < 0 || index >= this._instanceCount) {
+			return undefined;
+		}
+		return readInstanceTransform(
+			this.instanceBuffer,
+			index * this.instanceLayout.floats,
+			out,
+		);
+	}
+
+	/**
+	 * Set one instance's colour, multiplied into the mesh tint.
+	 * @param {number} index - the instance to colour
+	 * @param {Color} color - the instance colour
+	 */
+	setInstanceColor(index, color) {
+		const layout = this.instanceLayout;
+		if (!layout.hasColor || index < 0 || index >= this._instanceCount) {
+			return;
+		}
+		const at = index * layout.floats + layout.colorOffset;
+		this.instanceBuffer[at] = color.r / 255;
+		this.instanceBuffer[at + 1] = color.g / 255;
+		this.instanceBuffer[at + 2] = color.b / 255;
+		this.instanceBuffer[at + 3] = color.alpha;
+		this.markInstancesDirty(index, 1);
+	}
+
+	/**
+	 * Set one instance's custom `vec4`.
+	 * @param {number} index - the instance to write
+	 * @param {number} x - first component (emissive red, under the built-in lit shading)
+	 * @param {number} y - second component
+	 * @param {number} z - third component
+	 * @param {number} [w=0] - fourth component
+	 */
+	setInstanceData(index, x, y, z, w = 0) {
+		const layout = this.instanceLayout;
+		if (!layout.hasData || index < 0 || index >= this._instanceCount) {
+			return;
+		}
+		const at = index * layout.floats + layout.dataOffset;
+		this.instanceBuffer[at] = x;
+		this.instanceBuffer[at + 1] = y;
+		this.instanceBuffer[at + 2] = z;
+		this.instanceBuffer[at + 3] = w;
+		this.markInstancesDirty(index, 1);
+	}
+
+	/**
+	 * Announce that a span of instances was edited directly through
+	 * {@link InstancedMesh#instanceBuffer}, so the next draw re-uploads it.
+	 * The per-instance setters do this themselves.
+	 * @param {number} first - first instance changed
+	 * @param {number} count - how many
+	 */
+	markInstancesDirty(first, count) {
+		const floats = this.instanceLayout.floats;
+		// clamp to what is actually allocated: an out-of-range span reaches
+		// the upload as an out-of-bounds typed-array view and throws from
+		// inside the draw loop
+		const limit = this.instanceBuffer.length;
+		const from = Math.min(Math.max(0, first | 0) * floats, limit);
+		const to = Math.min(Math.max(0, (first | 0) + (count | 0)) * floats, limit);
+		if (to <= from) {
+			return;
+		}
+		if (this._dirtyLast <= this._dirtyFirst) {
+			// the span was empty: remember what revision consumers must be at
+			// to take the cheap partial path
+			this._spanFromRevision = this._instanceRevision;
+		}
+		if (from < this._dirtyFirst) {
+			this._dirtyFirst = from;
+		}
+		if (to > this._dirtyLast) {
+			this._dirtyLast = to;
+		}
+		this._instanceRevision++;
+	}
+
+	/**
+	 * Announce that the whole instance buffer was edited in place. The
+	 * instancing counterpart of {@link Mesh#needsUpdate} — and, like it, a
+	 * signal rather than a state, so it is write-only.
+	 * @type {boolean}
+	 * @example
+	 * forest.instanceBuffer.set(myRecords);
+	 * forest.needsInstanceUpdate = true;
+	 */
+	// eslint-disable-next-line accessor-pairs
+	set needsInstanceUpdate(value) {
+		if (value !== false) {
+			this.markInstancesDirty(0, this._instanceCount);
+		}
+	}
+
+	/**
+	 * The dirty span, in floats, as `[first, lastExclusive)`. Empty when
+	 * nothing changed since the last upload.
+	 * @returns {number[]} the span
+	 * @ignore
+	 * @internal
+	 */
+	dirtyRange() {
+		// reuses one array: this is read once per instanced mesh per frame,
+		// and the class is sold on allocating nothing in the steady state
+		_dirtySpan[0] = this._dirtyLast > this._dirtyFirst ? this._dirtyFirst : 0;
+		_dirtySpan[1] =
+			this._dirtyLast > this._dirtyFirst
+				? this._dirtyLast - this._dirtyFirst
+				: 0;
+		return _dirtySpan;
+	}
+
+	/**
+	 * What one GPU buffer must upload to catch up, given the revision it last
+	 * reached. Replaces a shared "clear the dirty flag" step, which the first
+	 * consumer would drain out from under the second.
+	 * @param {number} uploadedRevision - the revision that buffer holds
+	 * @returns {object} `{first, count, full, revision}` — float span, or `full`
+	 * @ignore
+	 * @internal
+	 */
+	instanceUpload(uploadedRevision) {
+		const revision = this._instanceRevision;
+		if (uploadedRevision === revision) {
+			return { first: 0, count: 0, full: false, revision };
+		}
+		if (uploadedRevision === this._spanFromRevision) {
+			const [first, count] = this.dirtyRange();
+			return { first, count, full: false, revision };
+		}
+		// this buffer missed edits the span no longer describes
+		return { first: 0, count: 0, full: true, revision };
+	}
+
+	/**
+	 * Called by the batcher once the dirty span has been uploaded.
+	 * @ignore
+	 * @internal
+	 */
+	clearInstanceDirty() {
+		this._dirtyFirst = Infinity;
+		this._dirtyLast = 0;
+		this._spanFromRevision = this._instanceRevision;
+	}
+
+	/**
+	 * The world-space bounding box of every instance, so the whole group
+	 * frustum-culls as one object.
+	 *
+	 * Bounds the prototype geometry through each instance transform and then
+	 * through the group placement — correct before the first draw, like the
+	 * base implementation, and independent of what any draw left behind.
+	 * @returns {AABB3d} the union of all instance bounds (reused instance)
+	 */
+	/**
+	 * Resize the renderable's own 2D bounds box so it encloses every
+	 * instance.
+	 *
+	 * This is what makes the group frustum-cull correctly. `Camera3d.isVisible`
+	 * tests a sphere derived from `getBounds()` — the flat width/height box —
+	 * **not** {@link InstancedMesh#getBounds3d}. Left at the prototype's size,
+	 * a forest scattered over thousands of units presents a box a few tens of
+	 * pixels across at the group origin: pan the camera just past that origin
+	 * and every instance disappears at once, while still on screen.
+	 * @ignore
+	 * @internal
+	 */
+	_refreshCullVolume() {
+		if (this._instanceCount === 0) {
+			return;
+		}
+		const bounds = super.getBounds();
+		if (this._cullRevision !== this._instanceRevision) {
+			this._cullRevision = this._instanceRevision;
+			const box = this.getBounds3d();
+			const origin = this._composeModelMatrix().val;
+			let radius = 0;
+			for (const x of [box.min.x, box.max.x]) {
+				for (const y of [box.min.y, box.max.y]) {
+					for (const z of [box.min.z, box.max.z]) {
+						radius = Math.max(
+							radius,
+							Math.hypot(x - origin[12], y - origin[13], z - origin[14]),
+						);
+					}
+				}
+			}
+			/**
+			 * @ignore
+			 * @internal
+			 */
+			this._cullRadius = Math.max(radius, 1);
+		}
+		// Widen the box rather than resizing the renderable: `width`/`height`
+		// are the mesh's own geometry scale and feed the model matrix, so
+		// growing them would grow the mesh. Camera3d only reads the box's
+		// width/height (its centre comes from getAbsolutePosition), so a
+		// symmetric box of the right size is all that is needed.
+		const r = this._cullRadius;
+		bounds.setMinMax(-r, -r, r, r);
+		return bounds;
+	}
+
+	/**
+	 * The 2D bounds box, widened to enclose every instance.
+	 *
+	 * This is the box `Camera3d.isVisible` actually culls against — left at
+	 * the prototype's size, a scatter spanning thousands of units would
+	 * vanish wholesale the moment the group origin left the frustum.
+	 * @returns {Bounds} the bounds
+	 */
+	getBounds() {
+		return this._refreshCullVolume() ?? super.getBounds();
+	}
+
+	getBounds3d() {
+		if (this._bounds3d === undefined) {
+			/**
+			 * @ignore
+			 * @internal
+			 */
+			this._bounds3d = new AABB3d();
+		}
+		const count = this._instanceCount;
+		if (count === 0) {
+			return super.getBounds3d();
+		}
+		const group = this._composeModelMatrix();
+		const floats = this.instanceLayout.floats;
+		for (let i = 0; i < count; i++) {
+			readInstanceTransform(this.instanceBuffer, i * floats, _instanceMatrix);
+			// group × instance — the order the shader applies them in
+			const placed = _instanceBounds.fromVertices(
+				this.originalVertices,
+				this.vertexCount,
+				multiplyInto(group, _instanceMatrix).val,
+			);
+			// the first fold clears, so the union starts from this instance
+			// rather than from whatever the previous frame left behind
+			this._bounds3d.addAABB(placed, i === 0);
+		}
+		return this._bounds3d;
+	}
+
+	/**
+	 * Draw the instanced mesh. Under a GPU backend this is one instanced
+	 * draw call; the Canvas renderer has no instancing, so each instance is
+	 * drawn through the ordinary mesh path instead.
+	 * @param {Renderer} renderer - a renderer instance
+	 * @param {Camera2d} [viewport] - the camera rendering this frame
+	 */
+	draw(renderer, viewport) {
+		if (this._instanceCount === 0 || this.visibleInstanceCount === 0) {
+			return;
+		}
+		this._refreshCullVolume();
+		// The instanced GPU path is a world-space (Camera3d) path, exactly as
+		// the retained mesh path is: it hands the renderer a model matrix and
+		// lets the shader place the geometry. Under a 2D camera the base class
+		// pre-projects vertices on the CPU instead, so taking the instanced
+		// path there would apply a different projection AND leak the anchor
+		// transform into the shared view matrix. Fall back per instance.
+		const useWorldSpace =
+			viewport !== undefined
+				? viewport instanceof Camera3d
+				: this._useWorldSpace === true;
+		if (renderer.supportsInstancing !== true || !useWorldSpace) {
+			this._drawInstancesIndividually(renderer, viewport);
+			return;
+		}
+		if (this._worldSpace !== true) {
+			this._setupWorldSpace(false);
+		}
+		this.indices = this._indicesOriginal;
+		renderer.drawMesh(this, this._composeModelMatrix());
+		if (this._castsGroundShadow(renderer) === true) {
+			this._drawInstancedGroundShadow(renderer);
+		}
+	}
+
+	/**
+	 * Fallback for renderers without instancing (Canvas): walk the instances
+	 * and draw the prototype once per instance, composing the group and
+	 * instance transforms by hand. Correct, and as slow as the uninstanced
+	 * scene it replaces — the point is that a scene authored for instancing
+	 * still renders everywhere.
+	 * @param {CanvasRenderer} renderer - a renderer instance
+	 * @param {Camera2d} [viewport] - the camera rendering this frame
+	 * @ignore
+	 * @internal
+	 */
+	_drawInstancesIndividually(renderer, viewport) {
+		const count = this.visibleInstanceCount;
+		const floats = this.instanceLayout.floats;
+		const savedX = this.pos.x;
+		const savedY = this.pos.y;
+		const savedZ = this.pos.z;
+		try {
+			for (let i = 0; i < count; i++) {
+				readInstanceTransform(this.instanceBuffer, i * floats, _instanceMatrix);
+				// Where the instance lands is the TRANSLATION OF `group ×
+				// instance`, not the raw record: the record is in model space,
+				// and the group matrix carries the mesh scale and the Y/Z axis
+				// bridge. Adding the raw value collapses the scatter toward the
+				// origin and mirrors it in Y.
+				const placed = multiplyInto(
+					this._composeModelMatrix(),
+					_instanceMatrix,
+				).val;
+				this.pos.set(placed[12], placed[13], placed[14]);
+				super.draw(renderer, viewport);
+			}
+		} finally {
+			// a throw mid-loop would otherwise strand the renderable at
+			// whichever instance was being drawn
+			this.pos.set(savedX, savedY, savedZ);
+		}
+	}
+
+	/**
+	 * Release the instance records along with the mesh.
+	 * @ignore
+	 * @internal
+	 */
+	/**
+	 * Draw a ground shadow for every visible instance — one call for the whole
+	 * set, over the instance buffer the mesh itself just drew from (#1515).
+	 *
+	 * The group matrix is passed with its Y ROW replaced by the floor's
+	 * plane equation and its translation Y set to the ground, so whatever Y
+	 * the shadow vertex stage produces is projected onto the floor. That is
+	 * what lets the ground reach the shader without a new uniform, and it
+	 * is why a tilted floor costs no shader change either: a gradient in
+	 * that row is a slope, zero is level.
+	 *
+	 * One plane serves the whole set, level or tilted. Per-instance ground
+	 * height would have to ride the `instanceData` slot, which the built-in
+	 * shading already reads as emissive.
+	 * @param {WebGLRenderer} renderer - the active renderer
+	 * @ignore
+	 * @internal
+	 * @example
+	 * // A scatter's blobs share ONE plane, so a scatter over curved ground is
+	 * // one set per flat facet, each with that facet's own plane. Everything
+	 * // else is one value for the whole set, which is all a set can carry.
+	 * const bank = new InstancedMesh(0, 0, {
+	 *     ...fernGeometry,
+	 *     instanceCount: 60,
+	 *     castGroundShadow: true,
+	 *     shadowGroundY: planeHeightAtTheSetsOrigin,
+	 *     shadowGroundNormal: [facetNx, facetNy, 0],  // world up is (0,-1,0)
+	 *     shadowLight: sun,
+	 *     shadowOffset: 0.6,
+	 *     shadowStretch: 1.8,
+	 * });
+	 */
+	/**
+	 * Refused here, rather than accepted and quietly ignored.
+	 *
+	 * A set gets ONE plane and ONE shared quad, and this tier builds that
+	 * plane through the set's own origin so the translation's x and z drop
+	 * out of the intercept, which is then `groundY + lift / nY`. An
+	 * arbitrary point does not drop out, and that `nY` is why the tilt
+	 * ceiling cannot be lifted here either. Supporting it means a different
+	 * derivation, not a different value.
+	 *
+	 * Inherited from {@link Mesh} it would have stored the point and handed
+	 * it back from the getter while changing nothing on screen, which is the
+	 * worse failure: a game would have every reason to believe it worked.
+	 * @param {number[]|Vector3d|undefined} value - ignored
+	 * @see Mesh#shadowGroundPoint
+	 */
+	set shadowGroundPoint(value) {
+		if (value !== undefined) {
+			warnOnce(
+				"melonJS: InstancedMesh does not support shadowGroundPoint — a set shares one shadow plane, built through the set's own origin. Use shadowGroundY, or one set per facet of the surface.",
+			);
+		}
+	}
+
+	/** @ignore */
+	get shadowGroundPoint() {
+		return undefined;
+	}
+
+	_drawInstancedGroundShadow(renderer) {
+		// `shadowOffset`, `shadowStretch` and `shadowScale` all apply here, the
+		// same as on a per-object blob, so a scatter is lit by the same
+		// settings as the loose props standing next to it.
+		//
+		// What a shared set cannot carry is a setting that differs PER
+		// INSTANCE — and none of those three do: one offset, one stretch, one
+		// scale for the whole set. The only real constraint is WHERE each one
+		// is applied. The vertex stage builds `uModelMatrix · (instancePos +
+		// quadOffset · footprint)`, so anything put in the matrix multiplies
+		// the instance POSITIONS too and smears the scatter instead of its
+		// blobs. The stretch therefore rides in the shared QUAD, which the
+		// positions never pass through, exactly as the slope's tilt already
+		// does; only the throw, a pure translation identical for every blob,
+		// belongs in the matrix.
+		//
+		// Still one plane for the whole set: see `shadowGroundNormal`.
+		const shadowScale = this.shadowScale;
+		if (
+			typeof renderer.drawInstancedShadow !== "function" ||
+			!Number.isFinite(shadowScale) ||
+			shadowScale <= 0
+		) {
+			return;
+		}
+		// Sized from the PROTOTYPE's own footprint, with the same contact
+		// spread and minor-axis floor the per-object tier applies — otherwise
+		// the identical asset draws a different shadow instanced than it does
+		// standalone. The instanced vertex stage multiplies these by each
+		// record's horizontal scale.
+		this._measureShadowFootprint();
+		const spread = 1.2;
+		let hx = this._shadowHalfX * spread;
+		let hz = this._shadowHalfZ * spread;
+		const major = hx > hz ? hx : hz;
+		const least = major * 0.5;
+		if (major > 1e-6) {
+			hx = hx < least ? least : hx;
+			hz = hz < least ? least : hz;
+		}
+		// The plane the whole set lands on: through the set's origin at
+		// `shadowGroundY`, facing `shadowGroundNormal`. Level unless the game
+		// named BOTH, the same rule as the per-object tier: a normal without a
+		// floor has nothing to turn about.
+		let nX = 0;
+		let nY = -1;
+		let nZ = 0;
+		const groundY = this.shadowGroundY;
+		const tilt = this.shadowGroundNormal;
+		if (tilt !== undefined && groundY !== undefined) {
+			clampShadowTilt(tilt.x, tilt.y, tilt.z, _shadowNormal);
+			nX = _shadowNormal[0];
+			nY = _shadowNormal[1];
+			nZ = _shadowNormal[2];
+		}
+		const group = this._modelMatrix.val;
+		// The same normal pulled back into GROUP-LOCAL space for the bake,
+		// because that is the space the quad vertices live in. A normal
+		// crosses a matrix as `transpose(G) · n`, exact up to length for a
+		// rotation and a uniform scale, and the length is renormalized away.
+		// At the plain axis bridge `diag(s, -s, ±s)` that is the world normal
+		// with its y negated and its z carrying the handedness sign.
+		let lx = group[0] * nX + group[1] * nY + group[2] * nZ;
+		let ly = group[4] * nX + group[5] * nY + group[6] * nZ;
+		let lz = group[8] * nX + group[9] * nY + group[10] * nZ;
+		const localLength = Math.hypot(lx, ly, lz);
+		if (localLength > 1e-12) {
+			lx /= localLength;
+			ly /= localLength;
+			lz /= localLength;
+		} else {
+			lx = 0;
+			ly = 1;
+			lz = 0;
+		}
+		// The ground direction the light travels, resolved ONCE: the stretch
+		// below turns the quad's axes along it and the throw further down
+		// slides the whole set along the same vector, so reading the light
+		// twice could only let the two disagree inside a frame.
+		let dirX = this.shadowDirectionX;
+		let dirZ = this.shadowDirectionZ;
+		const light = this.shadowLight;
+		if (light !== undefined && light.direction !== undefined) {
+			// the direction a light TRAVELS along is the way its shadows go
+			dirX = light.direction.x;
+			dirZ = light.direction.z;
+		}
+		const dirLen = Math.hypot(dirX, dirZ);
+		if (dirLen > 1e-6) {
+			dirX /= dirLen;
+			dirZ /= dirLen;
+		} else {
+			dirX = 0;
+			dirZ = 0;
+		}
+
+		// The blob's two ground axes, in the GROUP-LOCAL space the quad's
+		// vertices live in: local X and local Z before any stretch.
+		let axX = hx * shadowScale;
+		let axZ = 0;
+		let azX = 0;
+		let azZ = hz * shadowScale;
+		const stretch = resolveShadowStretch(this.shadowStretch);
+		let stretchFade = 1;
+		if (stretch !== 1 && dirLen > 1e-6) {
+			// the same pull-back the normal takes, for the same reason: these
+			// axes are in the space the axis bridge starts from, so the world
+			// direction has to be brought back through it. Its local Y is
+			// dropped — the stretch happens IN the ground plane, and the tilt
+			// onto the slope is applied afterwards, exactly as the per-object
+			// tier orders the two.
+			let dlx = group[0] * dirX + group[2] * dirZ;
+			let dlz = group[8] * dirX + group[10] * dirZ;
+			const dlLen = Math.hypot(dlx, dlz);
+			if (dlLen > 1e-6) {
+				dlx /= dlLen;
+				dlz /= dlLen;
+				const gain = stretch - 1;
+				stretchAlong(axX, axZ, dlx, dlz, gain, _STRETCHED);
+				axX = _STRETCHED[0];
+				axZ = _STRETCHED[1];
+				stretchAlong(azX, azZ, dlx, dlz, gain, _STRETCHED);
+				azX = _STRETCHED[0];
+				azZ = _STRETCHED[1];
+				// the same darkness spread over more ground is less of it
+				// anywhere, which is what lets an extreme value degrade into
+				// nothing rather than into a smear
+				stretchFade = 1 / Math.sqrt(stretch);
+			}
+		}
+		const quad = getInstancedShadowQuad(
+			this,
+			Mesh,
+			axX,
+			axZ,
+			azX,
+			azZ,
+			this._geometryVersion ?? 0,
+			lx,
+			ly,
+			lz,
+		);
+		const out = _SHADOW_MATRIX.val;
+		for (let i = 0; i < 16; i++) {
+			out[i] = group[i];
+		}
+		// Replace the Y ROW — `out[1]`, `out[5]`, `out[9]`, the Y components
+		// of all three basis columns — with the plane's equation, so whatever
+		// Y the vertex stage produces is thrown away and every output Y is
+		// the plane's height at that vertex's own world X and Z:
+		//
+		//     y = groundY + sx · (x - originX) + sz · (z - originZ)
+		//
+		// The ROW and not the Y column. Clearing the column alone kills only
+		// the instance's own height; the X and Z columns keep their Y
+		// components, so a group rotated about X or Z would tilt the blobs
+		// through those and sink half of them below the floor. Rewriting the
+		// row makes every output Y the plane's, whatever the rotation.
+		//
+		// This is a VERTICAL projection onto the plane, and the quad was baked
+		// pre-rotated into that plane for exactly this reason: a vertex
+		// already in the plane projects onto itself, so the blob keeps the
+		// rotated quad's true shape instead of stretching by `1 / cos(tilt)`.
+		// On level ground the gradient is zero and this is the flat case.
+		//
+		// ONE plane for the whole set, tilted or not. The instance's own
+		// height goes the way of everything else in the row: the vertex stage
+		// builds `instancePos + offset` and pushes the sum through this one
+		// matrix, so a row that passed a position's height through would
+		// multiply the offset by the same row, and no single row can both
+		// keep a height and slope an offset around it. A scatter over curved
+		// ground is one set per flat facet, not one set with a normal.
+		const sx = -nX / nY;
+		const sz = -nZ / nY;
+		out[1] = sx * group[0] + sz * group[2];
+		out[5] = sx * group[4] + sz * group[6];
+		out[9] = sx * group[8] + sz * group[10];
+		// ...and put that plane at the ground, lifted a hair along its normal
+		// for the reason spelled out at `SHADOW_LIFT` in mesh.js: a coplanar
+		// blob is order-dependent. The plane passes through the set's ORIGIN,
+		// so the translation's own X and Z drop out of the intercept, and a
+		// lift of `l` along the unit normal moves the intercept by `l / nY`:
+		// at the default normal that is `groundY - l`, off the floor in a
+		// Y-down space, where the floor is a GREATER Y than what stands on it.
+		const ground = groundY !== undefined ? groundY : this.getBounds3d().bottom;
+		out[13] = ground + (this.meshScale * 0.01) / nY;
+
+		// And the throw along the light, which the shared matrix CAN carry: it
+		// is one translation, the same for every blob in the set, so moving
+		// the instance positions by it moves each blob by exactly the amount
+		// it was going to move anyway. (The stretch cannot go here for that
+		// same reason read the other way: it scales with distance from the
+		// origin, so the positions would spread.) Turned onto the plane first,
+		// exactly as the per-object path does, or a horizontal slide would
+		// climb off a tilted floor.
+		//
+		// Measured in the blob's own radius like everywhere else, but the
+		// radius here is the SET's prototype footprint rather than one
+		// caster's: every instance shares the quad, so they share the unit.
+		const throwRatio = this.shadowOffset;
+		if (
+			this.shadowGroundY !== undefined &&
+			Number.isFinite(throwRatio) &&
+			throwRatio !== 0 &&
+			dirLen > 1e-6
+		) {
+			// `hx`/`hz` are MODEL units and already carry the spread; the
+			// drawn blob's world radius is those times the set's scale and
+			// `shadowScale`, which is the unit the ratio is in. Measured
+			// BEFORE the stretch, like the per-object tier: pulling the blob
+			// out must not also push it away from the feet it belongs to.
+			const reach = throwRatio * (hx + hz) * 0.5 * shadowScale * this.meshScale;
+			tiltOntoPlane(nX, nY, nZ, dirX * reach, dirZ * reach, _THROW);
+			out[12] += _THROW[0];
+			out[13] += _THROW[1];
+			out[14] += _THROW[2];
+		}
+
+		const tint = renderer.currentTint;
+		const savedR = tint.r;
+		const savedG = tint.g;
+		const savedB = tint.b;
+		// the colour's OWN alpha, which `setColor(r, g, b)` resets to 1
+		const savedTintAlpha = tint.alpha;
+		const savedAlpha = renderer.getGlobalAlpha();
+		tint.setColor(0, 0, 0);
+		renderer.setGlobalAlpha(this.shadowOpacity * stretchFade * savedAlpha);
+		try {
+			renderer.drawInstancedShadow(this, _SHADOW_MATRIX, quad);
+		} finally {
+			tint.setColor(savedR, savedG, savedB, savedTintAlpha);
+			renderer.setGlobalAlpha(savedAlpha);
+		}
+	}
+
+	destroy() {
+		this.instanceBuffer = new Float32Array(0);
+		this._instanceCount = 0;
+		super.destroy();
+	}
+}
+
+const _composed = new Matrix3d();
+
+/**
+ * `group × instance` into a scratch matrix, without disturbing either.
+ * @param {Matrix3d} group - the group transform
+ * @param {Matrix3d} instance - the instance transform (written into)
+ * @returns {Matrix3d} `instance`, now holding the product
+ * @ignore
+ * @internal
+ */
+function multiplyInto(group, instance) {
+	_composed.copy(group);
+	_composed.multiply(instance);
+	instance.copy(_composed);
+	return instance;
+}

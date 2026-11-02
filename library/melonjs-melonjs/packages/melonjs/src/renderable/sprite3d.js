@@ -1,0 +1,1190 @@
+import Camera3d from "../camera/camera3d.ts";
+import { getImage } from "../loader/loader.js";
+import { Matrix3d } from "../math/matrix3d.ts";
+import { Vector3d } from "../math/vector3d.ts";
+import Texture2d from "../video/texture/texture2d.ts";
+import { resolveAnchorPoint } from "./anchorPoint.ts";
+import FrameAnimation from "./frameAnimation.js";
+import Mesh from "./mesh.js";
+
+/**
+ * additional import for TypeScript
+ * @import {Vector2d} from "../math/vector2d.ts";
+ */
+// reusable basis vectors for the billboard projection (one draw runs at a time)
+const _right = new Vector3d();
+const _up = new Vector3d();
+const _fwd = new Vector3d();
+// render space is Y-down, so the visual "up" axis is -Y. Used to keep a
+// cylindrical billboard upright. MUST be treated as read-only — it is a shared
+// module singleton, only ever copied/crossed-from, never mutated in place.
+const WORLD_UP = new Vector3d(0, -1, 0);
+
+// Frustum-cull side length for an anchored quad: Camera3d derives its cull
+// sphere radius as √(w²+h²)/2 from the bounds, so passing side = radius·√2
+// with radius = the farthest corner's distance from `pos` (rotation about
+// `pos` under billboarding preserves corner distances) makes the sphere
+// exactly enclose the quad in any orientation. Never smaller than the legacy
+// centered bounds (max of the quad's sides), so the default is unchanged.
+function cullSideForAnchor(hw, hh, offsetX, offsetY) {
+	return Math.max(
+		Math.max(hw, hh) * 2,
+		Math.SQRT2 * Math.hypot(hw + Math.abs(offsetX), hh + Math.abs(offsetY)),
+	);
+}
+
+// Write the plain (frame-less) anchored quad into `out` (12 floats):
+// corners at ±hw/±hh shifted by the anchor offset, z = 0. Used for the
+// constructor bake and for runtime anchor changes on the no-region path.
+function bakeQuadVertices(hw, hh, offsetX, offsetY, out) {
+	out[0] = -hw + offsetX;
+	out[1] = -hh + offsetY;
+	out[2] = 0;
+	out[3] = hw + offsetX;
+	out[4] = -hh + offsetY;
+	out[5] = 0;
+	out[6] = hw + offsetX;
+	out[7] = hh + offsetY;
+	out[8] = 0;
+	out[9] = -hw + offsetX;
+	out[10] = hh + offsetY;
+	out[11] = 0;
+	return out;
+}
+
+// Resolve just the source image dimensions for sizing the quad, without
+// touching the renderer (the texture atlas itself is resolved by the Mesh
+// base class). Runs before `super()`, so it must not touch `this`.
+function imageSize(settings) {
+	const src = settings.image ?? settings.texture;
+	// any Texture2d asset (a TextureAtlas, or a procedural NoiseTexture2d)
+	// exposes its drawable source via getTexture()
+	if (src instanceof Texture2d) {
+		const texture = src.getTexture();
+		return { w: texture.width, h: texture.height };
+	}
+	const image = typeof src === "object" ? src : getImage(src);
+	if (!image) {
+		throw new Error("Sprite3d: '" + src + "' image/texture not found!");
+	}
+	return { w: image.width, h: image.height };
+}
+
+/**
+ * A textured **quad in 3D space** — the 3D counterpart of {@link Sprite},
+ * for rendering sprites under a {@link Camera3d} (the 2.5D workflow: characters,
+ * pickups, foliage, signs, particles in a 3D scene). It's a thin {@link Mesh}
+ * subclass, so it rides the same world-space mesh pipeline (depth testing,
+ * frustum culling) and supports the same material features (`lit`, `emissive`,
+ * `alphaCutoff`).
+ *
+ * Its headline feature is **billboarding** — keeping the quad facing the camera
+ * regardless of camera orientation (see {@link Sprite3d#billboard}). With
+ * billboarding off it's a fixed-orientation quad (decals, posters, ground
+ * markers).
+ *
+ * **Frame animation** is supported through the same API as {@link Sprite}
+ * ({@link Sprite3d#addAnimation}, {@link Sprite3d#setCurrentAnimation},
+ * {@link Sprite3d#play}/`pause`/`stop`) — pass `framewidth`/`frameheight` for a
+ * spritesheet, or a packed {@link TextureAtlas}, exactly as you would for a 2D
+ * `Sprite`. Both share the {@link FrameAnimation} engine, so the timing, looping
+ * and chaining behavior is identical; `Sprite3d` maps the current frame onto the
+ * quad each step — including packer **rotated** and **trimmed** regions, mapped
+ * to full parity with the 2D `Sprite`.
+ *
+ * **Camera3d only.** Like {@link Mesh}, `Sprite3d` renders through the 3D
+ * world-space path; under a 2D `Camera2d` it falls back to the mesh's
+ * self-projection and **billboarding has no effect** (a 2D scene has no camera
+ * orientation to face). Use a regular {@link Sprite} for 2D.
+ *
+ * **Anchoring.** Unlike its {@link Mesh} parent — where `anchorPoint` is inert
+ * on the 3D path and transforms pivot at the model origin — Sprite3d's
+ * `anchorPoint` is live: the anchor is baked into the quad's local vertices
+ * (never applied as a renderer transform on either camera path) and can be
+ * changed at runtime via `anchorPoint.set(...)`, which re-bakes the quad and
+ * re-derives the cull bounds. Same key, convention and centered default as
+ * the 2D {@link Sprite}, including the named presets (`"bottom"`, …).
+ * @augments Mesh
+ * @category Game Objects
+ * @example
+ * import { Application, Camera3d, Sprite3d } from "melonjs";
+ *
+ * // a 3D app (Camera3d is required for billboarding)
+ * const app = new Application(1024, 768, { cameraClass: Camera3d });
+ *
+ * // a tree that always faces the camera but stays upright (2.5D).
+ * // its texture has a transparent background — the mesh pass is opaque, so
+ * // `alphaCutoff` (default 0.5) discards those texels for a clean silhouette.
+ * const tree = new Sprite3d(0, 0, {
+ *     image: "tree",        // a preloaded image with transparency
+ *     width: 64, height: 96,
+ *     z: -200,              // 3D depth (world z)
+ *     billboard: true,      // = "cylindrical"
+ *     // alphaCutoff: 0.5,  // the default — lower it to keep softer edges,
+ *                           // or set 0 for a fully-opaque quad
+ * });
+ * app.world.addChild(tree);   // add it to the game world, like any Renderable
+ *
+ * // an animated, fully camera-facing pickup from a spritesheet, mirrored
+ * const coin = new Sprite3d(0, 0, {
+ *     image: "coins",
+ *     framewidth: 32, frameheight: 32,
+ *     width: 48, height: 48,
+ *     billboard: "spherical",
+ *     alphaCutoff: 0.5,     // cut out the transparent frame background
+ * });
+ * coin.addAnimation("spin", [0, 1, 2, 3, 4, 5]);
+ * coin.setCurrentAnimation("spin");
+ * coin.flipX();             // face the other way (mirrors the sprite)
+ * app.world.addChild(coin);
+ *
+ * // a character anchored at the feet, so `pos` sits on the ground plane
+ * // instead of at the sprite's geometric center
+ * const hero = new Sprite3d(0, 0, {
+ *     image: "hero",
+ *     width: 48, height: 64,
+ *     billboard: "cylindrical",
+ *     anchorPoint: "bottom", // == { x: 0.5, y: 1 }
+ * });
+ */
+export default class Sprite3d extends Mesh {
+	/**
+	 * @param {number} x - world x position
+	 * @param {number} y - world y position
+	 * @param {object} settings - configuration
+	 * @param {HTMLImageElement|HTMLCanvasElement|Texture2d|string} [settings.image] - the sprite texture (image name, image, or a {@link Texture2d} asset such as a {@link TextureAtlas}). Alias: `settings.texture`.
+	 * @param {number} [settings.width=settings.framewidth] - quad width in world units (pixels)
+	 * @param {number} [settings.height=settings.width] - quad height in world units
+	 * @param {number} [settings.framewidth] - width of a single frame within a spritesheet (enables frame animation)
+	 * @param {number} [settings.frameheight] - height of a single frame within a spritesheet
+	 * @param {string} [settings.region] - region name when using a texture atlas (see {@link TextureAtlas})
+	 * @param {Object<string, object>|object[]} [settings.anims] - predefined animations (same shape as {@link Sprite}), such as the ones an aseprite atlas defines, keyed by name
+	 * @param {number} [settings.z=0] - 3D depth (world z); also settable later via `.depth`
+	 * @param {boolean|string} [settings.billboard=false] - billboard mode: `false` (fixed orientation), `true` / `"cylindrical"` (faces the camera but stays upright — the 2.5D default), or `"spherical"` (faces the camera on all axes). Only applies under a `Camera3d`.
+	 * @param {string|Vector2d|{x:number,y:number}} [settings.anchorPoint={x:0.5,y:0.5}] - anchor of the quad relative to `pos` — same key, normalized 0..1 convention (`x`: 0 left→1 right, `y`: 0 top→1 bottom) and centered default as the 2D {@link Sprite}. Also accepts the named presets `"center"`, `"top"`, `"bottom"`, `"left"`, `"right"`, `"top-left"`, `"top-right"`, `"bottom-left"`, `"bottom-right"`. Baked into the quad's local vertices (composes with billboarding, flips, and trimmed/rotated atlas frames) — never applied as a renderer transform on either camera path. Mutable at runtime via `this.anchorPoint.set(...)` (re-bakes the quad and re-derives the cull bounds). Invalid values throw.
+	 * @param {boolean} [settings.flipX=false] - mirror the sprite horizontally (see {@link Sprite3d#flipX})
+	 * @param {boolean} [settings.flipY=false] - mirror the sprite vertically (see {@link Sprite3d#flipY})
+	 * @param {boolean} [settings.lit=false] - shade through the lit mesh batcher (see {@link Mesh})
+	 * @param {number[]|Float32Array} [settings.emissive] - emissive color (see {@link Mesh})
+	 * @param {number} [settings.shadowGroundY] - world Y of the floor the blob shadow lands on. Omit and it falls back to the sprite's own base — which for a billboard moves with the camera, so a scene that knows where its floor is should say so.
+	 * @param {number} [settings.shadowOpacity=0.45] - opacity of the shadow directly beneath the sprite, before any height fade
+	 * @param {number} [settings.shadowScale=1] - multiplier for the ground shadow's footprint; non-positive or non-finite values hide the shadow
+	 * @param {number} [settings.shadowOffset=0] - how far to slide the shadow along its direction, in multiples of the blob's own radius; needs the floor named, by `shadowGroundY` or `shadowGroundPoint` (see {@link Mesh#shadowOffset})
+	 * @param {number} [settings.shadowStretch=1] - how much longer the blob is along its direction, clamped to 3
+	 * @param {number} [settings.shadowDirectionX=0] - x of the ground direction the shadow is cast along
+	 * @param {number} [settings.shadowDirectionZ=0] - z of the ground direction the shadow is cast along
+	 * @param {number[]|Vector3d} [settings.shadowGroundNormal] - the UP normal of the floor the shadow lands on; needs the floor named, by `shadowGroundY` or `shadowGroundPoint` (see {@link Mesh#shadowGroundNormal})
+	 * @param {number[]|Vector3d} [settings.shadowGroundPoint] - the point on the floor the blob lands on, for ground that is not flat; supersedes `shadowGroundY` (see {@link Mesh#shadowGroundPoint})
+	 * @param {number[]|Float32Array} [settings.baseColorFactor] - the material's base colour as a LINEAR triple, applied as the tint (see {@link Mesh#baseColorFactor})
+	 * @param {Light3d} [settings.shadowLight] - a {@link Light3d} to take that direction from instead
+	 * @param {boolean} [settings.castGroundShadow] - give this sprite a blob ground shadow, overriding the application's `castGroundShadow` setting in both directions. Omit to inherit. Needs a GPU backend and a {@link Camera3d}.
+	 * @param {boolean} [settings.fog] - set `false` to exempt this sprite from the camera's distance fog ({@link Camera3d#setFog}); omit to fog whenever the camera does. A sun or a moon wants this — everything else at that distance dissolves into the haze, and so would it.
+	 * @param {boolean} [settings.transparent] - draw in the transparent pass (blended, back-to-front, no depth write) instead of the opaque one. Omit and the sprite goes transparent whenever its draw alpha is fractional; `true` for a soft-alpha sprite such as an additive glow; `false` to stay opaque however faded.
+	 * @param {boolean} [settings.depthTest=true] - whether geometry in front of this sprite hides it. `false` draws it over whatever is already there, for a glow or an overlay with no surface to be occluded ON — a flat billboard left depth tested is cut along a hard straight line wherever nearer geometry crosses it. Separate from the depth WRITE the transparent pass turns off on its own. See {@link Mesh#depthTest}.
+	 * @param {number} [settings.alphaCutoff=0.5] - alpha cutout threshold (see {@link Mesh}). The mesh pass is opaque (no alpha blending), so this defaults to `0.5` to discard a sprite's transparent background (clean cutout silhouette, correct depth, no sorting). Set `0` for a fully-opaque quad, or tune the threshold.
+	 */
+	constructor(x, y, settings) {
+		// world-space quad size (in pixels): explicit width/height first, then the
+		// spritesheet frame size, then the full texture size. The texture atlas
+		// itself is resolved by the Mesh base class (passing framewidth/frameheight
+		// through, below) — so Sprite3d never touches the renderer directly.
+		let w;
+		let h;
+		if (typeof settings.width === "number") {
+			w = settings.width;
+			h = typeof settings.height === "number" ? settings.height : w;
+		} else if (typeof settings.framewidth === "number") {
+			w = settings.framewidth;
+			h = typeof settings.frameheight === "number" ? settings.frameheight : w;
+		} else {
+			const size = imageSize(settings);
+			w = size.w;
+			h = size.h;
+		}
+		const hw = w / 2;
+		const hh = h / 2;
+		// local-space offset shifting the quad so `anchorPoint` — not the
+		// geometric center — lands at `pos`. Resolved PRE-super: the quad
+		// vertices below are built before super(), and the inherited
+		// ObservablePoint doesn't exist yet (it is wired up post-super).
+		// X follows the image convention directly (0=left…1=right). Y is
+		// inverted: local +Y is the TOP of the art (see the UV/trim mapping in
+		// `_applyFrame` and `WORLD_UP` below), while `anchorPoint.y` follows
+		// the image convention of 0=top…1=bottom.
+		const anchor = settings.anchorPoint
+			? resolveAnchorPoint(settings.anchorPoint, "Sprite3d")
+			: { x: 0.5, y: 0.5 };
+		const anchorOffsetX = (0.5 - anchor.x) * w;
+		const anchorOffsetY = (anchor.y - 0.5) * h;
+		// a unit quad with the real pixel size baked in, in the XY plane, facing
+		// +Z, shifted by the anchor offset. `normalize: false` + `scale: 1` keeps
+		// these coordinates as-is so the fixed-orientation (non-billboard) case
+		// renders at the right size, and the billboard path reuses the local
+		// (±hw + offset, ±hh + offset) offsets directly.
+		const vertices = bakeQuadVertices(
+			hw,
+			hh,
+			anchorOffsetX,
+			anchorOffsetY,
+			new Float32Array(12),
+		);
+		// V flipped (1→0 top to bottom) so the texture renders upright under the
+		// Y-down render space, matching Sprite. Overwritten per-frame by
+		// `_applyFrame` once an animation/region is selected.
+		const uvs = new Float32Array([0, 1, 1, 1, 1, 0, 0, 0]);
+		const indices = new Uint16Array([0, 1, 2, 0, 2, 3]);
+		const normals = new Float32Array([0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1]);
+
+		super(x, y, {
+			vertices,
+			uvs,
+			indices,
+			normals,
+			// let Mesh resolve the texture; forward the spritesheet grid so the
+			// resolved atlas carries animation frames
+			texture: settings.image ?? settings.texture,
+			framewidth: settings.framewidth,
+			frameheight: settings.frameheight,
+			// width/height drive the frustum-cull bounds. Camera3d culls with a
+			// sphere centered on `pos` of radius √(w²+h²)/2 = side/√2; the
+			// billboard corners orbit `pos` at radius hypot(hw+|offX|, hh+|offY|)
+			// (rotation about `pos` preserves corner distances, and trimmed
+			// frames stay inside the ±hw/±hh box). Passing side = radius·√2
+			// makes the sphere exactly enclose the quad in ANY orientation.
+			// For the centered default this degrades to max(w, h) — unchanged
+			// legacy bounds; a non-center anchor grows them just enough that
+			// e.g. a bottom-anchored character can't pop out while its head is
+			// still on screen.
+			width: cullSideForAnchor(hw, hh, anchorOffsetX, anchorOffsetY),
+			height: cullSideForAnchor(hw, hh, anchorOffsetX, anchorOffsetY),
+			scale: 1,
+			normalize: false,
+			rightHanded: true,
+			// a sprite quad should be visible from both sides (a billboard can end
+			// up wound either way, and a fixed quad is usually viewed front-on)
+			cullBackFaces: false,
+			lit: settings.lit === true,
+			emissive: settings.emissive,
+			// the mesh pass is opaque (no alpha blending), so a sprite's
+			// transparent background would otherwise render as a solid box. Use an
+			// alpha cutout by default — fragments below the threshold are
+			// discarded, giving a clean transparent silhouette with correct depth
+			// testing and no back-to-front sorting. Pass `alphaCutoff: 0` to
+			// disable (fully opaque), or tune the threshold.
+			// The 0.5 default cuts a clean silhouette out of a sprite's
+			// transparent frame background. It would also DEFEAT a soft-alpha
+			// sprite: every texel below half opacity is discarded before
+			// blending can see it, which is exactly the case `transparent: true`
+			// exists for. So an explicitly transparent sprite drops to the
+			// invisible-texel threshold unless the caller named a cutoff.
+			alphaCutoff:
+				typeof settings.alphaCutoff === "number"
+					? settings.alphaCutoff
+					: settings.transparent === true
+						? 1 / 255
+						: 0.5,
+			// ground shadow (#1515) — forwarded explicitly, like everything
+			// else here: this constructor hands `Mesh` a built settings object
+			// rather than the caller's, so anything not named is dropped
+			// passed through RAW, not coerced: `undefined` is meaningful here —
+			// it means "follow the application setting" — and `=== true` would
+			// flatten it to an explicit false, silently opting every sprite out
+			// of a scene-wide default
+			castGroundShadow: settings.castGroundShadow,
+			fog: settings.fog,
+			// raw for the same reason as above: `undefined` means "decide from
+			// the draw's alpha", and coercing it would pin every sprite opaque
+			transparent: settings.transparent,
+			// raw for the same reason: `Mesh` reads it as `!== false`, so an
+			// omitted value has to arrive as `undefined` to mean "depth tested"
+			depthTest: settings.depthTest,
+			shadowGroundY: settings.shadowGroundY,
+			shadowOpacity: settings.shadowOpacity,
+			shadowScale: settings.shadowScale,
+			shadowOffset: settings.shadowOffset,
+			shadowStretch: settings.shadowStretch,
+			shadowDirectionX: settings.shadowDirectionX,
+			shadowDirectionZ: settings.shadowDirectionZ,
+			shadowGroundNormal: settings.shadowGroundNormal,
+			shadowGroundPoint: settings.shadowGroundPoint,
+			shadowLight: settings.shadowLight,
+			baseColorFactor: settings.baseColorFactor,
+		});
+
+		/**
+		 * the quad's half-width in world units (see {@link Sprite3d#billboard}).
+		 * @type {number}
+		 * @ignore
+		 * @internal
+		 */
+		this._halfW = hw;
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._halfH = hh;
+		// local-space offset pinning `anchorPoint` to `pos` (0,0 = centered,
+		// the default). Applied in `_applyFrame` after the flip, so mirroring
+		// happens around the art's own center while the anchor stays fixed.
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._anchorOffsetX = anchorOffsetX;
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._anchorOffsetY = anchorOffsetY;
+		// in-plane scale the card is drawn at, resolved from `currentTransform`
+		// + `meshScale` by `_resolveScale` (see there for why a billboard
+		// applies the scale but not the rotation)
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._scaleX = 1;
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._scaleY = 1;
+		// the anchor lives in the vertex data — tell Mesh.preDraw to suppress
+		// the base transform-level anchor on BOTH camera paths (single
+		// anchoring mechanism; see Mesh#_anchorBaked)
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._anchorBaked = true;
+		// Repurpose the inherited anchorPoint as the LIVE anchor API (unlike
+		// Mesh, where it stays inert on the world path): setMuted first — the
+		// base updateBounds callback must not fire on a half-initialized
+		// object — then swap in the re-bake callback for runtime changes.
+		this.anchorPoint.setMuted(anchor.x, anchor.y);
+		this.anchorPoint.setCallback(() => {
+			this._onAnchorChanged();
+		});
+		// reference logical (untrimmed) frame size the world quad maps to,
+		// captured from the first applied frame so trimmed frames can be scaled
+		// into the same world footprint (0 = not captured yet)
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._refLw = 0;
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._refLh = 0;
+		// horizontal / vertical mirror flags. Applied by mirroring the local quad
+		// in `_applyFrame` (uniform for the billboard + fixed paths, and agnostic
+		// to atlas rotation/trim) rather than via the inherited transform flip,
+		// which the billboard projection doesn't use.
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._flipX = false;
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._flipY = false;
+		// the last region handed to `_applyFrame`, so a flip can re-map immediately
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._region = null;
+
+		// ── frame-animation: texture refs the engine reads + the engine itself ──
+		// (the animation state — anim / current / dt / … — lives on the engine and
+		// is surfaced through the accessors below, matching Sprite)
+		/**
+		 * a callback fired when the current animation completes a cycle.
+		 * @type {Function}
+		 */
+		this.onended = undefined;
+		/**
+		 * the frame-aware atlas (== this.texture)
+		 * @ignore
+		 * @internal
+		 */
+		this.source = this.texture;
+		// region dictionary + name→index map. `settings.atlas` / `atlasIndices`
+		// (as produced by `TextureAtlas.getAnimationSettings` /
+		// `createAnimationFromName`) take precedence so atlas-by-name animation
+		// works exactly as it does for a 2D Sprite; otherwise fall back to the
+		// resolved atlas's own dictionary.
+		/**
+		 * the atlas region dictionary
+		 * @ignore
+		 * @internal
+		 */
+		this.textureAtlas = settings.atlas ?? this.texture.getAtlas();
+		/**
+		 * name→index map for named-region atlases
+		 * @ignore
+		 * @internal
+		 */
+		this.atlasIndices = settings.atlasIndices;
+		/**
+		 * the shared frame-animation engine
+		 * @ignore
+		 * @internal
+		 */
+		this._frameAnim = new FrameAnimation(this, (region) => {
+			this._applyFrame(region);
+		});
+
+		// 3D depth (world z)
+		this.depth = typeof settings.z === "number" ? settings.z : 0;
+
+		/**
+		 * Billboard mode — keeps the quad facing the active {@link Camera3d}:
+		 * - `false` (default) — fixed orientation (a flat quad in the XY plane;
+		 *   decals, posters, ground markers).
+		 * - `true` / `"cylindrical"` — faces the camera but stays upright
+		 *   (rotates only around the world up axis). The 2.5D default — trees,
+		 *   characters, items.
+		 * - `"spherical"` — faces the camera on all axes (particles, glints).
+		 *
+		 * **Only applies under a `Camera3d`**; ignored on the 2D path.
+		 *
+		 * Note: while billboarding, **orientation** comes from the camera, so an
+		 * in-plane `rotate()` has no effect (a card that faces the camera has no
+		 * free rotation left to give) — use `billboard: false` and orient the quad
+		 * yourself for a streak or an exhaust. Everything that is not an
+		 * orientation still applies: `pos` / `depth`, `flipX` / `flipY`, the quad's
+		 * authored size, and `scale()` / {@link Mesh#meshScale}, which size the
+		 * card in its own plane. With billboarding `false` the standard
+		 * {@link Mesh} world transform applies as usual.
+		 * @type {boolean|string}
+		 * @default false
+		 */
+		this.billboard = settings.billboard ?? false;
+
+		/**
+		 * the camera captured at draw time for the billboard projection
+		 * @ignore
+		 * @internal
+		 */
+		this._billboardCam = null;
+
+		// select an initial frame: an explicit atlas region, then any predefined
+		// animations, then a catch-all "default" covering every frame.
+		if (typeof settings.region !== "undefined") {
+			const region = this.source.getRegion(settings.region);
+			if (!region) {
+				throw new Error(
+					"Sprite3d: region for " + settings.region + " not found",
+				);
+			}
+			this.setRegion(region);
+		}
+		if (typeof settings.anims !== "undefined") {
+			for (const id in settings.anims) {
+				this.addAnimation(
+					settings.anims[id].name,
+					settings.anims[id].index,
+					settings.anims[id].speed,
+				);
+			}
+		}
+		// addAnimation returns 0 when there is no usable frame grid (e.g. a named
+		// atlas, where the region above already selected the frame)
+		if (
+			this.current.name === undefined &&
+			this.addAnimation("default", null) !== 0
+		) {
+			this.setCurrentAnimation("default");
+		}
+
+		// optional initial flip (after the first frame is applied, so the re-map
+		// in flipX/flipY has a region to work with)
+		if (settings.flipX) {
+			this.flipX(true);
+		}
+		if (settings.flipY) {
+			this.flipY(true);
+		}
+	}
+
+	/**
+	 * Resolve the in-plane scale this card should be drawn at, into
+	 * `_scaleX` / `_scaleY`.
+	 *
+	 * A billboard takes its **orientation** from the camera, so it cannot
+	 * apply `currentTransform` wholesale — but a scale is not an orientation,
+	 * and sizing the card is well defined whichever way it ends up facing. So
+	 * the scale is extracted and applied; only the rotation is dropped.
+	 *
+	 * Column **lengths** rather than the raw diagonal, so the factor is right
+	 * whatever rotation sits alongside the scale in the matrix (that rotation
+	 * is still ignored, as documented on {@link Sprite3d#billboard}). An
+	 * axis-aligned transform is read off the diagonal directly instead,
+	 * because a length cannot carry a sign and `scale(-1, 1)` has to mirror
+	 * the card rather than read as `scale(1, 1)`.
+	 *
+	 * An identity transform with the default `meshScale` of 1 gives exactly
+	 * `1` / `1`, so a card that was never scaled is bit-for-bit unchanged.
+	 *
+	 * Note: a non-uniform scale applied *before* a rotation (`scale(2, 3)`
+	 * then `rotate()`) does not decompose exactly — no per-axis pair
+	 * reproduces that matrix — so the columns give a value between the two
+	 * factors. Mixing the two is already outside what a billboard honours,
+	 * since the rotation itself is discarded.
+	 * @ignore
+	 * @internal
+	 */
+	_resolveScale() {
+		const c = this.currentTransform.val;
+		const s = this.meshScale;
+		if (c[1] === 0 && c[2] === 0 && c[4] === 0 && c[6] === 0) {
+			this._scaleX = c[0] * s;
+			this._scaleY = c[5] * s;
+		} else {
+			this._scaleX = Math.hypot(c[0], c[1], c[2]) * s;
+			this._scaleY = Math.hypot(c[4], c[5], c[6]) * s;
+		}
+	}
+
+	/**
+	 * Rewrite the frustum-cull box from the current half-extents, anchor
+	 * offset and scale. Writes the `points` only — the caller runs
+	 * `updateBounds`.
+	 *
+	 * Direct point mutation rather than the Rect width/height setters: those
+	 * run `Polygon.recalc()`, which walks `this.normals` — a field `Mesh`
+	 * repurposes for per-vertex lighting normals (a Float32Array), so the
+	 * setters would throw here. The polygon edge/normal machinery is unused
+	 * by meshes anyway, so this is exactly the setter minus `recalc`.
+	 * @ignore
+	 * @internal
+	 */
+	_refreshCullSide() {
+		// magnitudes: a mirror is not a resize, and a negative side would
+		// invert the box
+		const sx = Math.abs(this._scaleX);
+		const sy = Math.abs(this._scaleY);
+		const cullSide = cullSideForAnchor(
+			this._halfW * sx,
+			this._halfH * sy,
+			this._anchorOffsetX * sx,
+			this._anchorOffsetY * sy,
+		);
+		this.points[1].x = this.points[2].x = cullSide;
+		this.points[2].y = this.points[3].y = cullSide;
+	}
+
+	/**
+	 * Keep the frustum-cull box in step with `scale()` / `meshScale`.
+	 *
+	 * `Mesh` sets `autoTransform = false`, so the base `updateBounds` skips
+	 * `currentTransform` entirely — right for what that flag means (the
+	 * transform is applied to the VERTICES, never pushed onto the 2D context)
+	 * but it leaves a scaled card carrying unscaled bounds, and
+	 * {@link Camera3d#isVisible} derives its cull sphere from exactly those.
+	 * A card scaled up would pop out of view while a third of it was still on
+	 * screen — the same defect the anchored cull side was widened to fix.
+	 *
+	 * Resolved here because every trigger already arrives here: `scale`,
+	 * `scaleV` and `rotate` all call `updateBounds`, and so does a `pos`
+	 * write.
+	 * @param {boolean} [absolute=true] - update the absolute bounds
+	 * @returns {Bounds} this renderable bounds
+	 * @ignore
+	 * @internal
+	 */
+	updateBounds(absolute = true) {
+		// runs during `super()` too, before any of the fields below exist —
+		// `_halfW` is the last of them to be assigned, so it gates them all
+		if (this._halfW !== undefined) {
+			this._resolveScale();
+			this._refreshCullSide();
+		}
+		return super.updateBounds(absolute);
+	}
+
+	/**
+	 * anchorPoint changed at runtime (the ObservablePoint callback wired in
+	 * the constructor): recompute the baked local offset from the live anchor
+	 * and the art size, re-bake the quad, and re-derive the frustum-cull
+	 * bounds. Preserves the base ObservablePoint contract (updateBounds +
+	 * isDirty, see Renderable's anchorPoint callback).
+	 * @ignore
+	 * @internal
+	 */
+	_onAnchorChanged() {
+		// re-bakes the quad's corner positions in place (directly below, or
+		// via `_applyFrame`) — a geometry change either way
+		this._geometryVersion++;
+		const hw = this._halfW;
+		const hh = this._halfH;
+		this._anchorOffsetX = (0.5 - this.anchorPoint.x) * hw * 2;
+		this._anchorOffsetY = (this.anchorPoint.y - 0.5) * hh * 2;
+		if (this._region !== null) {
+			// re-applies the trim/rotation mapping + flips + the new offsets
+			this._applyFrame(this._region);
+		} else {
+			// named-atlas path where no frame region ever landed — re-bake the
+			// plain constructor quad
+			bakeQuadVertices(
+				hw,
+				hh,
+				this._anchorOffsetX,
+				this._anchorOffsetY,
+				this.originalVertices,
+			);
+		}
+		// re-derives the cull box from the new offsets on the way through
+		this.updateBounds();
+		this.isDirty = true;
+	}
+
+	/**
+	 * defined animations, keyed by id (see {@link Sprite3d#addAnimation}).
+	 * @type {object}
+	 */
+	get anim() {
+		return this._frameAnim.anim;
+	}
+
+	/**
+	 * current frame information (name / index / texture offset & size / trim).
+	 * @type {object}
+	 */
+	get current() {
+		return this._frameAnim.current;
+	}
+
+	/**
+	 * elapsed time within the current animation frame, in milliseconds.
+	 * @type {number}
+	 */
+	get dt() {
+		return this._frameAnim.dt;
+	}
+	set dt(value) {
+		this._frameAnim.dt = value;
+	}
+
+	/**
+	 * animation cycling speed (delay between frames in ms).
+	 * @type {number}
+	 * @default 100
+	 */
+	get animationspeed() {
+		return this._frameAnim.animationspeed;
+	}
+	set animationspeed(value) {
+		this._frameAnim.animationspeed = value;
+	}
+
+	/**
+	 * pause the frame animation, freezing the current frame.
+	 * @type {boolean}
+	 * @default false
+	 */
+	get animationpause() {
+		return this._frameAnim.animationpause;
+	}
+	set animationpause(value) {
+		this._frameAnim.animationpause = value;
+	}
+
+	/**
+	 * Add an animation, identical to {@link Sprite#addAnimation}.
+	 * @param {string} name - animation id
+	 * @param {number[]|string[]|object[]} index - frame indices / names (see {@link Sprite#addAnimation})
+	 * @param {number} [animationspeed] - cycling speed in ms
+	 * @returns {number} number of frames added
+	 */
+	addAnimation(name, index, animationspeed) {
+		return this._frameAnim.addAnimation(name, index, animationspeed);
+	}
+
+	/**
+	 * Select the active animation, identical to {@link Sprite#setCurrentAnimation}.
+	 * @param {string} name - animation id
+	 * @param {string|Function|object} [resetAnim] - loop / chain / completion / per-frame (`onFrame`) behavior
+	 * @param {boolean} [preserve_dt=false]
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	setCurrentAnimation(name, resetAnim, preserve_dt = false) {
+		this._frameAnim.setCurrentAnimation(name, resetAnim, preserve_dt);
+		return this;
+	}
+
+	/**
+	 * Reverse the given (or current) animation in place (see {@link Sprite#reverseAnimation}).
+	 * @param {string} [name] - animation id
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	reverseAnimation(name) {
+		this._frameAnim.reverseAnimation(name);
+		// reversing doesn't re-apply a frame, so mark dirty here (the host owns
+		// its dirty flag)
+		this.isDirty = true;
+		return this;
+	}
+
+	/**
+	 * Mirror the sprite horizontally (e.g. flip a character to face the other
+	 * way). Unlike the 2D {@link Sprite}, the flip mirrors the quad's local
+	 * geometry so it works for every billboard mode and for rotated/trimmed atlas
+	 * regions alike. Takes effect immediately on the current frame.
+	 * @param {boolean} [flip=true]
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	flipX(flip = true) {
+		this._flipX = !!flip;
+		if (this._region !== null) {
+			// re-map the current frame with the new flip (also sets isDirty)
+			this._applyFrame(this._region);
+		}
+		return this;
+	}
+
+	/**
+	 * Mirror the sprite vertically. See {@link Sprite3d#flipX}.
+	 * @param {boolean} [flip=true]
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	flipY(flip = true) {
+		this._flipY = !!flip;
+		if (this._region !== null) {
+			this._applyFrame(this._region);
+		}
+		return this;
+	}
+
+	/**
+	 * returns true if this sprite is flipped on the horizontal axis
+	 *
+	 * A GETTER, matching {@link Renderable#isFlippedX} and the 2D
+	 * {@link Sprite}. It was a method, which shadowed the inherited getter
+	 * with a member of a different kind: reading `sprite.isFlippedX` then
+	 * handed back the FUNCTION, which is always truthy, so any
+	 * `if (thing.isFlippedX)` written against the common renderable API was
+	 * silently true for a `Sprite3d` and only for a `Sprite3d`. It also made
+	 * the class fail to satisfy `Renderable` structurally, so a plain
+	 * `renderable === sprite3d` was rejected as having no overlap.
+	 * @public
+	 * @see Sprite3d#flipX
+	 * @type {boolean}
+	 */
+	get isFlippedX() {
+		return this._flipX === true;
+	}
+
+	/**
+	 * returns true if this sprite is flipped on the vertical axis
+	 * @public
+	 * @see Sprite3d#flipY
+	 * @type {boolean}
+	 */
+	get isFlippedY() {
+		return this._flipY === true;
+	}
+
+	/**
+	 * Play (and optionally switch to) an animation, identical to {@link Sprite#play}.
+	 * @param {string} [name] - animation id to play; omit to resume
+	 * @param {string|Function|object} [options] - loop / chain / completion behavior
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	play(name, options) {
+		this.animationpause = false;
+		if (name !== undefined) {
+			this.setCurrentAnimation(name, options);
+		}
+		return this;
+	}
+
+	/**
+	 * Pause the current animation, freezing the current frame (see {@link Sprite#pause}).
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	pause() {
+		this.animationpause = true;
+		return this;
+	}
+
+	/**
+	 * Stop and reset the current animation to its first frame (see {@link Sprite#stop}).
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	stop() {
+		this.animationpause = true;
+		this._frameAnim.rewind();
+		return this;
+	}
+
+	/**
+	 * Force the current animation frame index (see {@link Sprite#setAnimationFrame}).
+	 * @param {number} [index=0] - animation frame index
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	setAnimationFrame(index = 0) {
+		this._frameAnim.setAnimationFrame(index);
+		return this;
+	}
+
+	/**
+	 * Apply a texture region directly (see {@link Sprite#setRegion}).
+	 * @param {object} region - typically from `texture.getRegion(name)`
+	 * @returns {Sprite3d} Reference to this object for method chaining
+	 */
+	setRegion(region) {
+		this._frameAnim.setRegion(region);
+		return this;
+	}
+
+	/**
+	 * @param {string} name - animation id
+	 * @returns {boolean} true if `name` is the current animation (see {@link Sprite#isCurrentAnimation}).
+	 */
+	isCurrentAnimation(name) {
+		return this._frameAnim.isCurrentAnimation(name);
+	}
+
+	/**
+	 * @returns {string[]} the names of every defined animation (see {@link Sprite#getAnimationNames}).
+	 */
+	getAnimationNames() {
+		return this._frameAnim.getAnimationNames();
+	}
+
+	/**
+	 * @returns {number} the current animation frame index (see {@link Sprite#getCurrentAnimationFrame}).
+	 */
+	getCurrentAnimationFrame() {
+		return this._frameAnim.getCurrentAnimationFrame();
+	}
+
+	/**
+	 * The frame object for the given index within the current animation.
+	 * @param {number} id - the frame id
+	 * @returns {object} the frame data
+	 * @ignore
+	 * @internal
+	 */
+	getAnimationFrameObjectByIndex(id) {
+		return this._frameAnim.getAnimationFrameObjectByIndex(id);
+	}
+
+	/**
+	 * Apply the current frame's texture region to the quad — the geometry hook
+	 * called by the shared {@link FrameAnimation} engine (the 3D counterpart of
+	 * {@link Sprite}'s sub-texture / size / anchor swap). Rewrites both the quad's
+	 * UVs (the atlas sub-rect, with a 90° corner permutation for packer-rotated
+	 * regions) and its local vertices (the trimmed art's sub-rectangle within the
+	 * logical frame, scaled into the quad's world footprint, then shifted by the
+	 * anchor offset), so trimmed and rotated `TextureAtlas` regions render at
+	 * full parity with the 2D `Sprite`.
+	 * @param {object} region - the texture region object
+	 * @ignore
+	 * @internal
+	 */
+	_applyFrame(region) {
+		// this rewrites the quad's UVs (and, for a trimmed region, its
+		// vertices) in place — that IS a geometry change, so any GPU-resident
+		// copy has to be refreshed
+		this._geometryVersion++;
+		// remember the region so a later flipX/flipY can re-map immediately
+		this._region = region;
+		// the texture backing this frame (full sheet for a spritesheet, the atlas
+		// page for a packed atlas)
+		const image = this.source.getTexture(region);
+		const iw = image.width;
+		const ih = image.height;
+
+		// `region.width`/`height` are the art's UNROTATED dimensions; a
+		// packer-rotated region occupies a height×width box in the atlas.
+		const rotated = region.angle !== 0;
+		const aw = region.width;
+		const ah = region.height;
+		const atlasW = rotated ? ah : aw;
+		const atlasH = rotated ? aw : ah;
+
+		// ── UVs: the atlas AABB, corners permuted 90° when the region is rotated
+		const ox = region.offset.x;
+		const oy = region.offset.y;
+		const uL = ox / iw;
+		const uR = (ox + atlasW) / iw;
+		// texture-space top is the smaller pixel y; the baked UVs put v=0 at the
+		// top corners (local +y) so the frame lands upright under Y-down.
+		const vT = oy / ih;
+		const vB = (oy + atlasH) / ih;
+		const uv = this.uvs;
+		// corners: 0=(left,bottom) 1=(right,bottom) 2=(right,top) 3=(left,top)
+		if (rotated) {
+			// TexturePacker stores rotated art 90° clockwise, so undo it by
+			// rotating the corner→UV assignment: the quad's left edge samples the
+			// atlas top row, its top edge samples the atlas right column.
+			uv[0] = uL;
+			uv[1] = vT; // BL → atlas top-left
+			uv[2] = uL;
+			uv[3] = vB; // BR → atlas bottom-left
+			uv[4] = uR;
+			uv[5] = vB; // TR → atlas bottom-right
+			uv[6] = uR;
+			uv[7] = vT; // TL → atlas top-right
+		} else {
+			uv[0] = uL;
+			uv[1] = vB;
+			uv[2] = uR;
+			uv[3] = vB;
+			uv[4] = uR;
+			uv[5] = vT;
+			uv[6] = uL;
+			uv[7] = vT;
+		}
+
+		// ── geometry: place the (possibly trimmed) art rect inside the logical
+		// frame. Logical size is the untrimmed sourceSize; the art occupies a
+		// sub-rect offset by `trim`. The world quad (±_halfW/±_halfH) maps the
+		// logical frame captured from the first applied frame, so trimmed frames
+		// keep their position/size relative to the full sprite footprint.
+		const trimmed = region.trimmed === true && region.sourceSize != null;
+		const logicalW = trimmed ? region.sourceSize.w : aw;
+		const logicalH = trimmed ? region.sourceSize.h : ah;
+		const tx = region.trim ? region.trim.x : 0;
+		const ty = region.trim ? region.trim.y : 0;
+		if (this._refLw === 0) {
+			this._refLw = logicalW;
+			this._refLh = logicalH;
+		}
+		// world units per logical pixel
+		const sx = (2 * this._halfW) / this._refLw;
+		const sy = (2 * this._halfH) / this._refLh;
+		// art rect in centered local space (texture top = +y, render Y-down)
+		let xl = (tx - logicalW / 2) * sx;
+		let xr = (tx + aw - logicalW / 2) * sx;
+		let yt = (logicalH / 2 - ty) * sy;
+		let yb = (logicalH / 2 - (ty + ah)) * sy;
+		// mirror the local quad around its origin for flips — uniform across the
+		// billboard + fixed paths and independent of atlas rotation/trim (each
+		// corner's UV is unchanged, so the texture mirrors)
+		if (this._flipX) {
+			xl = -xl;
+			xr = -xr;
+		}
+		if (this._flipY) {
+			yt = -yt;
+			yb = -yb;
+		}
+		// pin `anchorPoint` to `pos` (added last, after the flip, so mirroring
+		// still happens about the art's own center rather than the shifted
+		// anchor)
+		xl += this._anchorOffsetX;
+		xr += this._anchorOffsetX;
+		yt += this._anchorOffsetY;
+		yb += this._anchorOffsetY;
+		const v = this.originalVertices;
+		// c0 BL, c1 BR, c2 TR, c3 TL (z stays 0)
+		v[0] = xl;
+		v[1] = yb;
+		v[3] = xr;
+		v[4] = yb;
+		v[6] = xr;
+		v[7] = yt;
+		v[9] = xl;
+		v[10] = yt;
+		// the frame changed → this sprite needs a redraw (the host owns its dirty
+		// flag; the FrameAnimation engine never sets it)
+		this.isDirty = true;
+	}
+
+	/**
+	 * Advance the frame animation, then defer to the standard mesh update.
+	 * @param {number} dt - time since the last update in milliseconds
+	 * @returns {boolean} true if the sprite changed and needs a redraw
+	 * @ignore
+	 * @internal
+	 */
+	update(dt) {
+		// advance the engine first (a frame change marks this sprite dirty via
+		// `_applyFrame`), then let `super.update` report `isDirty` — same order and
+		// single-source-of-truth as Sprite
+		this._frameAnim.update(dt);
+		return super.update(dt);
+	}
+
+	/**
+	 * Release resources (returns the engine's pooled `current.offset` to the
+	 * pool), then defer to the standard mesh/renderable teardown.
+	 * @ignore
+	 * @internal
+	 */
+	destroy() {
+		this._frameAnim.destroy();
+		this._region = null;
+		super.destroy();
+	}
+
+	/**
+	 * Capture the rendering camera so {@link Sprite3d#_projectVerticesWorld} can
+	 * orient the billboard toward it. Read from the per-draw `viewport` (passed
+	 * by `Container.draw`), so a multi-camera stage billboards correctly against
+	 * whichever camera is drawing. When no `Camera3d` viewport is supplied the
+	 * billboard is inactive and the quad renders fixed-orientation.
+	 * @param {Renderer} renderer
+	 * @param {Camera2d} [viewport]
+	 * @ignore
+	 * @internal
+	 */
+	draw(renderer, viewport) {
+		this._billboardCam = viewport instanceof Camera3d ? viewport : null;
+		super.draw(renderer, viewport);
+	}
+
+	/**
+	 * Orient the quad toward the camera when billboarding; otherwise defer to the
+	 * standard {@link Mesh} world projection (a fixed-orientation quad).
+	 * @ignore
+	 * @internal
+	 */
+	_projectVerticesWorld(offsetX, offsetY, offsetZ) {
+		if (this._billboardBasis() === false) {
+			super._projectVerticesWorld(offsetX, offsetY, offsetZ);
+			return;
+		}
+		this._projectBillboardCorners(offsetX, offsetY, offsetZ);
+	}
+
+	/**
+	 * Resolve the camera-facing basis this billboard should use, leaving it in
+	 * the shared `_right` / `_up` scratch vectors, and its in-plane scale in
+	 * `_scaleX` / `_scaleY`.
+	 *
+	 * Shared by the CPU projection and the model-matrix composition so the two
+	 * can never disagree about which way the card faces, or how big it is.
+	 * @returns {boolean} `false` when this sprite is not billboarding
+	 * @ignore
+	 * @internal
+	 */
+	_billboardBasis() {
+		const mode = this.billboard;
+		const cam = this._billboardCam;
+		if (mode === false || mode === "none" || cam === null) {
+			return false;
+		}
+
+		this._resolveScale();
+
+		// camera basis (world space): right / up / forward. Note `getBasis`
+		// returns a math basis (+Y up) while render space is Y-down — each mode
+		// below resolves that sign so the card lands right-way-up.
+		cam.getBasis(_right, _up, _fwd);
+
+		if (mode === "cylindrical" || mode === true) {
+			// stay upright: up = world up (-Y in render space), right = horizontal
+			// axis = forward × up (this order makes the front face the camera).
+			// Falls back to the camera right when looking straight up/down
+			// (forward ∥ world up → degenerate cross product).
+			_up.copy(WORLD_UP);
+			_right.copy(_fwd).cross(WORLD_UP);
+			if (_right.length() < 1e-4) {
+				cam.getRight(_right);
+			} else {
+				_right.normalize();
+			}
+		} else {
+			// spherical: face the camera on all axes. `getBasis` returns a math
+			// (+Y up) basis, but render space is Y-down — so the camera's "up"
+			// actually points screen-DOWN. Negate it to get the screen-up axis
+			// (matching WORLD_UP at head-on), then right = forward × up to match
+			// the cylindrical handedness so the front face — not the mirrored
+			// back — points at the camera.
+			_up.negateSelf();
+			_right.copy(_fwd).cross(_up);
+			if (_right.length() < 1e-4) {
+				cam.getRight(_right);
+			} else {
+				_right.normalize();
+			}
+		}
+
+		return true;
+	}
+
+	/**
+	 * A billboard's placement is the camera-facing basis itself: the quad's
+	 * local X follows the camera's right axis and its local Y the up axis, so
+	 * the card turns to face the camera without its geometry ever changing.
+	 * Falls back to the standard mesh placement when not billboarding.
+	 * @returns {Matrix3d} the sprite's model matrix (reused instance)
+	 * @ignore
+	 * @internal
+	 */
+	_composeModelMatrix() {
+		if (this._billboardBasis() === false) {
+			return super._composeModelMatrix();
+		}
+		if (this._modelMatrix === undefined) {
+			/**
+			 * @ignore
+			 * @internal
+			 */
+			this._modelMatrix = new Matrix3d();
+		}
+		const out = this._modelMatrix.val;
+		// columns: right, up, right×up, then the world position. The first two
+		// carry the in-plane scale; the third stays UNIT, because it is the
+		// card's normal — the lit shader rotates the mesh normal by this
+		// matrix's upper 3×3, and scaling that column would feed a scaled
+		// normal into lighting for no gain (a flat quad has no geometry along
+		// it to stretch).
+		const sx = this._scaleX;
+		const sy = this._scaleY;
+		out[0] = _right.x * sx;
+		out[1] = _right.y * sx;
+		out[2] = _right.z * sx;
+		out[3] = 0;
+		out[4] = _up.x * sy;
+		out[5] = _up.y * sy;
+		out[6] = _up.z * sy;
+		out[7] = 0;
+		out[8] = _right.y * _up.z - _right.z * _up.y;
+		out[9] = _right.z * _up.x - _right.x * _up.z;
+		out[10] = _right.x * _up.y - _right.y * _up.x;
+		out[11] = 0;
+		out[12] = this.pos.x;
+		out[13] = this.pos.y;
+		out[14] = this.depth;
+		out[15] = 1;
+		return this._modelMatrix;
+	}
+
+	/**
+	 * Emit the 4 corners as center ± right·localX ± up·localY (the local
+	 * offsets are the baked ±hw / ±hh quad coordinates, already shifted by the
+	 * anchor offset). Only used on renderers without retained geometry.
+	 * @ignore
+	 * @internal
+	 */
+	_projectBillboardCorners(offsetX, offsetY, offsetZ) {
+		const out = this.vertices;
+		const src = this.originalVertices;
+		const rx = _right.x;
+		const ry = _right.y;
+		const rz = _right.z;
+		const ux = _up.x;
+		const uy = _up.y;
+		const uz = _up.z;
+		const sx = this._scaleX;
+		const sy = this._scaleY;
+		for (let i = 0; i < 4; i++) {
+			const i3 = i * 3;
+			const lx = src[i3] * sx;
+			const ly = src[i3 + 1] * sy;
+			out[i3] = offsetX + rx * lx + ux * ly;
+			out[i3 + 1] = offsetY + ry * lx + uy * ly;
+			out[i3 + 2] = offsetZ + rz * lx + uz * ly;
+		}
+	}
+}

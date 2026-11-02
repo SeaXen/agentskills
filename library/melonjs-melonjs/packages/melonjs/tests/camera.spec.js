@@ -1,0 +1,2197 @@
+import { describe, expect, it, vi } from "vitest";
+import {
+	Application,
+	boot,
+	Camera2d,
+	CameraEffect,
+	ColorMatrix,
+	Ellipse,
+	FadeEffect,
+	MaskEffect,
+	Polygon,
+	Renderable,
+	ShakeEffect,
+	timer,
+	Vector2d,
+	video,
+} from "../src/index.js";
+
+// advance a tween by simulating elapsed time
+const advanceTween = (tween, totalMs, steps = 20) => {
+	const dt = totalMs / steps;
+	for (let i = 0; i < steps; i++) {
+		tween.update(dt);
+	}
+};
+
+// one shared Application for the whole spec (top-level await) — mirrors the
+// engine's one-app-per-page reality; each setup() call hands out fresh
+// cameras/vectors against it
+boot();
+const app = new Application(800, 600, {
+	parent: "screen",
+	scale: "auto",
+	renderer: video.CANVAS,
+});
+await app.init();
+
+const setup = () => {
+	// a camera instance
+	const camera = new Camera2d(0, 0, 1000, 1000);
+	// am infinite camera
+	const infiniteCamera = new Camera2d(-Infinity, -Infinity, Infinity, Infinity);
+	// a vector instance
+	const result = new Vector2d();
+	// a 10x10 renderable
+	const renderable10x10 = new Renderable(0, 0, 10, 10);
+
+	return { camera, infiniteCamera, result, renderable10x10 };
+};
+
+describe("Camera2d", () => {
+	it("convert between local and World coords without transforms", () => {
+		const { camera, result } = setup();
+		// reset the camera
+		camera.reset(0, 0);
+		// update position so that it's not just 0
+		camera.move(100, 100);
+		// convert to word coordinates
+		camera.localToWorld(250, 150, result);
+		// convert back to local coordinates
+		camera.worldToLocal(result.x, result.y, result);
+
+		expect(result.x).toBeCloseTo(250);
+		expect(result.y).toBeCloseTo(150);
+	});
+
+	it("convert between local and World coords with transforms", () => {
+		const { camera, result } = setup();
+		// reset the camera
+		camera.reset(0, 0);
+		// update position so that it's not just 0
+		camera.move(100, 100);
+		// rotate the viewport
+		camera.rotate(0.5);
+		// make sure the camera go through one round of update
+		camera.update(0.16);
+		// convert to word coordinates
+		camera.localToWorld(250, 150, result);
+		// convert back to local coordinates
+		camera.worldToLocal(result.x, result.y, result);
+		expect(result.x).toBeCloseTo(250);
+		expect(result.y).toBeCloseTo(150);
+	});
+
+	describe("isVisible()", () => {
+		it("should detect object inside the camera", () => {
+			const { camera, renderable10x10 } = setup();
+			camera.reset(0, 0);
+			camera.setBounds(0, 0, 2000, 2000);
+			renderable10x10.anchorPoint.set(0, 0);
+			expect(camera.isVisible(renderable10x10)).toEqual(true);
+		});
+
+		it("should detect object partially overlapping the camera origin", () => {
+			const { camera, renderable10x10 } = setup();
+			camera.reset(0, 0);
+			camera.setBounds(0, 0, 2000, 2000);
+			renderable10x10.anchorPoint.set(0, 0);
+			renderable10x10.pos.set(-5, -5, 0);
+			expect(camera.isVisible(renderable10x10)).toEqual(true);
+		});
+
+		it("should not detect object outside the camera after move", () => {
+			const { camera, renderable10x10 } = setup();
+			camera.reset(0, 0);
+			camera.setBounds(0, 0, 2000, 2000);
+			renderable10x10.anchorPoint.set(0, 0);
+			camera.move(100, 100);
+			expect(camera.isVisible(renderable10x10)).toEqual(false);
+		});
+
+		it("should detect floating object regardless of camera position", () => {
+			const { camera, renderable10x10 } = setup();
+			camera.reset(0, 0);
+			camera.setBounds(0, 0, 2000, 2000);
+			renderable10x10.anchorPoint.set(0, 0);
+			camera.move(100, 100);
+			renderable10x10.floating = true;
+			expect(camera.isVisible(renderable10x10)).toEqual(true);
+		});
+
+		it("should always detect objects in an infinite camera", () => {
+			const { infiniteCamera, renderable10x10 } = setup();
+			renderable10x10.anchorPoint.set(0, 0);
+			renderable10x10.floating = false;
+			expect(infiniteCamera.isVisible(renderable10x10)).toEqual(true);
+			renderable10x10.floating = true;
+			expect(infiniteCamera.isVisible(renderable10x10)).toEqual(true);
+		});
+
+		it("should detect object at the exact right/bottom edge of the camera", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 200, 200);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(199, 199, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(true);
+		});
+
+		it("should not detect object just outside the right edge", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 200, 200);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(201, 0, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(false);
+		});
+
+		it("should not detect object just outside the bottom edge", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 200, 200);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(0, 201, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(false);
+		});
+
+		it("should detect large object spanning the full camera", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 200, 200);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(0, 0, 500, 500);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(true);
+		});
+
+		it("should detect object after camera moves to it", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 200, 200);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(500, 500, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(false);
+			cam.moveTo(495, 495);
+			expect(cam.isVisible(obj)).toEqual(true);
+		});
+
+		it("should expand visible area when zoomed out", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(150, 150, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(false);
+			cam.zoom = 0.5;
+			expect(cam.isVisible(obj)).toEqual(true);
+		});
+
+		it("should shrink visible area when zoomed in", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(80, 80, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(true);
+			cam.zoom = 2;
+			expect(cam.isVisible(obj)).toEqual(false);
+		});
+
+		it("should account for camera position when zoomed", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.zoom = 0.5;
+			cam.moveTo(300, 300);
+			// visible world area: 300,300 to 500,500 (100/0.5 = 200 wide)
+			const inside = new Renderable(400, 400, 10, 10);
+			inside.anchorPoint.set(0, 0);
+			expect(cam.isVisible(inside)).toEqual(true);
+			const outside = new Renderable(100, 100, 10, 10);
+			outside.anchorPoint.set(0, 0);
+			expect(cam.isVisible(outside)).toEqual(false);
+		});
+
+		it("should detect floating objects on zoomed cameras", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.zoom = 0.5;
+			cam.moveTo(500, 500);
+			const obj = new Renderable(10, 10, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			// not visible in world space (camera is at 500,500)
+			expect(cam.isVisible(obj)).toEqual(false);
+			// floating: checked against screen coordinates
+			obj.floating = true;
+			expect(cam.isVisible(obj)).toEqual(true);
+		});
+
+		it("should handle object partially overlapping zoomed camera edge", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.zoom = 0.5;
+			// visible world area: 0,0 to 200,200
+			const obj = new Renderable(195, 195, 20, 20);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(true);
+		});
+	});
+
+	describe("isVisible() with cleared/infinite bounds", () => {
+		it("should treat floating object with cleared bounds as visible", () => {
+			const { camera } = setup();
+			camera.reset(0, 0);
+			// simulate a floating container with Infinity dimensions (cleared bounds)
+			const container = new Renderable(0, 0, Infinity, Infinity);
+			container.floating = true;
+			// clear bounds to the sentinel state (min=Infinity, max=-Infinity)
+			container.getBounds().clear();
+			expect(camera.isVisible(container)).toEqual(true);
+		});
+
+		it("should treat non-floating object with cleared bounds as not visible", () => {
+			const { camera } = setup();
+			camera.reset(0, 0);
+			camera.setBounds(0, 0, 2000, 2000);
+			const obj = new Renderable(0, 0, 10, 10);
+			obj.floating = false;
+			obj.getBounds().clear();
+			expect(camera.isVisible(obj)).toEqual(false);
+		});
+	});
+
+	describe("reset()", () => {
+		it("should reset the camera position to 0,0 by default", () => {
+			const { camera } = setup();
+			camera.move(200, 300);
+			camera.reset();
+			expect(camera.pos.x).toEqual(0);
+			expect(camera.pos.y).toEqual(0);
+		});
+
+		it("should reset the camera position to specified coordinates", () => {
+			const { camera } = setup();
+			camera.move(200, 300);
+			camera.reset(50, 75);
+			expect(camera.pos.x).toEqual(50);
+			expect(camera.pos.y).toEqual(75);
+		});
+
+		it("should unfollow any target after reset", () => {
+			const { camera } = setup();
+			const target = new Vector2d(100, 100);
+			camera.follow(target, camera.AXIS.BOTH);
+			expect(camera.target).not.toBeNull();
+			camera.reset();
+			expect(camera.target).toBeNull();
+			expect(camera.follow_axis).toEqual(camera.AXIS.NONE);
+		});
+
+		it("should reset damping to default value", () => {
+			const { camera } = setup();
+			camera.damping = 0.5;
+			camera.reset();
+			expect(camera.damping).toEqual(1.0);
+			expect(camera.smoothFollow).toEqual(true);
+		});
+	});
+
+	describe("resize()", () => {
+		it("should resize the camera dimensions", () => {
+			const { camera } = setup();
+			camera.resize(640, 480);
+			expect(camera.width).toEqual(640);
+			expect(camera.height).toEqual(480);
+		});
+
+		it("should return the camera instance for chaining", () => {
+			const { camera } = setup();
+			const result = camera.resize(640, 480);
+			expect(result).toBe(camera);
+		});
+
+		it("should update bounds after resize", () => {
+			const { camera } = setup();
+			camera.resize(640, 480);
+			expect(camera.bounds.width).toEqual(640);
+			expect(camera.bounds.height).toEqual(480);
+		});
+	});
+
+	describe("setBounds()", () => {
+		it("should set the camera world bounds", () => {
+			const { camera } = setup();
+			camera.setBounds(0, 0, 2000, 1500);
+			expect(camera.bounds.left).toEqual(0);
+			expect(camera.bounds.top).toEqual(0);
+			expect(camera.bounds.width).toEqual(2000);
+			expect(camera.bounds.height).toEqual(1500);
+		});
+
+		it("should set bounds with non-zero origin", () => {
+			const { camera } = setup();
+			camera.setBounds(100, 50, 2000, 1500);
+			expect(camera.bounds.left).toEqual(100);
+			expect(camera.bounds.top).toEqual(50);
+			// bounds.width/height are computed as max - min
+			expect(camera.bounds.width).toEqual(2000);
+			expect(camera.bounds.height).toEqual(1500);
+		});
+	});
+
+	describe("move() / moveTo()", () => {
+		it("move() should offset the camera position", () => {
+			const { camera } = setup();
+			camera.reset(0, 0);
+			camera.setBounds(0, 0, 2000, 2000);
+			camera.moveTo(100, 100);
+			camera.move(50, 75);
+			expect(camera.pos.x).toEqual(150);
+			expect(camera.pos.y).toEqual(175);
+		});
+
+		it("moveTo() should set the camera position directly", () => {
+			const { camera } = setup();
+			camera.reset(0, 0);
+			camera.setBounds(0, 0, 2000, 2000);
+			camera.moveTo(300, 400);
+			expect(camera.pos.x).toEqual(300);
+			expect(camera.pos.y).toEqual(400);
+		});
+
+		it("moveTo() should clamp position within bounds", () => {
+			const { camera } = setup();
+			camera.reset(0, 0);
+			camera.resize(200, 200);
+			camera.setBounds(0, 0, 500, 500);
+			// try to move beyond the lower bounds
+			camera.moveTo(-100, -100);
+			expect(camera.pos.x).toEqual(0);
+			expect(camera.pos.y).toEqual(0);
+			// try to move beyond the upper bounds (500 - 200 = 300 max)
+			camera.moveTo(400, 400);
+			expect(camera.pos.x).toEqual(300);
+			expect(camera.pos.y).toEqual(300);
+		});
+	});
+
+	describe("follow() / unfollow()", () => {
+		it("follow() should set the target with a Vector2d", () => {
+			const { camera } = setup();
+			const target = new Vector2d(200, 200);
+			camera.follow(target, camera.AXIS.BOTH);
+			expect(camera.target).toBe(target);
+			expect(camera.follow_axis).toEqual(camera.AXIS.BOTH);
+		});
+
+		it("follow() should set the target with a Renderable", () => {
+			const { camera } = setup();
+			const target = new Renderable(200, 200, 32, 32);
+			camera.follow(target, camera.AXIS.BOTH);
+			// follow with Renderable stores target.pos
+			expect(camera.target).toBe(target.pos);
+		});
+
+		it("follow() should accept an axis parameter", () => {
+			const { camera } = setup();
+			const target = new Vector2d(200, 200);
+			camera.follow(target, camera.AXIS.HORIZONTAL);
+			expect(camera.follow_axis).toEqual(camera.AXIS.HORIZONTAL);
+		});
+
+		it("follow() should set damping when provided", () => {
+			const { camera } = setup();
+			const target = new Vector2d(200, 200);
+			camera.follow(target, camera.AXIS.BOTH, 0.5);
+			expect(camera.damping).toEqual(0.5);
+		});
+
+		it("follow() should default damping to 1 if not a number", () => {
+			const { camera } = setup();
+			const target = new Vector2d(200, 200);
+			camera.follow(target, camera.AXIS.BOTH);
+			expect(camera.damping).toEqual(1);
+		});
+
+		it("follow() should throw for invalid target", () => {
+			const { camera } = setup();
+			expect(() => {
+				camera.follow({ x: 0, y: 0 }, camera.AXIS.BOTH);
+			}).toThrow("invalid target for me.Camera2d.follow");
+		});
+
+		it("unfollow() should clear the target", () => {
+			const { camera } = setup();
+			const target = new Vector2d(200, 200);
+			camera.follow(target, camera.AXIS.BOTH);
+			camera.unfollow();
+			expect(camera.target).toBeNull();
+			expect(camera.follow_axis).toEqual(camera.AXIS.NONE);
+		});
+	});
+
+	describe("setDeadzone()", () => {
+		it("should set the deadzone dimensions", () => {
+			const { camera } = setup();
+			camera.setDeadzone(100, 80);
+			expect(camera.deadzone).toBeDefined();
+			expect(camera.deadzone.width).toEqual(100);
+			expect(camera.deadzone.height).toEqual(80);
+		});
+
+		it("should center the deadzone within the camera", () => {
+			const { camera } = setup();
+			camera.resize(800, 600);
+			camera.setDeadzone(200, 100);
+			// deadzone x = ~~((800 - 200) / 2) = 300
+			expect(camera.deadzone.pos.x).toEqual(300);
+			// deadzone y = ~~((600 - 100) / 2 - 100 * 0.25) = ~~(250 - 25) = 225
+			expect(camera.deadzone.pos.y).toEqual(225);
+		});
+
+		it("keeps every edge on a whole pixel", () => {
+			const { camera } = setup();
+			// the default deadzone is a sixth of the view: 213.33 x 121.67
+			camera.resize(1280, 730);
+			const zone = camera.deadzone;
+			for (const edge of [zone.left, zone.right, zone.top, zone.bottom]) {
+				expect(Number.isInteger(edge)).toBe(true);
+			}
+			// the nearest whole size to the one asked for
+			camera.setDeadzone(213.6, 99.4);
+			expect(camera.deadzone.width).toEqual(214);
+			expect(camera.deadzone.height).toEqual(99);
+			// rounded either way, as the nearest is
+			camera.setDeadzone(213.4, 99.6);
+			expect(camera.deadzone.width).toEqual(213);
+			expect(camera.deadzone.height).toEqual(100);
+		});
+
+		it("brings a camera following a whole-pixel target to rest on a whole pixel", () => {
+			const { camera } = setup();
+			camera.resize(1280, 730);
+			camera.setBounds(0, 0, 100000, 100000);
+			camera.reset(20000, 20000);
+			const target = new Vector2d(20640, 20365);
+			camera.follow(target, camera.AXIS.BOTH);
+			// right and left, then down and up: the camera is pushed by the
+			// right and bottom edges as much as by the left and top ones
+			for (const [dx, dy] of [
+				[7, 0],
+				[-7, 0],
+				[0, 7],
+				[0, -7],
+			]) {
+				for (let i = 0; i < 100; i++) {
+					target.x += dx;
+					target.y += dy;
+					camera.update(16);
+					expect(Number.isInteger(camera.pos.x)).toBe(true);
+					expect(Number.isInteger(camera.pos.y)).toBe(true);
+				}
+			}
+		});
+	});
+
+	describe("focusOn()", () => {
+		it("should center the camera on a renderable", () => {
+			const { camera } = setup();
+			camera.reset(0, 0);
+			camera.resize(800, 600);
+			camera.setBounds(0, 0, 2000, 2000);
+			const target = new Renderable(500, 400, 64, 64);
+			target.anchorPoint.set(0, 0);
+			camera.focusOn(target);
+			// focusOn centers camera on target's bounds center
+			const bounds = target.getBounds();
+			const expectedX = bounds.left + bounds.width / 2 - 800 / 2;
+			const expectedY = bounds.top + bounds.height / 2 - 600 / 2;
+			expect(camera.pos.x).toBeCloseTo(expectedX);
+			expect(camera.pos.y).toBeCloseTo(expectedY);
+		});
+	});
+
+	describe("screenX / screenY (viewport offset)", () => {
+		it("should default to 0, 0", () => {
+			const { camera } = setup();
+			expect(camera.screenX).toEqual(0);
+			expect(camera.screenY).toEqual(0);
+		});
+
+		it("should be settable", () => {
+			const { camera } = setup();
+			camera.screenX = 620;
+			camera.screenY = 10;
+			expect(camera.screenX).toEqual(620);
+			expect(camera.screenY).toEqual(10);
+		});
+
+		it("should not affect pos (world position)", () => {
+			const { camera } = setup();
+			camera.setBounds(0, 0, 2000, 2000);
+			camera.screenX = 500;
+			camera.screenY = 100;
+			camera.moveTo(200, 200);
+			expect(camera.pos.x).toEqual(200);
+			expect(camera.pos.y).toEqual(200);
+			expect(camera.screenX).toEqual(500);
+			expect(camera.screenY).toEqual(100);
+		});
+
+		it("should allow creating a minimap-style camera", () => {
+			setup();
+			const minimap = new Camera2d(0, 0, 180, 100);
+			minimap.screenX = 620;
+			minimap.screenY = 10;
+			minimap.name = "minimap";
+			expect(minimap.width).toEqual(180);
+			expect(minimap.height).toEqual(100);
+			expect(minimap.screenX).toEqual(620);
+			expect(minimap.screenY).toEqual(10);
+			expect(minimap.name).toEqual("minimap");
+		});
+
+		it("should support zoom via currentTransform.scale", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			// simulate zoom out
+			cam.scale(0.1, 0.1);
+			expect(cam.currentTransform.isIdentity()).toBe(false);
+			expect(cam.screenX).toEqual(620);
+		});
+
+		it("should keep screenX/screenY independent from resize", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.resize(1890, 1050);
+			expect(cam.width).toEqual(1890);
+			expect(cam.height).toEqual(1050);
+			expect(cam.screenX).toEqual(620);
+			expect(cam.screenY).toEqual(10);
+		});
+
+		it("should preserve screenX/screenY after reset", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.reset(0, 0);
+			expect(cam.screenX).toEqual(620);
+			expect(cam.screenY).toEqual(10);
+		});
+	});
+
+	describe("zoom property", () => {
+		it("should default to 1", () => {
+			const { camera } = setup();
+			expect(camera.zoom).toEqual(1);
+		});
+
+		it("should be settable", () => {
+			const { camera } = setup();
+			camera.zoom = 0.5;
+			expect(camera.zoom).toEqual(0.5);
+		});
+
+		it("should not affect camera dimensions", () => {
+			const { camera } = setup();
+			camera.zoom = 0.5;
+			expect(camera.width).toEqual(1000);
+			expect(camera.height).toEqual(1000);
+		});
+
+		it("should clamp invalid values to 1", () => {
+			const { camera } = setup();
+			camera.zoom = 0;
+			expect(camera.zoom).toEqual(1);
+			camera.zoom = -2;
+			expect(camera.zoom).toEqual(1);
+			camera.zoom = 0.001;
+			expect(camera.zoom).toEqual(0.001);
+		});
+
+		it("should affect isVisible with zoomed-out world area", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			// object at (150, 150) is outside a 100x100 camera
+			const obj = new Renderable(150, 150, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(false);
+
+			// zoom out — visible world area becomes 200x200
+			cam.zoom = 0.5;
+			expect(cam.isVisible(obj)).toEqual(true);
+		});
+
+		it("should keep objects outside zoomed-in area not visible", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			// object at (80, 80) is inside a 100x100 camera
+			const obj = new Renderable(80, 80, 10, 10);
+			obj.anchorPoint.set(0, 0);
+			expect(cam.isVisible(obj)).toEqual(true);
+
+			// zoom in — visible world area becomes 50x50
+			cam.zoom = 2;
+			expect(cam.isVisible(obj)).toEqual(false);
+		});
+	});
+
+	// A zoomed camera sees `width / zoom` of the world. Following, clamping to
+	// the bounds and focusing measured in its size on screen instead, so a
+	// zoomed-out camera kept its target off centre and scrolled past its
+	// bounds, and a zoomed-in one stopped short of them.
+	describe("zoom: follow, bounds and focusOn", () => {
+		const zoomed = (zoom, size = 2000) => {
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, size, size);
+			cam.zoom = zoom;
+			return cam;
+		};
+		// where a point sits in the camera's view, as a fraction of it
+		const placeInView = (cam, p) => {
+			const view = cam.worldView;
+			return [(p.x - view.left) / view.width, (p.y - view.top) / view.height];
+		};
+
+		it("keeps a followed target where an unzoomed camera keeps it", () => {
+			const ref = zoomed(1);
+			const refTarget = new Vector2d(1000, 1000);
+			ref.follow(refTarget, ref.AXIS.BOTH);
+			const [rx, ry] = placeInView(ref, refTarget);
+			for (const zoom of [0.5, 2]) {
+				const cam = zoomed(zoom);
+				const target = new Vector2d(1000, 1000);
+				cam.follow(target, cam.AXIS.BOTH);
+				const [x, y] = placeInView(cam, target);
+				expect(x, `zoom ${zoom}`).toBeCloseTo(rx, 3);
+				expect(y, `zoom ${zoom}`).toBeCloseTo(ry, 3);
+			}
+		});
+
+		it("lets the target move inside the deadzone as measured on screen", () => {
+			// a 40 px deadzone on a 100 px camera spans 30..70 px of the screen,
+			// which at zoom 0.5 is 60..140 world units from the camera's left
+			const cam = zoomed(0.5);
+			cam.setDeadzone(40, 40);
+			cam.moveTo(0, 0);
+			const target = new Vector2d(100, 50);
+			cam.follow(target, cam.AXIS.HORIZONTAL);
+			// 50 px on screen: inside, so the camera stays put
+			expect(cam.pos.x).toEqual(0);
+
+			// 75 px on screen: past the right edge, so the camera catches up
+			// until the target is back on it
+			target.x = 150;
+			cam.updateTarget();
+			expect(cam.pos.x).toBeCloseTo(150 - 70 / 0.5, 5);
+		});
+
+		it("settles a smooth follow where an unzoomed camera keeps the target", () => {
+			const ref = zoomed(1);
+			const refTarget = new Vector2d(1000, 1000);
+			ref.follow(refTarget, ref.AXIS.BOTH);
+			const [rx, ry] = placeInView(ref, refTarget);
+			for (const zoom of [0.5, 2]) {
+				const cam = zoomed(zoom);
+				const target = new Vector2d(1000, 1000);
+				cam.follow(target, cam.AXIS.BOTH, 0.2);
+				for (let i = 0; i < 600; i++) {
+					cam.update(16);
+				}
+				const [x, y] = placeInView(cam, target);
+				expect(x, `zoom ${zoom}`).toBeCloseTo(rx, 3);
+				expect(y, `zoom ${zoom}`).toBeCloseTo(ry, 3);
+			}
+		});
+
+		it("keeps the target in its deadzone when the zoom changes while following", () => {
+			const cam = zoomed(1);
+			const target = new Vector2d(1000, 1000);
+			cam.follow(target, cam.AXIS.BOTH);
+			for (const zoom of [0.5, 2, 1]) {
+				cam.zoom = zoom;
+				cam.updateTarget();
+				const [x] = placeInView(cam, target);
+				expect(x, `zoom ${zoom}`).toBeGreaterThanOrEqual(
+					cam.deadzone.left / cam.width - 1e-9,
+				);
+				expect(x, `zoom ${zoom}`).toBeLessThanOrEqual(
+					cam.deadzone.right / cam.width + 1e-9,
+				);
+			}
+		});
+
+		it("keeps its view inside the bounds when zoomed out", () => {
+			const cam = zoomed(0.5, 1000);
+			cam.moveTo(5000, 5000);
+			expect(cam.worldView.right).toBeCloseTo(1000, 5);
+			expect(cam.worldView.bottom).toBeCloseTo(1000, 5);
+
+			const target = new Vector2d(990, 990);
+			cam.moveTo(0, 0);
+			cam.follow(target, cam.AXIS.BOTH);
+			expect(cam.worldView.right).toBeLessThanOrEqual(1000);
+			expect(cam.worldView.bottom).toBeLessThanOrEqual(1000);
+		});
+
+		it("reaches the edge of its bounds when zoomed in", () => {
+			const cam = zoomed(2, 1000);
+			cam.moveTo(5000, 5000);
+			expect(cam.worldView.right).toBeCloseTo(1000, 5);
+			expect(cam.worldView.bottom).toBeCloseTo(1000, 5);
+		});
+
+		it("centres on a renderable with focusOn when zoomed", () => {
+			for (const zoom of [0.5, 2]) {
+				const cam = zoomed(zoom);
+				const target = new Renderable(1000, 1000, 10, 10);
+				target.anchorPoint.set(0, 0);
+				cam.focusOn(target);
+				expect(cam.worldView.centerX, `zoom ${zoom}`).toBeCloseTo(1005, 5);
+				expect(cam.worldView.centerY, `zoom ${zoom}`).toBeCloseTo(1005, 5);
+			}
+		});
+	});
+
+	// A camera draws world point W at `(W - pos) * zoom + (screenX, screenY)`
+	// on the canvas. The conversions only undid `pos` (and `currentTransform`),
+	// so on a zoomed camera, or one drawn in a corner of the screen, a point
+	// on screen mapped to the wrong place in the world and back.
+	describe("zoom and screen offset: localToWorld / worldToLocal", () => {
+		const camera = (zoom, screenX = 0, screenY = 0) => {
+			const cam = new Camera2d(0, 0, 200, 100);
+			cam.reset(0, 0);
+			cam.setBounds(-5000, -5000, 10000, 10000);
+			cam.zoom = zoom;
+			cam.screenX = screenX;
+			cam.screenY = screenY;
+			cam.moveTo(100, 50);
+			return cam;
+		};
+
+		it("maps a point on a zoomed camera to the world it shows there", () => {
+			const cam = camera(0.5);
+			const world = cam.localToWorld(80, 40, new Vector2d());
+			expect(world.x).toBeCloseTo(100 + 80 / 0.5, 5);
+			expect(world.y).toBeCloseTo(50 + 40 / 0.5, 5);
+
+			const local = cam.worldToLocal(world.x, world.y, new Vector2d());
+			expect(local.x).toBeCloseTo(80, 5);
+			expect(local.y).toBeCloseTo(40, 5);
+		});
+
+		it("measures from where a secondary camera is drawn on the screen", () => {
+			const cam = camera(0.25, 600, 20);
+			// 50 px into the camera's own rectangle
+			const world = cam.localToWorld(650, 70, new Vector2d());
+			expect(world.x).toBeCloseTo(100 + 50 / 0.25, 5);
+			expect(world.y).toBeCloseTo(50 + 50 / 0.25, 5);
+
+			const local = cam.worldToLocal(world.x, world.y, new Vector2d());
+			expect(local.x).toBeCloseTo(650, 5);
+			expect(local.y).toBeCloseTo(70, 5);
+		});
+
+		it("maps the corners of the camera's rectangle to the corners of its worldView", () => {
+			for (const [zoom, sx, sy] of [
+				[1, 0, 0],
+				[0.5, 0, 0],
+				[2, 0, 0],
+				[0.25, 600, 20],
+			]) {
+				const cam = camera(zoom, sx, sy);
+				const view = cam.worldView;
+				const topLeft = cam.localToWorld(sx, sy, new Vector2d());
+				const bottomRight = cam.localToWorld(
+					sx + cam.width,
+					sy + cam.height,
+					new Vector2d(),
+				);
+				const label = `zoom ${zoom} at ${sx},${sy}`;
+				expect(topLeft.x, label).toBeCloseTo(view.left, 5);
+				expect(topLeft.y, label).toBeCloseTo(view.top, 5);
+				expect(bottomRight.x, label).toBeCloseTo(view.right, 5);
+				expect(bottomRight.y, label).toBeCloseTo(view.bottom, 5);
+			}
+		});
+
+		it("round-trips with a zoom, a screen offset and a roll together", () => {
+			const cam = camera(0.5, 300, 40);
+			cam.roll = Math.PI / 7;
+			const world = cam.localToWorld(420, 90, new Vector2d());
+			const back = cam.worldToLocal(world.x, world.y, new Vector2d());
+			expect(back.x).toBeCloseTo(420, 4);
+			expect(back.y).toBeCloseTo(90, 4);
+		});
+	});
+
+	describe("isDefault", () => {
+		it("should be true for a default camera", () => {
+			const { camera } = setup();
+			expect(camera.isDefault).toEqual(true);
+		});
+
+		it("should be false when screenX is set", () => {
+			const { camera } = setup();
+			camera.screenX = 100;
+			expect(camera.isDefault).toEqual(false);
+		});
+
+		it("should be false when screenY is set", () => {
+			const { camera } = setup();
+			camera.screenY = 50;
+			expect(camera.isDefault).toEqual(false);
+		});
+
+		it("should be false when zoom is not 1", () => {
+			const { camera } = setup();
+			camera.zoom = 0.5;
+			expect(camera.isDefault).toEqual(false);
+		});
+
+		it("should be false when both offset and zoom are set", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.1;
+			expect(cam.isDefault).toEqual(false);
+		});
+
+		it("should return to true when properties are reset to defaults", () => {
+			const { camera } = setup();
+			camera.screenX = 100;
+			camera.zoom = 0.5;
+			expect(camera.isDefault).toEqual(false);
+			camera.screenX = 0;
+			camera.zoom = 1;
+			expect(camera.isDefault).toEqual(true);
+		});
+	});
+
+	describe("worldView", () => {
+		it("should match camera bounds when zoom is 1", () => {
+			const { camera } = setup();
+			camera.reset(0, 0);
+			const view = camera.worldView;
+			expect(view.left).toEqual(0);
+			expect(view.top).toEqual(0);
+			expect(view.width).toEqual(camera.width);
+			expect(view.height).toEqual(camera.height);
+		});
+
+		it("should expand when zoomed out", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.zoom = 0.5;
+			const view = cam.worldView;
+			expect(view.width).toEqual(200);
+			expect(view.height).toEqual(200);
+		});
+
+		it("should shrink when zoomed in", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.zoom = 2;
+			const view = cam.worldView;
+			expect(view.width).toEqual(50);
+			expect(view.height).toEqual(50);
+		});
+
+		it("should reflect camera position", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.moveTo(300, 400);
+			const view = cam.worldView;
+			expect(view.left).toEqual(300);
+			expect(view.top).toEqual(400);
+		});
+
+		it("should reflect both position and zoom", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.moveTo(200, 200);
+			cam.zoom = 0.5;
+			const view = cam.worldView;
+			expect(view.left).toEqual(200);
+			expect(view.top).toEqual(200);
+			expect(view.width).toEqual(200);
+			expect(view.height).toEqual(200);
+		});
+
+		it("should return a cached bounds object", () => {
+			const { camera } = setup();
+			const view1 = camera.worldView;
+			const view2 = camera.worldView;
+			expect(view1).toBe(view2);
+		});
+	});
+
+	describe("setViewport()", () => {
+		it("should set screenX and screenY", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.setViewport(620, 10);
+			expect(cam.screenX).toEqual(620);
+			expect(cam.screenY).toEqual(10);
+		});
+
+		it("should not change dimensions when w/h are omitted", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.setViewport(620, 10);
+			expect(cam.width).toEqual(180);
+			expect(cam.height).toEqual(100);
+		});
+
+		it("should set dimensions when w/h are provided", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.setViewport(620, 10, 200, 150);
+			expect(cam.screenX).toEqual(620);
+			expect(cam.screenY).toEqual(10);
+			expect(cam.width).toEqual(200);
+			expect(cam.height).toEqual(150);
+		});
+
+		it("should return the camera for chaining", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			const result = cam.setViewport(620, 10);
+			expect(result).toBe(cam);
+		});
+	});
+
+	describe("rotation", () => {
+		it("should not affect camera dimensions", () => {
+			const { camera } = setup();
+			camera.rotate(Math.PI / 4);
+			expect(camera.width).toEqual(1000);
+			expect(camera.height).toEqual(1000);
+		});
+
+		it("should preserve rotation after draw", () => {
+			setup();
+			const r = app.renderer;
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.reset(0, 0);
+			cam.rotate(0.5);
+
+			const angleBefore = Math.atan2(
+				cam.currentTransform.val[1],
+				cam.currentTransform.val[0],
+			);
+			cam.draw(r, app.world);
+			const angleAfter = Math.atan2(
+				cam.currentTransform.val[1],
+				cam.currentTransform.val[0],
+			);
+			expect(angleAfter).toBeCloseTo(angleBefore);
+		});
+
+		it("should restore renderer stack depth after rotated draw", () => {
+			setup();
+			const r = app.renderer;
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.reset(0, 0);
+			cam.rotate(0.5);
+
+			const depthBefore = r.renderState._stackDepth;
+			cam.draw(r, app.world);
+			expect(r.renderState._stackDepth).toEqual(depthBefore);
+		});
+
+		it("should work combined with zoom", () => {
+			setup();
+			const r = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.5;
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.rotate(0.3);
+
+			const depthBefore = r.renderState._stackDepth;
+			cam.draw(r, app.world);
+			expect(r.renderState._stackDepth).toEqual(depthBefore);
+			expect(cam.width).toEqual(180);
+			expect(cam.height).toEqual(100);
+		});
+
+		it("should maintain correct worldView when rotated", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.rotate(0.5);
+
+			// worldView is axis-aligned and based on pos/zoom, not rotation
+			const view = cam.worldView;
+			expect(view.left).toEqual(0);
+			expect(view.top).toEqual(0);
+			expect(view.width).toEqual(100);
+			expect(view.height).toEqual(100);
+		});
+
+		it("should maintain correct worldView when rotated and zoomed", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 100, 100);
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+			cam.rotate(0.5);
+			cam.zoom = 0.5;
+
+			const view = cam.worldView;
+			expect(view.width).toEqual(200);
+			expect(view.height).toEqual(200);
+		});
+	});
+
+	describe("autoResize", () => {
+		it("should default to true", () => {
+			const { camera } = setup();
+			expect(camera.autoResize).toEqual(true);
+		});
+
+		it("should skip resize when autoResize is false", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.autoResize = false;
+			cam.setBounds(0, 0, 2000, 2000);
+
+			cam.resize(1920, 1080);
+
+			// dimensions and bounds should be unchanged
+			expect(cam.width).toEqual(180);
+			expect(cam.height).toEqual(100);
+			expect(cam.bounds.width).toEqual(2000);
+			expect(cam.bounds.height).toEqual(2000);
+		});
+
+		it("should still resize when autoResize is true", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.autoResize = true;
+
+			cam.resize(1920, 1080);
+
+			expect(cam.width).toEqual(1920);
+			expect(cam.height).toEqual(1080);
+		});
+	});
+
+	describe("worldProjection / screenProjection", () => {
+		it("worldProjection should be identity by default (set only on non-default camera draw)", () => {
+			const { camera } = setup();
+			expect(camera.worldProjection.isIdentity()).toEqual(true);
+		});
+
+		it("screenProjection mirrors the screen ortho even on the default camera", () => {
+			// Camera2d's `_updateProjectionMatrix` keeps `screenProjection`
+			// in sync with `projectionMatrix` so `Container.draw` can swap
+			// to it for floating renderables under ANY camera, including
+			// the default. Used to be identity-by-default; that behavior
+			// fell over under Camera3d because the perspective projection
+			// would NaN floating Text positions.
+			const { camera } = setup();
+			expect(camera.screenProjection.isIdentity()).toEqual(false);
+			expect(camera.screenProjection.equals(camera.projectionMatrix)).toEqual(
+				true,
+			);
+		});
+
+		it("should be updated after drawing a non-default camera", () => {
+			setup();
+			const r = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.1;
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			cam.draw(r, app.world);
+
+			expect(cam.worldProjection.isIdentity()).toEqual(false);
+			expect(cam.screenProjection.isIdentity()).toEqual(false);
+		});
+
+		it("worldProjection should remain identity after drawing a default camera", () => {
+			setup();
+			const r = app.renderer;
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.reset(0, 0);
+
+			cam.draw(r, app.world);
+
+			expect(cam.worldProjection.isIdentity()).toEqual(true);
+			// `screenProjection` stays a meaningful ortho (matches
+			// `projectionMatrix`) so floating-renderable swaps work on the
+			// default camera too.
+			expect(cam.screenProjection.equals(cam.projectionMatrix)).toEqual(true);
+		});
+
+		it("worldProjection should be reset to identity after reset()", () => {
+			setup();
+			const r = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.1;
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			cam.draw(r, app.world);
+			expect(cam.worldProjection.isIdentity()).toEqual(false);
+
+			cam.reset(0, 0);
+			expect(cam.worldProjection.isIdentity()).toEqual(true);
+			// `screenProjection` is reset to mirror the (just-rebuilt)
+			// `projectionMatrix`, which for a Camera2d is the screen ortho.
+			expect(cam.screenProjection.equals(cam.projectionMatrix)).toEqual(true);
+		});
+	});
+
+	describe("camera effects", () => {
+		it("should start with an empty effects list", () => {
+			const { camera } = setup();
+			expect(camera.cameraEffects).toEqual([]);
+		});
+
+		it("addCameraEffect should add and return the effect", () => {
+			const { camera } = setup();
+			const effect = new ShakeEffect(camera, {
+				intensity: 10,
+				duration: 500,
+			});
+			const result = camera.addCameraEffect(effect);
+			expect(result).toBe(effect);
+			expect(camera.cameraEffects).toHaveLength(1);
+			expect(camera.cameraEffects[0]).toBe(effect);
+		});
+
+		it("getCameraEffect should find by class", () => {
+			const { camera } = setup();
+			const shake = new ShakeEffect(camera, {
+				intensity: 10,
+				duration: 500,
+			});
+			camera.addCameraEffect(shake);
+			expect(camera.getCameraEffect(ShakeEffect)).toBe(shake);
+			expect(camera.getCameraEffect(FadeEffect)).toBeUndefined();
+		});
+
+		it("removeCameraEffect should remove and destroy the effect", () => {
+			const { camera } = setup();
+			const shake = new ShakeEffect(camera, {
+				intensity: 10,
+				duration: 500,
+			});
+			camera.addCameraEffect(shake);
+			camera.removeCameraEffect(shake);
+			expect(camera.cameraEffects).toHaveLength(0);
+			// offset should be zeroed by destroy
+			expect(camera.offset.x).toEqual(0);
+			expect(camera.offset.y).toEqual(0);
+		});
+
+		it("REGRESSION: onComplete fires once, not on every frame after completing", () => {
+			// The other half of keeping a persistent effect alive. `update()`
+			// called `onComplete` whenever it found itself complete, which
+			// only ever ran once while the sweep took the effect away on the
+			// completing frame. A persistent one stays, so it kept calling.
+			//
+			// A state transition's `onComplete` DEFERS the switch with a
+			// `setTimeout`, and the effect is not taken away until that
+			// switch lands, so every frame in between queued another switch
+			// into the same state: `_switchState` has no "already there"
+			// check, so the second one destroyed the stage it had just
+			// built and built it again.
+			const { camera } = setup();
+			let fired = 0;
+			const hide = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 100,
+				direction: "hide",
+				onComplete: () => {
+					fired++;
+				},
+			});
+			hide.isPersistent = true;
+			camera.addCameraEffect(hide);
+
+			advanceTween(hide.tween, 200);
+			camera.update(16);
+			expect(hide.isComplete).toBe(true);
+			expect(fired).toBe(1);
+
+			// the frames the deferred switch is still pending for
+			camera.update(16);
+			camera.update(16);
+			camera.update(16);
+			expect(fired).toBe(1);
+		});
+
+		it("REGRESSION: a shake's onComplete fires once however long it is kept", () => {
+			// Same shape as the mask's: the callback sat in the completed
+			// branch with nothing to say it had already run. A shake is
+			// swept on the frame it completes, so this only shows when one
+			// is held, but the contract is the same either way.
+			const { camera } = setup();
+			let fired = 0;
+			const shake = new ShakeEffect(camera, {
+				intensity: 5,
+				duration: 100,
+				onComplete: () => {
+					fired++;
+				},
+			});
+			shake.isPersistent = true;
+			camera.addCameraEffect(shake);
+
+			camera.update(200);
+			expect(shake.isComplete).toBe(true);
+			expect(fired).toBe(1);
+
+			camera.update(16);
+			camera.update(16);
+			expect(fired).toBe(1);
+		});
+
+		it("REGRESSION: a completed PERSISTENT effect is not swept away", () => {
+			// `reset()` spares persistent effects; `update()` did not, and
+			// swept any completed one regardless. A state transition's "hide"
+			// half completes one frame and only DEFERS the switch, so losing
+			// it there left the outgoing scene drawing with nothing over it:
+			// the closed iris flashed the screen it had just covered.
+			const { camera } = setup();
+			const hide = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 100,
+				direction: "hide",
+			});
+			hide.isPersistent = true;
+			const ordinary = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 100,
+				direction: "hide",
+			});
+			camera.addCameraEffect(hide);
+			camera.addCameraEffect(ordinary);
+
+			// run both past their end
+			advanceTween(hide.tween, 200);
+			advanceTween(ordinary.tween, 200);
+			camera.update(16);
+			camera.update(16);
+
+			expect(hide.isComplete).toBe(true);
+			expect(ordinary.isComplete).toBe(true);
+			// the persistent one stays for its owner to take away
+			expect(camera.cameraEffects).toContain(hide);
+			// and the ordinary one is still swept, which is what the sweep
+			// is for
+			expect(camera.cameraEffects).not.toContain(ordinary);
+
+			// and it is still COVERING: a completed hide fills the screen,
+			// which is the whole reason keeping it matters
+			const filled = [];
+			const recorder = {
+				save() {},
+				restore() {},
+				resetTransform() {},
+				setColor() {},
+				setMask() {},
+				clearMask() {},
+				fillRect(x, y, w, h) {
+					filled.push([x, y, w, h]);
+				},
+			};
+			hide.draw(recorder, 320, 240);
+			expect(filled).toEqual([[0, 0, 320, 240]]);
+
+			camera.removeCameraEffect(hide);
+			expect(camera.cameraEffects).toHaveLength(0);
+		});
+
+		it("removeCameraEffect should be a no-op for unknown effects", () => {
+			const { camera } = setup();
+			const shake = new ShakeEffect(camera, {
+				intensity: 10,
+				duration: 500,
+			});
+			// not added — should not throw
+			camera.removeCameraEffect(shake);
+			expect(camera.cameraEffects).toHaveLength(0);
+		});
+
+		it("multiple effects should coexist", () => {
+			const { camera } = setup();
+			camera.addCameraEffect(
+				new ShakeEffect(camera, { intensity: 5, duration: 200 }),
+			);
+			camera.addCameraEffect(
+				new FadeEffect(camera, { color: "#000", duration: 300 }),
+			);
+			expect(camera.cameraEffects).toHaveLength(2);
+			expect(camera.getCameraEffect(ShakeEffect)).toBeDefined();
+			expect(camera.getCameraEffect(FadeEffect)).toBeDefined();
+		});
+
+		it("reset should clear non-persistent effects", () => {
+			const { camera } = setup();
+			camera.addCameraEffect(
+				new ShakeEffect(camera, { intensity: 5, duration: 200 }),
+			);
+			camera.addCameraEffect(
+				new FadeEffect(camera, { color: "#000", duration: 300 }),
+			);
+			camera.reset();
+			expect(camera.cameraEffects).toHaveLength(0);
+		});
+
+		it("reset should preserve persistent effects", () => {
+			const { camera } = setup();
+			const fade = new FadeEffect(camera, {
+				color: "#000",
+				duration: 300,
+			});
+			fade.isPersistent = true;
+			camera.addCameraEffect(fade);
+			camera.addCameraEffect(
+				new ShakeEffect(camera, { intensity: 5, duration: 200 }),
+			);
+			camera.reset();
+			expect(camera.cameraEffects).toHaveLength(1);
+			expect(camera.getCameraEffect(FadeEffect)).toBe(fade);
+		});
+
+		it("completed effects should be auto-removed on update", () => {
+			const { camera } = setup();
+			camera.addCameraEffect(
+				new ShakeEffect(camera, { intensity: 5, duration: 100 }),
+			);
+			expect(camera.cameraEffects).toHaveLength(1);
+			// update with enough time to complete
+			camera.update(200);
+			expect(camera.cameraEffects).toHaveLength(0);
+		});
+
+		it("shake() convenience method should add a ShakeEffect", () => {
+			const { camera } = setup();
+			camera.shake(10, 500, camera.AXIS.BOTH);
+			expect(camera.getCameraEffect(ShakeEffect)).toBeDefined();
+			expect(camera.cameraEffects).toHaveLength(1);
+		});
+
+		it("shake() should not replace existing shake without force", () => {
+			const { camera } = setup();
+			camera.shake(10, 500);
+			const first = camera.getCameraEffect(ShakeEffect);
+			camera.shake(20, 300);
+			// should still be the first one
+			expect(camera.getCameraEffect(ShakeEffect)).toBe(first);
+		});
+
+		it("shake() with force should replace existing shake", () => {
+			const { camera } = setup();
+			camera.shake(10, 500);
+			const first = camera.getCameraEffect(ShakeEffect);
+			camera.shake(20, 300, undefined, undefined, true);
+			const second = camera.getCameraEffect(ShakeEffect);
+			expect(second).not.toBe(first);
+			expect(camera.cameraEffects).toHaveLength(1);
+		});
+
+		it("ShakeEffect should modify camera offset during update", () => {
+			const { camera } = setup();
+			// use a deterministic random to avoid flaky results
+			const originalRandom = Math.random;
+			Math.random = () => {
+				return 0.8;
+			};
+			try {
+				camera.shake(10, 500, camera.AXIS.BOTH);
+				camera.update(16);
+				// offset should be (0.8 - 0.5) * 10 = 3
+				expect(camera.offset.x).toBeCloseTo(3);
+				expect(camera.offset.y).toBeCloseTo(3);
+			} finally {
+				Math.random = originalRandom;
+			}
+		});
+
+		it("ShakeEffect should reset offset when complete", () => {
+			const { camera } = setup();
+			camera.shake(10, 100);
+			camera.update(200);
+			expect(camera.offset.x).toEqual(0);
+			expect(camera.offset.y).toEqual(0);
+		});
+
+		it("ShakeEffect should call onComplete callback", () => {
+			const { camera } = setup();
+			let called = false;
+			camera.shake(10, 100, camera.AXIS.BOTH, () => {
+				called = true;
+			});
+			camera.update(200);
+			expect(called).toEqual(true);
+		});
+
+		it("a fade calls onComplete before the camera removes it, whatever the float rounding (#1810)", () => {
+			// frame by frame as the game loop runs it: the tween steps, then the
+			// camera updates its effects. The alpha is stored as a 32-bit float,
+			// so on some durations it reads as the target one step before the
+			// tween ends; the effect must still wait for the tween
+			const frame = 1000 / 60;
+			const missed = [];
+			for (const direction of ["in", "out"]) {
+				for (let duration = 100; duration <= 1000; duration += 25) {
+					const { camera } = setup();
+					const onComplete = vi.fn();
+					const fade = new FadeEffect(camera, {
+						color: "#ffffff",
+						duration,
+						direction,
+						onComplete,
+					});
+					camera.addCameraEffect(fade);
+					const tween = fade.tween;
+					for (let i = 0; i < 200 && camera.getCameraEffect(FadeEffect); i++) {
+						tween.update(frame);
+						camera.update(frame);
+					}
+					expect(camera.getCameraEffect(FadeEffect)).toBeUndefined();
+					if (onComplete.mock.calls.length !== 1) {
+						missed.push(`${direction} ${duration}ms`);
+					}
+				}
+			}
+			expect(missed).toEqual([]);
+		});
+
+		it("a fade stays until its tween ends, even once its alpha reads as the target", () => {
+			const { camera } = setup();
+			const onComplete = vi.fn();
+			const fade = camera.addCameraEffect(
+				new FadeEffect(camera, { color: "#000", duration: 300, onComplete }),
+			);
+			// the colour already at the target, the tween not yet over
+			fade.color.alpha = 1;
+			camera.update(16);
+			expect(camera.getCameraEffect(FadeEffect)).toBe(fade);
+			expect(onComplete).not.toHaveBeenCalled();
+			// past its end on the last step only, as a frame lands: a finished
+			// tween leaves the game loop, so it is not stepped again. Not to
+			// 300 exactly: the tween's clock starts at the game time, and 20
+			// steps of 15ms from some start times add up to a hair under 300
+			// (about 1 in 500), leaving it unfinished
+			advanceTween(fade.tween, 305);
+			camera.update(16);
+			expect(onComplete).toHaveBeenCalledTimes(1);
+			expect(camera.getCameraEffect(FadeEffect)).toBeUndefined();
+		});
+
+		it("fadeIn() convenience method should add a FadeEffect", () => {
+			const { camera } = setup();
+			camera.fadeIn("#000", 500);
+			expect(camera.getCameraEffect(FadeEffect)).toBeDefined();
+		});
+
+		it("fadeOut() convenience method should add a FadeEffect", () => {
+			const { camera } = setup();
+			camera.fadeOut("#fff", 500);
+			expect(camera.getCameraEffect(FadeEffect)).toBeDefined();
+		});
+
+		it("custom CameraEffect subclass should work", () => {
+			const { camera } = setup();
+			let updated = false;
+
+			class CustomEffect extends CameraEffect {
+				update() {
+					updated = true;
+					this.isComplete = true;
+				}
+			}
+
+			camera.addCameraEffect(new CustomEffect(camera));
+			camera.update(16);
+			expect(updated).toEqual(true);
+			// should be auto-removed after completing
+			expect(camera.cameraEffects).toHaveLength(0);
+		});
+	});
+
+	describe("FadeEffect", () => {
+		it("should start with alpha 0 for direction 'in'", () => {
+			const { camera } = setup();
+			const effect = new FadeEffect(camera, {
+				color: "#000",
+				duration: 500,
+				direction: "in",
+			});
+			expect(effect.color.alpha).toEqual(0);
+			expect(effect.direction).toEqual("in");
+			expect(effect.isComplete).toEqual(false);
+			effect.destroy();
+		});
+
+		it("should start with full alpha for direction 'out'", () => {
+			const { camera } = setup();
+			const effect = new FadeEffect(camera, {
+				color: "#000",
+				duration: 500,
+				direction: "out",
+			});
+			expect(effect.color.alpha).toEqual(1);
+			expect(effect.direction).toEqual("out");
+			effect.destroy();
+		});
+
+		it("should complete for non-opaque target alpha", () => {
+			const { camera } = setup();
+			const effect = new FadeEffect(camera, {
+				color: "rgba(0,0,0,0.5)",
+				duration: 10,
+				direction: "in",
+			});
+			// advance the tween then call effect.update() directly
+			advanceTween(effect.tween, 500);
+			effect.update();
+			expect(effect.isComplete).toEqual(true);
+		});
+
+		it("should call onComplete when finished", () => {
+			const { camera } = setup();
+			let called = false;
+			const effect = new FadeEffect(camera, {
+				color: "#000",
+				duration: 10,
+				direction: "in",
+				onComplete: () => {
+					called = true;
+				},
+			});
+			advanceTween(effect.tween, 500);
+			effect.update();
+			expect(called).toEqual(true);
+		});
+
+		it("should default direction to 'in'", () => {
+			const { camera } = setup();
+			const effect = new FadeEffect(camera, {
+				color: "#000",
+				duration: 500,
+			});
+			expect(effect.direction).toEqual("in");
+			effect.destroy();
+		});
+
+		it("should release pooled resources on destroy", () => {
+			const { camera } = setup();
+			const effect = new FadeEffect(camera, {
+				color: "#000",
+				duration: 500,
+			});
+			// The name promises resources are RELEASED, so assert something about
+			// release rather than leaving a bare call whose only failure mode is
+			// a throw. Destroy twice: a pooled resource handed back correctly can
+			// be handed back again without the pool rejecting it, which is what
+			// double-release regressions actually look like.
+			expect(() => {
+				effect.destroy();
+			}).not.toThrow();
+			expect(() => {
+				effect.destroy();
+			}).not.toThrow();
+		});
+	});
+
+	describe("MaskEffect", () => {
+		it("should initialize with correct direction and progress", () => {
+			const { camera } = setup();
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 500,
+				direction: "hide",
+			});
+			expect(effect.direction).toEqual("hide");
+			expect(effect.progress.value).toEqual(1.0);
+			expect(effect.isComplete).toEqual(false);
+			effect.destroy();
+		});
+
+		it("should start reveal from progress 0", () => {
+			const { camera } = setup();
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 500,
+				direction: "reveal",
+			});
+			expect(effect.progress.value).toEqual(0.0);
+			effect.destroy();
+		});
+
+		it("should complete hide when progress reaches 0", () => {
+			const { camera } = setup();
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 10,
+				direction: "hide",
+			});
+			advanceTween(effect.tween, 500);
+			effect.update();
+			expect(effect.isComplete).toEqual(true);
+			expect(effect.progress.value).toEqual(0.0);
+		});
+
+		it("should complete reveal when progress reaches 1", () => {
+			const { camera } = setup();
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 10,
+				direction: "reveal",
+			});
+			advanceTween(effect.tween, 500);
+			effect.update();
+			expect(effect.isComplete).toEqual(true);
+			expect(effect.progress.value).toEqual(1.0);
+		});
+
+		it("should call onComplete callback", () => {
+			const { camera } = setup();
+			let called = false;
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 10,
+				direction: "hide",
+				onComplete: () => {
+					called = true;
+				},
+			});
+			advanceTween(effect.tween, 500);
+			effect.update();
+			expect(called).toEqual(true);
+		});
+
+		it("should work with Polygon shape", () => {
+			const { camera } = setup();
+			const diamond = new Polygon(0, 0, [
+				{ x: 0, y: -1 },
+				{ x: 1, y: 0 },
+				{ x: 0, y: 1 },
+				{ x: -1, y: 0 },
+			]);
+			const effect = new MaskEffect(camera, {
+				shape: diamond,
+				color: "#000",
+				duration: 10,
+				direction: "hide",
+			});
+			advanceTween(effect.tween, 500);
+			effect.update();
+			expect(effect.isComplete).toEqual(true);
+		});
+
+		it("should default direction to 'hide'", () => {
+			const { camera } = setup();
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+			});
+			expect(effect.direction).toEqual("hide");
+			effect.destroy();
+		});
+
+		it("should release pooled resources on destroy", () => {
+			const { camera } = setup();
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+				duration: 500,
+			});
+			// The name promises resources are RELEASED, so assert something about
+			// release rather than leaving a bare call whose only failure mode is
+			// a throw. Destroy twice: a pooled resource handed back correctly can
+			// be handed back again without the pool rejecting it, which is what
+			// double-release regressions actually look like.
+			expect(() => {
+				effect.destroy();
+			}).not.toThrow();
+			expect(() => {
+				effect.destroy();
+			}).not.toThrow();
+		});
+
+		it("isPersistent should default to false", () => {
+			const { camera } = setup();
+			const effect = new MaskEffect(camera, {
+				shape: new Ellipse(0, 0, 1, 1),
+				color: "#000",
+			});
+			expect(effect.isPersistent).toEqual(false);
+			effect.destroy();
+		});
+	});
+
+	describe("draw() state management", () => {
+		it("should restore renderer save/restore stack depth after draw", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.reset(0, 0);
+
+			const depthBefore = renderer.renderState._stackDepth;
+			cam.draw(renderer, app.world);
+			const depthAfter = renderer.renderState._stackDepth;
+
+			expect(depthAfter).toEqual(depthBefore);
+		});
+
+		it("should restore renderer stack depth for offset cameras", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.reset(0, 0);
+
+			const depthBefore = renderer.renderState._stackDepth;
+			cam.draw(renderer, app.world);
+			const depthAfter = renderer.renderState._stackDepth;
+
+			expect(depthAfter).toEqual(depthBefore);
+		});
+
+		it("should restore renderer stack depth for zoomed cameras", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.1;
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			const depthBefore = renderer.renderState._stackDepth;
+			cam.draw(renderer, app.world);
+			const depthAfter = renderer.renderState._stackDepth;
+
+			expect(depthAfter).toEqual(depthBefore);
+		});
+
+		it("should restore container transform after draw", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.reset(0, 0);
+			cam.moveTo(100, 50);
+
+			const txBefore = app.world.currentTransform.tx;
+			const tyBefore = app.world.currentTransform.ty;
+			cam.draw(renderer, app.world);
+
+			expect(app.world.currentTransform.tx).toBeCloseTo(txBefore);
+			expect(app.world.currentTransform.ty).toBeCloseTo(tyBefore);
+		});
+
+		it("should restore container transform for offset cameras", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.reset(0, 0);
+
+			const txBefore = app.world.currentTransform.tx;
+			const tyBefore = app.world.currentTransform.ty;
+			cam.draw(renderer, app.world);
+
+			expect(app.world.currentTransform.tx).toBeCloseTo(txBefore);
+			expect(app.world.currentTransform.ty).toBeCloseTo(tyBefore);
+		});
+
+		it("should restore container transform for zoomed cameras", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.1;
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			const txBefore = app.world.currentTransform.tx;
+			const tyBefore = app.world.currentTransform.ty;
+			cam.draw(renderer, app.world);
+
+			expect(app.world.currentTransform.tx).toBeCloseTo(txBefore);
+			expect(app.world.currentTransform.ty).toBeCloseTo(tyBefore);
+		});
+
+		it("should restore camera dimensions after zoomed draw", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.1;
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			cam.draw(renderer, app.world);
+
+			expect(cam.width).toEqual(180);
+			expect(cam.height).toEqual(100);
+		});
+
+		it("should not fire resize events during zoomed draw", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.zoom = 0.1;
+			cam.reset(0, 0);
+			cam.setBounds(0, 0, 2000, 2000);
+
+			// projectionMatrix should remain based on camera's actual size (180x100),
+			// not the temporarily expanded size
+			const projBefore = cam.projectionMatrix.val.slice();
+			cam.draw(renderer, app.world);
+			const projAfter = cam.projectionMatrix.val.slice();
+
+			expect(projAfter).toEqual(projBefore);
+		});
+
+		it("should compensate for container centering offset on non-default cameras", () => {
+			setup();
+			const renderer = app.renderer;
+			const cam = new Camera2d(0, 0, 180, 100);
+			cam.screenX = 620;
+			cam.screenY = 10;
+			cam.reset(0, 0);
+
+			// simulate a centered world container (e.g. viewport wider than level)
+			app.world.pos.set(200, 0, 0);
+
+			const txBefore = app.world.currentTransform.tx;
+			const tyBefore = app.world.currentTransform.ty;
+			cam.draw(renderer, app.world);
+
+			// transform should be fully restored
+			expect(app.world.currentTransform.tx).toBeCloseTo(txBefore);
+			expect(app.world.currentTransform.ty).toBeCloseTo(tyBefore);
+
+			// restore world pos
+			app.world.pos.set(0, 0, 0);
+		});
+	});
+
+	describe("colorMatrix", () => {
+		it("should default to identity", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			expect(cam.colorMatrix).toBeInstanceOf(ColorMatrix);
+			expect(cam.colorMatrix.isIdentity()).toBe(true);
+		});
+
+		it("should not add effect to postEffects when identity", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.draw(app.renderer, app.world);
+			expect(cam.postEffects).toHaveLength(0);
+		});
+
+		it("non-identity should lazily create the internal effect", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			expect(cam._colorMatrixEffect).toBeNull();
+			cam.colorMatrix.contrast(1.2);
+			cam.draw(app.renderer, app.world);
+			// effect created but removed from postEffects after draw (transient)
+			expect(cam._colorMatrixEffect).not.toBeNull();
+		});
+
+		it("colorMatrix effect should not persist in postEffects after draw", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.colorMatrix.saturate(1.5);
+			cam.draw(app.renderer, app.world);
+			// transient — removed after endPostEffect
+			expect(cam.postEffects.indexOf(cam._colorMatrixEffect)).toBe(-1);
+		});
+
+		it("user effects should not be affected by colorMatrix lifecycle", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.colorMatrix.saturate(1.5);
+			const other = { enabled: true };
+			cam.addPostEffect(other);
+			cam.draw(app.renderer, app.world);
+			// user effect persists, colorMatrix effect is transient
+			expect(cam.postEffects.indexOf(other)).not.toBe(-1);
+			expect(cam.postEffects.indexOf(cam._colorMatrixEffect)).toBe(-1);
+		});
+
+		it("reset to identity should not create or add effect", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.colorMatrix.contrast(1.2);
+			cam.draw(app.renderer, app.world);
+			// reset to identity
+			cam.colorMatrix.identity();
+			cam.draw(app.renderer, app.world);
+			// no colorMatrix effect in postEffects
+			expect(cam.postEffects.indexOf(cam._colorMatrixEffect)).toBe(-1);
+		});
+
+		it("clearPostEffects should not prevent colorMatrix from working", () => {
+			setup();
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.colorMatrix.brightness(1.3);
+			cam.draw(app.renderer, app.world);
+			// internal effect was created
+			expect(cam._colorMatrixEffect).not.toBeNull();
+			cam.clearPostEffects();
+			// draw again — colorMatrix still works (effect recreated/re-added transiently)
+			cam.draw(app.renderer, app.world);
+			expect(cam._colorMatrixEffect).not.toBeNull();
+		});
+	});
+
+	/**
+	 * Smooth follow under frame-rate independence (#1473 math.damp dogfood).
+	 * Pre-fix, `updateTarget` ran `pos.lerp(target, damping)` — a parametric
+	 * per-frame fraction. Same `damping=0.1` covered 10% of the gap per
+	 * frame whether running at 30, 60, 120 or 144Hz, so wall-clock
+	 * convergence sped up linearly with refresh rate. Post-fix, the camera
+	 * uses `pos.damp(target, lambda, dt)` with
+	 * `lambda = -ln(1 - damping) * timer.maxfps`, which recovers the legacy
+	 * per-frame fraction at the configured target framerate AND keeps
+	 * wall-clock convergence stable across actual frame-rate drift.
+	 */
+	describe("smooth-follow frame-rate independence", () => {
+		const runOneFrame = (camera, target, dampingValue, dt) => {
+			// Widen bounds past camera dimensions — `_followH` clamps to
+			// `bounds.width - camera.width`, which is 0 for the setup
+			// default (1000 bounds, 1000 camera). Then nuke the deadzone:
+			// `setDeadzone(0, 0)` zeroes its size but still positions it
+			// at camera-center (~500, 500), which makes _followH compare
+			// against half-camera offsets. We want a clean math test, so
+			// override `deadzone.pos` to (0, 0) too — that way _followH
+			// becomes `targetX = min(target.x, bounds.right)` and the
+			// gap the camera closes is exactly `target.x - camera.pos.x`.
+			camera.setBounds(0, 0, 5000, 5000);
+			camera.setDeadzone(0, 0);
+			camera.deadzone.pos.set(0, 0);
+			camera.pos.set(0, 0, 0);
+			camera.follow(target, camera.AXIS.BOTH, dampingValue);
+			// follow() runs one updateTarget() internally; reset position
+			// so the test's explicit updateTarget() runs against the
+			// known starting state, not the post-follow snapshot.
+			camera.pos.set(0, 0, 0);
+			camera.updateTarget(dt);
+			return camera.pos.x;
+		};
+
+		it("preserves the legacy per-frame fraction at the configured target framerate (60fps default)", () => {
+			const { camera } = setup();
+			const target = new Vector2d(100, 100);
+			// 60fps: dt = 1000/60 ms. damping = 0.1 → at the target rate
+			// we expect 10% of the gap covered (legacy lerp behaviour).
+			const before = timer.maxfps;
+			timer.maxfps = 60;
+			try {
+				const x = runOneFrame(camera, target, 0.1, 1000 / 60);
+				expect(x).toBeCloseTo(10, 1); // 10% of 100
+			} finally {
+				timer.maxfps = before;
+			}
+		});
+
+		it("matches the legacy per-frame fraction when the engine targets 30fps", () => {
+			const { camera } = setup();
+			const target = new Vector2d(100, 100);
+			const before = timer.maxfps;
+			timer.maxfps = 30;
+			try {
+				// 30fps: dt = 1000/30 ms. damping = 0.1 → at the target rate
+				// we still expect 10% covered, because the lambda derivation
+				// re-anchors to whatever timer.maxfps is.
+				const x = runOneFrame(camera, target, 0.1, 1000 / 30);
+				expect(x).toBeCloseTo(10, 1);
+			} finally {
+				timer.maxfps = before;
+			}
+		});
+
+		it("matches the legacy per-frame fraction when the engine targets 120fps", () => {
+			const { camera } = setup();
+			const target = new Vector2d(100, 100);
+			const before = timer.maxfps;
+			timer.maxfps = 120;
+			try {
+				const x = runOneFrame(camera, target, 0.1, 1000 / 120);
+				expect(x).toBeCloseTo(10, 1);
+			} finally {
+				timer.maxfps = before;
+			}
+		});
+
+		it("converges to the same wall-clock fraction across actual frame-rate drift (60fps target)", () => {
+			// At 60fps target, simulate a full wall-clock second of frames
+			// under three actual refresh scenarios: 30Hz (slow), 60Hz
+			// (matched), 144Hz (high-refresh). All three must end up at the
+			// same fraction covered after 1 wall-clock second — that's the
+			// frame-rate independence the fix introduces.
+			const before = timer.maxfps;
+			timer.maxfps = 60;
+			try {
+				const simulate = (actualHz) => {
+					const { camera } = setup();
+					const target = new Vector2d(100, 100);
+					camera.setBounds(0, 0, 5000, 5000);
+					camera.setDeadzone(0, 0);
+					camera.deadzone.pos.set(0, 0);
+					camera.pos.set(0, 0, 0);
+					camera.follow(target, camera.AXIS.BOTH, 0.1);
+					camera.pos.set(0, 0, 0);
+					const frames = actualHz;
+					const dt = 1000 / actualHz;
+					for (let i = 0; i < frames; i++) {
+						camera.updateTarget(dt);
+					}
+					return camera.pos.x;
+				};
+
+				const slow = simulate(30);
+				const matched = simulate(60);
+				const fast = simulate(144);
+
+				// All three should agree on the fraction covered to within
+				// floating-point noise — they're all simulating 1 wall-clock
+				// second of follow.
+				expect(slow).toBeCloseTo(matched, 1);
+				expect(fast).toBeCloseTo(matched, 1);
+			} finally {
+				timer.maxfps = before;
+			}
+		});
+
+		it("damping = 1.0 still snaps directly to the target (no damp path)", () => {
+			const { camera } = setup();
+			const target = new Vector2d(100, 100);
+			camera.setBounds(0, 0, 5000, 5000);
+			camera.setDeadzone(0, 0);
+			camera.deadzone.pos.set(0, 0);
+			camera.pos.set(0, 0, 0);
+			camera.follow(target, camera.AXIS.BOTH, 1);
+			camera.pos.set(0, 0, 0);
+			camera.updateTarget(1000 / 60);
+			expect(camera.pos.x).toBe(100);
+			expect(camera.pos.y).toBe(100);
+		});
+	});
+	describe("roll (2D)", () => {
+		it("defaults to zero", () => {
+			expect(new Camera2d(0, 0, 800, 600).roll).toBe(0);
+		});
+
+		it("is absolute, not cumulative", () => {
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.roll = 0.4;
+			cam.roll = 0.4;
+			expect(cam.roll).toBeCloseTo(0.4, 6);
+			// one rotation's worth in the matrix, not two
+			const once = new Camera2d(0, 0, 800, 600);
+			once.rotate(0.4);
+			const a = cam.currentTransform.val;
+			const b = once.currentTransform.val;
+			for (let i = 0; i < 16; i++) {
+				expect(a[i]).toBeCloseTo(b[i], 5);
+			}
+		});
+
+		it("does not drift when assigned every frame", () => {
+			// the reason the setter rebuilds instead of composing: a banking
+			// camera assigns this thousands of times per run
+			const cam = new Camera2d(0, 0, 800, 600);
+			for (let i = 0; i < 2000; i++) {
+				cam.roll = Math.sin(i / 10) * 0.5;
+			}
+			cam.roll = 0;
+			expect(cam.currentTransform.isIdentity()).toBe(true);
+		});
+
+		it("going back to zero restores the identity transform", () => {
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.roll = 0.7;
+			expect(cam.currentTransform.isIdentity()).toBe(false);
+			cam.roll = 0;
+			expect(cam.roll).toBe(0);
+			expect(cam.currentTransform.isIdentity()).toBe(true);
+		});
+
+		it("rolls THROUGH currentTransform, so picking compensates for it", () => {
+			// the whole reason the 2D roll is a currentTransform rotation:
+			// worldToLocal / localToWorld already undo that matrix, so a rolled
+			// 2D camera still converts screen <-> world correctly
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.roll = Math.PI / 5;
+			const world = cam.localToWorld(120, 80);
+			const back = cam.worldToLocal(world.x, world.y);
+			expect(back.x).toBeCloseTo(120, 4);
+			expect(back.y).toBeCloseTo(80, 4);
+		});
+
+		it("reset() clears the roll with the transform it lives in", () => {
+			const cam = new Camera2d(0, 0, 800, 600);
+			cam.roll = 0.6;
+			cam.reset();
+			expect(cam.roll).toBe(0);
+			expect(cam.currentTransform.isIdentity()).toBe(true);
+		});
+	});
+});

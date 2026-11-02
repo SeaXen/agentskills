@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 226 skills  
+> **Total Curated Skills**: 228 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -140,6 +140,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`macos-screen-recorder`](../../library/sickn33-agentic-awesome-skills/skills/macos-screen-recorder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | macOS screen recorder that captures the main display PLUS system audio via ScreenCaptureKit — n... |
 | [`marketing-context`](../../library/alirezarezvani-claude-skills/skills/marketing-context) | ⚪ Reserve | `alirezarezvani-claude-skills` | Create and maintain the marketing context document that all marketing skills read before starti... |
 | [`md2video-audio`](../../library/sickn33-agentic-awesome-skills/skills/md2video-audio) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narrati... |
+| [`melonjs-audio`](../../library/melonjs-melonjs/skills/melonjs-audio) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for sound and music in melonJS — loading audio, playing effects, background trac... |
 | [`minimax-multimodal-toolkit`](../../library/minimax-ai-skills/skills/minimax-multimodal-toolkit) | ⚪ Reserve | `minimax-ai-skills` | Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use whe... |
 | [`minimax-music-gen`](../../library/minimax-ai-skills/skills/minimax-music-gen) | ⚪ Reserve | `minimax-ai-skills` | Use when user wants to generate music, songs, or audio tracks. Triggers on any request involvin... |
 | [`mmx-cli`](../../library/sickn33-agentic-awesome-skills/skills/mmx-cli) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use whe... |
@@ -184,6 +185,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sag`](../../library/openclaw-openclaw/skills/sag) | ⚪ Reserve | `openclaw-openclaw` | ElevenLabs text-to-speech with mac-style say UX. |
 | [`save-to-spotify`](../../library/cline-skills/skills/save-to-spotify) | ⚪ Reserve | `cline-skills` | Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich... |
 | [`screen-reader-testing`](../../library/antigravity-awesome-skills/skills/screen-reader-testing) | ⚪ Reserve | `antigravity-awesome-skills` | Test web applications with screen readers including VoiceOver, NVDA, and JAWS. Use when validat... |
+| [`screenpipe`](../../library/thedotmack-claude-mem/skills/screenpipe) | ⚪ Reserve | `thedotmack-claude-mem` | Search screen and audio history recorded by Screenpipe and optionally save selected context int... |
 | [`seedance`](../../library/101-skills-superpowers/skills/seedance) | ⚪ Reserve | `101-skills-superpowers` | Generate videos with ByteDance Seedance 2.0 via inference.sh CLI. Unified model for text-to-vid... |
 | [`sepia-hemingway`](../../library/nanako0129-sepia/skills/sepia-hemingway) | ⚪ Reserve | `nanako0129-sepia` | Use when a user asks to write or revise fiction in the Hemingway manner, or asks for strong de-... |
 | [`service-agentforce-channel-configure`](../../library/forcedotcom-sf-skills/skills/service-agentforce-channel-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Wires an existing, active Agentforce agent to a channel by resolving a fallback queue, setting ... |

@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 2648 skills  
+> **Total Curated Skills**: 2650 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -485,6 +485,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`close`](../../library/membranedev-application-skills/skills/close) | ⚪ Reserve | `membranedev-application-skills` | Close integration. Manage Organizations. Use when the user wants to interact with Close data. |
 | [`cloud-elements`](../../library/membranedev-application-skills/skills/cloud-elements) | ⚪ Reserve | `membranedev-application-skills` | Cloud Elements integration. Manage data, records, and automate workflows. Use when the user wan... |
 | [`cloud-foundry`](../../library/membranedev-application-skills/skills/cloud-foundry) | ⚪ Reserve | `membranedev-application-skills` | Cloud Foundry integration. Manage data, records, and automate workflows. Use when the user want... |
+| [`cloud-sync`](../../library/thedotmack-claude-mem/skills/cloud-sync) | ⚪ Reserve | `thedotmack-claude-mem` | Set up or check claude-mem cloud sync with cmem.ai Pro. Use when the user says "set up cloud sy... |
 | [`cloud-trace-querying`](../../library/google-skills/skills/cloud-trace-querying) | ⚪ Reserve | `google-skills` | Query Cloud Trace spans, filter by latency thresholds or error status, correlate distributed tr... |
 | [`cloudback`](../../library/membranedev-application-skills/skills/cloudback) | ⚪ Reserve | `membranedev-application-skills` | Cloudback integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`cloudbees`](../../library/membranedev-application-skills/skills/cloudbees) | ⚪ Reserve | `membranedev-application-skills` | CloudBees integration. Manage data, records, and automate workflows. Use when the user wants to... |
@@ -1114,6 +1115,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hotjar`](../../library/membranedev-application-skills/skills/hotjar) | ⚪ Reserve | `membranedev-application-skills` | Hotjar integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`hotmart`](../../library/membranedev-application-skills/skills/hotmart) | ⚪ Reserve | `membranedev-application-skills` | Hotmart integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`hotspotsystem`](../../library/membranedev-application-skills/skills/hotspotsystem) | ⚪ Reserve | `membranedev-application-skills` | HotspotSystem integration. Manage Organizations, Users, Projects. Use when the user wants to in... |
+| [`how-it-works`](../../library/thedotmack-claude-mem/skills/how-it-works) | ⚪ Reserve | `thedotmack-claude-mem` | Explain how claude-mem captures observations, when memory injection kicks in, and where data li... |
 | [`howuku`](../../library/membranedev-application-skills/skills/howuku) | ⚪ Reserve | `membranedev-application-skills` | Howuku integration. Manage Organizations, Users, Goals, Filters. Use when the user wants to int... |
 | [`hr-cloud`](../../library/membranedev-application-skills/skills/hr-cloud) | ⚪ Reserve | `membranedev-application-skills` | HR Cloud integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`hr-partner`](../../library/membranedev-application-skills/skills/hr-partner) | ⚪ Reserve | `membranedev-application-skills` | HR Partner integration. Manage data, records, and automate workflows. Use when the user wants t... |

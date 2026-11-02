@@ -1,0 +1,331 @@
+import {
+	afterAll,
+	afterEach,
+	beforeAll,
+	beforeEach,
+	describe,
+	expect,
+	it,
+} from "vitest";
+import {
+	Application,
+	boot,
+	Camera2d,
+	level,
+	Trigger,
+	video,
+} from "../src/index.js";
+import GLTFScene from "../src/level/gltf/GLTFScene.js";
+import { LEVEL_LOAD_OPTIONS } from "../src/level/level.js";
+import triggerSource from "../src/renderable/trigger.js?raw";
+import state from "../src/state/state.ts";
+
+/**
+ * `Trigger` level changes, across the awaitable-load refactor (#1646).
+ *
+ * The fade/mask path used to sequence "hide → load → reveal" by REWRITING the
+ * caller's own `settings.onLoaded`: it saved the user's callback, replaced the
+ * option with its own, and called theirs from inside. Awaiting the load removes
+ * that interception. These pin the behaviour that must not change with it.
+ */
+describe("Trigger level change (#1646)", () => {
+	let app;
+	let loaded;
+	let loadOptions;
+	let originalAddTo;
+
+	beforeAll(async () => {
+		boot();
+		app = new Application(320, 240, {
+			parent: "screen",
+			renderer: video.CANVAS,
+			consoleHeader: false,
+		});
+		await app.init();
+		originalAddTo = GLTFScene.prototype.addTo;
+		GLTFScene.prototype.addTo = function (container, options) {
+			loaded.push(container);
+			loadOptions.push(options);
+		};
+		level.add("gltf", "trigger-target");
+	});
+
+	afterAll(() => {
+		GLTFScene.prototype.addTo = originalAddTo;
+		app?.destroy();
+	});
+
+	beforeEach(() => {
+		loaded = [];
+		loadOptions = [];
+		state.stop();
+	});
+
+	afterEach(async () => {
+		// Flush any timer-deferred load still pending. `triggerEvent` schedules
+		// through `defer`, so without this the callback fires after `afterAll`
+		// has destroyed the app and `World.reset` throws on a torn-down world —
+		// a fatal unhandled error, with every test still reporting green.
+		await new Promise((resolve) => {
+			setTimeout(resolve, 0);
+		});
+	});
+
+	/** a Trigger attached to the world, so `getRootAncestor().app` resolves */
+	const trigger = (settings) => {
+		const t = new Trigger(0, 0, {
+			width: 8,
+			height: 8,
+			event: "level",
+			to: "trigger-target",
+			...settings,
+		});
+		app.world.addChild(t);
+		return t;
+	};
+
+	it("loads directly when no transition is configured", () => {
+		// the plain path, unchanged by the refactor
+		const t = trigger({});
+		t.triggerEvent();
+		expect(loaded).toHaveLength(1);
+		app.world.removeChildNow(t);
+	});
+
+	it("forwards glTF load options, including false and zero values", () => {
+		const options = {
+			scale: 50,
+			rightHanded: false,
+			lights: false,
+			lightIntensityScale: 0,
+			castGroundShadow: false,
+			shadowGroundY: 0,
+		};
+		const t = trigger(options);
+		t.triggerEvent();
+		expect(loadOptions).toHaveLength(1);
+		expect(loadOptions[0]).toMatchObject(options);
+		app.world.removeChildNow(t);
+	});
+
+	it("carries EVERY option the director understands, bar async", () => {
+		// Derived from the contract rather than a hand-copied list, which is
+		// the point of the contract: the previous test named its six literals
+		// and so could only ever catch the omission it was written for. This
+		// one fails the day a level format declares an option that stops
+		// travelling — which is the bug, not any particular option (#1649).
+		// `async` is the trigger's own (asserted separately below), and
+		// `container` is resolved from a name to a Container on the way
+		// through, so it is the one option that cannot survive as a sentinel
+		const carried = LEVEL_LOAD_OPTIONS.filter((option) => {
+			return option !== "async" && option !== "container";
+		});
+		expect(carried.length).toBeGreaterThan(5);
+		// a distinguishable value per option; `onLoaded` has to stay callable
+		const settings = {};
+		for (const option of carried) {
+			settings[option] =
+				option === "onLoaded" ? () => {} : `sentinel:${option}`;
+		}
+		const t = trigger(settings);
+		t.triggerEvent();
+		expect(loadOptions).toHaveLength(1);
+		for (const option of carried) {
+			expect(loadOptions[0]).toHaveProperty(option, settings[option]);
+		}
+		app.world.removeChildNow(t);
+	});
+
+	it("leaves an omitted option unset rather than present-and-undefined", () => {
+		// `typeof settings[x] !== "undefined"` rather than `x in settings`:
+		// a key explicitly set to undefined must not reach `level.load` and
+		// override the director's own default for it
+		const t = trigger({ scale: undefined });
+		t.triggerEvent();
+		expect(loadOptions).toHaveLength(1);
+		expect(loadOptions[0]).not.toHaveProperty("scale");
+		app.world.removeChildNow(t);
+	});
+
+	it("never carries an authored async, on either path", () => {
+		// the trigger owns it: the transition path awaits the load to time its
+		// reveal, and the direct path does not await at all, so an authored
+		// value would break the first and mean nothing in the second
+		const direct = trigger({ async: true });
+		direct.triggerEvent();
+		expect(loadOptions[0]).not.toHaveProperty("async");
+		expect(direct.triggerSettings).not.toHaveProperty("async");
+		app.world.removeChildNow(direct);
+	});
+
+	it("does NOT overwrite the caller's onLoaded on the transition path", () => {
+		// The regression this refactor exists to remove. The old code did
+		// `settings.onLoaded = function (…) { …reveal…; userOnLoaded.call(…) }`,
+		// mutating an option object the caller owns and handed in.
+		const mine = () => {};
+		const t = trigger({
+			color: "#000000",
+			duration: 10,
+			onLoaded: mine,
+		});
+		t.triggerEvent();
+		expect(t.getTriggerSettings().onLoaded).toBe(mine);
+		app.world.removeChildNow(t);
+	});
+
+	it("defers the load until the hide transition completes", () => {
+		// the load must not fire on the same tick the trigger is hit — the
+		// fade has to play first
+		const t = trigger({ color: "#000000", duration: 10 });
+		t.triggerEvent();
+		expect(loaded).toHaveLength(0);
+		app.world.removeChildNow(t);
+	});
+
+	it("reveals only after the load, on the CURRENT viewport", async () => {
+		// The reveal used to be injected by rewriting `settings.onLoaded`; it is
+		// now chained off the awaited load. Driving the hide tween by hand lets
+		// this run without a live loop, so the sequencing is asserted for real
+		// rather than by reading the source.
+		//
+		// `Application.reset()` reassigns `app.viewport`, and `safeLoadLevel`
+		// calls it — so a viewport captured before the load is stale by the time
+		// the reveal runs. The swap below stands in for that.
+		const original = app.viewport;
+		const swapped = new Camera2d(0, 0, 320, 240);
+		const seen = [];
+		const record = (who) => {
+			return (effect) => {
+				seen.push({ who, effect, loadedSoFar: loaded.length });
+				return effect;
+			};
+		};
+		original.addCameraEffect = record("original");
+		swapped.addCameraEffect = record("swapped");
+
+		// with the loop RUNNING, so the load genuinely defers — with it stopped
+		// the load is synchronous and the ordering below proves nothing
+		state.restart();
+		const options = {
+			scale: 50,
+			rightHanded: false,
+			lights: false,
+			lightIntensityScale: 0.001,
+			castGroundShadow: true,
+			shadowGroundY: -10,
+		};
+		const t = trigger({
+			color: "#000000",
+			duration: 10,
+			async: false,
+			...options,
+		});
+		t.triggerEvent();
+		// Out of the world the moment it has fired. The loop is running for
+		// this test, so the trigger's own body keeps colliding and re-entering
+		// `triggerEvent` — which queued extra loads under a busy scheduler and
+		// made this fail only in a full-suite run. The transition already owns
+		// everything it needs (the effect lives on the viewport), so the
+		// trigger has no further part to play.
+		app.world.removeChildNow(t);
+
+		// the hide effect, captured rather than added
+		expect(seen).toHaveLength(1);
+		expect(seen[0].loadedSoFar).toBe(0);
+
+		// swap the viewport while the load runs, as `game.reset()` would
+		const previousAddTo = GLTFScene.prototype.addTo;
+		GLTFScene.prototype.addTo = function (container, settings) {
+			app.viewport = swapped;
+			loaded.push(container);
+			loadOptions.push(settings);
+		};
+
+		// Drive the hide tween to completion -> onComplete -> the load, in ONE
+		// tick. Ticking in a loop until `loaded.length` moves cannot work: with
+		// the game loop running the load is deferred through a timer, so
+		// `loaded` is still empty on the next iteration, the tween fires
+		// `onComplete` again, and a second and third load queue up behind the
+		// first. That raced — it failed roughly one run in three.
+		const tween = seen[0].effect.tween;
+		// Yield to a MACROTASK between ticks, not a microtask: with the loop
+		// running the load is deferred through `defer`, i.e. a timer, so a
+		// microtask-only yield never lets it run and the assertions below would
+		// be measuring whatever the scheduler happened to do.
+		const nextTask = () => {
+			return new Promise((resolve) => {
+				setTimeout(resolve, 0);
+			});
+		};
+		// Advance it by a DELTA well past the 10ms duration, which finishes it
+		// outright. Through `update(dt)` rather than `_onTick(timestamp)`:
+		// `_onTick` takes an absolute `performance.now()` stamp, derives
+		// `dt = timestamp - _lastTick` against the stamp `start()` recorded,
+		// and ignores any `dt` outside `(0, 1000)`. The hardcoded `1000` this
+		// used to pass is therefore a valid tick only while the PAGE is
+		// younger than one second; past that the delta is negative and the
+		// call does nothing at all, leaving the tween to be finished by a real
+		// animation frame instead. That is what flaked: a fixed count of
+		// immediate timers below racing one rAF callback, which a loaded
+		// full-suite run loses often enough. It failed with `loaded` empty,
+		// because the hide tween had never completed and so the load had
+		// never been asked for.
+		tween.update(500);
+		// Wait on a DEADLINE for the END state, rather than counting task
+		// boundaries to an intermediate one: how many macrotasks sit between
+		// the load's timer and the reveal chained off the promise it returns
+		// is the scheduler's business, not this test's.
+		const deadline = globalThis.performance.now() + 5000;
+		while (seen.length < 2 && globalThis.performance.now() < deadline) {
+			await nextTask();
+		}
+
+		GLTFScene.prototype.addTo = previousAddTo;
+		app.viewport = original;
+
+		// the load happened, then the reveal — and on the viewport that existed
+		// AFTER the load, not the one captured before it
+		expect(loaded).toHaveLength(1);
+		expect(loadOptions[0]).toMatchObject({ ...options, async: true });
+		expect(seen).toHaveLength(2);
+		expect(seen[1].loadedSoFar).toBe(1);
+		expect(seen[1].who).toBe("swapped");
+	});
+
+	it("re-reads the viewport AFTER the load, not before it", () => {
+		// `Application.reset()` reassigns `app.viewport`, and `safeLoadLevel`
+		// calls `game.reset()` — so a viewport captured before the load is stale
+		// by the time the reveal runs. The callback this refactor replaced
+		// re-read it for exactly that reason.
+		//
+		// Asserted on the source because the reveal only runs when the hide
+		// tween completes, which needs a live game loop this suite does not
+		// have. Weaker than a behavioural test, and deliberately narrow: it
+		// pins the one line whose removal reintroduces a known bug.
+		// anchored on the call shape rather than the exact argument text, so
+		// reformatting or an added option does not fail this
+		const load = triggerSource.indexOf("load(gotolevel");
+		const reveal = triggerSource.indexOf("addCameraEffect", load);
+		expect(load).toBeGreaterThan(-1);
+		expect(reveal).toBeGreaterThan(load);
+		// comment lines stripped: the explanation above this assertion mentions
+		// `app.viewport` too, and matching that would make this always pass
+		const code = triggerSource
+			.slice(load, reveal)
+			.split("\n")
+			.filter((line) => {
+				return !line.trim().startsWith("//");
+			})
+			.join("\n");
+		expect(code).toContain("app.viewport");
+	});
+
+	it("guards against re-entry while a transition is already running", () => {
+		const t = trigger({ color: "#000000", duration: 10 });
+		t.triggerEvent();
+		expect(t.fading).toBe(true);
+		t.triggerEvent();
+		expect(loaded).toHaveLength(0);
+		app.world.removeChildNow(t);
+	});
+});

@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 196 skills  
+> **Total Curated Skills**: 198 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -57,6 +57,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`deepstream-generate-pipeline`](../../library/nvidia-skills/skills/deepstream-generate-pipeline) | ⚪ Reserve | `nvidia-skills` | Build DeepStream GStreamer pipelines interactively. Use when the user asks about pipelines for ... |
 | [`devrel-youtube-channel`](../../library/samber-developer-relations-skills/skills/devrel-youtube-channel) | ⚪ Reserve | `samber-developer-relations-skills` | Plans a devtools company's own YouTube channel as a VOD-first program: whether to run one versu... |
 | [`diffbot`](../../library/membranedev-application-skills/skills/diffbot) | ⚪ Reserve | `membranedev-application-skills` | Diffbot integration. Manage Articles, Products, Images, Discussions, Videos. Use when the user ... |
+| [`directory`](../../library/lemomo-opuscar/skills/directory) | ⚪ Reserve | `lemomo-opuscar` | Direct and produce a short film made entirely in code, in one of the styles of the Lemo-Opuscar... |
 | [`display-video-360`](../../library/membranedev-application-skills/skills/display-video-360) | ⚪ Reserve | `membranedev-application-skills` | Display & Video 360 integration. Manage data, records, and automate workflows. Use when the use... |
 | [`dockkit`](../../library/dpearson2699-swift-ios-skills/skills/dockkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Control motorized camera docks and enable intelligent subject tracking using DockKit. Use when ... |
 | [`dogfood`](../../library/mvschwarz-openrig/skills/dogfood) | ⚪ Reserve | `mvschwarz-openrig` | Systematically explore and test a web application to find bugs, UX issues, and other problems. ... |
@@ -135,6 +136,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`remotion-create`](../../library/remotion-dev-skills/skills/remotion-create) | ⚪ Reserve | `remotion-dev-skills` | Create a new Remotion video |
 | [`remotion-docs`](../../library/remotion-dev-skills/skills/remotion-docs) | ⚪ Reserve | `remotion-dev-skills` | Search Remotion documentation |
 | [`remotion-interactivity`](../../library/remotion-dev-skills/skills/remotion-interactivity) | ⚪ Reserve | `remotion-dev-skills` | Structure Remotion markup for interactivity |
+| [`remotion-license`](../../library/remotion-dev-skills/skills/remotion-license) | ⚪ Reserve | `remotion-dev-skills` | Find Remotion license information, FAQs, terms, and where to buy a license. |
 | [`remotion-motion-graphics`](../../library/haidrrrry-claude-remotion-skill/skills/remotion-motion-graphics) | ⚪ Reserve | `haidrrrry-claude-remotion-skill` | Create and edit professional motion graphics videos with Remotion (React-based video). Use this... |
 | [`remotion-multimedia`](../../library/remotion-dev-skills/skills/remotion-multimedia) | ⚪ Reserve | `remotion-dev-skills` | Interacting with Mediabunny |
 | [`remotion-saas`](../../library/remotion-dev-skills/skills/remotion-saas) | ⚪ Reserve | `remotion-dev-skills` | Build an app with Remotion |

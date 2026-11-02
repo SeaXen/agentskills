@@ -1,0 +1,24 @@
+# IDE
+.idea
+# Vim swap files. NOT `*.sw*` — that also swallows anything with `.sw` in a
+# path segment (`*.swift.*`, `*.swap.*`), which hides real files from git while
+# eslint still lints them, producing a project-service parse error nobody can
+# find because `git status` shows nothing.
+*.sw[a-p]
+.claude
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Project
+node_modules/
+**/build/
+dist/*
+!.placeholder
+package-lock.json
+# the generated API reference, not every directory named `docs`
+/packages/melonjs/docs/
+.turbo
+backend-shots/

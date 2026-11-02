@@ -1,0 +1,1037 @@
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
+import {
+	Application,
+	boot,
+	CanvasTexture,
+	NineSliceSprite,
+	pool,
+	Sprite,
+	TextureAtlas,
+	video,
+	WebGLRenderer,
+} from "../src/index.js";
+import Renderer from "../src/video/renderer.js";
+
+describe("Texture", () => {
+	let app;
+	beforeAll(async () => {
+		boot();
+		app = new Application(800, 600, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.AUTO,
+		});
+		await app.init();
+	});
+
+	afterAll(() => {
+		// release the WebGL context this describe owns — browsers cap
+		// live contexts, and a leak surfaces as UNRELATED specs failing
+		app?.destroy();
+	});
+
+	it("convertToBlob() should return a Blob when using a regular canvas", async () => {
+		const canvasTexture = new CanvasTexture(100, 100);
+		const offscreenCanvas = new CanvasTexture(100, 100, {
+			offscreenCanvas: true,
+		});
+
+		expect(await canvasTexture.toBlob()).toBeInstanceOf(window.Blob);
+		expect(await offscreenCanvas.toBlob()).toBeInstanceOf(window.Blob);
+	});
+
+	describe("TextureCache", () => {
+		let cache;
+
+		beforeEach(() => {
+			cache = app.renderer.cache;
+			cache.clear();
+		});
+
+		it("should have a texture cache on the renderer", () => {
+			expect(cache).toBeDefined();
+			expect(typeof cache.set).toEqual("function");
+			expect(typeof cache.get).toEqual("function");
+			expect(typeof cache.delete).toEqual("function");
+			expect(typeof cache.clear).toEqual("function");
+		});
+
+		it("should cache and retrieve a texture atlas for an image", () => {
+			const canvas = new CanvasTexture(64, 64);
+			const entry = cache.get(canvas.canvas);
+			expect(entry).toBeDefined();
+
+			// retrieving again should return the same entry
+			const entry2 = cache.get(canvas.canvas);
+			expect(entry2).toBe(entry);
+		});
+
+		it("should auto-create a texture atlas on first get", () => {
+			const canvas = new CanvasTexture(128, 128);
+			const entry = cache.get(canvas.canvas);
+			expect(entry).toBeDefined();
+			// the auto-created atlas should have a default region
+			const atlas = entry.getAtlas();
+			expect(atlas).toBeDefined();
+			expect(atlas["default"]).toBeDefined();
+			expect(atlas["default"].width).toEqual(128);
+			expect(atlas["default"].height).toEqual(128);
+		});
+
+		it("should store multiple atlases for the same image key", () => {
+			const canvas = new CanvasTexture(64, 64);
+			// first entry auto-created
+			const entry1 = cache.get(canvas.canvas);
+			expect(entry1).toBeDefined();
+
+			// manually add a second atlas for the same image
+			const canvas2 = new CanvasTexture(64, 64);
+			const entry2 = cache.get(canvas2.canvas);
+			cache.set(canvas.canvas, entry2);
+
+			// get() returns the first entry
+			const retrieved = cache.get(canvas.canvas);
+			expect(retrieved).toBe(entry1);
+		});
+
+		it("returns the first registered atlas regardless of frame dimensions (#1489)", () => {
+			const canvas = new CanvasTexture(64, 64);
+			// auto-create default atlas (full image: 64x64)
+			const defaultEntry = cache.get(canvas.canvas);
+			expect(defaultEntry).toBeDefined();
+
+			// Codifies the single-result contract: the frame-dimension
+			// "refinement" documented on get() was dead code for years (the
+			// compared properties were never set — see #1489), so a frame
+			// size — matching or not — must return the SAME first atlas.
+			// Changing this to real multi-atlas selection is a #1410 design
+			// decision, and this test failing is the intended tripwire.
+			expect(
+				cache.get(canvas.canvas, { framewidth: 64, frameheight: 64 }),
+			).toBe(defaultEntry);
+			expect(
+				cache.get(canvas.canvas, { framewidth: 32, frameheight: 16 }),
+			).toBe(defaultEntry);
+		});
+
+		it("should keep different images as separate cache entries", () => {
+			const c1 = new CanvasTexture(32, 32);
+			const c2 = new CanvasTexture(64, 64);
+
+			const entry1 = cache.get(c1.canvas);
+			const entry2 = cache.get(c2.canvas);
+
+			expect(entry1).not.toBe(entry2);
+			expect(entry1.getAtlas()["default"].width).toEqual(32);
+			expect(entry2.getAtlas()["default"].width).toEqual(64);
+		});
+
+		it("should delete a cached texture and create new on next get", () => {
+			const canvas = new CanvasTexture(32, 32);
+			const original = cache.get(canvas.canvas);
+			cache.delete(canvas.canvas);
+
+			// after delete, get() should create a new entry
+			const newEntry = cache.get(canvas.canvas);
+			expect(newEntry).toBeDefined();
+			expect(newEntry).not.toBe(original);
+		});
+
+		it("should not throw when deleting a non-existent key", () => {
+			const canvas = new CanvasTexture(32, 32);
+			// never cached — delete should be a no-op
+			expect(() => {
+				return cache.delete(canvas.canvas);
+			}).not.toThrow();
+		});
+
+		it("should clear all cached textures", () => {
+			const c1 = new CanvasTexture(32, 32);
+			const c2 = new CanvasTexture(64, 64);
+			const entry1 = cache.get(c1.canvas);
+			cache.get(c2.canvas);
+
+			cache.clear();
+
+			// after clear, get creates a fresh entry
+			const newEntry = cache.get(c1.canvas);
+			expect(newEntry).toBeDefined();
+			expect(newEntry).not.toBe(entry1);
+		});
+
+		it("should also clear tinted cache and texture units on clear", () => {
+			const canvas = new CanvasTexture(32, 32);
+			cache.get(canvas.canvas);
+
+			cache.clear();
+
+			// internal state should be reset
+			expect(cache.tinted.size).toEqual(0);
+			expect(cache.units.size).toEqual(0);
+			expect(cache.usedUnits.size).toEqual(0);
+		});
+
+		it("should allocate texture units sequentially", () => {
+			const unit0 = cache.allocateTextureUnit();
+			const unit1 = cache.allocateTextureUnit();
+
+			expect(unit0).toEqual(0);
+			expect(unit1).toEqual(1);
+		});
+
+		// Helper: build a minimal TextureAtlas-shaped object that
+		// `TextureCache.getUnit` / `peekUnit` / `freeTextureUnit` can use.
+		// They only read `texture.sources.get(texture.activeAtlas)` and
+		// `texture.repeat`, so a stub captures the exact contract.
+		function makeFakeTexture(source, repeat) {
+			return {
+				sources: new Map([["default", source]]),
+				activeAtlas: "default",
+				repeat,
+			};
+		}
+
+		it("peekUnit returns -1 before getUnit, the unit after, and -1 after free", () => {
+			const source = document.createElement("canvas");
+			source.width = 32;
+			source.height = 32;
+			const tex = makeFakeTexture(source, "repeat-x");
+
+			expect(cache.peekUnit(tex)).toEqual(-1);
+
+			const unit = cache.getUnit(tex);
+			expect(unit).toBeGreaterThanOrEqual(0);
+			expect(cache.peekUnit(tex)).toEqual(unit);
+
+			cache.freeTextureUnit(tex);
+			expect(cache.peekUnit(tex)).toEqual(-1);
+		});
+
+		it("getUnit allocates distinct units for distinct (source, repeat) pairs", () => {
+			const source = document.createElement("canvas");
+			source.width = 32;
+			source.height = 32;
+			const texX = makeFakeTexture(source, "repeat-x");
+			const texY = makeFakeTexture(source, "repeat-y");
+
+			const unitX = cache.getUnit(texX);
+			const unitY = cache.getUnit(texY);
+
+			expect(unitX).not.toEqual(unitY);
+			expect(cache.peekUnit(texX)).toEqual(unitX);
+			expect(cache.peekUnit(texY)).toEqual(unitY);
+		});
+
+		it("getUnit on the SAME (source, repeat) is idempotent", () => {
+			const source = document.createElement("canvas");
+			source.width = 32;
+			source.height = 32;
+			const tex = makeFakeTexture(source, "no-repeat");
+
+			const first = cache.getUnit(tex);
+			const second = cache.getUnit(tex);
+			expect(second).toEqual(first);
+		});
+
+		it("freeing the last repeat under a source removes the source from `units`", () => {
+			// Prevents the outer Map from leaking empty inner Maps as
+			// users churn through distinct (source, repeat) combinations.
+			const source = document.createElement("canvas");
+			source.width = 32;
+			source.height = 32;
+			const tex = makeFakeTexture(source, "no-repeat");
+
+			cache.getUnit(tex);
+			expect(cache.units.has(source)).toBe(true);
+
+			cache.freeTextureUnit(tex);
+			expect(cache.units.has(source)).toBe(false);
+		});
+
+		it("freeing one repeat keeps the source entry alive for the other repeat", () => {
+			const source = document.createElement("canvas");
+			source.width = 32;
+			source.height = 32;
+			const texX = makeFakeTexture(source, "repeat-x");
+			const texY = makeFakeTexture(source, "repeat-y");
+
+			cache.getUnit(texX);
+			cache.getUnit(texY);
+			cache.freeTextureUnit(texX);
+
+			expect(cache.units.has(source)).toBe(true);
+			const inner = cache.units.get(source);
+			expect(inner.has("repeat-x")).toBe(false);
+			expect(inner.has("repeat-y")).toBe(true);
+		});
+
+		it("should flush and reset when texture units are exhausted", () => {
+			cache.max_size = 2;
+			cache.allocateTextureUnit();
+			cache.allocateTextureUnit();
+
+			// stub the compositor to verify flush is called
+			let flushed = false;
+			const compositor = app.renderer.currentBatcher;
+			let originalFlush;
+			if (compositor) {
+				originalFlush = compositor.flush.bind(compositor);
+				compositor.flush = () => {
+					flushed = true;
+					originalFlush();
+				};
+			}
+
+			// when all units are exhausted, it should flush, reset, and return unit 0
+			const unit = cache.allocateTextureUnit();
+			expect(unit).toEqual(0);
+			expect(cache.usedUnits.size).toEqual(1);
+			expect(cache.units.size).toEqual(0);
+
+			if (compositor) {
+				expect(flushed).toBe(true);
+				// `boundTextures` / `currentTextureUnit` are WebGL texture-unit
+				// bookkeeping and exist on no WebGPU batcher, which binds per
+				// draw instead. The app is built with `video.AUTO`, so which
+				// backend answers depends on the machine — headless SwiftShader
+				// lands on WebGL, a real GPU on WebGPU. The cache assertions
+				// above are backend-agnostic and run either way; only these two
+				// are gated, and on the renderer rather than on the field being
+				// present, so a WebGL regression that drops them still fails.
+				if (app.renderer instanceof WebGLRenderer) {
+					expect(compositor.boundTextures.length).toEqual(0);
+					expect(compositor.currentTextureUnit).toEqual(-1);
+				}
+				// restore original
+				compositor.flush = originalFlush;
+			}
+		});
+
+		it("tint() should cache and return the same result for identical src+color", () => {
+			// mock a source image and a tint function on the renderer
+			const src = document.createElement("canvas");
+			src.width = 32;
+			src.height = 32;
+			const color = "rgb(255, 0, 0)";
+
+			// call tint twice with the same src and color
+			const result1 = cache.tint(src, color);
+			const result2 = cache.tint(src, color);
+
+			// BUG: if Map.set() return value is used as the inner map,
+			// cache never hits and a new tinted image is created every call
+			expect(result1).toBe(result2);
+		});
+
+		it("tint() should return different results for different colors", () => {
+			const src = document.createElement("canvas");
+			src.width = 32;
+			src.height = 32;
+
+			const red = cache.tint(src, "rgb(255, 0, 0)");
+			const blue = cache.tint(src, "rgb(0, 0, 255)");
+
+			expect(red).not.toBe(blue);
+		});
+
+		it("tint() inner map should grow only for unique colors", () => {
+			const src = document.createElement("canvas");
+			src.width = 32;
+			src.height = 32;
+
+			cache.tint(src, "rgb(255, 0, 0)");
+			cache.tint(src, "rgb(255, 0, 0)"); // duplicate
+			cache.tint(src, "rgb(0, 255, 0)");
+			cache.tint(src, "rgb(0, 255, 0)"); // duplicate
+
+			const innerMap = cache.tinted.get(src);
+			// should have exactly 2 entries, not 4
+			expect(innerMap).toBeInstanceOf(Map);
+			expect(innerMap.size).toEqual(2);
+		});
+
+		it("should handle set() followed by get() returning first entry", () => {
+			const canvas = new CanvasTexture(48, 48);
+
+			// manually set two different atlases for the same key
+			const c2 = new CanvasTexture(48, 48);
+			const atlas1 = cache.get(canvas.canvas);
+			const atlas2 = cache.get(c2.canvas);
+
+			cache.clear();
+			cache.set(canvas.canvas, atlas1);
+			cache.set(canvas.canvas, atlas2);
+
+			// get should return the first one stored
+			const retrieved = cache.get(canvas.canvas);
+			expect(retrieved).toBe(atlas1);
+		});
+	});
+
+	describe("createPattern", () => {
+		it("should create a pattern texture", (ctx) => {
+			if (typeof app.renderer.gl === "undefined") {
+				ctx.skip("WebGL renderer not available in this environment");
+				return;
+			}
+			const canvas = new CanvasTexture(32, 32);
+			const pattern = app.renderer.createPattern(canvas.canvas, "repeat");
+			expect(pattern).toBeDefined();
+			expect(pattern.repeat).toEqual("repeat");
+		});
+
+		it("accepts a non-power-of-two source (WebGL2-only contract, 20.0)", (ctx) => {
+			if (typeof app.renderer.gl === "undefined") {
+				ctx.skip("WebGL renderer not available in this environment");
+				return;
+			}
+			// pre-20.0 this threw "not a POT texture" — NPOT REPEAT is core
+			// in WebGL 2, so odd-sized patterns are now first-class
+			const canvas = new CanvasTexture(30, 20);
+			const pattern = app.renderer.createPattern(canvas.canvas, "repeat");
+			expect(pattern).toBeDefined();
+			expect(pattern.repeat).toEqual("repeat");
+		});
+
+		it("allocates a separate texture unit per (image, repeat) pair (#1448)", (ctx) => {
+			if (typeof app.renderer.gl === "undefined") {
+				ctx.skip("WebGL-only — Canvas createPattern doesn't allocate GL units");
+				return;
+			}
+			// start from a drained unit pool: the 50 sibling tests above can
+			// leave it near exhaustion, and an exhaustion reset firing INSIDE
+			// createPattern below would clear `usedUnits` mid-test and break
+			// the +1 arithmetic (engine behavior is by-design; the test must
+			// simply not straddle a reset)
+			app.renderer.cache.resetUnitAssignments();
+			const canvas = new CanvasTexture(32, 32);
+
+			// create initial pattern
+			const pattern1 = app.renderer.createPattern(canvas.canvas, "repeat");
+			expect(pattern1.repeat).toEqual("repeat");
+
+			const usedUnitsBefore = app.renderer.cache.usedUnits.size;
+
+			// Pre-19.7.0 this call deleted pattern1's GL texture and reused
+			// its unit (the `cache.has(image) / deleteTexture2D(...)` band-aid
+			// in createPattern) — net unit delta was zero, and pattern1's
+			// returned handle silently pointed at the new wrap mode. After
+			// #1448's fix the unit map keys by `(source, repeat)`, so
+			// pattern2 gets its own unit and pattern1's stays live.
+			const pattern2 = app.renderer.createPattern(canvas.canvas, "repeat-x");
+			expect(pattern2.repeat).toEqual("repeat-x");
+			expect(pattern2).not.toBe(pattern1);
+
+			// Net: one additional bound texture unit, not the same one
+			// reused.
+			expect(app.renderer.cache.usedUnits.size).toEqual(usedUnitsBefore + 1);
+		});
+	});
+
+	describe("TextureAtlas.createSpriteFromName", () => {
+		// No coverage existed for this factory at all, and it is not a
+		// convenience nobody uses: `TMXTile` builds every Tiled tile object
+		// through it. It also resolves its class indirectly, so a change to
+		// HOW it resolves is invisible unless the class and the region are
+		// both pinned here.
+		let atlas;
+
+		beforeAll(() => {
+			const mockImage = Renderer.createCanvas(256, 256);
+			atlas = new TextureAtlas(
+				{
+					meta: {
+						app: "https://www.codeandweb.com/texturepacker",
+						size: { w: 256, h: 256 },
+						image: "default",
+					},
+					frames: [
+						{
+							filename: "tile.png",
+							frame: { x: 0, y: 0, w: 32, h: 48 },
+							rotated: false,
+							trimmed: false,
+							spriteSourceSize: { x: 0, y: 0, w: 32, h: 48 },
+							sourceSize: { w: 32, h: 48 },
+						},
+						{
+							filename: "panel.png",
+							frame: { x: 32, y: 0, w: 16, h: 16 },
+							rotated: false,
+							trimmed: false,
+							spriteSourceSize: { x: 0, y: 0, w: 16, h: 16 },
+							sourceSize: { w: 16, h: 16 },
+						},
+					],
+				},
+				mockImage,
+			);
+		});
+
+		it("returns a Sprite sized to the REGION, not to the sheet", () => {
+			const sprite = atlas.createSpriteFromName("tile.png");
+			expect(sprite).toBeInstanceOf(Sprite);
+			expect(sprite).not.toBeInstanceOf(NineSliceSprite);
+			// the sheet is 256x256; reading the region is the whole point
+			expect(sprite.width).toEqual(32);
+			expect(sprite.height).toEqual(48);
+			// and it went through the atlas branch rather than being treated
+			// as a plain drawable source
+			expect(sprite.textureAtlas).toBe(atlas);
+			expect(sprite.source).toBe(atlas);
+			// and `image` is the atlas's BACKING canvas, not the atlas object
+			expect(sprite.image).toBe(atlas.getTexture());
+		});
+
+		it("returns a NineSliceSprite when asked, stretched to the given size", () => {
+			const panel = atlas.createSpriteFromName(
+				"panel.png",
+				{ width: 64, height: 48 },
+				true,
+			);
+			expect(panel).toBeInstanceOf(NineSliceSprite);
+			// width/height on a 9-slice are the size to stretch TO, which is
+			// what separates it from the plain sprite above
+			expect(panel.width).toEqual(64);
+			expect(panel.height).toEqual(48);
+			expect(panel.textureAtlas).toBe(atlas);
+		});
+
+		it("passes extra settings through to the sprite", () => {
+			const sprite = atlas.createSpriteFromName("tile.png", {
+				anchorPoint: { x: 0, y: 1 },
+			});
+			expect(sprite.anchorPoint.x).toEqual(0);
+			expect(sprite.anchorPoint.y).toEqual(1);
+		});
+
+		it("throws for a region the atlas does not have", () => {
+			// matched, not bare: a bare `.toThrow()` passes for ANY error,
+			// including the atlas branch not being taken at all
+			expect(() => {
+				return atlas.createSpriteFromName("nope.png");
+			}).toThrow(/region for nope\.png not found/);
+		});
+
+		it("builds the real classes, not whatever the pool has registered", () => {
+			// This is the `### Changed` entry in the changelog. The factory used
+			// to resolve through `pool.pull("me.Sprite")`, so re-registering a
+			// BUILT-IN name substituted the class. It constructs directly now.
+			// Without this test, putting the pool lookup back is invisible.
+			class MySprite extends Sprite {}
+			class MyNineSlice extends NineSliceSprite {}
+			try {
+				pool.register("Sprite", MySprite);
+				pool.register("NineSliceSprite", MyNineSlice);
+
+				const plain = atlas.createSpriteFromName("tile.png");
+				expect(plain.constructor).toBe(Sprite);
+				expect(plain).not.toBeInstanceOf(MySprite);
+
+				const nine = atlas.createSpriteFromName(
+					"panel.png",
+					{ width: 32, height: 32 },
+					true,
+				);
+				expect(nine.constructor).toBe(NineSliceSprite);
+				expect(nine).not.toBeInstanceOf(MyNineSlice);
+			} finally {
+				// registration is global AND registers a Tiled object factory,
+				// so it has to be put back whatever happens above
+				pool.register("Sprite", Sprite);
+				pool.register("NineSliceSprite", NineSliceSprite);
+			}
+		});
+	});
+
+	describe("TextureAtlas.getAnimationSettings", () => {
+		let atlas;
+
+		beforeAll(() => {
+			// create a mock texture atlas using TexturePacker JSON format
+			const mockImage = Renderer.createCanvas(256, 256);
+			const atlasJSON = {
+				meta: {
+					app: "https://www.codeandweb.com/texturepacker",
+					size: { w: 256, h: 256 },
+					image: "default",
+				},
+				frames: [
+					{
+						filename: "walk0001.png",
+						frame: { x: 0, y: 0, w: 32, h: 48 },
+						rotated: false,
+						trimmed: false,
+						spriteSourceSize: { x: 0, y: 0, w: 32, h: 48 },
+						sourceSize: { w: 32, h: 48 },
+					},
+					{
+						filename: "walk0002.png",
+						frame: { x: 32, y: 0, w: 32, h: 48 },
+						rotated: false,
+						trimmed: false,
+						spriteSourceSize: { x: 0, y: 0, w: 32, h: 48 },
+						sourceSize: { w: 32, h: 48 },
+					},
+					{
+						filename: "walk0003.png",
+						frame: { x: 64, y: 0, w: 32, h: 48 },
+						rotated: false,
+						trimmed: false,
+						spriteSourceSize: { x: 0, y: 0, w: 32, h: 48 },
+						sourceSize: { w: 32, h: 48 },
+					},
+					{
+						filename: "idle0001.png",
+						frame: { x: 96, y: 0, w: 40, h: 52 },
+						rotated: false,
+						trimmed: false,
+						spriteSourceSize: { x: 0, y: 0, w: 40, h: 52 },
+						sourceSize: { w: 40, h: 52 },
+					},
+				],
+			};
+			atlas = new TextureAtlas(atlasJSON, mockImage);
+		});
+
+		it("should return a valid settings object with expected properties", () => {
+			const settings = atlas.getAnimationSettings([
+				"walk0001.png",
+				"walk0002.png",
+				"walk0003.png",
+			]);
+
+			expect(settings).toBeDefined();
+			expect(settings.image).toBe(atlas);
+			expect(settings.framewidth).toEqual(32);
+			expect(settings.frameheight).toEqual(48);
+			expect(settings.margin).toEqual(0);
+			expect(settings.spacing).toEqual(0);
+			expect(settings.atlas).toBeInstanceOf(Array);
+			expect(settings.atlas.length).toEqual(3);
+			expect(settings.atlasIndices).toBeDefined();
+			expect(settings.atlasIndices["walk0001.png"]).toEqual(0);
+			expect(settings.atlasIndices["walk0002.png"]).toEqual(1);
+			expect(settings.atlasIndices["walk0003.png"]).toEqual(2);
+		});
+
+		it("should compute framewidth/frameheight as the max across all requested frames", () => {
+			const settings = atlas.getAnimationSettings([
+				"walk0001.png",
+				"idle0001.png",
+			]);
+
+			// walk is 32x48, idle is 40x52 — max should be 40x52
+			expect(settings.framewidth).toEqual(40);
+			expect(settings.frameheight).toEqual(52);
+		});
+
+		it("should use all atlas entries when names is undefined", () => {
+			const settings = atlas.getAnimationSettings();
+
+			// verify all named frames are present
+			expect(settings.atlasIndices["walk0001.png"]).toBeDefined();
+			expect(settings.atlasIndices["walk0002.png"]).toBeDefined();
+			expect(settings.atlasIndices["walk0003.png"]).toBeDefined();
+			expect(settings.atlasIndices["idle0001.png"]).toBeDefined();
+			// atlas.length includes both named entries and UV cache keys
+			expect(settings.atlas.length).toBeGreaterThanOrEqual(4);
+		});
+
+		it("should throw when a requested frame name does not exist", () => {
+			expect(() => {
+				atlas.getAnimationSettings(["nonexistent.png"]);
+			}).toThrow(/region for nonexistent.png not found/);
+		});
+
+		it("should produce settings compatible with Sprite constructor", () => {
+			const settings = atlas.getAnimationSettings([
+				"walk0001.png",
+				"walk0002.png",
+				"walk0003.png",
+			]);
+
+			const sprite = new Sprite(0, 0, settings);
+			expect(sprite).toBeInstanceOf(Sprite);
+			expect(sprite.width).toEqual(32);
+			expect(sprite.height).toEqual(48);
+		});
+
+		it("should produce settings that enable addAnimation with frame names", () => {
+			const settings = atlas.getAnimationSettings([
+				"walk0001.png",
+				"walk0002.png",
+				"walk0003.png",
+			]);
+
+			const sprite = new Sprite(0, 0, settings);
+			const count = sprite.addAnimation("walk", [
+				"walk0001.png",
+				"walk0002.png",
+			]);
+			expect(count).toEqual(2);
+			sprite.setCurrentAnimation("walk");
+			expect(sprite.isCurrentAnimation("walk")).toEqual(true);
+		});
+
+		it("should produce identical results to createAnimationFromName", () => {
+			const settings = atlas.getAnimationSettings([
+				"walk0001.png",
+				"walk0002.png",
+				"walk0003.png",
+			]);
+			const spriteFromSettings = new Sprite(0, 0, settings);
+
+			const spriteFromFactory = atlas.createAnimationFromName([
+				"walk0001.png",
+				"walk0002.png",
+				"walk0003.png",
+			]);
+
+			// same dimensions
+			expect(spriteFromSettings.width).toEqual(spriteFromFactory.width);
+			expect(spriteFromSettings.height).toEqual(spriteFromFactory.height);
+
+			// same atlas data
+			expect(spriteFromSettings.textureAtlas.length).toEqual(
+				spriteFromFactory.textureAtlas.length,
+			);
+			expect(Object.keys(spriteFromSettings.atlasIndices).length).toEqual(
+				Object.keys(spriteFromFactory.atlasIndices).length,
+			);
+		});
+
+		it("should strip anchorPoint from atlas regions", () => {
+			// create an atlas with pivot/anchorPoint data (as TexturePacker exports)
+			const mockImage = Renderer.createCanvas(256, 256);
+			const atlasWithPivot = new TextureAtlas(
+				{
+					meta: {
+						app: "https://www.codeandweb.com/texturepacker",
+						size: { w: 256, h: 256 },
+						image: "default",
+					},
+					frames: [
+						{
+							filename: "char0001.png",
+							frame: { x: 0, y: 0, w: 32, h: 48 },
+							rotated: false,
+							trimmed: false,
+							spriteSourceSize: { x: 0, y: 0, w: 32, h: 48 },
+							sourceSize: { w: 32, h: 48 },
+							pivot: { x: 0.5, y: 1.0 },
+						},
+						{
+							filename: "char0002.png",
+							frame: { x: 32, y: 0, w: 32, h: 48 },
+							rotated: false,
+							trimmed: false,
+							spriteSourceSize: { x: 0, y: 0, w: 32, h: 48 },
+							sourceSize: { w: 32, h: 48 },
+							pivot: { x: 0.5, y: 1.0 },
+						},
+					],
+				},
+				mockImage,
+			);
+
+			// verify the original regions have anchorPoint
+			const originalRegion = atlasWithPivot.getRegion("char0001.png");
+			expect(originalRegion.anchorPoint).toBeDefined();
+
+			// getAnimationSettings should strip it
+			const settings = atlasWithPivot.getAnimationSettings([
+				"char0001.png",
+				"char0002.png",
+			]);
+			for (const region of settings.atlas) {
+				expect(region.anchorPoint).toBeUndefined();
+			}
+
+			// Sprite created from these settings should keep its own anchor
+			const sprite = new Sprite(10, 20, {
+				...settings,
+				anchorPoint: { x: 0, y: 0 },
+			});
+			sprite.addAnimation("walk", ["char0001.png", "char0002.png"]);
+			sprite.setCurrentAnimation("walk");
+			// anchor should remain (0, 0), not overridden by the region
+			expect(sprite.anchorPoint.x).toEqual(0);
+			expect(sprite.anchorPoint.y).toEqual(0);
+		});
+
+		it("createAnimationFromName should preserve anchorPoint in regions", () => {
+			// create an atlas with pivot data
+			const mockImage = Renderer.createCanvas(256, 256);
+			const atlasWithPivot = new TextureAtlas(
+				{
+					meta: {
+						app: "https://www.codeandweb.com/texturepacker",
+						size: { w: 256, h: 256 },
+						image: "default",
+					},
+					frames: [
+						{
+							filename: "hero0001.png",
+							frame: { x: 0, y: 0, w: 32, h: 48 },
+							rotated: false,
+							trimmed: false,
+							spriteSourceSize: { x: 0, y: 0, w: 32, h: 48 },
+							sourceSize: { w: 32, h: 48 },
+							pivot: { x: 0.5, y: 1.0 },
+						},
+					],
+				},
+				mockImage,
+			);
+
+			// createAnimationFromName should NOT strip anchorPoint (backward compat)
+			const sprite = atlasWithPivot.createAnimationFromName(["hero0001.png"]);
+			// the sprite's anchor should be set from the region's pivot
+			expect(sprite.anchorPoint.x).toEqual(0.5);
+			expect(sprite.anchorPoint.y).toEqual(1.0);
+		});
+
+		it("should bottom-align smaller frames via trim offset", () => {
+			// walk frames are 32x48, idle is 40x52 — max height is 52
+			const settings = atlas.getAnimationSettings([
+				"walk0001.png",
+				"idle0001.png",
+			]);
+
+			// walk frame (height 48) should get a trim.y offset of 52 - 48 = 4
+			const walkRegion = settings.atlas[settings.atlasIndices["walk0001.png"]];
+			expect(walkRegion.trim).toBeDefined();
+			expect(walkRegion.trim.y).toEqual(4);
+
+			// idle frame (height 52 = max) should NOT get a trim offset
+			const idleRegion = settings.atlas[settings.atlasIndices["idle0001.png"]];
+			// trim should be null/undefined or have y=0
+			if (idleRegion.trim) {
+				expect(idleRegion.trim.y).toEqual(0);
+			}
+		});
+
+		it("should not add trim when all frames have the same height", () => {
+			const settings = atlas.getAnimationSettings([
+				"walk0001.png",
+				"walk0002.png",
+				"walk0003.png",
+			]);
+
+			// all walk frames are 32x48 — no trim needed
+			for (const region of settings.atlas) {
+				if (region.trim) {
+					expect(region.trim.y).toEqual(0);
+				}
+			}
+		});
+	});
+
+	describe("TextureAtlas normalMap (SpriteIlluminator workflow)", () => {
+		// Minimal TexturePacker-format atlas used to drive these tests.
+		function makeAtlasJSON() {
+			return {
+				meta: {
+					app: "https://www.codeandweb.com/texturepacker",
+					size: { w: 64, h: 64 },
+					image: "default",
+				},
+				frames: [
+					{
+						filename: "tile.png",
+						frame: { x: 0, y: 0, w: 32, h: 32 },
+						rotated: false,
+						trimmed: false,
+						spriteSourceSize: { x: 0, y: 0, w: 32, h: 32 },
+						sourceSize: { w: 32, h: 32 },
+					},
+				],
+			};
+		}
+
+		it("getNormalTexture() returns null when no normalMap is provided", () => {
+			const atlas = new TextureAtlas(
+				makeAtlasJSON(),
+				Renderer.createCanvas(64, 64),
+			);
+			expect(atlas.getNormalTexture()).toBeNull();
+		});
+
+		it("stores a paired normal-map image when passed via options", () => {
+			const color = Renderer.createCanvas(64, 64);
+			const normal = Renderer.createCanvas(64, 64);
+			const atlas = new TextureAtlas(makeAtlasJSON(), color, {
+				normalMap: normal,
+			});
+			expect(atlas.getNormalTexture()).toBe(normal);
+		});
+
+		it("preserves backward-compat with the legacy boolean `cache` 3rd arg", () => {
+			// Passing `false` should still work as the legacy cache flag.
+			const atlas = new TextureAtlas(
+				makeAtlasJSON(),
+				Renderer.createCanvas(64, 64),
+				false,
+			);
+			expect(atlas.getNormalTexture()).toBeNull();
+			expect(atlas.getTexture()).toBeDefined();
+		});
+
+		it("a Sprite built from the atlas inherits the paired normal map", () => {
+			const color = Renderer.createCanvas(64, 64);
+			const normal = Renderer.createCanvas(64, 64);
+			const atlas = new TextureAtlas(makeAtlasJSON(), color, {
+				normalMap: normal,
+			});
+			const sprite = new Sprite(0, 0, {
+				image: atlas,
+				region: "tile.png",
+			});
+			expect(sprite.normalMap).toBe(normal);
+		});
+
+		it("an explicit settings.normalMap is overridden by the atlas-paired one", () => {
+			// Atlas-paired normal map wins because the atlas drove the layout.
+			const color = Renderer.createCanvas(64, 64);
+			const atlasNormal = Renderer.createCanvas(64, 64);
+			const sidecarNormal = Renderer.createCanvas(64, 64);
+			const atlas = new TextureAtlas(makeAtlasJSON(), color, {
+				normalMap: atlasNormal,
+			});
+			const sprite = new Sprite(0, 0, {
+				image: atlas,
+				region: "tile.png",
+				normalMap: sidecarNormal,
+			});
+			expect(sprite.normalMap).toBe(atlasNormal);
+		});
+
+		it("atlas without normal + sidecar settings.normalMap → uses sidecar", () => {
+			// When the atlas has NO paired normal, an explicit
+			// settings.normalMap on the Sprite is the source of truth.
+			const color = Renderer.createCanvas(64, 64);
+			const sidecarNormal = Renderer.createCanvas(64, 64);
+			const atlas = new TextureAtlas(makeAtlasJSON(), color);
+			const sprite = new Sprite(0, 0, {
+				image: atlas,
+				region: "tile.png",
+				normalMap: sidecarNormal,
+			});
+			expect(sprite.normalMap).toBe(sidecarNormal);
+		});
+
+		it("atlas without normal + no sidecar → sprite.normalMap is null", () => {
+			const atlas = new TextureAtlas(
+				makeAtlasJSON(),
+				Renderer.createCanvas(64, 64),
+			);
+			const sprite = new Sprite(0, 0, {
+				image: atlas,
+				region: "tile.png",
+			});
+			expect(sprite.normalMap).toBeNull();
+		});
+
+		it("raw image (not atlas) + sidecar normalMap → uses sidecar", () => {
+			const sidecarNormal = Renderer.createCanvas(64, 64);
+			const sprite = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(64, 64),
+				normalMap: sidecarNormal,
+			});
+			expect(sprite.normalMap).toBe(sidecarNormal);
+		});
+
+		it("options.normalMap = null is a no-op (no normal map stored)", () => {
+			const atlas = new TextureAtlas(
+				makeAtlasJSON(),
+				Renderer.createCanvas(64, 64),
+				{ normalMap: null },
+			);
+			expect(atlas.getNormalTexture()).toBeNull();
+			expect(atlas.normalSources.size).toBe(0);
+		});
+
+		it("options.normalMap = undefined is a no-op", () => {
+			const atlas = new TextureAtlas(
+				makeAtlasJSON(),
+				Renderer.createCanvas(64, 64),
+				{ normalMap: undefined },
+			);
+			expect(atlas.getNormalTexture()).toBeNull();
+		});
+
+		it("options form with both cache and normalMap honors both", () => {
+			// cache: false skips the TextureCache; normalMap is still wired up.
+			const color = Renderer.createCanvas(64, 64);
+			const normal = Renderer.createCanvas(64, 64);
+			const atlas = new TextureAtlas(makeAtlasJSON(), color, {
+				cache: false,
+				normalMap: normal,
+			});
+			expect(atlas.getNormalTexture()).toBe(normal);
+		});
+
+		it("options.normalMap = boolean rejected with TypeError (no silent storage)", () => {
+			// Pre-fix, any non-string non-null value passed the truthy
+			// check and got stored — a sprite later constructed from the
+			// atlas would try to use the value as an image. Reject loudly.
+			expect(() => {
+				return new TextureAtlas(
+					makeAtlasJSON(),
+					Renderer.createCanvas(64, 64),
+					{
+						normalMap: true,
+					},
+				);
+			}).toThrow(TypeError);
+		});
+
+		it("options.normalMap = number rejected with TypeError", () => {
+			expect(() => {
+				return new TextureAtlas(
+					makeAtlasJSON(),
+					Renderer.createCanvas(64, 64),
+					{
+						normalMap: 42,
+					},
+				);
+			}).toThrow(TypeError);
+		});
+
+		it("options.normalMap as an unknown loader-key string throws", () => {
+			expect(() => {
+				return new TextureAtlas(
+					makeAtlasJSON(),
+					Renderer.createCanvas(64, 64),
+					{
+						normalMap: "definitely-not-loaded",
+					},
+				);
+			}).toThrow(/normal map image .* not found/);
+		});
+
+		it("getNormalTexture(region) honors the region.texture key", () => {
+			// Region keys map to the same names used in `sources` (atlas.meta.image),
+			// so the parallel `normalSources` is keyed identically.
+			const color = Renderer.createCanvas(64, 64);
+			const normal = Renderer.createCanvas(64, 64);
+			const atlas = new TextureAtlas(makeAtlasJSON(), color, {
+				normalMap: normal,
+			});
+			// 'default' is the key used when atlas.meta.image is "default"
+			expect(atlas.getNormalTexture({ texture: "default" })).toBe(normal);
+		});
+
+		it("getNormalTexture(region) for an unknown region returns null", () => {
+			const color = Renderer.createCanvas(64, 64);
+			const normal = Renderer.createCanvas(64, 64);
+			const atlas = new TextureAtlas(makeAtlasJSON(), color, {
+				normalMap: normal,
+			});
+			expect(atlas.getNormalTexture({ texture: "no-such-key" })).toBeNull();
+		});
+	});
+});

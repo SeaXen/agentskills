@@ -1,0 +1,70 @@
+{
+	"name": "melonjs-monorepo",
+	"version": "0.0.0",
+	"type": "module",
+	"engines": {
+		"node": ">=24.0.0"
+	},
+	"scripts": {
+		"build": "turbo build",
+		"dev": "turbo dev",
+		"lint": "turbo build && eslint && biome check && turbo test:types",
+		"test": "turbo build && vitest --config packages/melonjs/vitest.config.ts",
+		"doc": "pnpm -F melonjs doc",
+		"publish-melonjs": "gh workflow run publish.yml -f package=melonjs",
+		"publish-melonjs:dry": "gh workflow run publish.yml -f package=melonjs -f dry-run=true",
+		"publish-debug-plugin": "gh workflow run publish.yml -f package=debug-plugin",
+		"publish-debug-plugin:dry": "gh workflow run publish.yml -f package=debug-plugin -f dry-run=true",
+		"publish-tiled-inflate-plugin": "gh workflow run publish.yml -f package=tiled-inflate-plugin",
+		"publish-tiled-inflate-plugin:dry": "gh workflow run publish.yml -f package=tiled-inflate-plugin -f dry-run=true",
+		"publish-spine-plugin": "gh workflow run publish.yml -f package=spine-plugin",
+		"publish-spine-plugin:dry": "gh workflow run publish.yml -f package=spine-plugin -f dry-run=true",
+		"publish-matter-adapter": "gh workflow run publish.yml -f package=matter-adapter",
+		"publish-matter-adapter:dry": "gh workflow run publish.yml -f package=matter-adapter -f dry-run=true",
+		"publish-planck-adapter": "gh workflow run publish.yml -f package=planck-adapter",
+		"publish-planck-adapter:dry": "gh workflow run publish.yml -f package=planck-adapter -f dry-run=true"
+	},
+	"packageManager": "pnpm@10.32.1",
+	"dependencies": {
+		"@biomejs/biome": "2.5.9",
+		"@eslint/js": "^10.0.1",
+		"@types/node": "^25.6.0",
+		"@vitest/browser": "^4.1.11",
+		"@vitest/browser-playwright": "^4.1.11",
+		"eslint": "^10.8.1",
+		"eslint-plugin-jsdoc": "^63.2.2",
+		"globals": "^17.11.0",
+		"lefthook": "^2.1.10",
+		"tsconfig": "workspace:^",
+		"tsx": "^4.23.12",
+		"turbo": "^2.10.11",
+		"typescript": "^6.0.2",
+		"typescript-eslint": "^8.67.0",
+		"vitest": "^4.1.11"
+	},
+	"devDependencies": {
+		"eslint-plugin-react-refresh": "^0.5.4",
+		"playwright": "^1.62.1"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"lefthook",
+			"playwright"
+		],
+		"overrides": {
+			"minimatch@<4.0.0": "3.1.4",
+			"minimatch@>=9.0.0 <9.0.7": "9.0.7",
+			"ajv@<6.14.0": "6.14.0",
+			"vite": "8.1.5",
+			"esbuild": "0.28.1",
+			"ws": "^8.21.0",
+			"shell-quote": "^1.9.0",
+			"markdown-it": "^14.2.0",
+			"react-router": "^7.15.1",
+			"vitest": "^4.1.11",
+			"@vitest/browser": "^4.1.11",
+			"@vitest/browser-playwright": "^4.1.11"
+		}
+	}
+}

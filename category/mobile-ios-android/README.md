@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 372 skills  
+> **Total Curated Skills**: 375 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -247,11 +247,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mapkit`](../../library/dpearson2699-swift-ios-skills/skills/mapkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Implement, review, or improve maps and location features in iOS/macOS apps using MapKit and Cor... |
 | [`market-top-detector`](../../library/tradermonty-claude-trading-skills/skills/market-top-detector) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Assesses heuristic market top risk using O'Neil Distribution Days, Minervini Leading Stock Dete... |
 | [`media3-cast-integration`](../../library/android-skills/skills/media3-cast-integration) | ⚪ Reserve | `android-skills` | Implements Google Cast support in Android apps using Jetpack Media3. |
+| [`melonjs-deployment`](../../library/melonjs-melonjs/skills/melonjs-deployment) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when packaging, shipping or scaffolding a melonJS game — starting a project with... |
+| [`melonjs-input`](../../library/melonjs-melonjs/skills/melonjs-input) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for keyboard, pointer, mouse, touch and gamepad input in melonJS. Covers the bin... |
 | [`meta-ads-audit`](../../library/irinabuht12-oss-marketing-skills/skills/meta-ads-audit) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Meta/Facebook/Instagram Ads campaign structure analysis detecting creative fatigue, audience ov... |
 | [`metrickit`](../../library/dpearson2699-swift-ios-skills/skills/metrickit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Use when collecting or analyzing production iOS or iPadOS performance telemetry with MetricKit,... |
 | [`microsoft-clarity-automation`](../../library/composio-community-awesome-codex-skills/skills/microsoft-clarity-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate user behavior analytics with Microsoft Clarity -- export heatmap data, session metrics... |
 | [`migrate-xml-views-to-jetpack-compose`](../../library/android-skills/skills/migrate-xml-views-to-jetpack-compose) | ⚪ Reserve | `android-skills` | Provides a structured workflow for migrating an Android XML View to Jetpack |
 | [`moatmri`](../../library/sickn33-agentic-awesome-skills/skills/moatmri) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Analyze AI disruption pressure across a business, map competitive exposure, and produce a 90-da... |
+| [`mobile`](../../library/snailsploit-claude-red/skills/mobile) | ⚪ Reserve | `snailsploit-claude-red` |  |
 | [`mobile-android-design`](../../library/wshobson-agents/skills/mobile-android-design) | ⚪ Reserve | `wshobson-agents` | Master Material Design 3 and Jetpack Compose patterns for building native Android apps. Use whe... |
 | [`mobile-app-debugging`](../../library/aj-geddes-useful-ai-prompts/skills/mobile-app-debugging) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Debug issues specific to mobile applications including platform-specific problems, device const... |
 | [`mobile-app-testing`](../../library/aj-geddes-useful-ai-prompts/skills/mobile-app-testing) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Comprehensive mobile app testing strategies for iOS and Android. Covers unit tests, UI tests, i... |

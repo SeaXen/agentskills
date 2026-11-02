@@ -1,0 +1,838 @@
+import { prefixed } from "./../utils/agent.ts";
+import { DOMContentLoaded } from "./dom.ts";
+import { BLUR, emit, FOCUS } from "./event.ts";
+import * as device_platform from "./platform.ts";
+import save from "./save.ts";
+
+// Narrow local typings for non-standard / legacy browser surfaces. The
+// `lib.dom.d.ts` shipped with TypeScript omits vendor-prefixed properties
+// and a handful of deprecated APIs that the engine still has to probe at
+// runtime (Safari mobile, old Firefox / WebKit fullscreen, IE-era language
+// fallbacks, iOS-only DeviceOrientationEvent.requestPermission, etc.).
+type NavigatorLegacy = Navigator & {
+	browserLanguage?: string;
+	userLanguage?: string;
+	standalone?: boolean;
+};
+type DeviceOrientationEventCtor = typeof DeviceOrientationEvent & {
+	requestPermission?: () => Promise<"granted" | "denied" | "default">;
+};
+type ScreenLegacy = Screen & {
+	mozOrientation?: string;
+	msOrientation?: string;
+};
+
+/**
+ * device type and capabilities
+ * @namespace device
+ */
+
+let accelInitialized = false;
+let deviceOrientationInitialized = false;
+// swipe utility fn & flag
+let swipeEnabled = true;
+// a reusable cached rect for getElementBounds() fallback. Plain object
+// literal (not `new DOMRect()`) so module load doesn't ReferenceError in
+// Node / SSR environments where the DOMRect constructor isn't defined.
+// All fields are mutable here; cast to `DOMRect` at the return site.
+const domRect = {
+	left: 0,
+	top: 0,
+	x: 0,
+	y: 0,
+	width: 0,
+	height: 0,
+	right: 0,
+	bottom: 0,
+};
+
+// supported videoCodecs lookup (lazily populated on first hasVideoFormat call)
+let videoCodecs: Record<string, string> | undefined;
+
+// internal flag to avoid rechecking for support
+let WebGLSupport = -1;
+
+function disableSwipeFn(e: Event) {
+	e.preventDefault();
+	if (typeof globalThis.scroll === "function") {
+		globalThis.scroll(0, 0);
+	}
+	return false;
+}
+
+function hasLocalStorage() {
+	try {
+		return !!globalThis.localStorage;
+	} catch {
+		// the above generates an exception when cookies are blocked
+		return false;
+	}
+}
+
+function hasOffscreenCanvas() {
+	try {
+		// some browser (e.g. Safari) implements WebGL1 and WebGL2 contexts only
+		// https://bugzilla.mozilla.org/show_bug.cgi?id=801176
+		return (
+			typeof globalThis.OffscreenCanvas !== "undefined" &&
+			new globalThis.OffscreenCanvas(0, 0).getContext("2d") !== null
+		);
+	} catch {
+		return false;
+	}
+}
+
+/**
+ * used by [un]watchAccelerometer()
+ * @ignore
+ * @internal
+ */
+function onDeviceMotion(e: DeviceMotionEvent) {
+	const accel = e.accelerationIncludingGravity;
+	if (accel === null) {
+		return;
+	}
+	accelerationX = accel.x ?? 0;
+	accelerationY = accel.y ?? 0;
+	accelerationZ = accel.z ?? 0;
+}
+
+/**
+ * used by [un]watchDeviceOrientation()
+ * @ignore
+ * @internal
+ */
+export function onDeviceRotate(e: DeviceOrientationEvent) {
+	gamma = e.gamma ?? 0;
+	beta = e.beta ?? 0;
+	alpha = e.alpha ?? 0;
+}
+
+/**
+ * the device platform type
+ */
+export const platform = device_platform;
+
+/**
+ * True if the browser supports Touch Events
+ */
+export const touchEvent = "ontouchstart" in globalThis;
+
+/**
+ * True if the browser supports Pointer Events
+ */
+export const pointerEvent = !!globalThis.PointerEvent;
+
+/**
+ * Touch capabilities (support either Touch or Pointer events)
+ */
+export const touch =
+	touchEvent || (pointerEvent && globalThis.navigator.maxTouchPoints > 0);
+
+/**
+ * the maximum number of simultaneous touch contact points are supported by the current device.
+ * @example
+ * if (me.device.maxTouchPoints > 1) {
+ *     // device supports multi-touch
+ * }
+ */
+export const maxTouchPoints = touch
+	? pointerEvent
+		? globalThis.navigator.maxTouchPoints || 1
+		: 10
+	: 1;
+
+/**
+ * W3C standard wheel events
+ */
+export const wheel =
+	typeof globalThis.document !== "undefined" &&
+	"onwheel" in globalThis.document.createElement("div");
+
+/**
+ * Browser pointerlock api support
+ */
+export const hasPointerLockSupport =
+	typeof globalThis.document !== "undefined" &&
+	typeof globalThis.document.pointerLockElement !== "undefined";
+
+/**
+ * Browser device orientation
+ */
+export const hasDeviceOrientation = !!globalThis.DeviceOrientationEvent;
+
+/**
+ * Supports the ScreenOrientation API
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/onchange
+ */
+export const screenOrientation =
+	typeof screen !== "undefined" && typeof screen.orientation !== "undefined";
+
+/**
+ * Browser accelerometer capabilities
+ */
+export const hasAccelerometer = !!globalThis.DeviceMotionEvent;
+
+// `hasFullscreenSupport` + `isFullscreen` live in `system/fullscreen.ts` —
+// factored out so `lang/deprecated.js` can use them without depending on
+// `device.ts` (would create a circular dep with the deprecated-wrapper
+// re-exports below). Re-exported here so `me.device.hasFullscreenSupport`
+// / `me.device.isFullscreen` stay unchanged for consumers.
+export { hasFullscreenSupport, isFullscreen } from "./fullscreen.ts";
+
+/**
+ * Device WebAudio Support
+ */
+export const hasWebAudio = !!(
+	globalThis.AudioContext ||
+	(globalThis as { webkitAudioContext?: typeof AudioContext })
+		.webkitAudioContext
+);
+
+/**
+ * Device HTML5Audio Support
+ */
+export const hasHTML5Audio = typeof globalThis.Audio !== "undefined";
+
+/**
+ * Returns true if the browser/device has audio capabilities.
+ */
+export const sound = hasWebAudio || hasHTML5Audio;
+
+/**
+ * Device Video Support
+ */
+export const hasVideo =
+	typeof globalThis.document !== "undefined" &&
+	!!globalThis.document.createElement("video").canPlayType;
+
+/**
+ * Browser Local Storage capabilities <br>
+ * (this flag will be set to false if cookies are blocked)
+ */
+export const localStorage = hasLocalStorage();
+
+/**
+ * equals to true if the device browser supports OffScreenCanvas.
+ */
+export const offscreenCanvas = hasOffscreenCanvas();
+
+/**
+ * Browser Base64 decoding capability
+ */
+export const nativeBase64 = typeof globalThis.atob === "function";
+
+/**
+ * a string representing the preferred language of the user, usually the language of the browser UI.
+ * (will default to "en" if the information is not available)
+ * @see http://www.w3schools.com/tags/ref_language_codes.asp
+ */
+export const language =
+	typeof globalThis.navigator !== "undefined"
+		? globalThis.navigator.language ||
+			(globalThis.navigator as NavigatorLegacy).browserLanguage ||
+			(globalThis.navigator as NavigatorLegacy).userLanguage ||
+			"en"
+		: "en";
+
+/**
+ * Ratio of the resolution in physical pixels to the resolution in CSS pixels for the current display device.
+ */
+export const devicePixelRatio = globalThis.devicePixelRatio || 1;
+
+/**
+ * equals to true if a mobile device.
+ * (Android | iPhone | iPad | iPod | any UA matching `Mobi`)
+ */
+export const isMobile = platform.isMobile;
+
+/**
+ * contains the g-force acceleration along the x-axis.
+ * @see device.watchAccelerometer
+ */
+export let accelerationX = 0;
+
+/**
+ * contains the g-force acceleration along the y-axis.
+ * @see device.watchAccelerometer
+ */
+export let accelerationY = 0;
+
+/**
+ * contains the g-force acceleration along the z-axis.
+ * @see device.watchAccelerometer
+ */
+export let accelerationZ = 0;
+
+/**
+ * Device orientation Gamma property. Gives angle on tilting a portrait held phone left or right
+ * @see device.watchDeviceOrientation
+ */
+export let gamma = 0;
+
+/**
+ * Device orientation Beta property. Gives angle on tilting a portrait held phone forward or backward
+ * @see device.watchDeviceOrientation
+ */
+export let beta = 0;
+
+/**
+ * Device orientation Alpha property. Gives angle based on the rotation of the phone around its z axis.
+ * The z-axis is perpendicular to the phone, facing out from the center of the screen.
+ * @see device.watchDeviceOrientation
+ */
+export let alpha = 0;
+
+/**
+ * Specify whether to automatically bring the window to the front.
+ *
+ * Read this binding to inspect the current value; the write surface
+ * is {@link setAutoFocus} — direct assignment via the ESM namespace
+ * (`me.device.autoFocus = false`) always threw a `TypeError`, since
+ * namespace imports are read-only externally regardless of `let` /
+ * `const`. The setter is the only way to mutate the flag from
+ * user code.
+ * @default true
+ */
+export let autoFocus = true;
+
+/**
+ * Update the {@link autoFocus} flag.
+ * Mirrors the `enableSwipe` / similar function-setter shape used
+ * elsewhere in this module — the engine's "bring the window to
+ * the front on visibility restore" behaviour can be toggled via
+ * `me.device.setAutoFocus(false)`.
+ * @param enable - `true` to keep the default focus-on-restore behaviour, `false` to opt out
+ * @example
+ * // disable the auto-focus-on-restore behaviour
+ * me.device.setAutoFocus(false);
+ */
+export function setAutoFocus(enable: boolean): void {
+	autoFocus = enable;
+}
+
+/**
+ * specify a function to execute when the Device is fully loaded and ready
+ * @param fn - the function to be executed
+ * @example
+ * // the modern equivalent is simply to await the Application
+ * const app = new Application(640, 480, { parent: "screen" });
+ * await app.init();
+ * @deprecated since 18.3.0 — no longer needed when using {@link Application} as entry point.
+ * @category Application
+ */
+export function onReady(fn: () => void) {
+	DOMContentLoaded(fn);
+}
+
+/**
+ * Register blur/focus and visibility change event handlers.
+ * Called once during boot to emit BLUR/FOCUS events when the
+ * window or tab gains/loses focus.
+ * @ignore
+ * @internal
+ */
+export function initVisibilityEvents() {
+	if (typeof globalThis.addEventListener === "function") {
+		globalThis.addEventListener(
+			"blur",
+			() => {
+				emit(BLUR);
+			},
+			false,
+		);
+		globalThis.addEventListener(
+			"focus",
+			() => {
+				emit(FOCUS);
+				if (autoFocus) {
+					focus();
+				}
+			},
+			false,
+		);
+	}
+	if (globalThis.document?.addEventListener) {
+		globalThis.document.addEventListener(
+			"visibilitychange",
+			() => {
+				if (globalThis.document.visibilityState === "visible") {
+					emit(FOCUS);
+					if (autoFocus) {
+						focus();
+					}
+				} else {
+					emit(BLUR);
+				}
+			},
+			false,
+		);
+	}
+}
+
+/**
+ * enable/disable swipe on WebView.
+ * @param [enable=true] - enable or disable swipe.
+ * @category Application
+ */
+export function enableSwipe(enable?: boolean) {
+	const moveEvent = pointerEvent
+		? "pointermove"
+		: touchEvent
+			? "touchmove"
+			: "mousemove";
+	if (enable !== false) {
+		if (!swipeEnabled) {
+			globalThis.document.removeEventListener(moveEvent, disableSwipeFn);
+			swipeEnabled = true;
+		}
+	} else if (swipeEnabled) {
+		globalThis.document.addEventListener(moveEvent, disableSwipeFn, {
+			passive: false,
+		});
+		swipeEnabled = false;
+	}
+}
+
+// `requestFullscreen` / `exitFullscreen` were deprecated in 19.7.0 — the
+// implementations live with the rest of the engine's deprecation surface in
+// `lang/deprecated.js`. Re-exported here so they stay reachable as
+// `me.device.requestFullscreen` / `me.device.exitFullscreen` for backwards
+// compat; the disable below covers the re-export of `@deprecated` symbols
+// (the whole point — consumers still get the JSDoc + runtime warning when
+// they call them).
+// eslint-disable-next-line @typescript-eslint/no-deprecated
+export { exitFullscreen, requestFullscreen } from "../lang/deprecated.js";
+
+/**
+ * Return a string representing the orientation of the device screen.
+ * It can be "any", "natural", "landscape", "portrait", "portrait-primary", "portrait-secondary", "landscape-primary", "landscape-secondary"
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Screen/orientation
+ * @returns the screen orientation
+ * @category Application
+ */
+export function getScreenOrientation(): string {
+	const PORTRAIT = "portrait";
+	const LANDSCAPE = "landscape";
+
+	const screen = globalThis.screen;
+
+	// first try using "standard" values
+	if (screenOrientation) {
+		const orientation = prefixed(
+			"orientation",
+			screen as unknown as Record<string, unknown>,
+		);
+		if (
+			typeof orientation === "object" &&
+			orientation !== null &&
+			typeof (orientation as ScreenOrientation).type === "string"
+		) {
+			// Screen Orientation API specification
+			return (orientation as ScreenOrientation).type;
+		} else if (typeof orientation === "string") {
+			// moz/ms-orientation are strings
+			return orientation;
+		}
+	}
+
+	// check using the deprecated API
+	if (
+		typeof (globalThis as { orientation?: number }).orientation === "number"
+	) {
+		return Math.abs((globalThis as { orientation: number }).orientation) === 90
+			? LANDSCAPE
+			: PORTRAIT;
+	}
+
+	// fallback to window size check
+	return globalThis.outerWidth > globalThis.outerHeight ? LANDSCAPE : PORTRAIT;
+}
+
+/**
+ * locks the device screen into the specified orientation.<br>
+ * This method only works for installed Web apps or for Web pages in full-screen mode.
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Screen/lockOrientation
+ * @param orientation - The orientation into which to lock the screen.
+ * @returns true if the orientation was unsuccessfully locked
+ * @category Application
+ */
+export function lockOrientation(orientation: string | string[]) {
+	const screen = globalThis.screen as ScreenLegacy | undefined;
+	if (typeof screen !== "undefined") {
+		const _lockOrientation = prefixed(
+			"lockOrientation",
+			screen as unknown as Record<string, unknown>,
+		) as ((orientation: string | string[]) => boolean) | undefined;
+		if (typeof _lockOrientation !== "undefined") {
+			return _lockOrientation(orientation);
+		}
+	}
+	return false;
+}
+
+/**
+ * unlocks the device screen into the specified orientation.<br>
+ * This method only works for installed Web apps or for Web pages in full-screen mode.
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Screen/lockOrientation
+ * @returns true if the orientation was unsuccessfully unlocked
+ * @category Application
+ */
+export function unlockOrientation() {
+	const screen = globalThis.screen as ScreenLegacy | undefined;
+	if (typeof screen !== "undefined") {
+		const _unlockOrientation = prefixed(
+			"unlockOrientation",
+			screen as unknown as Record<string, unknown>,
+		) as (() => boolean) | undefined;
+		if (typeof _unlockOrientation !== "undefined") {
+			return _unlockOrientation();
+		}
+	}
+	return false;
+}
+
+/**
+ * return true if the device screen orientation is in Portrait mode
+ * @category Application
+ */
+export function isPortrait() {
+	return getScreenOrientation().includes("portrait");
+}
+
+/**
+ * return true if the device screen orientation is in Portrait mode
+ * @category Application
+ */
+export function isLandscape() {
+	return getScreenOrientation().includes("landscape");
+}
+
+/**
+ * return the device storage
+ * @see save
+ * @param [type="local"] - storage type (currently only `"local"` is supported)
+ * @returns a reference to the device storage
+ * @category Application
+ */
+export function getStorage(type: string = "local") {
+	switch (type) {
+		case "local":
+			return save;
+
+		default:
+			throw new Error(`storage type ${type} not supported`);
+	}
+}
+
+/**
+ * return the parent DOM element for the given parent name or HTMLElement object
+ * @param element - the parent element name or a HTMLElement object
+ * @returns the parent Element
+ * @category Application
+ */
+export function getParentElement(element: string | HTMLElement) {
+	let target: HTMLElement | (Node & ParentNode) = getElement(element);
+
+	if (target.parentNode !== null) {
+		target = target.parentNode;
+	}
+
+	return target as HTMLElement;
+}
+
+/**
+ * return the DOM element for the given element name or HTMLElement object
+ * @param element - the parent element name or a HTMLElement object
+ * @returns the corresponding DOM Element (falls back to `document.body` when the lookup fails or the input isn't an HTMLElement)
+ * @category Application
+ */
+export function getElement(element: string | HTMLElement): HTMLElement {
+	let target: HTMLElement | null = null;
+
+	if (typeof element !== "undefined") {
+		if (typeof element === "string") {
+			target = globalThis.document.getElementById(element);
+		} else if (
+			typeof element === "object" &&
+			element.nodeType === Node.ELEMENT_NODE
+		) {
+			target = element;
+		}
+	}
+
+	// fallback, if invalid target or non HTMLElement object
+	if (!target) {
+		//default to document.body
+		target = globalThis.document.body;
+	}
+
+	return target;
+}
+
+/**
+ * returns the size of the given HTMLElement and its position relative to the viewport
+ * <br><img src="images/element-box-diagram.png"/>
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
+ * @param element - an HTMLElement object
+ * @returns the size and position of the element relatively to the viewport
+ * @category Application
+ */
+export function getElementBounds(element: string | HTMLElement): DOMRect {
+	if (
+		typeof element === "object" &&
+		element !== globalThis.document.body &&
+		typeof element.getBoundingClientRect !== "undefined"
+	) {
+		return element.getBoundingClientRect();
+	} else {
+		domRect.width = domRect.right = globalThis.innerWidth;
+		domRect.height = domRect.bottom = globalThis.innerHeight;
+		return domRect as DOMRect;
+	}
+}
+
+/**
+ * returns the size of the given HTMLElement Parent and its position relative to the viewport
+ * <br><img src="images/element-box-diagram.png"/>
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/DOMRect
+ * @param element - an HTMLElement object
+ * @returns the size and position of the given element parent relative to the viewport
+ * @category Application
+ */
+export function getParentBounds(element: string | HTMLElement) {
+	return getElementBounds(getParentElement(element));
+}
+
+/**
+ * Returns true if the device supports WebGL 2 — the version the WebGL
+ * renderer requires since 20.0. This probes the same context type that
+ * renderer construction requests, so the two can never disagree.
+ *
+ * When it returns false, `renderer: video.AUTO` falls back to the Canvas
+ * renderer and `renderer: video.WEBGL` throws at construction time.
+ * @param [options] - context creation options
+ * @param [options.failIfMajorPerformanceCaveat=true] - if true, report WebGL as unsupported when the browser warns that a context would perform dramatically worse than a native application (e.g. a software rasterizer). Set false to accept WebGL on blocklisted drivers or software renderers.
+ * @returns true if WebGL 2 is supported
+ * @category Application
+ */
+export function isWebGLSupported(options?: {
+	failIfMajorPerformanceCaveat?: boolean;
+}): boolean {
+	if (WebGLSupport === -1) {
+		try {
+			const canvas = globalThis.document.createElement("canvas");
+			const ctxOptions: WebGLContextAttributes = {
+				stencil: true,
+				...(options?.failIfMajorPerformanceCaveat !== undefined && {
+					failIfMajorPerformanceCaveat: options.failIfMajorPerformanceCaveat,
+				}),
+			};
+			// WebGL 2 only since 20.0 (#1509) — this gate must agree with
+			// the context actually created by the WebGL renderer (which
+			// requests "webgl2"), so AUTO falls back to Canvas exactly when
+			// renderer construction would fail
+			const _supported = !!(
+				globalThis.WebGL2RenderingContext &&
+				canvas.getContext("webgl2", ctxOptions)
+			);
+			WebGLSupport = _supported ? 1 : 0;
+		} catch {
+			WebGLSupport = 0;
+		}
+	}
+	return WebGLSupport === 1;
+}
+
+/**
+ * Makes a request to bring this device window to the front.
+ * @example
+ *  if (clicked) {
+ *    me.device.focus();
+ *  }
+ * @category Application
+ */
+export function focus() {
+	if (typeof globalThis.focus === "function") {
+		globalThis.focus();
+	}
+}
+
+/**
+ * Enable monitor of the device accelerator to detect the amount of physical force of acceleration the device is receiving.
+ * (one some device a first user gesture will be required before calling this function)
+ * @see device.accelerationX
+ * @see device.accelerationY
+ * @see device.accelerationZ
+ * @see http://www.mobilexweb.com/samples/ball.html
+ * @see http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5
+ * @returns false if not supported or permission not granted by the user
+ * @example
+ * // try to enable device accelerometer event on user gesture
+ * me.input.registerPointerEvent("pointerleave", app.viewport, function() {
+ *     if (me.device.watchAccelerometer() === true) {
+ *         // Success
+ *         me.input.releasePointerEvent("pointerleave", app.viewport);
+ *     } else {
+ *         // ... fail at enabling the device accelerometer event
+ *     }
+ * });
+ * @category Application
+ */
+export function watchAccelerometer() {
+	if (hasAccelerometer && !accelInitialized) {
+		const DOECtor = DeviceOrientationEvent as DeviceOrientationEventCtor;
+		if (DOECtor && typeof DOECtor.requestPermission === "function") {
+			DOECtor.requestPermission()
+				.then((response) => {
+					if (response === "granted") {
+						// add a listener for the devicemotion event
+						globalThis.addEventListener("devicemotion", onDeviceMotion, false);
+						accelInitialized = true;
+					}
+				})
+				.catch(console.error);
+		} else {
+			// add a listener for the devicemotion event
+			globalThis.addEventListener("devicemotion", onDeviceMotion, false);
+			accelInitialized = true;
+		}
+	}
+	return accelInitialized;
+}
+
+/**
+ * unwatch Accelerometer event
+ * @category Application
+ */
+export function unwatchAccelerometer() {
+	if (accelInitialized) {
+		// remove the listener for the devicemotion event
+		globalThis.removeEventListener("devicemotion", onDeviceMotion, false);
+		accelInitialized = false;
+	}
+}
+
+/**
+ * Enable monitor of the device orientation to detect the current orientation of the device as compared to the Earth coordinate frame.
+ * (one some device a first user gesture will be required before calling this function)
+ * @see device.alpha
+ * @see device.beta
+ * @see device.gamma
+ * @returns false if not supported or permission not granted by the user
+ * @example
+ * // try to enable device orientation event on user gesture
+ * me.input.registerPointerEvent("pointerleave", app.viewport, function() {
+ *     if (me.device.watchDeviceOrientation() === true) {
+ *         // Success
+ *         me.input.releasePointerEvent("pointerleave", app.viewport);
+ *     } else {
+ *         // ... fail at enabling the device orientation event
+ *     }
+ * });
+ * @category Application
+ */
+export function watchDeviceOrientation() {
+	if (hasDeviceOrientation && !deviceOrientationInitialized) {
+		const DOECtor = DeviceOrientationEvent as DeviceOrientationEventCtor;
+		if (typeof DOECtor.requestPermission === "function") {
+			DOECtor.requestPermission()
+				.then((response) => {
+					if (response === "granted") {
+						globalThis.addEventListener(
+							"deviceorientation",
+							onDeviceRotate,
+							false,
+						);
+						deviceOrientationInitialized = true;
+					}
+				})
+				.catch(console.error);
+		} else {
+			globalThis.addEventListener("deviceorientation", onDeviceRotate, false);
+			deviceOrientationInitialized = true;
+		}
+	}
+	return deviceOrientationInitialized;
+}
+
+/**
+ * unwatch Device orientation event
+ * @category Application
+ */
+export function unwatchDeviceOrientation() {
+	if (deviceOrientationInitialized) {
+		globalThis.removeEventListener("deviceorientation", onDeviceRotate, false);
+		deviceOrientationInitialized = false;
+	}
+}
+
+/**
+ * the vibrate method pulses the vibration hardware on the device, <br>
+ * If the device doesn't support vibration, this method has no effect. <br>
+ * If a vibration pattern is already in progress when this method is called,
+ * the previous pattern is halted and the new one begins instead.
+ * @param pattern - pattern of vibration and pause intervals
+ * @example
+ * // vibrate for 1000 ms
+ * me.device.vibrate(1000);
+ * // or alternatively
+ * me.device.vibrate([1000]);
+ * // vibrate for 50 ms, be still for 100 ms, and then vibrate for 150 ms:
+ * me.device.vibrate([50, 100, 150]);
+ * // cancel any existing vibrations
+ * me.device.vibrate(0);
+ * @category Application
+ */
+export function vibrate(pattern: number | number[]) {
+	if (
+		typeof globalThis.navigator !== "undefined" &&
+		typeof globalThis.navigator.vibrate === "function"
+	) {
+		globalThis.navigator.vibrate(pattern);
+	}
+}
+
+/**
+ * detect if the given video format is supported
+ * @param codec - the video format to check for support
+ * @returns return true if the given video format is supported
+ * @category Application
+ */
+export function hasVideoFormat(
+	codec: "h264" | "h265" | "ogg" | "mp4" | "m4v" | "webm" | "vp9" | "hls",
+): boolean {
+	let result = false;
+	if (hasVideo) {
+		if (typeof videoCodecs === "undefined") {
+			// check for support
+			const videoElement = globalThis.document.createElement("video");
+			videoCodecs = {
+				h264: videoElement
+					.canPlayType('video/mp4; codecs="avc1.42E01E"')
+					.replace(/^no$/, ""),
+				h265: videoElement
+					.canPlayType('video/mp4; codecs="hev1"')
+					.replace(/^no$/, ""),
+				ogg: videoElement
+					.canPlayType('video/ogg; codecs="theora"')
+					.replace(/^no$/, ""),
+				mp4: videoElement
+					.canPlayType('video/mp4; codecs="avc1.42E01E"')
+					.replace(/^no$/, ""),
+				m4v: videoElement.canPlayType("video/x-m4v").replace(/^no$/, ""),
+				webm: videoElement
+					.canPlayType('video/webm; codecs="vp8, vorbis"')
+					.replace(/^no$/, ""),
+				vp9: videoElement
+					.canPlayType('video/webm; codecs="vp9"')
+					.replace(/^no$/, ""),
+				hls: videoElement
+					.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"')
+					.replace(/^no$/, ""),
+			};
+		}
+		result = !!videoCodecs[codec];
+	}
+	return result;
+}

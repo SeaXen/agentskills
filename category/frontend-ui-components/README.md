@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 1057 skills  
+> **Total Curated Skills**: 1060 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -51,6 +51,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ads-report`](../../library/agricidaniel-claude-ads/skills/ads-report) | ⚪ Reserve | `agricidaniel-claude-ads` | Render Markdown, HTML, or PDF paid-advertising reports from a validated Claude Ads JSON run bun... |
 | [`advogado-criminal`](../../library/sickn33-agentic-awesome-skills/skills/advogado-criminal) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Assistente de pesquisa informativa, sem credenciais profissionais, sobre em Maria da Penha, vio... |
 | [`affiliate-marketing-strategy`](../../library/nexscope-ai-ecommerce-skills/skills/affiliate-marketing-strategy) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Build and scale affiliate marketing programs for e-commerce stores. Covers program setup, commi... |
+| [`agent-cost-report`](../../library/thedotmack-claude-mem/skills/agent-cost-report) | ⚪ Reserve | `thedotmack-claude-mem` | Believable agent cost report for any period, default the last 7 full days PT, not counting toda... |
 | [`agent-framework-azure-ai-py`](../../library/antigravity-awesome-skills/skills/agent-framework-azure-ai-py) | ⚪ Reserve | `antigravity-awesome-skills` | Build Azure AI Foundry agents using the Microsoft Agent Framework Python SDK (agent-framework-a... |
 | [`agent-ui`](../../library/101-skills-superpowers/skills/agent-ui) | ⚪ Reserve | `101-skills-superpowers` | Batteries-included agent component for React/Next.js from ui.inference.sh. One component with r... |
 | [`ai-loop`](../../library/sickn33-agentic-awesome-skills/skills/ai-loop) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Runs a bounded spec-build-review development loop with explicit scope, stop conditions, and hum... |
@@ -140,6 +141,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`browser-debugging`](../../library/aj-geddes-useful-ai-prompts/skills/browser-debugging) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Debug client-side issues using browser developer tools. Identify JavaScript errors, styling iss... |
 | [`browser-video-recording`](../../library/mengto-skills/skills/browser-video-recording) | ⚪ Reserve | `mengto-skills` | Create polished 60 fps 4:3 4K browser screen-recording style videos from Codex in-app browser c... |
 | [`build`](../../library/firecrawl-skills/skills/build) | ⚪ Reserve | `firecrawl-skills` |  |
+| [`build-and-release`](../../library/thedotmack-claude-mem/skills/build-and-release) | ⚪ Reserve | `thedotmack-claude-mem` | Fully automate building and releasing a coding task. |
 | [`build-daily-inspiration-sites`](../../library/mengto-skills/skills/build-daily-inspiration-sites) | ⚪ Reserve | `mengto-skills` | Turn a completed daily UI inspiration capture into exactly five original landing-page builds, o... |
 | [`build-dashboard`](../../library/anthropics-knowledge-work/skills/build-dashboard) | ⚪ Reserve | `anthropics-knowledge-work` | Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an exec... |
 | [`build-figma`](../../library/cursor-plugins/skills/build-figma) | ⚪ Reserve | `cursor-plugins` | Use for \"/build-figma\", a figma.com/design URL with node-id, or \"implement this Figma\" into... |
@@ -834,6 +836,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`replica-design`](../../library/jakeschincariol-replica-skill/skills/replica-design) | ⚪ Reserve | `jakeschincariol-replica-skill` | Rebuilds an app's design system for a clone: colour roles, type scale, spacing, radius, shadows... |
 | [`replica-recon`](../../library/jakeschincariol-replica-skill/skills/replica-recon) | ⚪ Reserve | `jakeschincariol-replica-skill` | Reverse-engineers any app into a recon map: screen inventory, user flows, component list, infer... |
 | [`repository-harvesting-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/repository-harvesting-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Harvest metadata from open repositories using OAI-PMH protocol |
+| [`request-progress`](../../library/thedotmack-claude-mem/skills/request-progress) | ⚪ Reserve | `thedotmack-claude-mem` | Group recent conversations into overall requests, review each one's progress from memory, sort ... |
 | [`requirements-clarity`](../../library/davila7-claude-code-templates/skills/requirements-clarity) | ⚪ Reserve | `davila7-claude-code-templates` | Clarify ambiguous requirements through focused dialogue before implementation. Use when require... |
 | [`requirements-gathering`](../../library/aj-geddes-useful-ai-prompts/skills/requirements-gathering) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Systematically collect, document, and validate requirements from stakeholders. Ensure clarity, ... |
 | [`requirements-writer`](../../library/mvschwarz-openrig/skills/requirements-writer) | ⚪ Reserve | `mvschwarz-openrig` | Use when converting PM intake into a slice SPEC.md with observable acceptance outcomes, explici... |

@@ -1,7 +1,7 @@
 # 💬 Prompt Engineering, LLMs & RAG
 
 > **Category**: `prompt-llm-engineering`  
-> **Total Curated Skills**: 771 skills  
+> **Total Curated Skills**: 776 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -236,6 +236,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`dependency-updater`](../../library/davila7-claude-code-templates/skills/dependency-updater) | ⚪ Reserve | `davila7-claude-code-templates` | Smart dependency management for any language. Auto-detects project type, applies safe updates a... |
 | [`deploying-honeytokens-and-canarytokens`](../../library/mukul975-anthropic-cybersecurity-skills/skills/deploying-honeytokens-and-canarytokens) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Plants Canarytokens-based decoy artifacts (honey credentials, DNS tokens, web-bug URLs, AWS key... |
 | [`design-debt-audit`](../../library/owl-listener-designer-skills/skills/design-debt-audit) | ⚪ Reserve | `owl-listener-designer-skills` | Inventory and prioritise accumulated design inconsistencies across a product. Use when drift ha... |
+| [`design-is`](../../library/thedotmack-claude-mem/skills/design-is) | ⚪ Reserve | `thedotmack-claude-mem` | Audit a design against Dieter Rams' ten "Good design is..." principles, then hand off a /make-p... |
 | [`design-token-audit`](../../library/owl-listener-designer-skills/skills/design-token-audit) | ⚪ Reserve | `owl-listener-designer-skills` | Audit token usage across a product for coverage, drift, and hard-coded values. Use when tokens ... |
 | [`design-ux`](../../library/sickn33-agentic-awesome-skills/skills/design-ux) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | UX / usability audit — heuristic evaluation of INTERACTIVE UIs (not just visual polish). Load w... |
 | [`detecting-ai-model-prompt-injection-attacks`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-ai-model-prompt-injection-attacks) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detects prompt injection using regex signature matching, heuristic scoring for structural anoma... |
@@ -357,7 +358,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`gws-modelarmor-sanitize-prompt`](../../library/googleworkspace-cli/skills/gws-modelarmor-sanitize-prompt) | ⚪ Reserve | `googleworkspace-cli` | Google Model Armor: Sanitize a user prompt through a Model Armor template. |
 | [`h1b-sponsor`](../../library/career-ops-hq-career-ops/skills/h1b-sponsor) | ⚪ Reserve | `career-ops-hq-career-ops` | Use this plugin during `oferta` evaluations of US roles to attach a factual sponsorship signal ... |
 | [`hads`](../../library/wshobson-agents/skills/hads) | ⚪ Reserve | `wshobson-agents` | Use when writing technical documentation that needs to be readable by both humans and AI models... |
-| [`hallmark`](../../library/nutlope-hallmark/skills/hallmark) | ⚪ Reserve | `nutlope-hallmark` | A design skill that enforces strict tokens and accessibility standards to prevent generic AI-ge... |
+| [`hallmark`](../../library/nutlope-hallmark/skills/hallmark) | ⚪ Reserve | `nutlope-hallmark` | Design skill for websites and new pages that look designed, not generated. Use when the user as... |
 | [`hand-drawn-diagrams`](../../library/nexu-io-open-design/skills/hand-drawn-diagrams) | ⚪ Reserve | `nexu-io-open-design` | Generate hand-drawn Excalidraw diagrams from a prompt — animated SVG, hosted edit link, and PNG... |
 | [`harness-engineering`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/harness-engineering) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | This skill should be used when designing autonomous agent harnesses: research loops, evaluation... |
 | [`harness-score`](../../library/ruvnet-ruflo/skills/harness-score) | ⚪ Reserve | `ruvnet-ruflo` | 5-dimension harness readiness scorecard from `metaharness score {path}` (harnessFit, compileCon... |
@@ -499,6 +500,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`master-thesis-review`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/master-thesis-review) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate master's thesis review reports (硕士论文评阅意见) calibrated to a given score. Outputs academi... |
 | [`mcp-builder-ms`](../../library/antigravity-awesome-skills/skills/mcp-builder-ms) | ⚪ Reserve | `antigravity-awesome-skills` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to intera... |
 | [`mcp-connector`](../../library/starchild-ai-agent-official-skills/skills/mcp-connector) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Connect to any MCP (Model Context Protocol) server (Including Robinhood and Base) and use its t... |
+| [`mem-setup`](../../library/thedotmack-claude-mem/skills/mem-setup) | ⚪ Reserve | `thedotmack-claude-mem` | This skill should be used when the user asks to "set up claude-mem", "pair claude-mem", "connec... |
 | [`meme-coin-audit`](../../library/elementalsouls-claude-bughunter/skills/meme-coin-audit) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Meme coin and token security audit — rug pull detection (honeypot, hidden mint, fee manipulatio... |
 | [`meme-rush`](../../library/binance-binance-skills-hub/skills/meme-rush) | ⚪ Reserve | `binance-binance-skills-hub` | Live launchpad feed + AI hot topics for meme tokens. (1) meme-rush: real-time lifecycle feed on... |
 | [`memory-engineering`](../../library/alirezarezvani-claude-skills/skills/memory-engineering) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when designing, reviewing, or paying for an agent memory system — adding memory to an agent... |
@@ -566,6 +568,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`openai-privacy-filter`](../../library/reason-machines-trending-skills/skills/openai-privacy-filter) | ⚪ Reserve | `reason-machines-trending-skills` | OpenAI Privacy Filter — bidirectional token-classification model for PII detection and masking ... |
 | [`openai-symphony-autonomous-agents`](../../library/reason-machines-trending-skills/skills/openai-symphony-autonomous-agents) | ⚪ Reserve | `reason-machines-trending-skills` | Symphony turns project work into isolated, autonomous implementation runs, allowing teams to ma... |
 | [`openclaude-multi-llm`](../../library/reason-machines-trending-skills/skills/openclaude-multi-llm) | ⚪ Reserve | `reason-machines-trending-skills` | Use Claude Code's full tool system with any OpenAI-compatible LLM — GPT-4o, DeepSeek, Gemini, O... |
+| [`openclaw`](../../library/thedotmack-claude-mem/skills/openclaw) | ⚪ Reserve | `thedotmack-claude-mem` | This guide walks through setting up the claude-mem plugin on an OpenClaw gateway. By the end, y... |
 | [`openclaw-control-center`](../../library/reason-machines-trending-skills/skills/openclaw-control-center) | ⚪ Reserve | `reason-machines-trending-skills` | Local-first, security-first control center for OpenClaw agents — visibility dashboard with read... |
 | [`openclaw-persona-forge`](../../library/affaan-m-ecc/skills/openclaw-persona-forge) | ⚪ Reserve | `affaan-m-ecc` | 为 OpenClaw AI Agent 锻造完整的龙虾灵魂方案。根据用户偏好或随机抽卡， 输出身份定位、灵魂描述(SOUL.md)、角色化底线规则、名字和头像生图提示词。 如当前环境提供已审... |
 | [`openduck-distributed-duckdb`](../../library/reason-machines-trending-skills/skills/openduck-distributed-duckdb) | ⚪ Reserve | `reason-machines-trending-skills` | OpenDuck — open-source distributed DuckDB with differential storage, hybrid dual execution, and... |
@@ -577,6 +580,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`options-analytics-agent-langgraph`](../../library/reason-machines-data-skills/skills/options-analytics-agent-langgraph) | ⚪ Reserve | `reason-machines-data-skills` | Build AI agents for real-time financial options analysis with LangGraph, ChromaDB RAG, and Poly... |
 | [`output-skill`](../../library/nexu-io-open-design/skills/output-skill) | ⚪ Reserve | `nexu-io-open-design` | Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder ... |
 | [`oversight-team`](../../library/mvschwarz-openrig/skills/oversight-team) | ⚪ Reserve | `mvschwarz-openrig` | Use when you are a seat on the oversight pod (a standing monitor-mode rig that keeps OTHER rigs... |
+| [`owner-goals`](../../library/thedotmack-claude-mem/skills/owner-goals) | ⚪ Reserve | `thedotmack-claude-mem` | Map what the owner wants from the prompts they typed themselves (prompts an agent wrote are lef... |
 | [`paid-ads-chatgpt`](../../library/nowork-studio-notfair-plugin/skills/paid-ads-chatgpt) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Plan and review ChatGPT Ads experiments without assuming ad inventory, account access, or platf... |
 | [`pair-trade-screener`](../../library/tradermonty-claude-trading-skills/skills/pair-trade-screener) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Statistical arbitrage tool for identifying and analyzing pair trading opportunities. Detects co... |
 | [`paragon`](../../library/membranedev-application-skills/skills/paragon) | ⚪ Reserve | `membranedev-application-skills` | Paragon integration. Manage data, records, and automate workflows. Use when the user wants to i... |
@@ -706,6 +710,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skillclaw-skill-evolution`](../../library/reason-machines-trending-skills/skills/skillclaw-skill-evolution) | ⚪ Reserve | `reason-machines-trending-skills` | Framework for collective skill evolution in multi-user LLM agent ecosystems — automatically dis... |
 | [`skills-codex-gemini-review`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-gemini-review) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` |  |
 | [`slides-style-prompt-studio`](../../library/reason-machines-trending-skills/skills/slides-style-prompt-studio) | ⚪ Reserve | `reason-machines-trending-skills` | name: slides-style-prompt-studio |
+| [`smart-explore`](../../library/thedotmack-claude-mem/skills/smart-explore) | ⚪ Reserve | `thedotmack-claude-mem` | Token-optimized structural code search using tree-sitter AST parsing. Use instead of reading fu... |
 | [`snippets`](../../library/launchdarkly-ai-tooling/skills/snippets) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and manage prompt snippets — reusable text blocks referenced inside config variation pro... |
 | [`snowflake-cortex-ai`](../../library/mindrally-skills/skills/snowflake-cortex-ai) | ⚪ Reserve | `mindrally-skills` | Reference for Snowflake Cortex AI Functions (AI_COMPLETE, AI_CLASSIFY, AI_EXTRACT, AI_FILTER, e... |
 | [`source-document-filing`](../../library/sickn33-agentic-awesome-skills/skills/source-document-filing) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Source document register: document type and number, party, amount, index key, storage location,... |

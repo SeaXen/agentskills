@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1351 skills  
+> **Total Curated Skills**: 1357 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -91,6 +91,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`anthropic_administrator-automation`](../../library/composio-community-awesome-codex-skills/skills/anthropic_administrator-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Anthropic Admin tasks via Rube MCP (Composio): API keys, usage, workspaces, and organi... |
 | [`anystyle-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/anystyle-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Citation reference parser using machine learning |
 | [`anywrite`](../../library/sickn33-agentic-awesome-skills/skills/anywrite) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Compiled CLI covering all 52 endpoints of the Anytype local API — objects, properties, tags, se... |
+| [`api`](../../library/snailsploit-claude-red/skills/api) | ⚪ Reserve | `snailsploit-claude-red` |  |
 | [`api-analyzer`](../../library/sickn33-agentic-awesome-skills/skills/api-analyzer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Validates whether an API request is correct based on provided inputs (method, URL, headers, bod... |
 | [`api-and-interface-design`](../../library/addyosmani-agent-skills/skills/api-and-interface-design) | ⚪ Reserve | `addyosmani-agent-skills` | Guides stable API and interface design. Use when designing APIs, module boundaries, or any publ... |
 | [`api-authorization-and-bola`](../../library/yaklang-hack-skills/skills/api-authorization-and-bola) | ⚪ Reserve | `yaklang-hack-skills` | API authorization and BOLA testing playbook. Use when APIs expose object identifiers, nested re... |
@@ -234,6 +235,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`backlog-capture`](../../library/mvschwarz-openrig/skills/backlog-capture) | ⚪ Reserve | `mvschwarz-openrig` | Quickly capture product ideas, feature requests, or insights from meetings and conversations. R... |
 | [`backup-disaster-recovery`](../../library/aj-geddes-useful-ai-prompts/skills/backup-disaster-recovery) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Implement backup strategies, disaster recovery plans, and data restoration procedures for prote... |
 | [`backup-recovery`](../../library/sickn33-agentic-awesome-skills/skills/backup-recovery) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Implement backup and recovery strategies. Configure rsync, Restic, and |
+| [`backup-setup`](../../library/thedotmack-claude-mem/skills/backup-setup) | ⚪ Reserve | `thedotmack-claude-mem` | Set up, check, or restore local claude-mem database snapshots. Use when the user says "set up b... |
 | [`bankr-error-handling`](../../library/buzzbysolcex-buzz-bd-agent/skills/bankr-error-handling) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | Self-healing diagnostics for Bankr API errors. Handles 401s, timeouts, rate limits, and configu... |
 | [`baoyu-danger-gemini-web`](../../library/jimliu-baoyu-skills/skills/baoyu-danger-gemini-web) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates images and text via reverse-engineered Gemini Web API. Supports text generation, imag... |
 | [`baoyu-danger-x-to-markdown`](../../library/jimliu-baoyu-skills/skills/baoyu-danger-x-to-markdown) | ⚪ Reserve | `jimliu-baoyu-skills` | Converts X (Twitter) tweets and articles to markdown with YAML front matter. Uses reverse-engin... |
@@ -290,6 +292,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cc-gateway-ai-proxy`](../../library/reason-machines-trending-skills/skills/cc-gateway-ai-proxy) | ⚪ Reserve | `reason-machines-trending-skills` | Deploy and configure CC Gateway, a reverse proxy that normalizes Claude Code device fingerprint... |
 | [`cc-skill-backend-patterns`](../../library/antigravity-awesome-skills/skills/cc-skill-backend-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Backend architecture patterns, API design, database optimization, and server-side best practice... |
 | [`cc-skill-security-review`](../../library/antigravity-awesome-skills/skills/cc-skill-security-review) | ⚪ Reserve | `antigravity-awesome-skills` | Use this skill when adding authentication, handling user input, working with secrets, creating ... |
+| [`ccs-align`](../../library/thedotmack-claude-mem/skills/ccs-align) | ⚪ Reserve | `thedotmack-claude-mem` | Run the CCS Align seat's hourly breathing cycle — prove the local claude-mem worker is healthy,... |
 | [`cellxgene-census`](../../library/davila7-claude-code-templates/skills/cellxgene-census) | ⚪ Reserve | `davila7-claude-code-templates` | Query CZ CELLxGENE Census (61M+ cells). Filter by cell type/tissue/disease, retrieve expression... |
 | [`cheap-gas-nearby`](../../library/nomadamas-k-skill/skills/cheap-gas-nearby) | ⚪ Reserve | `nomadamas-k-skill` | Use when the user asks for nearby cheapest gas stations or 근처 가장 싼 주유소. Always ask the user's c... |
 | [`chief-ai-officer-advisor`](../../library/alirezarezvani-claude-skills/skills/chief-ai-officer-advisor) | ⚪ Reserve | `alirezarezvani-claude-skills` | Chief AI Officer advisory for startups: model build-vs-buy decisions (API vs fine-tune vs in-ho... |
@@ -857,6 +860,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mcp-server-offering`](../../library/samber-developer-platform-skills/skills/mcp-server-offering) | ⚪ Reserve | `samber-developer-platform-skills` | Design a SaaS product's MCP server as a product surface AI agents operate - sizing the build in... |
 | [`medical-data-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/medical-data-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Access FDA drug data and WHO global health statistics for research |
 | [`medusa-development`](../../library/mindrally-skills/skills/medusa-development) | ⚪ Reserve | `mindrally-skills` | Best practices for building commerce applications with Medusa v2, the headless e-commerce frame... |
+| [`melonjs-20-migration`](../../library/melonjs-melonjs/skills/melonjs-20-migration) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when writing melonJS code that may be based on pre-20.x knowledge, when migratin... |
+| [`melonjs-lighting`](../../library/melonjs-melonjs/skills/melonjs-lighting) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for 2D dynamic lighting in melonJS — Light2d, ambient light on a Stage, multiple... |
+| [`melonjs-tilemaps`](../../library/melonjs-melonjs/skills/melonjs-tilemaps) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for Tiled maps in melonJS — loading TMX/TSX levels, spawning entities from Tiled... |
 | [`mendeley-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/mendeley-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Manage references and search Mendeley's catalog via REST API |
 | [`metabolomics-workbench-database`](../../library/davila7-claude-code-templates/skills/metabolomics-workbench-database) | ⚪ Reserve | `davila7-claude-code-templates` | Access NIH Metabolomics Workbench via REST API (4,200+ studies). Query metabolites, RefMet nome... |
 | [`metatextai-inference-api`](../../library/membranedev-application-skills/skills/metatextai-inference-api) | ⚪ Reserve | `membranedev-application-skills` | Metatext.AI Inference API integration. Manage data, records, and automate workflows. Use when t... |

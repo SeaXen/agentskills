@@ -1,0 +1,1666 @@
+import { Box3d, box3dPool } from "../../geometries/box3d.ts";
+import { Ellipse, ellipsePool } from "../../geometries/ellipse.ts";
+import { Line, linePool } from "../../geometries/line.ts";
+import { Point, pointPool } from "../../geometries/point.ts";
+import { Polygon, polygonPool } from "../../geometries/polygon.ts";
+import { Rect } from "../../geometries/rectangle.ts";
+import { RoundRect, roundedRectanglePool } from "../../geometries/roundrect.ts";
+import { Sphere, spherePool } from "../../geometries/sphere.ts";
+import { warning } from "../../lang/console.js";
+import { clamp } from "../../math/math.ts";
+import { Vector2d, vector2dPool } from "../../math/vector2d.ts";
+import timer from "../../system/timer.ts";
+import { remove } from "../../utils/array.ts";
+import { Bounds, boundsPool } from "../bounds.ts";
+import { collision } from "../collision.js";
+import { isShapeEntry } from "../physicseditor.js";
+
+/**
+ * Direction bits for {@link Body#immovableBlock}. One per cardinal direction a
+ * body can be *prevented from moving in* by immovable geometry.
+ * @ignore
+ */
+const BLOCKED_LEFT = 1;
+/** @ignore */
+const BLOCKED_RIGHT = 2;
+/** @ignore */
+const BLOCKED_UP = 4;
+/** @ignore */
+const BLOCKED_DOWN = 8;
+
+/**
+ * @import Entity from "../../renderable/entity/entity.js";
+ * @import Container from "../../renderable/container.js";
+ * @import Renderable from "../../renderable/renderable.js";
+ * @import Sprite from "../../renderable/sprite.js";
+ * @import NineSliceSprite from "../../renderable/nineslicesprite.js";
+ * @import {Vector2d} from "../../math/vector2d.ts";
+ * @import ResponseObject from "../response.js";
+ **/
+
+/**
+ * Monotonic source of stable per-shape contact ids (#1596).
+ * Never reset: ids only have to be unique among LIVE shapes, and wrapping
+ * would be reachable only after 2^53 shapes.
+ */
+let shapeContactIdCounter = 0;
+
+/**
+ * a Generic Physic Body Object with some physic properties and behavior functionality, to add as a member of a Renderable.
+ * @category Physics
+ * @see Renderable.body
+ */
+export default class Body {
+	/**
+	 * @param {Renderable|Container|Entity|Sprite|NineSliceSprite} ancestor - the parent object this body is attached to
+	 * @param {Rect|Rect[]|Polygon|Polygon[]|Line|Line[]|Ellipse|Ellipse[]|Point|Point[]|Bounds|Bounds[]|object} [shapes] - a initial shape, list of shapes, or JSON object defining the body
+	 * @param {Function} [onBodyUpdate] - callback for when the body is updated (e.g. add/remove shapes)
+	 */
+	constructor(ancestor, shapes, onBodyUpdate) {
+		/**
+		 * a reference to the parent object that contains this body,
+		 * or undefined if it has not been added to one.
+		 * @public
+		 * @type {Renderable|Container|Entity|Sprite|NineSliceSprite}
+		 * @default undefined
+		 */
+		this.ancestor = ancestor;
+
+		if (typeof this.bounds === "undefined") {
+			/**
+			 * The AABB bounds box representing this body
+			 * @public
+			 * @type {Bounds}
+			 */
+			this.bounds = boundsPool.get();
+		}
+
+		if (typeof this.shapes === "undefined") {
+			/**
+			 * The collision shapes of the body. Always an array — every
+			 * mutation path goes through `push` / `includes`. The
+			 * non-array `Point` that used to be in this union was a
+			 * mis-doc and broke downstream `shapes.length` reads in
+			 * TypeScript.
+			 * @ignore
+			 * @internal
+			 * @type {(Polygon|Line|Ellipse|Point)[]}
+			 */
+			this.shapes = [];
+		}
+
+		/**
+		 * The body collision mask, that defines what should collide with what.<br>
+		 * (by default will collide with all entities)
+		 *
+		 * Public, and not `@internal`: it is part of the portable
+		 * {@link PhysicsBody} contract every adapter implements, this class's
+		 * own examples assign to it, and stripping it made `Body` fail to
+		 * satisfy `PhysicsBody` in the published declarations.
+		 * @public
+		 * @type {number}
+		 * @default collision.types.ALL_OBJECT
+		 * @see collision.types
+		 */
+		this.collisionMask = collision.types.ALL_OBJECT;
+
+		/**
+		 * define the collision type of the body for collision filtering
+		 * @public
+		 * @type {number}
+		 * @default collision.types.ENEMY_OBJECT
+		 * @see collision.types
+		 * @example
+		 * // set the body collision type
+		 * body.collisionType = me.collision.types.PLAYER_OBJECT;
+		 */
+		this.collisionType = collision.types.ENEMY_OBJECT;
+
+		if (typeof this.vel === "undefined") {
+			/**
+			 * The current velocity of the body.
+			 * See to apply a force if you need to modify a body velocity
+			 * @see Body.force
+			 * @public
+			 * @type {Vector2d}
+			 * @default <0,0>
+			 */
+			this.vel = vector2dPool.get();
+		}
+		this.vel.set(0, 0);
+
+		if (typeof this.force === "undefined") {
+			/**
+			 * body force to apply to this the body in the current step.
+			 * (any positive or negative force will be cancelled after every world/body update cycle)
+			 * @public
+			 * @type {Vector2d}
+			 * @default <0,0>
+			 * @see Body.setMaxVelocity
+			 * @example
+			 * // define a default maximum acceleration, initial force and friction
+			 * this.body.force.set(1, 0);
+			 * this.body.friction.set(0.4, 0);
+			 * this.body.setMaxVelocity(3, 15);
+			 *
+			 * // apply a positive or negative force when pressing left of right key
+			 * update(dt) {
+			 *     if (me.input.isKeyPressed("left"))    {
+			 *          this.body.force.x = -this.body.maxVel.x;
+			 *      } else if (me.input.isKeyPressed("right")) {
+			 *         this.body.force.x = this.body.maxVel.x;
+			 *     }
+			 * }
+			 */
+			this.force = vector2dPool.get();
+		}
+		this.force.set(0, 0);
+
+		if (typeof this.friction === "undefined") {
+			/**
+			 * body friction
+			 * @public
+			 * @type {Vector2d}
+			 * @default <0,0>
+			 */
+			this.friction = vector2dPool.get();
+		}
+		this.friction.set(0, 0);
+
+		/**
+		 * the body bounciness level when colliding with other solid bodies :
+		 * a value of 0 will not bounce, a value of 1 will fully rebound.
+		 * @public
+		 * @type {number}
+		 * @default 0
+		 */
+		this.bounce = 0;
+
+		/**
+		 * the body mass
+		 * @public
+		 * @type {number}
+		 * @default 1
+		 */
+		this.mass = 1;
+
+		/**
+		 * Current rotation angle (radians). Visual-only under the built-in
+		 * SAT solver — the collision shapes themselves are NOT rotated by
+		 * angular integration; only `renderable.currentTransform` is.
+		 * Defaults to `0` and is integrated each step from
+		 * {@link Body#angularVelocity}. Set directly via
+		 * {@link Body#setAngle} or as a side effect of integration.
+		 * @public
+		 * @type {number}
+		 * @default 0
+		 * @example
+		 * // teleport the sprite to face down-right (45°):
+		 * sprite.body.angle = Math.PI / 4;
+		 */
+		this.angle = 0;
+
+		/**
+		 * Angular velocity in radians per frame. Default `0` — bodies that
+		 * never touch the angular API pay no integration cost. See
+		 * {@link Body#setAngularVelocity} and {@link Body#applyTorque}.
+		 * @public
+		 * @type {number}
+		 * @default 0
+		 * @example
+		 * // continuously spin a pickup at ~3°/frame (~180°/sec at 60fps):
+		 * pickup.body.angularVelocity = 0.05;
+		 */
+		this.angularVelocity = 0;
+
+		/**
+		 * Per-step exponential decay applied to {@link Body#angularVelocity}
+		 * — analog of `frictionAir` for rotation. `0` = no damping
+		 * (bodies spin forever); `1` = full damping per step (rotation
+		 * stops instantly). Typical values are small (`0.01` – `0.05`)
+		 * so spin decays naturally over a few seconds. Negative values
+		 * are ignored (treated as `0`); values `> 1` flip the sign each
+		 * step (overdamped — usually a foot-gun).
+		 * @public
+		 * @type {number}
+		 * @default 0
+		 * @example
+		 * // dynamite barrel spins on impact then slows to a stop:
+		 * barrel.body.angularDrag = 0.02;
+		 * barrel.body.applyTorque(120);
+		 */
+		this.angularDrag = 0;
+
+		/**
+		 * Moment-of-inertia analog used when converting force-at-offset
+		 * and torque into angular velocity: `Δω = τ / pseudoInertia`.
+		 * Defaults to a geometry-derived approximation
+		 * `(width² + height²) / 12` matching the moment of inertia of a
+		 * unit-mass rectangle. Override directly to make a body harder or
+		 * easier to spin. Auto-recomputed after every {@link Body#addShape}
+		 * call — manual overrides must come AFTER the body is fully built.
+		 * @public
+		 * @type {number}
+		 * @default `(width² + height²) / 12`
+		 * @example
+		 * // a heavy boss is hard to knock around:
+		 * boss.body.addShape(new me.Rect(0, 0, 64, 64));
+		 * boss.body.pseudoInertia *= 10;
+		 */
+		this.pseudoInertia = 1;
+
+		/**
+		 * Bitfield of the directions this body was pushed *out of* immovable
+		 * (static) geometry during the current simulation step, expressed as
+		 * the directions it may therefore no longer move in.
+		 *
+		 * The solver makes a single resolution pass per step, so a body wedged
+		 * between static geometry and another dynamic body is corrected once
+		 * against each. Without this record the later of the two corrections
+		 * wins and the body ends the step inside the immovable geometry,
+		 * which is a stable state, not a transient. Consulted by
+		 * {@link Body#respondToCollision}: a dynamic-dynamic contact will not
+		 * push a body back in a direction it was already blocked in this step,
+		 * and hands the whole correction to the other body instead.
+		 *
+		 * Reset at the top of each step by the adapter. Purely a per-step
+		 * solver detail, not contact state: it says nothing about what the
+		 * body is touching, only about corrections already applied this step.
+		 * @ignore
+		 * @internal
+		 * @type {number}
+		 */
+		this.immovableBlock = 0;
+
+		if (typeof this.maxVel === "undefined") {
+			/**
+			 * max velocity (to limit body velocity)
+			 * @public
+			 * @type {Vector2d}
+			 * @default <490,490>
+			 */
+			this.maxVel = vector2dPool.get();
+		}
+		// cap by default to half the default gravity force
+		this.maxVel.set(490, 490);
+
+		/**
+		 * The current velocity of the body along the depth axis.
+		 *
+		 * Z arrives as **scalars beside** `vel` / `force` / `friction` /
+		 * `maxVel` rather than by widening them to {@link Vector3d}, because
+		 * `Vector3d` is not a subclass of {@link Vector2d}: retyping them —
+		 * or the {@link Body#getVelocity} vector they hand back — would break
+		 * every existing 2D consumer. They stay exactly as they were.
+		 *
+		 * All four default to the inert value, so a body that never touches
+		 * them integrates z by `+= 0` and behaves identically to 19.x. Only a
+		 * body carrying a {@link Box3d} shape can be pushed back along z by
+		 * the solver.
+		 * @public
+		 * @type {number}
+		 * @default 0
+		 * @see Body#forceZ
+		 * @see Box3d
+		 */
+		this.velZ = 0;
+
+		/**
+		 * body force to apply along the depth axis in the current step.
+		 * @public
+		 * @type {number}
+		 * @default 0
+		 * @see Body#velZ
+		 */
+		this.forceZ = 0;
+
+		/**
+		 * body friction along the depth axis.
+		 * @public
+		 * @type {number}
+		 * @default 0
+		 * @see Body#setFriction
+		 */
+		this.frictionZ = 0;
+
+		/**
+		 * max velocity along the depth axis (to limit body velocity).
+		 * @public
+		 * @type {number}
+		 * @default 490
+		 * @see Body#setMaxVelocity
+		 */
+		this.maxVelZ = 490;
+
+		/**
+		 * `true` when at least one of this body's shapes has a depth extent
+		 * and can therefore be resolved along z: a {@link Box3d} or a
+		 * {@link Sphere}.
+		 * Maintained by {@link Body#addShape} / {@link Body#removeShape}.
+		 * @readonly
+		 * @public
+		 * @type {boolean}
+		 * @default false
+		 */
+		// derived rather than reset to `false`: `this.shapes` is only
+		// allocated when undefined, so a pooled body handed back for reuse
+		// still carries its previous shapes at this point.
+		this.hasDepth = this.shapes.some((shape) => {
+			return shape.type === "Box3d" || shape.type === "Sphere";
+		});
+
+		/**
+		 * Either this body is a static body or not.
+		 * A static body is completely fixed and can never change position or angle.
+		 * @readonly
+		 * @public
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.isStatic = false;
+
+		/**
+		 * Whether this body is a sensor. A sensor detects collisions and
+		 * fires the `onCollision*` events on the renderable, but does not
+		 * physically respond to the contact (the SAT solver skips the
+		 * positional push-out). Useful for triggers, ground-snap assists,
+		 * etc. — same role as Matter's `isSensor`.
+		 * @public
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.isSensor = false;
+
+		/**
+		 * The degree to which this body is affected by the world gravity
+		 * @public
+		 * @see {@link World.gravity}
+		 * @type {number}
+		 * @default 1.0
+		 */
+		this.gravityScale = 1.0;
+
+		/**
+		 * If true this body won't be affected by the world gravity.
+		 * @public
+		 * @see {@link World.gravity}
+		 * @type {boolean}
+		 * @default false
+		 * @deprecated since 19.5.0 — use `gravityScale = 0` (or
+		 * `bodyDef.gravityScale = 0` at construction, or
+		 * `body.setGravityScale(0)` at runtime) instead. `gravityScale`
+		 * is part of the portable {@link PhysicsBody} surface and works
+		 * on every adapter; `ignoreGravity` is a builtin-only field that
+		 * the matter adapter silently ignores. The two-field check
+		 * (`!ignoreGravity && gravityScale !== 0`) used by builtin is
+		 * redundant — set `gravityScale = 0` and both branches agree.
+		 */
+		this.ignoreGravity = false;
+
+		/**
+		 * falling state of the body<br>
+		 * true if the object is falling<br>
+		 * false if the object is standing on something<br>
+		 * @readonly
+		 * @public
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.falling = false;
+
+		/**
+		 * jumping state of the body<br>
+		 * equal true if the body is jumping<br>
+		 * @readonly
+		 * @public
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.jumping = false;
+
+		if (typeof onBodyUpdate === "function") {
+			this.onBodyUpdate = onBodyUpdate;
+		}
+
+		this.bounds.clear();
+
+		// parses the given shapes array and add them
+		if (typeof shapes !== "undefined") {
+			if (typeof shapes === "string") {
+				// a loader key belongs on `bodyDef`, where the container
+				// resolves it. Reaching here it used to be iterated as a
+				// string: one `addShape` per CHARACTER, each falling through
+				// to `_fromJSON` and listing the character indices as
+				// candidate body names.
+				throw new Error(
+					`melonJS: new Body(renderable, "${shapes}") cannot take a loader key. Set \`renderable.bodyDef = { type, shapes: "${shapes}", id: <body name> }\` instead, which resolves the asset and works on the builtin, matter and planck backends alike.`,
+				);
+			}
+			if (Array.isArray(shapes)) {
+				// An exported shape list reaching here used to build a body
+				// with NO shapes at all: each entry was handed to `addShape`
+				// individually, fell through to `fromJSON`, and that read
+				// `.length` off a single object and skipped its loop. Silent,
+				// and on the default backend. Say so instead, and name the
+				// path that works on every backend.
+				if (shapes.some(isShapeEntry)) {
+					throw new Error(
+						"melonJS: new Body(renderable, shapes) cannot take an exported shape list. Set `renderable.bodyDef = { type, shapes: <loader key>, id: <body name> }` instead, which works on the builtin, matter and planck backends alike.",
+					);
+				}
+				for (let s = 0; s < shapes.length; s++) {
+					this.addShape(shapes[s]);
+				}
+			} else {
+				this.addShape(shapes);
+			}
+		}
+
+		// automatically enable physic when a body is added to a renderable
+		this.ancestor.isKinematic = false;
+	}
+
+	/**
+	 * set the body as a static body
+	 * static body do not move automatically and do not check against collision with others
+	 * @param {boolean} [isStatic=true]
+	 */
+	setStatic(isStatic = true) {
+		this.isStatic = isStatic === true;
+	}
+
+	/**
+	 * set this body's linear velocity. Portable across physics adapters —
+	 * under the builtin adapter this mutates `body.vel`; under Matter it
+	 * delegates to `Matter.Body.setVelocity`.
+	 * @param {number} x - velocity along the X axis
+	 * @param {number} y - velocity along the Y axis
+	 */
+	setVelocity(x, y) {
+		this.vel.set(x, y);
+	}
+
+	/**
+	 * read this body's linear velocity into an optional output vector.
+	 * @param {Vector2d} [out] - vector to write into; a new Vector2d is
+	 * allocated when omitted
+	 * @returns {Vector2d}
+	 */
+	getVelocity(out) {
+		return (out ?? vector2dPool.get()).copy(this.vel);
+	}
+
+	/**
+	 * accumulate a force on this body for the current step. Repeated calls
+	 * within a single update add together; the engine clears the
+	 * accumulator at the end of each integration step. Force magnitude
+	 * conventions differ between adapters — consult the active adapter's
+	 * docs for tuning ranges (builtin: px/frame²; Matter: Newtonian
+	 * `force/mass·dt²`, typically ~100× smaller than builtin).
+	 * @param {number} x - force along the X axis
+	 * @param {number} y - force along the Y axis
+	 * @param {number} [pointX] - world X of the application point; when
+	 *   present (along with `pointY`) and different from the body centroid,
+	 *   the resulting lever arm generates a torque
+	 *   `τ = (r.x · F.y) − (r.y · F.x)` that bumps {@link Body#angularVelocity}
+	 *   by `τ / pseudoInertia`. Omit both `pointX` and `pointY` for the
+	 *   linear-only behaviour that's compatible with code written before
+	 *   the angular API was added.
+	 * @param {number} [pointY] - world Y of the application point
+	 * @example
+	 * // pure linear thrust (2-arg form, unchanged behaviour):
+	 * ship.body.applyForce(0, -0.05);
+	 *
+	 * // off-centre push on a crate: the contact point at the top of the
+	 * // crate is above its centroid, so the same horizontal force now
+	 * // both translates AND tips the crate forward.
+	 * const topX = crate.pos.x + crate.width / 2;
+	 * const topY = crate.pos.y;
+	 * crate.body.applyForce(1.5, 0, topX, topY);
+	 *
+	 * // wind pushing on the top of a flag-pole: pole tilts, base stays put
+	 * // (only meaningful here if the base is anchored / static).
+	 * pole.body.applyForce(0.3, 0, pole.pos.x + pole.width / 2, pole.pos.y);
+	 */
+	applyForce(x, y, pointX, pointY) {
+		this.force.x += x;
+		this.force.y += y;
+		if (typeof pointX === "number" && typeof pointY === "number") {
+			// Lever arm r = point - centroid. Centroid is the geometric
+			// center of the body's bounds.
+			const bounds = this.bounds;
+			const rx = pointX - bounds.centerX;
+			const ry = pointY - bounds.centerY;
+			// Z-component of r × F.
+			const torque = rx * y - ry * x;
+			// Guard against division by zero / negative inertia
+			// (pseudoInertia is a user-tunable; nonsense values must
+			// not crash the integrator).
+			if (this.pseudoInertia > 0) {
+				this.angularVelocity += torque / this.pseudoInertia;
+			}
+		}
+	}
+
+	/**
+	 * Apply an instantaneous angular impulse: `Δω = τ / pseudoInertia`.
+	 * The angular analog of {@link Body#applyImpulse} — bypasses the
+	 * lever-arm computation in {@link Body#applyForce} for the
+	 * "just spin this up directly" case (a power-up's intrinsic spin,
+	 * an explicit thruster, a knockback spin effect on hit).
+	 * @param {number} torque - angular impulse magnitude. Positive values
+	 *   produce clockwise rotation on screen (matching the Y-down canvas
+	 *   convention); negative values rotate counter-clockwise.
+	 * @example
+	 * // give a pickup a one-shot spin-up when collected:
+	 * pickup.body.applyTorque(80);
+	 *
+	 * // explosion knockback that both pushes and spins:
+	 * crate.body.applyImpulse(impulseX, impulseY);
+	 * crate.body.applyTorque((Math.random() - 0.5) * 100);
+	 */
+	applyTorque(torque) {
+		if (this.pseudoInertia > 0) {
+			this.angularVelocity += torque / this.pseudoInertia;
+		}
+	}
+
+	/**
+	 * Set angular velocity directly. Bypasses inertia — the value is the
+	 * actual rad/frame that integration will apply next step. Use this
+	 * for "set and hold" rotation (a coin that always spins at the same
+	 * rate); use {@link Body#applyTorque} for impulse-style spin-up.
+	 * @param {number} omega - target angular velocity (rad / frame)
+	 * @example
+	 * // make a fan blade spin at a fixed rate:
+	 * fan.body.setAngularVelocity(0.1);  // ~6°/frame
+	 */
+	setAngularVelocity(omega) {
+		this.angularVelocity = omega;
+	}
+
+	/**
+	 * Read current angular velocity (rad / frame).
+	 * @returns {number}
+	 * @example
+	 * // freeze rotation if the body is spinning too fast:
+	 * if (Math.abs(body.getAngularVelocity()) > 2) {
+	 *     body.setAngularVelocity(0);
+	 * }
+	 */
+	getAngularVelocity() {
+		return this.angularVelocity;
+	}
+
+	/**
+	 * Set absolute rotation angle (radians). Updates the body's `angle`
+	 * field and re-syncs the renderable's `currentTransform` immediately
+	 * so the visual rotation reflects the new value without waiting for
+	 * the next integration step.
+	 * @param {number} rad - target angle in radians
+	 * @example
+	 * // turret aims at the player every frame:
+	 * const dx = player.centerX - turret.centerX;
+	 * const dy = player.centerY - turret.centerY;
+	 * turret.body.setAngle(Math.atan2(dy, dx));
+	 */
+	setAngle(rad) {
+		this.angle = rad;
+		// Force a transform sync so visual rotation tracks the new angle
+		// even when angular velocity is zero (the integrator block in
+		// `update()` is gated on `angularVelocity !== 0 || angle !== 0`,
+		// so a setAngle(nonzero) call alone still triggers the sync next
+		// frame; doing it here makes a manual setAngle visible without
+		// requiring an `update()` call in between).
+		this._syncAngleTransform();
+	}
+
+	/**
+	 * Read absolute rotation angle (radians).
+	 * @returns {number}
+	 */
+	getAngle() {
+		return this.angle;
+	}
+
+	/**
+	 * Sync `this.angle` to the renderable's `currentTransform`. Pivot is
+	 * the body's bounds center (matches the matter adapter's rotation
+	 * pivot — see `MatterAdapter.syncFromPhysics`). Internal helper used
+	 * by both the per-step integrator and {@link Body#setAngle}.
+	 * @ignore
+	 * @internal
+	 */
+	_syncAngleTransform() {
+		const t = this.ancestor?.currentTransform;
+		if (!t) {
+			return;
+		}
+		const bounds = this.bounds;
+		// `body.bounds` is ALREADY renderable-local — it is accumulated from
+		// the shapes' own points, which are local, and the adapter documents
+		// it that way. Subtracting `ancestor.pos` a second time offset the
+		// pivot by the renderable's world position, so a 40x40 body on a
+		// renderable at (100, 50) rotated about (-80, -30) rather than its
+		// own centre. Invisible at the origin, which is where the spec that
+		// covers this used to build its renderable.
+		const cx = bounds.centerX;
+		const cy = bounds.centerY;
+		t.identity();
+		if (this.angle !== 0) {
+			if (cx !== 0 || cy !== 0) {
+				t.translate(cx, cy);
+				t.rotate(this.angle);
+				t.translate(-cx, -cy);
+			} else {
+				t.rotate(this.angle);
+			}
+		}
+	}
+
+	/**
+	 * apply an instantaneous impulse to this body — a single-step velocity
+	 * change scaled by inverse mass (`dv = J / m`). Useful for one-shot
+	 * events like a cue strike, projectile launch, or knockback, where
+	 * mass should influence the resulting velocity change. Repeated calls
+	 * within a single update accumulate. Static bodies (mass 0) ignore
+	 * the call. Identical signature on the Matter adapter, where the
+	 * adapter integrates the impulse the same way (matter has no native
+	 * `applyImpulse`).
+	 * @param {number} x - impulse along the X axis
+	 * @param {number} y - impulse along the Y axis
+	 */
+	applyImpulse(x, y) {
+		const invMass = this.mass > 0 ? 1 / this.mass : 0;
+		this.vel.x += x * invMass;
+		this.vel.y += y * invMass;
+	}
+
+	/**
+	 * set this body's mass. Useful for variable-mass entities (projectiles
+	 * loaded with ammo, weight pickups, characters carrying objects).
+	 * Mass affects `applyImpulse` (via `dv = J / m`) and the proportional
+	 * push-out response in dynamic-dynamic collisions. A mass of 0 makes
+	 * the body inert to forces and impulses (without going static).
+	 * @param {number} m - new mass, non-negative
+	 */
+	setMass(m) {
+		this.mass = m;
+	}
+
+	/**
+	 * set this body's restitution / bounce factor. `0` = no bounce (energy
+	 * absorbed on contact); `1` = perfect elastic rebound; values in
+	 * between dampen the rebound. Applied by `Body.respondToCollision` —
+	 * see `BuiltinAdapter` docs for the cancellation math.
+	 *
+	 * Matches the `bodyDef.restitution` field name used at registration
+	 * time; the body-side property has historically been called `bounce`,
+	 * which is the canonical legacy name and is preserved.
+	 * @param {number} r - restitution factor, typically in [0, 1]
+	 */
+	setBounce(r) {
+		this.bounce = r;
+	}
+
+	/**
+	 * set this body's per-body gravity multiplier. `1` = world gravity
+	 * (default), `0` = ignore world gravity (e.g. flying enemy, underwater
+	 * float), `2` = 2× gravity (heavy-feel objects). Multiplied with the
+	 * world's `gravity.y` each frame inside `applyGravity`.
+	 * @param {number} scale - gravity scale factor
+	 */
+	setGravityScale(scale) {
+		this.gravityScale = scale;
+	}
+
+	/**
+	 * toggle this body between solid and sensor. Sensor bodies still emit
+	 * collision events (`onCollisionStart`, `onCollisionActive`,
+	 * `onCollisionEnd`) but the solver does not physically resolve the
+	 * contact — same semantics as Matter's `isSensor`. Useful for one-way
+	 * platforms, trigger zones, and ground-snap assists.
+	 * @param {boolean} [isSensor=true]
+	 */
+	setSensor(isSensor = true) {
+		this.isSensor = isSensor === true;
+	}
+
+	/**
+	 * Give a stored shape its per-shape collision settings, carrying them over
+	 * from the source object when `addShape` converted it (a `Rect` and a
+	 * `Bounds` both become a `Polygon`, so anything set on the original would
+	 * otherwise be dropped on the floor).
+	 *
+	 * Every field is written explicitly, including the defaults. That is not
+	 * tidiness: converted shapes come from `polygonPool`, whose reset restores
+	 * only position and vertices — a recycled instance would otherwise arrive
+	 * still carrying the previous owner's `isTrigger` or mask and quietly
+	 * change how an unrelated body collides.
+	 *
+	 * Idempotent, because `removeShape` re-adds every surviving shape through
+	 * `addShape` and must not disturb their settings.
+	 * @param {object} stored - the shape as held in `this.shapes`
+	 * @param {object} [source] - the object passed to `addShape`; omitted when
+	 * the shape was built here from a pool and has no user-supplied original
+	 * @private
+	 * @ignore
+	 * @internal
+	 */
+	_initShapeCollision(stored, source) {
+		// Stable identity for shape-level contact tracking (#1596).
+		//
+		// Stamped ONCE and never re-stamped: `removeShape()` splices the array
+		// and re-adds every remaining shape through `addShape`, so an id derived
+		// from array position (or re-generated here) would change under a caller
+		// who removed an unrelated sibling, and the contact lifecycle would see
+		// spurious End/Start pairs. `destroy()` clears it when the instance goes
+		// back to a pool, so a recycled shape gets a fresh one.
+		if (stored._contactId === undefined) {
+			stored._contactId = ++shapeContactIdCounter;
+		}
+		if (source === undefined) {
+			// no source at all: the shape was built here, straight from a pool,
+			// so every field is reset to its default rather than inherited
+			stored.collisionType = undefined;
+			stored.collisionMask = undefined;
+			stored.isTrigger = false;
+			stored.isActive = true;
+			return;
+		}
+		if (stored !== source) {
+			// CONVERTED (Rect / Bounds -> pooled Polygon). Assign the source's
+			// values verbatim rather than falling back to what is on `stored`:
+			// a recycled instance may still carry the previous owner's mask or
+			// `isTrigger`, and `?? stored.x` would preserve exactly that.
+			// `undefined` here is the correct result — it means "inherit the
+			// body's value" at test time.
+			stored.collisionType = source.collisionType;
+			stored.collisionMask = source.collisionMask;
+		}
+		// The flags are normalized to real booleans on every path, so a stale
+		// pooled `isTrigger: true` cannot survive, and re-running (which
+		// `removeShape` does) is a no-op.
+		stored.isTrigger = source.isTrigger === true;
+		stored.isActive = source.isActive !== false;
+	}
+
+	/**
+	 * add a collision shape to this body <br>
+	 * (note: me.Rect objects will be converted to me.Polygon before being added)
+	 *
+	 * A shape may carry its own collision settings, which refine the body's
+	 * (see {@link Body#collisionType} / {@link Body#collisionMask}). All are
+	 * optional, and their defaults are the behaviour a shape has always had:
+	 *
+	 * | property | default | effect |
+	 * |---|---|---|
+	 * | `collisionType` | inherit body | this shape's own category |
+	 * | `collisionMask` | inherit body | what this shape collides with |
+	 * | `isActive` | `true` | `false` removes the shape from collision entirely — no test, no contact, no events — without removing it from the body |
+	 * | `isTrigger` | `false` | `true` still collides and still fires events, but skips the position correction (per-shape {@link Body#isSensor}) |
+	 *
+	 * A shape can only NARROW what its body allows, never widen it: the body's
+	 * type/mask are still checked first, so a permissive shape on a restrictive
+	 * body collides with nothing.
+	 *
+	 * A trigger removes only ITSELF from the solver. If a solid shape on the
+	 * same body also overlaps, that contact still pushes out — the narrowphase
+	 * prefers a solid pair over a trigger pair, so the outcome does not depend
+	 * on the order shapes were added. `response.isTriggerContact` reports
+	 * whether a given contact exists only through trigger shapes.
+	 *
+	 * `isActive: false` removes the shape from the narrowphase AND from
+	 * raycasts. It does not shrink the body's `bounds` — those stay
+	 * conservative, so toggling a shape never resizes the body in the
+	 * broadphase — nor does it clear `hasDepth` for a `Box3d`.
+	 *
+	 * Supported by the builtin and planck adapters. The matter adapter filters
+	 * per body only and ignores these. Note that under planck, the body-wide
+	 * setters (`setCollisionType`, `setCollisionMask`, `setSensor`) write every
+	 * fixture and so overwrite per-shape values.
+	 * @param {Rect|Polygon|Line|Ellipse|Point|Point[]|Bounds|object} shape - a shape or JSON object
+	 * @returns {number} the shape array length
+	 * @example
+	 * // add a rectangle shape
+	 * this.body.addShape(new me.Rect(0, 0, image.width, image.height));
+	 * @example
+	 * // a character whose feet collide with terrain and whose torso is a hurtbox
+	 * const feet = new me.Rect(0, 24, 32, 8);
+	 * feet.collisionMask = me.collision.types.WORLD_SHAPE;
+	 * const torso = new me.Rect(0, 0, 32, 24);
+	 * torso.collisionMask = me.collision.types.ENEMY_OBJECT;
+	 * torso.isTrigger = true;      // detect hits, never get pushed by them
+	 * this.body.addShape(feet);
+	 * this.body.addShape(torso);
+	 * @example
+	 * // an exported shape list is DEPRECATED here since 20.7.0: it reaches
+	 * // the builtin solver only. Name the asset from a body definition
+	 * // instead, which every backend understands.
+	 * this.body.addShape(me.loader.getJSON("shapesdef").banana);   // warns
+	 * this.bodyDef = { type: "dynamic", shapes: "shapesdef", id: "banana" };
+	 */
+	addShape(shape) {
+		// The object that ends up in `this.shapes` is not always the one passed
+		// in — a Rect and a Bounds are converted to a Polygon. Track it so the
+		// per-shape collision settings can be carried across and normalized
+		// once, below.
+		let stored = shape;
+		if (shape instanceof Rect) {
+			const poly = shape.toPolygon();
+			stored = poly;
+			this.shapes.push(poly);
+			// update the body bounds with the shape's own bounds, which already
+			// include its position. Translating the body bounds by the shape
+			// position instead would also move every shape added before it.
+			this.bounds.addBounds(poly.getBounds());
+		} else if (shape instanceof Bounds) {
+			// Bounds doesn't carry a `toPolygon` method — it's a primitive
+			// AABB that polygon.ts already depends on, so we keep the
+			// conversion in the consumer to avoid a cyclic import. Same
+			// rectangle-from-bounds geometry the old `Bounds.toPolygon`
+			// produced.
+			const poly = polygonPool.get(shape.x, shape.y, [
+				new Vector2d(0, 0),
+				new Vector2d(shape.width, 0),
+				new Vector2d(shape.width, shape.height),
+				new Vector2d(0, shape.height),
+			]);
+			stored = poly;
+			this.shapes.push(poly);
+			this.bounds.addBounds(poly.getBounds());
+		} else if (shape instanceof Ellipse) {
+			if (!this.shapes.includes(shape)) {
+				// see removeShape
+				this.shapes.push(shape);
+			}
+			// update the body bounds (they already sit around the center),
+			// refreshing the shape's own first in case its `pos` was edited
+			// directly
+			this.bounds.addBounds(shape.updateBounds());
+		} else if (shape instanceof Polygon) {
+			if (!this.shapes.includes(shape)) {
+				// see removeShape
+				this.shapes.push(shape);
+			}
+			// update the body bounds, refreshing the shape's own first in case
+			// its `pos` or `points` were edited directly
+			this.bounds.addBounds(shape.updateBounds());
+		} else if (shape instanceof Point) {
+			if (!this.shapes.includes(shape)) {
+				// see removeShape
+				this.shapes.push(shape);
+			}
+			this.bounds.addPoint(shape);
+		} else if (shape instanceof Sphere) {
+			if (!this.shapes.includes(shape)) {
+				// see removeShape
+				this.shapes.push(shape);
+			}
+			// Only the XY footprint goes into `this.bounds`, as for a Box3d:
+			// that bounds is 2D and feeds the broadphase pre-gate, the debug
+			// draw and `containsPoint`. The depth lives on the shape and the
+			// narrowphase reads it there.
+			const r = Math.abs(shape.radius);
+			this.bounds.addFrame(
+				shape.pos.x - r,
+				shape.pos.y - r,
+				shape.pos.x + r,
+				shape.pos.y + r,
+			);
+			this.hasDepth = true;
+		} else if (shape instanceof Box3d) {
+			if (!this.shapes.includes(shape)) {
+				// see removeShape
+				this.shapes.push(shape);
+			}
+			// Only the XY footprint goes into `this.bounds`. That bounds is a
+			// 2D `Bounds` and feeds the broadphase pre-gate, debug draw and
+			// `containsPoint` — all of which stay 2D. The depth extent lives
+			// on the shape and is read by the narrowphase directly.
+			this.bounds.addBounds(shape.getBounds());
+			this.hasDepth = true;
+		} else {
+			// JSON object — `_fromJSON` re-enters `addShape` per shape it
+			// builds, so normalization happens there rather than here.
+			// Deprecated with `fromJSON`: the two are one path with two doors,
+			// so retiring one necessarily retires the other. The shape form of
+			// `addShape` is untouched.
+			warning(
+				"Body#addShape with an exported shape list",
+				"renderable.bodyDef = { type, shapes: <loader key>, id: <body name> }, which works on the builtin, matter and planck backends alike",
+				"20.7.0",
+			);
+			stored = undefined;
+			this._fromJSON(shape);
+		}
+
+		if (stored !== undefined) {
+			this._initShapeCollision(stored, shape);
+		}
+
+		// Refresh the bounds-derived `pseudoInertia` default whenever the
+		// body's geometry changes. The user can still override it manually
+		// after `addShape` if they need a stiffer / floppier body.
+		this._recomputePseudoInertia();
+
+		if (typeof this.onBodyUpdate === "function") {
+			this.onBodyUpdate(this);
+		}
+
+		// return the length of the shape list
+		return this.shapes.length;
+	}
+
+	/**
+	 * Recompute the default `pseudoInertia` from the current bounds.
+	 * Uses the moment-of-inertia formula for a unit-mass rectangle —
+	 * `(width² + height²) / 12` — which gives a value that scales
+	 * sensibly with body size: a small body resists rotation less, a
+	 * large body more. Clamped to a minimum of 1 to keep divisions
+	 * well-defined even on degenerate 0-size bodies.
+	 * @ignore
+	 * @internal
+	 */
+	_recomputePseudoInertia() {
+		const w = this.bounds.width;
+		const h = this.bounds.height;
+		this.pseudoInertia = Math.max(1, (w * w + h * h) / 12);
+	}
+
+	/**
+	 * set the body vertices to the given one
+	 * @param {Vector2d[]} vertices - an array of me.Vector2d points defining a convex hull
+	 * @param {number} [index=0] - the shape object for which to set the vertices
+	 * @param {boolean} [clear=true] - either to reset the body definition before adding the new vertices
+	 * @throws {RangeError} if `index` is past the end of the shape list
+	 */
+	setVertices(vertices, index = 0, clear = true) {
+		// `index === shapes.length` appends a shape. Anything further would
+		// leave a gap in `shapes`, and the collision loops stop at the first
+		// missing shape, so the shapes below it would silently stop colliding.
+		if (index > this.shapes.length) {
+			throw new RangeError(
+				`Body#setVertices: index ${index} is past the end of the shape list (${this.shapes.length} shapes)`,
+			);
+		}
+		const polygon = this.getShape(index);
+		if (polygon instanceof Polygon) {
+			polygon.setShape(0, 0, vertices);
+		} else {
+			// this will replace any other non polygon shape type if defined
+			this.shapes[index] = polygonPool.get(0, 0, vertices);
+			// `fromJSON` / `addVertices` reach `this.shapes` through here rather
+			// than `addShape`, so the pooled instance needs the same
+			// normalization or it keeps its previous owner's settings (#1590)
+			this._initShapeCollision(this.shapes[index], undefined);
+		}
+
+		// update the body bounds to take in account the new vertices
+		if (clear) {
+			// rebuild them from every shape, as `removeShape` does, so the other
+			// shapes of a multi-shape body stay inside them
+			this.bounds.clear();
+			this.hasDepth = false;
+			for (const shape of this.shapes) {
+				this.addShape(shape);
+			}
+		} else {
+			this.bounds.add(this.shapes[index].points);
+		}
+
+		if (typeof this.onBodyUpdate === "function") {
+			this.onBodyUpdate(this);
+		}
+	}
+
+	/**
+	 * add the given vertices to the body shape
+	 * @param {Vector2d[]} vertices - an array of me.Vector2d points defining a convex hull
+	 * @param {number} [index=0] - the shape object for which to set the vertices
+	 */
+	addVertices(vertices, index = 0) {
+		this.setVertices(vertices, index, false);
+	}
+
+	/**
+	 * The shape-building half of {@link Body#fromJSON}, without the
+	 * deprecation notice — `addShape` routes through it for the same reason.
+	 * @param {object} json - a shape list as exported by a physics-shape editor
+	 * @param {string} [id] - an optional body identifier within that object
+	 * @returns {number} how many shapes were added to the body
+	 * @ignore
+	 * @internal
+	 */
+	_fromJSON(json, id) {
+		let data = json;
+
+		if (typeof id !== "undefined") {
+			data = json[id];
+		}
+
+		// Physic Editor Format (https://www.codeandweb.com/physicseditor)
+		if (typeof data === "undefined") {
+			throw new Error(
+				"Identifier (" + id + ") undefined for the given JSON object)",
+			);
+		}
+
+		if (!Array.isArray(data)) {
+			// a multi-body file with no `id` used to read `.length` off the
+			// whole object, get undefined, and add nothing at all
+			if (isShapeEntry(data)) {
+				// one fixture rather than a list of them. Listing its own field
+				// names as candidate body ids, which the message below would
+				// do, sends the reader somewhere there is nothing to find.
+				throw new Error(
+					"melonJS: Body#fromJSON — the given object is a single exported fixture, not a list of them. Pass the body's fixture list, or set `renderable.bodyDef = { type, shapes: <loader key>, id: <body name> }`, which works on every backend.",
+				);
+			}
+			throw new Error(
+				`melonJS: Body#fromJSON — the given object is a map of body names, so an id is required. Available: ${Object.keys(data).join(", ")}`,
+			);
+		}
+		if (data.length) {
+			// go through all shapes and add them to the body
+			for (let i = 0; i < data.length; i++) {
+				this.addVertices(data[i].shape, i);
+			}
+			// apply density, friction and bounce properties from the first shape
+			// Note : how to manage different mass or friction for all different shapes?
+			this.mass = data[0].density || 0;
+			this.friction.set(data[0].friction || 0, data[0].friction || 0);
+			this.bounce = data[0].bounce || 0;
+		}
+
+		// return the amount of shapes added to the body
+		return data.length;
+	}
+
+	/**
+	 * return the collision shape at the given index
+	 * @param {number} [index=0] - the shape object at the specified index
+	 * @returns {Polygon|Line|Ellipse} shape a shape object if defined
+	 */
+	getShape(index) {
+		return this.shapes[index || 0];
+	}
+
+	/**
+	 * returns the AABB bounding box for this body
+	 * @returns {Bounds} bounding box Rectangle object
+	 */
+	getBounds() {
+		return this.bounds;
+	}
+
+	/**
+	 * remove the specified shape from the body shape list
+	 * @param {Polygon|Line|Ellipse|Box3d} shape - a shape object
+	 * @returns {number} the shape array length
+	 */
+	removeShape(shape) {
+		// clear the current bounds
+		this.bounds.clear();
+		// `addShape` only ever raises `hasDepth`, so clear it here and let the
+		// re-add below raise it again if a Box3d is still in the list —
+		// otherwise removing the last Box3d would leave the body claiming a
+		// depth extent it no longer has.
+		this.hasDepth = false;
+		// remove the shape from shape list
+		remove(this.shapes, shape);
+		// add everything left back
+		for (let s = 0; s < this.shapes.length; s++) {
+			this.addShape(this.shapes[s]);
+		}
+		// return the length of the shape list
+		return this.shapes.length;
+	}
+
+	/**
+	 * remove the shape at the given index from the body shape list
+	 * @param {number} index - the shape object at the specified index
+	 * @returns {number} the shape array length
+	 */
+	removeShapeAt(index) {
+		return this.removeShape(this.getShape(index));
+	}
+
+	/**
+	 * By default all physic bodies are able to collide with all other bodies, <br>
+	 * but it's also possible to specify 'collision filters' to provide a finer <br>
+	 * control over which body can collide with each other.
+	 * @see collision.types
+	 * @param {number} [bitmask = collision.types.ALL_OBJECT] - the collision mask
+	 * @example
+	 * // filter collision detection with collision shapes, enemies and collectables
+	 * body.setCollisionMask(me.collision.types.WORLD_SHAPE | me.collision.types.ENEMY_OBJECT | me.collision.types.COLLECTABLE_OBJECT);
+	 * ...
+	 * // disable collision detection with all other objects
+	 * body.setCollisionMask(me.collision.types.NO_OBJECT);
+	 */
+	setCollisionMask(bitmask = collision.types.ALL_OBJECT) {
+		this.collisionMask = bitmask;
+	}
+
+	/**
+	 * define the collision type of the body for collision filtering
+	 * @see collision.types
+	 * @param {number} type - the collision type
+	 * @example
+	 * // set the body collision type
+	 * body.collisionType = me.collision.types.PLAYER_OBJECT;
+	 */
+	setCollisionType(type) {
+		if (typeof type !== "undefined") {
+			if (typeof type === "string") {
+				if (typeof collision.types[type] !== "undefined") {
+					this.collisionType = collision.types[type];
+				} else {
+					throw new Error("Invalid value for the collisionType property");
+				}
+			} else if (typeof type === "number") {
+				this.collisionType = type;
+			} else {
+				throw new Error("Invalid value for the collisionType property");
+			}
+		}
+	}
+
+	/**
+	 * the built-in function to solve the collision response
+	 * @param {ResponseObject} response - the collision response object
+	 * @see {@link ResponseObject}
+	 */
+	respondToCollision(response) {
+		// the overlap vector
+		const overlap = response.overlapV;
+		const overlapN = response.overlapN;
+
+		// determine mass ratio: when both bodies are dynamic, split
+		// the response proportionally to mass; otherwise apply full overlap
+		const other = response.a === this.ancestor ? response.b : response.a;
+		const otherBody = other ? other.body : undefined;
+		const otherIsDynamic = otherBody !== undefined && !otherBody.isStatic;
+		let ratio = 1;
+		if (otherIsDynamic) {
+			const totalMass = this.mass + otherBody.mass;
+			ratio = totalMass > 0 ? otherBody.mass / totalMass : 0.5;
+		}
+
+		// SAT reports ONE minimum translation vector per pair, oriented for
+		// `response.a`: `a` escapes along `-overlapV`, `b` along `+overlapV`.
+		// The detector hands that same response object to BOTH bodies of a
+		// pair, so the `b` side has to mirror it — otherwise the pair is
+		// translated bodily along one direction instead of being separated,
+		// and a body squeezed against immovable geometry is driven straight
+		// into it. Mirrored only when the receiver is unambiguously `b`: a
+		// duck-typed response literal carrying no `a`/`b` (this method is
+		// public and callers legitimately build one) keeps the historical
+		// `a`-oriented sign.
+		const sign =
+			response.b === this.ancestor && response.a !== this.ancestor ? -1 : 1;
+
+		// Z half of the minimum translation vector. Both are 0 for every
+		// planar shape pair (see ResponseObject#overlapZ), so everything below
+		// stays bit-for-bit identical for a 2D body — no branch required.
+		//
+		// Defaulted with `??` because this method is DUCK-TYPED, not typed:
+		// it is public and callers legitimately hand it a plain object
+		// literal carrying only `overlapV` / `overlapN`. Reading the new
+		// fields off one of those yields `undefined`, and a single
+		// `vel * undefined` poisons `projVel` to NaN — which fails the
+		// `projVel > 0` gate and silently stops cancelling velocity into the
+		// surface, while the position write turns z into NaN.
+		const overlapZ = response.overlapZ ?? 0;
+		const overlapNZ = response.overlapNZ ?? 0;
+
+		// the MTV and the contact normal as seen by THIS body (see `sign`)
+		const mtvX = overlap.x * sign;
+		const mtvY = overlap.y * sign;
+		const mtvZ = overlapZ * sign;
+		const normalX = overlapN.x * sign;
+		const normalY = overlapN.y * sign;
+		const normalZ = overlapNZ * sign;
+
+		// Planar corrections take part in the per-step "blocked by immovable
+		// geometry" bookkeeping. Skipped when the planar MTV is zero: either
+		// there is no planar correction to record (a pure-Z {@link Box3d}
+		// contact, which `immovableBlock` does not model), or a collision handler
+		// zeroed the overlap to opt this axis out, in which case nothing moves
+		// and there is nothing to remember.
+		//
+		// Also skipped when DEPTH is what the contact is mostly along, which
+		// is where a {@link Sphere} differs from every shape that came before
+		// it. A box pair resolves along one world axis, so the planar half of
+		// the normal was always either zero or the whole of it; a sphere pair
+		// resolves along the line between two centres, so a contact that is
+		// 99% depth still carries a sliver of x and y. Recorded as a planar
+		// block, that sliver pinned the body sideways for the rest of the
+		// step and handed the whole of any genuine planar correction to
+		// whatever it touched next.
+		const planarN = Math.max(Math.abs(normalX), Math.abs(normalY));
+		if (
+			otherBody !== undefined &&
+			planarN > 0 &&
+			planarN >= Math.abs(normalZ)
+		) {
+			// This body escapes along -MTV, the other along +MTV. Reduce each
+			// to the single cardinal direction the correction mostly points
+			// in: the solver only needs to answer "is this body already pinned
+			// that way", and a dominant-axis answer keeps a diagonal push-out
+			// off a slope from also pinning the horizontal axis.
+			let escapeDir;
+			let pushBackDir;
+			if (Math.abs(normalX) > Math.abs(normalY)) {
+				escapeDir = normalX > 0 ? BLOCKED_LEFT : BLOCKED_RIGHT;
+				pushBackDir = normalX > 0 ? BLOCKED_RIGHT : BLOCKED_LEFT;
+			} else {
+				escapeDir = normalY > 0 ? BLOCKED_UP : BLOCKED_DOWN;
+				pushBackDir = normalY > 0 ? BLOCKED_DOWN : BLOCKED_UP;
+			}
+
+			if (otherIsDynamic) {
+				// A single pass resolves each contact once, so the two
+				// contacts of a body squeezed between immovable geometry and
+				// another dynamic body compete, and whichever is applied last
+				// wins. Immovable geometry gets the casting vote: once this
+				// body has been pushed out of static geometry this step, a
+				// dynamic contact may not push it back in, and the other body
+				// absorbs the whole correction instead.
+				//
+				// Both halves read a record written by an actually-applied
+				// correction, so a pair whose `onCollision` opted out of
+				// push-out neither writes one nor is affected by one, and no
+				// extra broadphase pass or handler dispatch is involved.
+				if ((this.immovableBlock & escapeDir) !== 0) {
+					ratio = 0;
+				} else if ((otherBody.immovableBlock & pushBackDir) !== 0) {
+					ratio = 1;
+				}
+			} else {
+				// pushed out of immovable geometry: remember that this body
+				// may no longer travel that way for the rest of the step
+				this.immovableBlock |= pushBackDir;
+			}
+		}
+
+		// Move out of the other object shape
+		this.ancestor.pos.set(
+			this.ancestor.pos.x - mtvX * ratio,
+			this.ancestor.pos.y - mtvY * ratio,
+			this.ancestor.pos.z - mtvZ * ratio,
+		);
+
+		// cancel the velocity component along the collision normal
+		const projVel =
+			this.vel.x * normalX + this.vel.y * normalY + this.velZ * normalZ;
+		if (projVel > 0) {
+			if (this.bounce > 0) {
+				// reflect velocity along normal with bounce damping
+				this.vel.x -= (1 + this.bounce) * projVel * ratio * normalX;
+				this.vel.y -= (1 + this.bounce) * projVel * ratio * normalY;
+				this.velZ -= (1 + this.bounce) * projVel * ratio * normalZ;
+			} else {
+				// remove the velocity component along the collision normal
+				this.vel.x -= projVel * ratio * normalX;
+				this.vel.y -= projVel * ratio * normalY;
+				this.velZ -= projVel * ratio * normalZ;
+			}
+		}
+
+		// Update falling/jumping flags only for gravity-affected bodies.
+		// `ignoreGravity` is the legacy opt-out; `gravityScale === 0` is the
+		// portable equivalent (see Body#gravityScale). Either disables the
+		// state machine — a hovering platform or a free-floating projectile
+		// shouldn't be marked "falling" on a head-on side collision.
+		// `>= mtvZ` for the same reason the planar block above is gated: a
+		// sphere contact along depth carries a sliver of y with it, and an
+		// unqualified `mtvY !== 0` read that sliver as a floor or a ceiling.
+		// A body resting on a surface then reported itself airborne, since
+		// `isGrounded()` is `!falling && !jumping`.
+		if (
+			Math.abs(mtvY) >= Math.abs(mtvZ) &&
+			mtvY !== 0 &&
+			!this.ignoreGravity &&
+			this.gravityScale !== 0
+		) {
+			// cancel the falling an jumping flags if necessary
+			const dir = this.falling === true ? 1 : this.jumping === true ? -1 : 0;
+			this.falling = mtvY >= dir;
+			this.jumping = mtvY <= -dir;
+		}
+	}
+
+	/**
+	 * The forEach() method executes a provided function once per body shape element. <br>
+	 * the callback function is invoked with three arguments: <br>
+	 *    - The current element being processed in the array <br>
+	 *    - The index of element in the array. <br>
+	 *    - The array forEach() was called upon. <br>
+	 * @param {Function} callback - function to execute on each element
+	 * @param {object} [thisArg] - value to use as this(i.e reference Object) when executing callback.
+	 * @example
+	 * // iterate through all shapes of the physic body
+	 * mySprite.body.forEach((shape) => {
+	 *    shape.doSomething();
+	 * });
+	 * mySprite.body.forEach((shape, index) => { ... });
+	 * mySprite.body.forEach((shape, index, array) => { ... });
+	 * mySprite.body.forEach((shape, index, array) => { ... }, thisArg);
+	 */
+	forEach(callback, thisArg) {
+		let i = 0;
+		const shapes = this.shapes;
+
+		const len = shapes.length;
+
+		if (typeof callback !== "function") {
+			throw new Error(callback + " is not a function");
+		}
+
+		while (i < len) {
+			callback.call(thisArg ?? this, shapes[i], i, shapes);
+			i++;
+		}
+	}
+
+	/**
+	 * Returns true if the any of the shape composing the body contains the given point.
+	 * @param {...(number|Vector2d)} args - either `x, y` coordinates, or a single {@link Vector2d}
+	 * @returns {boolean} true if contains
+	 * @example
+	 * if (mySprite.body.contains(10, 10)) {
+	 *   // do something
+	 * }
+	 * // or
+	 * if (mySprite.body.contains(myVector2d)) {
+	 *   // do something
+	 * }
+	 */
+	contains(...args) {
+		let _x;
+		let _y;
+
+		if (args.length === 2) {
+			// x, y
+			[_x, _y] = args;
+		} else {
+			// vector
+			[_x, _y] = [args[0].x, args[0].y];
+		}
+
+		if (this.getBounds().contains(_x, _y)) {
+			// cannot use forEach here as cannot break out with a return
+			for (let i = this.shapes.length, shape; i--, (shape = this.shapes[i]); ) {
+				if (shape.contains(_x, _y)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Rotate this body (counter-clockwise) by the specified angle (in radians).
+	 * Unless specified the body will be rotated around its center point
+	 * @param {number} angle - The angle to rotate (in radians)
+	 * @param {Vector2d} [v=Body.getBounds().center] - an optional point to rotate around
+	 * @returns {Body} Reference to this object for method chaining
+	 */
+	rotate(angle, v = this.getBounds().center) {
+		if (angle !== 0) {
+			this.bounds.clear();
+			this.forEach((shape) => {
+				// `Box3d` and `Point` carry no `rotate()`. Calling it threw,
+				// which made the documented workaround for rotated collision
+				// crash on exactly the bodies most likely to hold a 3D sensor.
+				// Their bounds are still accumulated, so the body's AABB stays
+				// correct — the shape simply does not turn.
+				if (typeof shape.rotate === "function") {
+					shape.rotate(angle, v);
+				}
+				this.bounds.addBounds(shape.getBounds());
+				/*
+                if (!(shape instanceof Ellipse)) {
+                    // ellipse position is center
+                    this.bounds.translate(shape.pos);
+                }
+                */
+			});
+			// Tell the renderable its body changed shape. Without this its
+			// cached bounds keep the pre-rotation extent, and since the
+			// broadphase indexes the RENDERABLE's bounds rather than the
+			// body's, a rotated body was queried at the wrong size — the
+			// per-frame quadtree rebuild just re-read the same stale value.
+			if (typeof this.onBodyUpdate === "function") {
+				this.onBodyUpdate(this);
+			}
+		}
+		return this;
+	}
+
+	/**
+	 * cap the body velocity (body.maxVel property) to the specified value<br>
+	 * @param {number} x - max velocity on x axis
+	 * @param {number} y - max velocity on y axis
+	 * @param {number} [z] - max velocity on the depth axis; left unchanged when omitted, so existing two-argument calls keep their behaviour
+	 */
+	setMaxVelocity(x, y, z) {
+		this.maxVel.x = x;
+		this.maxVel.y = y;
+		if (typeof z !== "undefined") {
+			this.maxVelZ = z;
+		}
+	}
+
+	/**
+	 * set the body default friction
+	 * @param {number} x - horizontal friction
+	 * @param {number} y - vertical friction
+	 * @param {number} [z] - depth friction; left unchanged when omitted, so existing two-argument calls keep their behaviour
+	 */
+	setFriction(x = 0, y = 0, z) {
+		this.friction.x = x;
+		this.friction.y = y;
+		if (typeof z !== "undefined") {
+			this.frictionZ = z;
+		}
+	}
+
+	/**
+	 * Updates the parent's position as well as computes the new body's velocity based
+	 * on the values of force/friction.  Velocity changes are proportional to the
+	 * me.timer.tick value (which can be used to scale velocities).  The approach to moving the
+	 * parent renderable is to compute new values of the Body.vel property then add them to
+	 * the parent.pos value thus changing the position by the amount of Body.vel each time the
+	 * update call is made. <br>
+	 * Updates to Body.vel are bounded by {@link Body#maxVel}, which defaults to `<490,490>` <br>
+	 * At this time a call to Body.Update does not call the onBodyUpdate callback that is listed in the constructor arguments.
+	 * @protected
+	 * @returns {boolean} true if resulting velocity is different than 0
+	 */
+	update() {
+		// apply timer.tick to delta time for linear interpolation (when enabled)
+		// #761 add delta time in body update
+		const deltaTime = /* dt * */ timer.tick;
+
+		// apply force if defined
+		if (this.force.x !== 0) {
+			this.vel.x += this.force.x * deltaTime;
+		}
+		if (this.force.y !== 0) {
+			this.vel.y += this.force.y * deltaTime;
+		}
+		if (this.forceZ !== 0) {
+			this.velZ += this.forceZ * deltaTime;
+		}
+
+		// apply friction if defined
+		if (this.friction.x > 0) {
+			const fx = this.friction.x * deltaTime;
+			const nx = this.vel.x + fx;
+			const x = this.vel.x - fx;
+
+			this.vel.x = nx < 0 ? nx : x > 0 ? x : 0;
+		}
+		if (this.friction.y > 0) {
+			const fy = this.friction.y * deltaTime;
+			const ny = this.vel.y + fy;
+			const y = this.vel.y - fy;
+
+			this.vel.y = ny < 0 ? ny : y > 0 ? y : 0;
+		}
+		if (this.frictionZ > 0) {
+			const fz = this.frictionZ * deltaTime;
+			const nz = this.velZ + fz;
+			const z = this.velZ - fz;
+
+			this.velZ = nz < 0 ? nz : z > 0 ? z : 0;
+		}
+
+		// cap velocity
+		if (this.vel.y !== 0) {
+			this.vel.y = clamp(this.vel.y, -this.maxVel.y, this.maxVel.y);
+		}
+		if (this.vel.x !== 0) {
+			this.vel.x = clamp(this.vel.x, -this.maxVel.x, this.maxVel.x);
+		}
+		if (this.velZ !== 0) {
+			this.velZ = clamp(this.velZ, -this.maxVelZ, this.maxVelZ);
+		}
+
+		// check if falling / jumping
+		this.falling = this.vel.y * Math.sign(this.force.y) > 0;
+		this.jumping = this.falling ? false : this.jumping;
+
+		// update the body ancestor position.
+		//
+		// Folded into a single `set` rather than `add(this.vel)` followed by a
+		// separate z write: `pos` may be an ObservableVector3d, and a second
+		// write would fire a second change notification every frame for every
+		// body in the world. With `velZ` at its default 0 this computes
+		// exactly what `add(this.vel)` did — `add` already resolves the
+		// missing z of a Vector2d to 0.
+		this.ancestor.pos.set(
+			this.ancestor.pos.x + this.vel.x,
+			this.ancestor.pos.y + this.vel.y,
+			this.ancestor.pos.z + this.velZ,
+		);
+
+		// Angular integration — gated so bodies that never touch the
+		// rotation API pay zero cost. The instant either `angle` or
+		// `angularVelocity` becomes non-zero (via setAngle, setAngularVelocity,
+		// applyTorque, or applyForce-with-offset) the branch fires until
+		// both decay back to zero.
+		if (this.angularVelocity !== 0 || this.angle !== 0) {
+			if (this.angularDrag > 0 && this.angularVelocity !== 0) {
+				// Exponential decay matching `frictionAir`'s linear behavior:
+				// `omega *= (1 - drag)` each step. Negative drag is gated
+				// out (treated as "off") so a typo can't accidentally
+				// amplify rotation to infinity. Values > 1 still flip the
+				// sign each step — a documented foot-gun, since clamping
+				// would silently truncate a legitimate large damping value
+				// like 1.5 (which makes physical sense as "overdamped").
+				this.angularVelocity *= 1 - this.angularDrag;
+			}
+			this.angle += this.angularVelocity * deltaTime;
+			this._syncAngleTransform();
+		}
+
+		// returns true if vel is different from 0
+		return this.vel.x !== 0 || this.vel.y !== 0;
+	}
+
+	/**
+	 * Destroy function<br>
+	 * @ignore
+	 * @internal
+	 */
+	destroy() {
+		// push back instance into object pool.
+		//
+		// Guarded because `destroy` is reachable twice — a game calling it
+		// explicitly and then the container teardown calling it again, for
+		// instance. `this.shapes.length = 0` at the end already makes the shape
+		// loop below a no-op on the second pass, but these fields are set to
+		// `undefined` rather than emptied, so re-releasing them threw
+		// "Instance is already in pool" and aborted the teardown partway.
+		if (this.bounds !== undefined) {
+			boundsPool.release(this.bounds);
+		}
+		if (this.vel !== undefined) {
+			vector2dPool.release(this.vel);
+		}
+		if (this.force !== undefined) {
+			vector2dPool.release(this.force);
+		}
+		if (this.friction !== undefined) {
+			vector2dPool.release(this.friction);
+		}
+		if (this.maxVel !== undefined) {
+			vector2dPool.release(this.maxVel);
+		}
+		this.shapes.forEach((shape) => {
+			// Scrub the per-shape collision settings before the instance goes
+			// back to a pool (#1590). The pools' reset restores only geometry,
+			// so a recycled shape would otherwise arrive at its next owner
+			// still carrying this body's mask or `isTrigger` — and for a shape
+			// handed straight to `addShape` there is no separate source object
+			// to correct it from. Cleaning up on release is the only point
+			// where the engine still knows the values are stale.
+			shape.collisionType = undefined;
+			shape.collisionMask = undefined;
+			shape.isTrigger = false;
+			shape.isActive = true;
+			// cleared too, so the next owner gets a fresh contact identity rather
+			// than inheriting one that a live contact may still be keyed on (#1596)
+			shape._contactId = undefined;
+			if (shape instanceof Point) {
+				pointPool.release(shape);
+			} else if (shape instanceof Line) {
+				linePool.release(shape);
+			} else if (shape instanceof RoundRect) {
+				// BEFORE the Polygon branch, like Line above: `RoundRect`
+				// extends `Polygon` too, and `addShape` stores it as-is rather
+				// than converting it the way it converts a `Rect`. Caught by
+				// the Polygon branch it went back to `polygonPool`, so the next
+				// `polygonPool.get()` handed out a RoundRect wearing a
+				// Polygon's name, carrying its radius and its overrides.
+				roundedRectanglePool.release(shape);
+			} else if (shape instanceof Polygon) {
+				polygonPool.release(shape);
+			} else if (shape instanceof Ellipse) {
+				ellipsePool.release(shape);
+			} else if (shape instanceof Sphere) {
+				spherePool.release(shape);
+			} else if (shape instanceof Box3d) {
+				box3dPool.release(shape);
+			}
+			// No fallback branch, deliberately. `addShape` can only ever store
+			// a Polygon (Line, RoundRect and user subclasses included), an
+			// Ellipse, a Point, a Box3d or a Sphere: a Rect and a Bounds are
+			// converted on the way in, and anything else is refused there
+			// rather than stored. Every one of those is caught above, so an
+			// `else` here would be unreachable. It used to hand the shape to the legacy
+			// `pool.push`, which THROWS for any class never `pool.register`ed,
+			// and since `boundsPool.release` has already run by this point the
+			// throw aborted `destroy` partway and left the body holding a
+			// recycled Bounds that died somewhere unrelated. The Ellipse and
+			// Box3d branches above were each added to dodge exactly that.
+		});
+
+		// set to undefined
+		this.onBodyUpdate = undefined;
+		this.ancestor = undefined;
+		this.bounds = undefined;
+		this.vel = undefined;
+		this.force = undefined;
+		this.friction = undefined;
+		this.maxVel = undefined;
+		this.shapes.length = 0;
+
+		// reset some variable to default
+		this.setStatic(false);
+	}
+}

@@ -1,0 +1,169 @@
+/**
+ * melonJS — 3D mesh + Matrix3d rendering example.
+ * Copyright (C) 2011 - 2026 AltByte Pte Ltd — MIT License.
+ * See `packages/examples/LICENSE.md` for full license + asset credits.
+ */
+import { DebugPanelPlugin } from "@melonjs/debug-plugin";
+import {
+	Application,
+	type CanvasRenderer,
+	loader,
+	Mesh,
+	plugin,
+	Renderable,
+	Sprite,
+	Stage,
+	state,
+	Vector3d,
+	video,
+	type WebGLRenderer,
+} from "melonjs";
+import galaxyImg from "../sprite/assets/galaxy.png";
+import { createExampleComponent } from "../utils";
+
+const base = `${import.meta.env.BASE_URL}assets/mesh3d/`;
+
+const createGame = async () => {
+	// mesh3d uses `me.Mesh`, which needs a GPU backend. `video.AUTO`
+	// negotiates WebGPU first, then WebGL 2; only a browser with neither
+	// lands on Canvas — fail loudly there instead of rendering a broken
+	// scene with no signal.
+	let app: Application;
+	try {
+		app = new Application(1024, 768, {
+			parent: "screen",
+			renderer: video.AUTO,
+			scale: "auto",
+		});
+		await app.init();
+		if (!app.renderer.supportsDepthBuffer) {
+			throw new Error("no GPU backend available (Canvas fallback)");
+		}
+	} catch (err) {
+		const reason = err instanceof Error ? err.message : String(err);
+		globalThis.alert(
+			"This example couldn't start: no GPU rendering is available in this browser.\n\n" +
+				"The 3D mesh rendering used by this showcase requires a WebGPU- or " +
+				"WebGL-capable browser/GPU. Try enabling hardware acceleration in your " +
+				"browser settings, or open this example in a different browser.\n\n" +
+				`Details: ${reason}`,
+		);
+		throw err;
+	}
+
+	app.world.backgroundColor.parseCSS("#1a1a2e");
+	plugin.register(DebugPanelPlugin, "debugPanel");
+
+	await loader.preload([
+		{ name: "galaxy", type: "image", src: galaxyImg },
+		{
+			name: "checkerboard",
+			type: "image",
+			src: `${base}checkerboard.png`,
+		},
+		{ name: "cube", type: "obj", src: `${base}cube.obj` },
+		{ name: "sphere", type: "obj", src: `${base}sphere.obj` },
+		{ name: "teapot", type: "obj", src: `${base}teapot.obj` },
+	]);
+
+	// The scene goes in a Stage of its own, and the example switches to it
+	// once the assets are in.
+	//
+	// Building it in the preload callback instead leaves the game running in
+	// `state.LOADING` forever — that stage is transitional by definition, and
+	// nothing ever destroys it, so the built-in loading screen's logo and
+	// progress bar stay on top of the scene for good.
+	class MeshScene extends Stage {
+		private select?: HTMLSelectElement;
+
+		override onResetEvent(app: Application) {
+			// 2D background sprite
+			const bg = new Sprite(512, 384, {
+				image: "galaxy",
+				anchorPoint: { x: 0.5, y: 0.5 },
+			});
+			bg.setOpacity(0.6);
+			app.world.addChild(bg, 0);
+
+			const shapes = ["cube", "sphere", "teapot"];
+			const axisX = new Vector3d(1, 0, 0);
+			const axisY = new Vector3d(0, 1, 0);
+
+			class RotatingMesh extends Renderable {
+				mesh: Mesh;
+
+				constructor(shape: string) {
+					super(0, 0, 1024, 768);
+					this.anchorPoint.set(0, 0);
+					this.mesh = this.createMesh(shape);
+				}
+
+				createMesh(shape: string) {
+					return new Mesh(512, 384, {
+						model: shape,
+						texture: "checkerboard",
+						width: 350,
+						height: 350,
+						cullBackFaces: true,
+					});
+				}
+
+				switchShape(shape: string) {
+					this.mesh = this.createMesh(shape);
+				}
+
+				override update(dt: number) {
+					this.mesh.rotate(dt * 0.001, axisY);
+					this.mesh.rotate(dt * 0.0005, axisX);
+					return true;
+				}
+
+				override draw(renderer: WebGLRenderer | CanvasRenderer) {
+					this.mesh.preDraw(renderer);
+					this.mesh.draw(renderer);
+					this.mesh.postDraw(renderer);
+				}
+			}
+
+			const rotatingMesh = new RotatingMesh("cube");
+			app.world.addChild(rotatingMesh, 1);
+
+			// dropdown to switch shapes
+			const select = document.createElement("select");
+			select.style.cssText =
+				"position:absolute;top:110px;left:16px;padding:6px 12px;" +
+				"font-size:14px;background:#1a1a1a;color:#e0e0e0;border:1px solid #444;" +
+				"border-radius:4px;z-index:1000;cursor:pointer;";
+
+			for (const name of shapes) {
+				const opt = document.createElement("option");
+				opt.value = name;
+				opt.textContent = name.charAt(0).toUpperCase() + name.slice(1);
+				select.appendChild(opt);
+			}
+
+			select.addEventListener("change", () => {
+				rotatingMesh.switchShape(select.value);
+			});
+
+			const parent = app.renderer.getCanvas().parentElement;
+			if (parent) {
+				parent.style.position = "relative";
+				parent.appendChild(select);
+			}
+			this.select = select;
+		}
+
+		override onDestroyEvent() {
+			// the dropdown is ours and lives outside the canvas, so the world
+			// teardown does not reach it
+			this.select?.remove();
+			this.select = undefined;
+		}
+	}
+
+	state.set(state.PLAY, new MeshScene());
+	state.change(state.PLAY);
+};
+
+export const ExampleMesh3d = createExampleComponent(createGame);

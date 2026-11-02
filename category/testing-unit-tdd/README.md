@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Curated Skills**: 432 skills  
+> **Total Curated Skills**: 433 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -76,10 +76,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`building-patch-tuesday-response-process`](../../library/mukul975-anthropic-cybersecurity-skills/skills/building-patch-tuesday-response-process) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Establish a repeatable operational process for triaging, testing, and |
 | [`building-screening-rubrics`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/building-screening-rubrics) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Collaboratively build and refine paper screening rubrics through brainstorming, test-driven dev... |
 | [`capacity-plan`](../../library/anthropics-knowledge-work/skills/capacity-plan) | ⚪ Reserve | `anthropics-knowledge-work` | Plan resource capacity — workload analysis and utilization forecasting. Use when heading into q... |
-| [`ce-compound`](../../library/everyinc-compound-engineering-plugin/skills/ce-compound) | ⚪ Reserve | `everyinc-compound-engineering-plugin` | Document a solved problem as a durable repo learning. Use when verified work produced non-obvio... |
 | [`ce-retune`](../../library/everyinc-compound-engineering-plugin/skills/ce-retune) | ⚪ Reserve | `everyinc-compound-engineering-plugin` | Retune a skill corpus for a new model, measurement-first: mine the run archive for a baseline, ... |
 | [`ce-simplify-code`](../../library/everyinc-compound-engineering-plugin/skills/ce-simplify-code) | ⚪ Reserve | `everyinc-compound-engineering-plugin` | Simplify code for clarity, reuse, quality, and efficiency while preserving behavior, and prune ... |
 | [`check-identity-pack`](../../library/sickn33-agentic-awesome-skills/skills/check-identity-pack) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Run an AFP 100-point or AUSTRAC safe-harbour identity check over a set of documents, and report... |
+| [`childhood`](../../library/thedotmack-claude-mem/skills/childhood) | ⚪ Reserve | `thedotmack-claude-mem` | Babysit a shipped release after merge, publication, or deployment. Verify published packages, p... |
 | [`cis-benchmarks`](../../library/sickn33-agentic-awesome-skills/skills/cis-benchmarks) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Audit and remediate CIS benchmark violations. |
 | [`clawhub`](../../library/openclaw-openclaw/skills/clawhub) | ⚪ Reserve | `openclaw-openclaw` | Search ClawHub for plugins by default, or skills when explicitly requested; install, verify, up... |
 | [`clerk-webhooks`](../../library/clerk-skills/skills/clerk-webhooks) | ⚪ Reserve | `clerk-skills` | Clerk webhooks for real-time events and data syncing. Verify with verifyWebhook |
@@ -244,6 +244,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mirrord`](../../library/metalbear-co-mirrord/skills/mirrord) | ⚪ Reserve | `metalbear-co-mirrord` | Injects artificial latency and connection errors into mirrord sessions to test application beha... |
 | [`mirrord-chaos`](../../library/metalbear-co-mirrord/skills/mirrord-chaos) | ⚪ Reserve | `metalbear-co-mirrord` | Help users chaos test their app with mirrord: inject artificial latency or connection errors in... |
 | [`mocking-stubbing`](../../library/aj-geddes-useful-ai-prompts/skills/mocking-stubbing) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Create and manage mocks, stubs, spies, and test doubles for isolating unit tests from external ... |
+| [`mode-creator`](../../library/thedotmack-claude-mem/skills/mode-creator) | ⚪ Reserve | `thedotmack-claude-mem` | Interactively create, install, activate, and verify custom claude-mem modes, including domain-s... |
 | [`model-supply-chain-security`](../../library/sickn33-agentic-awesome-skills/skills/model-supply-chain-security) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Secure the AI model supply chain with artifact signing, provenance attestation, |
 | [`momentic-maintain`](../../library/momentic-ai-skills/skills/momentic-maintain) | ⚪ Reserve | `momentic-ai-skills` | Diagnose, classify, triage, and repair failing Momentic tests with MCP run |
 | [`momentic-result-classification`](../../library/momentic-ai-skills/skills/momentic-result-classification) | ⚪ Reserve | `momentic-ai-skills` | Classify or explain Momentic test run results using Momentic MCP tools. |

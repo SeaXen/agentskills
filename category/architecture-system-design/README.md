@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Curated Skills**: 642 skills  
+> **Total Curated Skills**: 645 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -387,6 +387,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`java-pro`](../../library/antigravity-awesome-skills/skills/java-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master Java 21+ with modern features like virtual threads, pattern |
 | [`javascript-mastery`](../../library/antigravity-awesome-skills/skills/javascript-mastery) | ⚪ Reserve | `antigravity-awesome-skills` | Comprehensive JavaScript reference covering 33+ essential concepts every developer should know.... |
 | [`javascript-pro`](../../library/antigravity-awesome-skills/skills/javascript-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master modern JavaScript with ES6+, async patterns, and Node.js |
+| [`knowledge-agent`](../../library/thedotmack-claude-mem/skills/knowledge-agent) | ⚪ Reserve | `thedotmack-claude-mem` | Build and query AI-powered knowledge bases from claude-mem observations. Use when users want to... |
 | [`landing-page-design`](../../library/101-skills-superpowers/skills/landing-page-design) | ⚪ Reserve | `101-skills-superpowers` | Landing page conversion optimization with layout rules, hero section design, and CTA psychology... |
 | [`langchain-architecture`](../../library/antigravity-awesome-skills/skills/langchain-architecture) | ⚪ Reserve | `antigravity-awesome-skills` | Design LLM applications using the LangChain framework with agents, memory, and tool integration... |
 | [`langsmith-fetch`](../../library/composio-community-awesome-codex-skills/skills/langsmith-fetch) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use wh... |
@@ -415,6 +416,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`market-pattern`](../../library/ruvnet-ruflo/skills/market-pattern) | ⚪ Reserve | `ruvnet-ruflo` | Detect and classify candlestick patterns from ingested OHLCV data |
 | [`mechanistic-interpretability-nnsight`](../../library/davila7-claude-code-templates/skills/mechanistic-interpretability-nnsight) | ⚪ Reserve | `davila7-claude-code-templates` | Provides guidance for interpreting and manipulating neural network internals using nnsight with... |
 | [`mechanistic-interpretability-transformer-lens`](../../library/davila7-claude-code-templates/skills/mechanistic-interpretability-transformer-lens) | ⚪ Reserve | `davila7-claude-code-templates` | Provides guidance for mechanistic interpretability research using TransformerLens to inspect an... |
+| [`melonjs-sprites-and-animation`](../../library/melonjs-melonjs/skills/melonjs-sprites-and-animation) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when creating sprites, playing frame animations, or working with texture atlases... |
+| [`melonjs-ui-and-text`](../../library/melonjs-melonjs/skills/melonjs-ui-and-text) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for HUDs, buttons, menus, options screens, dialogue panels, progress bars and on... |
 | [`memory-systems`](../../library/antigravity-awesome-skills/skills/memory-systems) | ⚪ Reserve | `antigravity-awesome-skills` | Design short-term, long-term, and graph-based memory architectures |
 | [`messaging`](../../library/codewithmukesh-dotnet-claude-kit/skills/messaging) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Asynchronous messaging patterns for .NET applications. Covers Wolverine and MassTransit, outbox... |
 | [`micronaut`](../../library/mindrally-skills/skills/micronaut) | ⚪ Reserve | `mindrally-skills` | Expert guidance for Micronaut framework development with compile-time dependency injection, Gra... |

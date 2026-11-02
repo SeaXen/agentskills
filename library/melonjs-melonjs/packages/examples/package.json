@@ -1,0 +1,32 @@
+{
+	"name": "examples",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"backends": "node scripts/backends.mjs",
+		"sprites": "node scripts/generate-physics-shape-sprites.mjs",
+		"test:types": "tsc"
+	},
+	"dependencies": {
+		"@melonjs/debug-plugin": "workspace:*",
+		"@melonjs/gamepad-plugin": "workspace:*",
+		"@melonjs/matter-adapter": "workspace:*",
+		"@melonjs/planck-adapter": "workspace:*",
+		"@melonjs/spine-plugin": "workspace:*",
+		"@melonjs/tiled-inflate-plugin": "workspace:*",
+		"@types/react": "^19.2.17",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^6.0.4",
+		"ace-builds": "^1.44.0",
+		"melonjs": "workspace:^",
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
+		"react-router-dom": "^7.18.1",
+		"tsconfig": "workspace:^",
+		"typescript": "^6.0.2",
+		"vite": "8.1.5"
+	}
+}

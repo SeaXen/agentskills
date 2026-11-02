@@ -1,0 +1,1028 @@
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { Application, boot, Container, Sprite, video } from "../src/index.js";
+import Renderer from "../src/video/renderer.js";
+
+describe("Sprite", () => {
+	let container;
+	let sprite;
+
+	beforeAll(async () => {
+		boot();
+		const app = new Application(800, 600, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.CANVAS,
+		});
+		await app.init();
+
+		container = new Container(50, 50, 150, 150);
+		sprite = new Sprite(0, 0, {
+			framewidth: 32,
+			frameheight: 32,
+			image: Renderer.createCanvas(64, 64),
+			anchorPoint: { x: 0, y: 0 },
+		});
+
+		// add to a parent container
+		container.addChild(sprite);
+	});
+
+	afterAll(() => {
+		container.removeChild(sprite);
+	});
+
+	describe("isAttachedToRoot", () => {
+		it("Sprite bounds return the visible part of the sprite", () => {
+			const bounds = sprite.getBounds();
+			expect(
+				bounds.x === 50 &&
+					bounds.y === 50 &&
+					bounds.width === 32 &&
+					bounds.height === 32,
+			).toEqual(true);
+		});
+
+		it("Sprite bounds should be updated when the sprite is scaled", () => {
+			let bounds = sprite.getBounds();
+			sprite.scale(2.0);
+			expect(
+				bounds.x === 50 &&
+					bounds.y === 50 &&
+					bounds.width === 64 &&
+					bounds.height === 64,
+			).toEqual(true);
+
+			bounds = sprite.getBounds();
+			// scale back to original size
+			sprite.scale(0.5);
+			expect(
+				bounds.x === 50 &&
+					bounds.y === 50 &&
+					bounds.width === 32 &&
+					bounds.height === 32 &&
+					bounds.width === 32 &&
+					bounds.height === 32,
+			).toEqual(true);
+		});
+
+		it("Sprite bounds should be updated when the anchor is changed", () => {
+			let bounds = sprite.getBounds();
+			sprite.anchorPoint.set(0, 1);
+			expect(
+				// container pos + 0, container pos - sprite size
+				bounds.x === 50 + 0 && bounds.y === 50 - 32,
+			).toEqual(true);
+
+			bounds = sprite.getBounds();
+			sprite.anchorPoint.set(0.5, 0.5);
+			expect(
+				// container pos - half sprite size, container pos - half sprite size
+				bounds.x === 50 - 16 && bounds.y === 50 - 16,
+			).toEqual(true);
+
+			bounds = sprite.getBounds();
+			sprite.anchorPoint.set(1, 0);
+			expect(
+				// container pos - sprite size, container pos + 0
+				bounds.x === 50 - 32 && bounds.y === 50 + 0,
+			).toEqual(true);
+
+			bounds = sprite.getBounds();
+			sprite.anchorPoint.set(1, 1);
+			expect(
+				// container pos - sprite size, container pos - sprite size
+				bounds.x === 50 - 32 && bounds.y === 50 - 32,
+			).toEqual(true);
+		});
+
+		it("Sprite addAnimation should return the correct amount of frame", () => {
+			expect(sprite.addAnimation("test", [0, 1])).toEqual(2);
+			expect(sprite.addAnimation("test2", [0, 1, 0, 1, 0])).toEqual(5);
+		});
+
+		it("Sprite reverseAnimation should return the correct amount of frame", () => {
+			sprite.setCurrentAnimation("test");
+			sprite.anchorPoint.set(1, 1);
+			expect(
+				// container pos - sprite size, container pos - sprite size
+				sprite.anim["test"].frames[0].name === 0 &&
+					sprite.anim["test"].frames[1].name === 1,
+			).toEqual(true);
+
+			sprite.reverseAnimation("test");
+			sprite.anchorPoint.set(1, 1);
+			expect(
+				// container pos - sprite size, container pos - sprite size
+				sprite.anim["test"].frames[0].name === 1 &&
+					sprite.anim["test"].frames[1].name === 0,
+			).toEqual(true);
+
+			sprite.reverseAnimation();
+			sprite.anchorPoint.set(1, 1);
+			expect(
+				// container pos - sprite size, container pos - sprite size
+				sprite.anim["test"].frames[0].name === 0 &&
+					sprite.anim["test"].frames[1].name === 1,
+			).toEqual(true);
+		});
+
+		it("Sprite isCurrentAnimation allows to verify which animation is set", () => {
+			expect(sprite.addAnimation("yoyo", [1, 0, 1, 0], 60)).toEqual(4);
+
+			sprite.setCurrentAnimation("test");
+			expect(sprite.isCurrentAnimation("test")).toEqual(true);
+
+			sprite.setCurrentAnimation("yoyo", "test");
+			expect(
+				sprite.isCurrentAnimation("test") === false &&
+					sprite.isCurrentAnimation("yoyo") === true,
+			).toEqual(true);
+
+			for (let i = -1; i < 8; i++) {
+				sprite.update(16);
+			}
+			expect(sprite.isCurrentAnimation("yoyo")).toEqual(true);
+
+			for (let j = -1; j < 8; j++) {
+				sprite.update(16);
+			}
+			expect(
+				sprite.isCurrentAnimation("test") === true &&
+					sprite.isCurrentAnimation("yoyo") === false,
+			).toEqual(true);
+		});
+	});
+
+	describe("normalMap", () => {
+		it("defaults to null when no normalMap is provided", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			expect(s.normalMap).toBeNull();
+		});
+
+		it("accepts an image-like value passed via settings", () => {
+			const normal = Renderer.createCanvas(16, 16);
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: normal,
+			});
+			expect(s.normalMap).toBe(normal);
+		});
+
+		it("accepts an image-like value assigned after construction", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			const normal = Renderer.createCanvas(32, 32);
+			s.normalMap = normal;
+			expect(s.normalMap).toBe(normal);
+		});
+
+		it("accepts null to clear an existing normal map", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: Renderer.createCanvas(16, 16),
+			});
+			expect(s.normalMap).not.toBeNull();
+			s.normalMap = null;
+			expect(s.normalMap).toBeNull();
+		});
+
+		it("rejects non-image values with TypeError", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			expect(() => {
+				s.normalMap = 42;
+			}).toThrow(TypeError);
+			expect(() => {
+				s.normalMap = "not-an-image";
+			}).toThrow(TypeError);
+			expect(() => {
+				s.normalMap = { foo: "bar" };
+			}).toThrow(TypeError);
+			// the failed assignments must not have mutated state
+			expect(s.normalMap).toBeNull();
+		});
+
+		it("rejects an object with non-numeric width/height", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			expect(() => {
+				s.normalMap = { width: "32", height: "32" };
+			}).toThrow(TypeError);
+		});
+
+		it("accepts undefined to clear (same as null)", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: Renderer.createCanvas(16, 16),
+			});
+			expect(s.normalMap).not.toBeNull();
+			s.normalMap = undefined;
+			expect(s.normalMap).toBeNull();
+		});
+
+		it("re-assignment replaces the previous value", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			const a = Renderer.createCanvas(8, 8);
+			const b = Renderer.createCanvas(16, 16);
+			s.normalMap = a;
+			expect(s.normalMap).toBe(a);
+			s.normalMap = b;
+			expect(s.normalMap).toBe(b);
+		});
+
+		it("a failed setter assignment must not mutate the previous value", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			const valid = Renderer.createCanvas(8, 8);
+			s.normalMap = valid;
+			expect(() => {
+				s.normalMap = "broken";
+			}).toThrow(TypeError);
+			// previous value preserved
+			expect(s.normalMap).toBe(valid);
+		});
+
+		it("rejects boolean, array, and function", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			expect(() => {
+				s.normalMap = true;
+			}).toThrow(TypeError);
+			expect(() => {
+				s.normalMap = false;
+			}).toThrow(TypeError);
+			expect(() => {
+				s.normalMap = [1, 2, 3];
+			}).toThrow(TypeError);
+			expect(() => {
+				s.normalMap = () => {};
+			}).toThrow(TypeError);
+		});
+
+		it("constructor: settings.normalMap = null is a no-op (not a throw)", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: null,
+			});
+			expect(s.normalMap).toBeNull();
+		});
+
+		it("constructor: settings.normalMap = undefined is a no-op", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: undefined,
+			});
+			expect(s.normalMap).toBeNull();
+		});
+
+		it("constructor: missing settings.normalMap key defaults to null", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			expect(s.normalMap).toBeNull();
+		});
+
+		it("constructor: unknown loader key throws a descriptive error", () => {
+			expect(() => {
+				return new Sprite(0, 0, {
+					framewidth: 16,
+					frameheight: 16,
+					image: Renderer.createCanvas(16, 16),
+					normalMap: "definitely-not-loaded-anywhere",
+				});
+			}).toThrow(/normal map image not found/);
+		});
+
+		it("constructor: settings.normalMap = boolean rejected with TypeError (no coercion)", () => {
+			// Pre-fix, booleans/numbers fell through to `getImage(value)`
+			// which coerces to a string and throws "image not found" — a
+			// confusing error. Now rejected loudly with a TypeError.
+			expect(() => {
+				return new Sprite(0, 0, {
+					framewidth: 16,
+					frameheight: 16,
+					image: Renderer.createCanvas(16, 16),
+					normalMap: true,
+				});
+			}).toThrow(TypeError);
+		});
+
+		it("constructor: settings.normalMap = number rejected with TypeError", () => {
+			expect(() => {
+				return new Sprite(0, 0, {
+					framewidth: 16,
+					frameheight: 16,
+					image: Renderer.createCanvas(16, 16),
+					normalMap: 42,
+				});
+			}).toThrow(TypeError);
+		});
+
+		it("constructor: settings.normalMap = bad object propagates the setter TypeError", () => {
+			expect(() => {
+				return new Sprite(0, 0, {
+					framewidth: 16,
+					frameheight: 16,
+					image: Renderer.createCanvas(16, 16),
+					normalMap: { foo: 1 },
+				});
+			}).toThrow(TypeError);
+		});
+	});
+
+	describe("Sprite.preDraw/draw/postDraw + renderer.currentNormalMap state", () => {
+		// Stub renderer that captures `currentNormalMap` at the moment
+		// `drawImage` is called. Verifies Sprite routes the normal-map
+		// through renderer state via the `preDraw` → `draw` → `postDraw`
+		// lifecycle (the same convention `setTint` / `clearTint` follow).
+		// `drawImage` itself stays signature-stable.
+		function makeStub() {
+			const calls = { normalMapAtDrawImage: [], finalState: null };
+			const noop = () => {};
+			const stub = {
+				currentNormalMap: null,
+				drawImage: function () {
+					calls.normalMapAtDrawImage.push(this.currentNormalMap);
+				},
+				// the rest is what `Renderable.preDraw`/`postDraw` touches —
+				// no-op stubs are enough to let the lifecycle run end-to-end
+				save: noop,
+				restore: noop,
+				translate: noop,
+				scale: noop,
+				transform: noop,
+				setGlobalAlpha: noop,
+				globalAlpha: () => {
+					return 1;
+				},
+				setTint: noop,
+				clearTint: noop,
+				setDepth: noop,
+				setMask: noop,
+				clearMask: noop,
+				setBlendMode: noop,
+				getBlendMode: () => {
+					return "normal";
+				},
+				beginPostEffect: noop,
+				endPostEffect: noop,
+			};
+			return { stub, calls };
+		}
+
+		// run the full draw lifecycle the way the engine does
+		function fullDraw(sprite, stub) {
+			sprite.preDraw(stub);
+			sprite.draw(stub);
+			sprite.postDraw(stub);
+		}
+
+		it("Sprite without normalMap leaves currentNormalMap unchanged", () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			const { stub, calls } = makeStub();
+			fullDraw(s, stub);
+			expect(calls.normalMapAtDrawImage).toEqual([null]);
+			expect(stub.currentNormalMap).toBeNull();
+		});
+
+		it("Sprite with normalMap sets currentNormalMap during drawImage and clears after postDraw", () => {
+			const normal = Renderer.createCanvas(16, 16);
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: normal,
+			});
+			const { stub, calls } = makeStub();
+			fullDraw(s, stub);
+			expect(calls.normalMapAtDrawImage).toEqual([normal]);
+			// cleared by postDraw so the next un-lit sprite isn't
+			// accidentally lit
+			expect(stub.currentNormalMap).toBeNull();
+		});
+
+		it("two Sprites in sequence — first lit, second unlit — state isolated", () => {
+			const normal = Renderer.createCanvas(16, 16);
+			const lit = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: normal,
+			});
+			const unlit = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+			});
+			const { stub, calls } = makeStub();
+			fullDraw(lit, stub);
+			fullDraw(unlit, stub);
+			expect(calls.normalMapAtDrawImage).toEqual([normal, null]);
+		});
+
+		it("destroy() drops the normal-map reference (mirrors how `image` is cleared)", () => {
+			const normal = Renderer.createCanvas(16, 16);
+			const s = new Sprite(0, 0, {
+				framewidth: 16,
+				frameheight: 16,
+				image: Renderer.createCanvas(16, 16),
+				normalMap: normal,
+			});
+			expect(s.normalMap).toBe(normal);
+			s.destroy();
+			expect(s.normalMap).toBeNull();
+		});
+
+		// integration: the shared FrameAnimation engine must drive the actual
+		// draw — advancing a frame must change the source rect handed to drawImage
+		it("animation advances the source frame fed to drawImage (update → draw)", () => {
+			// 128×32 sheet, 32px frames → frame i sourced at sx = i * 32
+			const s = new Sprite(0, 0, {
+				framewidth: 32,
+				frameheight: 32,
+				image: Renderer.createCanvas(128, 32),
+			});
+			s.addAnimation("walk", [0, 1, 2, 3], 100);
+			s.setCurrentAnimation("walk");
+
+			const noop = () => {};
+			const sx = [];
+			const stub = {
+				drawImage: (_img, sxArg) => {
+					return sx.push(sxArg);
+				},
+				save: noop,
+				restore: noop,
+				translate: noop,
+				scale: noop,
+				transform: noop,
+				rotate: noop,
+				setGlobalAlpha: noop,
+				globalAlpha: () => {
+					return 1;
+				},
+				setTint: noop,
+				clearTint: noop,
+				setDepth: noop,
+				setMask: noop,
+				clearMask: noop,
+				setBlendMode: noop,
+				getBlendMode: () => {
+					return "normal";
+				},
+				beginPostEffect: noop,
+				endPostEffect: noop,
+				currentNormalMap: null,
+			};
+			const drawOnce = () => {
+				s.preDraw(stub);
+				s.draw(stub);
+				s.postDraw(stub);
+			};
+
+			drawOnce(); // frame 0 → sx 0
+			s.update(100);
+			drawOnce(); // frame 1 → sx 32
+			s.update(100);
+			drawOnce(); // frame 2 → sx 64
+			expect(sx).toEqual([0, 32, 64]);
+		});
+	});
+
+	describe("animation API (options + speed)", () => {
+		// fresh 4-frame sprite (64×64 image / 32px frames = indices 0..3),
+		// isolated from the shared `sprite` above
+		const makeSprite = () => {
+			const s = new Sprite(0, 0, {
+				framewidth: 32,
+				frameheight: 32,
+				image: Renderer.createCanvas(64, 64),
+			});
+			s.addAnimation("a", [0, 1, 2, 3], 100); // 4 frames, 100ms each
+			s.addAnimation("b", [0, 1], 100);
+			return s;
+		};
+
+		// ── addAnimation frame delay defaulting ────────────────────────────
+
+		it("addAnimation defaults each frame delay to animationspeed", () => {
+			const s = makeSprite();
+			// no per-call speed → falls back to the sprite's animationspeed (100)
+			s.addAnimation("def", [0, 1]);
+			expect(s.anim["def"].frames[0].delay).toBe(100);
+			expect(s.anim["def"].frames[1].delay).toBe(100);
+		});
+
+		it("addAnimation honors a sprite-level animationspeed override", () => {
+			const s = makeSprite();
+			s.animationspeed = 250; // flows through the accessor to the engine
+			s.addAnimation("slow", [0, 1]);
+			expect(s.anim["slow"].frames[0].delay).toBe(250);
+			// an explicit per-call speed still wins over the default
+			s.addAnimation("fast", [0, 1], 30);
+			expect(s.anim["fast"].frames[0].delay).toBe(30);
+		});
+
+		// ── legacy forms must keep working (non-breaking) ──────────────────
+
+		it("legacy: loops by default", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.update(400); // one full cycle → wraps to frame 0
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+			expect(s.isCurrentAnimation("a")).toBe(true);
+		});
+
+		it("legacy: a string 2nd arg chains to the next animation", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a", "b");
+			s.update(400);
+			expect(s.isCurrentAnimation("b")).toBe(true);
+		});
+
+		it("legacy: a function returning false holds the last frame (called once)", () => {
+			const s = makeSprite();
+			let calls = 0;
+			s.setCurrentAnimation("a", () => {
+				calls++;
+				return false;
+			});
+			s.update(400);
+			expect(s.getCurrentAnimationFrame()).toBe(3); // held at last frame
+			expect(calls).toBe(1);
+		});
+
+		it("legacy: a function returning truthy keeps looping (called each cycle)", () => {
+			const s = makeSprite();
+			let calls = 0;
+			s.setCurrentAnimation("a", () => {
+				calls++;
+				return true;
+			});
+			s.update(400);
+			s.update(400);
+			expect(calls).toBe(2);
+			expect(s.isCurrentAnimation("a")).toBe(true);
+		});
+
+		// ── new options-object form ────────────────────────────────────────
+
+		it("options loop:false plays once, holds the last frame, fires onComplete once", () => {
+			const s = makeSprite();
+			let done = 0;
+			s.setCurrentAnimation("a", {
+				loop: false,
+				onComplete: () => {
+					done++;
+				},
+			});
+			s.update(400); // completes
+			expect(s.getCurrentAnimationFrame()).toBe(3);
+			expect(done).toBe(1);
+			// must NOT advance or re-fire afterwards
+			s.update(400);
+			s.update(400);
+			expect(done).toBe(1);
+			expect(s.getCurrentAnimationFrame()).toBe(3);
+		});
+
+		it("options onComplete (looping) fires every cycle", () => {
+			const s = makeSprite();
+			let n = 0;
+			s.setCurrentAnimation("a", {
+				onComplete: () => {
+					n++;
+				},
+			});
+			s.update(400);
+			s.update(400);
+			expect(n).toBe(2);
+			expect(s.isCurrentAnimation("a")).toBe(true);
+		});
+
+		it("options next chains, firing onComplete first", () => {
+			const s = makeSprite();
+			const order = [];
+			s.setCurrentAnimation("a", {
+				next: "b",
+				onComplete: () => {
+					return order.push("done");
+				},
+			});
+			s.update(400);
+			expect(s.isCurrentAnimation("b")).toBe(true);
+			expect(order).toEqual(["done"]);
+		});
+
+		it("options speed:2 advances twice as fast", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a", { speed: 2 });
+			s.update(50); // 50 × 2 = 100 effective → one frame
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+
+		it("options speed:0.5 advances half as fast", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a", { speed: 0.5 });
+			s.update(100); // 100 × 0.5 = 50 < 100 → no advance
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+			s.update(100); // cumulative 100 → advance one frame
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+
+		it("getAnimationNames returns every defined animation", () => {
+			// the Sprite constructor auto-defines a "default" animation
+			expect(makeSprite().getAnimationNames().sort()).toEqual([
+				"a",
+				"b",
+				"default",
+			]);
+		});
+
+		// ── adversarial ────────────────────────────────────────────────────
+
+		it("ADVERSARIAL: a play-once animation un-sticks when another is selected", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a", { loop: false });
+			s.update(400); // done + held
+			s.setCurrentAnimation("b"); // switch
+			// `_animDone` is the internal hold flag, now owned by the shared engine
+			expect(s._frameAnim._animDone).toBe(false);
+			s.update(100);
+			expect(s.isCurrentAnimation("b")).toBe(true);
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+
+		it("ADVERSARIAL: speed resets to 1 when switching without a speed option", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a", { speed: 4 });
+			s.setCurrentAnimation("b"); // no speed → back to 1×
+			s.update(50); // 50 < 100 at 1× → no advance
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+		});
+
+		it("ADVERSARIAL: speed:0 freezes the animation", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a", { speed: 0 });
+			s.update(1000);
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+		});
+
+		it("ADVERSARIAL: options onComplete return value is ignored (only the legacy fn holds)", () => {
+			const s = makeSprite();
+			// returning false from onComplete must NOT hold — only the legacy
+			// bare-function form has that contract
+			s.setCurrentAnimation("a", {
+				onComplete: () => {
+					return false;
+				},
+			});
+			s.update(400);
+			expect(s.isCurrentAnimation("a")).toBe(true); // still looping
+			expect(s.getCurrentAnimationFrame()).toBe(0); // wrapped, not held
+		});
+
+		it("ADVERSARIAL: animationpause halts the options path too", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a", { loop: true });
+			s.animationpause = true;
+			s.update(400);
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+		});
+
+		it("ADVERSARIAL: re-selecting the SAME animation is a no-op (no reset mid-play)", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.update(100); // idx → 1
+			s.setCurrentAnimation("a"); // same anim → must not reset to frame 0
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+
+		// ── play() / pause() / stop() shorthands (2D ↔ 3D parity) ──────────
+
+		it("play(name) switches to and starts the animation", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.play("b");
+			expect(s.isCurrentAnimation("b")).toBe(true);
+			expect(s.animationpause).toBe(false);
+		});
+
+		it("play(name, options) forwards options (loop:false holds last frame)", () => {
+			const s = makeSprite();
+			let done = 0;
+			s.play("a", {
+				loop: false,
+				onComplete: () => {
+					return done++;
+				},
+			});
+			s.update(400); // one cycle
+			expect(s.getCurrentAnimationFrame()).toBe(3); // held
+			expect(done).toBe(1);
+			s.update(400); // _animDone → frozen
+			expect(s.getCurrentAnimationFrame()).toBe(3);
+		});
+
+		it("play() with no argument resumes after pause()", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.pause();
+			expect(s.animationpause).toBe(true);
+			s.update(100); // paused → no advance
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+			s.play();
+			expect(s.animationpause).toBe(false);
+			s.update(100);
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+
+		it("pause() returns this and freezes the current frame", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.update(100); // idx → 1
+			expect(s.pause()).toBe(s); // chainable
+			s.update(1000); // frozen
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+
+		it("stop() resets to the first frame and pauses", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.update(150); // idx → 1
+			expect(s.stop()).toBe(s); // chainable
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+			expect(s.animationpause).toBe(true);
+			s.update(1000); // stays put
+			expect(s.getCurrentAnimationFrame()).toBe(0);
+		});
+
+		it("ADVERSARIAL: stop() then play() restarts from the first frame", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.update(250); // idx → 2
+			s.stop(); // → frame 0, paused
+			s.play(); // resume
+			s.update(100); // advance one frame from 0
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+
+		it("ADVERSARIAL: stop() clears a held play-once so it can advance again", () => {
+			const s = makeSprite();
+			s.play("a", { loop: false });
+			s.update(400); // held at last frame, _animDone
+			s.stop(); // resets frame + clears _animDone
+			s.play("a"); // loop again
+			s.update(100);
+			expect(s.getCurrentAnimationFrame()).toBe(1); // advancing again
+		});
+
+		it("ADVERSARIAL: play(name) un-pauses in one call", () => {
+			const s = makeSprite();
+			s.setCurrentAnimation("a");
+			s.pause();
+			s.play("b"); // must both switch AND resume
+			expect(s.isCurrentAnimation("b")).toBe(true);
+			s.update(100);
+			expect(s.getCurrentAnimationFrame()).toBe(1);
+		});
+	});
+
+	describe("a frame-animation callback that destroys its host", () => {
+		/**
+		 * `FrameAnimation.update()` hands control to user code in the middle of
+		 * its frame loop — `onended`, and the completion callback behind
+		 * `resetAnim` — and then keeps stepping. "Remove me once the animation
+		 * finishes" is an entirely reasonable reaction, but `removeChildNow()`
+		 * destroys the sprite and `FrameAnimation.destroy()` empties `anim`, so
+		 * the loop resumed into a map the callback had just cleared:
+		 *
+		 *     TypeError: Cannot read properties of undefined (reading 'frames')
+		 *         at FrameAnimation.getAnimationFrameObjectByIndex
+		 *         at FrameAnimation.update
+		 *
+		 * Reported from a game doing exactly that. It took the whole frame down,
+		 * so a death animation that removed its own sprite crashed the run.
+		 */
+
+		/**
+		 * A two-frame sprite already playing, in its own container.
+		 * @returns {object} `{ container, sprite }`
+		 */
+		const scene = () => {
+			const parent = new Container(0, 0, 400, 300);
+			const s = new Sprite(0, 0, {
+				framewidth: 32,
+				frameheight: 32,
+				image: Renderer.createCanvas(64, 64),
+				anchorPoint: { x: 0, y: 0 },
+			});
+			s.addAnimation("run", [0, 1], 50);
+			s.setCurrentAnimation("run");
+			s.alwaysUpdate = true;
+			parent.addChild(s);
+			return { parent, s };
+		};
+
+		/** step well past the end of the strip */
+		const drive = (fn) => {
+			for (let i = 0; i < 10; i++) {
+				fn();
+			}
+		};
+
+		it("onended removing the sprite does not throw", () => {
+			const { parent, s } = scene();
+			s.onended = () => {
+				parent.removeChildNow(s);
+			};
+			expect(() => {
+				drive(() => {
+					s.update(60);
+				});
+			}).not.toThrow();
+		});
+
+		it("the completion callback removing the sprite does not throw", () => {
+			// the other user-code window in the same loop: `resetAnim`. Its
+			// RETURN VALUE drives a frame change, so it has to be checked before
+			// being acted on, not merely before the next read.
+			const { parent, s } = scene();
+			s.setCurrentAnimation("run", () => {
+				parent.removeChildNow(s);
+				return false;
+			});
+			expect(() => {
+				drive(() => {
+					s.update(60);
+				});
+			}).not.toThrow();
+		});
+
+		it("survives when driven through the container update loop", () => {
+			// proves this is not an artefact of calling `sprite.update()` directly
+			const { parent, s } = scene();
+			s.onended = () => {
+				parent.removeChildNow(s);
+			};
+			expect(() => {
+				drive(() => {
+					parent.update(60);
+				});
+			}).not.toThrow();
+		});
+
+		it("updating an already-destroyed sprite is a no-op, not a throw", () => {
+			const { parent, s } = scene();
+			parent.removeChildNow(s);
+			expect(() => {
+				s.update(60);
+				s.update(60);
+			}).not.toThrow();
+		});
+
+		it("a callback that only switches animation keeps playing", () => {
+			// the guard asks "is the current animation still resolvable", so a
+			// handler that swaps to another animation must be unaffected
+			const { s } = scene();
+			s.addAnimation("idle", [0, 1], 50);
+			let switched = 0;
+			s.onended = () => {
+				if (switched === 0) {
+					switched++;
+					s.setCurrentAnimation("idle");
+				}
+			};
+			drive(() => {
+				s.update(60);
+			});
+			expect(switched).toBe(1);
+			expect(s.isCurrentAnimation("idle")).toBe(true);
+		});
+
+		it("a non-destructive onended still fires on every loop", () => {
+			const { s } = scene();
+			let calls = 0;
+			s.onended = () => {
+				calls++;
+			};
+			drive(() => {
+				s.update(60);
+			});
+			expect(calls).toBeGreaterThan(1);
+		});
+
+		it("the {next, onComplete} chain form removing the sprite does not throw", () => {
+			// The chain wrapper calls `onComplete()` and then, still INSIDE
+			// `resetAnim`, calls `setCurrentAnimation(next)`. A guard placed
+			// after `resetAnim()` returns is therefore too late: the engine
+			// re-enters itself on a host the callback just destroyed, and
+			// `setCurrentAnimation` throws "animation id not defined" because
+			// `destroy()` emptied `anim`.
+			const { parent, s } = scene();
+			s.addAnimation("idle", [0, 1], 50);
+			s.addAnimation("attack", [0, 1], 50);
+			// NOT "run": re-selecting the already-current animation is a
+			// documented no-op, so asking for it again would install no
+			// callback at all and the test would pass vacuously
+			s.setCurrentAnimation("attack", {
+				next: "idle",
+				onComplete: () => {
+					parent.removeChildNow(s);
+				},
+			});
+			expect(() => {
+				drive(() => {
+					s.update(60);
+				});
+			}).not.toThrow();
+		});
+
+		it("the {loop:false, onComplete} play-once form removing the sprite does not throw", () => {
+			const { parent, s } = scene();
+			s.addAnimation("attack", [0, 1], 50);
+			s.setCurrentAnimation("attack", {
+				loop: false,
+				onComplete: () => {
+					parent.removeChildNow(s);
+				},
+			});
+			expect(() => {
+				drive(() => {
+					s.update(60);
+				});
+			}).not.toThrow();
+		});
+
+		it("the legacy string-chain form removing the sprite does not throw", () => {
+			// pinned because the chain wrapper is the fragile spot; this form
+			// reaches it through `onended` rather than `onComplete`
+			const { parent, s } = scene();
+			s.addAnimation("idle", [0, 1], 50);
+			s.addAnimation("attack", [0, 1], 50);
+			s.setCurrentAnimation("attack", "idle");
+			s.onended = () => {
+				parent.removeChildNow(s);
+			};
+			expect(() => {
+				drive(() => {
+					s.update(60);
+				});
+			}).not.toThrow();
+		});
+
+		it("still advances frames normally", () => {
+			// the guard runs on every update, so the ordinary path has to be
+			// unaffected. Asserted on the observable frame index rather than
+			// `update()`'s return, which is the host's `isDirty` and reflects
+			// far more than a frame change.
+			const { s } = scene();
+			const before = s.getCurrentAnimationFrame();
+			s.update(60); // 60ms against a 50ms frame delay
+			expect(s.getCurrentAnimationFrame()).not.toBe(before);
+
+			const held = s.getCurrentAnimationFrame();
+			s.update(1); // too small to consume the delay
+			expect(s.getCurrentAnimationFrame()).toBe(held);
+		});
+	});
+});

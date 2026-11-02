@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 129 skills  
+> **Total Curated Skills**: 134 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -107,6 +107,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`logo-to-stickers`](../../library/sickn33-agentic-awesome-skills/skills/logo-to-stickers) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Turn a brand mark or existing IP into consistent, playful paper stickers with small visual stor... |
 | [`logoraisr`](../../library/membranedev-application-skills/skills/logoraisr) | ⚪ Reserve | `membranedev-application-skills` | Logoraisr integration. Manage Organizations. Use when the user wants to interact with Logoraisr... |
 | [`matterjs`](../../library/mengto-skills/skills/matterjs) | ⚪ Reserve | `mengto-skills` | Use when implementing 2D physics interactions with Matter.js, including Engine/World setup, Ren... |
+| [`melonjs-3d`](../../library/melonjs-melonjs/skills/melonjs-3d) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for anything 3D or 2.5D in melonJS — Camera3d, Mesh, InstancedMesh, Sprite3d bil... |
+| [`melonjs-camera-and-drawing`](../../library/melonjs-melonjs/skills/melonjs-camera-and-drawing) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for camera control and immediate-mode drawing in melonJS — following a target, v... |
+| [`melonjs-effects-and-shaders`](../../library/melonjs-melonjs/skills/melonjs-effects-and-shaders) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for post-processing effects, custom shaders, blend modes and colour grading in m... |
+| [`melonjs-events`](../../library/melonjs-melonjs/skills/melonjs-events) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for the melonJS event bus and lifecycle hooks — subscribing to engine events, th... |
+| [`melonjs-renderer-backends`](../../library/melonjs-melonjs/skills/melonjs-renderer-backends) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when a feature works on one machine and not another, when choosing or pinning a ... |
 | [`message-house-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/message-house-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build a message house", "write a PR-FAQ for our launch", or "define ... |
 | [`motion-canvas`](../../library/davila7-claude-code-templates/skills/motion-canvas) | ⚪ Reserve | `davila7-claude-code-templates` | Complete production-ready guide for Motion Canvas with ESM/CommonJS workarounds, full setup tem... |
 | [`msw-painter`](../../library/msw-git-msw-ai-coding-plugins-official/skills/msw-painter) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | When msw-search cannot find a suitable sprite RUID, draw a pixel art sprite directly with SVG /... |

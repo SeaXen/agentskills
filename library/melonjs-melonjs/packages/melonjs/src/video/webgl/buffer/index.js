@@ -1,0 +1,76 @@
+import IndexBuffer from "../../buffer/index.js";
+
+/**
+ * A WebGL Index Buffer — extends {@link IndexBuffer} with GL buffer binding and upload.
+ * @ignore
+ * @internal
+ */
+
+export default class WebGLIndexBuffer extends IndexBuffer {
+	/**
+	 * @param {WebGLRenderingContext|WebGL2RenderingContext} gl - the WebGL context
+	 * @param {number} maxIndices - maximum number of indices this buffer can hold
+	 * @param {boolean} [useUint32=false] - use Uint32 indices instead of Uint16 (a capacity knob — Uint16 keeps index uploads half the size)
+	 */
+	constructor(gl, maxIndices, useUint32 = false) {
+		super(maxIndices, useUint32);
+		this.gl = gl;
+		this.type = useUint32 ? gl.UNSIGNED_INT : gl.UNSIGNED_SHORT;
+		this.buffer = gl.createBuffer();
+	}
+
+	/**
+	 * Fill the buffer with a repeating quad index pattern and upload as static.
+	 * @param {number} maxQuads - number of quads to generate indices for
+	 */
+	fillQuadPattern(maxQuads) {
+		super.fillQuadPattern(maxQuads);
+		this.bind();
+		this.gl.bufferData(
+			this.gl.ELEMENT_ARRAY_BUFFER,
+			this.data,
+			this.gl.STATIC_DRAW,
+		);
+	}
+
+	/**
+	 * Upload the current index data to the GPU (for dynamic buffers)
+	 */
+	upload() {
+		this.bind();
+		this.gl.bufferData(
+			this.gl.ELEMENT_ARRAY_BUFFER,
+			this.data.subarray(0, this.length),
+			this.gl.STREAM_DRAW,
+		);
+	}
+
+	/**
+	 * Bind this index buffer
+	 */
+	bind() {
+		this.gl.bindBuffer(this.gl.ELEMENT_ARRAY_BUFFER, this.buffer);
+	}
+
+	/**
+	 * Replace the underlying GL buffer with a fresh one, deleting the old.
+	 * Needed on context restore — the old buffer object belongs to the lost
+	 * context and every upload through it would silently fail. Also keeps
+	 * plain resets leak-free (`deleteBuffer` on a lost-context object is a
+	 * harmless no-op).
+	 */
+	recreate() {
+		this.gl.deleteBuffer(this.buffer);
+		this.buffer = this.gl.createBuffer();
+		this.length = 0;
+	}
+
+	/**
+	 * Delete the underlying GL buffer. The index buffer must not be used
+	 * after calling destroy.
+	 */
+	destroy() {
+		this.gl.deleteBuffer(this.buffer);
+		this.buffer = null;
+	}
+}

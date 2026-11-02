@@ -14,9 +14,9 @@
     categories: [],
     repositories: [],
     stats: {
-      totalSkills: 6063,
+      totalSkills: 18647,
       totalCategories: 38,
-      totalRepositories: 225,
+      totalRepositories: 369,
       activeHotSetCount: 130
     },
     currentViewName: 'skill-hub', // 'skill-hub', 'hotset', 'categories', 'library', 'guide'
@@ -331,15 +331,25 @@
   }
 
   function renderStats() {
-    const totalSkills = Number(state.stats.totalSkills || state.catalog.length || 7401);
+    const totalSkills = Number(state.stats.totalSkills || state.catalog.length || 18647);
     const totalCats = Number(state.stats.totalCategories || state.categories.length || 38);
-    const totalRepos = Number(state.stats.totalRepositories || state.repositories.length || 212);
+    const totalRepos = Number(state.stats.totalRepositories || state.repositories.length || 369);
     const hotCount = Number(state.stats.activeHotSetCount || 130);
 
     if (el.statTotalSkills) el.statTotalSkills.textContent = totalSkills.toLocaleString();
     if (el.statTotalCats) el.statTotalCats.textContent = totalCats.toLocaleString();
     if (el.statTotalRepos) el.statTotalRepos.textContent = totalRepos.toLocaleString();
     if (el.statActiveHot) el.statActiveHot.textContent = hotCount.toLocaleString();
+
+    // Dynamically update search input placeholder & accessibility labels
+    if (el.searchInput) {
+      el.searchInput.placeholder = `Search ${totalSkills.toLocaleString()}+ skills, commands, repos (Press /)`;
+      el.searchInput.setAttribute('aria-label', `Search ${totalSkills.toLocaleString()}+ skills by name, description, category, or command`);
+    }
+    if (el.repoSearchInput) {
+      el.repoSearchInput.placeholder = `Search ${totalRepos} repositories by name or author...`;
+      el.repoSearchInput.setAttribute('aria-label', `Search ${totalRepos} repositories`);
+    }
 
     // Dynamically update subtext so counts stay in sync
     const subSkills = document.getElementById('sub-total-skills');

@@ -136,7 +136,7 @@ Core
 - Tween effects with multiple easing functions (Quadratic, Cubic, Elastic, Bounce, etc.) and Bezier/Catmull-Rom interpolation
 - Transition effects
 - Pooling support for object recycling
-- Particle system with `ParticleEmitter` (emission rate, lifetime, velocity, gravity, blend modes), and a reference space so particles can be measured from the emitter, from the world, or from any container — a moving emitter leaves a trail instead of dragging its cloud along
+- Particle system with `ParticleEmitter` (emission rate, lifetime, velocity, gravity, blend modes), and a reference space so particles can be measured from the emitter, from the world, or from any container — a moving emitter leaves a trail instead of dragging its cloud along, and a [Particle Editor](https://melonjs.github.io/melonJS/examples/#/particle-editor) to tune effects live and copy the code
 - EventEmitter based event system
 - Persistent data storage (save/load via localStorage)
 - Plugin system for extending engine capabilities
@@ -180,6 +180,7 @@ Examples
 * [Platformer](https://melonjs.github.io/melonJS/examples/#/platformer) ([source](https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/platformer))
 * [Isometric Dungeon](https://melonjs.github.io/melonJS/examples/#/isometric-dungeon) ([source](https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/isometricDungeon))
 * [SVG Shapes](https://melonjs.github.io/melonJS/examples/#/svg-shapes) ([source](https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/svgShapes))
+* [Particle Editor](https://melonjs.github.io/melonJS/examples/#/particle-editor) ([source](https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/particleEditor)) — tune a `ParticleEmitter` live in 2D or 3D, from presets or a random roll, and copy the matching code or JSON
 * [Graphics](https://melonjs.github.io/melonJS/examples/#/graphics) ([source](https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/graphics))
 * [Hello World](https://melonjs.github.io/melonJS/examples/#/hello-world) ([source](https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/helloWorld))
 * [Hello WebGPU](https://melonjs.github.io/melonJS/examples/#/webgpu) ([source](https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/webgpu)) — the WebGPU backend in action, with the renderer negotiation surfaced on screen
@@ -248,6 +249,7 @@ Here is the list of official plugins maintained by the melonJS team:
 - [debug-plugin](https://github.com/melonjs/melonJS/tree/master/packages/debug-plugin) - a debug panel for inspecting game objects
 - [tiled-inflate-plugin](https://github.com/melonjs/melonJS/tree/master/packages/tiled-inflate-plugin) - enable loading and parsing of zlib, gzip and zstd compressed [Tiled](https://www.mapeditor.org/) maps
 - [spine-plugin](https://github.com/melonjs/melonJS/tree/master/packages/spine-plugin) - [Spine](http://esotericsoftware.com) runtime integration to render Spine skeletal animations, with a dedicated batcher on each renderer (WebGPU, WebGL and Canvas)
+- [gamepad-plugin](https://github.com/melonjs/melonJS/tree/master/packages/gamepad-plugin) - on-screen touch controls (sticks and buttons) reported as a gamepad, so the same bindings cover a real pad and a touch screen
 - [capacitor-plugin](https://github.com/melonjs/melonJS/tree/master/packages/capacitor-plugin) - bridges [Capacitor](https://capacitorjs.com/)'s native lifecycle (pause/resume, hardware back-button, orientation lock, splash) for melonJS games wrapped as iOS / Android apps
 
 If you wish to develop your own plugin, we also provide a [plugin template](https://github.com/melonjs/plugin-template) to help you get started.

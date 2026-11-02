@@ -174,6 +174,34 @@ def clean_nested():
                 if os.path.exists(gp):
                     shutil.rmtree(gp, onerror=remove_readonly)
 
+# 0. Discovery & Continuous Ingestion (skills.sh >100k & skillleaderboard Top 150 & Trending 50)
+def sync_embedded_ecosystems():
+    print("\n[0/6] Automated Discovery: skills.sh (>100k) & skillleaderboard (Top 150 & Trending 50)...", flush=True)
+
+    # 1. skills.sh >= 100k installs
+    ssh_script = os.path.join(agents_dir, 'skillssh', 'skillssh.py')
+    if os.path.exists(ssh_script):
+        print("  → Auditing skills.sh (Installs >= 100K)...", flush=True)
+        try:
+            subprocess.run([sys.executable, ssh_script, '--sync', '--min-installs', '100k'], cwd=os.path.dirname(ssh_script), check=False)
+        except Exception as e:
+            print(f"  ⚠️ skills.sh notice: {e}", flush=True)
+
+    # 2. skillleaderboard Top 150 Starred
+    slb_script = os.path.join(agents_dir, 'skillleaderboard', 'skillleaderboard.py')
+    if os.path.exists(slb_script):
+        print("  → Auditing skillleaderboard.com (Top 150 Most Starred)...", flush=True)
+        try:
+            subprocess.run([sys.executable, slb_script, '--starred', '150', '--ingest'], cwd=os.path.dirname(slb_script), check=False)
+        except Exception as e:
+            print(f"  ⚠️ skillleaderboard starred notice: {e}", flush=True)
+
+        print("  → Auditing skillleaderboard.com (Top 50 Trending)...", flush=True)
+        try:
+            subprocess.run([sys.executable, slb_script, '--trending', '50', '--ingest'], cwd=os.path.dirname(slb_script), check=False)
+        except Exception as e:
+            print(f"  ⚠️ skillleaderboard trending notice: {e}", flush=True)
+
 # 1. Multi-repository remote upstream sync
 def sync_all_upstreams(force=False):
     print("\n[1/6] Checking for upstream updates across all active repository upstreams...", flush=True)
@@ -460,6 +488,12 @@ def rebuild_skill_sea_catalog():
             except Exception as e:
                 print(f"⚠️ Cloudflare R2 sync notice: {e}", flush=True)
 
+        try:
+            print("🌐 Deploying Skill.Sea frontend to Cloudflare Pages (skill-sea)...", flush=True)
+            subprocess.run(['npx', 'wrangler', 'pages', 'deploy', '.', '--project-name=skill-sea'], cwd=os.path.join(agents_dir, 'Skill.Sea'), check=False, shell=True)
+        except Exception as e:
+            print(f"⚠️ Cloudflare Pages deploy notice: {e}", flush=True)
+
 # 6. Git Commit & Push
 def git_commit_and_push():
     print("\n[6/6] Checking Git status and pushing updates...", flush=True)
@@ -571,6 +605,9 @@ if __name__ == '__main__':
     print(f"📁 Agents Directory:    {agents_dir}", flush=True)
     print(f"📁 Workspace Root:      {repo_root}", flush=True)
     print("=" * 65, flush=True)
+
+    if '--skip-discovery' not in args and '--offline' not in args:
+        sync_embedded_ecosystems()
 
     sync_all_upstreams(force='--force' in args)
     sync_active_skills()

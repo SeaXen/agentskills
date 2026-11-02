@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 173 skills  
+> **Total Curated Skills**: 174 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -124,6 +124,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`marp-slide`](../../library/davila7-claude-code-templates/skills/marp-slide) | ⚪ Reserve | `davila7-claude-code-templates` | Create professional Marp presentation slides with 7 beautiful themes (default, minimal, colorfu... |
 | [`maui-theming`](../../library/dotnet-skills/skills/maui-theming) | ⚪ Reserve | `dotnet-skills` | Guide for theming .NET MAUI apps — light/dark mode via AppThemeBinding, ResourceDictionary them... |
 | [`md-to-docx`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/md-to-docx) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Convert Markdown files to Word documents (.docx) with proper formatting, Chinese font support (... |
+| [`melonjs-loading-assets`](../../library/melonjs-melonjs/skills/melonjs-loading-assets) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for loading and managing game assets in melonJS — the resource descriptor format... |
 | [`minimal`](../../library/bergside-awesome-design-skills/skills/minimal) | ⚪ Reserve | `bergside-awesome-design-skills` | Stripped-back design emphasizing whitespace, clean typography, and restrained color for maximum... |
 | [`minimax-music-playlist`](../../library/minimax-ai-skills/skills/minimax-music-playlist) | ⚪ Reserve | `minimax-ai-skills` | Generate personalized music playlists by analyzing the user's music taste and generation feedba... |
 | [`minimax-pdf`](../../library/minimax-ai-skills/skills/minimax-pdf) | ⚪ Reserve | `minimax-ai-skills` | Use this skill when visual quality and design identity matter for a PDF. CREATE (generate from ... |

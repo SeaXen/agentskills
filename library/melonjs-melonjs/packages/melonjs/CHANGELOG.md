@@ -1,0 +1,2047 @@
+# Changelog
+
+## [20.13.0] (melonJS 2) - _unreleased_
+
+### Added
+- Particles: a `depth` setting, so particles under a `Camera3d` spawn through a volume instead of on a flat sheet
+- Text: `paintOrder`, to draw the outline behind the glyphs (`"stroke"`, the default) or over them (`"fill"`)
+- Text: `lineJoin` and `miterLimit`, the shape of the outline's corners (`"round"` by default, `"bevel"` or `"miter"`)
+- UI: `UICheckbox`, a checkbox with its label, that becomes a radio button with a `group` ([#1722](https://github.com/melonjs/melonJS/issues/1722))
+- UI: `UISlider`, a horizontal or vertical slider with `min`, `max` and `step`, moved by dragging, clicking the track or the mouse wheel
+- UI: `UIPanel` lays out its children (`"column"`, `"row"` or `"grid"`), scrolls them, and takes a nine-slice `skin`, a `title` and `draggable`
+- UI: `UITextButton` takes `onClick`, a `skin` and `pressedColor`, and the size, font and color settings the other widgets use; `label` is its text object
+- UI: every `UIBaseElement` has `enabled`, `cancelPress()` / `onCancel()`, and a hover and press bounce (`hoverScale`, `pressScale`)
+- UI: keyboard and gamepad navigation between widgets, once one takes the focus with `focus()`
+- UI: drop shadows on `UIPanel` and `ProgressBar` (`shadowColor`, `shadowOffsetX`, `shadowOffsetY`, `shadowBlur`)
+- UI: the widgets' settings and skin types are exported, `ProgressBar`'s `onChange` also gets the bar, and `Container#clipContains(x, y)` tells whether a container shows its children at a point
+
+### Changed
+- UI: a press stops at a UI element by default (`onClick()` and `onRelease()` return `false`), so it no longer also reaches the game behind it. Return `true` to let it through
+- UI: `UISpriteElement` is now a `UIBaseElement` holding a `Sprite`, so it has everything the other widgets have. It is placed as before; `Sprite` members other than its region and animation methods are now on `element.sprite`
+
+### Deprecated
+- UI: `UITextButton#bitmapText`, for `label`
+
+### Fixed
+- Particles: particles are on their emitter's `visibilityLayer`, and follow a change to it. They stayed on layer 1, so a camera whose `cullMask` drew only the emitter's layer drew none of its particles
+- Loader: assets on the game's own origin are requested with its cookies and HTTP auth, so a game behind a login no longer gets a 403 for every asset ([#1801](https://github.com/melonjs/melonJS/issues/1801))
+- Loader: an asset on another origin loads whenever its server allows it (CORS), without `crossOrigin`, and one it does not allow fails at load with an error naming it, instead of later with "Unexpected end of input" or "The source image could not be decoded". `crossOrigin` now only applies to the `<video>`, `<script>` and glTF image elements the loader creates; `"use-credentials"` also sends credentials, as `withCredentials` does
+- Particles: an emitter without an `image` no longer leaks a texture on every `reset()` or for every emitter created, on WebGL and WebGPU, nor tinted copies of one on Canvas: all such emitters draw the renderer's one shared white pixel, stretched to `textureSize` ([#1807](https://github.com/melonjs/melonJS/issues/1807))
+- Text: an outline no longer hides thin or small letters, being drawn behind them, and is no longer cut off at the edges of the text. Its corners are round by default; only its outer half shows now, so double `lineWidth` to keep its weight, or set `paintOrder: "fill"` and `lineJoin: "miter"` for the old look
+- Tiled: a map without `nextobjectid` no longer gives objects added later the GUIDs of its own objects, which made collisions between them drop ([#1809](https://github.com/melonjs/melonJS/issues/1809))
+- Camera: `fadeIn()` and `fadeOut()` always call `onComplete` ([#1810](https://github.com/melonjs/melonJS/issues/1810))
+- Rendering: on WebGL and WebGPU, a clip inside a clip is the overlap of the two, as on Canvas ([#1816](https://github.com/melonjs/melonJS/issues/1816))
+- UI: a `UITextButton` with a CSS font no longer throws, one moved after it was built draws its background where it is, and it no longer writes its computed size into the settings object it was given
+- UI: a blocking `UIPanel` stays opaque to hover while the pointer is on it, not only on the frame it enters
+- UI: a draggable element can be dragged by touch, and one in the world no longer jumps by the camera position when dragged
+- UI: a region stays hovered after a click, and its hover ends when the pointer leaves the canvas or is cancelled
+- UI: a child cropped out of view by a clipping container no longer gets pointer events where it is not drawn
+- Color: `parseHex()` keeps the full alpha precision (thanks @mmporong)
+- Math: `isPowerOfTwo()` rejects zero, negative and fractional values (thanks @mmporong)
+- Geometry: `Line#contains()` no longer reports points beyond the segment's ends (thanks @mmporong)
+
+## [20.12.0] (melonJS 2) - _2026-10-30_
+
+### Added
+- State: a `"pixelate"` transition, `state.transition("pixelate", color, duration, size)`: the screen breaks into growing blocks and comes back sharp. Skipped on Canvas
+
+### Fixed
+- Rendering: with `subPixel` off, each draw snaps to whole pixels once, where it lands, the same on Canvas, WebGL and WebGPU ([#1765](https://github.com/melonjs/melonJS/issues/1765)). Something at a fractional position can draw one pixel over
+- Camera: with `subPixel` off, `worldView`, `localToWorld` and `worldToLocal` use the view position rounded to a whole pixel, where the world is drawn from
+- Geometry: the methods taking a point (`translate`, `shift`, `contains`) take any object with `x` and `y`, such as a renderable's `pos`, instead of returning `NaN`
+- Physics: a body with several shapes has the union of its shapes as its bounds; each shape added shifted them
+- Physics: `Body#setVertices` on one of several shapes keeps the body's bounds and `pseudoInertia` right (set it again if you set it by hand), and throws a `RangeError` past the last shape
+- Physics: a body that drops its last `Box3d` or `Sphere` no longer resolves along z
+- Loader: the default loading screen shows its progress bar and logo in the same frame
+- ImageLayer: a repeating layer keeps covering the screen however far the camera moves, instead of sliding off
+- Animation: a one-frame animation played once completes, so `onComplete` fires and `next` is followed
+- Audio: `audio.setListener(app.viewport)` hears from the center of the camera's view, not its top-left corner
+- Input: `input.bindPointer` keeps its bindings once the mouse enters the canvas
+- Audio: a clip with `preload: false` is fetched and streamed when first played; it never played ([#1784](https://github.com/melonjs/melonJS/issues/1784))
+- State: the first frame of a new stage or level shows its world, not the background alone
+- State: a `state.change()` asked for during a transition is made by that transition, instead of leaving the screen black ([#1787](https://github.com/melonjs/melonJS/issues/1787))
+- Effects: the built-in effects that place a pattern (sway, wave, vignette, gradient, scanline, shine) place it on the sprite, also cut from an atlas or with other effects after it ([#1407](https://github.com/melonjs/melonJS/issues/1407))
+- Effects: a renderable drawn through two or more effects keeps its opacity on WebGL and WebGPU ([#1791](https://github.com/melonjs/melonJS/issues/1791))
+- Effects: through two or more effects, widths, offsets and sizes are in the renderable's own pixels at any scale or zoom, as with one effect. Check widths tuned on a scaled renderable
+- Effects: a renderable drawn through two or more effects stays inside its clip, such as a minimap camera's view, instead of spilling over the canvas
+- Effects: on WebGPU, effects read their capture at the game's texture filter, as on WebGL, so pixel-art games stay crisp
+- Input: a gamepad unplugged while a button or the stick is held lets go of the keys bound to them, instead of leaving them pressed
+- Input: a stick with only one side bound lets go of its key when it returns to the centre or rests just past it, instead of holding it until pushed that way again
+- Lighting: a `Light2d`'s glow and the darkness around it compile when the light is added to the world, not inside the first frame that draws it
+- Typings: `TextureAtlas#createAnimationFromName` declares both of its arguments optional, as they are at runtime, and is documented again
+
+## [20.11.0] (melonJS 2) - _2026-10-27_
+
+### Added
+- Effects: colors take an alpha. Every color option and `setColor` takes `[r, g, b]` or `[r, g, b, a]`, the alpha being the color's opacity (`[r, g, b]` stays opaque), `RadialGradientEffect` honours the alpha of its `Color`, and `DropShadowEffect` gains the `setColor` the others have. Four values used to break an effect (WebGL rejected them, and on WebGPU the fourth overwrote the next setting, such as an outline's width); a color of any other length now throws a `TypeError` saying so
+- Effects: `SwayEffect` leans a sprite or a layer from side to side, as if in a breeze, its top swaying most and everything from its anchor row down staying put. It is a `WaveEffect`, which now takes an `anchor` for the row its wave fades out at, and it wraps its own time so it never stutters on a phone's medium-precision floats
+- Rendering: `Renderable#sortOffset` lines a renderable up as if it stood that many pixels lower (or higher) when its container sorts on `"y"` or `"x"`, without moving it: a torch drawn over the wall it hangs on, dust sorted with the door it rises from, or art of different heights sorted by its base
+- Lighting: `Light2d#softness` (0 to 1) fades the edge of a light's hole in the stage's ambient darkness, from a hard rim (0, the default, as before) to a darkness that thins straight from the center (1), along the same falloff as the glow. Hard and soft lights mix in one scene, overlapping lights multiply, and it works on every renderer
+- Particles: `tintOverLife` gives the tints a particle takes over its life, evenly spaced and blended from the first at birth to the last at the end, such as a flame turning from white hot to deep red. It sets the color only (the fade still sets the opacity), and the blend is taken in 32 steps, which keeps the Canvas renderer to 32 tinted copies of the texture
+- Animation: `setCurrentAnimation(name, { onFrame })` calls back with each frame index as playback reaches it, from frame 0 when the animation starts, so a footstep or a hit can land on its frame. It applies to the frame animations of a `Sprite` or a `Sprite3d`
+- Audio: `playTrack(name, { volume, sprite })` plays one region of a clip as the track and loops on it. A region of a loop's exact length keeps an MP3 loop gapless in Safari, which plays the padding an MP3 encoder adds to the end of the file
+- Tiled: a tile object with no class of its own is built by the class registered under its tile's class, as Tiled shows it, so a class set once on a tile in the tileset applies to every object placed from it, and `TMXTileset#getTileClass()` returns that class. The object's own class or registered name still comes first, and a tile classed like a built-in (`Sprite`, `Trigger`, `shape`...) stays a plain tile
+- Tiled: `TMXObject#resolvedProperty()` and `resolvedProperties()` return an object's custom properties together with those it inherits from its tile, the object's own winning, as the methods of the same names in Tiled's scripting API do. Only the object's own properties are set on it by name, as before
+- Tiled: a tileset, a tile of an image collection or an image layer whose image has a transparent color (`trans` in TMX, `transparentcolor` in JSON) is drawn with that color transparent, as Tiled shows it. The color is cleared once when the map loads, on a copy of the image
+- Typings: `TMXObject`, the settings a class registered with `registerTiledObjectClass` (or a factory registered with `registerTiledObjectFactory`) receives, is exported as a type, and both functions are typed with it. A class or factory typed with its own settings still compiles
+- Rendering: `textureFilter: "linear-mipmap"` samples a texture's mipmaps wherever it is drawn smaller than its size, so a zoomed-out camera, a minimap or a scaled-down sprite no longer shimmers as it moves; it covers sprites, text and tile layers on WebGL and WebGPU. A sprite cut from an atlas or a tileset keeps its samples inside its own frame, so its neighbours no longer streak along its edges, and a texture draws as under `"linear"` at its size or larger
+- Camera: `Renderable#visibilityLayer` and `Camera2d#cullMask` choose what each camera draws: a camera draws a renderable only if they share a bit, so a minimap can leave out the particles, or a `Light2d` can show in one camera only. By default every renderable is on layer 1 and every camera draws every layer; a container left out is left out with everything in it, and the layer can be set on a Tiled object as an `int` custom property
+- Application: the `syncToDisplay` setting keeps motion steady on a display that refreshes at `maxfps` (60 by default) or a whole multiple of it, such as 60 or 120 Hz. Frame times are counted in whole display frames, so a frame no longer runs no update and the next one two, which made scrolling stutter; it is off by default, and `timer.syncToDisplay` switches it at any time
+
+### Changed
+- Rendering: `renderer.uvOffset` and the `textureSeamFix` setting are removed. The Canvas renderer drew tiles a pixel larger to hide the seams between them, which no longer appear; code that added `uvOffset` to a size should drop it
+- Rendering: a container sorted on `"x"` or `"y"` keeps its children in order as they move. With `autoSort` on, the default, it checks the order at the end of every update and re-sorts when anything is out of place, so a walking character no longer needs a `sort()` call to pass in front of and behind things. A frame where nothing moved costs one pass over the children and causes no redraw; turn `autoSort` off to keep the order you set. A `"z"` sort is unchanged
+
+### Fixed
+- Loader: a `data:` URI is decoded in place instead of fetched, so it loads on a page whose Content-Security-Policy `connect-src` does not allow `data:` (sandboxed embeds, hardened sites), where the browser refused it. The default loading screen's logo, inlined as a `data:` URI, showed nothing on such pages; this covers a `data:` URI given to any asset type
+- Effects: a colored drop shadow below full opacity is no longer too bright, nor are the soft edges of an outline. Both added their color at full strength whatever its opacity
+- TextureAtlas: drawing part of an image, a bitmap font glyph or a repeating pattern no longer adds a region to the atlas for every new source rectangle, and on an atlas with pages of different sizes no longer reuses the UVs worked out for the same rectangle on another page. Those regions piled up for as long as the atlas lived, and turned up among the frames an animation is built from ([#1281](https://github.com/melonjs/melonJS/issues/1281), thanks @snowyukitty)
+- Tiled: objects on isometric maps are placed where Tiled draws them. Positions are measured in tile heights on both axes, which changes maps whose tiles are not 2:1, and tile objects are anchored at their bottom center, so a game that offset them to compensate should drop that offset (thanks @vtxe02023274)
+- Tiled: a tile object resized or flipped in Tiled is drawn on its own box, its tile stretched to fill it, and collides at that size. One from a tileset image was drawn and collided at the size of its tile, and one from an image collection was drawn above and to the left of its box when resized, and a whole tile width to the right when flipped (thanks @vtxe02023274)
+- Tiled: tile objects are placed by their tileset's object alignment, and a rotated one turns about that point, as in Tiled: the bottom left, or the bottom center on isometric maps, unless the tileset sets another. They were always anchored at the bottom left (bottom center on isometric maps), and a rotated one turned about another point, so it was drawn and collided away from where Tiled shows it
+- Tiled: a map with an animated tile object loads, and the object plays its animation. One from a tileset image threw "string parameters for addAnimation are not allowed for standard spritesheet based Texture", and one from an image collection threw a TypeError
+- Tiled: in a tile layer, tiles from an image collection whose images are not all the same height each sit on the bottom of their cell, as in Tiled. Every tile was placed as if it were as tall as the tallest image of the collection
+- Tiled: a collision object whose shape reaches left of or above its position, like every rectangle on an isometric map, is found by collision checks, `queryAABB` and `raycast` wherever its shape is. Parts of it were missed, so a character could walk through walls; such an object's `pos` is now the top left corner of its shape
+- Tiled: the collision shapes of objects on isometric maps are projected with the map's tile ratio, as Tiled does. Rectangles, polygons and polylines were projected as if the tiles were 2:1, squeezed or stretched across on a map with wider or narrower tiles so they no longer lined up with the walls they outline, and ellipses were not projected at all; a circle stays an `Ellipse`, and any other ellipse, which comes out tilted, becomes a polygon around it (thanks @vtxe02023274)
+- Tiled: a tile object on an isometric map collides over its image, as on other maps. Its default body was its image's box projected onto the map grid, a slanted shape hanging off the image
+- Physics: the builtin `raycast` measures a body from the frame its renderable draws in, as collisions have since 20.7. On a body whose anchor is not its top left corner, such as a `Sprite`'s default centre, a ray hit half the body's size away from where it collides, or missed it
+- Camera: a zoomed camera follows its target, stays within its bounds and centres on `focusOn` in world units, and `localToWorld` and `worldToLocal` take its zoom and its place on the screen (`screenX`, `screenY`) into account. Zoomed out, it kept the target off centre and scrolled past its bounds, zoomed in it stopped short of them, and a pointer on a zoomed camera, or on one drawn in a corner of the screen, hit the world somewhere else than it pointed
+- Effects: a glow, outline, blur, drop shadow, chromatic aberration, wave, squish, pixelate or bloom on a sprite cut from an atlas or a tileset keeps to the sprite's own frame. Along the frame's edges it picked up the neighbouring frames, and drew a glow or a line from pixels that are not part of the sprite
+- Effects: a glow, outline, blur, drop shadow, chromatic aberration, pixelate or bloom measures its width, offset or size in pixels of the texture it draws, as documented, with no `textureSize` to pass: a sprite's texture, the screen for a camera's effect, a mesh's texture. Each assumed a 256x256 texture (the screen for an outline or a bloom), so on any other texture it came out thinner or thicker than asked; a game that tuned its widths around that should check them, and an effect given a `textureSize` keeps it
+- Tiled: a tile layer drawn with smooth filtering, scaled or off the pixel grid, shows no seams between its tiles on WebGL and WebGPU. Along each tile's edge, filtering blended in the next tile of the tileset, or the spacing around it
+- Tiled: a pre-rendered tile layer holds every tile it draws, on hexagonal, staggered and oblique maps and with tiles larger than their cell or offset from it, and shows the tiles `setTile` and `clearTile` change. It was baked at an orthogonal layer's size, which cut off the last column of a hexagonal map, what an oblique map draws left of or above its origin and the parts of large tiles reaching past the edge; `setTile` left it as it was, and `clearTile` erased a rectangle placed as on an orthogonal map, cutting into the tiles around it
+- Tiled: an orthogonal tile layer with an opacity below 1, or inside a faded container, is drawn faded on WebGL and WebGPU. Its colors were drawn at full strength over what lies behind it, as bright as an opaque layer or brighter, and the container's fade was ignored
+- Rendering: on the Canvas renderer, a game created with `antiAlias: false` still draws unsmoothed after the canvas is resized, with no seams between its tiles. A resize reset the canvas's drawing state, which turned smoothing back on, and also reset the blend mode, the color and the line width, join and dash
+- Camera: a zoomed camera draws its floating renderables, such as a HUD or a `ColorLayer`, and a `ColorLayer` fills all of its view. It skipped them all, as a minimap does, on every renderer
+- Application: a `maxfps` above 120 no longer stops the game. Updates ran every `60 / maxfps` frames rounded to a whole number, which came out as 0, so none ran
+- Effects: changing the texture filter after an effect's texture was replaced with `setTexture`, or after the effect was destroyed, no longer raises a WebGL error. The deleted texture was still listed as bound, and the filter change bound it again
+- Camera: the follow deadzone has its edges on whole pixels, so a camera following a target on a whole pixel comes to rest on one. Its size, a sixth of the view by default, was kept as a fraction, so with `subPixel` on a camera following its target right or down stopped between two pixels
+- Camera: `offset` can shift the view for good, such as to look above the hero, and not only for a shake: a shake adds its jitter to the offset and gives it back when it ends, where it used to reset it to zero. Culling, the pointer (`localToWorld`, `worldToLocal`), tile layers and parallax `ImageLayer`s all count it, so a parallax background now shakes with the world, by its ratio
+- Lighting: on the Canvas renderer, a light's hole in the ambient darkness is cut where the light is, under a scrolled or zoomed camera and one drawn at an offset such as a minimap. Under a scrolled camera the mask kept the darkness inside the light and cleared it around it, and the holes of a zoomed or offset camera were cut as if it were neither
+- Lighting: the ambient darkness covers the whole view of a camera. Zoomed out, it covered only as much of the world as the camera is wide, and at a fractional position, such as a camera following its target with damping, it left the first column and row lit unless `subPixel` was set
+- Lighting: on the Canvas renderer, a lit game whose sprites have no normal map no longer warns that normal-map lighting needs a GPU backend. It warned as soon as a `Light2d` existed, though a sprite without a normal map is drawn unlit on every renderer; it now warns once, when it draws a sprite with a normal map under a light
+- Audio: a sprite region declared looping (`[start, duration, true]`) loops when played with `audio.play(name, { sprite })`. It played only once unless `loop: true` was passed as well
+- Text: a label whose text is empty or only spaces no longer blanks the whole frame on WebGPU. Its canvas was sized 0 pixels wide, which WebGPU refuses to upload
+- Typings: `TextureAtlas#getAnimationSettings()` is typed as the settings it returns, so they pass to a `Sprite` constructor from TypeScript without a cast. It returned `object`, and `Sprite3d` typed the named animations an aseprite atlas carries as an array
+- Typings: `CanvasRenderTarget#destroy(renderer)` is typed and documented with its `renderer`, which frees the copy of the canvas uploaded to the GPU as well. It was hidden, so only the parent's `destroy()` showed, and TypeScript refused the argument
+
+### Performance
+- Effects: sprites drawn one after the other through the same `ShaderEffect` share one draw call, as plain sprites do, even from different frames of an atlas. A uniform set to a new value draws the sprites queued before it first, so each sprite still draws with the values it was given; a `screen_texture` effect still draws each sprite on its own
+- Rendering: drawing a sprite, a glyph or a pattern computes its UVs from the image size instead of looking them up, with no string built and nothing allocated or kept. On the platformer, text and Jungle Rabbit examples a lookup took 34 to 58 ns and now takes 6 to 10, in Chrome and WebKit: 1 to 2% of a frame's CPU time on the text example, and too little to measure on the platformer
+
+## [20.10.1] (melonJS 2) - _2026-10-21_
+
+### Fixed
+- Rendering: entering a state no longer stalls its first frame compiling the shaders its stage had only started preparing. That frame now waits until they are ready, for at most 1.5s, and `STATE_CHANGE` and a transition's reveal come with it, so the reveal plays in full instead of running its course behind the stall
+- Rendering: the first frame of a scene whose camera uses fog no longer stalls compiling its meshes. The warm-up read the fog of whichever camera drew last, which after a state change is the previous screen's, so it prepared the variant without fog and the first frame then built the fogged one on the spot
+- Rendering: a camera's `colorMatrix`, and on WebGPU an `InstancedMesh` and its ground shadow, are now prepared when the stage is built, like every other renderable since 20.10, instead of compiling in the first frame that draws them
+- WebGL: an `ImageLayer` with a single post effect now draws through it. The layer's repeated image was drawn with the default shader, so the effect did nothing on WebGL while WebGPU applied it
+
+## [20.10.0] (melonJS 2) - _2026-10-20_
+
+**Highlights:** a game no longer stutters the first time an effect, a blend mode or a new kind of object appears. Shaders, pipelines and render targets are now prepared when the object is added, or during `loader.preload()`, rather than in the frame that first draws it, where a single first draw was measured at up to 140ms. Dropping a batch of meshes no longer stalls the frame either.
+
+### Added
+- Effects: `SquishEffect` bulges a sprite's middle out, or pinches it in, while its top and bottom rows stay where they are. Paired with a change of height it gives squash and stretch that keeps the sprite's volume, and it draws past the sprite's own frame, so the art needs no transparent margin
+
+### Fixed
+- WebGL: releasing retained geometry no longer stalls the frame, a stutter whenever a scene dropped a batch of meshes. Teardown asked a blocking `is*` query about every buffer and vertex array before deleting it, a round trip per object, and now only asks once the context has been lost, the only case where the answer can be no
+- WebGL: a `ShaderEffect` hosted on a `Mesh` is compiled during `loader.preload()`, on every call including a later one that brings a level's own effects, rather than on the frame it first draws. Preloading the shader built its standalone program, but a mesh host splices the body into the mesh shader, which is a different program again, so a game that declared every effect in its manifest still stuttered the first time each one appeared
+- WebGPU: a post effect's pipelines are compiled when the effect is attached (`addPostEffect`, assigning `shader`, or the tone curve `setToneMapping` builds), off the frame, rather than in the frame that first draws it, a stutter measured at up to 140ms per effect on desktop. Attaching effects when a pool or a stage is built, rather than when the object is shown, gives the compile time to finish
+- WebGL: a `ShaderEffect` hosted on a `Mesh` is also linked when it is attached, so an effect built inline and never preloaded no longer stalls its first draw either. The links are spread over the following frames, so a stage building a pool of effect-carrying meshes does not pay for all of them in one
+- Effects: switching a disabled effect on no longer creates a render target in that frame. A chain gets its targets for every effect attached to it, enabled or not, when the effect is attached
+- Rendering: adding a renderable to the world starts preparing its draw, so one added before it is first shown no longer pays for it on that frame. On WebGPU that is the pipeline for its blend mode, culling and transparency, compiled off the frame, and on both GPU backends an advanced blend mode (`overlay`, `difference` and the rest) gets its blend shader and offscreen target, a first draw measured at up to 136ms
+- WebGL and WebGPU: the shader warm-up runs again after a lost context or device is restored. It never did, so every shader went back to compiling on the frame it next drew
+- WebGPU: the mip-chain generator is built during `loader.preload()` when textures are filtered (`textureFilter` resolving to `"linear"`), instead of on the frame the first mipmapped texture is uploaded
+- Sprite: a video the browser refuses to start, as it does before the user has interacted with the page, no longer logs an uncaught error on every frame. The refusal is handled once, and playback starts on the next click, touch or key press
+- WebGL: ETC1 compressed textures no longer draw black. They were uploaded with a call ETC1 does not accept, which left the texture empty; they now upload as ETC2, which reads the same data, or level by level when the browser only supports ETC1
+- WebGPU: the smallest mip levels of a compressed texture (the 2×2 and 1×1 levels of a 4×4-block format) are no longer rejected and left empty. Each upload now covers whole blocks, as WebGPU requires
+- Tween: a tween stopped while the game updates (replaced by a new one, say) no longer takes one more step and fires its `onComplete` in that same frame
+
+## [20.9.0] (melonJS 2) - _2026-10-18_
+
+### Added
+- **`scaleRounding` application setting**: optional, and `"fractional"` by default, so nothing existing changes. `"integer"` constrains the automatic scale factor to a whole number of device pixels per source pixel and letterboxes the remainder, which is what stops pixel art showing uneven stems and shimmering edges; it applies to `scaleMethod: "fit"` only
+- **Sprite-sheet particles** (`framewidth`, `frameheight`, `frames`, `randomFrame` on `ParticleEmitter`): a particle plays a frame sequence once over its own lifetime, or holds one frame picked at random when it is born. One sheet is one image, so a burst of varied debris still batches into a single draw call ([#1610](https://github.com/melonjs/melonJS/issues/1610), thanks @snowyukitty)
+- **`slerp(v, alpha)` on all four vector classes**: interpolate along the ARC between two directions at a constant angular rate, where `lerp` slows at the ends and shortens the vector through the middle. 2D takes the shorter way round, and the same and opposite cases are handled rather than returning `NaN`
+- **`Trail3d`**: a fading, tapering ribbon that recedes properly into a 3D scene, for an exhaust streak, a speed trail or a spell arc. It is a `Mesh`, so unlike the 2D `Trail` it narrows along its own length, takes a post effect and a `tint`, and costs one indexed draw call rather than a filled path per segment. It needs a `Camera3d` ([#1621](https://github.com/melonjs/melonJS/issues/1621))
+- **`BitmapText#glyphEffect`**: offset and tint individual glyphs for wave, shake and colour effects, inside the existing GPU batch. Layout and the typewriter reveal are unchanged ([#1522](https://github.com/melonjs/melonJS/issues/1522), thanks @snowyukitty)
+- **`RenderTarget#toImageData()`**: read back a render target's pixels as a promise. The portable readback, and the one `toBlob()`, `toDataURL()` and `toImageBitmap()` are all built on
+- **`Renderable#setTint(color)`**: tint any renderable from one chainable entry point, and `tint` itself now accepts a CSS string. Setting it meant choosing between `setColor`, `setFloat`, `parseCSS`, `setHSL` and `setLinear`, and the wrong choice is silent: it renders the wrong colour
+- **`Mesh` takes a `baseColorFactor` setting**: a material's base colour as the LINEAR triple glTF states it in, encoded on the way in. It was the only material value with no setting, so the glTF loaders and every game building a mesh by hand wrote `tint.setLinear(...)` themselves, and a linear value pushed through `setColor` renders untextured midtones 60 to 70 counts too dark
+- **`Mesh#shadowGroundPoint`**: the point on the floor a ground shadow lands on, for ground that is not flat. `shadowGroundY` can only put the blob under the caster's own column, which is wrong anywhere down is not world down, such as on a sphere. It supersedes it and lifts the 75 degree tilt ceiling
+- **`Texture2d#isAtlas`**: whether a texture carries named regions addressable with `getRegion()`, so a game holding a texture of unknown kind can ask without a type test
+- **Spatial audio placed in world coordinates**: `audio.play(name, { follow: renderable })` tracks a sound to a renderable every frame, `{ at: { x, y } }` pins one to a world point, and `{ stopWithTarget: true }` ends it when that renderable is destroyed. The numbers are the world pixels already in `pos`, and `audio.unfollow(id)` detaches a sound and leaves it playing
+- **A movable listener**: `audio.setListener(target)` puts the ear on a renderable, while `audio.listener()` and `audio.listenerOrientation()` place it by hand and read it back. A `Camera3d` target contributes orientation too. Opt-in: no frame handler runs until a listener is asked for
+- **Panner defaults shaped for pixels**: a placed sound starts from `refDistance: 240`, `maxDistance: 10000`, `distanceModel: "inverse"` and `panningModel: "equalpower"`, so it carries across a screen instead of going near silent a few tiles out. `audio.setSpatialDefaults()` and `getSpatialDefaults()` change what new voices inherit
+- **`getPool("text")` and `getPool("colorLayer")`**: typed pools for the two renderables whose only recycling route was the legacy name-keyed pool. `getPool("text").get(x, y, settings)` hands back a label with its measurement cache already allocated
+- **Gamepad vibration**: `input.vibrateGamepad(index, options)` plays a rumble effect, `stopGamepadVibration(index)` cuts a long one short, and `hasGamepadVibration(index)` reports whether a pad has motors at all. Safe to call blind, magnitudes default to FULL rather than the web API's zero, and a second call preempts the first on the same pad
+- **`input.activeGamepad()`**: the index of the pad the player is actually holding, which the browser does not report. Slots are handed out in plug order, so index 0 is a guess: a wheel or a spare pad can hold it all session. This follows the last pad to produce a BOUND input, so a worn stick at rest cannot claim to be the active one
+- **`UIPanel`**: a rectangular surface with a background, an optional border and children, where `blocking` decides whether a click that misses every child is swallowed. `bobAmplitude` and `bobPeriod` give it a slow float, and the offset goes into `getAbsolutePosition()`, so the panel and every widget in it stay clickable where they are drawn ([#1722](https://github.com/melonjs/melonJS/issues/1722))
+- **`createPool` is exported**, with the `Pool` and `CreatePoolOptions` types it names, so a pool for one of your own classes needs no deep import and a field holding one can be declared. `getPool()` only reaches the pools the engine ships, so this is what a game moving off `pool.register(name, Class, true)` needs
+
+### Removed
+- The built-in gamepad remappings for the OUYA controller and for the wired Xbox 360 controller under Firefox, along with the two axis normalizers they needed. A remapping is consulted only when the browser reports a `mapping` other than `"standard"`, which is the case these two entries were written for and not one a current browser puts a common pad in; the OUYA itself was discontinued in 2015 and its services closed in 2019. The PlayStation 3 and PlayStation 4 entries are unchanged, and `input.setGamepadMapping(id, mapping)` still takes a mapping for anything else
+
+### Deprecated
+- `pool`, the legacy name-keyed object pool. `register()`, `pull()` and `push()` each print a notice once, naming both replacements: the constructor, or `getPool()` for a typed pool
+
+### Fixed
+- Maths: `Vector3d#projectN` and `ObservableVector3d#projectN` were copies of `project`, dividing by the target's `length2()`, which is the one thing `projectN` exists to skip. Unchanged for a target that really is unit and cheaper, and it now scales by the raw dot product for one that is not, as the 2D classes always have. All four vector classes are tested
+- Pooling: a pooled instance that was dropped rather than released could never be collected, so `clone()` leaked. The registry holding each instance's `reset` and `release` callbacks was strong and nothing removed an entry, not even `release()`. Measured at 600,000 dropped clones: 150MB retained before, nothing after
+- Input: the gamepad axis `threshold` is documented as what it is, a value ADDED to the deadzone rather than used instead of it. Under the default deadzone of 0.1 the documented figure of `0.5` does not fire until 0.6 of full travel. The behaviour is unchanged
+- Audio: a page left idle for thirty seconds before its first click could lose every loaded clip for the life of the page while `tone()` and `noise()` still played. WebKit never confirms a suspend asked for outside a user gesture, so the engine waited for a resume that could not arrive. A resume is now issued at once, and a gesture or the tab returning revives playback
+- Audio: a sound's `onend` callback could fire for a DIFFERENT sound. Stopping a voice cleared only the first callback bound to it, and playback ids are handed to the next voice to take the slot, so a leftover outlived its own sound. Most visible on a clip played many times with a per-play `onend`
+- UI: a `ProgressBar` border was drawn centred on the bar's own edge, so half of it fell outside the declared width and height and `getBounds()` did not account for it. A square border is now four fills tiling the frame exactly and a rounded one is stroked on an inset path, which also fixes a 1px square border coming up short at the corners
+- UI: destroying a `ProgressBar` twice threw `Instance is already in pool.` instead of doing nothing. It handed its cached colour back without clearing the handle, and a pool refuses a double release
+- UI: `UITextButton.bindKey` activates the button from an `input.KEY` keycode or an action name. Held keys click once and blur clears the press without touching global bindings. The handlers fire with NO pointer, so an `onClick(event)` written for one throws on the first shortcut ([#1722](https://github.com/melonjs/melonJS/issues/1722), thanks @snowyukitty)
+- Application: coming back to the tab resumed a game that had paused ITSELF, so switching away from an open pause menu and back left the run playing underneath it. Only a pause this application applied on blur is reversed on focus, which is the rule `unmuteOnFocus` already followed
+- Camera / state: a camera effect's `onComplete` ran on every frame after the effect finished rather than once. A state transition defers the switch in that callback, so every frame queued another switch into the state being entered: the scene was built twice and every `onResetEvent` ran twice
+- Rendering: `toBlob()`, `toDataURL()` and `toImageBitmap()` threw on a WebGPU render target. `RenderTarget` required every backend to implement a SYNCHRONOUS `getImageData()`, which WebGPU cannot, since reading a texture there means mapping a buffer. The contract is a promise now
+- Rendering: the `RenderTarget` contract no longer requires synchronous readback. `getImageData()` stays on the canvas and WebGL targets but leaves the shared interface, and `WebGPURenderTarget#readPixels()` is removed
+- Tiled: `registerTiledObjectClass("Trigger", MyTrigger)` called before the first map load was silently discarded, because the built-in classes were flushed when the first object was built and overwrote it. They are applied as defaults now, so a name a game has taken stays taken, and a built-in name can be taken over at any point
+- Text: a recycled label inherited everything a game drives through the base class, so one tweened to `alpha` 0 came back invisible and one scaled up came back large. The alpha, tint, blend mode, transform, anchor, flip and behaviour flags are restored before the new settings are applied, and `ColorLayer` does the same
+- Text: `getPool("text").get(x, y, settings)` ignored the position it was given, so a recycled label came back sitting wherever the previous one was left. The depth resets with it
+- Text: a recycled label built a new canvas and a new metrics cache every time, stranding the previous canvas and its GPU texture, since only `destroy()` frees those. They are kept across a recycle now, which is most of what makes a pooled label worth pooling
+- Text: a recycled label inherited the previous label's `fillStyle`, `strokeStyle` and `floating`. Those three were written only when the setting was supplied, which a freshly constructed label never shows, and `getPool("text")` makes the case reachable
+- Typings: another twelve public members reached TypeScript as `any`, because the generated declarations named types they never imported, among them the mesh shadow light and the quadtree and octree containers. `Body#collisionMask` was stripped from the published types while the `PhysicsBody` interface it implements requires it, and `BitmapText#resize()` was typed as returning the base class
+- Audio: `stereo()` and `position()` drive the same per-instance panner node, and whichever was called first decided what kind of node it was, making the other a silent no-op for the life of that voice. The node now follows whichever was called last
+- Audio: `audio.panner(name, attributes)` with no playback id wrote only the voices already playing and never the clip's own defaults, so a call before the first `play()` changed nothing and the getter read back construction-time values forever. It writes the group now, and merges rather than replaces
+- Camera / state: a `state.transition()` flashed the outgoing scene for a frame once the fade or the iris had fully closed. The hide half is marked persistent so it keeps covering the screen across the switch, but the per-frame sweep destroyed any completed effect whether persistent or not. A completed persistent effect is now left for its owner to remove
+- Audio: `audio.play(name, { loop: true })` could throw `TypeError: The provided value is non-finite` and take the caller's frame with it. A queued play, from a clip still loading or a suspended context, hands the voice back before it has a loop window, and writing one then put `undefined` into `loopEnd`. The play itself sets it now
+- Audio: sound effects kept playing while the window did not have focus, because pausing the game only ever reached the current music track, so a looping engine hum or alarm played on over whatever the player had switched to. The mix is muted on blur and restored on focus, covering `tone()`, `noise()` and anything hung off `getMasterGain()`, gated by the existing `pauseOnBlur` and `stopOnBlur`
+- Skills: the UI skill listed `NineSliceSprite` panels among what it covers but never mentioned them. It now shows both ways to make one and the three things that trip people up: `width` and `height` are mandatory, `insetx` / `insety` default to a quarter of the image rather than its border, and the anchor is the centre
+- Skills: the audio skill now covers positional sound: the movable listener, the `follow` / `at` play options, the pixel-shaped panner defaults, and that all of them take world coordinates with y measured down. It also covers mix effects through `getMasterGain()`
+- `updateWhenPaused` on a container now covers everything under it, so a pause menu flags itself once and its card, its labels and its entries follow. Before, every one of them had to be flagged by hand and a single missed label silently stopped reading input. A container that does not set it is unaffected
+- `input.unbindGamepad(index, button, type)` takes the table the binding is in, `"buttons"` by default, and removes the binding outright rather than blanking it. An axis could not be unbound at all before: the call only ever reached the button table, and the codes collide, `GAMEPAD.AXES.LX` and `GAMEPAD.BUTTONS.FACE_1` both being 0
+- `audio.playTrack()` stops the track it replaces. It only ever assigned the current-track slot and played, so the previous track kept looping underneath and `stopTrack()`, `pauseTrack()` and `resumeTrack()` could no longer reach it. Calling it with that track already playing now restarts it rather than stacking a second copy, and an unknown clip name throws before anything is stopped
+- `pool.push(obj)` reports a refusal by returning `false` rather than throwing. The throw aborted whatever was running, which in both of the engine's own uses removed in 20.7.0 was a `destroy()` that had already recycled other state. Pass `pool.push(obj, true)` where a missed registration is a bug you want to hear about ([#1688](https://github.com/melonjs/melonJS/issues/1688))
+- Tiled tile images, atlas sprites and Tiled image layers are built from their classes directly rather than looked up by name, since `pool.pull("me.Sprite")` never pooled anything. Re-registering one of those BUILT-IN names to substitute your own class no longer changes what they produce; your own names are unaffected ([#1688](https://github.com/melonjs/melonJS/issues/1688))
+- The engine no longer registers its own classes in the legacy object pool, so `pool.pull("Sprite")`, `pool.pull("Text")` and the other built-in names throw instead of returning an instance. Call the constructor, or `getPool("tween")`, `getPool("particle")`, `getPool("text")`, `getPool("colorLayer")` for the recycling ([#1688](https://github.com/melonjs/melonJS/issues/1688))
+- A child removed from a container goes back to the typed pool that built it, and is destroyed when no pool did. `pool.register(name, Class, true)` no longer makes a class recyclable on removal, so a built-in `Text` or `ColorLayer` is destroyed where it used to be pooled: pass `keepalive` to `removeChild()` to keep it ([#1688](https://github.com/melonjs/melonJS/issues/1688))
+
+## [20.8.0] (melonJS 2) - _2026-10-06_
+
+### Added
+- **`Mesh#shadowScale`**: a size multiplier for the ground shadow, independent of the object's own size, so a wide flat-bottomed prop can show a blob that would otherwise hide under it. Defaults to `1`; `0` or less hides the shadow and leaves the object drawn. Works on `Sprite3d`, `InstancedMesh` and `GLTFModel`, and can be animated on a set, whose shared quad is rewritten in place rather than rebuilt ([#1631](https://github.com/melonjs/melonJS/issues/1631), [#1712](https://github.com/melonjs/melonJS/issues/1712), thanks @snowyukitty)
+- **Ground shadow shape** (`shadowOffset`, `shadowStretch`, `shadowDirectionX` / `shadowDirectionZ`, `shadowLight`): slide the blob along the ground and lengthen it, for a light that is not overhead. The offset is in multiples of the blob's own radius rather than world units, so one value serves casters of any size, and it needs `shadowGroundY`, since a flat quad can only be slid across a plane the game has named; the stretch is clamped and fades as it pulls. `shadowLight` names a `Light3d` to take the direction from and is re-read every draw, so a day or night cycle carries every shadow with it; nothing is inferred, a scene with no named light gets no direction. An `InstancedMesh` honours both, as one offset and one stretch for the whole set: they ride the quad its blobs share rather than the matrix that also places them, so the blobs lengthen without the scatter smearing. Art direction rather than a projection ([#1631](https://github.com/melonjs/melonJS/issues/1631))
+- **`Mesh#shadowGroundNormal`**: the up normal of the floor a ground shadow lands on, so the blob can lie on a slope instead of always being level. Pairs with `shadowGroundY`, which says where that floor is. The blob is rotated onto the plane rather than projected, so it keeps its size, and it stays directly under its caster; the tilt is clamped at 75 degrees. On an `InstancedMesh` one plane serves the whole set, through the set's origin at `shadowGroundY`, so a scatter over curved ground is one set per flat facet ([#1631](https://github.com/melonjs/melonJS/issues/1631))
+- **3D particles** (`elevation`, `elevationVariation`): the launch lifts out of the emitter's plane, so a burst is a volume rather than a disc facing the viewer and a trail can recede. Both default to `0`, which leaves the 2D path exactly as it was ([#1696](https://github.com/melonjs/melonJS/issues/1696))
+- **`minSpread` / `maxSpread`**: `angle` and `elevation` become an AXIS and each particle leaves at a polar angle off it, giving a cone, a flat disc or a whole sphere. Sampling azimuth and elevation independently cannot describe a ring tangent to a surface, since there the elevation is a function of the azimuth ([#1696](https://github.com/melonjs/melonJS/issues/1696))
+- **`ProgressBar`**, a gauge renderable: track, value-sized fill, optional border and label, four directions, colour or gradient. The loading screen is built on it
+- **HDR rendering** (`hdr`, `hdrOutput`, `renderer.setHDR()` / `setHDROutput()`), off by default: half-float camera targets so additive content stops saturating, and the frame presented in the display's full range. `hdrOutput` is WebGPU only; check `renderer.supportsHDR` / `supportsHDROutput`
+- **`toneMapping` setting and `renderer.setToneMapping(mode, options)`**: `"aces"`, `"reinhard"` or `"exponential"`, kept last on the camera and driveable from a settings screen
+- **`ToneMappingEffect`**: exposure plus a filmic curve instead of clipping flat at white. `white` sets what reads as display white
+- **`BloomEffect`**: bright areas bleed light into their surroundings
+- **`RadialGradientEffect` is exported.** It was already a complete effect with both language bodies, reached by the renderers through a direct import for `drawLight`, so nothing failed and nobody noticed that `import { RadialGradientEffect } from "melonjs"` did not work. A soft spot, a pickup highlight or a damage flash no longer needs a baked canvas
+- **`Mesh#depthTest`**: whether geometry in front of a mesh hides it, `true` by default. Set `false` for an additive glow, or a world-space label, with no surface to be occluded on. Honoured by `Sprite3d` too
+- **Physics: `Sphere` collision shape**, resolved against another `Sphere`, a `Box3d`, or any planar shape through its XY silhouette
+- **`raycast3d` on a sphere body** reports that sphere's surface, not a bounding sphere derived from the renderable's 2D bounds
+- **`Renderable#setPosition(x, y, z)`**, `z` optional: `pos` is 3D but typed 2D, so `pos.set(x, y)` silently zeroes the depth
+- **`Camera3d#setBasis(right, up, forward)` and `lookAt(target, up)`**: pose a camera from a basis the game already holds, which is what a view over a curved surface needs
+- **`Color#setLinear(r, g, b, alpha)`**: set a colour from LINEAR values, encoded to sRGB on the way in. The sibling of `setFloat`, which takes the same `0..1` range and treats it as already sRGB, and the two are not interchangeable: a linear `0.42` is sRGB `0.68`. Reach for it when the numbers come from a renderer's own colour space rather than from a css string or an image, glTF's `baseColorFactor` and `emissiveFactor` being the common case. Handing those to `setFloat` renders every untextured material markedly too dark
+
+### Fixed
+- A glTF scene loaded with `level.load()` takes every ground-shadow setting, not just `castGroundShadow` and `shadowGroundY`. `shadowLight`, the direction pair, the offset, the stretch, the scale, the opacity and the ground normal reached a rigged `GLTFModel` but not a static scene, so a loaded scene could not be told where its sun was
+- `GLTFModel` passes the ground-shadow settings to the parts it builds. Only `castGroundShadow` and `shadowGroundY` reached them, so `shadowOpacity` was silently ignored on every loaded model, which is most of the props a scene has
+- A particle was culled and sorted at twice its depth, because the emitter's depth was stamped onto each particle as a container-local `pos.z` and then summed again by the chain walk. Under a `Camera3d` a burst anywhere but the near face of the scene drew nothing at all
+- Destroying a `ParticleEmitter` returns its particles to the pool and cancels the sort it still owed. `Container#destroy` emptied itself through its own public `reset()`, which `ParticleEmitter` redefines to re-apply settings, so on an emitter that call did neither
+- Pointer events reach whatever is drawn on top. `pos.z` is container-local, so a button inside one panel outranked another panel stacked over it. A covered region is also told when it loses the pointer
+- `onOver` can consume the pointer by returning `false`, as `onClick` and `onRelease` already could, so a panel can stop a widget it covers lighting up on hover
+- A single post effect did nothing on a renderable that draws with primitives, while two or more worked. `Trail` was affected; opt in with `postEffectNeedsCapture`
+- The loading screen's progress bar held a pixel count rather than a ratio, so a viewport resize mid-load left the fill at the old scale
+- `renderer.stroke()` and `renderer.fill()` did not handle a `Sphere`, which has existed since 19.7
+- Much of the public API reached TypeScript as `any`, because the generated declarations named types they never imported. Chaining returns the subclass again
+- `Sprite3d#scale()` and `meshScale` size a billboarding card. The scale in `currentTransform` was discarded along with the rotation, so `scale()` was a no-op; the cull bounds follow it now
+- `Sprite3d#isFlippedX` and `isFlippedY` are getters, as on every other renderable. They were methods, so reading one handed back a function, which is always truthy
+- `Camera3d#reset()` zeroes `pitch`, `yaw` and `roll` and takes an optional `z`. It inherited the 2D version and left the camera pointing wherever it had been
+- Skills: the shader skill claimed a `ShaderEffect` cannot shade a mesh on WebGPU, untrue since 20.5. It carries the real limits now
+- Skills: the depth rule for a full-screen pass under the HUD was given only for `sortOn = "z"`, so under `"depth"` it put the pass over the labels rather than under them
+- A hand-built shape is dropped on `body.destroy()` rather than pooled without a reset, which handed the next caller the destroyed body's geometry
+- `adapter.getBodyShapes()` keeps a 3D shape's depth offset on a renderable that is not corner-anchored
+- `Sphere#getBounds()` reports where the sphere is now; the AABB was rebuilt only by `setShape`
+
+## [20.7.0] (melonJS 2) - _2026-09-23_
+
+### Added
+- Physics: collision shapes drawn in a shape editor load on every backend. Preload the export as JSON, then set `bodyDef = { type, shapes: "<asset name>", id: "<body name>" }`; the engine resolves it before any adapter sees it, so one definition works on the builtin, matter and planck adapters ([#1685](https://github.com/melonjs/melonJS/issues/1685))
+- Physics: circles, polygons and the convex pieces a concave outline was decomposed into all load from such a file, along with the density, friction and bounce the shapes were authored with ([#1685](https://github.com/melonjs/melonJS/issues/1685))
+- MTL: a material's ambient colour (`Ka`) and illumination model (`illum`) are read onto it and readable from user code, instead of being parsed and dropped. Neither takes part in shading ([#1599](https://github.com/melonjs/melonJS/issues/1599))
+- Sprite: `shininess` gives a normal-mapped sprite a specular highlight in each light's own colour, gated on the exponent as MTL `Ns` is, so `0` is matte and every existing sprite is unchanged. The Canvas renderer ignores it
+- Mesh: tangent-space normal maps on lit surfaces. MTL `map_bump`, `map_Bump`, `bump` and `norm` load per material and `settings.normalMap` sets one directly; the tangent frame is derived per fragment on both backends, so no tangent vertex attribute is needed ([#1574](https://github.com/melonjs/melonJS/issues/1574))
+
+### Deprecated
+- `Body#fromJSON()`, and passing an exported shape list to `Body#addShape()` or the `Body` constructor, in favour of `bodyDef.shapes` naming the preloaded asset: the old path reaches the builtin solver only. The constructor forms now throw, the other two warn and still work. On migration, the file's `friction` arrives as portable contact friction rather than the builtin's per-step damping vector, so set `frictionAir` yourself if you relied on it ([#1685](https://github.com/melonjs/melonJS/issues/1685))
+
+### Fixed
+- Loader: an asset type that needs its `src` treated specially declares `normalizeSrc` and `needsBaseURL` itself, instead of the shared resolution path naming types ([#1648](https://github.com/melonjs/melonJS/issues/1648), thanks @ICOM725)
+- MTL: `map_Pr` and `map_Pm` are reported as unsupported rather than unknown; the PBR extension's scalars are read and approximated onto the existing shading terms ([#1599](https://github.com/melonjs/melonJS/issues/1599))
+- `Renderable#destroy()` no longer throws for a renderable carrying a mask. It handed the mask to the legacy object pool, which refuses any unregistered class, and no geometry class is registered, so this threw for every type `mask` accepts
+- Body: a `RoundRect` collision shape goes back to its own pool on destroy rather than to `polygonPool`, which had been handing the next caller a `RoundRect` in place of a `Polygon`
+- `Polygon#rotate(angle, pivot)` turns the whole shape, not only its points: a polygon carrying its offset in `pos` spun about its own origin and landed elsewhere. A polygon at the origin, which is every caller in the engine until now, is unchanged
+- Body: rotation pivoted about the wrong point for any renderable away from the world origin, since `body.bounds` is already renderable-local and the pivot subtracted `renderable.pos` from it a second time
+- `Body.rotate()` no longer throws on a `Box3d` or `Point` shape, neither of which can rotate; such a shape keeps its orientation and still contributes its bounds
+- Physics: on the builtin solver, a body is pushed out of every shape of a multi-shape body it overlaps, not only the first one found. A crate resting across the junction of a Tiled polyline, which arrives as one body carrying one shape per segment, sank a little further into the neighbouring segment every frame and eventually fell through the ground: the narrowphase reports the first overlapping pair it finds, and the extra separation passes kept re-resolving that same already-resolved pair while the sibling went unmeasured. Every pair is enumerated once per pass now, which costs fewer narrowphase tests than the re-scan it replaces
+- Physics: on the builtin solver, a body collides where its renderable draws. `anchorPoint` shifts a renderable's bounds and its rendering by `-size * anchorPoint`, but collision shapes were measured from `pos` regardless, so a renderable anchored anywhere other than its top-left corner had a hitbox sitting where it was not drawn: half a body off at the default centred anchor, and a full body height at the bottom anchor a platformer actor uses. **A game that compensated for this by offsetting its shapes by hand should remove those offsets.** `Entity` and Tiled objects set their own anchor to (0, 0), so anything built either of those ways is unchanged, and so is a renderable that places itself by clearing `applyAnchorTransform`, which a `GLTFModel` does outright and a `Mesh` does under a `Camera3d`: those draw at `pos` whatever their anchor holds, so that is where they collide. `raycast3d` reports hits in the same frame, so a floor probe and the solver agree on where a surface is
+- Physics: on the builtin solver, a body held against static geometry by another dynamic body is no longer pushed into it. A crate shoved against a wall now stops at the wall instead of creeping inside it or crossing thin geometry entirely; the interior of a stacked pile of dynamic bodies still settles with a small overlap, which is what the matter and planck adapters are for
+- Physics: on the builtin solver, two overlapping dynamic bodies now separate instead of being shifted the same way together: SAT reports one minimum translation vector per pair, oriented for one side of it, and the other side was applying it unmirrored. **A game that leaned on a colliding dynamic pair drifting along in convoy will see them push apart instead**, while contacts against static geometry are unchanged, since the dynamic body is always the side the vector is oriented for
+- Mesh: `lit: true` under a `Camera2d` warns once and degrades to unlit instead of silently doing nothing, naming `Camera3d` as the way to light it ([#1576](https://github.com/melonjs/melonJS/issues/1576))
+- Trigger: a trigger targeting a glTF level forwards the scene options it was given; `scale`, `rightHanded`, `lights` and the rest were dropped before `level.load()` saw them ([#1649](https://github.com/melonjs/melonJS/issues/1649), thanks @ICOM725)
+
+## [20.6.0] (melonJS 2) - _2026-09-16_
+
+### Added
+- `renderer.prewarm()` builds the backend's built-in shader programs during `loader.preload()`, behind the loading screen, instead of on the frame that first draws them. On by default — `prewarm: false` in the application settings opts out, and a game that never preloads can call it directly
+
+### Fixed
+- Camera: a camera effect now draws on a `Camera3d`. A full-viewport overlay was rasterized through the camera's perspective projection and clipped away, so **no camera effect rendered at all on the 3D tier** — including the fade behind `state.transition()`, whose reveal was a hard cut
+- Loader: the built-in loading screen fetches its logo asynchronously and handles the failure case — a logo that does not load is treated as the decoration it is, leaving the progress bar running rather than putting an unhandled error in the way of the game's own preload
+
+## [20.5.0] (melonJS 2) - _2026-09-15_
+
+### Added
+- Mesh: a `ShaderEffect` can be hosted on a mesh — `addPostEffect` shades it on both backends as a colour hook, so the mesh keeps its own placement, alpha cutout, lighting and fog. `screen_uv`, `noise_uv`, `screen_texture`, a body's own samplers, WGSL `vColor` and `InstancedMesh` are unsupported and warn once ([#1658](https://github.com/melonjs/melonJS/issues/1658))
+- `GLTFModel` can be placed and moved: `pos`, `depth`, `rotate` and `scale` drive the whole rig as on any other renderable, composing with the animated pose rather than replacing it. Every root node used to hang from the identity, so a loaded model posed at the world origin and stayed there
+- Text: `fillStyle` takes a `Gradient` as well as a colour, built with `createLinearGradient`/`addColorStop`. Coordinates are the label's own bake and the ramp colours the fill only, since the stroke is a separate pass. A multi-line label restarts the ramp on every line; `gradientPerLine: false` spans one ramp across the block instead
+- `save`: registered keys are reachable from TypeScript without a cast. The namespace was typed `Record<string, unknown>`, and that index signature swallowed its own members, so under `strict` `save.add()` was `unknown` and could not be called at all. `add()` now returns the namespace typed with the keys just registered, and chained calls accumulate
+- `audio.tone()` and `audio.noise()` take a `delay` in seconds, scheduled on the audio clock, so a multi-part sound — a stinger's second note, an explosion's double-tap — sequences without a `setTimeout`. A timer fires on the main thread and a busy frame slips the note; this is scheduled up front and is sample-accurate. Omitting it is unchanged
+- `Gradient#toCanvasGradient(ctx)` is public: a `Gradient` could be built and handed to `Text.fillStyle`, but there was no supported way to rasterise one into your own canvas. It returns a native `CanvasGradient` and holds no shared state
+- Camera: `roll` completes the `pitch` / `yaw` trio. On a `Camera3d` it banks the view and the frustum planes follow, so culling stays correct under a bank; on a `Camera2d` it is the screen-plane rotation, and picking compensates for it. Assigning it rebuilds the camera transform, so a camera banked every frame cannot drift
+- `Light3d`: `direction` and `position` accept a `Vector3d` as well as an `[x, y, z]` array, so a value the game already holds goes straight in — `color` already took a `Color`, a string or an array. The vector is read, not retained. Passing one used to be read by index and silently produce a `NaN` direction, so the light contributed nothing ([#1661](https://github.com/melonjs/melonJS/issues/1661))
+- Typings: a parsed glTF node's geometry is readable from TypeScript. `GLTFData.nodes` was `object[]` with its fields listed in prose, so `node.vertices` did not compile — the array is `GLTFNode[]` now. `Mesh`'s `texture` accepts a `Texture2d` and its `indices` a `Uint32Array`, both of which it already handled; a shader `Asset` may carry the `{glsl, wgsl}` pair the loader has always parsed
+
+### Fixed
+- Renderer: the transparent pass sorts a mesh by where its geometry is, not by where its origin is. The key came from the model matrix translation alone, so a `normalize: false` mesh whose vertices run away from its origin — a ground plane authored from one corner, or a water plane parented to the boat it trails behind — sorted by an authoring choice and could be replayed over everything inside its own span. Blob shadows under such a plane were the visible casualty
+- `audio.fade()` with a zero duration, or with matching start and end volumes, poisoned the volume with `NaN` and left an interval running forever — the step divided by the duration, and the exit test compares the two volumes strictly so equal ones never satisfied it. The reported symptom was a later `setValueAtTime` throwing on a non-finite value. Such a fade now settles on the target immediately without starting an interval
+- Renderable: opacity now cascades — `alpha` multiplies with the alpha already on the renderer instead of replacing it, so a child at 0.5 inside a parent at 0.5 draws at 0.25. **A nested renderable that was visibly opaque under a faded ancestor will now fade with it**
+- GLTFModel: a loaded model reported no bounds at all, so a model with a `Body` was filed in the broadphase away from where it stood and collided with nothing. Its extent now comes from the glTF bounding box, measured once at load
+- Mesh: `resize()`, `recalc()` and the `width`/`height` setters threw on every mesh — `Polygon#recalc` walked the `normals` and `indices` slots a `Mesh` repurposes for typed arrays. The polygon's edge normals are now `edgeNormals`
+- Text: glyph tops were shorn off on **Safari**. The cache texture was invalidated before the canvas was resized and repainted, and a WebGPU texture is immutable-sized, so the copy kept the old height and the label sampled past its own content. The refresh now happens last
+- Text: a glyph is no longer clipped along the top of its own bake. The offscreen canvas was sized from the nominal line box, which says nothing about where the ink lands, so a display face or any stroked label lost the overshoot. The bake is padded by the ink's real extent and the blit shifts back by the same amount, so glyphs keep their exact screen position
+- Text: moving a label now moves it. The blit origin is derived from `pos` but was refreshed only when the text changed, so repositioning a label without re-setting it slid the glyphs off their own canvas and drew at the old spot. Sub-pixel placement is unchanged
+- Renderer: `stroke()` and `fill()` threw `Invalid geometry` on a `Box3d`, which the debug panel's hitbox overlay hits on any body carrying one. It now draws the XY footprint
+- Mesh: a mesh with `normalize: false` and an explicit `scale` now sizes itself from its geometry when no `width`/`height` is given. It reported a zero-size box while drawing at full size, misleading frustum culling, pointer picking and the broadphase alike
+- Mesh: a `ShaderEffect` attached to a mesh drew the geometry unplaced and without the camera on WebGL, and was refused on WebGPU with a message naming the wrong reason ([#1658](https://github.com/melonjs/melonJS/issues/1658))
+- `Sprite3d`: `fog: false` reaches the mesh — a sprite builds its own settings for `Mesh` and did not copy it, so a sun could not be kept out of the haze. `transparent` and `castGroundShadow` are documented on `Sprite3d` too
+- Typings: `setUniform` accepts a number. It was typed `object|Float32Array`, so setting a `float` uniform — the commonest case, and the one the method's own examples show — did not compile from TypeScript. Scalars, arrays, `Float32Array` and any `toArray()`-bearing object are now all in the signature
+- Typings: documented options no longer fail to compile — the `Noise` settings `NoiseTexture2d` forwards, the `Mesh` settings `InstancedMesh` forwards, `setCurrentAnimation(name, { loop: true })`, non-object values for `Container#setChildsProperty`, an `HTMLCanvasElement` as `image`/`texture`, and `super.update(dt)` in a custom `Stage`. Settings shapes are exported as `MeshSettings`, `InstancedMeshSettings`, `NoiseTexture2dSettings` and `AnimationOptionsInput`
+
+## [20.4.0] (melonJS 2) - _2026-09-09_
+
+### Added
+- `level.load()`, `reload()`, `next()` and `previous()` take an `async` option: set it and the call hands back a promise that settles once the level is actually in the world, instead of the boolean it has always returned. `options.onLoaded` still fires either way, so the two forms mix freely, and omitting the flag changes nothing — the existing signatures are preserved as TypeScript overloads, so `const ok: boolean = level.load("map1")` still compiles. Running out of levels still reports `false` rather than rejecting, and an unknown level id throws synchronously in both forms: that is a typo, not a load failure, and it should not need `await` to surface ([#1646](https://github.com/melonjs/melonJS/issues/1646))
+- **Soft transparency for the 3D tier** ([#1516](https://github.com/melonjs/melonJS/issues/1516)): a mesh now fades when you fade it. Draws that resolve to fractional alpha go into a **transparent pass**, replayed back-to-front after the opaque one — blending, writing no depth but still depth-tested, so transparent objects composite with each other and stay correctly hidden behind opaque geometry. Blending honours the renderable's existing `blendMode`, so `"additive"` gives glows. `transparent: true` opts in a soft-alpha *texture* the automatic check cannot see into — a glTF `alphaMode: "BLEND"` material, a glow sprite — and `transparent: false` pins the opaque path. Sorting is per object, so intersecting transparent meshes remain order-dependent. Needs a GPU backend and a `Camera3d`; a scene with no transparent objects never enters the queue
+- **Distance fog for the 3D tier** ([#1622](https://github.com/melonjs/melonJS/issues/1622)): `camera.setFog({ mode, near, far, density, color })` fades mesh geometry toward a colour with distance — `"linear"` between two distances, or `"exp2"` from a single density. Every parameter is optional and the omitted ones resolve **live**: the distances track the camera's own clip planes, so fog cannot silently disagree with them after a later `setClipPlanes`, and the colour tracks `renderer.backgroundColor`, so geometry dissolves into the sky you already set. Measured radially and applied per fragment, so it neither slides as the camera turns nor bands across large triangles. Fog belongs to the camera, so split-screen and minimap views fog independently and a `Camera2d` never fogs; a mesh opts out with `fog: false`. **Off by default**, and compiled out on both backends rather than skipped at runtime
+- **Height falloff for distance fog** ([#1633](https://github.com/melonjs/melonJS/issues/1633)): `camera.setFog({ …, fogHeight, heightFalloff })` makes fog density drop with altitude, so mist pools in low ground instead of hanging as thickly over a ridge as over the valley floor. `heightFalloff` defaults to `0`, which is not a special case but the same integral with the dial at zero, so a scene that omits it renders exactly as before. Costs one `exp` per vertex: an exponential integrates analytically along a straight segment, so there is no ray marching and no volume texture. Render space is **Y-down**, so `fogHeight` is the floor and density rises below it
+- Mesh: `settings.vertexColors` and `setVertexColor(index, color)` give procedural geometry a per-vertex colour, multiplied into `tint`. `tint` is per *object*, so a terrain built as one mesh could only be tinted whole; this is what lets it fade toward the sky with distance, or darken in a crease, without splitting the mesh or writing a shader. Takes packed RGBA8 (`Uint32Array`) or one `Color` per vertex; a length that does not match the vertex count throws rather than mis-colouring the tail ([#1624](https://github.com/melonjs/melonJS/issues/1624))
+- Mesh: normals are generated from the geometry when a `lit` mesh is built without them, so a hand-built mesh no longer has to write the same accumulate-and-normalize loop first. Flat versus smooth is decided by the geometry rather than a flag: face normals accumulate into their vertices weighted by area, so shared vertices average into smooth shading while a triangle soup resolves to the face normal and shades flat. An explicit `settings.normals` still wins, and an unlit mesh gets none
+- Docs: the API reference carries the engine's own identity — logo, brand palette and favicon — and the header links out to the site, the wiki, the repository and Discord. A **Copy page** control hands the page you are reading to an assistant: it copies the page as Markdown with its canonical URL attached, or opens it directly in a chat. The landing page also gained a short section on using the reference with an AI assistant
+
+### Performance
+- Lit meshes and sprites (WebGL): the light block's `getUniformBlockIndex` is memoized per program, rather than re-queried — a blocking driver call — on every program switch. **About 50% less engine CPU per frame** on the instanced forest example
+- WebGPU: the 1×1 filler texture every mesh without an alpha map binds was re-created every frame, its one-level mip chain never counting as complete. **About 17% less engine CPU per frame**, and 2066 texture creations down to 3
+
+### Fixed
+- Level: `level.reload()` was documented as returning `object` — "the current level" — but it returns whatever `level.load()` returns, which is `true`. The declared type has been wrong for the method's whole life: the 2011 original returned nothing at all. `getCurrentLevel()` is the call that hands back the level object. This corrects the emitted type from `object` to `boolean`, so a `const lvl: object = level.reload()` that compiled while receiving `true` now fails to compile, at the site that was already wrong
+- Lit meshes: specular highlights sat in the wrong place under a scaled ancestor ([#1636](https://github.com/melonjs/melonJS/issues/1636)). The camera position was derived from the view as `-Rᵀ·t`, which is only the right point when the upper 3×3 is orthonormal — and `Container.draw` folds every ancestor into that matrix. It is now the translation column of the view's inverse
+- Lit meshes: specular lighting, and a mesh's alpha-map cutout, were wrong on whichever tier drew second in a frame. The instanced and non-instanced tiers are two programs sharing one batcher, and its skip-the-redundant-upload cache was not dropped when the program changed under it — so an instanced set behind a lit prop at the same shininess lost its specular outright, and instanced foliage rendered as opaque rectangles. Present since 20.0.0
+- Ground shadows: a scene could lose every blob it drew. The queue drained on any batcher switch, including inside the screen-projection window `Container.draw` opens around a `floating` child — so a single HUD deleted every ground shadow — and mid-scene whenever anything non-mesh sorted there. It now drains only where the world draw is finished
+- Container: a `floating` child in a depth-sorted world was ordered by its **screen** position, so a HUD's layering depended on where it sat on the screen and drifted as the camera travelled. It is now ordered by `|pos.z|` alone
+- Mesh: an alpha-cutout mesh **vanished entirely** once it faded past its own threshold — a `Sprite3d` popped out of existence at 49% opacity rather than fading through it. The threshold now applies to the material's own alpha, not the drawn alpha
+- Mesh: `alpha = 0` painted the mesh **opaque black** instead of hiding it, on both GPU backends. The mesh path disables blending, so the shader multiplied the colour by zero and wrote the result opaque; both renderers now skip below `1/255`, as Canvas always did
+- Color: `toUint32()` returned a **negative** number for any colour with alpha at or above 0.5, since the packing used `|`. Nothing rendered wrong — every consumer inside the engine writes the bit pattern — but reading the value back, comparing it or printing it did
+- Audio: a game with a sound in its preload could hang on a blank loading screen, in four ways. A decode failure, missing codec or no-audio-support error reported nothing at all (the listener required a numeric voice id); `stopOnAudioError = false` called the loader's *error* callback, which for a promise-based preload is the reject; `preload: false` fired neither callback; and `loader.setOptions({ withCredentials })` reached the audio backend under a pre-20.3 name it does not read
+- Audio: a failed load no longer throws from a timer callback, where it landed on an empty stack as an uncaught global error that nobody could catch. It is reported to the loader and logged instead
+- Audio: `xhrWithCredentials` still works on `Sound` itself, deprecated rather than removed; `xhr: { withCredentials }` is the current spelling and wins when both are given
+- Loader: `loader.crossOrigin` and `loader.withCredentials` are documented as read-only, which they always were — they are module bindings, so the assignment both JSDoc examples showed threw a `TypeError`. Use `loader.setOptions({ … })`
+- Docs: the reference build emitted 311 warnings. Thirteen links on the landing page were relative HTML paths TypeDoc neither copies nor rewrites, so they 404'd; 78 `@param` blocks documented parameters their signature did not declare; and 70 legacy JSDoc tags were ignored with a warning apiece. Down to 156, with no reader-facing link left broken
+- Docs: engine internals no longer appear in the API reference or in consumers' autocomplete ([#1637](https://github.com/melonjs/melonJS/issues/1637)). `@ignore` hides a member from the generated documentation but leaves it in the emitted `.d.ts`, and an untagged member appears in both. **1454 declarations left the published types and 89 left the reference, with no change to the public API**
+
+## [20.3.0] (melonJS 2) - _2026-08-31_
+
+### Added
+- Skills for AI coding assistants, shipped in the package at `skills/` and versioned with the engine. Twenty-three topic guides — bootstrap, scenes, renderables, sprites, input, physics, tilemaps, audio, UI and text, shaders, particles, lighting, the 3D tier and its asset formats, loading, backends, events, performance, plugins and the 20.x migration — each ending with a symptom-to-cause table for the failures that are silent rather than fatal: a custom `draw()` that ignores `this.pos`, `isKinematic` blocking pointer events, `.z` set after `addChild`, `removePostEffect()` destroying the effect. Installable in Claude Code via `/plugin marketplace add melonjs/melonJS`; for agents following the `AGENTS.md` convention (Codex, Cursor, Gemini CLI) a ready-made `skills/AGENTS.md` ships alongside them, to copy into a game's project root
+- Documentation: an `llms.txt` index is now published with the API reference at <https://melonjs.github.io/melonJS/llms.txt>, listing every exported class, function, interface, type and namespace with a one-line summary, a link to its page and a marker on the deprecated ones. Regenerated from the TSDoc comments on every docs build, so an agent that cannot find something in a skill has one URL to fetch rather than an API name to guess
+- Audio: sprite support — a clip can declare named regions of one file (`sprite: { jump: [0, 450] }`) and `audio.play("sfx", { sprite: "jump" })` plays one, so a single download can carry many effects. `play()`'s second argument now takes either the original `loop` boolean or an options object (`sprite`, `loop`, `onend`, `volume`); every existing call form is unchanged
+- Audio: `duration()`, `playing()` and `state()` report a clip's length, whether it is playing, and its load state
+- Audio: `pool`, `rate`, `mute`, `preload` and `format` can be set when loading a clip, along with an `on` map of lifecycle callbacks (`play`, `pause`, `stop`, `end`, `fade`, `seek`, `rate`, `volume`, `mute`, `unlock`). Each is forwarded only when set, so existing declarations are unaffected
+- Device: `platform.appleVendor` reports whether the browser is Apple's WebKit, which `platform.iOS` does not answer — a Mac running Safari is one but not the other
+- Input: added `input.setPreventDefault(value)`. `input.preventDefault` is documented as a global option but is a read-only module binding, so assigning to it silently had no effect; the setter is the working form, and `bindKey`'s fourth argument still overrides it per binding
+
+### Changed
+- Audio: the engine no longer depends on Howler, the third-party audio library — the backend is now maintained in-tree. This also fixes a long-standing packaging wart: the emitted type declarations referenced the library, so consumers type-checking with `skipLibCheck: false` had to install it themselves
+- Loader: the `onload`, `onProgress` and `onError` properties are removed. Deprecated since 18.2.0, they were `let` bindings on an ES module namespace — `loader.onProgress = fn` threw a `TypeError`, so the documented callback API could never be used by anyone. Use the `LOADER_COMPLETE` / `LOADER_PROGRESS` / `LOADER_ERROR` events, or `preload(assets, onloadcb)`
+
+### Fixed
+- Audio: sound files failed to load when the game is served from `file://` — a Cordova or Capacitor APK on Android, most commonly. `fetch()` cannot read that scheme in those WebViews, and audio was the only asset type still calling it directly instead of going through the engine's loader, which falls back to XHR
+- Tiled: an object with no explicit geometry got a **triangular** collision shape. The default shape was built from three vertices — `(0,0)`, `(w,0)`, `(w,h)` — so the lower-left half of every plain rectangle in a map was not solid
+- Timer: `setInterval`'s `pauseable` argument was ignored — the expression storing it was unconditionally true, so a repeating timer could never be made to keep running while the engine is paused. `setTimeout` was unaffected. A pause-menu animation or a countdown that should not freeze now works as documented ([#1619](https://github.com/melonjs/melonJS/issues/1619))
+- Loader: a failed asset reported `Cannot read properties of undefined (reading 'onError')` instead of `Failed loading resource <src>` when `preload` was called detached from the `loader` namespace, masking the real failure — the error path read `this.onError` from a module function, which has no `this`
+- Lighting: the one-time console warning for normal-map lighting named the WebGL renderer and told you to switch to `video.WEBGL`, which sent WebGPU users chasing a fallback they were not on — WebGPU implements the lit pipeline too. It now names a GPU backend, and says that `Light2d` glow and stage lighting still draw on Canvas
+- Docs: a sweep of the API reference against the source it documents. `Renderable#draw` told you to draw at `(0, 0)` when `preDraw` never translates to `this.pos`; the `body` example called `viewport.follow(this.pos, …)`, which throws; `Camera3d` documented a `roll` axis that does not exist; `Mesh` omitted eight constructor settings including `lit`, the switch for the whole lit-mesh path; the `Asset` typedef advertised `"tmj"` / `"tsj"` asset types that throw (those are file extensions under `"tmx"` / `"tsx"`); `Body#addShape`'s documentation had drifted onto a private helper, leaving the public method undocumented; and 18 effect classes carried an unresolvable `@param` import path plus examples teaching `renderable.shader =`, deprecated since 19.2.0. `setBlendMode` also claimed on all three backends that "every renderer supports the full set", when `"none"` needs a GPU backend — on Canvas it resolves to `"normal"`, which `setBlendMode` reports back
+- Docs: the README gained a short guide on transpiling for older browsers, including the trap that catches people — build setups skip `node_modules` by default, so melonJS is left untouched however low the target is set
+- Docs: the README described the engine as ES6 and gave no target for the published bundle, which reads as a compatibility claim it does not meet — the bundle uses private class members and ~700 ES2020 constructs, so an ES6-era browser cannot parse it at all. It now states the ES2022 target once, where someone deciding whether to adopt will look. The CDN example also still referenced v19
+- Device: `platform.Kindle` missed every current Fire tablet. It required `Silk` followed by `Mobile Safari`, but Chromium-based Silk ends its user agent with `Safari/537.36`; it now matches the `Silk/` token directly
+
+## [20.2.0] (melonJS 2) - _2026-08-29_
+
+**Highlights:** all thirteen blend modes the engine names now work on all three renderers, closing the last gap where the Canvas fallback was the most capable backend for blending. Particles gain a reference space, so an emitter can leave a trail instead of dragging its cloud along. Two measured wins: the particle update loop drops ~37%, and WebGPU quad submission ~42%, taking that backend from slower than WebGL 2 to marginally faster.
+
+### Added
+- Particles: `referenceSpace` setting — measure a particle's position from the emitter (`"local"`, the default), from the container the emitter sits in (`"world"`), or from any `Container`. `"world"` leaves particles where they were emitted, so a moving emitter draws a trail rather than carrying its cloud. Changing it at runtime re-bases live particles so nothing jumps (thanks @Vareniel)
+- Renderable: `getWorldTransform(out)` — the matrix form of `getAbsolutePosition()`, which sums positions up the ancestor chain and so cannot express the rotation, scale or flip accumulated along it. Writes into a caller-supplied `Matrix3d` and stores nothing. Returns the frame a renderable's content is drawn *in*: for a `Container` that includes its own position, for a leaf it does not
+- Renderer: the six remaining CSS blend modes — `overlay`, `hard-light`, `color-dodge`, `color-burn`, `soft-light` and `difference` — now work on WebGL 2 and WebGPU (#1318), where they previously fell back to `"normal"` and rendered unblended. Each blended draw captures the destination and composites through a shader, so it costs one capture and one composite per draw: right for accents, expensive for hundreds of blended objects. 3D meshes (`drawMesh`) fall back to `"normal"` with a one-time warning
+
+### Performance
+- Particles: bounds are computed lazily — invalidated when a particle moves, recomputed once on read, rather than twice per frame from a transform that had not been rebuilt yet. About **37%** off the particle update loop and **33%** more particles inside a 16.7 ms budget, on throttled hardware as well as fast (#1607)
+- WebGPU: the per-quad segment-slot lookup no longer builds and hashes a string cache key for every quad, only when the texture, filter or wrap changes. About **42%** off draw submission at 20 000 quads, 10.15 to **5.93 ms**, taking the backend from slower than WebGL 2 to marginally faster. Applies to all 2D drawing, not just particles (#1608)
+
+### Fixed
+- Particles: fix the drawn position drifting past the simulated one. `pos` was baked into `currentTransform` while `autoTransform` stayed `true`, so `preDraw` conjugated a matrix that already held its own pivot and put the drawn centre at `(2 − s)·p`. Invisible while `p` was a few pixels from an emitter, fatal once `referenceSpace` lets `p` be a level coordinate. **This changes how existing effects look** — particles reach roughly half as far by the end of their life; raise `speed` or `maxLife` to compensate. `accurateBounds` is deprecated as a result, since there is no longer a trade to make
+- Input: fix pointer events missing every non-floating renderable once the world was offset (#1605). `Camera2d.localToWorld` subtracts `world.pos`, so pointer coordinates are level-local while a non-floating renderable's bounds are absolute — at the origin the two coincide, but move the world to centre a level and hit detection stopped firing entirely. Floating regions are unaffected (thanks @Vareniel)
+- Particles: fix `ParticleEmitter.blendMode` having no effect. Each particle copies the mode when it is born, so assigning it on the emitter reached nothing; it now applies to live particles and, through `settings.blendMode`, to later ones
+- Renderer: fix `darken` and `lighten` being wrong for any translucent source. Fixed-function `MIN`/`MAX` computes `min(src, dst)` and nothing else, leaving nowhere for the `(1 - srcAlpha) * dst` term source-over contributes, so the backdrop's share vanished — 84/255 off the W3C result at 60% opacity, and a white `lighten` glow over a light backdrop rendered invisible. Both now composite through the shader path and are exact at any alpha
+- WebGL: fix `GLShader.setUniform` corrupting a batch still pending. It binds its own program to write the value but cannot reach the renderer's program cache, so batchers checked that cache, skipped the rebind as redundant, and drew queued geometry through the wrong program — sprites turned black or vanished. Reachable from ordinary code: `effect.setUniform()` or `setTime()` between two draws is enough
+- WebGPU: fix an abandoned frame leaving batchers holding views into destroyed textures. `abandonFrame()` frees every texture retired during the frame but did not reset the batchers, whose segment entries still referenced them, so the next frame could compose a bind group over freed resources
+
+## [20.1.1] (melonJS 2) - _2026-08-25_
+
+### Fixed
+- Loader: fix a font whose filename contains a space failing to preload. The `fontface` parser wrapped a bare path as `url(<path>)` with no quotes, and an unquoted CSS `url()` token may not contain whitespace, so `font.load()` rejected with a `SyntaxError` before any request was made. The descriptor is now quoted, which also covers parentheses and commas. Only `fontface` was affected
+- Physics: fix a collision handler that removes an object crashing the physics step. `Detector.collisions()` dispatches `onCollision` / `onCollisionStart` mid-pair, then reads `objX.body.*`, which `Renderable.destroy()` clears — so a handler calling `removeChildNow()` threw out of `world.update()`. The deferred `world.removeChild()` was always safe. `BuiltinAdapter.step` needed the same guard
+- glTF: fix a `GLTFModel` animation callback that removes its own model crashing the frame. `update()` fires `onended` and the completion callback, then poses the hierarchy unconditionally, writing into part meshes the callback may have destroyed
+- Sprite: fix an animation callback that removes its own sprite crashing the frame. `FrameAnimation.update()` hands control to user code mid-loop, at `onended` and at the completion callback, then continues stepping
+- Timer: fix `updateTimers()` skipping a timer whenever another one fired. It iterated `timers` while `clearTimer()` spliced the same array, so the entry after a fired one-shot was skipped for that tick — two `setTimeout`s due on the same frame ran only the first. Silent, no error
+- Container: fix `update()` stepping a child twice when another child's `update()` removed a sibling at a lower index, shifting the current child into the slot the reverse walk was about to read. Double-stepped that child's animation, physics and timers for a frame. Self-removal was always safe
+- Renderable: fix `parentApp` throwing for a renderable in a detached tree instead of returning `undefined` as documented
+
+## [20.1.0] (melonJS 2) - _2026-08-24_
+
+### Added
+- Physics: shape-level collision events (#1596) — `onShapeCollisionStart`, `onShapeCollisionActive` and `onShapeCollisionEnd` report every overlapping shape pair between two bodies, where `onCollision` and its lifecycle report only the single contact chosen for physical resolution. Each contact carries both shapes, both indices into `body.shapes`, the trigger status and the SAT data, receiver-symmetric so `shapeA` is always your own. Opt-in: shape pairs are enumerated only when an object declares one of these handlers. Physical resolution is unchanged. Supported by all three physics backends
+
+### Fixed
+- Core: fix `createGUID()` returning the literal string `"-1"` on every call, so every renderable shared one GUID (#1596). GUID is collision pair identity, so `Detector`'s pair key collapsed every pair onto a single entry: with two pairs colliding at once, the second was treated as already-seen and its `onCollisionStart` / `onCollisionActive` / `onCollisionEnd` never fired. `onCollision` was unaffected, which is how it went unnoticed. The string format is unchanged
+- Post effects: fix `FadeEffect.destroy()` and `MaskEffect.destroy()` throwing "Instance is already in pool" when called twice. Neither guarded its pooled `tween`, `color` or mask shape before releasing them. Reachable without doing anything unusual, since `removePostEffect()` destroys the effect it removes
+
+## [20.0.0] (melonJS 2) - _2026-08-21_
+
+**Highlights:** version 20.0 introduces a new **WebGPU backend** and retires the aging WebGL 1 path, making **WebGL 2** the baseline and putting melonJS on a modern, top-of-the-line rendering stack. `video.AUTO` now tries WebGPU first, falls back to WebGL 2 if that is unavailable, and ultimately to Canvas. The new backend covers the entire engine feature set, 2D and 3D, verified example-for-example against WebGL, and the WebGL 2 baseline lets that backend modernize throughout: immutable texture storage, vertex array objects, uniform-buffer lighting (up to **32 lights**), and a multi-texture limit that follows the device instead of a hardcoded 16. 3D gains real depth: **mesh instancing** (a 100 000-tree forest in one draw call), **ground shadows**, **point and spot lights**, **`Box3d` collision** that resolves along Z, and retained meshes that upload once and never re-transform on the CPU. Custom shaders and post effects are **dual-language**: one asset carries GLSL and WGSL and runs on either backend. Measured against 19.9.1 on the same machine, the two paths 20.0 reworked come out **up to 75× faster once a scene uses more distinct textures than the batch limit** (4.71 → 0.06 ms/frame, and 1 626 texture uploads per frame → none) and **up to 95× faster at submitting vertex-heavy meshes** (3.80 → 0.04 ms/frame).
+
+**Upgrading:** starting a game is now two steps: construct the `Application`, then `await app.init()`. `video.init()` and friends are removed. See *Changed (breaking)*.
+
+### Added
+- **WebGPU renderer** ([#1184](https://github.com/melonjs/melonJS/issues/1184)): the backend `video.AUTO` tries first on browsers that support it, also selectable as `renderer: video.WEBGPU` or via the `#webgpu` URI fragment. Covers the full 2D contract (sprites, text and particles with multi-texture batching, shapes and Path2D, all blend modes, patterns, scissor clipping, stencil masks, GPU tilemaps, 2D lights and normal maps, frame captures, gradient fills, compressed textures) and the complete 3D tier (`drawMesh`, retained geometry under `Camera3d`, glTF scenes, animated models, `Sprite3d` billboards, split-screen viewports).
+- **Mesh instancing** ([#1508](https://github.com/melonjs/melonJS/issues/1508)): `InstancedMesh` draws one geometry many times in a **single call**: a 100 000-tree forest is one 52-vertex geometry plus a compact record each, at 60 fps on both GPU backends. It extends `Mesh`, so every existing setting works unchanged; it adds optional per-instance `instanceColors` and `instanceData` slots (nobody pays for a slot they did not declare) and `visibleInstanceCount` as a one-integer LOD knob.
+- **glTF `EXT_mesh_gpu_instancing`** ([#1508](https://github.com/melonjs/melonJS/issues/1508)): a node carrying per-instance `TRANSLATION` / `ROTATION` / `SCALE` accessors loads as an `InstancedMesh`, with no user code
+- **Ground shadows for 3D objects** ([#1515](https://github.com/melonjs/melonJS/issues/1515)): `castGroundShadow: true` gives a `Mesh`, `Sprite3d` or whole `InstancedMesh` scatter a soft blob shadow, so 2.5D characters and props stop reading as floating. Set `shadowGroundY` (the floor's world Y) and the blob shrinks and fades with height, which is what reads as a jump; `shadowOpacity` defaults to `0.45`.
+- **Shader effects on WebGPU, with dual-language bodies**: `ShaderEffect` and all 18 built-in effects run on both GPU backends. A body stays a GLSL string, or becomes one per language: `new ShaderEffect(renderer, { glsl, wgsl })`, with shared uniform names so one `setUniform` serves both.
+- **Custom mesh shaders on both backends, and `GLShader` is dual-language**: `new GLShader(gl, { vertex, fragment, wgsl })` carries a GLSL pair and/or a WGSL module, with `isWebGL` / `isWebGPU` reporting which exist, so one `mesh.shader = loader.getShader(...)` serves both. A shader with no realization for the active backend is inert with one warning, never fatal
+- **3D collision: the `Box3d` body shape** ([#1476](https://github.com/melonjs/melonJS/issues/1476)): a body can now be pushed back along **Z**, which no planar shape could express. Adds an AABB narrowphase, `ResponseObject.overlapZ` / `overlapNZ`, `velZ` / `forceZ` / `frictionZ` / `maxVelZ` on `Body`, and an exact ray-vs-AABB test for `raycast3d`. **The 2D path is unchanged**: Z arrives as scalars rather than widening `overlapV` / `body.vel`, and planar shapes mixed with a `Box3d` are treated as unbounded along Z
+- **Per-shape collision settings** ([#1590](https://github.com/melonjs/melonJS/issues/1590)): each shape on a body may carry its own `collisionType` / `collisionMask`, plus `isActive` (default `true`; `false` removes it from collision entirely) and `isTrigger` (default `false`; still collides and fires events, but skips position correction). So one body can have a footprint that only hits terrain and a hurtbox that only reacts to attacks, instead of being split in two.
+- **Point and spot 3D lights** ([#1536](https://github.com/melonjs/melonJS/issues/1536)): `Light3d` gains `"point"` and `"spot"` on both GPU backends, with `position`, `range` and cone angles, all mutable at runtime. glTF `KHR_lights_punctual` lamps now instantiate too, carrying their authored names so `world.getChildByName("Sun")` finds them; `level.load(name, { lightIntensityScale })` preserves relative authored intensities. The light block grows to 12 floats per light, so custom shaders reading `Light3dBlock` need the new layout
+- **Up to 32 lights** ([#1552](https://github.com/melonjs/melonJS/issues/1552)): `MAX_LIGHTS` rises from 8, for both lit sprites and lit meshes, by moving light data out of GLSL uniform arrays into a `std140` uniform buffer. A static rig still costs **zero** GL calls per frame.
+- **`maxTextures` setting, and the batch limit follows the device** ([#1585](https://github.com/melonjs/melonJS/issues/1585)): the WebGL texture pool was hardcoded to 16, the WebGL 2 spec *floor* and about half what current hardware reports; it now uses the device's own limit, capped at 32. `maxTextures: "auto" | number` overrides it, clamped to what the device has and read at initialization only.
+- **`antiAlias: true` survives post effects** ([#1556](https://github.com/melonjs/melonJS/issues/1556)): adding any effect used to silently disable MSAA, since the scene rasterized into a single-sampled capture target. Capture targets are now multisampled themselves (up to 4×) on both GPU backends, so edges stay smooth under an effect chain
+- **Mesh textures sample generated mipmaps**: full mip chains, trilinear minification and 4× anisotropic filtering on both GPU backends, so distant and grazing-angle geometry stops shimmering. 2D is untouched (sprite samplers clamp to the base level), and `textureFilter: "nearest"` opts a mesh out
+- **MTL specular and per-texel opacity** ([#1575](https://github.com/melonjs/melonJS/issues/1575)): `Ks` + `Ns` give the lit mesh path a Blinn-Phong highlight where every material previously read as chalk, exposed as `mesh.specular` / `mesh.shininess` and gated on the exponent, so a material declaring only a colour stays matte. `map_d` drives `alphaCutoff` per *texel* through `mesh.alphaMap`, which is what foliage, fences and decals need.
+- **Per-material diffuse textures on multi-material models** ([#1573](https://github.com/melonjs/melonJS/issues/1573)): a multi-material OBJ bound the first material's `map_Kd` for the whole model, so a crate with wood sides and a steel lid rendered all wood. Each material now resolves its own texture, reduced to the fewest index ranges and exposed as `mesh.textureGroups`.
+- **OBJ vertex normals** ([#1572](https://github.com/melonjs/melonJS/issues/1572)): the parser read `vn` and discarded it, so `lit: true` OBJs shaded against a fallback while the same model from glTF lit correctly. Authored normals now reach the mesh (vertices split where normals differ, so hard edges stay hard), and a file supplying none gets smooth generated ones.
+- **`Mesh.needsUpdate`** ([#1507](https://github.com/melonjs/melonJS/issues/1507)): signal that geometry was edited in place so the GPU copy refreshes on the next draw. Moving, rotating, scaling or re-tinting needs no signal
+- **Backend-neutral vertex formats and topologies** ([#1551](https://github.com/melonjs/melonJS/issues/1551)): declare an attribute with one `format` token (`"float32x3"`) instead of a `size` + `type` + `normalized` triple, and a draw mode with a topology name (`"triangle-list"`). `Batcher.addAttribute` accepts three forms and `Batcher.mode` either vocabulary; **the GL-enum form is supported indefinitely**, so custom batchers need no changes
+- **`exclusion` blend mode on both GPU backends** ([#1318](https://github.com/melonjs/melonJS/issues/1318)): the one CSS advanced mode needing no shader: `a + b - 2ab` falls straight out of fixed-function blending. Exact for an opaque source, approximate for a translucent one, the caveat `screen` already carries.
+- **A `"none"` blend mode on both GPU backends**: disables blending outright; WebGL now honors it instead of silently falling back to `"normal"`. `setBlendEnabled`, `enableScissor` and `clearRenderTarget` are implemented on WebGPU too, along with custom batcher overrides, `settings.blendMode`, `GPUVendor` and `failIfMajorPerformanceCaveat`
+- **Gradient and Text textures stopped power-of-two rounding** ([#1554](https://github.com/melonjs/melonJS/issues/1554)): gradients bake into a fixed 256×256 shared target and stretch to size (capping gradient memory at 256 KB), and text canvases round to 32-pixel buckets, so worst-case waste drops from 2× per axis to 31 px. Both make re-bakes same-size updates
+
+### Changed (breaking)
+- **Starting a game is now two steps: construct the `Application`, then `await app.init()`**: and `init()` is **mandatory**. It is asynchronous because a WebGPU device cannot be acquired synchronously, but still resolves without suspending on Canvas and WebGL.
+  ```js
+  // before                                    // after
+  video.init(640, 480, { parent: "screen" });  const app = new Application(640, 480, { parent: "screen" });
+                                               await app.init();
+  ```
+  **This applies to code already using `new Application(...)` on 19.x too**: constructing no longer builds the renderer or appends the canvas, so add `await app.init()` or nothing displays. The pre-created bootstrap application and the `legacy` setting are removed; `game` now names the most recently **initialized** `Application`, and is `undefined` until the first `init()` resolves. `app.destroy()` is now **terminal** (construct a new instance instead), and a repeated `init()` is a warned no-op. Custom renderers gained an argument-less async `init()` hook that `Application#init` awaits
+- **`video.init()`, `video.renderer`, `video.createCanvas()` and `video.getParent()` are removed**: deprecated since 18.3.0/19.7.0. Use `app.init()`, `app.renderer`, `app.renderer.createCanvas()` and `app.getParentElement()`.
+- **`video.AUTO` (the default) now tries WebGPU first, falling back to WebGL 2, and ultimately to Canvas** so an existing game using `AUTO` starts on WebGPU where available, rendering the entire feature set identically to WebGL (all 44 examples verified side-by-side). `await app.init()` still always resolves under AUTO.
+- **The WebGL renderer is now WebGL 2 only** ([#1509](https://github.com/melonjs/melonJS/issues/1509)): the WebGL 1 fallback is removed. `video.AUTO` falls back to Canvas on WebGL-1-only devices; `video.WEBGL` throws there. **User shaders need no changes**: GLSL ES 1.00 compiles unchanged on WebGL 2.
+  - `preferWebGL1` and the `#webgl1` flag are removed (`#webgl` / `#webgl2` are synonyms)
+  - `device.isWebGLSupported()` now probes for WebGL **2**, agreeing with what renderer construction requests
+  - `renderer.type` is always `"WebGL2"`; `renderer.WebGLVersion` is deprecated (always `2`)
+  - TMX GPU tilemap eligibility is advertised through `renderer.supportsShaderTileLayers` instead of a version check
+  - WebGL is selected only on devices passing `failIfMajorPerformanceCaveat` (which melonJS leaves enabled, unlike the WebGL default), so a software rasterizer gets Canvas under `AUTO` and throws under `video.WEBGL`. Set it `false` to accept such a context
+  - behavior corrections on ex-WebGL-1 configs: `repeat` genuinely tiles non-power-of-two textures (was clamp + warning), `"darken"` / `"lighten"` use true MIN/MAX (were downgraded to `"normal"`), and `createPattern()` accepts non-power-of-two sources (threw before)
+- **`Batcher` is now the backend-neutral base class; the WebGL base batcher is renamed `WebGLBatcher`**: custom WebGL batchers change one word (extend `WebGLBatcher`); constructor, settings and methods are unchanged. `WebGPUBatcher` / `WebGPUQuadBatcher` / `WebGPUPrimitiveBatcher` are exported, and `renderer.addBatcher()` now rejects a wrong-backend batcher up front instead of failing mid-draw
+- **each `Batcher` owns an immutable Vertex Array Object** built at init ([#1509](https://github.com/melonjs/melonJS/issues/1509)): attribute layout is frozen once built and `unbind()` no longer disables attribute arrays. Custom batchers need no changes, but a custom shader hosted by a built-in batcher must declare that batcher's attributes first, in layout order (a warning fires on mismatch).
+- **mesh geometry is now supplied to shaders in model space** ([#1507](https://github.com/melonjs/melonJS/issues/1507)): placement moved into the `uModelMatrix` / `uViewMatrix` / `uTint` uniforms. **This affects custom shaders used on a `Mesh` only**; sprite and post-effect shaders are unaffected. Such a shader must position with `uProjectionMatrix * uViewMatrix * uModelMatrix * vec4(aVertex, 1.0)` and tint with `uTint`.
+- **renderer capability flags replace backend type checks**: read `Renderer.shaderLanguage` and `Renderer.supportsDepthBuffer` instead of testing `renderer.gl` or `instanceof WebGLRenderer`, which answer "no" for any future backend that is in fact capable
+- an attribute declared without an explicit `offset` is now packed after the previous one instead of defaulting to byte 0: layouts omitting offsets were overlapping every attribute at 0 and reading the wrong data ([#1551](https://github.com/melonjs/melonJS/issues/1551))
+- a `Batcher` whose vertex stride is not a multiple of 4 bytes now throws at construction, instead of building with a fractional vertex size and silently discarding every write ([#1551](https://github.com/melonjs/melonJS/issues/1551))
+
+### Deprecated
+- `Application.updateAverageDelta` is renamed **`lastUpdateDelta`**: it holds the cost of the most recent logic step and has never been an average (the smoothing was removed in 2015). The old name keeps working as an alias, scheduled for removal in 21.0.0.
+
+### Fixed
+- `Application.destroy()` leaked the WebGL context: each destroyed application left a live one behind, and browsers force-lose the oldest past ~16, so a page that builds and tears down several eventually stalls an unrelated `getContext`. Now released through `WEBGL_lose_context`
+- destroyed renderers stayed subscribed to global events forever: `WebGLRenderer`, `CanvasRenderer`, the root `Container` and `World` all subscribed with inline anonymous handlers that `off()` cannot remove, pinning the renderer, its batchers and its GPU objects against garbage collection. All are now per-instance fields that `destroy()` unregisters
+- the 3D broadphase silently dropped collisions between bodies at different depths: `Octree.retrieve()` descended only into the query item's own octant, but its consumers (SAT collision, pointer picking, the 2D raycast, `queryAABB`) all decide overlap in the XY plane. Measured on a 300-body scene, 12 of 20 genuinely overlapping pairs were never surfaced.
+- an entire 2.5D gameplay plane sat unpartitioned at the root of the octree: items sitting *exactly* on a midpoint were kept at the parent level, and the root's midpoint is `(0, 0, 0)`: the default `pos` of every renderable. 200 bodies on a `z = 0` plane all stayed at the root, degrading the broadphase to a linear scan for exactly the busiest layer. Classification is now exact on all three axes.
+- a multi-shape sensor body was still pushed out of collisions ([#1591](https://github.com/melonjs/melonJS/issues/1591)): `body.isSensor` worked with one shape and silently stopped once a second was added, because the extra pass that resolves shape-junction overlaps checked only `isStatic`. Affects any compound trigger volume or multi-part hitbox
+- `Body.destroy()` threw for a body with an `Ellipse` collider (no release branch, so it fell through to the legacy pool), and threw again when called twice (re-releasing `undefined` fields). Both aborted teardown partway, leaving the body holding a recycled `Bounds` that surfaced later as an unrelated broadphase crash
+- a texture-cache overflow re-created and re-uploaded every texture once per draw ([#1585](https://github.com/melonjs/melonJS/issues/1585)): past the batching limit a scene did not re-*bind* its textures, it re-*built* them, regenerating each mip chain and leaving the displaced handles to GC. The GL handle was reachable only through a batcher's per-unit array, so dropping a unit assignment destroyed the texture.
+- a `ShaderEffect` extra sampler could silently corrupt normal-map lighting ([#1585](https://github.com/melonjs/melonJS/issues/1585)): `setTexture` claims units from the top and `LitQuadBatcher` reserved a fixed upper range, so an effect claiming before the first lit sprite aliased with it: the normal map sampled the effect's texture, with no error or warning
+- a scene containing only meshes stopped clearing its depth buffer after the first frame and its geometry disappeared: the depth clear and lit-mesh light upload ran from `MeshBatcher.bind()`, a per-*transition* hook, so a scene with nothing else to draw bound once and never again. The same silence froze `Light3d` at its first-frame values.
+- a mesh marked `lit` with no usable normals rendered solid black (normalizing a zero-length normal yields NaN). It now degrades to **unlit** on both GPU backends: wrong, but recognisably the model.
+- `DropShadowEffect` rendered its shadow mirrored (up instead of down) when chained with other effects on WebGL: the pooled path composites through bottom-up capture FBOs, inverting directional UV arithmetic. Effect bodies can now declare a `uUVYDir` uniform that the renderer feeds per draw path; `DropShadowEffect` and `ShineEffect` use it, so a positive `offsetY` means down everywhere
+- untextured glTF materials rendered washed out: `baseColorFactor` is linear per spec but was scaled by 255 straight into an 8-bit sRGB tint, so an authored mid-green arrived at double value. Now encoded through the sRGB transfer function, which also clamps the domain (an out-of-range factor used to NaN the whole tint)
+- an indexed (palette) PNG in a glTF asset rendered greyscale on Safari: the glTF parser decoded to an `HTMLImageElement` where the rest of the loader produces an `ImageBitmap`, and WebKit uploads raw palette indices for PNG `colorType 3`. glTF images now decode to an `ImageBitmap`
+- WebGPU reported `add` and `lighter` as unsupported blend modes: `setBlendMode` returns the mode applied, which callers compare against their request, but WebGPU returned the canonical `"additive"` for both aliases. Rendering was always identical; only the report was wrong
+
+### Performance
+- **retained-mode mesh rendering** ([#1507](https://github.com/melonjs/melonJS/issues/1507)): geometry uploads once and re-draws from the GPU, so steady-state frames issue **zero** vertex uploads and **zero** per-vertex CPU transforms however much a mesh moves or re-tints. Against 19.9.1, 64 meshes of 5 000 vertices went from 3.80 to **0.04 ms/frame** (95×) and from 128 draw calls to 64.
+- **texture batching past the multi-texture limit** ([#1585](https://github.com/melonjs/melonJS/issues/1585)): an overflow now costs a flush and some re-binds, where it used to re-create every texture once per draw. Against 19.9.1 at 512 quads/frame, one texture past the limit went from 4.71 to **0.06 ms/frame** (76×), and texture uploads from 1 626 per frame to none.
+- **immutable texture storage** ([#1556](https://github.com/melonjs/melonJS/issues/1556)): textures allocate with `texStorage2D` and update through `texSubImage2D`, so a same-size update (a ticking `Text`, a `Gradient` re-bake, a video frame) is a data copy rather than a fresh texture object each time. With the [#1554](https://github.com/melonjs/melonJS/issues/1554) size buckets, dynamic text and gradients allocate **nothing at all** in steady state.
+- **Vertex Array Objects for every batcher** ([#1509](https://github.com/melonjs/melonJS/issues/1509)): attribute layout is specified once at init, so steady-state frames issue **zero** attribute-specification calls. It also makes attribute-state leaks between batchers impossible by construction.
+- **the cost of `antiAlias: true` under post effects** ([#1556](https://github.com/melonjs/melonJS/issues/1556)): a 4× capture target adds roughly 28 bytes per pixel on WebGL (~55 MB at 1080p) and ~16 on WebGPU (~32 MB), plus one resolve blit per effect bracket. Only capture targets pay it; with `antiAlias: false` (the default) no multisampled storage exists at all.
+
+## [19.9.1] (melonJS 2) - _2026-07-28_
+
+### Fixed
+- video sprite frames stalled (~4fps) in fullscreen — a pending `requestVideoFrameCallback` now keeps the browser delivering frames at full rate
+- video sprites never paused on `state.pause()` (wrong event name)
+- `onVisibilityChange` fired a spurious leave/enter pair every frame for visible renderables
+- destroyed cameras kept reacting to game reset / canvas resize; stages now destroy the cameras they construct (one leaked per state switch with `cameraClass`)
+- camera bounds clamp ignored a non-zero world origin, making the far edges unreachable
+- dead particles were pool-released while their removal was still deferred — same-frame respawns could silently vanish
+- a completed `loop: false` animation could never be replayed via `play()` / `setCurrentAnimation()`
+- animation frames with a `0` delay froze the game in an infinite loop
+- `Container` / `Entity` `destroy()` passed an `Arguments` object to `onDestroyEvent` instead of the actual arguments
+- `DropTarget.setCheckMethod()` accepted invalid method names (validated the wrong variable)
+- `Container.getNextChild()` returned the first child for a non-member instead of `undefined`
+- `Text` / `BitmapText` `destroy()` wiped a caller-provided string array (now copied on assignment)
+- `NineSliceSprite` showed ~2px seams for region sizes not divisible by 4 (fractional corners were truncated)
+- the canvas slowly grew on window resize inside auto-sized wrappers ([#1231](https://github.com/melonjs/melonJS/issues/1231)) — the canvas now defaults to `display: block` and auto-scale measures the container's content box
+- `ShaderEffect.setTexture()` rejects `HTMLVideoElement` with a `TypeError` instead of silently freezing on the first frame
+- BMFont `padding` was parsed with `padLeft` / `padRight` swapped (AngelCode order is up/right/down/left)
+- removed the texture cache's dead frame-dimension refinement ([#1489](https://github.com/melonjs/melonJS/issues/1489)); the first-registered-atlas behavior is now explicit
+
+### Performance
+- video textures upload to the GPU only when a new frame was actually presented (previously every render tick, per sprite)
+
+## [19.9.0] (melonJS 2) - _2026-07-14_
+
+**Highlights:** shader effects made easy. Effects that used to demand WebGL expertise, like a pond rippling with the scene reflected in it, heat haze, or frosted glass, now take a few lines of shader code: the engine hands your effect the screen behind it and the right coordinates, animated noise textures come built-in, and shaders preload like any other asset. See the new **Water Overworld** example for all of it in action. Also in this release: named anchor presets (`"bottom"`, `"top-left"`, and friends) on every renderable, shapes with holes in `Path2D`/SVG fills, and a 40+ bug-fix sweep across the loader, audio, texture atlas, and WebGL rendering.
+
+### Added
+- **`renderer.toFrameTexture()`** — GPU capture of everything drawn so far, as a live `Texture2d` for shader input (back-buffer-copy semantics; Canvas parity via an offscreen copy). Closes [#1544](https://github.com/melonjs/melonJS/issues/1544) (initial approach contributed by @Vareniel)
+- **Shader builtins: `screen_texture` / `screen_uv` / `noise_uv`** — annotate a sampler with `: screen_texture` and the engine keeps it filled with the screen behind the object; `screen_uv` / `noise_uv` are free varyings for screen-space and frame-local (atlas-independent) coordinates. No JS plumbing, fully backward compatible. See the new **Water Overworld** example (design and demo scene contributed by @Vareniel)
+- **Shader preloading: `"shader"` asset type + `loader.getShader()` + `clone()`** — GLSL compiles at load time; `getShader()` returns the shared, loader-owned instance (`clone()` for per-renderable uniform values). A `{vertex, fragment}` pair compiles into a shared raw `GLShader` instead, for `Mesh` / custom-batcher shaders
+- **`ShaderEffect.setTexture(name, image[, repeat])`** — bind extra `sampler2D` textures (noise, masks, LUTs) to an effect with no GL plumbing; see the reworked **Water Refraction** example. Closes [#1532](https://github.com/melonjs/melonJS/issues/1532) (thanks @Vareniel)
+- **`ShaderEffect.setTime(seconds)`** — one-call `uTime` convention for shader animation; a safe no-op when the shader doesn't declare it
+- **`shared` flag on `ShaderEffect` / `GLShader`** — opt an effect out of auto-destroy when it is reused across several renderables
+- **Procedural noise: `Noise` + `NoiseTexture2d`** — deterministic CPU-samplable coherent noise (simplex / perlin / value / cellular, fBm / ridged / ping-pong fractals, domain warp), bakeable to a drawable canvas as grayscale, a color ramp, or an animated normal map
+- **`Texture2d` base class** — common base for texture assets (`TextureAtlas`, `NoiseTexture2d`, frame captures); renderables accept any `Texture2d` directly as `image`
+- **Anchor-point presets + `Sprite3d` anchor support** (#1514) — `settings.anchorPoint` accepts `"center"`, `"bottom"`, `"top-left"`, … uniformly across `Sprite`, `Entity`, `Collectable`, `ImageLayer`, `Text`, `BitmapText`; `Sprite3d` gains the same `anchorPoint` key — vertex-baked (billboard/flip/trim-safe) and mutable at runtime (thanks @asadullahbro)
+- **Holes & compound paths in `Path2D` / SVG fills** (#1253) — every `moveTo()` / SVG `M` starts a sub-path; on `fill()` inner sub-paths render as holes (donuts, letter counters), under both renderers
+- **BMFont XML support for `BitmapText`** — the AngelCode XML flavour loads directly through the standard preloader, auto-detected alongside the text `.fnt` format
+
+### Fixed
+- Asset loading failed over the `file:` protocol (Cordova/Capacitor APK) — `fetchData` now falls back to `XMLHttpRequest` where `fetch()` refuses `file://` (thanks @Vareniel)
+- `loader.unloadAll()` threw if a fontface was loaded, and never actually freed videos
+- `loader.load()` mutated the caller's asset descriptor, double-prepending `baseURL` on retries; `loader.unload()` of a never-loaded fontface threw
+- Video preloading hung on autoplay-restricted browsers (e.g. iOS Safari) unless `autoplay: false` was spelled out, and every video was fetched with forced anonymous CORS
+- Compressed-texture loading crashed on any device missing one compression family
+- Audio batch: re-preloading a manifest leaked the previous `Howl` per clip; parallel loads shared one retry budget; `stopOnAudioError` couldn't actually be set (new `setStopOnAudioError()`); `seek()` / `rate()` setter forms returned a `Howl` typed as `number`; `position()` / `stereo()` returned `null` for untouched sounds; `resume()` could spawn a new instance instead of resuming; `unload()` left `getCurrentTrack()` stale
+- Texture-atlas batch: the coordinate-alias cache poisoned full-image draws of atlas images; no-argument `createAnimationFromName()` / `getAnimationSettings()` built corrupted animations; `addRegion()` on a video source produced `NaN` UVs; padded (non-divisible) spritesheets sampled shifted frames under WebGL; a malformed atlas object constructed silently instead of throwing
+- aseprite atlas JSON: trim, rotation and pivot were silently ignored, and tag animations played at arbitrary speeds — authored per-frame durations are now honored
+- WebGL batcher batch: lit normal maps and color textures collided on the same texture units; a texture re-upload could land on another batcher's texture; camera post-effects could blank textures owned by non-current batchers; filled shapes larger than the vertex buffer silently vanished; `NoiseTexture2d.destroy()` leaked its GPU texture; the mesh depth-clear flag was shared between renderer instances; GL buffers leaked on every reset and went stale after a context restore
+- Nested multi-effect post-effects corrupted the render-target pool and crashed every frame
+- Gradient shape fills (`fillEllipse` / `fillPolygon` / `fillArc` / `fillRoundRect`) broke inverted and nested stencil masks
+- `disableScissor()` didn't flush, so sprites batched inside the scissor escaped it
+- WebGL `clearRect()` painted opaque black instead of erasing; Canvas `clipRect()` skip-optimizations ignored the active transform
+- `ShaderEffect.setUniform()` silently dropped values while the effect was disabled (e.g. mid context-loss)
+- 2D sprites could vanish when using a large `pos.z` sort key (clip-culled; regression since 19.7)
+- `Mesh.textureRepeat` leaked its wrap mode to every consumer of the same image (#1503)
+- Animated `NineSliceSprite` collapsed to its frame size on the first animation step (#1115, thanks @NemoStein)
+- `Path2D.arc()` / `arcTo()` / `ellipse()` appended to an open path detached instead of connecting (per the native `Path2D` spec); SVG `A`/`H`/`V` commands opening a new sub-path drew from the wrong origin
+- `Rect.right` / `bottom` returned the size when the edge sat exactly at 0; `Rect.toPolygon()` handed out the rectangle's live vertices instead of clones
+- `moveTowards()` never landed exactly on its target and returned the target instead of `this` (all four vector classes)
+- `new Color("darkgray")` threw; `cyan` / `magenta` / `rebeccapurple` were missing; `silver` / `aliceblue` / `burlywood` had channel typos — the full CSS keyword table is now spec-validated by a test
+- `Matrix2d` 6-argument (canvas convention) form dropped translation and transposed rotation
+- `Text`: generic CSS font families (`sans-serif`, `monospace`, …) were quoted and silently fell back to serif
+- The physics startup banner logged a minifier-mangled adapter class name
+
+## [19.8.0] (melonJS 2) - _2026-06-26_
+
+**Highlights:** glTF / GLB scene loading lands — author a 3D scene in Blender (or any DCC tool), export a `.glb`, and load it like a Tiled map with `level.load(...)`. Animated models play back through the same `setCurrentAnimation` / `play` / `pause` / `stop` API as a 2D `Sprite`. Scene meshes are lit by the authored sun, and 3D meshes can now report a real bounding box. And `Sprite3d` brings the 2.5D workflow — billboarded, frame-animated cut-out sprites that face a `Camera3d` (the Paper Mario look), sharing one `FrameAnimation` engine with the 2D `Sprite`.
+
+### Added
+- **`loader.preload()` / `loader.load()` are now `await`-able** — `preload(assets)` returns a `Promise<void>` that resolves once every asset has loaded (and rejects on failure), so you can `await loader.preload(assets)` instead of nesting an `onload` callback. `load(asset)` called **without** callbacks likewise returns a Promise for a one-off dynamic load.
+- **glTF / GLB scene loader (Tier 1)** — preload a `.glb`/`.gltf` and it auto-registers with the `level` director, so `level.load(name, { scale, rightHanded, onLoaded })` instantiates every mesh node as a `Mesh` in one call, exactly like a Tiled map. Parses the node graph, mesh primitives (`POSITION` / `NORMAL` / `TEXCOORD_0` / `COLOR_0` / indices), materials (`pbrMetallicRoughness.baseColorTexture` + `baseColorFactor`), perspective cameras, scene bounds, `KHR_lights_punctual` lights, and node animations.
+- **glTF node animation + `GLTFModel`** — assets that define animation channels load as a single rig-driven `GLTFModel` that keeps the node **hierarchy** intact (a parent transform carries its children — rotate a character's `torso` and its `arm`/`head` follow). Each frame the active clip is sampled (translation/scale `LERP`, rotation `SLERP`, plus `STEP`; `CUBICSPLINE` keyframe values) and the rig is re-posed.
+- **Aligned 2D + 3D animation API** — `Sprite.setCurrentAnimation(name, options)` now also accepts an options object `{ loop, speed, onComplete, next }` (the existing string / callback / no-arg forms are unchanged), plus a `speed` playback multiplier, and new `getAnimationNames()`. Both `Sprite` and `GLTFModel` gained `play(name?, options?)` (switch-and-play, or resume), chainable `pause()`, and `stop()` (reset to the first frame / bind pose) so 2D and 3D animation share one vocabulary.
+- **External glTF resources** — the loader resolves external `.bin` buffers and image `uri`s relative to the asset URL (via `fetchData`, honoring the loader's crossOrigin / nocache settings), so a `.glb`/`.gltf` that references a separate texture file (e.g. Kenney's `Textures/foo.png`) loads as-shipped without repackaging.
+- **OBJ/MTL textures auto-load** (#1505) — `preloadMTL` now loads each material's `map_Kd` texture automatically, resolved relative to the `.mtl` file, so an OBJ model's textures "come for free" like a glTF scene's. Preloading the model + material is enough — no separate per-texture preload entry needed (the explicit `texture:` still wins, and the legacy preload-it-yourself flow keeps working).
+- **`Mesh` `textureRepeat` setting** — texture wrap mode (`"repeat"` / `"repeat-x"` / `"repeat-y"` / `"no-repeat"`) applied to the resolved texture, for geometry whose UVs fall outside `[0, 1]` and rely on the texture tiling. The glTF loader sets it from each material's sampler `wrapS` / `wrapT` (defaulting to REPEAT, the glTF spec default) — without it such assets sampled flat edge texels and looked untextured.
+- **`Mesh` `textureFilter` setting + glTF sampler filtering** — texture magnification filter (`"nearest"` / `"linear"`) applied to the resolved texture (WebGL). The glTF loader reads it from each material's sampler `magFilter`, so **pixel-art-textured 3D models render crisp** instead of blurred by the global antiAlias default.
+- **glTF material color** — `baseColorFactor` is applied as the mesh tint, so a solid-colored *untextured* material renders its color (previously it fell back to white). **Vertex colors** (`COLOR_0`, float or normalized byte/short, VEC3/VEC4) are read into per-vertex colors — untextured vertex-colored meshes (MagicaVoxel exports, vertex-painted models) render correctly. Factor, vertex color, and texture compose (`factor × vertexColor × texel`), and work under lighting.
+- **3D mesh lighting** — `Light3d`, a manipulable light managed exactly like `Light2d`: it's a world `Renderable`, so `app.world.addChild(new Light3d({ direction, color, intensity }))` adds it and the active stage auto-tracks it (remove it from the world to turn it off — no global, no separate lighting object). Types: `"directional"` (a sun, half-Lambert diffuse) and `"ambient"` (a flat fill).
+- **glTF `KHR_materials_unlit`** — materials flagged with the extension bake their own lighting and are rendered fullbright (not shaded again), even in a lit scene. A very common stylized workflow (baked lighting in the texture); honoring it avoids double-lighting.
+- **`Mesh` `alphaCutoff` setting + glTF alpha cutout** — a hard alpha cutout: fragments whose final alpha falls below the threshold are `discard`ed in the mesh shader, for crisp foliage / fences / chain-link / decals with no blending or back-to-front sorting. The glTF loader sets it from a material's `alphaMode: "MASK"` (using `alphaCutoff`, default `0.5`); `OPAQUE` / `BLEND` materials are unaffected.
+- **`Mesh` `emissive` setting + glTF/OBJ emissive** — a self-illumination color added on top of the lit/unlit result so a surface glows regardless of scene lights (neon, lava, screens, glowing eyes). The glTF loader sets it from a material's `emissiveFactor` (scaled by `KHR_materials_emissive_strength` for HDR glow); the OBJ loader from an MTL's `Ke`.
+- **`Mesh.getBounds3d()`** — the mesh's world-space `AABB3d` (the 3D analog of `getBounds()`, which only describes a flat 2D box). Powers the debug-plugin's new 3D bounding-box wireframe overlay.
+- **`Camera3d.worldToScreen(world, out?)`** — project a world point to screen-pixel coordinates (perspective divide included); returns `null` for points behind the camera. Useful for HUD elements pinned to 3D objects, picking, and debug overlays.
+- **`AABB3d`** now exported, with `AABB3d.fromVertices(src, count, matrix?)` to build a box from a flat vertex buffer (delegates to the new `transformedBounds`).
+- **`textureFilter` application setting — texture filtering decoupled from `antiAlias`** (WebGL). `antiAlias` conflated two things: polygon-edge MSAA *and* texture sampling smoothness.
+- **Mesh `lit` / `normals` settings** and per-vertex world-space normal projection for the Camera3d lighting path.
+- **`Renderable.applyAnchorTransform`** (default `true`) — new flag controlling whether `preDraw` applies the `anchorPoint` offset to the renderer transform. Defaults to the existing behavior; `Mesh` sets it `false` on the `Camera3d` world-space path (a 3D mesh is positioned by its transform and has no anchor box, so the normalized offset must not leak into the shared mesh view matrix).
+- **`Mesh` supports meshes with more than 65,535 vertices** — a `Uint32Array` index buffer is preserved as-is instead of being coerced to `Uint16Array`, so high-poly meshes (e.g. large glTF nodes) no longer have their indices silently truncated.
+- **`Sprite3d` — sprites in a 3D scene** — the 3D counterpart of `Sprite`: a textured quad rendered under a `Camera3d`, for the 2.5D workflow (characters, pickups, foliage, signs, particles). Its headline feature is **billboarding** via `billboard: false` (fixed orientation), `true` / `"cylindrical"` (faces the camera but stays upright — the 2.5D default), or `"spherical"` (faces the camera on all axes).
+- **`FrameAnimation` — shared frame-animation engine** — the sprite-sheet animation logic (definitions, frame timing, looping, chaining) is now a standalone engine driving both `Sprite` (2D) and `Sprite3d` (3D) through one implementation, so the two never diverge. Each host applies the resolved frame to its own geometry (`Sprite` swaps its sub-texture / anchor; `Sprite3d` remaps UVs).
+
+### Fixed
+- **glTF/3D meshes rendered at the wrong position under `Camera3d`** — props appeared sunk into / overlapping the surfaces they rested on, even though their parsed placement was numerically identical to the authoring tool. `Renderable.preDraw` was baking each mesh's normalized anchor-point offset (`width/2`, `height/2`) into the shared mesh batcher view matrix; since scene meshes size their bounds box per node, every mesh shifted by a different amount and lost their relative placement.
+- **`Camera3d` culled sizeless grouping containers (and their whole subtree)** — `Camera3d.isVisible` derived a bounding-sphere radius of `√(w²+h²)/2` from the object's bounds. A container with no intrinsic size has infinite/cleared bounds, making the radius `NaN`; `intersectsSphere(_, NaN)` is `false`, so the container was reported invisible and its children were never updated *or* drawn.
+
+### Performance
+- **Allocation-free glTF animation pose path** — sampling and re-posing an animated `GLTFModel` each frame allocates nothing: matrix composition and multiplication write in place (`composeTRSInto` / `multiplyMatrixInto`) into preallocated per-node world buffers, and the keyframe sampler reuses scratch vectors. No per-frame GC churn even for dense, many-node rigs.
+- **Allocation-free mesh batching** — `MeshBatcher.addMesh` dedup'd vertices per chunk with a `Map` that was `clear()`ed every chunk; V8 drops a `Map`'s backing table on `clear()`, so re-filling it reallocated as it grew — producing garbage proportional to vertex count (megabytes/sec of GC churn on a dense scene). Replaced with a "versioned" typed-array remap (a per-chunk stamp invalidates all entries in O(1), arrays grow once and are reused), so a re-drawn static mesh now allocates nothing per frame.
+
+## [19.7.1] (melonJS 2) - _2026-06-11_
+
+### Fixed
+- WebGL: fix context restore leaving `blendFunc` / `blendEquation` at driver defaults when the cached blend mode matched the requested one. `setBlendMode()`'s state cache survived the context loss and short-circuited the re-apply in the `webglcontextrestored` handler
+- UI: fix `UITextButton` crashing with a TypeError (`viewport.isDefault` on `undefined`) on every draw (#1499). Its `draw()` override dropped the `viewport` argument when chaining to `Container.draw()`, a regression from the multi-camera support in #1310
+- Renderer: fix the "gpuTilemap is enabled but the active renderer is not WebGL 2" warning firing at every `Application` init whenever the setting could not be honoured, including apps that never load a TMX layer
+
+## [19.7.0] (melonJS 2) - _2026-06-06_
+
+**Highlights:** `Camera3d` perspective camera lands. Every batched shader now carries per-sprite depth as `vec3 aVertex`, unlocking 3D-projected sprites and meshes. Backward compatible with existing 2D code.
+
+### Added
+- **`Camera3d`** — perspective camera extending `Camera2d` with `fov`, `aspect`, `pitch`, `yaw`, `followOffset`, `lookAhead`. Drop-in for `Stage.cameras`.
+- **`Octree` broadphase** — 3D spatial subdivision sibling to `QuadTree`. `World.broadphase` is now reactive: under `sortOn === "depth"` (set automatically by `Camera3d.defaultSortOn`) it's an `Octree`; under any 2D sortOn it stays a `QuadTree`.
+- **`Sphere` geometry primitive** (`new Sphere(x, y, z, r)`) — first-class 3D shape under `geometries/`, sibling to `Rect` / `Ellipse` / `Polygon`. Methods: `contains(point)`, `overlaps(other)`, `overlapsAABB(aabb)`, `getBounds()`, `setShape`, `clear`, `clone` (pooled via `spherePool`).
+- **`Camera3d.queryVisible(world, out?)`** — bulk frustum cull. Returns every renderable whose octant overlaps the current frustum via `Octree.queryFrustum`.
+- **`AABB3d`** — minimal 3D axis-aligned bounding box (`min`, `max`, `contains`, `overlaps`, `overlapsSphere`, `isFinite`, …). Used by `Octree` as its bounding primitive; exposed for user code that needs to reason about 3D regions.
+- **`PhysicsAdapter.querySphere?`** — optional 3D sphere region query. Two call shapes: `querySphere(center, radius)` (loose) and `querySphere(sphere)` (packaged).
+- **`math.lerp(a, b, t)`** — scalar linear interpolation. Not clamped — values of `t` outside `[0, 1]` extrapolate.
+- **`math.damp(current, target, lambda, dt)`** — frame-rate independent exponential damping toward a target (Three.js `MathUtils.damp` parity). Fixes the "lerp smoothing is broken" footgun: `damp(x, target, λ, dt)` produces the same convergence after the same total elapsed time regardless of how `dt` was split across frames.
+- **`PhysicsAdapter.raycast3d?`** — optional 3D variant of `raycast`. Capability-gated by `AdapterCapabilities.raycasts3d`.
+- **`Mesh` under Camera3d** — world-space draw path projects vertices on the GPU; triangle winding is reversed lazily for correct back-face culling under the Y-flip. Known limitation: `Light2d` is 2D-only.
+- **`Frustum`** — perspective `fov` / `aspect` / `near` / `far` + projection matrix; used internally by `Camera3d`.
+- **`ApplicationSettings.cameraClass` / `StageSettings.cameraClass`** — declare the default camera class. Per-stage overrides the app-level.
+- **`renderer.setDepth(depth)`** — state setter for the depth attribute (mirrors `setTint`). `Renderable.preDraw` forwards `this.depth` automatically.
+- **Per-sprite depth on the GPU** — all batched draw paths (`Quad`, `LitQuad`, `Primitive`, GPU TMX) carry `.depth` as the z component. Under the default ortho projection z has no visual effect.
+- **`event.GPU_TEXTURE_CACHE_RESET`** — emitted by the texture cache after a unit-reassignment reset so subscribers can drop their `texture → unit` tracking. Renderer-agnostic name.
+- **`event.RENDER_TARGET_CHANGED`** — emitted by the WebGL renderer when the active framebuffer's attachments change identity (frame-start `clear()`, non-camera FBO bind via `clearRenderTarget()`, post-effect FBO unbind via `endPostEffect()`). Batchers with target-scoped state subscribe to invalidate it — `MeshBatcher` uses it to re-arm its lazy depth clear; other batchers don't subscribe and pay nothing.
+- **Multi-material OBJ** — `Mesh` draws OBJ files with multiple `usemtl` directives + an MTL, baking per-material `Kd` into a per-vertex color buffer at construction. No extra draw calls per material.
+- **`device.setAutoFocus(enable)`** (#1486) — function setter for the `device.autoFocus` flag, finally giving user code a way to disable the engine's "bring the window to the front on visibility restore" behaviour. Direct assignment (`me.device.autoFocus = false`) always threw a `TypeError` because ESM namespace-import bindings are read-only externally; the function setter routes through the module-local binding so the mutation actually takes effect.
+
+### Changed
+- **`QuadTree` removed from the public package exports** (was `import { QuadTree } from "melonjs"`). The class itself still exists at `physics/broadphase/quadtree.ts` and still drives `world.broadphase` under 2D `sortOn` values — only the public re-export is dropped.
+- **`QuadTree` moved to `physics/broadphase/`** and rewritten in TypeScript (was `physics/builtin/quadtree.js`). Public-method surface unchanged — every existing `world.broadphase.insert(...)` / `retrieve(...)` call keeps working.
+- **`aVertex` widened from `vec2` to `vec3`** across `quad-multi.vert`, `quad-multi-lit.vert`, `primitive.vert`, `orthogonal-tmxlayer.vert`. Per-vertex stride +4 bytes.
+- **`VertexArrayBuffer.push()` gained a `z` parameter** between `y` and `u`. Custom `QuadBatcher` / `PrimitiveBatcher` subclasses that reimplement `addQuad` / `drawVertices` and push directly to `vertexData` need to insert `z` (default `0`) after `y`.
+- **`Camera2d` default near/far widened from `±1000` to `±1e6`** so `depth` participating in clip-space no longer cull-clips sprites with `Container.autoDepth` enabled or Y-sort patterns on tall maps. Override per-camera for tighter z bounds.
+- **Mesh rendering now clears depth once per target, not per mesh** (#1468). Each `WebGLRenderer.drawMesh` used to `gl.clear(DEPTH_BUFFER_BIT)` and toggle `DEPTH_TEST` / `BLEND` / `depthMask` on entry and exit, paying ~10 GL state calls per mesh.
+- **`Application` fails loudly on WebGL-required misconfiguration** (#1479). Two checks, both at construction time, both in `application.ts` — Camera3d stays pure-math, Stage untouched. **Throws** when `renderer: video.WEBGL` is requested but WebGL is unavailable (driver-blocklisted GPU, `failIfMajorPerformanceCaveat: true` on a software renderer, etc.) instead of silently falling back to Canvas. **Warns** (via `console.warn`) when `cameraClass` declares `static defaultSortOn = "depth"` (Camera3d or any subclass) but the active renderer isn't a `WebGLRenderer` — catches the `video.AUTO + cameraClass: Camera3d` combination where AUTO fell back to Canvas and the user would otherwise see a black canvas with no signal why.
+- **`Camera2d.updateTarget` smooth follow is now frame-rate independent.** Previously `pos.lerp(target, damping)` ran a parametric per-frame fraction — same `damping = 0.1` covered 10% of the gap per frame at 30Hz, 60Hz, 120Hz or 144Hz, so wall-clock convergence sped up linearly with the player's refresh rate. Now uses `pos.damp(target, lambda, dt)` with `lambda = -ln(1 - damping) * timer.maxfps`, which recovers the legacy per-frame fraction exactly at the configured target framerate AND keeps wall-clock convergence constant if the actual frame rate drifts. **No tuning change required** — existing `damping` values keep their feel at the engine's target framerate (default 60); high-refresh users finally get the same feel the dev tuned for.
+- **`device.platform.isMobile` no longer ORs the dead-platform regexes** (#1467). `wp` / `BlackBerry` / `Kindle` regexes were burning cycles on every page load testing for hardware nobody ships (Windows Phone EOL 2017, BB10 EOL 2016, Kindle behaves like Android anyway).
+- **`initKeyboardEvent` no longer skips listener registration on `isMobile === true`** (#1467). The gate assumed "mobile = no physical keyboard" — invalid for iPads with Magic Keyboard (now correctly detected per the iPad fix above), Samsung DeX, ChromeOS tablet mode, Bluetooth-keyboard-on-phone, etc.
+- **`system/device` converted to TypeScript** (#1467, renamed from `device.js` → `device.ts`). 945 lines / 53 exports / 56 JSDoc blocks of feature-detection helpers and platform plumbing now ship as a `.ts` file with native type signatures. JSDoc was already exhaustive, so the conversion is mostly mechanical — `@param {Type}` blocks become parameter annotations and `@type {Type}` constants get TS-inferred.
+- **`Application#requestFullscreen` / `Application#exitFullscreen`** — fullscreen control finally has app-instance context. `requestFullscreen` defaults to the app's `parentElement` (the container the canvas was appended into — `getParentElement()`), so the canvas plus any sibling HUD / overlay markup inside that container go fullscreen together; accepts an optional `Element` override.
+
+### Deprecated
+- **`device.requestFullscreen()` / `device.exitFullscreen()`** (#1467, since 19.7.0). Use `app.requestFullscreen()` / `app.exitFullscreen()` instead.
+- **`device.platform.wp` / `BlackBerry` / `Kindle` / `android2`** (#1467). The underlying platforms are end-of-life (Windows Phone discontinued 2017, BlackBerry stopped BB10 in 2016, Android 2.x predates 2012, Kindle has negligible mobile-web share).
+
+### Fixed
+- **`WebGLRenderer.createPattern` cache-key collision** (#1448). Two patterns created from the same source image with different repeat modes used to silently collide on a single GL texture unit — `TextureCache.getUnit(texture)` keyed only by the source, so the second `createPattern` call's upload trampled the first pattern's wrap state.
+- **`device.platform.iOS` / `device.platform.isMobile` now correctly identify iPads on iPadOS 13+** (#1467). Since Sept 2019, Safari on iPad has shipped the desktop Mac UA — no `iPad` token — so every modern iPad was falling through `isMobile` as desktop.
+- **`timer.step` is now the precise per-frame duration** (`1000 / maxfps`) instead of `Math.ceil(1000 / maxfps)`. The ceil rounded 16.667ms up to 17ms at 60fps target, undershooting the `delta / step` tick interpolation factor by ~2% under frame drops.
+- **GPU TMX layer reset crash when a non-material batcher was active** (#1471). `OrthogonalTMXLayerGPURenderer.reset()` grabbed `renderer.currentBatcher` and called `deleteTexture2D` on it, but uploads always flow through the "quad" batcher (`_drawLayer`).
+- **WebGL `TextureCache` cross-batcher binding desync** — a unit-pool reset only cleared the current batcher's `boundTextures` map, leaving stale entries on every other batcher; meshes rendered as black silhouettes and bullets as pure white in mixed-batcher scenes after sustained gameplay. Fixed via the new `event.GPU_TEXTURE_CACHE_RESET` event consumed by `MaterialBatcher`.
+- **WebGL color-attribute NaN canonicalization on Apple Metal / ANGLE** — `MeshBatcher` color attribute switched from `UNSIGNED_BYTE × 4 normalized` to `FLOAT × 4`; `Batcher.flush` / `QuadBatcher.flush` upload packed-color bytes via `vertex.toUint8()` instead of `vertex.toFloat32()` so they survive driver canonicalization. No behavior change on drivers that don't canonicalize.
+- **`Stage.reset` re-applies the chosen camera's `defaultSortOn` on every reset** — covers both the loader-pinned-Camera2d → user-stage handoff and the explicit-camera (`Stage({ cameras: [new Camera3d(...)] })`) pattern. Previously distant meshes painted on top of nearer ones under perspective on a Camera3d app coming out of the default loader.
+
+## [19.6.0] (melonJS 2) - _2026-05-23_
+
+**Highlights:** WebGL context-loss hardening release. Fixes a Windows + Chrome crash where a GPU switch lost the WebGL context and a partial `GLShader.destroy()` left the next frame's `setUniform("uTime", …)` reading from `null` uniforms. Beyond the crash, the renderer now also transparently recovers the rest of the pipeline (vertex buffer, default GL state, batchers, texture cache) across a `webglcontextlost` → `webglcontextrestored` cycle, and shaders replay their cached uniforms on restore — so the game keeps drawing across a GPU switch without any intervention from user code.
+
+### Added
+- **Transparent WebGL context recovery, pipeline-wide.** The renderer re-creates its vertex buffer, re-applies default GL state, re-initialises every batcher, drops stale texture-unit assignments, and emits `ONCONTEXT_RESTORED` so `GLShader` / `ShaderEffect` instances recompile + replay their cached uniforms — the next frame just keeps drawing across a GPU switch.
+- `GLShader.destroyed` / `GLShader.suspended` / `ShaderEffect.destroyed` — public read-only diagnostic flags. `destroyed` is the stable "explicitly released" signal (distinct from `ShaderEffect.enabled`, which auto-toggles across the cycle); `suspended` is true only between lost and restored.
+
+### Changed
+- **Platformer example coins migrated to per-instance `ShineEffect`**, matching the pattern of every other 19.5+ shader-using example. `GAME_UPDATE` subscription tied to `onActivateEvent` / `onDeactivateEvent` so pool-recycled coins re-bind on respawn instead of leaking a dead handler per pickup.
+
+### Fixed
+- **Stale shader references no longer crash.** `GLShader.destroy()` is atomic + idempotent and wraps `gl.deleteProgram` in a try / catch, so a throw on a dead ANGLE / D3D11 context (the 19.5.0 Windows + Chrome `TypeError: Cannot read properties of null (reading 'uTime')` crash) can't leave a half-destroyed shader. Public `setUniform` / `bind` / `getAttribLocation` paths also no-op on destroyed shaders instead of throwing.
+- **`ShaderEffect.destroy()`** sets `enabled = false` BEFORE the inner destroy — even if the inner destroy throws outward, the effect's public methods are already in the safe no-op state via the `enabled` gate.
+- **`GLShader._uniformCache`** snapshots arrays / typed arrays via `captureValue` on write, so caller mutation after `setUniform` can't silently rewrite what replays on context restore. Reuses the cache slot's allocation between calls (zero per-frame GC for hot uniforms like light positions).
+- **`ShaderEffect.enabled`** auto-toggle preserves user-set state across a context cycle — an effect the user explicitly disabled stays disabled after restore.
+
+### Performance
+- None.
+
+## [19.5.0] (melonJS 2) - _2026-05-22_
+
+**Highlights:** physics-focused release. The headline is the new `PhysicsAdapter` abstraction — the same game code can now run on either the engine's built-in SAT physics (default, unchanged behavior) or on a third-party rigid-body engine via the `physic` Application setting. Two official adapters ship alongside the engine: `@melonjs/matter-adapter` (wraps matter-js — constraints, sleeping bodies, continuous collision detection, raycasts, and matter's solver) and `@melonjs/planck-adapter` (wraps planck.js — a faithful Box2D 2.3.0 port with the same feature set plus Box2D-native joints, CCD bullet flag, and per-body gravity scale). New examples demonstrate the abstraction — `Matter Platformer` (the canonical platformer ported to matter) and `Pool (Matter)` (top-down 8-ball pool, drag-to-aim cue with physics-driven break shots and pocket sensors). Collision dispatch also gains a proper lifecycle (`onCollisionStart` / `onCollisionActive` / `onCollisionEnd`) on every `Renderable`, dispatched consistently by all three adapters with a **receiver-symmetric contract** (`response.a === this`, `response.b === other`, `response.normal` is the MTV of the receiver). The legacy `onCollision` handler is preserved unchanged for backward compatibility, but is **superseded by `onCollisionActive` on a per-renderable basis** so users who migrate get a single, clean every-frame contract. Push-out semantics on the built-in adapter are now matter-aligned: dynamic non-sensor bodies separate by default whether or not `onCollision` is defined.
+
+**Design note:** the new `PhysicsAdapter` interface is a standardized integration path for adding physics engines to melonJS. The existing built-in SAT physics is the default adapter; any third-party engine (matter-js, planck.js / Box2D, Rapier, custom) can plug in via the same contract, keeping game code engine-agnostic. Two official integrations ship as separate packages — `@melonjs/matter-adapter` and `@melonjs/planck-adapter`.
+
+### Added
+- Physics: **`PhysicsAdapter` interface** (`packages/melonjs/src/physics/adapter.ts`) — pluggable rigid-body abstraction. The new `BuiltinAdapter` wraps the existing SAT detector + `Body` class as the default, so legacy game code continues to work unchanged.
+- Physics: **`@melonjs/matter-adapter`** — first official third-party adapter, packaged separately. Wraps matter-js's `Engine` and translates the `PhysicsAdapter` contract to matter's API (`Matter.Body`, `Matter.Composite`, `Matter.Events`).
+- Physics: **`@melonjs/planck-adapter`** — second official third-party adapter, packaged separately. Wraps planck.js (a faithful JavaScript/TypeScript port of Box2D 2.3.0) and translates the `PhysicsAdapter` contract to planck's API (`planck.World`, `planck.Body`, `planck.Fixture`, `planck.Contact`).
+- Physics: **Collision lifecycle hooks** — `onCollisionStart`, `onCollisionActive`, `onCollisionEnd` on every `Renderable`, dispatched consistently by both adapters with a **receiver-symmetric contract**: `response.a === this`, `response.b === other`, `response.normal` is the unit MTV of the receiver (`normal.y < -0.7` ⇒ "push me up to escape", the cross-adapter stomp idiom). `response.depth` is the penetration scalar.
+- Physics: **`CollisionResponse` interface in `physics/adapter.ts`** — published type describing the modern handler contract. Required fields: `a`, `b`, `normal: { x, y }`, `depth: number`.
+- Physics: **`adapter.setSensor(renderable, isSensor)`** — runtime toggle for non-resolving sensor bodies. Collision events still fire but the bodies don't push each other out, matching matter's `isSensor` semantics.
+- Physics: **`Body.isSensor`** property on the legacy `Body` class (default `false`) — backs the built-in adapter's `setSensor` implementation. Also honored by the SAT detector: a sensor body still emits collision events to both sides but skips the push-out response.
+- Physics: **`adapter.setAngle(renderable, angle)`** — no-op stub on the built-in adapter (legacy `Body` is axis-aligned) so portable code that calls `adapter.setAngle?.(theta)` doesn't need to branch by adapter. Functional under matter.
+- Physics: **Body method parity** — eight new method-style setters added to the legacy `Body` class as thin wrappers around its existing fields: `setVelocity(x, y)`, `getVelocity(out?)`, `applyForce(x, y)` (accumulating, matches matter's semantics), `applyImpulse(x, y)` (`dv = J / m`), `setSensor(isSensor = true)`, `setMass(m)`, `setBounce(r)`, and `setGravityScale(s)`. The matter-adapter bolts the same eight methods onto `Matter.Body` at registration time, plus three more — `setStatic(b)`, `setCollisionMask(m)`, `setCollisionType(t)` — to mirror legacy `Body` setters that already existed but weren't on `Matter.Body`.
+- Physics: **`adapter.matter` namespace escape hatch** — `MatterAdapter` instances expose the entire `matter-js` module as `adapter.matter` (typed `typeof Matter`). Lets game code reach `Matter.Constraint`, `Matter.Composite`, `Matter.Bodies`, `Matter.Events`, `Matter.Query`, etc. without adding `matter-js` as a direct dependency.
+- Physics: **`adapter.getBodyAABB(renderable, out)` / `adapter.getBodyShapes(renderable)`** — adapter-side debug-visualization surface. Both methods return body geometry in **renderable-local coordinates** regardless of the engine's internal frame (builtin Body already stores local, matter stores world and the adapter subtracts `renderable.pos`).
+- TMX: **shape factory validation** — `createShapeObject` now throws a descriptive error pointing at the offending Tiled object (id, name, type) when `getDefaultShape` returns null or an empty array. Previously poisoned `bodyDef.shapes` with `[undefined]` and crashed downstream with a cryptic "cannot read .pos" message from inside the adapter at body construction time.
+- WebGL: **`ShineEffect` built-in shader effect** (`packages/melonjs/src/video/webgl/effects/shine.js`) — a pre-rolled animated shine/glint shader. Constructor accepts `{ color, speed, width, intensity, angle, bands, pulseDepth }` and exposes `setTime(t)` for driving the animation from a game-update event.
+- Examples: two new physics demos:
+  - **`Matter Platformer`** — same gameplay as the canonical platformer (same Tiled map, same entity code) but running on `@melonjs/matter-adapter`. Demonstrates the collision lifecycle hooks (coin pickup as `onCollisionStart`), kinematic character-style slope snap, one-way platforms via runtime `setSensor`, and the new `ShineEffect` on coins. The only file-level difference between this and the legacy platformer is the `physic: new MatterAdapter(...)` setting in `createGame.ts`.
+  - **`Pool (Matter)`** — top-down 8-ball pool driven by matter. 16 dynamic bodies simultaneously simulating, drag-back-to-aim cue with retraction-as-power feedback (no UI aim line — the cue itself is the aim guide, matching real pool), procedural cue stick rendering, ball drop shadows, pocket sensors that sink balls (cue ball respawns at the head spot, numbered balls are removed via `removeChild` and tear down their matter body via the adapter). Rails are cut short at the corners so balls can actually reach the corner-pocket sensors. Includes pocket-entry validation (a ball only sinks if its velocity is closing on the pocket center — stops glancing rail rolls from getting vacuumed in), correct triangular close-packing for the 15-ball rack (`dx = R·√3`, `dy = 2R`), and a sliding-vs-rolling `frictionAir` swap on each ball (slide-friction kicks in above a speed threshold, rolling-friction below — so break shots scrub momentum hard at first, then settle into a long roll).
+- Physics: **`PhysicsBody` interface** (`packages/melonjs/src/physics/adapter.ts`) — portable body handle type that lists the methods every adapter guarantees on `renderable.body` (`setVelocity` / `getVelocity` / `applyForce` / `applyImpulse` / `setStatic` / `setCollisionMask`, plus optional `setCollisionType` / `setSensor` / `setMass` / `setBounce` / `setGravityScale`, plus live `collisionType` / `collisionMask` field aliases). `PhysicsAdapter.addBody` is now typed as `(…) => PhysicsBody` (was `unknown`), `Renderable.body` is documented as `PhysicsBody` rather than the legacy `Body` class.
+- Physics: **`MatterAdapter.Body` namespace-merged type** — concrete body handle returned by the matter adapter, defined as `ReturnType<typeof Matter.Body.create> & PhysicsBody`. Reachable as `MatterAdapter.Body` without importing `matter-js` directly.
+- Physics: **`BodyDefinition.friction`** — portable surface coefficient of friction (matter's `body.friction`). Determines tangential velocity transfer between contacting bodies — combined with rotation, produces "throw" between balls and "english" off walls.
+- Physics: **`MatterAdapter` substep support** — new `subSteps?: number` option on `MatterAdapterOptions` (default 1). Runs `Matter.Engine.update(engine, dt / N)` N times per `step()` call to keep the discrete narrow phase from missing fast-moving contacts.
+- Physics: **Angular API on `PhysicsBody`** — optional methods every adapter may implement: `setAngularVelocity(omega)` / `getAngularVelocity()` / `setAngle(rad)` / `getAngle()` / `applyTorque(t)`. `applyForce(x, y)` is also extended with optional `pointX, pointY` parameters — when present and different from the body centroid, the lever arm generates a torque (`τ = r × F`) that contributes to angular velocity.
+- Physics: **Angular dynamics in BuiltinAdapter** — `Body` class gets four new fields (`angle`, `angularVelocity`, `angularDrag`, `pseudoInertia`) all defaulting to a no-op value (`0` / `1`), plus the five new methods. `Body.update()` integrates angle from angular velocity and re-syncs `renderable.currentTransform` around the bounds center — **gated** on `angularVelocity !== 0 || angle !== 0`, so bodies that never touch the rotation API pay no per-frame cost (a single boolean check).
+- Physics: **Angular dynamics in MatterAdapter** — `helpers` spliced onto each `Matter.Body` extended with the same five methods, routing to `Matter.Body.setAngularVelocity`, `Matter.Body.setAngle`, `body.torque +=` and direct `body.angularVelocity` reads. `applyForce` extended to forward the optional point through to `Matter.Body.applyForce(body, point, F)` so matter's native lever-arm handling does the rest.
+- Physics: **`adapter.raycast(from, to)` — portable single-nearest-hit raycast API across all three adapters.** Same `world.adapter.raycast(from, to)` call works under `BuiltinAdapter`, `MatterAdapter`, and `PlanckAdapter`, returning a unified `RaycastHit { renderable, point, normal, fraction }` (or `null` on miss). All three adapters compute **precise line-shape entry geometry**: `point` is the actual entry on the body's surface (parametric segment-vs-edge intersection for polygon shapes, quadratic ray-vs-ellipse for ellipses, Box2D's native fractional ray cast for planck), `normal` is the outward surface normal at that entry flipped toward the ray origin, `fraction` is the parametric `t ∈ [0, 1]` along the ray.
+- Physics: **`adapter.queryAABB(rect)` — portable region-query API across all three adapters.** Returns every renderable whose body bounds overlap the given world-space rectangle. Useful for area-of-effect damage, mouse / touch picking, trigger-zone sweeps, AI awareness checks.
+- Audio: **`audio.tone(opts)` — procedural single-shot oscillator** for envelope-shaped beeps with optional multi-partial chord (`freq` as a number or array), gain envelope (`attack` + exp-decay over `duration`), stereo pan (`pan` in `[-1, 1]`), and percussive pitch slide (`pitchSlide` as a frequency multiplier applied over the decay). Pairs with melonJS's procedural-graphics culture (`ShaderEffect`, `ParticleEmitter`) so games can ship polished UI clicks, hit feedback, retro arcade cues, and placeholder SFX without any audio asset files.
+- Audio: **`audio.noise(opts)` — procedural single-shot noise burst**, the non-pitched companion to `tone`. Picks spectral colour via `type` (`"white"` / `"pink"` / `"brown"`), shares the same gain-envelope + pan plumbing as `tone`, and accepts an optional band-shaping filter (`{ type, frequency, Q }`) with an optional exponential sweep on the filter frequency (`filterSweep`).
+- Audio: **`audio.getAudioContext()` — expose the shared WebAudio context** Howler manages internally. Returns the same `AudioContext` used by `audio.load` / `audio.play` etc. so user code can build custom WebAudio graphs (procedural SFX, custom filters, spatial nodes, audio analysis) without spawning a second context.
+- Audio: **`audio.getMasterGain()` — expose the master gain `GainNode`** the audio module routes all playback through. The right place to connect a custom analyser / filter / convolver so the result still respects `audio.muteAll()` and `audio.setVolume()`.
+- Examples: **`Line of Sight` rewritten on the new Application bootstrap.** Replaces the legacy `video.init()` + global `game` singleton pattern with `new Application(...)`. The demo wraps the new portable `app.world.adapter.raycast(from, to)` API in a stealth-style vision cone — a fan of 21 rays cast each frame from a rotating "sentry" across its forward arc, whose hit points form a visible-area polygon so obstacles correctly occlude everything behind them.
+- Renderable: **`bodyDef` field declared on the base `Renderable` class** with proper JSDoc (`@type {object|undefined}`, marked **Adapter API only**). Previously a phantom field — used everywhere in the engine (container.js, trigger.js, factories) but never declared, so subclass assignments like `this.bodyDef = { type: "dynamic", … }` raised `ts(2339) Property 'bodyDef' does not exist on type 'Sprite'` in the IDE.
+- Renderable: **`onActivateEvent` / `onDeactivateEvent` declared on `Renderable`** — lifecycle method stubs so user subclasses can write `override onActivateEvent()` / `override onDeactivateEvent()` without TS complaining that there's nothing to override. Default no-op bodies; engine already dispatched these via Container.
+- Renderer: **abstract drawing-primitive declarations on `Renderer` base** — `save` / `restore` / `translate` / `rotate` / `scale` / `setGlobalAlpha` / `fillRect` / `strokeRect` / `fillEllipse` / `strokeEllipse` / `strokeLine` / `drawImage` / `lineWidth` are now declared on the abstract `Renderer` class as no-op stubs with proper signatures. Previously implemented only on the concrete `CanvasRenderer` / `WebGLRenderer` subclasses, so any user code overriding `draw(renderer: Renderer)` and calling them got `ts(2339) Property 'X' does not exist on type 'Renderer'`.
+- TMX: **`.aseprite` files supported as tileset images** — Tiled 1.11+ lets you point a TMX `<image source="...">` directly at an `.aseprite` / `.ase` file instead of a pre-exported PNG (via the qaseprite Qt plugin). melonJS now resolves those references natively: `loader.preload({ type: "aseprite", src: "foo.aseprite" })` decodes the binary into a composited bitmap and atlas-style JSON sidecar (stored in `imgList` / `jsonList` under the asset name), so `TMXTileset` and `TextureAtlas` pick it up through the usual `getImage()` / `getJSON()` lookups with no extra wiring — Tiled-authored maps that use Aseprite tilesets "just work" without exporting to PNG first. Resolves [#1363](https://github.com/melonjs/melonJS/issues/1363).
+- TMX: **Animated tiles from Aseprite frame tags** — `TMXTileset` now reads the JSON sidecar produced by the `.aseprite` parser and synthesizes per-tile animations from `meta.frameTags`. Each Aseprite frame becomes a tile in the tileset (horizontal strip layout), and each forward tag covering frames `[from..to]` becomes an animation on tile `from` cycling through frames `[from..to]` with Aseprite's per-frame durations — no `<animation>` markup needed in the TSX.
+- Loader: **Aseprite binary file format parser** (`packages/melonjs/src/loader/parsers/aseprite.js`) — implementation behind the TMX feature above, also usable standalone for any asset (sprites, animations, etc.). Walks the binary chunks per the [official Aseprite spec](https://github.com/aseprite/aseprite/blob/main/docs/ase-file-specs.md): RGBA / grayscale / indexed pixel modes, raw / linked / zlib-compressed cels (decompressed via `DecompressionStream("deflate")`), visible-layer compositing, frame tags emitted as `meta.frameTags` so `parseAseprite()` in the texture-atlas path consumes the JSON unchanged.
+- Examples: **Aseprite tileset map** added to the Tiled Map Loader viewer (`Aseprite Map`) — exercises the new TMX-with-aseprite path end-to-end: TMX → TSX → `<image source="free-tileset-1.aseprite">` → composited bitmap. Tileset is "free-tileset-1" by Moon Empire; credit recorded on the TMX `<properties>` block.
+
+### Changed
+- Timer: `timer.fps` is now updated every frame inside `timer.update()` instead of via an external `timer.countFPS()` call. Previously `timer.fps` was stuck at `0` unless the debug panel was open and visible (which was the only call site for the internal `countFPS()` method).
+- Container: **removed the `@ignore`'d `Container.drawCount` field** — a per-Container counter that was only consumed by `@melonjs/debug-plugin`'s `#draws` stat. The plugin now self-computes the stat from its own per-frame postDraw counter (counting direct children of `game.world`), so the field no longer needs to live on every Container instance.
+- Physics: **`Renderable.onCollision` default return value is now `undefined` (was `false`)** — and push-out now runs by default for dynamic non-sensor bodies regardless of whether `onCollision` is defined. The pre-19.5 "no `onCollision` defined ⇒ implicit sensor" quirk is gone, replaced by the explicit `bodyDef.isSensor: true` flag.
+- Physics: **`Trigger` and `Collectable`** now use the new sensor pattern added to the built-in physics (`bodyDef.isSensor: true`).
+- Renderable: **Lifecycle hook signatures widened in the base class** for `onCollision`, `onDestroyEvent`, and `Container.onActivateEvent` / `onDeactivateEvent`. The base methods now declare typed-but-unused parameters so subclass overrides like `onCollision(response: CollisionResponse, other: Renderable)` or `onDestroyEvent(app: Application)` remain structurally assignable to the base type under TypeScript's `strictFunctionTypes` rule.
+- Docs: **Wiki physics section** — three new pages on the GitHub wiki: [Migrating to the Physics Adapter API](https://github.com/melonjs/melonJS/wiki/Migrating-to-the-Physics-Adapter-API) (legacy `me.Body` → 19.5 adapter API, all on Builtin), [Switching Physics Adapters](https://github.com/melonjs/melonJS/wiki/Switching-Physics-Adapters) (Builtin → matter migration with 6 portable+matter-only recipes), and [BuiltinAdapter Quirks](https://github.com/melonjs/melonJS/wiki/BuiltinAdapter-Quirks) (10 SAT-specific behaviors that don't carry to other engines). The matter-adapter README mirrors the recipes section.
+- Audio: **`audio.panner()` now always returns the current `PannerAttributes` snapshot**, regardless of whether the call was a get or a set. Previously the "set" form returned the underlying `Howl` instance cast to `PannerAttributes` — the documented `@returns` was lying.
+
+### Fixed
+- Physics: **`Body.ignoreGravity` marked `@deprecated`** — the portable equivalent is `gravityScale = 0` (or `bodyDef.gravityScale = 0` at construction, or `body.setGravityScale(0)` at runtime). `ignoreGravity` is read only by `BuiltinAdapter.applyGravity` and `Body.update`'s falling-state machine; `MatterAdapter` silently ignores it.
+- Container: **`addChild` / `addChildAt` no longer destroy a child when re-parenting it** — when the incoming child had a previous `ancestor`, the implicit detach called `removeChildNow(child)` without the `keepalive` flag, which falls through to `child.destroy()` for any child that isn't registered with the legacy `pool.push` registry. `Renderable.destroy()` nulls `pos`, `_bounds`, `anchorPoint`, and `currentTransform` — so the very next line in `addChild` (`child.updateBounds()`) read `child.pos.x` on a freshly-destroyed instance and crashed with `Cannot read properties of undefined (reading 'x')`.
+- Container: **`removeChildNow` now evicts the child (and its descendants) from the world's broadphase quadtree.** The broadphase is rebuilt on every `world.update()`, but pointer events and narrow-phase queries can fire between a deferred `removeChild` (which routes through `setTimeout(0)` and lands between two frames) and the next rebuild. In that window the broadphase still held a reference to the now-removed renderable, and any caller that iterated the `retrieve()` result hit a destroyed instance — typically crashing in `Container._sortReverseZ` with `Cannot read properties of undefined (reading 'z')` when the sort comparator read `a.pos.z` on a freshly-destroyed sibling.
+- WebGL: **`QuadBatcher` texture upload no longer empties an `OffscreenCanvas` source — regression fix from 19.0.0**. The Matrix3d refactor in 19.0.0 (commit `055a697`) added an `OffscreenCanvas`-specific branch to `material_batcher.js` that routed pixels through `pixels.transferToImageBitmap()`, which is **destructive**: the call moves the bitmap out of the OffscreenCanvas and leaves the source blank.
+- WebGL: **`CanvasRenderTarget.destroy` no longer deletes an unrelated texture under unit recycling.** The previous implementation looked up the texture to delete via `getTexture2D(this.glTextureUnit)`, but the `QuadBatcher`'s LRU texture-unit cache recycles units under pressure (typically 8–16 hardware units), so by the time a render target was destroyed its cached unit may have been reassigned to a different texture entirely. Result was either a crash (`getTexture2D` returned `undefined` → `texture.getTexture()` threw) or, worse, the silent deletion of an unrelated GPU texture that now occupied the recycled unit.
+
+### Performance
+- QuadTree: **subtree size is now cached** in `_subtreeCount`, maintained incrementally by `insert` / `remove` / `clear`. Makes `isPrunable()` and `hasChildren()` O(1) reads instead of recursive walks.
+- QuadTree: **`retrieve()` reuses a single scratch array at the root** instead of allocating a fresh result array per call. Pointer events and the builtin narrow-phase detector both call `retrieve()` per frame per body, so a scene with 100 active bodies under a moving pointer saves ~6000 array allocations per second.
+- QuadTree: **empty subnodes are now collapsed and recycled back to the pool** when a subtree fully empties. Keeps the tree shallow under spawn/despawn churn (particle bursts, projectile lifecycles, the plinko-planck demo's peg recycles) instead of leaving placeholder empty nodes behind until the next `world.update()` rebuild.
+- QuadTree: **`remove()` falls back to a full subnode walk on a bounds miss.** Items whose position changed between `insert` and `remove` (typical for moving bodies removed mid-frame) can now be evicted without waiting for the next quadtree rebuild — previously they would silently leak and only get cleared on the next `world.update()`. Worst case is O(subtree); happy path stays O(log n).
+
+## [19.4.0] (melonJS 2) - _2026-05-12_
+
+**Highlights:** rendering-focused release. GPU-accelerated WebGL 2 tile rendering for orthogonal TMX maps draws each visible layer as a single quad through a fragment shader instead of one draw per tile. With the shader-wide uniform cache and flat `Uint16Array` tile data, a 3-layer 800x600 game on mid-tier mobile reclaims roughly **1.5-3.5 ms per frame**; dense large maps see ~5-8x on the rendering portion.
+
+### Added
+- TMX: GPU-accelerated WebGL 2 tile rendering for orthogonal maps. Each visible layer renders as one quad whose fragment shader walks a per-layer GID index texture and samples the tileset atlas, with no per-tile draw loop. Supports animated tiles, flip bits, per-layer opacity/tint/blend mode and oversized tiles. Enabled via `Application.settings.gpuTilemap`; falls back to the CPU renderer on isometric/staggered/hexagonal layers, collection-of-image tilesets, non-zero `tileoffset`, or non-WebGL-2 contexts
+- WebGL: custom shaders can be written in GLSL ES 3.00 (`#version 300 es`) — construct a `GLShader` with both stages in 3.00 form. `ShaderEffect` remains 1.00-only, since WebGL requires both stages of a program to share a version and it pairs the user's fragment with the built-in 1.00 vertex shader
+- Renderer: `TextureResource` / `BufferTextureResource` — a renderer-agnostic source for textures synthesized from raw byte buffers rather than loaded from an image. Flows through the standard `TextureCache` and batcher path, supporting `rgba8` and `rgba8ui`
+
+### Fixed
+- WebGL: fix `MaterialBatcher.uploadTexture` using its `w`/`h` parameters — the destination quad size, not the texture's — for the `isPOT` check that drives the wrap-mode fallback and the `generateMipmap` gate. Visible as `GL_INVALID_OPERATION` on WebGL 1, silent wasted work on WebGL 2
+- SAT: fix ellipse collisions failing whenever the body's ancestor container had a non-zero absolute position, the typical case being an auto-centred level. `testEllipseEllipse` and `testPolygonEllipse` added the ancestor's absolute position where they should have subtracted it, shifting the circle by twice that offset. Latent because every SAT test wired the mock ancestor to `(0, 0)`
+- TMX: fix static children of an auto-centred level container keeping stale absolute bounds. `addTo()` sets `container.pos` after adding children, so cached bounds missed the centring offset — visible as debug shapes drawn at the wrong position and broken culling outside the pre-centring box
+- ImageLayer: fix `repeat-x` / `repeat-y` / `no-repeat` rendering differently on Canvas and WebGL (#1290). The draw extent is now clamped to the source dimensions on any axis that is not tiling, so neither renderer enters its overflow path
+
+### Changed
+- WebGL 1: the unconditional "is not a POT texture" warning is removed — the engine handles NPOT correctly. A targeted warning now fires only when `repeat` is requested on an NPOT texture under WebGL 1
+- `throttle(fn, wait)` is generic over its argument tuple, preserving the wrapped function's parameter types
+
+### Performance
+- TMX: tile layers back `layerData` with a flat `Uint16Array` and the orientation renderers read from it directly, with no `Tile` allocations during parse or rendering. Per-layer memory drops ~25x (40 KB against ~1 MB on a 100x100 layer). Public API unchanged
+- WebGL: every engine-built shader caches the last value sent for each uniform and skips redundant `gl.uniform*` calls, comparing vec/mat values element-wise. Typically ~0.1-0.5 ms per frame on mid-tier mobile, more with many custom shaders
+- TMX: the GPU renderer's fragment shader uses a single-cell fast path for tilesets whose tiles fit the cell exactly, branching on `uOverflow`
+
+## [19.3.0] (melonJS 2) - _2026-05-08_
+
+### Added
+- Light2d: now a first-class world Renderable — add lights with `app.world.addChild(light)` (or any container, including a sprite, so the light follows it via parent transforms). Auto-registers with the active Stage's lighting set via `onActivateEvent` / `onDeactivateEvent` — no manual bookkeeping.
+- Normal-map sprite lighting (closes #1416). New `Sprite.normalMap` property accepts a paired normal-map image (or auto-detected from a `TextureAtlas` constructed with `{ normalMap }`).
+- Light2d: `illuminationOnly` boolean (default `false`) — when set to `true` the light's own gradient texture isn't drawn, but the light still feeds the cutout pass and the lit-sprite shader's per-frame uniforms. Useful for SpriteIlluminator-style demos where the light should be a logical source, not a visible glow.
+- Light2d: `lightHeight` property (default `max(radiusX, radiusY) * 0.075`) — the Z-axis component of the light direction in the lit shader's `dot(normal, lightDir)`. Low values graze across the surface (dramatic normal-map detail); high values make lighting head-on (more uniform brightness).
+- Two new examples: `Normal Map` (three procedurally-generated 3D orbs in red/green/blue base colors reacting to a moving cursor light, demonstrating that the normal-map controls shape while the color texture controls hue) and `SpriteIlluminator` (faithful port of CodeAndWeb's cocos2d-x dynamic-lighting demo: animated character + foreground prop tile lit by a moving cursor light, full SpriteIlluminator + TexturePacker asset workflow).
+- WebGL: procedural `Light2d` rendering (closes #1430). New `Renderer.drawLight(light)` API replaces the per-light offscreen-canvas pipeline.
+- Light2d: `setRadii(radiusX, radiusY)` method. Updates the radii and the underlying bbox (via `Renderable.resize(width, height)`) so `getBounds()` and `getVisibleArea()` track the new size.
+- WebGL: new `RadialGradientEffect` shader effect (`video/webgl/effects/radialGradient.js`). Generic procedural radial gradient — solid color at center fading linearly to transparent at the edge of the host quad.
+
+### Changed
+- Lights are now rendered inside the camera's post-effect FBO bracket — vignette, scanlines, ColorMatrix and any other camera shader effect now wrap the lighting output (closes #1398). The `Stage.draw()` lighting block has been removed; rendering happens via the world tree walk and a public `Stage.drawLighting(renderer, camera)` pass invoked by each camera (subclassable for custom lighting).
+- `Stage.lights.set(name, light)` (the legacy registration API) still works — entries are auto-adopted into the world tree on stage reset so they render normally and benefit from the FBO capture. New code should use `app.world.addChild(light)` directly.
+- **Breaking:** `Light2d` is now centered on its `pos` (`anchorPoint = (0.5, 0.5)`), matching `Sprite` and `Ellipse(x, y, w, h)` conventions. Constructor `x`/`y` and `light.pos.x`/`y` denote the light's **center**, not the bounding-box top-left.
+
+### Fixed
+- Lifted the historical "Canvas mode only supports one light per stage" limitation — multiple `Light2d` instances now render correctly under both Canvas and WebGL. Follow-up to #1369 (which introduced evenodd-based inverted masking for camera mask transitions): root cause was in the underlying `setMask(shape, true)` implementation on both renderers, where chained calls did not accumulate cutouts.
+- CanvasRenderer: `setMask(shape)` with a `Rect`, `Bounds`, or `RoundRect` mask was passing arguments in the wrong order to `context.rect` / `context.roundRect` (X and Y swapped via `mask.top` / `mask.left`). Masks at off-diagonal positions (`pos.x !== pos.y`) were clipped at the wrong location.
+- `Stage.drawLighting`: ambient-overlay cutouts now align with each light's rendered gradient when the camera is scrolled or the light is parented to a translated container. `light.getVisibleArea()` returns world-space coordinates (via `getBounds()` → `getAbsolutePosition()`), but `drawLighting` runs after the world container's `translate(-cameraPos)` has been popped from the renderer — so cutouts were landing at world coords inside a camera-local FBO.
+- WebGL: fix a vertex attribute leak between batchers. Each batcher owns its own attribute layout, and on a batcher switch the previous one's enabled attribute locations stayed live with their old stride and offset, so GL validated them against the new batcher's smaller vertex buffer
+- WebGL: `gl.useProgram` leak after `setLightUniforms`. `Camera2d.draw()` calls `renderer.setLightUniforms(...)` every frame even when the scene has zero lights, which writes `uLightCount = 0` to `LitQuadBatcher`'s shader.
+- Light2d: stale gradient texture on radius/color/intensity change. The pre-#1430 implementation baked the gradient once at construction and re-used the same `CanvasRenderTarget` indefinitely; mutating `radiusX/Y`, `color`, or `intensity` left the rendered light out of sync with `getVisibleArea()` (the cutout pass) and the lit shader (which already used current values).
+- WebGL: stale custom shader leaking past `WebGLRenderer.setBatcher`. The previous fast path returned early when the active batcher matched and no shader was provided, so a custom shader bound by a prior call (e.g. a post-effect FBO blit, or `drawLight`'s radial-gradient program) could stay bound and silently render the next sprite batch through the wrong program.
+- WebGL: `QuadBatcher.blitTexture` / `LitQuadBatcher.blitTexture` did not sync `currentTextureUnit` / `boundTextures[0]` with the GL state they mutated. After a blit (typically a post-effect FBO) ran with a non-zero `currentTextureUnit`, subsequent `bindTexture2D` calls could short-circuit on the stale cached unit and bind the new texture on the wrong unit, producing rendering corruption on the next sprite batch.
+- `Container` clipping (`clipping = true`) misaligned when nested inside a translated, scaled, or rotated parent (closes #1349). `Container.draw` was passing world-space `bounds.left/top` to a `clipRect` API that interpreted its input as local-to-current-transform — the parent's translate was already baked into `currentTransform` by the time `clipRect` ran, so the world-space input got double-counted and the clipped region landed offset by exactly the parent's `pos`.
+- WebGL: pending PrimitiveBatcher vertices now drain when a `save()`/`restore()` pair changes the scissor box. Previously `WebGLRenderer.restore()` reverted the GL scissor without flushing, so vertices queued inside a deeper clip could survive past `restore()` and flush later under a more permissive scissor (or none at all) — visually escaping their clip.
+
+## [19.2.0] (melonJS 2) - _2026-04-29_
+
+### Added
+- ParticleEmitter: `autoDestroyOnComplete` setting (default `false`) — when enabled, the emitter automatically removes itself from its parent container once all particles have died. Solves the leak in fire-and-forget `burstParticles()` use cases (explosions, pickups, impact effects) where there is no natural cleanup hook. Also adds an `onComplete` callback that fires when the emitter completes, regardless of `autoDestroyOnComplete`.
+- ParticleEmitter: `accurateBounds` setting (default `false`) — when enabled, each particle refreshes its bounding box every frame so the hitbox tracks the visual exactly (useful for debug visualization or collision queries). Default `false` matches the previous behavior (bounds reflect the previous frame's transform — sufficient for viewport culling and significantly cheaper at high particle counts).
+- ParticleEmitter: `ParticleEmitterSettings` is now an exported TypeScript interface — replaces the legacy untyped JS object. Constructor and `reset()` accept `Partial<ParticleEmitterSettings>` for compile-time validation.
+- State: `state.freeze(duration, music?)` — freeze the current stage for a fixed duration in milliseconds, then automatically resume. Returns a `Promise<void>` that resolves on unfreeze. Reentrant calls extend the freeze to whichever end-time is later (they do not stack). Useful for hit-stop / hit-pause effects on impact.
+- Application: `app.pause(music?)`, `app.resume(music?)`, `app.freeze(duration, music?)` — convenience proxy methods on the Application instance for the corresponding `state.*` methods.
+- Text: `visibleCharacters` and `visibleRatio` properties on Text and BitmapText for progressive text reveal and typewriter effects. Animate `visibleRatio` with Tween for character-by-character text display.
+- Tween: `repeatDelay(ms)` method and `repeatDelay` option in `to()` — adds a delay before each repeat cycle.
+- Camera: FBO-based post-processing pipeline — assign a `ShaderEffect` to any camera's `shader` property to apply full-screen post-effects (vignette, scanlines, desaturation, etc.). Works with multiple cameras independently (e.g. main camera + minimap with different effects). Renderer manages FBO lifecycle via `beginPostEffect()`/`endPostEffect()`/`blitEffect()` methods.
+- Renderable: multi-pass post-effect chaining — `postEffects` array replaces single `shader` property. Multiple effects are applied in sequence via FBO ping-pong (e.g. `sprite.addPostEffect(new DesaturateEffect(r)); sprite.addPostEffect(new InvertEffect(r));`). Single-effect renderables use a zero-overhead `customShader` fast path (no FBO). Camera manages its own FBO lifecycle; per-sprite effects use a separate FBO pair.
+- Renderable: `addPostEffect(effect)`, `getPostEffect(EffectClass?)`, `removePostEffect(effect)`, `clearPostEffects()` — manage post-processing shader effects on any renderable
+- Renderable: `shader` getter/setter — backward-compatible access to `postEffects[0]` (deprecated)
+- Camera: `colorMatrix` property — built-in `ColorMatrix` for color grading (brightness, contrast, saturation, etc.), always applied as the final post-processing pass after any effects added via `addPostEffect()`. Zero overhead when identity (default).
+- Rendering: `RenderTarget` abstract base class — renderer-agnostic interface for offscreen render targets (`bind`, `unbind`, `resize`, `clear`, `destroy`, `getImageData`, `toBlob`, `toImageBitmap`, `toDataURL`). Concrete implementations: `WebGLRenderTarget` (FBO) and `CanvasRenderTarget` (canvas surface). Designed for future WebGPU support.
+- Rendering: `RenderTargetPool` — renderer-agnostic pool for post-effect ping-pong render targets. Uses a factory function provided by the renderer, no GL dependency. Camera effects use pool indices 0+1, sprite effects use indices 2+3.
+- Renderer: `setViewport()`, `clearRenderTarget()`, `enableScissor()`, `disableScissor()`, `setBlendEnabled()` — renderer-agnostic state methods on the base Renderer (no-ops for Canvas), implemented on WebGLRenderer. Eliminates direct GL calls from the post-effect pipeline.
+- WebGL: `VignetteEffect` built-in shader effect — darkens screen edges to draw focus to the center, with configurable `strength` and `size` parameters
+- RenderState: `currentShader` is now part of the save/restore stack — custom shaders are properly scoped per-renderable without leaking to siblings or parent cameras
+- Camera: extensible camera effect system — `CameraEffect` base class with `update(dt)`, `draw(renderer, w, h)`, `destroy()` lifecycle. Add/get/remove effects via `addCameraEffect()`, `getCameraEffect(EffectClass)`, `removeCameraEffect(effect)` on any Camera2d.
+- Camera: `ShakeEffect` — extracted shake logic into a standalone camera effect class with `intensity`, `duration`, `axis`, and `onComplete` support. Multiple shakes can coexist.
+- Camera: `FadeEffect` — unified fade-in/fade-out into a single effect class with `direction: "in" | "out"`. Replaces the hardcoded `_fadeIn`/`_fadeOut` state objects.
+- Camera: `MaskEffect` — shape-based mask transition effect using Ellipse or Polygon. Supports `direction: "hide"` (shape shrinks) and `direction: "reveal"` (shape expands) with configurable color and duration. Uses inverted clip masking on both Canvas (evenodd) and WebGL (stencil).
+- Trigger: `transition` setting — accepts `"fade"` (default, backward compatible) or `"mask"` for shape-based level transitions. When `"mask"` is used, a `shape` setting (Ellipse or Polygon) defines the mask geometry.
+- Trigger: `color` setting replaces legacy `fade` property (backward compatible — `fade` still works as fallback)
+- Math: `ColorMatrix` class extending `Matrix3d` — chainable color adjustment methods (`brightness`, `contrast`, `saturate`, `hueRotate`, `sepia`, `invertColors`) using zero-allocation `transform()` on the parent matrix
+- Math: `Matrix3d.transform()` — accepts either 16 values (full 4x4) or 6 values (2D affine, promoted to 4x4). Mirrors the `Matrix2d.transform()` API.
+- WebGL: `ColorMatrixEffect` shader effect — applies a `ColorMatrix` to any renderable or camera. Exposes chainable color methods (`brightness`, `contrast`, `saturate`, `hueRotate`, `sepia`, `invertColors`, `reset`) that auto-push the GPU uniform.
+
+### Changed
+- ParticleEmitter: `reset()` now clamps reversed range pairs (`minLife > maxLife`, `minStartScale > maxStartScale`, `minEndScale > maxEndScale`, `minRotation > maxRotation`) by lowering the `min` to the `max`. Catches the common footgun where a user overrides only one half of a range (e.g. `maxLife: 5` while `minLife` keeps its 1000ms default).
+- ParticleEmitter / Particle: hot-path performance — particle transform construction folded into a single `setTransform()` call (saves 3 matrix multiplies per particle per frame), `_halfW`/`_halfH` cached in `onResetEvent`, `_deltaInv` cached on the emitter and shared with particles, frame-skip bookkeeping gated behind `framesToSkip > 0`. For 1000 particles at 60fps this saves roughly 240k matrix ops/sec.
+- Particle: hitbox now tracks the visual — anchor + transform + bounds are kept consistent (rotation pivots on the visual center, bounds match the visual extent). Previously the hitbox was offset by `(w/2, h/2)` and lagged one frame behind the visual.
+- Particle: removed dead-code clamps around `randomFloat(min, max)` calls (the result is already in range) and the unused `> 0` variation guards.
+- Camera: `shake()`, `fadeIn()`, `fadeOut()` are now convenience wrappers that create `ShakeEffect`/`FadeEffect` instances — same signatures, fully backward compatible
+- Trigger: internally uses `FadeEffect`/`MaskEffect` instead of `viewport.fadeIn()`/`viewport.fadeOut()`, with both hide and reveal effects
+- WebGL: `SepiaEffect`, `InvertEffect`, `DesaturateEffect` now extend `ColorMatrixEffect` — share a single color matrix shader instead of individual GLSL shaders
+- Rendering: `WebGLRenderTarget` and `CanvasRenderTarget` now extend the abstract `RenderTarget` base class
+- Rendering: FBO pool refactored from WebGL-specific `FBOPool` to renderer-agnostic `RenderTargetPool` with factory pattern
+- Canvas: `CanvasRenderTarget` save/restore now properly syncs `customShader` with the render state stack (mirrors WebGLRenderer behavior)
+- Rendering: `VertexArrayBuffer` moved from `video/webgl/buffer/` to `video/buffer/` (renderer-agnostic, zero GL dependency)
+- Rendering: `IndexBuffer` split into renderer-agnostic `IndexBuffer` base (data accumulation) and `WebGLIndexBuffer` (GL buffer bind/upload)
+
+### Fixed
+- ImageLayer: setting `mask`, `shader` / `postEffects`, `flipX()` or `flipY()` had no effect — `ImageLayer.preDraw()` was a stripped-down copy of `Renderable.preDraw()` that handled only alpha, tint and blend mode. The override now also applies flip, stencil mask, and post-effects (the anchor/`autoTransform` skip is preserved because `ImageLayer.draw()` computes its own world-space position).
+- WebGL: stencil masking (`setMask` / `MaskEffect`) now works correctly in WebGL1 mode (`preferWebGL1: true`). `WebGLRenderTarget` was relying on `gl.DEPTH_STENCIL` / `gl.DEPTH_STENCIL_ATTACHMENT` being exposed on the WebGL1 context, which some browser/driver combinations leave `undefined`, silently producing FBOs with no stencil attachment. The setup now uses spec-defined numeric fallbacks (0x84F9 / 0x821A) and validates completeness via `gl.checkFramebufferStatus()`. Also dropped the dead `WEBGL_depth_stencil` extension gate (those constants are core WebGL 1.0, no extension required) and removed the redundant `STENCIL_BUFFER_BIT` from `clearRenderTarget()` (which produced spurious `Clear called for non-existing buffers` warnings).
+- State: `state.freeze()` no longer leaves the game in inconsistent states when interacting with manual pause/resume or window blur. Specifically: (a) the freeze timer's auto-resume now respects whether the game was already paused when freeze started — won't unpause a manually-paused game on expiry; (b) calling `state.resume()` or `state.stop()` mid-freeze cancels the timer and resolves the freeze promise immediately; (c) window `BLUR` cancels the freeze (the visual "moment" is over by the time the user returns; regular `pauseOnBlur` keeps the game paused while away).
+- ParticleEmitter: constructor was using bitwise `|` instead of logical `||` for the `width`/`height` fallback, which silently rounded any provided value to the next odd number (e.g. `width: 16 → 17`, `width: 32 → 33`).
+- Canvas: `setMask(shape, true)` now uses `evenodd` clipping for proper inverted mask support (was using `destination-atop` composite which didn't clip subsequent draws)
+- Ellipse: `clone()` now uses the ellipse pool instead of `new Ellipse()` — consistent with `Polygon.clone()` which already uses its pool
+- TMXObjectFactory: override warning now uses `console.warn()` instead of the deprecation `warning()` function (was showing "deprecated since version undefined")
+- WebGL: `WebGLRenderTarget` constructor and `resize()` now explicitly use `TEXTURE0` to avoid corrupting the multi-texture batcher's texture unit bindings
+- WebGL: post-effect pipeline now explicitly sets viewport on every FBO bind and saves/restores the projection matrix, fixing rendering issues after canvas resize
+
+
+## [19.1.0] (melonJS 2) - _2026-04-16_
+
+### Added
+- WebGL: multi-texture batching — up to 16 textures (based on device capabilities) drawn in a single batch/draw call, eliminating GPU flushes on texture changes. Automatically falls back to single-texture mode when a custom `ShaderEffect` is active. ~80% fewer draw calls on the platformer example (14 vs ~70 flushes/frame), with an estimated 30-50% FPS improvement on low-end mobile devices.
+- WebGL: `highPrecisionShader` application setting — when `false`, caps shader precision at `mediump` for better performance on mobile GPUs that support `highp` but run faster at `mediump`. Default `true` (auto-detect highest precision).
+
+### Fixed
+- WebGL: `getSupportedCompressedTextureFormats()` no longer crashes when the GL context is unavailable — falls back to the base renderer's empty format list
+- Examples: compressed textures example updated to use `setText()`/`preDraw()`/`draw()`/`postDraw()` pattern — fixes text not rendering after `Text.draw()` standalone removal in 19.0
+
+## [19.0.0] (melonJS 2) - _2026-04-14_
+
+### Added
+- Renderer: `drawMesh(mesh)` method on both WebGL and Canvas renderers for textured triangle mesh rendering with backface culling and depth testing
+- Renderable: `Mesh` class for displaying textured 3D triangle meshes, with OBJ model loading or raw geometry data, built-in perspective projection, and standard transform API (`rotate`, `scale`, `translate`)
+- Renderable: `Mesh.toCanvas()` and `Mesh.toImageBitmap()` — render the mesh at its current state to an offscreen canvas or ImageBitmap for use as a Sprite image or with `drawImage()`
+- Renderable: `Mesh.toPolygon()` — compute a 2D convex hull polygon from the current projected vertices for collision shapes
+- Renderable: `translate(x, y, z)` method added to Renderable for transform-based translation
+- Loader: Wavefront OBJ format parser — `loader.preload({ type: "obj" })` and `loader.getOBJ(name)` for loading 3D model geometry (vertices, UVs, faces, quad triangulation, winding auto-correction)
+- Loader: Wavefront MTL material parser — `loader.preload({ type: "mtl" })` and `loader.getMTL(name)` for loading material properties (diffuse texture, diffuse color, opacity)
+- Math: `Matrix3d.perspective(fov, aspect, near, far)` — generate a perspective projection matrix
+- Math: `Matrix3d.toMatrix2d(out?)` — extract the 2D affine components from a 4x4 matrix
+- Math: vertex utilities in `src/math/vertex.js` — `normalizeVertices()`, `projectVertices()`, `convexHull()`
+- WebGL: `MaterialBatcher` base class for textured batchers, shared by `QuadBatcher` and `MeshBatcher` (texture create/bind/upload/delete)
+- WebGL: `MeshBatcher` for indexed triangle mesh rendering with chunked buffer management for large models
+- WebGL: `IndexBuffer.addRaw(indices)` for adding pre-computed absolute indices without rebasing
+- Canvas: degenerate UV triangle support — solid color fill sampled from texture for color-palette models (e.g. Kenney)
+- WebGL: 15 built-in `ShaderEffect` presets for per-sprite visual effects — `FlashEffect`, `OutlineEffect`, `GlowEffect`, `DesaturateEffect`, `PixelateEffect`, `BlurEffect`, `ChromaticAberrationEffect`, `DissolveEffect`, `DropShadowEffect`, `ScanlineEffect` (with optional CRT curvature/vignette), `TintPulseEffect`, `WaveEffect`, `InvertEffect`, `SepiaEffect`, `HologramEffect`. All extend `ShaderEffect` and are disabled in Canvas mode.
+- Renderable: `Trail` class for drawing fading, tapering ribbons behind moving objects — auto-follow or manual point mode, configurable width/gradient/lifetime, works on both WebGL and Canvas
+- Gradient: `getColorAt(position, out)` — interpolate a color at any position along a gradient, useful for procedural effects
+- Gradient: `destroy()` — release pooled resources held by a gradient instance
+- Math: `lerpArray(values, position)` — linearly interpolate a value from an evenly spaced array at a given 0–1 position
+- Math: `computeVertexNormal(points, index, out)` — compute the averaged perpendicular normal at a vertex in a 2D polyline
+
+### Changed
+- **BREAKING**: `Renderable.currentTransform` is now a `Matrix3d` (was `Matrix2d`) — enables 3D transforms on any renderable. Code that accesses `currentTransform.val` indices directly must update: translation is at `[12],[13]` (was `[6],[7]`)
+- **BREAKING**: `Matrix3d.scale(x, y, z)` default `z` changed from `0` to `1` — prevents accidental Z-axis flattening
+- **BREAKING**: `Matrix3d.rotate(angle, v)` axis parameter is now optional, defaults to Z axis — 2D rotation works without specifying an axis
+- **BREAKING**: `Matrix2d.fromMat3d()` now extracts translation from indices `[12],[13]` (was `[8],[9]`) — correctly converts 4x4 translation to 2D affine
+- **BREAKING**: `Matrix3d.multiply()` now accepts both `Matrix3d` and `Matrix2d` — Matrix2d is promoted to 4x4 inline, no temporary copy needed
+- **BREAKING**: `Matrix3d.rotate()` returns `this` instead of `null` on zero-length axis vector — safe for method chaining
+- `RenderState` save/restore stack uses `Matrix3d` (was `Matrix2d`)
+- `Camera2d.invCurrentTransform` is now `Matrix3d` (was `Matrix2d`)
+- `Renderable.rotate(angle, v)` defaults to Z axis when no axis given (same 2D behavior)
+- `Renderable.scale(x, y, z)` defaults z to 1 (preserves Z dimension)
+- `QuadBatcher` and `MeshBatcher` now extend `MaterialBatcher` (was `Batcher`) — eliminates ~180 lines of duplicated texture management code
+- WebGL context always created with `depth: true` for hardware depth buffer support (used by 3D mesh rendering)
+- WebGL renderer `setBatcher()` now syncs the projection matrix to the new batcher
+- **BREAKING**: `Text.draw()` and `BitmapText.draw()` no longer accept `text`, `x`, `y` parameters — standalone draw without a parent container is removed (deprecated since 10.6.0)
+- **BREAKING**: `Text.measureText()` no longer takes a `renderer` parameter (was unused)
+- **BREAKING**: `UITextButton` settings `backgroundColor` and `hoverColor` removed — use `hoverOffColor` and `hoverOnColor` instead
+- **BREAKING**: `Tween` no longer adds itself to `game.world` — uses event-based lifecycle (`TICK`, `GAME_AFTER_UPDATE`, `STATE_PAUSE`, `STATE_RESUME`, `GAME_RESET`) instead. Public API unchanged. `isPersistent` and `updateWhenPaused` properties still supported.
+- **BREAKING**: removed `depthTest` application setting and `DepthTest` type — GPU depth sorting is incompatible with 2D alpha blending and the painter's algorithm. The `"z-buffer"` option never worked correctly for 2D sprites. Depth testing remains available internally for 3D mesh rendering only (`drawMesh`).
+- Container: `sortOn` is now a getter/setter that caches the comparator function — avoids string lookup on each sort call
+- Container: sort comparators simplified — removed legacy null guards (children always have `pos`)
+- Renderer: `customShader` property moved to base `Renderer` class — `Renderable.preDraw`/`postDraw` no longer check renderer type via `renderer.gl`
+- WebGL: `clear()` no longer clears the depth buffer (only used by `drawMesh` which clears it locally)
+
+### Fixed
+- Geometry: `Rect.setSize()` now calls `updateBounds()` — fixes a regression from July 2024 (`4d185c902`) where replacing `Rect.setShape()` with `pos.set()` + `setSize()` during the TypeScript conversion left bounds stale, causing pointer event broadphase lookups to use `(0,0)` instead of the actual pointer position (see #817)
+- WebGL: depth buffer now correctly used for 3D mesh rendering with `gl.LESS` depth function
+- Canvas: backface culling corrected for Y-flipped screen space (was culling front faces instead of back)
+- Canvas: triangle seam expansion (0.5px) to cover anti-aliasing gaps between adjacent triangles
+- Canvas: painter's algorithm depth sorting for back-to-front triangle rendering
+
+## [18.3.0] (melonJS 2) - _2026-04-07_
+
+### Added
+- Renderer: `bezierCurveTo()`, `quadraticCurveTo()`, and `arcTo()` path methods — draw cubic and quadratic Bezier curves, matching the Canvas 2D API. Canvas renderer uses native context methods, WebGL renderer tessellates via Path2D.
+- Renderer: `setLineDash()` and `getLineDash()` methods — set dash patterns for stroke operations, matching the Canvas 2D API. Works on both Canvas and WebGL renderers. Dash state is saved/restored with `save()`/`restore()`.
+- Renderer: `createLinearGradient()` and `createRadialGradient()` methods — create gradient fills that can be passed to `setColor()`, matching the Canvas 2D API. Works on both Canvas and WebGL renderers with all fill methods (`fillRect`, `fillEllipse`, `fillArc`, `fillPolygon`, `fillRoundRect`). Gradient state is saved/restored with `save()`/`restore()`.
+- Tiled: extensible object factory registry for `TMXTileMap.getObjects()` — object creation is now dispatched through a `Map`-based registry (like `loader.setParser`), with built-in factories for text, tile, and shape objects, plus class-based factories for Entity, Collectable, Trigger, Light2d, Sprite, NineSliceSprite, ImageLayer, and ColorLayer
+- Tiled: new public `registerTiledObjectFactory(type, factory)` and `registerTiledObjectClass(name, Constructor)` APIs allowing plugins to register custom Tiled object handlers by class name without modifying engine code
+- Tiled: `detectObjectType()` now checks `settings.class` and `settings.name` against the factory registry before falling through to structural detection, enabling class-based dispatch for custom types
+
+### Changed
+- Application: `new Application(width, height, options)` now auto-calls `boot()` if the engine hasn't been initialized, making it a valid standalone entry point
+- Application: `boot()` moved to `system/bootstrap.ts` — decoupled from `index.js`
+- Application: `game` singleton decoupled from barrel `index.js` — internal modules no longer import from the barrel
+- Application: new `canvas` getter, `resize()`, and `destroy()` convenience methods
+- Application: `GAME_INIT` event now passes the Application instance as parameter
+- Stage: `onResetEvent(app, ...args)` now receives the Application instance as first parameter, followed by any extra arguments from `state.change()`
+- Stage: `onDestroyEvent(app)` now receives the Application instance as parameter
+- Container: default dimensions are now `Infinity` (no intrinsic size, no clipping) — removes dependency on `game.viewport`. `anchorPoint` is always `(0, 0)` as containers act as grouping/transform nodes
+- ImageLayer: decoupled from `game` singleton — uses `parentApp` for viewport and renderer access; `resize`, `createPattern` and event listeners deferred to `onActivateEvent`
+- TMXTileMap: `addTo()` resolves viewport from the container tree via `getRootAncestor().app` instead of `game.viewport`
+- Input: pointer and pointerevent modules now receive the Application instance via `GAME_INIT` event instead of importing the `game` singleton
+- video: `video.renderer` and `video.init()` are now deprecated — use `new Application(width, height, options)` and `app.renderer` instead. `video.renderer` is kept in sync via `VIDEO_INIT` for backward compatibility
+- EventEmitter: native context parameter support — `addListener(event, fn, context)` and `addListenerOnce(event, fn, context)` now accept an optional context, eliminating `.bind()` closure overhead and enabling proper `removeListener()` by original function reference
+- EventEmitter: `event.on()` and `event.once()` no longer create `.bind()` closures when a context is provided
+
+### Fixed
+- Path2D: fix `quadraticCurveTo()` and `bezierCurveTo()` using a reference to `startPoint` instead of capturing coordinates — `lineTo()` mutates `startPoint` on each call, causing the curve to deform as it was tessellated. Captured `lx`/`ly` values instead.
+- Path2D: fix `quadraticCurveTo()` and `bezierCurveTo()` segment count — was using `arcResolution` directly (2 segments), now computes adaptive segment count based on control polygon length for smooth curves.
+- Text: fix textBaseline y offset for multiline text — "bottom"/"middle" used single line height instead of total text height, causing misaligned bounding boxes
+- BitmapText: fix bounds offset direction for textAlign/textBaseline — bounds were shifted in the wrong direction for "right"/"center"/"bottom"/"middle"
+- BitmapText: fix bounding box width — last glyph now uses `max(xadvance, xoffset + width)` to capture full visual extent
+- BitmapText: fix bounding box height — uses actual glyph extents (`maxBottom - minTop`) instead of `capHeight` which was too short for glyphs with descenders
+- BitmapText: fix baseline positioning — "middle"/"bottom"/"alphabetic"/"ideographic" shifts now use real glyph metrics and total text height, correctly centering and aligning text on baseline reference points
+- BitmapText: fix bounding box y offset — box starts at first visible glyph pixel (`glyphMinTop * scale`) instead of draw origin
+- BitmapText: optimize bounds calculation — precompute `glyphMinTop`/`glyphMaxBottom` once in font parsing; cache `measureText` results in `setText`/`resize` instead of recomputing on every `updateBounds`
+- Camera2d: fix floating containers with Infinity bounds not rendering — containers with default `Infinity` dimensions had cleared bounds, causing `isVisible()` to return false and preventing update/draw of children (e.g., HUD elements)
+- Sprite: fix `flicker()` not working with multi-camera setups — visibility was toggled per draw call (once per camera), so with 2 cameras the toggle canceled out. Now uses time-based flickering (~15 flashes/sec) that is frame-rate independent and multi-camera safe
+- Application: `Object.assign(defaultApplicationSettings, options)` mutated the shared defaults object in both `Application.init()` and `video.init()` — creating multiple Application instances would corrupt settings. Fixed with object spread.
+- Text/Light2d: fix invalid `pool.push` on CanvasRenderTarget instances that were never pool-registered (would throw on destroy)
+- CanvasRenderTarget: `destroy(renderer)` now properly cleans up WebGL GPU textures and cache entries (previously leaked in Light2d)
+- Text: always use power-of-two texture sizes for offscreen canvas (removes WebGL version check dependency)
+- Application: prevent white flash on load by setting a black background on the parent element when no background is defined
+- WebGLRenderer: `setBlendMode()` now tracks the `premultipliedAlpha` flag — previously only the mode name was checked, causing incorrect GL blend function when mixing PMA and non-PMA textures with the same blend mode
+- TMX: fix crash in `getObjects(false)` when a map contains an empty object group (Container.children lazily initialized)
+- Container: fix `updateBounds()` producing NaN when container has Infinity dimensions (skip parent bounds computation for non-finite containers, derive bounds from children only)
+- Container: fix circular import in `BitmapTextData` pool registration (`pool.ts` ↔ `bitmaptextdata.ts`)
+- EventEmitter: `removeAllListeners()` now correctly clears once-listeners (previously only cleared regular listeners)
+- Loader: fix undefined `crossOrigin` variable in script parser, unsafe regex match in video parser, missing error parameter in video/fontface error callbacks, `fetchData` Promise constructor antipattern and silent error swallowing
+
+### Chore
+- Converted `index.js` to `index.ts` — no internal modules import from the barrel anymore
+- Minimum Node.js version is now 24.0.0 (Node 18/20 EOL, Node 22 in maintenance)
+- CI: upgrade to Node.js 24 and pnpm/action-setup v5
+- TypeScript: 5.9 → 6.0 (added explicit `rootDir` to all tsconfig.build.json)
+- ESLint: 9.x → 10.x (fixed all `no-useless-assignment` errors across the codebase)
+- Biome: 2.3 → 2.4
+- Updated vitest, turbo, eslint-plugin-jsdoc, typescript-eslint, typedoc, type-fest, vite, react-router-dom to latest versions
+- Examples: lazy-load all example components via React.lazy() for code splitting (main bundle 1286 KB → 427 KB)
+- Examples: fix ace editor loading order and initial content display in "Show Code" panel
+- Fix missing README on the npm release (copy root README during `pnpm dist`)
+- Add VertexArrayBuffer unit tests for `push()` and `pushFloats()`
+
+## [18.2.1] (melonJS 2) - _2026-03-29_
+
+### Fixed
+- Loader: fix race condition where the default loading screen logo sprite could persist after preloading completes, caused by the async logo image loading finishing after the state transition or `game.world.reset()`
+
+## [18.2.0] (melonJS 2) - _2026-03-29_
+
+### Added
+- Camera2d: added proper multi-camera support
+- Platformer example: minimap camera showing a zoomed-out view of the full level with viewport highlight and player marker
+- TMX: support Tiled 1.8 native `repeatx`/`repeaty` attributes on image layers (with fallback to legacy custom `repeat` property)
+- TMX: support Tiled 1.8 `parallaxoriginx`/`parallaxoriginy` map attributes
+- TMX: support Tiled 1.8 class-type custom properties (`type="class"` with nested properties)
+- TMX: support Tiled 1.9 tile sub-rectangles (`x`, `y`, `width`, `height` on `<tile>` elements for defining sub-regions within a tileset image)
+- TMX: support Tiled 1.9 `tilerendersize` and `fillmode` tileset attributes for controlling how oversize tiles render relative to the map grid
+- TMX: support Tiled 1.10 `isCollection` tileset flag when available (fallback to image detection for older maps)
+- TMX: support Tiled 1.11 embedded base64 images on tilesets (including per-tile collection images) and image layers (TMX/XML; JSON via `imagedata` property)
+- TMX: support Tiled 1.12 oblique map orientation (`orientation="oblique"` with `skewx`/`skewy` attributes)
+- TMX: support Tiled 1.12 capsule object shape (`<capsule/>` in XML, `capsule: true` in JSON) via polygon-approximated `RoundRect`
+- TMX: support Tiled 1.12 list/array custom properties (`type="list"` with typed `<item>` elements in XML, array of `{type, value}` in JSON)
+- TMX: support Tiled 1.12 per-object opacity and visibility
+- TMX: support Tiled 1.12 layer blend modes (`mode` attribute on tile layers, image layers, and object groups)
+- RoundRect: can now be used as a collision shape — extends Polygon directly with polygon-approximated rounded corners for accurate SAT collision (previously treated as a plain rectangle)
+- Batcher: support configurable `maxVertices` via `settings.maxVertices` (default 4096)
+- Batcher: support optional indexed drawing via `settings.indexed` — creates own VBO and dynamic `IndexBuffer` with `addIndices()` method
+- Batcher: support configurable projection matrix uniform name via `settings.projectionUniform` (default `"uProjectionMatrix"`) — enables use of third-party shaders (e.g. Spine's `u_projTrans`)
+- IndexBuffer: refactored to support both static quad patterns (`fillQuadPattern`) and dynamic stream drawing (`add`/`upload`/`clear`)
+- VertexArrayBuffer: new `pushFloats()` method for variable-length all-float vertex data (used by custom batchers with non-standard vertex formats)
+- CanvasRenderer: add support for additional CSS blend modes (`overlay`, `darken`, `lighten`, `color-dodge`, `color-burn`, `hard-light`, `soft-light`, `difference`, `exclusion`) when supported by the browser
+- WebGLRenderer: add `darken` and `lighten` blend modes via `gl.MIN`/`gl.MAX` (WebGL2 only)
+
+### Changed
+- TypeScript: convert leaf modules to TypeScript — plugin, camera, particles emitter, state, audio
+- TypeScript: convert application, input, and UI modules to TypeScript — application, header, resize, input, pointer, pointerevent, gamepad, uibaseelement, uispriteelement, uitextbutton
+
+### Fixed
+- WebGLRenderer: `setBatcher()` now rebinds the shared vertex buffer when switching batchers, allowing custom batchers with their own GL buffers to integrate without manual cleanup
+- WebGLRenderer: `setBlendMode()` now accepts a `premultipliedAlpha` parameter (default `true`) for correct blending with non-premultiplied textures; removed internal `gl`/`context` parameter from both WebGL and Canvas renderers
+- Renderer: add base `setBlendMode()` and `GPURenderer` property to fix TypeScript `as any` casts in `header.ts` and `resize.ts`
+- Plugin: `plugin.register()` now uses `pluginClass.name` for name derivation, fixing class name extraction when bundlers strip class names
+- TMXTileset: fix animation key using first frame tileid instead of the tile's own id
+- CanvasRenderer: replace bezier ellipse approximation with native `context.ellipse()` (with polyfill for older browsers)
+- Plugin: fix `plugin.get()` throwing `TypeError` when searching by name with no match (instanceof on string)
+- Events: fix duplicate `BLUR` entry in Events interface (was missing `FOCUS`)
+- UIBaseElement: fix `isDraggable` JSDoc (was incorrectly saying "clicked"), fix `released` default (was `false`, should be `true`)
+- UITextButton: fix `bindKey` settings type from `string` to `string | number`
+- Application: fix constructor `options` parameter not being optional
+- Application: fix `getUriFragment()` unsafe cast by making `url` parameter optional
+- CanvasRenderer: `setProjection()` now properly applies the projection matrix as a canvas 2D transform
+
+## [18.1.0] (melonJS 2) - _2026-03-23_
+
+### Added
+- Loader: fontface assets now support `baseURL` — font paths are resolved consistently with other asset types
+- TextureAtlas: new `getAnimationSettings()` method for extending Sprite with texture atlas animations
+- TMX: automatically decompose concave collision polygons into convex triangles using earcut triangulation, instead of throwing an error
+- Ellipse: add rotation and matrix transform support (#583, #771)
+- Ellipse: proper SAT collision detection for non-circular ellipses via polygon approximation (#584)
+- WebGLRenderer: compressed texture support — DDS (DXT1/DXT3/DXT5/BC7), KTX v1, KTX2, PVR (PVRTC/S3TC/ETC1), and PKM (ETC1/ETC2) parsers (#1182)
+- Loader: image asset fallback chains — provide an array of sources (e.g. compressed texture formats by priority, with a PNG fallback) and the loader will try each in order until one succeeds
+- Renderer: new `RenderState` class with pre-allocated save/restore stacks for zero-allocation state management
+- WebGLRenderer: `lineWidth` now works for all primitive drawing methods via a proper shader-based implementation (#999)
+- WebGLRenderer: new `ShaderEffect` class — simplified custom shader API that only requires a fragment `apply(color, uv)` function, with automatic vertex shader and texture sampling boilerplate. Silently disabled in Canvas mode.
+
+### Changed
+- Physics: collision response is now mass-proportional — when two dynamic bodies collide, overlap and velocity correction are split based on relative mass
+- Entity: deprecated in favor of Sprite/Renderable + Body (#1008)
+- TMX: refactor TMXUtils into reusable `src/utils/decode.ts` and `src/utils/xml.ts` modules; modernize property coercion, XML normalization, and tileset iteration
+- WebGLRenderer: `Compositor`, `QuadCompositor`, and `PrimitiveCompositor` are now deprecated in favor of `Batcher`, `QuadBatcher`, and `PrimitiveBatcher`
+- WebGLRenderer: `currentCompositor`, `compositors`, `addCompositor()`, `setCompositor()` are now deprecated in favor of `currentBatcher`, `batchers`, `addBatcher()`, `setBatcher()`
+- WebGLRenderer: `settings.compositor` is deprecated in favor of `settings.batcher`
+- Loader: modernize asset loading with Promise-based completion, improving parallel loading performance
+- Loader: `onload`, `onProgress`, and `onError` properties are now deprecated in favor of `LOADER_COMPLETE`, `LOADER_PROGRESS`, and `LOADER_ERROR` events
+
+### Fixed
+- TMX: fix hexagonal renderer `pixelToTileCoords` mutating internal centers array on every call
+- TMX: fix default collision shape using map dimensions instead of object dimensions in `getObjects()`
+- TMX: fix `heigth` typo in TMXLayer canvas renderer options
+- TMX: fix canvas memory leak in TMXLayer — canvasRenderer kept for reuse on deactivation
+- TMX: reduce GC pressure — replace `new Vector2d()` with pool allocations and `clone()` with `vector2dPool.get().setV()` across all TMX renderers
+- WebGLRenderer: fix `drawVertices` and `#expandLinesToTriangles` mutating input vertex objects, causing polygon geometry corruption across frames
+- WebGLRenderer: fix `restore()` not re-applying the GL scissor rectangle when restoring a state with active scissor test
+- Decode: fix CSV decoding skipping newlines after the first one
+- Path2D: fix SVG arc (`A` command) parsing in `parseSVGPath` — correct endpoint-to-center parameterization and maintain path continuity (#1198)
+- Path2D: fix `ellipse()` rotation bug where the starting point was not transformed by the rotation angle
+- CanvasRenderer: fix `stroke()`/`fill()` not rendering paths built via `path2D.parseSVGPath()`
+- Renderer: fix `PrimitiveCompositor.drawVertices()` ignoring the `vertexCount` parameter
+- Texture: fix tint cache bug where `Map.set()` return value was incorrectly used as the inner cache map, causing duplicate tinted images to be created
+- TMX: fix crash when loading XML maps due to missing node type guard in the XML parser
+- Sprite: fix body-renderable misalignment when using `createAnimationFromName()` with trimmed TexturePacker atlas frames (#1201)
+- Sprite: fix visual "vibration" on flip with trimmed atlas frames — stable dimensions and anchor across all frames (#1214)
+- Sprite: fix sprite jumping on rotated atlas frames — trim offset now applied after rotation with correct coordinate transform
+- Entity: auto-inherit renderable's anchorPoint when entity anchor is at default (0,0), aligning body and sprite centers
+- WebGL: flush and rebatch when texture units are exhausted instead of throwing (#1280)
+- WebGLRenderer: `setAntiAlias()` now controls GL texture filtering (`GL_NEAREST` vs `GL_LINEAR`) on all bound textures (#1279)
+- Renderer: fix `setAntiAlias()` in `resize.js` passing the rendering context instead of a boolean, corrupting `settings.antiAlias` on every resize
+- WebGLRenderer: `createPattern()` now cleans up previous GPU texture when repeat mode changes (#1278)
+- WebGLRenderer: fix custom shader support — properly flush and restore default shader per draw call, fix `setUniform` using wrong GL program, reset sampler uniform on shader switch
+- WebGLRenderer: fix uniform setter appending extra `v` suffix for vec/mat types
+
+### Performance
+- Path2D: replace `Math.pow()` with inline multiplication in quadratic/cubic Bézier and arc interpolation
+- Collision: replace array `push()`/`pop()` with index-based pool access in SAT collision detection
+- Container: replace `concat()` with accumulator pattern in `getChildByProp()` and `getChildByType()` to avoid O(n²) array copying in deep hierarchies
+- QuadTree: replace temporary array allocation with in-place compaction during node splits
+- Renderer: replace `forEach` with `for` loop in `PrimitiveCompositor.drawVertices()`
+- TMX: optimize map loading pipeline (~20-40% faster) via tileset lookup caching, pre-allocated decode buffers, closure-free iteration, and a fast path for base64 tile data
+- WebGLRenderer: `strokeRect` and `strokePolygon` now use a single `drawVertices` call instead of per-edge `strokeLine` calls for thick lines
+- WebGLRenderer: `fillRect` now pushes 2 triangles directly, bypassing path2D and earcut triangulation
+- WebGLRenderer: round join circles for thick-line corners are now batched into a single `drawVertices` call
+- WebGLRenderer: remove redundant `setCompositor` call in `stroke()` when dispatching to shape-specific methods
+- WebGLRenderer: `fillEllipse` and `fillArc` now use direct triangle fan geometry, bypassing path2D and earcut
+- WebGLRenderer: `fillRoundRect` now generates composite geometry (3 rects + 4 corner fans) directly, bypassing earcut
+- WebGLRenderer: `fillPolygon` now uses `Polygon.getIndices()` cached earcut results instead of rebuilding the path each frame
+- WebGLRenderer: skip redundant `gl.uniform1i` sampler call in `QuadCompositor.addQuad()` when consecutive quads share the same texture unit
+- WebGLRenderer: replace per-frame `clone()`/`push()`/`pop()` allocations in save/restore with zero-allocation `RenderState` stacks
+- WebGLRenderer: switch quad rendering from `gl.drawArrays` (6 vertices per quad) to `gl.drawElements` with a static index buffer (4 vertices + 6 indices per quad), reducing vertex data by 33%
+- WebGLRenderer: increase vertex batch size from 256 (64 quads) to 4096 (1024 quads), reducing draw calls for sprite-heavy and tile-heavy scenes
+
+
+## [18.0.0] (melonJS 2) - _2026-03-10_
+
+### Added
+- Chore: new GitHub Workflow for running the tests (@hornta)
+- Chore: new GitHub Workflow for doc generation and publishing (@hornta)
+- Color: Color constructor now also accepts another Color object as paramater
+- Renderer: new `backgroundColor` property allowing to change the color when clearing the background between frames
+
+### Fixed
+- Docs: fix `floating` default shown for `UIBaseElement` and `UISpriteElement` (@SergioChan)
+- Body: fix `setCollisionType()` not accepting numeric collision type values
+- Body: fix `setVertices()` fallback creating a Point instead of a Polygon for non-polygon shapes
+- Camera: fix `moveTo()` upper bound clamping allowing the camera to scroll past the world edge
+- Camera: fix `focusOn()` double-counting target position and not centering the camera viewport
+- CanvasRenderTarget: fix arguments passed to `convertToBlob()` (@hornta)
+- Container: fix `addChildAt()` rejecting valid index equal to children length
+- Container: fix `getNextChild()` returning the previous child instead of the next one
+- Container: fix `removeChildNow()` crash when container is not attached to root
+- Physics: fix persistence for child bodies during world reset (@Vareniel)
+- Physics: fix collision response velocity projection to properly cancel movement into collision surfaces
+- Physics: fix shapes tunneling through polyline segment junctions by resolving all overlapping shapes per body pair (fix sprite going through polyline shapes in the isometric rpg example)
+- Physics: fix `step()` crash when a body's ancestor is undefined
+- Renderable: fix Light2D objects color blending when using the Canvas Renderer (@Vareniel)
+- TypeScript: fix missing `OffscreenCanvas` argument type for the TextureAtlas constructor
+- Video: fix implicit global reference to HTMLVideoElement
+
+### Performance
+- Collision: use a pre-built lookup table for SAT function dispatch
+- Collision: reduce overhead in the collision detection hot path
+- Container: cache camera references outside the per-child update loop
+- Physics: reduce iteration overhead in `world.step()`
+- QuadTree: reduce array allocations in `retrieve()` and `insert()`
+
+### Changed
+- Chore: replaced rollup by esbuild for the build process (@hornta)
+- Chore: replaced webdoc with typedoc (@hornta)
+- Chore: replaced mocha and puppeteer with vitest (@hornta)
+- Chore: deprecated classes and methods from version 15 and lower have been removed (see https://github.com/melonjs/melonJS/wiki/Upgrade-Guide)
+- Math: namespace `Math` is now deprecated and renamed to `math` for better consistency with the rest of the API.
+- Renderable: the `anchorPoint` property now used the lighter `ObservablePoint` class instead of `ObservableVector2d`.
+
+## [17.4.0] (melonJS 2) - _2024-06-22_
+
+### Added
+- Renderer: new `lineJoin` property to set the line join style (only support "round" for now in WebGL mode)
+- Renderer: add support for line thickness for `strokePolygon` and `strokeRect` operations in WebGL
+
+### Changed
+- Chore: Update to TypeScript 5.5
+
+### Fixed
+- Renderer: fix `fillEllipse()` method in WebGL mode (that was stroking the ellipse instead)
+- TypeScript: fix most (if not all) missing declarations
+
+## [17.3.0] (melonJS 2) - _2024-06-04_
+
+### Added
+- Renderer: add support for line thickness when using `strokeLine()` in WebGL
+
+### Changed
+- Renderer: the `setLineWidth()` method is now deprecated and replaced by a `lineWidth` class property
+
+### Fixed
+- Renderer: fix animation when using multi-texture atlas in WebGL mode
+- TMX: fix tsx file type import when using a React / Vue build step (thanks @customautosys)
+- Typedef: fix missing definition for `video.init()` settings parameter, and `Application` constructor parameter
+
+## [17.2.0] (melonJS 2) - _2024-04-22_
+
+### Added
+- Audio: add missing optional id parameter to 3D / Spatial audio methods
+- Core: add platform detection if running as a standalone web app
+- Loader: add missing `unload` implementation for font assets
+
+### Fixed
+- Loader: properly return an error when attempting to load FontFace assets on non-browser platforms
+- Renderer: fix a regression when a global canvas is available (e.g. webapp adapter for wechat)
+- Renderer: fix a regression when forcing WebGL1 rendering mode (leading to an exception)
+- Renderer: fix a regression when using the canvas rendering mode where antialias setting was not being applied on cached tinted elements
+
+### Chores
+- Update to eslint 9
+
+## [17.1.0] (melonJS 2) - _2024-03-29_
+
+### Added
+- Audio: added/exposed 3D Spatial Audio method (`stereo()`, `position()`, `orientation()` and `panner()`)
+- Loader: image resources can now take an array of `src` urls with different format (preparing for later usage)
+- Math: added a `isPowerOfFour()` method
+- Renderer: new `renderTarget` property specifying the default `CanvasRenderTarget` to use when rendering
+
+### Changed
+- Renderer: `CanvasTexture` is now deprecated and replaced by a new `CanvasRenderTarget` class
+
+### Fixed
+- Core: prevent multiple temporary canvas creation when calling `isWebGLSupported` multiple times
+
+## [17.0.0] (melonJS 2) - _2024-03-05_
+
+### Added
+- Sprite: add support for aseprite texture atlas (including animation)
+- Atlas: `createSpritefromAnim` parameter is now optional, and if not defined will use all defined index in the corresponding atlas
+- Loader: new `setOptions` method that allows specifying custom settings to be applied to fetch requests (crossOrigin, withCredentials, etc..)
+
+### Changed
+- Loader: loader settings such as `crossOrigin` and `withCredentials` are now deprecated and have to be set through the `setOptions` method
+
+### Fixed
+- Doc: fix hyperlinks to source code within documentation (thanks @Waltibaba)
+- Loader: fix settings for the fetch request not being applied in ES6 builds (thanks @B0sh)
+
+## [16.1.2] (melonJS 2) - _2024-02-12_
+
+### Fixed
+- Renderable: fix Light2d renderables not always triggering a screen refresh
+- Plugin: fix version comparaison once and for all using the official semver package
+
+## [16.1.1] (melonJS 2) - _2024-02-06_
+
+### Fixed
+- Loader: fix an issue where some mobile browser (e.g. safari) would not emit the canplay event for video assets if autoplay is disabled
+
+## [16.1.0] (melonJS 2) - _2024-02-06_
+
+### Added
+- Loader: add optional `autoplay` and `loop` parameters when `[pre]loading` audio and video assets (`false` by default)
+- Loader: add support for loading/preloading of HTMLVideoElement
+- Sprite: HTMLVideoElement can now be passed as a source when creating Sprite object
+
+## [16.0.0] (melonJS 2) - _2024-02-03_
+
+### Added
+- Path2d: preliminary SVG path parsing to the Path2D class (WIP)
+
+### Changed
+- Chore: update to npm 10, Node.js 20 and friends
+- loader: replaced XHR by Fetch for assets preloading (thanks @Edwardscb)
+- Renderer: fix `toBlob`, `toDataURL` and `toImageBitmap` method signature to better match with the W3C API
+
+## [15.15.0] (melonJS 2) - _2023-11-20_
+
+### Added
+- Renderable : new `parentApp` getter that returns the parent application/game instance to which a renderable belongs to.
+
+### Fixed
+- ImageLayer: fix a regression when loading a level within a sub container (thanks @rcl)
+
+## [15.14.0] (melonJS 2) - _2023-10-17_
+
+### Added
+- loader: prevent loading of previously loaded resources. e.g. duplicated resources across mutliple manifest (thanks @z0mb1)
+- loader: add handling of asset load error, enabling to retry loading failed assets (thanks @z0mb1)
+
+### Changed
+- UI: small optimization when rendering BitmapText
+
+## [15.13.0] (melonJS 2) - _2023-10-07_
+
+### Changed
+- UI: UITextButton `backgroundColor` and `hoverColor` properties are now deprecated in favor of `hoverOffColor` and `hoverOnColor`
+
+### Fixed
+- UI: fix duplicated text rendering in UITextButton
+- UI: fix an exception when destroying a UITextButton
+
+## [15.12.0] (melonJS 2) - _2023-09-23_
+
+### Added
+- Renderer: add proper `width` and `height` (getter/setter) properties and deprecate `getHeight()` and `getWidth()`
+
+### Changed
+- Audio: update howler.js to version 2.2.4
+
+## [15.11.0] (melonJS 2) - _2023-09-15_
+
+### Added
+- plugin: the `BasePlugin` class now holds a reference to the app or game instance that registered the plugin
+- plugin: new `plugin.get()` method to retrieve a plugin instance by its Class Type or registered name
+
+## [15.10.0] (melonJS 2) - _2023-09-05_
+
+### Added
+- utils: new file `getPath()` method that return the path element of a full file path
+
+### Changed
+- Chore: new "docs" directory where production documentation is generated, and properly published using Github Workflows
+- Chore: update NPM dependencies
+
+### Fixed
+- Loader: fix the `setParser()` method not being exported (and therefore preventing from using and setting custom parser) 
+
+## [15.9.2] (melonJS 2) - _2023-08-28_
+
+### Fixed
+- Renderer: fix the Canvas Renderer `setMask()` method ignoring the default path when no argument is passed
+- Geometries: fix missing `type` property for all geometry and use internally for type checking instead of relying on `instanceof`
+
+## [15.9.1] (melonJS 2) - _2023-08-24_
+
+### Fixed
+- Geometry: add default parameters to the `Polygon` constructor, allowing to instantiate "empty" polygons
+- TMX: fix CanvasRenderer option typo when using TMXLayer pre-rendering option (thanks @0o001)
+- TypeScript: fix missing parameter for `setMask()` in the parent `Renderer` class
+
+## [15.9.0] (melonJS 2) - _2023-08-16_
+
+### Added
+- Input: new `hasActiveEvents` returning true if there are any pending events in the queue
+- Input: new `hasRegisteredEvents` returning true if there are registered pointer event listeners
+- Physic: new `WORLD_STEP` event emmitted after the builtin physic world has been updated (if enabled)
+- Renderer: fix/enable batching for all ellipse & arc(To) WebGL stroke operations
+- Renderer: the `setTransform` and `transform()` methods now also accept individual components to match the CanvasRenderingContext2D API
+ 
+### Fixed
+- Plugin: add missing deprecation warning for `plugin.Base` (deprecated since [15.1.6] and replaced by `BasePlugin`)
+
+### Changed
+- Physic: split the world update method into a separate step for clearer code when using custom update logic.
+
+## [15.8.0] (melonJS 2) - _2023-07-29_
+
+### Added
+- Doc: add proper documentation and example for Renderer drawing-related APIs
+- Physic: new `physic` flag allowing to disable the builtin physic implementation
+- Renderer: new TextureCanvas `invalidate()` method to force reuploading the corresponding WebGL Texture
+
+### Fixed
+- Doc: fix missing default `game` application instance
+- Renderer: properly deallocate and reallocate texture unit after a texture deletion in WebGL rendering mode
+
+## [15.7.0] (melonJS 2) - _2023-07-19_
+
+### Added
+- Color: new `setFloat` method allowing to specify RGBA components in a normalized float format
+
+### Fixed
+- Renderer: fix how alpha and globalAlpha values are applied in the Canvas Renderer to match with WebGL
+- TypeScript : fix loader.Asset definition typings (causing an error with the Vite-Typescript boilerplate)
+
+## [15.6.0] (melonJS 2) - _2023-07-18_
+
+### Added
+- Audio: expose the audio `load` method in the documentation and typings
+- Loader: melonJS now dynamically assign parser/preload functions to known asset types
+- Loader: add the possibility to specify a user defined parser/preload function for a given asset type
+- Renderable: new `depth` getter/setter that will returns the depth of a renderable on the z axis
+- Renderer: the default renderer instance is now passed as parameter when emitting the global `VIDEO_INIT` event
+- Renderer: add path like methods (`beginPath`, `lineTo`, `moveTo`, `rect`, `roundRect`, `closePath`, `fill` and `stroke`)
+
+### Changed
+- Geometry: optimize Path2d triangulation by only recalculating all triangles when the path is modified
+
+### Fixed
+- Core: fix some leftover direct global references to `document` (now using `globalThis.document`)
+- Geometry: fix consecutive Path2d line stroke in WebGL mode
+
+## [15.5.0] (melonJS 2) - _2023-07-13_
+
+### Changed
+- Color: optimize conversion function such as `toHex` and `toUint32`
+- Geometry: optimize circle/ellispe creation and recycling
+- Renderable: revert previous changes on the flip[X/Y] optimization since it's causing backward compatibility issue
+
+### Fixed
+- Doc: fix multiple incorrect `@type` tags across the API
+- Doc: fix `ImageLayer` extending `Sprite` and not `Renderable`
+- Doc: fix missing `fillStyle` and `StrokeStyle` properties for `Text` elements
+- Physic: fix a potential memory leak when recalculating a polygon edges and normals
+- TypeScript: fix missing typings for `Vector[2d/3d]` `x`, `y` and `z` properties
+- TypeScript: fix typings for Array parameter type
+
+## [15.4.1] (melonJS 2) - _2023-06-24_
+
+### Fixed
+- Audio : fix a TypeScript definition issue introduced in the previous version (on the audio `init` method)
+
+## [15.4.0] (melonJS 2) - _2023-06-24_
+
+### Added
+- Application: new `pauseOnBlur`, `resumeOnFocus` and `stopOnBlur` properties to configure a game behavior on blur and focus events
+
+### Changed
+- Core: visibility and focus/blur events are now managed internally through new global `BLUR` and `FOCUS` events
+- Device: `pauseOnBlur`, `resumeOnFocus` and `stopOnBlur` properties are now deprecated and replaced by their Application counterpart
+- Geometry: optimize Rect `contains` method by using typeof instead of instanceof to identify given parameter type
+
+### Fixed
+- Renderable : fix a potential issue with a Tile Layer not being properly redrawn when adding or clearing individual tiles
+- TMX : properly set the `preRender`flag for Tiled layer at runtime (when added to the root container)
+- TMX : fix pre-rendering for non-orthogonal maps
+- UI: fix dirty flag for base UI elements not being set due to wrong property name (thanks @yuta0315)
+
+## [15.3.0] (melonJS 2) - _2023-05-23_
+
+### Added
+- Renderer: new `scaleTarget` that allows to specify which HTML element to be used as reference when scaling the canvas (thanks @johnhyde)
+
+### Changed
+- Application: world steps and rendering update are now done through a new global `TICK` event
+- Application: further "decoupling" of Application, Stage and State (see #1091)
+- Renderable : faster implementation of the `tint` getter/setter, and Color `copy` method
+
+### Fixed
+- doc: fix the @name value of `state.DEFAULT` (thanks @johnhyde)
+- doc: fix documentation for the `TMXUtils` namespace
+- Renderer: fix potential memory leak in WebGL, where the renderer was not clearing the save/restore stack upon reset
+- TypeScript : fix optional arguments typings for all renderers and Application constructor
+
+## [15.2.1] (melonJS 2) - _2023-05-14_
+
+### Fixed
+- TMX: fix a regression with the inflate patch entry point
+
+## [15.2.0] (melonJS 2) - _2023-05-12_
+
+### Changed
+- Plugin: the `Base` plugin class is now deprecated and replaced by `BasePlugin` (`Base` is just an alias now)
+
+### Fixed
+- Typescript: fix typing for the `utils` and `plugin` API
+- Utils: fix "namespace" es6 declaration and export
+
+## [15.1.6] (melonJS 2) - _2023-05-10_
+
+### Fixed
+- TypeScript: fix typings for methods taking a renderable as argument, by enumerating all different class types
+
+## [15.1.5] (melonJS 2) - _2023-05-05_
+
+### Fixed
+- Container: fix child bounds not being recalculated when a child is added through the `addChildAt()` method
+- Container: fix container not recursively updating child bounds when `enableChildBoundsUpdate` is enabled
+- Renderable: fix floating coordinates mismatch by forcing a child `floating` property to false when added to a floating container
+- Renderable: fix the `isFloating` getter to also return true when a renderable is added to nested floating containers
+- UI: fix initial UIBaseElement bound calculation when using nested UI containers
+- UI: fix UIBaseElement container not propagating events to child objects by default
+
+## [15.1.4] (melonJS 2) - _2023-04-26_
+
+### Fixed
+- Core: fix a regression with OffscreenCanvas support detection
+- Doc: fix broken hyperlinks in the audio documentation
+- TypeScript: fix documentation and typings for the loader API (thanks @edmundg)
+
+## [15.1.3] (melonJS 2) - _2023-04-24_
+
+- WebGL: fix a crash when creating/uploading a texture on browser(s) not supporting OffscreenCanvas
+
+## [15.1.2] (melonJS 2) - _2023-04-24_
+
+### Fixed
+- Core: fix detection of OffscreenCanvas support by browser (fix a crash with Waterfront, thanks @fr0st for reporting it)
+
+## [15.1.1] (melonJS 2) - _2023-04-10_
+
+### Fixed
+- Container: fix a regression when creating a container with physic bodies, before adding it to the main world container, would throw an exception
+
+## [15.1.0] (melonJS 2) - _2023-04-07_
+
+### Added
+- Container: new `getRootAncestor()` method that returns the root container's parent (aka World Container)
+- Renderer: new `toBlob()`, `toDataURL()` and `toImageBitmap()` methods added to `CanvasTexture`
+- Renderer: new `toBlob()`, `toDataURL()` and `toImageBitmap()` methods added to all Renderers
+- TMX: add a "patcheable" entry point to allow for a tiled inflate (zlib/gzip/zstd) plugin
+- UI: new draggable feature for UIBaseElement (can be toggled on/off using `isDraggable`)
+
+### Changed
+- Application: the `sortOn` property is now a proper getter/setter for the App World instance `sortOn` property
+- Plugin: the 2nd parameter of the `register` method is now optional and will use the given plugin class name by default
+
+### Fixed
+- Renderer: add missing export for the `CanvasTexture` class
+- UI: fix internal holdTimeout type to integer and properly reset value to -1 when a timer is cleared
+- UI: UITextButton now properly use the given alpha value of the given background and hover color
+- UI: cleaned-up the UITextButton implementation, and added proper documentation for UITextButton specific properties
+- WebGL: fix a Type Error exception with the latest version of Safari when using OffscreenCanvas element as a texture source
+
+## [15.0.0] (melonJS 2) - _2023-03-18_
+
+### Added
+- Renderer: enable batch drawing for rectangle and polygon based primitive shapes
+- Renderer: new base `Compositor` class that can be extended to create custom WebGL compositors
+- Renderable: custom shader can now be set per renderable through a new `shader` property (experimental feature)
+
+### Changed
+- Core: remove remaining polyfills related to pre-ECMAScript 2015 features (as melonJS 2 implementation base is now 100% ES6)
+- Renderer: refactoring of the `WebGLCompositor` into a `QuadCompositor` and `PrimitiveCompitor` for Quad and Primitive composition
+- Renderer: the vertex shader now takes a color attributes (as opposed to using an uniform in previous version)
+- Renderer: attributes and default shader "definitions" for WebGL Compositor(s) are now directly passed through the constructor
+- Text: Text object now use offscreen canvas by default to render text (this has been in beta for almost 2 years)
+- Text: setting `lineWidth` to a value greater than 0 will now automatically stroke the text
+- Text: `drawStroke()` is now deprecated in favour of the `lineWidth` property
+
+### Fixed
+- Geometry: fix `arcTo()` drawing a "looping" line between the start and end angle
+- Input: fix `device.touch` wrongly returning `true` on non-touch devices
+- Renderer: fix binding of active shader when switching compositor
+- Renderer: fix a TypeError exception on Safari Technology Preview
+- Text: restore the text Stroke feature (was broken since a couple of releases)
+
+## [14.5.0] (melonJS 2) - _2023-02-13_
+
+### Added
+- Bounds: add a `centerOn` method similarly to other base geometry objects
+- ImageLayer: enable blend mode for `ImageLayer` renderable objects
+- Sprite: sprites now "flip" (see flip[X/Y] methods) properly around their default anchor point
+
+### Changed
+- Loader: partial refactoring of the preloader to be more es6 compliant and fix circular dependencies with other modules/classes
+- Pool: simplified and optimized the pool `pull` method
+- Sprite: optimized flip[X/Y] operations by using the sprite own transform matrix instead of manipulating the renderer at draw time
+- Renderer: optimized access to cached textures, especially when using multiple atlases
+- Renderer: Path2D now uses `Point` internally (instead of `Vector2d`) which is a much more simple object 
+- Renderer: optimize Path2D triangulation
+
+### Fixed
+- Core: fix "global" exposed properties being read-only after refactoring to ES6
+- Geometry: fix corresponing bounds not being properly updated when setting `center[X/Y]` or calling `centerOn()`.
+- Input: fix a regression with pointer detection on transformed Renderable object
+- Renderable: fix a regression with Bounds position being off after applying a transformation
+- Sprite: fix `setRegion()` being called at every update for non-animated sprites 
+- Tiled: fix format deprecation warning if map was not created with Tiled and format version is not available
+
+## [14.4.0] (melonJS 2) - _2023-01-10_
+
+### Added
+- Tiled: add support for the .tmj and .tsj extension (JSON)
+- Tiled: add support for Infinite map (Tiled chunks based map format)
+
+### Changed
+- Tiled: warn about map version 1.4 and below being deprecated (terrain was replaced by wangset tiles since version 1.5)
+
+### Fixed
+- Physic: fix a regression with the `collision.rayCast()` function (thanks @cpravetz)
+- Tiled: fix a `cannot recycle` exception when rendering hexagonal maps
+
+## [14.3.0] (melonJS 2) - _2022-12-30_
+
+### Added
+- Core: its now possible to specify a custom renderer (that extends the default Renderer class)
+
+### Changed
+- General: further code revamping to make melonJS more modular and allow instantiation of different app/games
+- Physic: new `Detector` class instantiated by each physic world instance to detect and solve collisions
+
+### Fixed
+- Core: fix missing TS definitions when publishing on NPM (following changes in #1162)
+- Doc: fix `fps` type in the World class
+
+## [14.2.0] (melonJS 2) - _2022-12-26_
+
+### Added
+- Core: add a tsconfig file for types generation and properly enable type suggestions (thanks @lartkma)
+
+### Changed
+- Utils: move `getPixels()` as `getImageData()` under the CanvasTexture object
+
+### Fixed
+- Core: fix an uncaught exception (again) when using melonJS with parcel (thanks @infamoustrey)
+- Core: fix further global reference to document (i.e. refer to globalThis instead of implicitely using window)
+- Core: fix more circular dependencies for better/clearer code
+
+## [14.1.2] (melonJS 2) - _2022-12-01_
+
+### Fixed
+- Build: fix TypeScript `.d.ts` file generation & definition (thanks @lartkma)
+
+## [14.1.1] (melonJS 2) - _2022-11-03_
+
+### Fixed
+- Core: disable tree-shaking for now, as it is causing exception with the boilerplate
+- ES6: use proper semantic when exporting default classes
+- Physic: fix a regression in the quadtree implementation that was causing issues with some collision detection edge case
+
+## [14.1.0] (melonJS 2) - _2022-10-30_
+
+### Added
+- Core: the build process has been upgraded to rollup 3 and Node 19
+- Core: the build process will now only output a tree-shakeable ES Module directory `melonjs.mjs`
+
+## [14.0.2] (melonJS 2) - _2022-10-18_
+
+### Fixed
+- Build: fix wrong distribution files being published on NPM
+
+## [14.0.1] (melonJS 2) - _2022-10-18_
+
+### Fixed
+- Physic: fix faulty colllision detection under certain circumstances
+
+## [14.0.0] (melonJS 2) - _2022-10-11_
+
+### Added
+- UI: New `UIBaseElement` class, a clickable container base UI element (thanks @wpernath)
+- UI: New `UITextButton` class, a clickable roundRect & Text base button (thanks @wpernath)
+
+### Changed
+- Core: Build process will now only output a ES6 Bundle and the TS Declaration, ES5 is now fully deprecated
+- Test Units: replaced the "old" ES5 based Jasmine+Karma framework by a modern ES6 based Mocha+Puppeteer one (thanks @L1lith)
+- UI: the base `GUI_Object` class is now deprecated and replaced by `UISpriteElement`, a Sprite based clickable element
+
+### Fixed
+- Build: fix typescript generation (d.ts), no more missing API or modules
+- Container: fix Container class initialization when no default viewport have been created
+- Core: fix a regression with Ejecta platform detection (following ES6 refactoring)
+
+## [13.4.0] (melonJS 2) - _2022-09-27_
+
+### Added
+- BitmapText: melonJS will now throw a warning message in the console, instead of failing silently, if a Glyph is not defined for a given character (thanks @wpernath)
+
+### Fixed
+- BitmapText: fix kerning when scaling BitmapText objects (thanks @SiLiKhon)
+
+## [13.3.0] (melonJS 2) - _2022-08-28_
+
+### Added
+- Documentation: enable offline documentation access with the latest webdoc 2.1 version
+
+### Changed
+- Readme: replace link to the latest tutorial
+
+## [13.2.1] (melonJS 2) - _2022-08-22_
+
+### Fixed
+- Release date and version/change tracking
+
+## [13.2.0] (melonJS 2) - _2022-08-22_
+
+### Added
+- Geometry: new base Point geometry object
+- Tiled: now properly support Point geometry if defined in a map
+
+### Changed
+- Core: replaced internal reference to the deprecated `trim[Left/Right]` methods by their `trim[Start/End]` equivalents
+- WebGL: dissociate the `preMultipliedAlpha` setting from the `transparent` one since those are 2 different things
+
+### Fixed
+- BitmapText: fix improper `fillStyle` initialization in BitmapText (thanks @wpernath)
+- Canvas: fix the "transparent" canvas mode with the canvas renderer (thanks @wpernath)
+- Sprite: properly apply a tint when passed through the settings to the constructor
+- WebGL: fix a regression with global opacity not being properly cascaded to texture in WebGL mode (thanks @wpernath)
+
+## [13.1.1] (melonJS 2) - _2022-08-10_
+
+### Fixed
+- Release date and version/change tracking
+
+## [13.1.0] (melonJS 2) - _2022-08-10_
+
+### Added
+- Color: added a `setHSL(h, s, l)` and `setHSV(h, s, v)` method to the Color class
+- Tiled: add support for the new `class` property (note: melonJS will still set the deprecated `type` one for backward compatibility)
+- Renderer: Canvas rendering mode can now be forced by adding `[#/&]canvas` to the URL (similarly with WebGL1/2 already)
+- Vector: new `moveTowards()` method for `[Observable]Vector2d/3d` objects (limited to x and y axis for 3d vectors)
+
+### Changed
+- Renderer: the double-buffering option for the Canvas Renderer is now deprecated, this to better align both renderer and enable further improvements
+
+### Fixed
+- 9-Slice Sprite: fix resizing of a 9-slice sprite (thanks @NemoStein)
+- Tiled: fix missing text property in TMX Object documentation
+- Vector: fix `lerp()` not triggering the callback in `ObservableVector2/3d` objects
+- Renderer: fix the manual canvas scaling option (thanks @NemoStein)
+
+## [13.0.0] (melonJS 2) - _2022-07-18_
+
+### added
+- Event: also provide a reference to the camera viewport being resized when emitting `VIEWPORT_ONRESIZE`
+- Unit Test: added base64 encoded data preload testing for image and audio assets
+- Utils: new `isDataUrl()` helper returning true if the given url is in the `data:[<mediatype>][;base64],<data>` format.
+
+### Changed
+- Core: full ES6 refactoring of `me.device`, and API clean-up (@see https://github.com/melonjs/melonJS/wiki/Upgrade-Guide#120x-to-130x-stable)
+- Game: refactoring of the global `game` into an instantiable `Application` object, with `game` now being the default instance of it (@see #1091)
+- Loader: `onload` and `onerror` callbacks are now optionals when directly loading assets (easier with base64 encoded assets)
+- Physic: World physic implementation is now properly tight to its corresponding parent application/game (@see #1091)
+- Physic: Gravity is now properly applied as a force, instead of directly modifying a body velocity
+- Physic: Gravity now properly takes in account the body mass
+- Physic: resulting force is now properly cancelled at the end of an update cycle (not required anymore to manually set it to 0 in user code)
+
+### Fixed
+- Doc: fix missing `Timer` documentation following previous refactoring
+- Loader: fix loading/preloading of base64 audio assets, and base64 encoded FontFace
+- Renderer: fix a regression with the masking features in the Canvas Rendering mode
+- Text: fix an uncaught exception when removing Text object from the game world that use offScreenCanvas texture caching (thanks @wpernath)
+
+## [12.0.0] (melonJS 2) - _2022-06-27_
+
+### Changed
+- Loader: the default loading screen has been updated with the new melonjs logo
+- String: replaced own `trim[left/right]` functions with native es10 equivalent (with polyfill)
+
+## [11.0.0] (melonJS 2) - _2022-06-23_
+
+### Added
+- Event: new `DOM_READY` event triggered when the DOM is loaded and ready (now used internally to trigger the `onReady()` function)
+
+### Changed
+- Renderable: update the Light2d constructor to allow creating elliptical shaped lights
+
+### Fixed
+- Core: fix an uncaught exception when using parcel (thanks @8Observer8)
+
+## [10.12.0] (melonJS 2) - _2022-06-20_
+
+### Added
+- State: new `get(state)` function that return the instance to the Stage associated with the given state
+
+### Changed
+- Physic: simplify the collision api and implementation (removed `collision.response` that serves no purpose anymore)
+- Pooling: silently fail if internally failing at recycling body physic shapes
+
+### Fixed
+- Physic: fix a regression with Ellipse vs Polygon SAT collision detection
+- Text: make sure the optional `x` and `y` arguments of the draw method are set to a default value
+- TypeScript: fix and uniform draw method signature across all renderables
+- TypeScript: fix typings for the `onCollision` method
+- TypeScript: fix `setMaxVelocity` and `setFriction` method scope
+- Webdoc: fix wrong or missing  argument names (`Path2D.arcTo`, `Rect.centerOn`, `Texture.AdduVs`)
+
+
+## [10.11.0] (melonJS 2) - _2022-06-14_
+
+### Changed
+- Core: fix all rollup "$1" related duplicated declaration and/or export
+- Core: refactored Timer into an instantiable class with `timer` (namespace) now being the default instance of the Timer class
+- Doc: replaced JSDoc by Webdoc for documentation generation (huge thanks to @ShukantPal)
+
+### Fixed
+- Bounds: fix the `addFrame()` method
+- Core: fix a regression when accessing `localStorage`
+- Core: fix a regression when when running melonJS in node.js (undefined global reference in the roundRect polyfill)
+- Geometry: fix the RoundRect `clone()` method
+- Input: fix PointerEvent detection on Firefox for Android mobile (thanks @kutyamutya)
+- Renderer: fix a regression with `strokeLine()` in the CanvasRenderer
+
+## [10.10.0] (melonJS 2) - _2022-06-07_
+
+### Added
+- Core: new `CanvasTexture` object to allow recycling canvas through the engine (text caching, default particles, effect, etc..)
+- Core : new experimental light effect that simply simulate a spot/point light for now (work in progress)
+- Color : allow overriding the alpha component with a specific value when calling `toRGBA` or `toHex8`
+- Renderer: support reverse clipping when applying geometry masks (alpha component of the masked area is ignored in legacy Canvas rendering mode)
+- Renderer: added multiple clipping region for masks (only works with overlapping region in legacy Canvas rendering mode)
+
+### Changed
+- TMX: replace use of `eval()` by `Function()` when parsing map including executable code
+- Core: replace internal calls to deprecated `substr` function with `slice`
+
+### Fixed
+- Renderable: mark renderable(s) as dirty when their pos or bounds are updated
+- Geometry: fix a regression with roundRect shape drawing
+
+## [10.9.0] (melonJS 2) - _2022-05-21_
+
+### Added
+- Geometry : add a proper `contains` and other utility methods to RoundRect
+
+### Fixed
+- Renderer: fix clipping of RoundRect mask with the Canvas Renderer
+
+## [10.8.0] (melonJS 2) - _2022-05-16_
+
+### Added
+- Geometry : new RoundRect geometry object
+- Geometry : new Path2D API to provide better abstraction when drawing primitives in WebGL
+
+### Changed
+- Renderer: refactored the WebGL renderer to use the new Path2D API for primitive drawing
+
+### Fixed
+- Core: improve internal object recycling, to fix instance leaking or hoarding by the pool system
+- Input: fix a warning on using passive target disabling swipe on a WebView (thanks @zngb)
+
+## [10.7.1] (melonJS 2) - _2022-05-05_
+
+### Fixed
+- Renderer: fix a crash on context restore when using the canvas renderer
+
+## [10.7.0] (melonJS 2) - _2022-05-04_
+
+### Added
+- Core : new `device.nodeJS` to detect if running under node.js
+- Particle Emitter: added the possibility to define a specific tint and blend mode for particles
+- Renderable: new `centerOn` method to center a renderable around given coordinates
+- Renderer: added "additive" as an alias for the "lighter" blend mode
+- Renderer: listen to `contextlost` & `contextrestored` events in Canvas rendering mode (@see https://developer.chrome.com/blog/canvas2d/#context-loss)
+
+### Changed
+- Core : replace internal use of global window object by `globalThis`
+- Core : refactor the boot process, and device/feature detection/initialisation to better work within node.js (will still require jsdom and node-canvas)
+- Particle Emitter: refactoring of the Emitter class to directly extend `Container` instead of `Renderable`
+
+### Fixed
+- Particle Emitter: fix a regression in `ParticleEmitter` causing a crash, after es6 class reformatting
+- Particle Emitter: fix particle additive blend mode in WebGL
+
+## [10.6.1] (melonJS 2) - _2022-04-25_
+
+### Fixed
+- Renderable: fix a regression in BitmapText when specifying a scaling size through the constructor
+
+## [10.6.0] (melonJS 2) - _2022-04-25_
+
+### Added
+- Renderable : added the possibility to specify a blend mode per renderable
+- Renderer: added missing compatible/supported blend mode across the canvas and WebGL renderer ("normal", "multiply", "lighter, "screen")
+- Renderable : new (simple) word wrapping feature for Text and BitmapText classes
+
+### Changed
+- Renderable : refactor of Text and BitmapText to isolate metrics related features/functions and standardize the api between the 2 classes
+
+### Fixed
+- Container: mark a container as dirty when changing own child(s) order using `MoveTo[Top/Bottom]`, `move[Up/Down]` and `swapChildren`
+- Renderable : fix NineSliceSprite bounding box not being properly scaled up
+- Renderer: fix blend mode in WebGL rendering mode
+
+
+## [10.5.2] (melonJS 2) - _2022-03-17_
+
+### Fixed
+- WebGL: fix shader attribute for the projection matrix not being properly updated when using the flex scaling mode
+
+## [10.5.1] (melonJS 2) - _2022-03-17_
+
+### Fixed
+- Renderer: fix a regression when zooming the canvas in WebGL rendering mode
+- TypeScript : fix definition of the base Renderable class
+
+## [10.5.0] (melonJS 2) - _2022-03-15_
+
+### Changed
+- Physic: set collision shapes as static by default (those should be fixed anyway)
+- Renderable : refactor of Draggable and DropTarget base objects
+
+### Fixed
+- Physic: fix improper behavior for static bodies responding to collisions (thanks @dynamo-foundation)
+- Physic: static bodies are now properly filtered out if within the same node or overlapping
+- Renderable : fix a me.Sprite bug when reusing the same image/texture with different frame width/height (thanks @dynamo-foundation)
+
+## [10.4.0] (melonJS 2) - _2022-03-08_
+
+### Added
+- Renderable : containers now define a `backgroundColor` property allowing to defined a background color for a specific container
+- Renderable : new `inset[x/y]` property setting allowing to define the size of a corner for NineSliceSprite (thanks @dynamo-foundation)
+
+### Changed
+- Renderer: the video.renderer.Texture class is now directly exported (and available) as TextureAtlas
+
+### Fixed
+- TypeScript : fix all typings and other issues with the typescript definition file (now with 0 warnings and linting errors)
+- Input : fix a regression (undefined error) with the `releasePointerEvent` method (thanks @siauderman)
+
+## [10.3.0] (melonJS 2) - _2022-02-02_
+
+### Added
+- TMX: melonJS will now throw an error if collision polygons defined in Tiled are not forming a convex shape
+- WebGL : vertex element and buffer size are now dynamically calculated based on attribute definition
+
+### Changed
+- WebGL : switch from drawElements to drawArrays when drawing quads
+- WebGL : optimize ColorLayer rendering and `clearRect` method by using `clipRect` & `clearColor` instead of drawing primitives
+- Device : modernize the `pointerLock` implementation (2.0 specs) and moved it under `me.input`
+
+### Fixed
+- Renderable : properly delete me.Text cache WebGL texture upon deactivation (if created)
+- WebGL : Optimize vertex buffer allocated size following tint color packing into Uint32
+- Device : fix `pointerLock` feature detection
+
+## [10.2.3] (melonJS 2) - _2021-12-18_
+
+### Fixed
+- Core: fix a regression with the quadtree implementation and non floating objects
+- Preloader: optimize defined cache canvas size in the default loading screen when using WebGL2
+
+## [10.2.2] (melonJS 2) - _2021-12-14_
+
+### Added
+- Renderable: new `isFloating` getter returning true if the renderable is a floating object or contained in a floating container
+
+### Fixed
+- TypeScript: fix most of method parameters and return type declaration when applicable
+- Input: fix an issue with pointer event detection on nested floating items
+
+## [10.2.1] (melonJS 2) - _2021-11-23_
+
+### Fixed
+- changelog release date and links
+
+## [10.2.0] (melonJS 2) - _2021-11-23_
+
+### Added
+- Bounds: faster condition assessment for the `overlaps` method
+- Renderable: added a basic `NineSliceSprite` renderable object
+- Renderable: new `offScreenCanvas` option for me.Text allowing to use an individual offscreen canvas texture per text element
+
+### Fixed
+- Input: fix a regression with me.input.pointer not being updated on pointer events
+- Loader: fix a "double initialization and double reset" bug with the default loading screen
+
+## [10.1.1] (melonJS 2) - _2021-11-12_
+
+### Fixed
+- documentation: add missing pages for `Container` and `World` object
+- Renderable: also flag as "dirty" when changing opacity, or when viewport change is triggering an `ImageLayer` update
+
+## [10.1.0] (melonJS 2) - _2021-11-08_
+
+### Changed
+- Input: refactor me.Pointer by extending me.Bounds instead of me.Rect (simplify implementation and memory usage when using pointer Event)
+- WebGL: refactor/simplify the WebGLCompositor implementation to be more generic
+- WebGL: prevent temporary Array Buffer Allocation when using WebGL2
+- WebGL: tint color are now packed into Uint32 before passing them to the Vertex Shader
+- Device: replace use of deprecated `onorientationchange()` event listener by the standard ScreenOrientation one
+
+### Fixed
+- Input: fix a regression, throwing an undefined property exception, when accessing me.input.pointer before registering on any events (thanks @kkeiper1103)
+- WebGL: fix initial declaration of the WebGLVersion property
+
+## [10.0.2] (melonJS 2) - _2021-10-29_
+
+### Fixed
+- Documentation: fix missing class definition after the 10.0.0 release
+
+## [10.0.1] (melonJS 2) - _2021-10-25_
+
+### Fixed
+- Physic: fix a regression (crash) with undefined reference in the minified ES6 module
+
+## [10.0.0] (melonJS 2) - _2021-10-23_
+
+### Added
+- melonJS is now a pure ES6 library, for class definition, inheritance and semantic
+- melonJS now includes typescript definition for the ESM `melonjs.module` bundle (thanks @qpwo)
+- Core : new `me.event.BOOT` event that will be triggered when melonJS is initialized
+- Physic : physic bodies can now be configured as static bodies (which do not move automatically and do not check for collision with others)
+- Event : new system events at the beginning and end of both the update and draw "loop"
+
+### Changed
+- Jay Inheritance has been replaced with ES6 standard inheritance
+- Core : object using the pooling function *must* now implement a `onResetEvent` method and use the `recycling` flag when registered
+- Core : manually pushing a non recyclable object into the object pool will now throw an exception instead of silently failing
+- Physic : physic body update and collision check is now automatically done through the world simulation update loop
+- Physic : fixed gravitational acceleration (thanks @neilsf)
+- Event: minPubSub event based implementation has been replaced by a nodeJS event emitter based implementation
+- Renderable: calling `flipX/Y()` without argument will now flip the renderable as expected
+
+### Deprecated
+- all deprecated API from the legacy melonJS version have been removed
+
+### Fixed
+- Renderer: fix the stencil masking feature on renderable components (for both WebGL and Canvas mode)
+- Loader: fix a graphic glitch in the default preloading screen
+
+-------------------------------------------------------------------------------
+
+[17.5.0]: https://github.com/melonjs/melonJS/compare/17.4.0...17.5.0
+[17.4.0]: https://github.com/melonjs/melonJS/compare/17.3.0...17.4.0
+[17.3.0]: https://github.com/melonjs/melonJS/compare/17.2.0...17.3.0
+[17.2.0]: https://github.com/melonjs/melonJS/compare/17.1.0...17.2.0
+[17.1.0]: https://github.com/melonjs/melonJS/compare/17.0.0...17.1.0
+[17.0.0]: https://github.com/melonjs/melonJS/compare/16.1.3...17.0.0
+[16.1.3]: https://github.com/melonjs/melonJS/compare/16.1.2...16.1.3
+[16.1.2]: https://github.com/melonjs/melonJS/compare/16.1.1...16.1.2
+[16.1.1]: https://github.com/melonjs/melonJS/compare/16.2.0...16.1.1
+[16.1.0]: https://github.com/melonjs/melonJS/compare/16.0.0...16.1.0
+[16.0.0]: https://github.com/melonjs/melonJS/compare/15.15.0...16.0.0
+[15.15.0]: https://github.com/melonjs/melonJS/compare/15.14.0...15.15.0
+[15.14.0]: https://github.com/melonjs/melonJS/compare/15.13.0...15.14.0
+[15.13.0]: https://github.com/melonjs/melonJS/compare/15.12.0...15.13.0
+[15.12.0]: https://github.com/melonjs/melonJS/compare/15.11.0...15.12.0
+[15.11.0]: https://github.com/melonjs/melonJS/compare/15.10.0...15.11.0
+[15.10.0]: https://github.com/melonjs/melonJS/compare/15.9.2...15.10.0
+[15.9.2]: https://github.com/melonjs/melonJS/compare/15.9.1...15.9.2
+[15.9.1]: https://github.com/melonjs/melonJS/compare/15.9.0...15.9.1
+[15.9.0]: https://github.com/melonjs/melonJS/compare/15.8.0...15.9.0
+[15.8.0]: https://github.com/melonjs/melonJS/compare/15.7.0...15.8.0
+[15.7.0]: https://github.com/melonjs/melonJS/compare/15.6.0...15.7.0
+[15.6.0]: https://github.com/melonjs/melonJS/compare/15.5.0...15.6.0
+[15.5.0]: https://github.com/melonjs/melonJS/compare/15.4.1...15.5.0
+[15.4.1]: https://github.com/melonjs/melonJS/compare/15.4.0...15.4.1
+[15.4.0]: https://github.com/melonjs/melonJS/compare/15.3.0...15.4.0
+[15.3.0]: https://github.com/melonjs/melonJS/compare/15.2.1...15.3.0
+[15.2.1]: https://github.com/melonjs/melonJS/compare/15.2.0...15.2.1
+[15.2.0]: https://github.com/melonjs/melonJS/compare/15.1.6...15.2.0
+[15.1.6]: https://github.com/melonjs/melonJS/compare/15.1.5...15.1.6
+[15.1.5]: https://github.com/melonjs/melonJS/compare/15.1.4...15.1.5
+[15.1.4]: https://github.com/melonjs/melonJS/compare/15.1.3...15.1.4
+[15.1.3]: https://github.com/melonjs/melonJS/compare/15.1.2...15.1.3
+[15.1.2]: https://github.com/melonjs/melonJS/compare/15.1.1...15.1.2
+[15.1.1]: https://github.com/melonjs/melonJS/compare/15.1.0...15.1.1
+[15.1.0]: https://github.com/melonjs/melonJS/compare/15.0.0...15.1.0
+[15.0.0]: https://github.com/melonjs/melonJS/compare/14.5.0...15.0.0
+[14.5.0]: https://github.com/melonjs/melonJS/compare/14.4.0...14.5.0
+[14.4.0]: https://github.com/melonjs/melonJS/compare/14.3.0...14.4.0
+[14.3.0]: https://github.com/melonjs/melonJS/compare/14.2.0...14.3.0
+[14.2.0]: https://github.com/melonjs/melonJS/compare/14.1.2...14.2.0
+[14.1.2]: https://github.com/melonjs/melonJS/compare/14.1.1...14.1.2
+[14.1.1]: https://github.com/melonjs/melonJS/compare/14.1.0...14.1.1
+[14.1.0]: https://github.com/melonjs/melonJS/compare/14.0.2...14.1.0
+[14.0.2]: https://github.com/melonjs/melonJS/compare/14.0.1...14.0.2
+[14.0.1]: https://github.com/melonjs/melonJS/compare/14.0.0...14.0.1
+[14.0.0]: https://github.com/melonjs/melonJS/compare/13.4.0...14.0.0
+[13.4.0]: https://github.com/melonjs/melonJS/compare/13.3.0...13.4.0
+[13.3.0]: https://github.com/melonjs/melonJS/compare/13.2.1...13.3.0
+[13.2.1]: https://github.com/melonjs/melonJS/compare/13.2.0...13.2.1
+[13.2.0]: https://github.com/melonjs/melonJS/compare/13.1.1...13.2.0
+[13.1.1]: https://github.com/melonjs/melonJS/compare/13.1.0...13.1.1
+[13.1.0]: https://github.com/melonjs/melonJS/compare/13.0.0...13.1.0
+[13.0.0]: https://github.com/melonjs/melonJS/compare/12.0.0...13.0.0
+[12.0.0]: https://github.com/melonjs/melonJS/compare/11.0.0...12.0.0
+[11.0.0]: https://github.com/melonjs/melonJS/compare/10.12.0...11.0.0
+[10.12.0]: https://github.com/melonjs/melonJS/compare/10.11.0...10.12.0
+[10.11.0]: https://github.com/melonjs/melonJS/compare/10.10.0...10.11.0
+[10.10.0]: https://github.com/melonjs/melonJS/compare/10.9.0...10.10.0
+[10.9.0]: https://github.com/melonjs/melonJS/compare/10.8.0...10.9.0
+[10.8.0]: https://github.com/melonjs/melonJS/compare/10.7.1...10.8.0
+[10.7.1]: https://github.com/melonjs/melonJS/compare/10.7.0...10.7.1
+[10.7.0]: https://github.com/melonjs/melonJS/compare/10.6.1...10.7.0
+[10.6.1]: https://github.com/melonjs/melonJS/compare/10.6.0...10.6.1
+[10.6.0]: https://github.com/melonjs/melonJS/compare/10.5.2...10.6.0
+[10.5.2]: https://github.com/melonjs/melonJS/compare/10.5.1...10.5.2
+[10.5.1]: https://github.com/melonjs/melonJS/compare/10.5.0...10.5.1
+[10.5.0]: https://github.com/melonjs/melonJS/compare/10.4.0...10.5.0
+[10.4.0]: https://github.com/melonjs/melonJS/compare/10.3.0...10.4.0
+[10.3.0]: https://github.com/melonjs/melonJS/compare/10.2.3...10.3.0
+[10.2.3]: https://github.com/melonjs/melonJS/compare/10.2.2...10.2.3
+[10.2.2]: https://github.com/melonjs/melonJS/compare/10.2.0...10.2.2
+[10.2.1]: https://github.com/melonjs/melonJS/compare/10.2.0...10.2.1
+[10.2.0]: https://github.com/melonjs/melonJS/compare/10.1.1...10.2.0
+[10.1.1]: https://github.com/melonjs/melonJS/compare/10.1.0...10.1.1
+[10.1.0]: https://github.com/melonjs/melonJS/compare/10.0.2...10.1.0
+[10.0.2]: https://github.com/melonjs/melonJS/compare/10.0.1...10.0.2
+[10.0.1]: https://github.com/melonjs/melonJS/compare/10.0.0...10.0.1
+[10.0.0]: https://github.com/melonjs/melonJS/compare/9.1.2...10.0.0

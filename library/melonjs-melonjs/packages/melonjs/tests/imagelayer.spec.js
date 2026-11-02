@@ -1,0 +1,844 @@
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
+import {
+	Application,
+	boot,
+	ImageLayer,
+	Matrix2d,
+	Rect,
+	ShaderEffect,
+	Stage,
+	state,
+	video,
+} from "../src/index.js";
+
+describe("ImageLayer", () => {
+	let testImage;
+
+	let app;
+	beforeAll(async () => {
+		boot();
+		app = new Application(800, 600, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.CANVAS,
+		});
+		await app.init();
+
+		// create a small canvas to use as the image source
+		testImage = document.createElement("canvas");
+		testImage.width = 64;
+		testImage.height = 64;
+	});
+
+	afterAll(() => {
+		// release the WebGL context this describe owns — browsers cap
+		// live contexts, and a leak surfaces as UNRELATED specs failing
+		app?.destroy();
+	});
+
+	describe("createPattern", () => {
+		it("should create pattern when added to game world", () => {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "repeat",
+			});
+			app.world.addChild(layer);
+			expect(layer._pattern).toBeDefined();
+			app.world.removeChildNow(layer);
+		});
+	});
+
+	describe("parentApp usage", () => {
+		it("should access viewport via parentApp when in world", () => {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "no-repeat",
+			});
+			app.world.addChild(layer);
+			expect(layer.parentApp).toBeDefined();
+			expect(layer.parentApp.viewport).toBe(app.viewport);
+			app.world.removeChildNow(layer);
+		});
+
+		it("should resize to viewport dimensions on activate", () => {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "no-repeat",
+			});
+			app.world.addChild(layer);
+			expect(layer.width).toEqual(app.viewport.width);
+			expect(layer.height).toEqual(app.viewport.height);
+			app.world.removeChildNow(layer);
+		});
+
+		it("repeat-x should set width to Infinity on activate", () => {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "repeat-x",
+			});
+			app.world.addChild(layer);
+			expect(layer.width).toEqual(Infinity);
+			expect(layer.height).toEqual(app.viewport.height);
+			app.world.removeChildNow(layer);
+		});
+
+		it("repeat-y should set height to Infinity on activate", () => {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "repeat-y",
+			});
+			app.world.addChild(layer);
+			expect(layer.width).toEqual(app.viewport.width);
+			expect(layer.height).toEqual(Infinity);
+			app.world.removeChildNow(layer);
+		});
+	});
+
+	describe("preDraw delegates post-effects", () => {
+		// Build a tiny renderer stub that captures the high-level calls we want
+		// to assert on. Anything not listed here is a no-op spy.
+		function makeRendererStub() {
+			return {
+				save: vi.fn(),
+				translate: vi.fn(),
+				scale: vi.fn(),
+				setMask: vi.fn(),
+				beginPostEffect: vi.fn(),
+				drawPattern: vi.fn(),
+				setTint: vi.fn(),
+				setBlendMode: vi.fn(),
+				setGlobalAlpha: vi.fn(),
+				globalAlpha: vi.fn(() => {
+					return 1;
+				}),
+				getBlendMode: vi.fn(() => {
+					return "normal";
+				}),
+			};
+		}
+
+		function makeLayer() {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "no-repeat",
+			});
+			layer.width = 64;
+			layer.height = 64;
+			return layer;
+		}
+
+		it("calls renderer.beginPostEffect (post-effects path)", () => {
+			const layer = makeLayer();
+			const r = makeRendererStub();
+			layer.preDraw(r);
+			expect(r.beginPostEffect).toHaveBeenCalledWith(layer);
+		});
+
+		it("skips beginPostEffect when _postEffectManaged is true", () => {
+			const layer = makeLayer();
+			layer._postEffectManaged = true;
+			const r = makeRendererStub();
+			layer.preDraw(r);
+			expect(r.beginPostEffect).not.toHaveBeenCalled();
+		});
+
+		it("preDraw does NOT call setMask or scale (deferred to draw)", () => {
+			// flip/mask must NOT be applied in preDraw — they need to run in
+			// the post-zoom local frame, which only exists inside draw().
+			const layer = makeLayer();
+			layer.mask = new Rect(0, 0, 32, 32);
+			layer.flipX(true);
+			const r = makeRendererStub();
+			layer.preDraw(r);
+			expect(r.setMask).not.toHaveBeenCalled();
+			expect(r.scale).not.toHaveBeenCalled();
+		});
+	});
+
+	describe("draw applies flip / mask in the post-zoom local frame", () => {
+		function makeRendererStub() {
+			return {
+				save: vi.fn(),
+				translate: vi.fn(),
+				scale: vi.fn(),
+				setMask: vi.fn(),
+				drawPattern: vi.fn(),
+			};
+		}
+
+		function makeLayer() {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "no-repeat",
+			});
+			layer.width = 64;
+			layer.height = 64;
+			return layer;
+		}
+
+		function makeViewport({ zoom = 1, width = 800, height = 600 } = {}) {
+			return {
+				zoom,
+				width,
+				height,
+				pos: { x: 0, y: 0 },
+				offset: { x: 0, y: 0 },
+				bounds: { width, height },
+			};
+		}
+
+		it("calls renderer.setMask in draw when this.mask is set", () => {
+			const layer = makeLayer();
+			layer.mask = new Rect(0, 0, 32, 32);
+			const r = makeRendererStub();
+			layer.draw(r, makeViewport());
+			expect(r.setMask).toHaveBeenCalledWith(layer.mask);
+		});
+
+		it("does not call setMask when this.mask is undefined", () => {
+			const layer = makeLayer();
+			const r = makeRendererStub();
+			layer.draw(r, makeViewport());
+			expect(r.setMask).not.toHaveBeenCalled();
+		});
+
+		it("applies horizontal flip via renderer.scale(-1, 1)", () => {
+			const layer = makeLayer();
+			layer.flipX(true);
+			const r = makeRendererStub();
+			layer.draw(r, makeViewport());
+			const flipCall = r.scale.mock.calls.find((args) => {
+				return args[0] === -1 && args[1] === 1;
+			});
+			expect(flipCall).toBeDefined();
+		});
+
+		it("applies vertical flip via renderer.scale(1, -1)", () => {
+			const layer = makeLayer();
+			layer.flipY(true);
+			const r = makeRendererStub();
+			layer.draw(r, makeViewport());
+			const flipCall = r.scale.mock.calls.find((args) => {
+				return args[0] === 1 && args[1] === -1;
+			});
+			expect(flipCall).toBeDefined();
+		});
+
+		it("applies both axes via renderer.scale(-1, -1) when flipX and flipY are set", () => {
+			const layer = makeLayer();
+			layer.flipX(true);
+			layer.flipY(true);
+			const r = makeRendererStub();
+			layer.draw(r, makeViewport());
+			const flipCall = r.scale.mock.calls.find((args) => {
+				return args[0] === -1 && args[1] === -1;
+			});
+			expect(flipCall).toBeDefined();
+		});
+
+		it("flip pivot uses (viewport.width, viewport.height) — the centre of the drawn pattern", () => {
+			// The pivot has to be at the centre of the drawPattern destination
+			// rect (which is 0..viewport.width*2, 0..viewport.height*2 in the
+			// post-zoom local frame). Asserting the pivot location explicitly
+			// guards against accidentally regressing to e.g. (centerX, centerY)
+			// which would be wrong post-zoom.
+			const layer = makeLayer();
+			layer.flipX(true);
+			const viewport = makeViewport({ width: 800, height: 600 });
+			const r = makeRendererStub();
+			const events = [];
+			r.translate.mockImplementation((...args) => {
+				events.push({ kind: "translate", args });
+			});
+			r.scale.mockImplementation((...args) => {
+				events.push({ kind: "scale", args });
+			});
+
+			layer.draw(r, viewport);
+
+			// locate the flip scale, then check the immediately surrounding translates
+			const flipScaleIdx = events.findIndex((e) => {
+				return e.kind === "scale" && e.args[0] === -1 && e.args[1] === 1;
+			});
+			expect(flipScaleIdx).toBeGreaterThan(0);
+
+			const before = events[flipScaleIdx - 1];
+			const after = events[flipScaleIdx + 1];
+			expect(before).toEqual({
+				kind: "translate",
+				args: [viewport.width, viewport.height],
+			});
+			expect(after).toEqual({
+				kind: "translate",
+				args: [-viewport.width, -viewport.height],
+			});
+		});
+
+		it("flip pivot is set up after the zoom transforms (call ordering)", () => {
+			// the zoom translate(x*vZoom, y*vZoom) and scale(vZoom, vZoom) must
+			// be issued *before* the flip translate/scale pair — otherwise the
+			// flip ends up in the wrong local frame for non-1 zoom.
+			const layer = makeLayer();
+			layer.flipX(true);
+			const r = makeRendererStub();
+			const events = [];
+			r.translate.mockImplementation((...args) => {
+				events.push({ kind: "translate", args });
+			});
+			r.scale.mockImplementation((...args) => {
+				events.push({ kind: "scale", args });
+			});
+
+			layer.draw(r, makeViewport({ zoom: 2 }));
+
+			// expected order: zoom-scale → flip-translate → flip-scale → flip-untranslate
+			const zoomScaleIdx = events.findIndex((e) => {
+				return e.kind === "scale" && e.args[0] === 2 && e.args[1] === 2;
+			});
+			const flipScaleIdx = events.findIndex((e) => {
+				return e.kind === "scale" && e.args[0] === -1 && e.args[1] === 1;
+			});
+			expect(zoomScaleIdx).toBeGreaterThanOrEqual(0);
+			expect(flipScaleIdx).toBeGreaterThan(zoomScaleIdx);
+		});
+
+		it("setMask is issued after the zoom transforms", () => {
+			const layer = makeLayer();
+			layer.mask = new Rect(0, 0, 32, 32);
+			const r = makeRendererStub();
+			const events = [];
+			r.translate.mockImplementation(() => {
+				events.push("translate");
+			});
+			r.scale.mockImplementation(() => {
+				events.push("scale");
+			});
+			r.setMask.mockImplementation(() => {
+				events.push("setMask");
+			});
+
+			layer.draw(r, makeViewport({ zoom: 2 }));
+
+			// the zoom block emits translate + scale; setMask must come after
+			const zoomScaleIdx = events.indexOf("scale");
+			const setMaskIdx = events.indexOf("setMask");
+			expect(zoomScaleIdx).toBeGreaterThanOrEqual(0);
+			expect(setMaskIdx).toBeGreaterThan(zoomScaleIdx);
+		});
+	});
+
+	describe("draw screen-space transform math (replays renderer calls)", () => {
+		// Replays the recorded translate/scale calls into a real Matrix2d,
+		// then applies the matrix to the corners of `drawPattern(0,0,W*2,H*2)`
+		// to compute their final screen-space positions. This tests the actual
+		// composed transform — not just that individual calls happened.
+		function replayInto(matrix, events) {
+			for (const e of events) {
+				if (e.kind === "translate") {
+					matrix.translate(e.args[0], e.args[1]);
+				} else if (e.kind === "scale") {
+					matrix.scale(e.args[0], e.args[1]);
+				}
+			}
+			return matrix;
+		}
+
+		function makeRendererStub(events) {
+			return {
+				save: vi.fn(),
+				translate: vi.fn((x, y) => {
+					events.push({ kind: "translate", args: [x, y] });
+				}),
+				scale: vi.fn((x, y) => {
+					events.push({ kind: "scale", args: [x, y] });
+				}),
+				setMask: vi.fn(),
+				drawPattern: vi.fn(),
+			};
+		}
+
+		function makeLayer() {
+			const layer = new ImageLayer(0, 0, {
+				image: testImage,
+				name: "test",
+				repeat: "no-repeat",
+			});
+			// pin the layer geometry — `pos = (0,0)`, anchor `(0,0)`, ratio `(0,0)`
+			// (static), so the computed `x` / `y` in draw() are both 0
+			layer.width = 64;
+			layer.height = 64;
+			return layer;
+		}
+
+		function makeViewport({ zoom = 1, width = 800, height = 600 } = {}) {
+			return {
+				zoom,
+				width,
+				height,
+				pos: { x: 0, y: 0 },
+				offset: { x: 0, y: 0 },
+				bounds: { width, height },
+			};
+		}
+
+		// Corners of drawPattern's destination rect in local coordinates,
+		// before any of the recorded transforms are applied. drawPattern is
+		// always called with `(0, 0, viewport.width * 2, viewport.height * 2)`.
+		function corners(viewport) {
+			const W2 = viewport.width * 2;
+			const H2 = viewport.height * 2;
+			return {
+				topLeft: { x: 0, y: 0 },
+				topRight: { x: W2, y: 0 },
+				bottomLeft: { x: 0, y: H2 },
+				bottomRight: { x: W2, y: H2 },
+			};
+		}
+
+		// At pos=(0,0) anchor=(0,0) static, the unflipped pattern occupies
+		// the screen-space rect (0, 0) → (W*2*Z, H*2*Z).
+		function expectedUnflipped(viewport) {
+			const W2 = viewport.width * 2;
+			const H2 = viewport.height * 2;
+			const Z = viewport.zoom;
+			return {
+				topLeft: { x: 0, y: 0 },
+				topRight: { x: W2 * Z, y: 0 },
+				bottomLeft: { x: 0, y: H2 * Z },
+				bottomRight: { x: W2 * Z, y: H2 * Z },
+			};
+		}
+
+		function transformCorners(matrix, c) {
+			const out = {};
+			for (const k of Object.keys(c)) {
+				out[k] = { x: c[k].x, y: c[k].y };
+				matrix.apply(out[k]);
+			}
+			return out;
+		}
+
+		function expectClose(actual, expected) {
+			expect(actual.x).toBeCloseTo(expected.x, 6);
+			expect(actual.y).toBeCloseTo(expected.y, 6);
+		}
+
+		it("zoom=1, no flip: pattern occupies (0,0) → (2W, 2H) in screen space", () => {
+			const events = [];
+			const layer = makeLayer();
+			const viewport = makeViewport({ zoom: 1 });
+			layer.draw(makeRendererStub(events), viewport);
+
+			const actual = transformCorners(
+				replayInto(new Matrix2d(), events),
+				corners(viewport),
+			);
+			const exp = expectedUnflipped(viewport);
+			expectClose(actual.topLeft, exp.topLeft);
+			expectClose(actual.topRight, exp.topRight);
+			expectClose(actual.bottomLeft, exp.bottomLeft);
+			expectClose(actual.bottomRight, exp.bottomRight);
+		});
+
+		it("zoom=2, no flip: pattern occupies (0,0) → (2W*2, 2H*2) in screen space", () => {
+			const events = [];
+			const layer = makeLayer();
+			const viewport = makeViewport({ zoom: 2 });
+			layer.draw(makeRendererStub(events), viewport);
+
+			const actual = transformCorners(
+				replayInto(new Matrix2d(), events),
+				corners(viewport),
+			);
+			const exp = expectedUnflipped(viewport);
+			expectClose(actual.topLeft, exp.topLeft);
+			expectClose(actual.topRight, exp.topRight);
+			expectClose(actual.bottomLeft, exp.bottomLeft);
+			expectClose(actual.bottomRight, exp.bottomRight);
+		});
+
+		it("flipX at zoom=1: covers SAME screen rect as unflipped, but corners swap horizontally", () => {
+			const events = [];
+			const layer = makeLayer();
+			layer.flipX(true);
+			const viewport = makeViewport({ zoom: 1 });
+			layer.draw(makeRendererStub(events), viewport);
+
+			const actual = transformCorners(
+				replayInto(new Matrix2d(), events),
+				corners(viewport),
+			);
+			const exp = expectedUnflipped(viewport);
+
+			// the screen-space footprint is identical (mirror, not translate)
+			const actualXs = [
+				actual.topLeft.x,
+				actual.topRight.x,
+				actual.bottomLeft.x,
+				actual.bottomRight.x,
+			];
+			const expectedXs = [
+				exp.topLeft.x,
+				exp.topRight.x,
+				exp.bottomLeft.x,
+				exp.bottomRight.x,
+			];
+			expect(Math.min(...actualXs)).toBeCloseTo(Math.min(...expectedXs), 6);
+			expect(Math.max(...actualXs)).toBeCloseTo(Math.max(...expectedXs), 6);
+
+			// the LEFT corner of the original rect now maps to the RIGHT side
+			expectClose(actual.topLeft, exp.topRight);
+			expectClose(actual.topRight, exp.topLeft);
+			expectClose(actual.bottomLeft, exp.bottomRight);
+			expectClose(actual.bottomRight, exp.bottomLeft);
+		});
+
+		it("flipX at zoom=2: still covers the SAME screen rect (this is the fix)", () => {
+			// Regression test for the original bug: at non-1 zoom, the pre-zoom
+			// flip pivot would land in the wrong screen-space location.
+			// With flip moved to draw() (post-zoom), the mirrored pattern still
+			// occupies the SAME screen rect as the unflipped pattern at zoom=2.
+			const events = [];
+			const layer = makeLayer();
+			layer.flipX(true);
+			const viewport = makeViewport({ zoom: 2 });
+			layer.draw(makeRendererStub(events), viewport);
+
+			const actual = transformCorners(
+				replayInto(new Matrix2d(), events),
+				corners(viewport),
+			);
+			const exp = expectedUnflipped(viewport);
+
+			const actualXs = [
+				actual.topLeft.x,
+				actual.topRight.x,
+				actual.bottomLeft.x,
+				actual.bottomRight.x,
+			];
+			const expectedXs = [
+				exp.topLeft.x,
+				exp.topRight.x,
+				exp.bottomLeft.x,
+				exp.bottomRight.x,
+			];
+			expect(Math.min(...actualXs)).toBeCloseTo(Math.min(...expectedXs), 6);
+			expect(Math.max(...actualXs)).toBeCloseTo(Math.max(...expectedXs), 6);
+		});
+
+		it("flipY at zoom=2: covers SAME screen rect (vertical mirror)", () => {
+			const events = [];
+			const layer = makeLayer();
+			layer.flipY(true);
+			const viewport = makeViewport({ zoom: 2 });
+			layer.draw(makeRendererStub(events), viewport);
+
+			const actual = transformCorners(
+				replayInto(new Matrix2d(), events),
+				corners(viewport),
+			);
+			const exp = expectedUnflipped(viewport);
+
+			const actualYs = [
+				actual.topLeft.y,
+				actual.topRight.y,
+				actual.bottomLeft.y,
+				actual.bottomRight.y,
+			];
+			const expectedYs = [
+				exp.topLeft.y,
+				exp.topRight.y,
+				exp.bottomLeft.y,
+				exp.bottomRight.y,
+			];
+			expect(Math.min(...actualYs)).toBeCloseTo(Math.min(...expectedYs), 6);
+			expect(Math.max(...actualYs)).toBeCloseTo(Math.max(...expectedYs), 6);
+		});
+
+		it("flipX+flipY at zoom=2: corners rotate 180° around the rect centre", () => {
+			const events = [];
+			const layer = makeLayer();
+			layer.flipX(true);
+			layer.flipY(true);
+			const viewport = makeViewport({ zoom: 2 });
+			layer.draw(makeRendererStub(events), viewport);
+
+			const actual = transformCorners(
+				replayInto(new Matrix2d(), events),
+				corners(viewport),
+			);
+			const exp = expectedUnflipped(viewport);
+
+			// top-left ↔ bottom-right, top-right ↔ bottom-left
+			expectClose(actual.topLeft, exp.bottomRight);
+			expectClose(actual.topRight, exp.bottomLeft);
+			expectClose(actual.bottomLeft, exp.topRight);
+			expectClose(actual.bottomRight, exp.topLeft);
+		});
+	});
+	describe("repeating layer keeps covering the viewport far from the origin", () => {
+		// A repeating layer is `Infinity` wide/high on its tiling axis, so the
+		// parallax offset has to wrap by the image size — `x % Infinity` never
+		// wraps and the pattern ends up sliding off the screen.
+		const VW = 800;
+		const VH = 600;
+
+		function makeImage(w, h) {
+			const img = document.createElement("canvas");
+			img.width = w;
+			img.height = h;
+			return img;
+		}
+
+		function makeLayer(image, repeat, ratio) {
+			const layer = new ImageLayer(0, 0, { image, repeat, ratio });
+			// what onActivateEvent() would do
+			layer.resize(VW, VH);
+			return layer;
+		}
+
+		function makeViewport(x, y, zoom = 1) {
+			return {
+				zoom,
+				width: VW,
+				height: VH,
+				pos: { x, y },
+				offset: { x: 0, y: 0 },
+				bounds: { width: 12800, height: 12800 },
+			};
+		}
+
+		// draw() and return the layer origin and drawn extent (local units)
+		function drawnRect(layer, viewport) {
+			const calls = { translate: [], drawPattern: [] };
+			const r = {
+				translate: (x, y) => {
+					calls.translate.push([x, y]);
+				},
+				scale: () => {},
+				setMask: () => {},
+				drawPattern: (...args) => {
+					calls.drawPattern.push(args);
+				},
+			};
+			layer.draw(r, viewport);
+			const [tx, ty] = calls.translate[0];
+			const [, , , w, h] = calls.drawPattern[0];
+			return {
+				x: tx / viewport.zoom,
+				y: ty / viewport.zoom,
+				w,
+				h,
+			};
+		}
+
+		const cameraX = [0, 1234, 11000, 100000, -100000, -777];
+		const ratios = [0.25, 0.5, 1, 1.5];
+
+		for (const ratio of ratios) {
+			for (const cx of cameraX) {
+				it(`repeat-x, ratio ${ratio}, camera x=${cx}: pattern covers the viewport`, () => {
+					const image = makeImage(64, 64);
+					const layer = makeLayer(image, "repeat-x", ratio);
+					const rect = drawnRect(layer, makeViewport(cx, 0));
+					// origin within one image width left of the viewport
+					expect(rect.x).toBeGreaterThan(-image.width);
+					expect(rect.x).toBeLessThanOrEqual(0);
+					// and the drawn pattern reaches the right edge
+					expect(rect.x + rect.w).toBeGreaterThanOrEqual(VW);
+					// non-tiling axis still draws exactly the source extent (#1290)
+					expect(rect.h).toEqual(layer.height);
+				});
+			}
+		}
+
+		for (const cx of cameraX) {
+			it(`repeat-x with an image wider than the viewport, camera x=${cx}`, () => {
+				const image = makeImage(1000, 64);
+				const layer = makeLayer(image, "repeat-x", 0.5);
+				const rect = drawnRect(layer, makeViewport(cx, 0));
+				expect(rect.x).toBeGreaterThan(-image.width);
+				expect(rect.x).toBeLessThanOrEqual(0);
+				expect(rect.x + rect.w).toBeGreaterThanOrEqual(VW);
+			});
+		}
+
+		for (const cy of [0, 100000, -100000]) {
+			it(`repeat-y, camera y=${cy}: pattern covers the viewport`, () => {
+				const image = makeImage(64, 48);
+				const layer = makeLayer(image, "repeat-y", 0.5);
+				const rect = drawnRect(layer, makeViewport(0, cy));
+				expect(rect.y).toBeGreaterThan(-image.height);
+				expect(rect.y).toBeLessThanOrEqual(0);
+				expect(rect.y + rect.h).toBeGreaterThanOrEqual(VH);
+				expect(rect.w).toEqual(layer.width);
+			});
+		}
+
+		it("repeat (both axes) at zoom 2 far from the origin", () => {
+			const image = makeImage(64, 48);
+			const layer = makeLayer(image, "repeat", 0.5);
+			const rect = drawnRect(layer, makeViewport(100000, -100000, 2));
+			expect(rect.x).toBeGreaterThan(-image.width);
+			expect(rect.x).toBeLessThanOrEqual(0);
+			expect(rect.y).toBeGreaterThan(-image.height);
+			expect(rect.y).toBeLessThanOrEqual(0);
+			expect(rect.x + rect.w).toBeGreaterThanOrEqual(VW);
+			expect(rect.y + rect.h).toBeGreaterThanOrEqual(VH);
+		});
+
+		it("wrapping keeps the pattern continuous (same phase as unwrapped)", () => {
+			const image = makeImage(64, 64);
+			const layer = makeLayer(image, "repeat-x", 0.5);
+			const cx = 100000 + 37;
+			const rect = drawnRect(layer, makeViewport(cx, 0));
+			const unwrapped = -0.5 * cx;
+			const phase = (rect.x - unwrapped) / image.width;
+			expect(phase).toBeCloseTo(Math.round(phase), 9);
+		});
+
+		it("flipped repeat-x mirrors around the drawn pattern centre and still covers the viewport", () => {
+			for (const iw of [64, 1000]) {
+				const image = makeImage(iw, 64);
+				const layer = makeLayer(image, "repeat-x", 0.5);
+				layer.flipX(true);
+				for (const cx of cameraX) {
+					const events = [];
+					const r = {
+						translate: (x, y) => {
+							events.push({ kind: "translate", args: [x, y] });
+						},
+						scale: (x, y) => {
+							events.push({ kind: "scale", args: [x, y] });
+						},
+						setMask: () => {},
+						drawPattern: (...args) => {
+							events.push({ kind: "drawPattern", args });
+						},
+					};
+					layer.draw(r, makeViewport(cx, 0));
+					const m = new Matrix2d();
+					let w = 0;
+					for (const e of events) {
+						if (e.kind === "translate") {
+							m.translate(e.args[0], e.args[1]);
+						} else if (e.kind === "scale") {
+							m.scale(e.args[0], e.args[1]);
+						} else {
+							w = e.args[3];
+						}
+					}
+					const a = { x: 0, y: 0 };
+					const b = { x: w, y: 0 };
+					m.apply(a);
+					m.apply(b);
+					expect(Math.min(a.x, b.x)).toBeLessThanOrEqual(0);
+					expect(Math.max(a.x, b.x)).toBeGreaterThanOrEqual(VW);
+				}
+			}
+		});
+
+		it("updateLayer() wraps pos by the image size too", () => {
+			const image = makeImage(64, 48);
+			const layer = makeLayer(image, "repeat", 0.5);
+			for (const [cx, cy] of [
+				[100000, 100000],
+				[-100000, -100000],
+				[11000, 0],
+			]) {
+				layer._parentApp = { viewport: makeViewport(cx, cy) };
+				layer.updateLayer();
+				expect(layer.pos.x).toBeGreaterThan(-image.width);
+				expect(layer.pos.x).toBeLessThanOrEqual(0);
+				expect(layer.pos.y).toBeGreaterThan(-image.height);
+				expect(layer.pos.y).toBeLessThanOrEqual(0);
+			}
+		});
+	});
+});
+
+describe("ImageLayer's own effect (WebGL)", () => {
+	// An image layer with a single ShaderEffect draws through the fast path:
+	// `beginPostEffect` installs the effect as the renderer's custom shader,
+	// and the layer's `drawPattern` has to draw with it. It drew with the
+	// default program instead, so the effect did nothing on this backend.
+	const SIZE = 64;
+	let app;
+	let gl;
+
+	beforeAll(async () => {
+		await boot();
+		app = new Application(SIZE, SIZE, {
+			parent: "screen",
+			renderer: video.WEBGL,
+			failIfMajorPerformanceCaveat: false,
+			antiAlias: false,
+		});
+		await app.init();
+		gl = app.renderer.gl ?? undefined;
+		// a stage of its own, which is what gives this application a viewport
+		const own = state.USER + 30;
+		state.set(own, new Stage());
+		state.setTransition(own, false);
+		state.change(own, true);
+	});
+
+	afterAll(() => {
+		// release the WebGL context this describe owns
+		app?.destroy();
+	});
+
+	const solid = (color) => {
+		const canvas = document.createElement("canvas");
+		canvas.width = 4;
+		canvas.height = 4;
+		const ctx = canvas.getContext("2d");
+		ctx.fillStyle = color;
+		ctx.fillRect(0, 0, 4, 4);
+		return canvas;
+	};
+
+	// one engine frame, read back in the same task
+	const drawAndRead = (x, y) => {
+		app.world.update(16);
+		app.repaint();
+		app.draw();
+		const px = new Uint8Array(4);
+		gl.readPixels(x, SIZE - 1 - y, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+		return Array.from(px);
+	};
+
+	it("draws through its effect, and the next layer draws as itself", (ctx) => {
+		if (gl === undefined) {
+			ctx.skip("WebGL2 renderer not available in this environment");
+		}
+		const layer = new ImageLayer(0, 0, {
+			image: solid("#00ff00"),
+			name: "tinted",
+			repeat: "repeat",
+		});
+		app.world.addChild(layer);
+		try {
+			expect(drawAndRead(32, 32)).toEqual([0, 255, 0, 255]);
+			layer.addPostEffect(
+				new ShaderEffect(
+					app.renderer,
+					"vec4 apply(vec4 color, vec2 uv) { return vec4(1.0, 0.0, 0.0, 1.0); }",
+				),
+			);
+			expect(drawAndRead(32, 32)).toEqual([255, 0, 0, 255]);
+			// the batcher is back on its own program once the layer is done
+			layer.clearPostEffects();
+			expect(drawAndRead(32, 32)).toEqual([0, 255, 0, 255]);
+		} finally {
+			app.world.removeChildNow(layer);
+		}
+	});
+});

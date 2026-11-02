@@ -1,0 +1,172 @@
+import { ColorMatrix } from "../../math/color_matrix.ts";
+import ShaderEffect from "./shadereffect.js";
+
+/**
+ * additional import for TypeScript
+ * @import CanvasRenderer from "../canvas/canvas_renderer.js";
+ * @import WebGLRenderer from "../webgl/webgl_renderer.js";
+ * @import WebGPURenderer from "../webgpu/webgpu_renderer.js";
+ * @import Renderer from "../renderer.js";
+ */
+// the WGSL twin of the GLSL body below — same logic, same uniform
+// names, picked by the ShaderEffect base per renderer.shaderLanguage
+const wgslFragment = `
+struct ColorMatrixUniforms {
+	uColorMatrix : mat4x4f,
+};
+@group(3) @binding(0) var<uniform> fx : ColorMatrixUniforms;
+
+fn apply(color : vec4f, uv : vec2f) -> vec4f {
+	return fx.uColorMatrix * color;
+}
+`;
+
+/**
+ * A shader effect that applies a 4x4 color transformation matrix.
+ * Provides chainable color adjustment methods that automatically update the GPU uniform.
+ * @category Effects
+ * @see {@link Renderable#addPostEffect} for usage
+ * @example
+ * // desaturate a sprite
+ * mySprite.addPostEffect(new ColorMatrixEffect(renderer).saturate(0.0));
+ * @example
+ * // combine brightness + contrast on a camera
+ * camera.addPostEffect(new ColorMatrixEffect(renderer).brightness(1.3).contrast(1.5));
+ * @example
+ * // update dynamically
+ * effect.reset().brightness(1.5).saturate(0.5);
+ */
+export default class ColorMatrixEffect extends ShaderEffect {
+	/**
+	 * @param {Renderer} renderer - the current renderer instance
+	 * @param {object} [options] - effect options
+	 * @param {ColorMatrix} [options.matrix] - an initial color matrix. Defaults to identity.
+	 */
+	constructor(renderer, options = {}) {
+		super(renderer, {
+			glsl: `
+			uniform mat4 uColorMatrix;
+			vec4 apply(vec4 color, vec2 uv) {
+				return uColorMatrix * color;
+			}
+			`,
+			wgsl: wgslFragment,
+		});
+
+		/**
+		 * the internal color matrix
+		 * @ignore
+		 * @internal
+		 */
+		this._matrix = options.matrix || new ColorMatrix();
+		this._syncUniform();
+	}
+
+	/**
+	 * Push the current matrix values to the GPU.
+	 * @ignore
+	 * @internal
+	 */
+	_syncUniform() {
+		this.setUniform("uColorMatrix", this._matrix.val);
+	}
+
+	/**
+	 * Reset the color matrix to identity (no color change).
+	 * @returns {this} this instance for chaining
+	 */
+	reset() {
+		this._matrix.identity();
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Apply a brightness adjustment.
+	 * @param {number} amount - brightness multiplier (1.0 = normal, >1 brighter, <1 darker)
+	 * @returns {this} this instance for chaining
+	 */
+	brightness(amount) {
+		this._matrix.brightness(amount);
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Apply a contrast adjustment.
+	 * @param {number} amount - contrast multiplier (1.0 = normal, >1 more contrast, <1 less)
+	 * @returns {this} this instance for chaining
+	 */
+	contrast(amount) {
+		this._matrix.contrast(amount);
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Apply a saturation adjustment.
+	 * @param {number} amount - saturation level (0.0 = grayscale, 1.0 = normal, >1 over-saturated)
+	 * @returns {this} this instance for chaining
+	 */
+	saturate(amount) {
+		this._matrix.saturate(amount);
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Apply a hue rotation.
+	 * @param {number} angle - rotation angle in radians
+	 * @returns {this} this instance for chaining
+	 */
+	hueRotate(angle) {
+		this._matrix.hueRotate(angle);
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Apply a sepia tone.
+	 * @param {number} [amount=1.0] - sepia intensity (0.0 = original, 1.0 = full sepia)
+	 * @returns {this} this instance for chaining
+	 */
+	sepia(amount = 1.0) {
+		this._matrix.sepia(amount);
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Apply a color inversion.
+	 * @param {number} [amount=1.0] - inversion amount (0.0 = original, 1.0 = fully inverted)
+	 * @returns {this} this instance for chaining
+	 */
+	invertColors(amount = 1.0) {
+		this._matrix.invertColors(amount);
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Multiply the current matrix by another color matrix.
+	 * @param {ColorMatrix} matrix - the matrix to multiply with
+	 * @returns {this} this instance for chaining
+	 */
+	multiply(matrix) {
+		this._matrix.multiply(matrix);
+		this._syncUniform();
+		return this;
+	}
+
+	/**
+	 * Multiplies the current matrix with a transform described by individual values.
+	 * Accepts either 6 values (2D affine: a, b, c, d, e, f) or 16 values (full 4x4 column-major).
+	 * @param {...number} args - 6 or 16 numeric values
+	 * @returns {this} this instance for chaining
+	 */
+	transform(...args) {
+		this._matrix.transform(...args);
+		this._syncUniform();
+		return this;
+	}
+}

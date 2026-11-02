@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 397 skills  
+> **Total Curated Skills**: 398 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -398,6 +398,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`varied-search`](../../library/davidondrej-skills/skills/varied-search) | ⚪ Reserve | `davidondrej-skills` | Research a topic across the web, GitHub, and X/Twitter with DeepAPI and produce a concise Markd... |
 | [`varlock-claude-skill`](../../library/antigravity-awesome-skills/skills/varlock-claude-skill) | ⚪ Reserve | `antigravity-awesome-skills` | Secure environment variable management ensuring secrets are never exposed in Claude sessions, t... |
 | [`vercel-labs-emulate`](../../library/reason-machines-trending-skills/skills/vercel-labs-emulate) | ⚪ Reserve | `reason-machines-trending-skills` | Local drop-in API emulation for Vercel, GitHub, and Google services in CI and no-network sandbo... |
+| [`version-bump`](../../library/thedotmack-claude-mem/skills/version-bump) | ⚪ Reserve | `thedotmack-claude-mem` | Automated semantic versioning and release workflow for Claude Code plugins. Handles version inc... |
 | [`vibers-code-review`](../../library/sickn33-agentic-awesome-skills/skills/vibers-code-review) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Human review workflow for AI-generated GitHub projects with spec-based feedback, security revie... |
 | [`virgiliojr94-book-to`](../../library/virgiliojr94-book-to-skill/skills/virgiliojr94-book-to) | ⚪ Reserve | `virgiliojr94-book-to-skill` | Converts books and documents (PDF, EPUB, DOCX, HTML, Markdown, plain text, RTF, MOBI/AZW with C... |
 | [`virgiliojr94-book-to-skill`](../../library/virgiliojr94-book-to-skill/skills/virgiliojr94-book-to-skill) | ⚪ Reserve | `virgiliojr94-book-to-skill` | Converts books and documents (PDF, EPUB, DOCX, HTML, Markdown, plain text, RTF, MOBI/AZW with C... |

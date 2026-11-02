@@ -1,0 +1,1733 @@
+import { ObservablePoint } from "../geometries/observablePoint.ts";
+import { Rect } from "./../geometries/rectangle.ts";
+import { releaseAllPointerEvents } from "./../input/input.ts";
+import { colorPool } from "./../math/color.ts";
+import { clamp } from "./../math/math.ts";
+import { Matrix3d } from "../math/matrix3d.ts";
+import { ObservableVector3d } from "../math/observableVector3d.ts";
+import { vector3dPool } from "../math/vector3d.ts";
+import { boundsPool } from "./../physics/bounds.ts";
+import Body from "./../physics/builtin/body.js";
+
+/**
+ * additional import for TypeScript
+ * @import {Matrix3d} from "../math/matrix3d.ts";
+ * @import Entity from "./entity/entity.js";
+ * @import Container from "./container.js";
+ * @import {Line} from "./../geometries/line.ts";
+ * @import {Ellipse} from "./../geometries/ellipse.ts";
+ * @import {Polygon} from "../geometries/polygon.ts";
+ * @import {RoundRect} from "./../geometries/roundrect.ts";
+ * @import Application from "./../application/application.ts";
+ * @import CanvasRenderer from "./../video/canvas/canvas_renderer.js";
+ * @import WebGLRenderer from "./../video/webgl/webgl_renderer.js";
+ * @import ResponseObject from "./../physics/response.js";
+ * @import {Bounds} from "../physics/bounds.ts";
+ * @import Camera2d from "../camera/camera2d.ts";
+ * @import {Color} from "../math/color.ts";
+ * @import GLShader from "../video/webgl/glshader.js";
+ * @import {Matrix2d} from "../math/matrix2d.ts";
+ * @import {PhysicsBody} from "../physics/adapter.ts";
+ * @import ShaderEffect from "../video/effects/shadereffect.js";
+ * @import {Vector2d} from "../math/vector2d.ts";
+ * @import {Vector3d} from "../math/vector3d.ts";
+ * @import Renderer from "../video/renderer.js";
+ **/
+
+/**
+ * Scratch state for {@link Renderable#getWorldTransform}, shared across every
+ * renderable rather than cached per instance — a `Matrix3d` is a
+ * `Float32Array(16)` and one per renderable would be a real cost in a scene
+ * holding thousands of them. Same rationale as the renderer's own
+ * `_tempMatrix` / `_savedTransform`. Safe because the walk is synchronous and
+ * never re-enters: `getLocalTransform` composes into `_level`, which is
+ * consumed immediately.
+ * @ignore
+ * @internal
+ */
+const _chain = [];
+/**
+ * @ignore
+ * @internal
+ */
+const _level = new Matrix3d();
+
+/**
+ * A base class for renderable objects.
+ * @category Game Objects
+ */
+export default class Renderable extends Rect {
+	/**
+	 * @param {number} x - position of the renderable object (accessible through inherited pos.x property)
+	 * @param {number} y - position of the renderable object (accessible through inherited pos.y property)
+	 * @param {number} width - object width
+	 * @param {number} height - object height
+	 */
+	constructor(x, y, width, height) {
+		// parent constructor
+		super(x, y, width, height);
+
+		/**
+		 * Position of the Renderable relative to its parent container
+		 * @public
+		 * @type {ObservableVector3d}
+		 */
+		this.pos = new ObservableVector3d(x, y, 0, () => {
+			this.updateBounds();
+			this.isDirty = true;
+		});
+
+		/**
+		 * The anchor point is used for attachment behavior, and/or when applying transformations.<br>
+		 * The coordinate system places the origin at the top left corner of the frame (0, 0) and (1, 1) means the bottom-right corner<br>
+		 * <img src="images/anchor_point.png"/><br>
+		 * a Renderable's anchor point defaults to (0.5,0.5), which corresponds to the center position.<br>
+		 * <br>
+		 * <i><b>Note:</b> Object created through Tiled will have their anchorPoint set to (0, 0) to match Tiled Level editor implementation.
+		 * To specify a value through Tiled, use a json expression like `json:{"x":0.5,"y":0.5}`, or (since 19.9) a plain string preset such as `bottom`. </i>
+		 * <br>
+		 * At construction time, `settings.anchorPoint` also accepts the named presets
+		 * `"center"`, `"top"`, `"bottom"`, `"left"`, `"right"`, `"top-left"`, `"top-right"`,
+		 * `"bottom-left"`, `"bottom-right"` on every renderable that consumes it
+		 * (Sprite, Entity, Collectable, ImageLayer, Text, BitmapText, Sprite3d and subclasses).
+		 * <br>
+		 * <i><b>Note:</b> a body's collision shapes are measured from the same frame this
+		 * places the renderable in, so a shape of `Rect(0, 0, width, height)` covers the
+		 * renderable whatever the anchor is (since 20.7; before that shapes were measured
+		 * from `pos` regardless, and a non-corner anchor collided where it was not drawn).
+		 * A shape's own `pos` still offsets it inside that frame. A renderable that has
+		 * cleared {@link Renderable#applyAnchorTransform} takes no offset at all, on the
+		 * drawing or on its shapes. Note also that the adapters read the anchor when the
+		 * body is created, so changing it afterwards moves the drawing but not an
+		 * already-built body.</i>
+		 * @type {ObservablePoint}
+		 * @default <0.5,0.5>
+		 */
+		this.anchorPoint = new ObservablePoint(0.5, 0.5, () => {
+			this.updateBounds();
+			this.isDirty = true;
+		});
+
+		if (typeof this.currentTransform === "undefined") {
+			/**
+			 * the renderable transformation matrix (4x4).
+			 * For standard 2D use, only the 2D components are used (rotate around Z, scale X/Y, translate X/Y).
+			 * For 3D use (e.g. Mesh), the full 4x4 matrix supports rotation around any axis,
+			 * 3D translation, and perspective projection.
+			 * Use the `rotate()`, `scale()`, and `translate()` methods rather than modifying this directly.
+			 * @type {Matrix3d}
+			 */
+			this.currentTransform = new Matrix3d();
+		}
+		this.currentTransform.identity();
+
+		/**
+		 * the renderable physics body — the handle returned by the
+		 * active {@link PhysicsAdapter}'s `addBody` (or constructed
+		 * imperatively via `new Body(...)`). Typed as the portable
+		 * {@link PhysicsBody} interface; cast to the adapter-specific
+		 * concrete type (`MatterAdapter.Body`, `BuiltinAdapter.Body`, or
+		 * the legacy {@link Body} class) to reach native fields.
+		 * @type {PhysicsBody}
+		 * @example
+		 *  // define a new Player Class
+		 *  class PlayerEntity extends me.Sprite {
+		 *      // constructor
+		 *      constructor(x, y, settings) {
+		 *          // call the parent constructor
+		 *          super(x, y , settings);
+		 *
+		 *          // define a basic walking animation
+		 *          this.addAnimation("walk",  [...]);
+		 *          // define a standing animation (using the first frame)
+		 *          this.addAnimation("stand",  [...]);
+		 *          // set the standing animation as default
+		 *          this.setCurrentAnimation("stand");
+		 *
+		 *          // add a physic body
+		 *          this.body = new me.Body(this);
+		 *          // add a default collision shape
+		 *          this.body.addShape(new me.Rect(0, 0, this.width, this.height));
+		 *          // configure max speed, friction, and initial force to be applied
+		 *          this.body.setMaxVelocity(3, 15);
+		 *          this.body.setFriction(0.4, 0);
+		 *          this.body.force.set(3, 0);
+		 *          this.isKinematic = false;
+		 *
+		 *          // set the display to follow our position on both axis
+		 *          app.viewport.follow(this, app.viewport.AXIS.BOTH);
+		 *      }
+		 *
+		 *      ...
+		 *
+		 * }
+		 */
+		this.body = undefined;
+
+		/**
+		 * Declarative body definition consumed by the active
+		 * {@link PhysicsAdapter} when this renderable is added to a
+		 * container. **Adapter API only** — leave `undefined` if you
+		 * build a body imperatively via `this.body = new Body(...)`.
+		 *
+		 * When set, the parent container forwards it to
+		 * `world.adapter.addBody(this, this.bodyDef)`, which constructs
+		 * the underlying physics body (matter, builtin SAT, …) and
+		 * assigns the engine-portable wrapper to `this.body`. This is
+		 * the engine-portable path: the same `bodyDef` produces an
+		 * equivalent body under any adapter.
+		 *
+		 * Typical fields: `type` (`"static"`/`"dynamic"`/`"kinematic"`),
+		 * `shapes`, `collisionType`, `collisionMask`, `restitution`,
+		 * `frictionAir`, `density`, `gravityScale`, `isSensor`,
+		 * `maxVelocity`, `fixedRotation`. See {@link BodyDefinitionInit}.
+
+		 *
+		 * `shapes` is normally a list of collision shapes, but it can also
+		 * name a collision shape file preloaded as JSON, paired with `id`
+		 * naming the body to read out of it. The file is resolved before any
+		 * adapter sees the definition, so the same one works unchanged on
+		 * every backend.
+		 * @type {object|undefined}
+		 * @default undefined
+		 * @example
+		 * // a shape authored in code
+		 * this.bodyDef = {
+		 *     type: "dynamic",
+		 *     shapes: [new me.Rect(0, 0, this.width, this.height)],
+		 * };
+		 *
+		 * @example
+		 * // shapes drawn in a physics-shape editor, preloaded as JSON with
+		 * // { name: "shapes", type: "json", src: "data/physics/shapes.json" }
+		 * this.bodyDef = { type: "dynamic", shapes: "shapes", id: "hotdog" };
+		 *
+		 * // the density, friction and bounce the shapes were authored with
+		 * // come with them, unless the definition states otherwise (each is
+		 * // honoured by whichever backends support it):
+		 * this.bodyDef = {
+		 *     type: "dynamic",
+		 *     shapes: "shapes",
+		 *     id: "hotdog",
+		 *     restitution: 0.9, // wins over whatever the file carries
+		 * };
+		 */
+		this.bodyDef = undefined;
+
+		/**
+		 * (G)ame (U)nique (Id)entifier" <br>
+		 * a GUID will be allocated for any renderable object added <br>
+		 * to an object container (including the `app.world` container)
+		 * @type {string}
+		 */
+		this.GUID = undefined;
+
+		/**
+		 * an event handler that is called when the renderable leave or enter a camera viewport
+		 * @type {Function}
+		 * @default undefined
+		 * @example
+		 * this.onVisibilityChange = function(inViewport) {
+		 *     if (inViewport === true) {
+		 *         console.log("object has entered the in a camera viewport!");
+		 *     }
+		 * };
+		 */
+		this.onVisibilityChange = undefined;
+
+		/**
+		 * backing value of {@link Renderable#sortOffset}
+		 * @type {number}
+		 * @ignore
+		 * @internal
+		 */
+		this._sortOffset = 0;
+
+		/**
+		 * Whether the renderable object will always update, even when outside of the viewport<br>
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.alwaysUpdate = false;
+
+		/**
+		 * Whether to update this object when the game is paused.
+		 *
+		 * On a container it covers everything under it: a child steps through
+		 * a pause on its own opt-in or on one from any container above it, so
+		 * a pause menu flags itself once and its nested labels follow.
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.updateWhenPaused = false;
+
+		/**
+		 * make the renderable object persistent over level changes<br>
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.isPersistent = false;
+
+		/**
+		 * If true, this renderable will be rendered using screen coordinates,
+		 * as opposed to world coordinates. Use this, for example, to define UI elements.
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.floating = false;
+
+		/**
+		 * If true, this floating renderable will be rendered by all cameras
+		 * (e.g. background image layers). If false (default), floating elements
+		 * are only rendered by the default camera (e.g. UI/HUD elements),
+		 * zoomed or not.
+		 * Only applies to floating renderables in multi-camera setups.
+		 * @type {boolean}
+		 * @default false
+		 */
+		this.visibleInAllCameras = false;
+
+		/**
+		 * The layers this renderable belongs to, as bits (1, 2, 4, 8... up to
+		 * 32 of them). A camera draws it only if it shares a bit with the
+		 * camera's {@link Camera2d#cullMask}: by default every renderable is on
+		 * layer 1 and every camera draws every layer, so it shows in all of
+		 * them. Put something on a layer a camera leaves out to keep it off that
+		 * camera only, such as the particles off a minimap. A container left
+		 * out is left out with everything inside it (the world included), and
+		 * a renderable on no layer, `0`, is drawn by no camera.
+		 * <br><br>
+		 * It decides what a camera draws, and nothing else: the renderable
+		 * still updates, collides and receives pointer events. A
+		 * {@link Light2d} a camera leaves out, itself or a container it is in,
+		 * neither glows, nor cuts its hole in the darkness, nor lights
+		 * normal-mapped sprites in that camera (a `Light3d` lights the meshes
+		 * of every camera). A
+		 * floating renderable must also pass the camera's floating rule (see
+		 * {@link Renderable#visibleInAllCameras}). On an object of a Tiled map
+		 * it can be set as an `int` custom property of the object.
+		 * @type {number}
+		 * @default 1
+		 * @see Camera2d#cullMask
+		 * @example
+		 * // particles on their own layer, and a minimap that leaves it out
+		 * const PARTICLES = 2;
+		 * emitter.visibilityLayer = PARTICLES;
+		 * minimap.cullMask = ~PARTICLES;
+		 */
+		this.visibilityLayer = 1;
+
+		/**
+		 * When enabled, an object container will automatically apply
+		 * any defined transformation before calling the child draw method.
+		 * @type {boolean}
+		 * @default true
+		 * @example
+		 * // enable "automatic" transformation when the object is activated
+		 * onActivateEvent: function () {
+		 *     // reset the transformation matrix
+		 *     this.currentTransform.identity();
+		 *     // ensure the anchor point is the renderable center
+		 *     this.anchorPoint.set(0.5, 0.5);
+		 *     // enable auto transform
+		 *     this.autoTransform = true;
+		 *     ....
+		 * }
+		 */
+		this.autoTransform = true;
+
+		/**
+		 * Whether {@link Renderable#preDraw} applies the
+		 * {@link Renderable#anchorPoint} offset to the renderer transform.
+		 *
+		 * When `true` (the default), the renderable is shifted by
+		 * `-anchorPoint × (width, height)` so its anchor — not its top-left
+		 * corner — aligns with its position. Correct for sprites and other 2D
+		 * renderables.
+		 *
+		 * Set to `false` for a renderable that emits its own final world
+		 * coordinates and takes its origin from geometry rather than a bounds
+		 * box — e.g. a {@link Mesh} on the `Camera3d` world-space path (a 3D
+		 * mesh is positioned by its transform and has no anchor). The WebGL mesh
+		 * batcher reuses this same renderer transform as its **view matrix**,
+		 * so applying the normalized anchor there would shift every mesh by
+		 * half its OWN bounds box; because scene meshes size that box per node,
+		 * props and the platforms they rest on would drift apart and overlap.
+		 * @type {boolean}
+		 * @default true
+		 * @see Mesh#preDraw
+		 */
+		this.applyAnchorTransform = true;
+
+		/**
+		 * Define the renderable opacity<br>
+		 * Set to zero if you do not wish an object to be drawn
+		 *
+		 * Opacity **cascades**: it is multiplied with the alpha already on the
+		 * renderer, so fading a {@link Container} fades everything inside it,
+		 * and a child at `alpha` 0.5 inside a parent at 0.5 draws at 0.25.
+		 * Each renderable keeps its own value — the composition happens at
+		 * draw time, and is undone when the renderable is done.
+		 *
+		 * That is different from {@link Container#setChildsProperty}, which
+		 * assigns a value onto the children themselves. Use `alpha` to fade a
+		 * subtree, and `setChildsProperty` to change what the children are.
+		 * @see Renderable#setOpacity
+		 * @see Renderable#getOpacity
+		 * @see Container#setChildsProperty
+		 * @type {number}
+		 * @default 1.0
+		 * @example
+		 * // fades the whole rig, parts included
+		 * myModel.alpha = 0.3;
+		 */
+		this.alpha = 1.0;
+
+		/**
+		 * a reference to the parent object that contains this renderable
+		 * @type {Container|Entity}
+		 * @default undefined
+		 */
+		this.ancestor = undefined;
+
+		/**
+		 * A mask limits rendering elements to the shape and position of the given mask object.
+		 * So, if the renderable is larger than the mask, only the intersecting part of the renderable will be visible.
+		 * @type {Rect|RoundRect|Polygon|Line|Ellipse}
+		 * @default undefined
+		 * @example
+		 * // apply a mask in the shape of a Star
+		 * myNPCSprite.mask = new me.Polygon(myNPCSprite.width / 2, 0, [
+		 *    // draw a star
+		 *    {x: 0, y: 0},
+		 *    {x: 14, y: 30},
+		 *    {x: 47, y: 35},
+		 *    {x: 23, y: 57},
+		 *    {x: 44, y: 90},
+		 *    {x: 0, y: 62},
+		 *    {x: -44, y: 90},
+		 *    {x: -23, y: 57},
+		 *    {x: -47, y: 35},
+		 *    {x: -14, y: 30}
+		 * ]);
+		 */
+		this.mask = undefined;
+
+		/**
+		 * the list of post-processing shader effects applied to this renderable
+		 * (GPU backends — WebGL and WebGPU). Effects are applied in order. Use
+		 * {@link addPostEffect}, {@link getPostEffect}, and
+		 * {@link removePostEffect} to manage effects, or assign directly.
+		 * On the Canvas renderer effects stay inert (the scene keeps rendering
+		 * un-effected).
+		 * @type {Array<GLShader|ShaderEffect>}
+		 * @default []
+		 * @example
+		 * // add effects via helper methods
+		 * mySprite.addPostEffect(new DesaturateEffect(renderer));
+		 * mySprite.addPostEffect(new VignetteEffect(renderer));
+		 * @example
+		 * // assign directly
+		 * mySprite.postEffects = [new SepiaEffect(renderer), new VignetteEffect(renderer)];
+		 */
+		this.postEffects = [];
+
+		/**
+		 * whether this renderable manages its own FBO lifecycle (e.g. Camera2d)
+		 * @ignore
+		 * @internal
+		 */
+		this._postEffectManaged = false;
+
+		/**
+		 * the blend mode to be applied to this renderable — any of the modes
+		 * listed on {@link CanvasRenderer#setBlendMode}, honoured identically by
+		 * every renderer
+		 * @type {string}
+		 * @default "normal"
+		 * @see CanvasRenderer#setBlendMode
+		 * @see WebGLRenderer#setBlendMode
+		 */
+		this.blendMode = "normal";
+
+		/**
+		 * The name of the renderable
+		 * @type {string}
+		 * @default ""
+		 */
+		this.name = "";
+
+		/**
+		 * to identify the object as a renderable object
+		 * @ignore
+		 * @internal
+		 */
+		this.isRenderable = true;
+
+		/**
+		 * If true then physic collision and input events will not impact this renderable
+		 * @type {boolean}
+		 * @default true
+		 */
+		this.isKinematic = true;
+
+		/**
+		 * whether a single post effect on this renderable needs an offscreen
+		 * capture instead of the renderer's shader-swap fast path.
+		 *
+		 * One effect is normally applied by drawing the renderable with the
+		 * effect's own program rather than capturing and post-processing it,
+		 * which costs no render target. That is only equivalent when everything
+		 * the renderable draws is a textured quad. `fillRect` and the shape
+		 * dispatch go through a batcher that never looks at that shader, so a
+		 * single effect on a renderable that draws with primitives silently
+		 * does nothing. Set this and the capture is used instead, at the cost
+		 * of a render target while the effect is active.
+		 *
+		 * Two or more effects always capture, so this only ever changes the
+		 * single-effect case.
+		 * @type {boolean}
+		 * @default false
+		 * @example
+		 * class Bar extends Renderable {
+		 *     constructor(x, y, w, h) {
+		 *         super(x, y, w, h);
+		 *         // this draws itself with primitives, not as a sprite
+		 *         this.postEffectNeedsCapture = true;
+		 *     }
+		 *     draw(renderer) {
+		 *         renderer.fillRect(this.pos.x, this.pos.y, this.width, this.height);
+		 *     }
+		 * }
+		 */
+		this.postEffectNeedsCapture = false;
+
+		/**
+		 * when true the renderable will be redrawn during the next update cycle
+		 * @type {boolean}
+		 * @default true
+		 */
+		this.isDirty = true;
+
+		/**
+		 * cache the absolute position of the renderable
+		 * @ignore
+		 * @internal
+		 */
+		this._absPos = undefined;
+
+		/**
+		 * keep track of when we flip
+		 * @ignore
+		 * @internal
+		 */
+		this._flip = {
+			x: false,
+			y: false,
+		};
+
+		/**
+		 * viewport flag
+		 * @ignore
+		 * @internal
+		 */
+		this._inViewport = false;
+
+		/**
+		 * cache value for the parentApp
+		 * @ignore
+		 * @internal
+		 */
+		this._parentApp = undefined;
+
+		/**
+		 * renderable cache tint value used by the getter/setter
+		 * @ignore
+		 * @internal
+		 */
+		this._tint = colorPool.get(255, 255, 255, 1.0);
+
+		// ensure it's fully opaque by default
+		this.setOpacity(1.0);
+	}
+
+	/**
+	 * returns the parent application (or game) to which this renderable is attached to
+	 * @return {Application} the parent application or undefined if not attached to any container/app
+	 */
+	get parentApp() {
+		if (!this._parentApp && this.ancestor) {
+			// the `app` property is only defined in the world "root" container.
+			//
+			// `?.` because `getRootAncestor()` returns undefined for a tree that
+			// was never attached to a world — an off-world scratch container —
+			// and this getter documents itself as returning undefined in
+			// exactly that case rather than throwing. `Mesh.onDeactivateEvent`
+			// reads it during `removeChildNow`, so removing a mesh from a
+			// detached container threw instead.
+			this._parentApp = this.ancestor.getRootAncestor()?.app;
+		}
+		return this._parentApp;
+	}
+
+	/**
+	 * Whether the renderable object is floating (i.e. used screen coordinates), or contained in a floating parent container
+	 * @see Renderable#floating
+	 * @type {boolean}
+	 */
+	get isFloating() {
+		return (
+			this.floating === true ||
+			(this.ancestor && this.ancestor.isFloating === true)
+		);
+	}
+
+	/**
+	 * define a tint for this renderable. a (255, 255, 255) r, g, b value will remove the tint effect.
+	 * @type {Color}
+	 * @default (255, 255, 255)
+	 * @example
+	 * // add a red tint to this renderable
+	 * this.tint.setColor(255, 128, 128);
+	 * // remove the tint
+	 * this.tint.setColor(255, 255, 255);
+	 */
+	get tint() {
+		return this._tint;
+	}
+	/**
+	 * Takes a {@link Color} to copy, or a CSS colour string.
+	 *
+	 * It COPIES rather than holds, so a caller that goes on mutating what it
+	 * passed does not steer this renderable's tint by accident. What the
+	 * getter hands back is always a `Color`, whichever form went in.
+	 * @param {Color|string} value - the colour to tint with
+	 */
+	set tint(value) {
+		if (typeof value === "string") {
+			this._tint.parseCSS(value);
+		} else {
+			this._tint.copy(value);
+		}
+		this.isDirty = true;
+	}
+
+	/**
+	 * Tint this renderable, chainably.
+	 *
+	 * Exactly {@link Renderable#tint}'s own setter, returning the renderable
+	 * so it can be chained with the other `set*` methods. It exists because
+	 * `tint` is a live {@link Color}, so reaching for it means choosing
+	 * between `setColor` (0 to 255), `setFloat` (0 to 1), `parseCSS`,
+	 * `setHSL` and `setLinear` — and picking the wrong one is silent, it just
+	 * renders the wrong colour.
+	 *
+	 * Deliberately sRGB only. A LINEAR value, which in practice means a glTF
+	 * `baseColorFactor` or `emissiveFactor`, stays an explicit
+	 * `tint.setLinear(...)` so the conversion is never silent; for a mesh
+	 * built from an asset, pass {@link Mesh#baseColorFactor} as a setting and
+	 * the loader's value is applied for you.
+	 * @param {Color|string} value - a `Color` to copy, or a CSS colour string
+	 * @returns {this} this renderable, for chaining
+	 * @example
+	 * sprite.setTint("#ff8800");
+	 * // the same on any renderable, mesh included
+	 * mesh.setTint(theme.accent).setOpacity(0.5);
+	 * // remove a tint
+	 * sprite.setTint("#ffffff");
+	 */
+	setTint(value) {
+		this.tint = value;
+		return this;
+	}
+
+	/**
+	 * An offset, in pixels, added to this renderable's position when its
+	 * parent container sorts its children on `"y"` (or `"x"`), and used for
+	 * nothing else. It **never moves the renderable** and never changes where
+	 * or how it is drawn: it only decides whether it is drawn before or after
+	 * its siblings, and so which one is on top, and which one a pointer hits.
+	 * <br><br>
+	 * A container sorted on `"y"` draws its children from the smallest
+	 * `pos.y` to the largest, the last one on top. A child with a
+	 * `sortOffset` is lined up as if it stood that many pixels lower
+	 * (positive) or higher (negative), while staying where it is. Use it when
+	 * `pos` is not the point a renderable should be sorted by: the top of a
+	 * Tiled tile object's image, the top left corner of a container, or the
+	 * top of a particle emitter's spawn area.
+	 * <br><br>
+	 * - A container that keeps itself sorted (`autoSort`, the default) picks a
+	 *   change up at its next update; with `autoSort` off, call its `sort()`.
+	 * - Containers sorted on `"z"` or `"depth"` ignore it, and on `"x"` and
+	 *   `"y"` a different `pos.z` still decides first.
+	 * - Two children that come out equal keep their order, which draws the one
+	 *   added last BEHIND the other: an offset of `1` settles such a tie on
+	 *   purpose.
+	 * - A renderable taken from a pool starts again at `0`.
+	 * @type {number}
+	 * @default 0
+	 * @throws {TypeError} if set to anything but a finite number
+	 * @example
+	 * // a torch hung on a wall at the wall's own position: line it up
+	 * // 1 px lower, so that it is drawn over the wall
+	 * torch.sortOffset = 1;
+	 * @example
+	 * // a particle emitter's pos is the top of its spawn area. Dust rising at
+	 * // the foot of a door sits far below the door's pos, and would be drawn
+	 * // over everything between the two: line it up with the door instead
+	 * dust.sortOffset = door.pos.y - dust.pos.y;
+	 */
+	get sortOffset() {
+		return this._sortOffset;
+	}
+	set sortOffset(value) {
+		// a NaN or a string would quietly scramble the order of every sibling
+		// (`pos.y + "5"` is "1005"), so refuse it where it is set
+		if (typeof value !== "number" || !Number.isFinite(value)) {
+			throw new TypeError(
+				`sortOffset must be a finite number, not ${String(value)}`,
+			);
+		}
+		if (value === this._sortOffset) {
+			return;
+		}
+		this._sortOffset = value;
+	}
+
+	/**
+	 * the depth of this renderable on the z axis
+	 * @type {number}
+	 */
+	get depth() {
+		return this.pos.z;
+	}
+	set depth(value) {
+		this.pos.z = value;
+		this.isDirty = true;
+	}
+
+	/**
+	 * Move this renderable, optionally in three dimensions.
+	 *
+	 * `pos` holds an `ObservableVector3d`, but the geometry this class
+	 * inherits from declares it as a 2D vector, so from TypeScript
+	 * `pos.set(x, y)` takes two arguments and silently writes a zero z.
+	 * Anything with a depth then drops to the near plane. Reaching past that
+	 * previously meant a double cast or assigning `pos.x`, `pos.y` and
+	 * `depth` by hand, which is why that pattern is written out dozens of
+	 * times across the examples.
+	 *
+	 * **Omitting `z` leaves the depth exactly as it was**, rather than
+	 * zeroing it. That is the whole difference from `pos.set(x, y)`, and it
+	 * is what makes this safe to call on a 2D sprite that happens to sit at
+	 * a depth, or on a `Camera2d`, without having to know whether it does.
+	 * @param {number} x - the new x position
+	 * @param {number} y - the new y position
+	 * @param {number} [z] - the new depth; left untouched when omitted
+	 * @returns {this} this renderable, for chaining
+	 * @example
+	 * sprite.setPosition(120, 64);        // 2D: depth unchanged
+	 * mesh.setPosition(0, -20, 140);      // 3D
+	 * camera.setPosition(0, 0, -300).lookAt(player);
+	 */
+	setPosition(x, y, z) {
+		// ONE batched write, not three component assignments. `pos` is a
+		// proxied observable: every component write fires its callback, which
+		// runs `updateBounds()`. `set` mutes that and fires once, so this
+		// costs one bounds recompute where assigning `pos.x`, `pos.y` and
+		// `depth` in turn costs three. That matters because the paths this
+		// method exists for are per-frame ones.
+		//
+		// A type check on `z`, not a truthiness one: `setPosition(x, y, 0)`
+		// is a request to sit at depth zero, not an omitted argument. Omitted,
+		// the current depth is written back unchanged.
+		this.pos.set(x, y, typeof z === "number" ? z : this.pos.z);
+		return this;
+	}
+
+	/**
+	 * Whether the renderable object is visible and within the viewport
+	 * @type {boolean}
+	 * @default false
+	 */
+	get inViewport() {
+		return this._inViewport;
+	}
+	set inViewport(value) {
+		if (this._inViewport !== value) {
+			this._inViewport = value;
+			if (typeof this.onVisibilityChange === "function") {
+				this.onVisibilityChange.call(this, value);
+			}
+		}
+	}
+
+	/**
+	 * @deprecated since 19.2.0 — use {@link addPostEffect} / {@link getPostEffect} / {@link removePostEffect} instead
+	 * @type {GLShader|ShaderEffect|undefined}
+	 */
+	get shader() {
+		return this.postEffects[0];
+	}
+
+	set shader(value) {
+		// destroy existing effects before replacing
+		for (const effect of this.postEffects) {
+			// `effect.shared` opts a shader out of auto-destroy — it is reused
+			// across renderables, so freeing it here would break the others.
+			if (typeof effect.destroy === "function" && !effect.shared) {
+				effect.destroy();
+			}
+		}
+		// null clears like undefined: loader.getShader stores null for a
+		// shader asset the active backend cannot compile (e.g. a GLSL-only
+		// program pair under WebGPU) — assigning that must degrade to "no
+		// shader", not enqueue a null the effect filter would trip over
+		if (value == null) {
+			this.postEffects.length = 0;
+		} else {
+			this.postEffects = [value];
+			value._renderer?._queueWarm?.(this);
+		}
+	}
+
+	/**
+	 * Add a post-processing shader effect to this renderable.
+	 *
+	 * With the `prewarm` application setting on (the default), what the
+	 * effect will need to draw here is compiled from this call, off the
+	 * frame, rather than on the frame the renderable first draws with it.
+	 * That takes a moment to finish, so attach effects when the renderable
+	 * is built (a pool, a stage starting) rather than when it is shown.
+	 * @param {GLShader|ShaderEffect} effect - the effect to add
+	 * @returns {GLShader|ShaderEffect} the added effect
+	 * @example
+	 * mySprite.addPostEffect(new DesaturateEffect(renderer));
+	 */
+	addPostEffect(effect) {
+		this.postEffects.push(effect);
+		// compile what this effect will need now rather than on the frame the
+		// renderable first draws with it (honours the `prewarm` setting)
+		effect?._renderer?._queueWarm?.(this);
+		return effect;
+	}
+
+	/**
+	 * Get post-processing shader effects.
+	 * When called with a class, returns the first effect matching the given class.
+	 * When called without arguments, returns the full effects array.
+	 * @param {Function} [effectClass] - the effect class to search for
+	 * @returns {GLShader|ShaderEffect|Array|undefined} the matching effect, the effects array, or undefined
+	 * @example
+	 * const desat = sprite.getPostEffect(DesaturateEffect);
+	 * const allEffects = sprite.getPostEffect();
+	 */
+	getPostEffect(effectClass) {
+		if (typeof effectClass === "undefined") {
+			return this.postEffects;
+		}
+		return this.postEffects.find((fx) => {
+			return fx instanceof effectClass;
+		});
+	}
+
+	/**
+	 * Remove all post-processing shader effects.
+	 * @example
+	 * sprite.clearPostEffects();
+	 */
+	clearPostEffects() {
+		for (const effect of this.postEffects) {
+			// `effect.shared` opts a shader out of auto-destroy — it is reused
+			// across renderables, so freeing it here would break the others.
+			if (typeof effect.destroy === "function" && !effect.shared) {
+				effect.destroy();
+			}
+		}
+		this.postEffects.length = 0;
+	}
+
+	/**
+	 * Remove a specific post-processing shader effect.
+	 * @param {GLShader|ShaderEffect} effect - the effect to remove
+	 * @example
+	 * sprite.removePostEffect(effect);
+	 */
+	removePostEffect(effect) {
+		const idx = this.postEffects.indexOf(effect);
+		if (idx !== -1) {
+			this.postEffects.splice(idx, 1);
+			// `effect.shared` opts a shader out of auto-destroy — it is reused
+			// across renderables, so freeing it here would break the others.
+			if (typeof effect.destroy === "function" && !effect.shared) {
+				effect.destroy();
+			}
+		}
+	}
+
+	/**
+	 * returns true if this renderable is flipped on the horizontal axis
+	 * @public
+	 * @see Renderable#flipX
+	 * @type {boolean}
+	 */
+	get isFlippedX() {
+		return this._flip.x === true;
+	}
+
+	/**
+	 * returns true if this renderable is flipped on the vertical axis
+	 * @public
+	 * @see Renderable#flipY
+	 * @type {boolean}
+	 */
+	get isFlippedY() {
+		return this._flip.y === true;
+	}
+
+	/**
+	 * returns the bounding box for this renderable
+	 * @returns {Bounds} bounding box Rectangle object
+	 */
+	getBounds() {
+		if (typeof this._bounds === "undefined") {
+			super.getBounds();
+			if (this.isFinite()) {
+				this.updateBounds();
+			} else {
+				// e.g. containers or game world can have infinite size
+				this._bounds.setMinMax(this.pos.x, this.pos.y, this.width, this.height);
+			}
+		}
+		return this._bounds;
+	}
+
+	/**
+	 * get the renderable alpha channel value<br>
+	 *
+	 * This is the renderable's OWN value. What it finally draws at is this
+	 * multiplied by every ancestor's — see {@link Renderable#alpha}.
+	 * @returns {number} current opacity value between 0 and 1
+	 */
+	getOpacity() {
+		return this.alpha;
+	}
+
+	/**
+	 * set the renderable alpha channel value<br>
+	 * @param {number} alpha - opacity value between 0.0 and 1.0
+	 */
+	setOpacity(alpha) {
+		if (typeof alpha === "number") {
+			this.alpha = clamp(alpha, 0.0, 1.0);
+			// Set to 1 if alpha is NaN
+			if (isNaN(this.alpha)) {
+				this.alpha = 1.0;
+			}
+			this.isDirty = true;
+		}
+	}
+
+	/**
+	 * flip the renderable on the horizontal axis (around the center of the renderable)
+	 * @see Matrix3d#scaleX
+	 * @param {boolean} [flip=true] - `true` to flip this renderable.
+	 * @returns {Renderable} Reference to this object for method chaining
+	 */
+	flipX(flip = true) {
+		this._flip.x = !!flip;
+		this.isDirty = true;
+		return this;
+	}
+
+	/**
+	 * flip the renderable on the vertical axis (around the center of the renderable)
+	 * @see Matrix3d#scaleY
+	 * @param {boolean} [flip=true] - `true` to flip this renderable.
+	 * @returns {Renderable} Reference to this object for method chaining
+	 */
+	flipY(flip = true) {
+		this._flip.y = !!flip;
+		this.isDirty = true;
+		return this;
+	}
+
+	/**
+	 * multiply the renderable currentTransform with the given matrix
+	 * @see Renderable#currentTransform
+	 * @param {Matrix2d|Matrix3d} m - the transformation matrix
+	 * @returns {this} Reference to this object for method chaining
+	 */
+	transform(m) {
+		this.currentTransform.multiply(m);
+		this.updateBounds();
+		this.isDirty = true;
+		return this;
+	}
+
+	/**
+	 * return the angle to the specified target
+	 * @param {Renderable|Vector2d|Vector3d} target
+	 * @returns {number} angle in radians
+	 */
+	angleTo(target) {
+		const a = this.getBounds();
+		let ax;
+		let ay;
+
+		if (target instanceof Renderable) {
+			const b = target.getBounds();
+			ax = b.centerX - a.centerX;
+			ay = b.centerY - a.centerY;
+		} else {
+			// vector object
+			ax = target.x - a.centerX;
+			ay = target.y - a.centerY;
+		}
+
+		return Math.atan2(ay, ax);
+	}
+
+	/**
+	 * return the distance to the specified target
+	 * @param {Renderable|Vector2d|Vector3d} target
+	 * @returns {number} distance
+	 */
+	distanceTo(target) {
+		const a = this.getBounds();
+		let dx;
+		let dy;
+
+		if (target instanceof Renderable) {
+			const b = target.getBounds();
+			dx = a.centerX - b.centerX;
+			dy = a.centerY - b.centerY;
+		} else {
+			// vector object
+			dx = a.centerX - target.x;
+			dy = a.centerY - target.y;
+		}
+
+		return Math.sqrt(dx * dx + dy * dy);
+	}
+
+	/**
+	 * Rotate this renderable towards the given target.
+	 * @param {Renderable|Vector2d|Vector3d} target - the renderable or position to look at
+	 * @returns {Renderable} Reference to this object for method chaining
+	 */
+	lookAt(target) {
+		let position;
+
+		if (target instanceof Renderable) {
+			position = target.pos;
+		} else {
+			position = target;
+		}
+
+		const angle = this.angleTo(position);
+
+		this.rotate(angle);
+
+		return this;
+	}
+
+	/**
+	 * Rotate this renderable by the specified angle (in radians).
+	 * When called with just an angle, rotates around the Z axis (2D rotation).
+	 * When called with an angle and a Vector3d axis, rotates around that axis in 3D.
+	 * @param {number} angle - The angle to rotate (in radians)
+	 * @param {Vector3d} [v] - the axis to rotate around (defaults to Z axis for 2D)
+	 * @returns {this} Reference to this object for method chaining
+	 */
+	rotate(angle, v) {
+		if (angle !== 0) {
+			this.currentTransform.rotate(angle, v);
+			this.updateBounds();
+			this.isDirty = true;
+		}
+		return this;
+	}
+
+	/**
+	 * scale the renderable around his anchor point.  Scaling actually applies changes
+	 * to the currentTransform member which is used by the renderer to scale the object
+	 * when rendering.  It does not scale the object itself.  For example if the renderable
+	 * is an image, the image.width and image.height properties are unaltered but the currentTransform
+	 * member will be changed.
+	 * @param {number} x - a number representing the abscissa of the scaling vector.
+	 * @param {number} [y=x] - a number representing the ordinate of the scaling vector.
+	 * @param {number} [z=1] - a number representing the depth of the scaling vector.
+	 * @returns {this} Reference to this object for method chaining
+	 */
+	scale(x, y = x, z = 1) {
+		this.currentTransform.scale(x, y, z);
+		this.updateBounds();
+		this.isDirty = true;
+		return this;
+	}
+
+	/**
+	 * scale the renderable around his anchor point
+	 * @param {Vector2d} v - scaling vector
+	 * @returns {this} Reference to this object for method chaining
+	 */
+	scaleV(v) {
+		this.scale(v.x, v.y);
+		return this;
+	}
+
+	/**
+	 * Translate the renderable by the specified offset.
+	 * @param {number|Vector2d|Vector3d} x - x offset, or a vector to translate by
+	 * @param {number} [y=0] - y offset, ignored when the first argument is a vector
+	 * @param {number} [z=0] - z offset, ignored when the first argument is a vector
+	 * @returns {this} Reference to this object for method chaining
+	 */
+	translate(x, y = 0, z = 0) {
+		this.currentTransform.translate(x, y, z);
+		this.updateBounds();
+		this.isDirty = true;
+		return this;
+	}
+
+	/**
+	 * update function (automatically called by melonJS).
+	 * @param {number} dt - time since the last update in milliseconds.
+	 * @returns {boolean} true if the renderable is dirty
+	 */
+	// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+	update(dt) {
+		return this.isDirty;
+	}
+
+	/**
+	 * update the bounding box for this shape.
+	 * @param {boolean} [absolute=true] - update the bounds size and position in (world) absolute coordinates
+	 * @returns {Bounds} this shape bounding box Rectangle object
+	 */
+	updateBounds(absolute = true) {
+		if (this.isRenderable) {
+			const bounds = this.getBounds();
+
+			bounds.clear();
+			if (this.autoTransform === true && !this.currentTransform.isIdentity()) {
+				// temporarily translate the matrix based on the anchor point
+				this.currentTransform.translate(
+					-this.width * this.anchorPoint.x,
+					-this.height * this.anchorPoint.y,
+				);
+				bounds.addFrame(0, 0, this.width, this.height, this.currentTransform);
+				this.currentTransform.translate(
+					this.width * this.anchorPoint.x,
+					this.height * this.anchorPoint.y,
+				);
+			} else {
+				bounds.addFrame(0, 0, this.width, this.height);
+				// translate the bounds based on the anchor point
+				bounds.translate(
+					-this.width * this.anchorPoint.x,
+					-this.height * this.anchorPoint.y,
+				);
+			}
+
+			if (absolute === true) {
+				const absPos = this.getAbsolutePosition();
+				bounds.centerOn(
+					absPos.x + bounds.x + bounds.width / 2,
+					absPos.y + bounds.y + bounds.height / 2,
+				);
+			}
+			return bounds;
+		} else {
+			// manage the case where updateBounds is called
+			// before the object being yet properly initialized
+			return super.updateBounds(absolute);
+		}
+	}
+
+	/**
+	 * Where this renderable IS in the game world — its own `pos` plus every
+	 * ancestor's, as a {@link Vector3d} so the z component is summed across
+	 * the chain too (important for {@link Camera3d}'s frustum culling, which
+	 * previously read `obj.depth` — local `pos.z` — and mis-culled children
+	 * nested under a container with its own non-zero depth).
+	 *
+	 * **Reach for this** for anything positional: culling, distance checks,
+	 * hit tests, placing one renderable relative to another. It is cheap, and
+	 * it is what the engine's own culling uses.
+	 *
+	 * **Reach for {@link Renderable#getWorldTransform} instead** when a
+	 * position is not enough — when rotation, scale or flip along the ancestor
+	 * chain matters, or when you need to map an arbitrary point rather than
+	 * just the origin. This method sums translations only, so under a rotated
+	 * or scaled ancestor it reports where the renderable's *pivot* is and
+	 * nothing about how its content is oriented.
+	 *
+	 * Note the two also frame the question differently. This one is "where am
+	 * I"; `getWorldTransform()` is "what space is my content drawn in". For a
+	 * {@link Container} those coincide, because a container offsets its
+	 * children by its own position. For a leaf they differ by exactly that
+	 * position, which a leaf applies inside its own `draw()`.
+	 *
+	 * The returned vector is pooled and reused — copy it if you need to hold
+	 * onto the value across another call.
+	 * @returns {Vector3d} this renderable's absolute position
+	 * @see Renderable#getWorldTransform
+	 */
+	getAbsolutePosition() {
+		if (typeof this._absPos === "undefined") {
+			this._absPos = vector3dPool.get();
+		}
+		// TODO: cache the absolute position and invalidate when pos or ancestor changes
+		this._absPos.set(this.pos.x, this.pos.y, this.pos.z);
+		if (this.ancestor && this.floating !== true) {
+			this._absPos.add(this.ancestor.getAbsolutePosition());
+		}
+		return this._absPos;
+	}
+
+	/**
+	 * The transform this renderable interposes between its ancestor's frame
+	 * and the frame its own content is drawn in — a mirror of what
+	 * {@link Renderable#preDraw} applies to the renderer, as a matrix.
+	 *
+	 * **This is not {@link Renderable#currentTransform}.** A renderable's
+	 * placement is split across two members: `pos` holds where it is, and
+	 * `currentTransform` holds only what `rotate()` / `scale()` / `translate()`
+	 * accumulate — it never contains the position. `preDraw` composes the two
+	 * by conjugation, so a rotation pivots about the renderable's position
+	 * rather than the origin. On a renderable you never rotated,
+	 * `currentTransform` is therefore the *identity* and says nothing about
+	 * where its content lands, while this method returns the translation that
+	 * actually places it.
+	 *
+	 * {@link Container} extends this with the offset it applies to its
+	 * children, which a leaf renderable does not have: a leaf's own `draw()`
+	 * places itself from `pos`.
+	 * @protected
+	 * @param {Matrix3d} out - matrix to write into; nothing is stored on the
+	 * renderable itself, so callers own the lifetime
+	 * @returns {Matrix3d} `out`, for chaining
+	 * @see Renderable#getWorldTransform
+	 */
+	getLocalTransform(out) {
+		// `Infinity`-sized renderables anchor at 0 — same guard, and for the
+		// same reason, as preDraw: `Infinity * 0` is `NaN` and would poison
+		// every matrix composed from it.
+		const ax = Number.isFinite(this.width)
+			? this.width * this.anchorPoint.x
+			: 0;
+		const ay = Number.isFinite(this.height)
+			? this.height * this.anchorPoint.y
+			: 0;
+
+		out.identity();
+
+		if (this._flip.x || this._flip.y) {
+			const dx = this._flip.x ? this.centerX - ax : 0;
+			const dy = this._flip.y ? this.centerY - ay : 0;
+
+			out.translate(dx, dy);
+			out.scale(this._flip.x ? -1 : 1, this._flip.y ? -1 : 1);
+			out.translate(-dx, -dy);
+		}
+
+		if (this.autoTransform === true && !this.currentTransform.isIdentity()) {
+			out.translate(this.pos.x, this.pos.y);
+			out.multiply(this.currentTransform);
+			out.translate(-this.pos.x, -this.pos.y);
+		}
+
+		if (this.applyAnchorTransform !== false) {
+			out.translate(-ax, -ay);
+		}
+
+		return out;
+	}
+
+	/**
+	 * The space this renderable's content is drawn IN, as a matrix — the full
+	 * form of {@link Renderable#getAbsolutePosition}, which sums positions up
+	 * the ancestor chain and therefore cannot represent the rotation, scale or
+	 * flip accumulated along the way.
+	 *
+	 * **Reach for `getAbsolutePosition()` instead** for ordinary positional
+	 * work — culling, distance checks, hit tests. It is cheaper and it is what
+	 * the engine culls with. **Use this** when a position is not enough:
+	 *
+	 * - an ancestor is rotated or scaled, so a translation cannot describe the
+	 *   result
+	 * - you need to map an arbitrary point, not just the origin — a corner, a
+	 *   click position, one renderable's coordinates into another's space
+	 * - you need to compose or invert the transform (`inv(A) · B` converts
+	 *   between two frames, which is how `ParticleEmitter.referenceSpace`
+	 *   measures particles against a container that is not their parent)
+	 *
+	 * The two also frame the question differently, and it shows on a leaf.
+	 * `getAbsolutePosition()` is "where am I"; this is "what space is my
+	 * content drawn in". For a {@link Container} those coincide, because a
+	 * container offsets its children by its own position. For a leaf they
+	 * differ by exactly that position, which a leaf applies inside its own
+	 * `draw()`. So with no rotation, scale or flip anywhere, a container's
+	 * translation column equals its `getAbsolutePosition()` while a leaf's
+	 * equals its PARENT's.
+	 *
+	 * The walk stops at a `floating` ancestor, because a floating renderable
+	 * draws in screen space: {@link Container#draw} resets the transform
+	 * outright for those, so the chain genuinely ends there rather than
+	 * continuing to the root.
+	 *
+	 * The camera needs no special handling — {@link Camera2d} folds its view
+	 * transform into the root container's `currentTransform`, so it is picked
+	 * up like any other level.
+	 * @param {Matrix3d} out - matrix to write into; nothing is stored on the
+	 * renderable itself, so callers own the lifetime
+	 * @returns {Matrix3d} `out`, for chaining
+	 * @see Renderable#getAbsolutePosition
+	 * @example
+	 * // map a point from one renderable's space into another's
+	 * const from = a.getWorldTransform(new Matrix3d());
+	 * const into = b.getWorldTransform(new Matrix3d()).invert();
+	 * const point = new Vector2d(10, 20);       // in a's space
+	 * from.apply(point);                        // -> world
+	 * into.apply(point);                        // -> b's space
+	 * @example
+	 * // just need to know where something is? use the cheaper call
+	 * const where = renderable.getAbsolutePosition();
+	 */
+	getWorldTransform(out) {
+		// Collect the chain upward, then compose downward. Iterative rather
+		// than recursive so no per-level temporary is needed — one shared
+		// scratch suffices, and the chain array is reused across calls.
+		_chain.length = 0;
+		_chain.push(this);
+		if (this.floating !== true) {
+			let node = this.ancestor;
+			while (typeof node !== "undefined" && node !== null) {
+				_chain.push(node);
+				if (node.floating === true) {
+					break;
+				}
+				node = node.ancestor;
+			}
+		}
+
+		out.identity();
+		for (let i = _chain.length; i-- > 0; ) {
+			out.multiply(_chain[i].getLocalTransform(_level));
+		}
+		// drop the references rather than pinning a whole subtree alive
+		_chain.length = 0;
+
+		return out;
+	}
+
+	/**
+	 * Prepare the rendering context before drawing (automatically called by melonJS).
+	 * This will apply any defined transforms, anchor point, tint or blend mode and translate the context accordingly to this renderable position.
+	 * @see Renderable#draw
+	 * @see Renderable#postDraw
+	 * @param {Renderer} renderer - a renderer object
+	 */
+	preDraw(renderer) {
+		// The anchor offset of an `Infinity`-sized renderable (a Container's
+		// default size, ColorLayer) is `NaN` (`Infinity * 0`) or `±Infinity` —
+		// one `translate()` by that writes NaN into the transform's z column
+		// (the sub-pixel snap only repairs tx/ty), and every batched vertex
+		// recorded under it inherits z = NaN and is clipped away by the GPU
+		// backends. The 2D canvas context ignores non-finite transforms per
+		// spec; match it by treating the offset as 0 — an anchor point has no
+		// meaningful offset on an infinite size anyway.
+		const ax = Number.isFinite(this.width)
+			? this.width * this.anchorPoint.x
+			: 0;
+		const ay = Number.isFinite(this.height)
+			? this.height * this.anchorPoint.y
+			: 0;
+
+		// save renderer context
+		renderer.save();
+
+		// apply the defined alpha value
+		renderer.setGlobalAlpha(renderer.globalAlpha() * this.getOpacity());
+
+		// apply flip
+		if (this._flip.x || this._flip.y) {
+			const dx = this._flip.x ? this.centerX - ax : 0;
+			const dy = this._flip.y ? this.centerY - ay : 0;
+
+			renderer.translate(dx, dy);
+			renderer.scale(this._flip.x ? -1 : 1, this._flip.y ? -1 : 1);
+			renderer.translate(-dx, -dy);
+		}
+
+		// apply stencil mask if defined
+		if (this.mask) {
+			renderer.translate(this.pos.x, this.pos.y);
+			renderer.setMask(this.mask);
+			renderer.translate(-this.pos.x, -this.pos.y);
+		}
+
+		// delegate post-effect setup to the renderer.
+		// Camera manages its own FBO lifecycle in draw().
+		if (!this._postEffectManaged) {
+			renderer.beginPostEffect(this);
+		}
+
+		if (this.autoTransform === true && !this.currentTransform.isIdentity()) {
+			// apply the renderable transformation matrix
+			renderer.translate(this.pos.x, this.pos.y);
+			renderer.transform(this.currentTransform);
+			renderer.translate(-this.pos.x, -this.pos.y);
+		}
+
+		// offset by the anchor point — unless this renderable manages its own
+		// world placement (see Renderable#applyAnchorTransform), in which case
+		// the normalized anchor offset must not leak into the renderer/view
+		// transform.
+		if (this.applyAnchorTransform !== false) {
+			renderer.translate(-ax, -ay);
+		}
+
+		// its own transform applied: its effects learn where it is, for the
+		// ones that place a pattern on it (a sway's planted row, a shine's
+		// sweep). Optional, for a renderer that is not a `Renderer`
+		if (!this._postEffectManaged && this.postEffects.length > 0) {
+			renderer._setEffectSpace?.(this);
+		}
+
+		// Apply the current tint and opacity.
+		//
+		// Multiplied by the alpha already on the renderer, so opacity
+		// CASCADES: fading a container fades everything under it, which is
+		// what `alpha` is for and what `save()`/`restore()` already preserve
+		// (`RenderState` stacks `currentTint`, and every renderable is wrapped
+		// by `preDraw`/`postDraw`). Assigning it outright made a child
+		// overwrite its parent's value, so a half-faded container still drew
+		// a fully opaque subtree — and `Container.setChildsProperty` was the
+		// only way to fade a tree, which is a bulk value setter, not the same
+		// thing at all.
+		//
+		// Read BEFORE the call: `setTint` copies the tint over `currentTint`,
+		// alpha included, so the inherited value has to be captured first.
+		// `?? 1` for a renderer that carries no tint state of its own: the
+		// stock ones always do (`Renderer` takes it from its `RenderState`),
+		// but a stub or a custom backend need not, and a missing cascade must
+		// degrade to "no inherited fade" rather than throw mid-frame.
+		renderer.setTint(
+			this.tint,
+			this.getOpacity() * (renderer.currentTint?.alpha ?? 1),
+		);
+
+		// forward depth to the renderer — pushed into the WebGL vertex
+		// stream as the `z` component by the batchers. No visible effect
+		// under the default ortho projection; required for perspective
+		// (Camera3d) to scale and parallax this renderable by distance.
+		renderer.setDepth(this.depth);
+
+		// apply blending if different from "normal"
+		if (this.blendMode !== renderer.getBlendMode()) {
+			renderer.setBlendMode(this.blendMode);
+		}
+	}
+
+	/**
+	 * Draw this renderable (automatically called by melonJS).
+	 * All draw operations for renderable are made respectively
+	 * to the position or transforms set or applied by the preDraw method.
+	 * The main draw loop will first call preDraw() to prepare the context for drawing the renderable,
+	 * then draw() to draw the renderable, and finally postDraw() to clear the context.
+	 * If you override this method, be mindful about the drawing logic: `preDraw`
+	 * applies this renderable's transforms, tint and anchor offset, but does
+	 * **not** translate to `this.pos`. The renderer arrives positioned at the
+	 * parent container's origin, so draw relative to `this.pos` — drawing at
+	 * `(0, 0)` places the shape at the container's origin instead.
+	 * @see Renderable#preDraw
+	 * @see Renderable#postDraw
+	 * @param {Renderer} renderer - a renderer instance
+	 * @param {Camera2d|Container} [viewport] - the frame this draw happens in:
+	 * the camera drawing it, or -- when a camera is itself the renderable being
+	 * drawn -- the container it draws. `Camera2d#draw` takes the second, and
+	 * declaring only the first here meant a camera was not assignable to the
+	 * `Renderable` it extends, which cascaded into every signature mentioning
+	 * either of them
+	 */
+	// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+	draw(renderer, viewport) {
+		// empty one !
+	}
+
+	/**
+	 * restore the rendering context after drawing (automatically called by melonJS).
+	 * @see Renderable#preDraw
+	 * @see Renderable#draw
+	 * @param {Renderer} renderer - a renderer object
+	 */
+	postDraw(renderer) {
+		// remove the previously applied tint
+		renderer.clearTint();
+
+		// clear the mask if set
+		if (this.mask) {
+			renderer.clearMask();
+		}
+
+		// finalize post-effects (renderer decides what to do)
+		if (!this._postEffectManaged) {
+			renderer.endPostEffect(this);
+		}
+
+		// restore the context (also restores customShader)
+		renderer.restore();
+
+		// reset the dirty flag
+		this.isDirty = false;
+	}
+
+	/**
+	 * Legacy collision callback — fires every frame this renderable body is
+	 * overlapping another body. Kept for backward compatibility with code
+	 * written against pre-19.5 melonJS; semantics are unchanged from the
+	 * 19.4 contract.
+	 *
+	 * **NOTE — `onCollision` is NOT equivalent to {@link Renderable.onCollisionActive}.**
+	 * The two handlers exist side by side and have intentionally different
+	 * contracts:
+	 *
+	 * | | `onCollision` (legacy) | `onCollisionActive` (modern) |
+	 * |---|---|---|
+	 * | Cadence for dynamic-dynamic pairs | 2× per frame per side | 1× per frame per side |
+	 * | `response.a` semantics | Fixed per pair (first body in detector call) | Always the receiver (`response.a === this`) |
+	 * | `response.b` semantics | Fixed per pair | Always the partner (`response.b === other`) |
+	 * | `response.normal` / `response.depth` | ✗ | ✓ — `normal.y < -0.7` = "push me up" |
+	 * | `return false` to skip push-out | ✓ (honored by SAT) | ✗ — use `bodyDef.isSensor` or `setSensor` instead |
+	 *
+	 * If you're writing new code, prefer `onCollisionActive`. Keep
+	 * `onCollision` only when its every-frame, return-false, fixed-`a`/`b`
+	 * semantics are what you want.
+	 *
+	 * @param {import("../physics/response.js").default} response - the SAT response object; the legacy handler receives this, not the adapter's `CollisionResponse`, which is why `normal` and `depth` are absent from the table above
+	 * @param {Renderable} other - the other renderable touching this one (a reference to response.a or response.b)
+	 * @returns {boolean} true if the object should respond to the collision (its position and velocity will be corrected); the return value is only honored by the builtin SAT adapter.
+	 * @example
+	 * // legacy collision handler — note the receiver-side check on response.a
+	 * onCollision(response) {
+	 *     if (response.b.body.collisionType === me.collision.types.ENEMY_OBJECT) {
+	 *         this.pos.sub(response.overlapV);
+	 *         this.hurt();
+	 *         return false;   // skip the SAT push-out
+	 *     }
+	 *     return true;
+	 * }
+	 */
+	// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+	onCollision(response, other) {
+		// Default returns `undefined` so that bodies without a user-defined
+		// `onCollision` get push-out by default (matches matter's "solver
+		// resolves contacts unless `isSensor`" model). A user-defined
+		// override returning `false` still opts out — that's the legacy
+		// SAT idiom for one-way platforms / triggers, preserved for
+		// backward compatibility. Subclasses that don't override this
+		// method effectively inherit the modern default.
+	}
+
+	/*
+	 * Modern collision lifecycle hooks (`onCollisionStart`,
+	 * `onCollisionActive`, `onCollisionEnd`) are intentionally NOT
+	 * defined on the base class. Subclasses override the ones they
+	 * care about; the adapter's dispatch logic checks
+	 * `typeof renderable.onCollisionX === "function"` to know whether
+	 * to fire them. Defining base stubs would make every renderable
+	 * "look like" it implements every hook, which would in turn make
+	 * the `onCollisionActive supersedes onCollision` rule fire even
+	 * for legacy-only code.
+	 *
+	 * Documented surface (subclasses implement these as needed):
+	 *
+	 *   onCollisionStart(response, other)
+	 *     One-shot on first contact. Use for stomp bounces, pickups,
+	 *     trigger entry. Receiver-symmetric (`response.a === this`,
+	 *     `response.b === other`). Same contract on every adapter.
+	 *
+	 *   onCollisionActive(response, other)
+	 *     Every step while two bodies remain in contact. The modern
+	 *     equivalent of `onCollision`, with different semantics:
+	 *       - 1× per frame per side (vs `onCollision`'s 2× for dyn-dyn)
+	 *       - `response.a === this`, `response.b === other`
+	 *       - `response.normal` is the MTV of the receiver
+	 *       - `return false` is NOT honored (use `bodyDef.isSensor`)
+	 *     When defined, `onCollision` is suppressed on the same
+	 *     renderable. Stomp idiom: `response.normal.y < -0.7`.
+	 *
+	 *   onCollisionEnd(response, other)
+	 *     One-shot when two bodies separate.
+	 */
+
+	/**
+	 * Destroy function<br>
+	 * @ignore
+	 * @internal
+	 */
+	destroy() {
+		// allow recycling object properties
+		this.currentTransform = undefined;
+
+		this.anchorPoint.revoke();
+		this.anchorPoint = undefined;
+
+		this.pos = undefined;
+
+		if (this._absPos) {
+			vector3dPool.release(this._absPos);
+			this._absPos = undefined;
+		}
+
+		if (this._bounds) {
+			boundsPool.release(this._bounds);
+			this._bounds = undefined;
+		}
+
+		this.onVisibilityChange = undefined;
+
+		if (this.mask) {
+			// Dropped, not recycled. A mask is whatever the GAME handed us
+			// (`Rect`, `RoundRect`, `Polygon`, `Line` or `Ellipse`), and a
+			// renderable has no claim on an object it did not allocate: the
+			// same instance may still be masking something else, so returning
+			// it to a pool would hand a live shape to the next caller.
+			//
+			// This used to be `pool.push(this.mask)`, which THREW for every
+			// one of those types, because the legacy pool only knows classes
+			// registered with it and no geometry ever is. So the recycling it
+			// looked like it was doing had never once happened, while
+			// `destroy()` threw for any renderable carrying a mask at all.
+			// `boundsPool.release` above has already run by this point, so the
+			// throw left the bounds recycled, skipped the tint release below,
+			// and escaped into whatever was tearing the scene down.
+			this.mask = undefined;
+		}
+
+		if (this._tint) {
+			colorPool.release(this._tint);
+			this._tint = undefined;
+		}
+
+		// cannot import and reference a Container from a Renderable, since Container extends Renderable, creating a circular dependency
+		//if (this.ancestor instanceof Container || this.ancestor instanceof Entity) {
+		this.ancestor = undefined;
+
+		// cannot import and reference a Application from a Renderable, messsing up class order in the bundle
+		//if (this._parentApp instanceof Application) {
+		this._parentApp = undefined;
+		//}
+
+		// destroy the physic body if a builtin body object
+		if (this.body instanceof Body) {
+			this.body.destroy.apply(this.body, arguments);
+			this.body = undefined;
+		}
+
+		// release all registered events
+		releaseAllPointerEvents(this);
+
+		// call the user defined destroy method
+		this.onDestroyEvent.apply(this, arguments);
+
+		// destroy any shader effects if not done by the user through onDestroyEvent()
+		for (const effect of this.postEffects) {
+			// `effect.shared` opts a shader out of auto-destroy — it is reused
+			// across renderables, so freeing it here would break the others.
+			if (typeof effect.destroy === "function" && !effect.shared) {
+				effect.destroy();
+			}
+		}
+		this.postEffects.length = 0;
+	}
+
+	/**
+	 * OnDestroy Notification function<br>
+	 * Called by engine before deleting the object. Receives whatever
+	 * `destroy(...args)` was called with — the production path
+	 * (`Container.removeChildNow`) passes nothing. {@link Stage} has its own
+	 * `onDestroyEvent`, which does forward the active Application.
+	 * @param {...*} _args - forwarded by `destroy(...args)`; normally empty
+	 */
+	onDestroyEvent(..._args) {
+		// to be extended !
+	}
+
+	/**
+	 * Lifecycle hook fired by {@link Container} when this renderable is
+	 * added to a container that is part of the active scene graph.
+	 * Override to wire up input handlers, register external listeners,
+	 * or grab adapter references — `this.parentApp` is guaranteed to be
+	 * available here. Pair with {@link Renderable#onDeactivateEvent}.
+	 * @param {...*} _args - the rest parameter exists for subclass-signature
+	 * compatibility; `Container.addChild` currently forwards nothing
+	 */
+	onActivateEvent(..._args) {
+		// to be extended !
+	}
+
+	/**
+	 * Lifecycle hook fired by {@link Container} when this renderable is
+	 * removed from its container or its container is itself removed.
+	 * Override to release input handlers, unsubscribe from events, or
+	 * drop adapter references. Pair with {@link Renderable#onActivateEvent}.
+	 * @param {...*} _args - the rest parameter exists for subclass-signature
+	 * compatibility; `Container.removeChildNow` currently forwards nothing
+	 */
+	onDeactivateEvent(..._args) {
+		// to be extended !
+	}
+}
+
+/**
+ * Restore the mutable `Renderable` state a recycled instance must not inherit.
+ *
+ * A pool hands the SAME object back, so everything the previous user wrote
+ * stays written. `onResetEvent` applies the new settings and nothing else, and
+ * the fields below are the ones a game routinely drives: a damage number
+ * tweened to `alpha` 0 came back invisible, a popup scaled up came back large,
+ * a flash faded out came back faded. Named here rather than in each pooled
+ * class so the list has one home.
+ *
+ * Owned resources follow `destroy()`: the mask is dropped rather than recycled,
+ * since it belongs to the game, and post effects are destroyed unless they are
+ * `shared`. A body is left alone: a pooled label is not expected to carry one,
+ * and tearing one down from a reset would be a surprise.
+ * @param {Renderable} renderable - the instance being handed out again
+ * @ignore
+ * @internal
+ */
+export function resetRenderableState(renderable) {
+	renderable.setOpacity(1.0);
+	renderable.tint.setColor(255, 255, 255, 1.0);
+	renderable.blendMode = "normal";
+	renderable.name = "";
+	renderable.floating = false;
+	renderable.isRenderable = true;
+	renderable.isKinematic = true;
+	renderable.visibleInAllCameras = false;
+	renderable.visibilityLayer = 1;
+	renderable.alwaysUpdate = false;
+	renderable.updateWhenPaused = false;
+	renderable.isPersistent = false;
+	renderable.autoTransform = true;
+	renderable.applyAnchorTransform = true;
+	renderable.postEffectNeedsCapture = false;
+	renderable.anchorPoint.set(0.5, 0.5);
+	renderable.sortOffset = 0;
+	renderable.currentTransform.identity();
+	renderable._flip.x = false;
+	renderable._flip.y = false;
+	renderable.mask = undefined;
+	for (const effect of renderable.postEffects) {
+		if (typeof effect.destroy === "function" && !effect.shared) {
+			effect.destroy();
+		}
+	}
+	renderable.postEffects.length = 0;
+	renderable.isDirty = true;
+}

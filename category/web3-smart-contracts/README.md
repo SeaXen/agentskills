@@ -1,7 +1,7 @@
 # 🪙 Web3, Solidity & DeFi Architecture
 
 > **Category**: `web3-smart-contracts`  
-> **Total Curated Skills**: 243 skills  
+> **Total Curated Skills**: 244 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -74,6 +74,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`contract-auditor`](../../library/buzzbysolcex-buzz-bd-agent/skills/contract-auditor) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | Solidity/EVM smart contract security analyzer for Buzz BD Agent at SolCex Exchange. Performs fa... |
 | [`cosmos-vulnerability-scanner`](../../library/trailofbits-skills/skills/cosmos-vulnerability-scanner) | ⚪ Reserve | `trailofbits-skills` | Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabiliti... |
 | [`critique-typography`](../../library/owl-listener-designer-skills/skills/critique-typography) | ⚪ Reserve | `owl-listener-designer-skills` | Critique a rendered screen's typography — scale usage, readability, consistency, and token comp... |
+| [`crypto`](../../library/snailsploit-claude-red/skills/crypto) | ⚪ Reserve | `snailsploit-claude-red` |  |
 | [`crypto-bd-agent`](../../library/antigravity-awesome-skills/skills/crypto-bd-agent) | ⚪ Reserve | `antigravity-awesome-skills` | Autonomous crypto business development patterns — multi-chain token discovery, 100-point scorin... |
 | [`crypto-market-rank`](../../library/binance-binance-skills-hub/skills/crypto-market-rank) | ⚪ Reserve | `binance-binance-skills-hub` | Crypto market leaderboards — ranked aggregate feeds across the whole market: social-hype/sentim... |
 | [`crypto-protocol-diagram`](../../library/trailofbits-skills/skills/crypto-protocol-diagram) | ⚪ Reserve | `trailofbits-skills` | Extracts protocol message flow from source code, RFCs, academic papers, pseudocode, informal pr... |

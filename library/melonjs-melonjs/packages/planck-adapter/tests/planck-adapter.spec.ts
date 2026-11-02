@@ -1,0 +1,974 @@
+/**
+ * PlanckAdapter feature-parity spec.
+ *
+ * Verifies the adapter behaves equivalently to BuiltinAdapter on the same
+ * PhysicsAdapter contract — bodies fall under gravity, applyForce works,
+ * velocity / position / static / collision masks / isGrounded / raycast
+ * all behave sensibly. We don't pixel-compare positions to BuiltinAdapter
+ * (the two engines integrate differently); we assert that each behaviour
+ * is observable and consistent.
+ */
+
+import {
+	Application,
+	type BodyShape,
+	Box3d,
+	boot,
+	collision,
+	Ellipse,
+	Line,
+	Point,
+	Polygon,
+	Rect,
+	Renderable,
+	Sphere,
+	Vector2d,
+	video,
+	World,
+} from "melonjs";
+import * as planck from "planck";
+import { beforeAll, beforeEach, describe, expect, it } from "vitest";
+import { PlanckAdapter } from "../src/index";
+
+const FRAME_MS = 16.6667;
+
+/**
+ * Step the world enough frames for the simulation to settle a behaviour.
+ * @param adapter the adapter under test
+ * @param frames number of frames to step (each frame = `FRAME_MS` ms)
+ */
+function stepFrames(adapter: PlanckAdapter, frames: number): void {
+	for (let i = 0; i < frames; i++) {
+		adapter.step(FRAME_MS);
+		adapter.syncFromPhysics();
+	}
+}
+
+describe("PlanckAdapter — feature parity with BuiltinAdapter", () => {
+	let adapter: PlanckAdapter;
+
+	beforeAll(async () => {
+		boot();
+		const app = new Application(800, 600, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.CANVAS,
+		});
+		await app.init();
+	});
+
+	beforeEach(() => {
+		// Default gravity = (0, 320) px/s² ≈ 10 m/s² at pixelsPerMeter=32
+		adapter = new PlanckAdapter();
+		// The World constructor wires this adapter into a real melonJS
+		// World container — required for adapter.init() to fire even
+		// though the world reference itself isn't used in assertions.
+		new World(0, 0, 800, 600, adapter);
+	});
+
+	describe("metadata + capabilities", () => {
+		it("advertises name / version / url / physicLabel", () => {
+			expect(adapter.name).toEqual("@melonjs/planck-adapter");
+			expect(typeof adapter.version).toEqual("string");
+			expect(adapter.url).toContain("npmjs.com");
+			expect(adapter.physicLabel).toEqual("planck");
+		});
+
+		it("declares richer capabilities than BuiltinAdapter", () => {
+			expect(adapter.capabilities.constraints).toEqual(true);
+			expect(adapter.capabilities.continuousCollisionDetection).toEqual(true);
+			expect(adapter.capabilities.sleepingBodies).toEqual(true);
+			expect(adapter.capabilities.raycasts).toEqual(true);
+			expect(adapter.capabilities.velocityLimit).toEqual(true);
+			expect(adapter.capabilities.isGrounded).toEqual(true);
+		});
+
+		it("exposes pixelsPerMeter (default 32)", () => {
+			expect(adapter.pixelsPerMeter).toEqual(32);
+		});
+
+		it("honors a custom pixelsPerMeter", () => {
+			const custom = new PlanckAdapter({ pixelsPerMeter: 50 });
+			expect(custom.pixelsPerMeter).toEqual(50);
+		});
+	});
+
+	describe("adapter.planck escape hatch", () => {
+		it("exposes the raw planck namespace", () => {
+			expect(adapter.planck).toBeDefined();
+			expect(adapter.planck.World).toBeDefined();
+			expect(adapter.planck.Vec2).toBeDefined();
+			expect(adapter.planck.Box).toBeDefined();
+			expect(adapter.planck.Circle).toBeDefined();
+		});
+
+		it("exposes the underlying planck world after init", () => {
+			expect(adapter.world).toBeDefined();
+			expect(adapter.world.getBodyCount()).toBeGreaterThanOrEqual(0);
+		});
+	});
+
+	describe("addBody / removeBody lifecycle", () => {
+		it("adds a body and stores it in the body map", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			expect(body).toBeDefined();
+			expect(r.body).toEqual(body);
+			expect(adapter.world.getBodyCount()).toEqual(1);
+		});
+
+		it("removes a body cleanly", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			expect(adapter.world.getBodyCount()).toEqual(1);
+			adapter.removeBody(r);
+			expect(adapter.world.getBodyCount()).toEqual(0);
+		});
+
+		it("supports compound bodies (multiple shapes)", () => {
+			const r = new Renderable(100, 100, 64, 32);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32), new Rect(32, 0, 32, 32)],
+			});
+			// each shape becomes a fixture on the same body
+			let fixtureCount = 0;
+			for (
+				let fixture = body.getFixtureList();
+				fixture;
+				fixture = fixture.getNext()
+			) {
+				fixtureCount++;
+			}
+			expect(fixtureCount).toEqual(2);
+		});
+	});
+
+	describe("gravity & integration", () => {
+		it("falls a dynamic body under gravity", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			const y0 = r.pos.y;
+			stepFrames(adapter, 30); // ~half a second
+			expect(r.pos.y).toBeGreaterThan(y0);
+		});
+
+		it("does NOT move a static body under gravity", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "static",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			const y0 = r.pos.y;
+			stepFrames(adapter, 30);
+			expect(r.pos.y).toEqual(y0);
+		});
+
+		it("honors per-body gravityScale", () => {
+			const a = new Renderable(50, 100, 32, 32);
+			const b = new Renderable(150, 100, 32, 32);
+			adapter.addBody(a, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 1,
+			});
+			adapter.addBody(b, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0, // floats
+			});
+			stepFrames(adapter, 30);
+			expect(a.pos.y).toBeGreaterThan(100);
+			expect(b.pos.y).toBeCloseTo(100, 0);
+		});
+	});
+
+	describe("velocity API", () => {
+		it("sets and reads linear velocity in pixel units", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			adapter.setVelocity(r, new Vector2d(120, 0));
+			const v = adapter.getVelocity(r);
+			expect(v.x).toBeCloseTo(120, 1);
+			expect(v.y).toBeCloseTo(0, 1);
+			// 120 px/s for ~1 second → ~120px movement
+			stepFrames(adapter, 60);
+			expect(r.pos.x - 100).toBeGreaterThan(80);
+			expect(r.pos.x - 100).toBeLessThan(160);
+		});
+
+		it("body.setVelocity helper works", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			body.setVelocity(50, -30);
+			const v = body.getVelocity();
+			expect(v.x).toBeCloseTo(50, 1);
+			expect(v.y).toBeCloseTo(-30, 1);
+		});
+	});
+
+	describe("applyForce / applyImpulse / applyTorque", () => {
+		it("applyImpulse changes velocity proportional to 1/mass", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			adapter.applyImpulse(r, new Vector2d(50, 0));
+			const v = adapter.getVelocity(r);
+			expect(v.x).toBeGreaterThan(0);
+		});
+
+		it("applyForce at off-centre point generates torque", () => {
+			const r = new Renderable(100, 100, 64, 64);
+			// corner-anchored: this case works in `pos + size` terms
+			r.anchorPoint.set(0, 0);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 64, 64)],
+				gravityScale: 0,
+				fixedRotation: false,
+			});
+			// Apply a horizontal force at the top of the body — should
+			// induce a rotation in addition to linear motion.
+			adapter.applyForce(
+				r,
+				new Vector2d(500, 0),
+				new Vector2d(100 + 32, 100), // top-centre
+			);
+			stepFrames(adapter, 30);
+			expect(Math.abs(adapter.getAngularVelocity(r))).toBeGreaterThan(0);
+		});
+
+		it("applyTorque rotates a body without fixed rotation", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+				fixedRotation: false,
+			});
+			adapter.applyTorque(r, 5);
+			stepFrames(adapter, 5);
+			expect(adapter.getAngularVelocity(r)).not.toEqual(0);
+		});
+
+		it("applyTorque is a no-op on fixed-rotation bodies", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+				fixedRotation: true,
+			});
+			adapter.applyTorque(r, 5);
+			stepFrames(adapter, 5);
+			expect(adapter.getAngularVelocity(r)).toEqual(0);
+		});
+
+		it("frictionAir damps rotation, not just translation", () => {
+			// planck keeps linear and angular damping as separate fields and
+			// defaults both to 0. The adapter used to map `frictionAir` onto
+			// the linear one only, so a body that picked up spin kept it
+			// forever: invisible while rotation was locked, guaranteed to show
+			// once it was not. matter couples the two through the same field,
+			// so mapping both is also what keeps the backends agreeing.
+			const spun = new Renderable(100, 100, 32, 32);
+			adapter.addBody(spun, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+				frictionAir: 0.5,
+			});
+			adapter.setAngularVelocity(spun, 10);
+			stepFrames(adapter, 30);
+			expect(Math.abs(adapter.getAngularVelocity(spun))).toBeLessThan(10);
+
+			// control: with no damping asked for, the spin is kept
+			const free = new Renderable(200, 100, 32, 32);
+			adapter.addBody(free, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+				frictionAir: 0,
+			});
+			adapter.setAngularVelocity(free, 10);
+			stepFrames(adapter, 30);
+			expect(adapter.getAngularVelocity(free)).toBeCloseTo(10, 5);
+		});
+
+		it("applyTorque turns a body that did not ask to be locked", () => {
+			// `fixedRotation` follows planck's own default of `false`: an
+			// adapter that locked rotation unless told otherwise would invert
+			// the engine it wraps, and a rigid body that cannot be turned by a
+			// torque looks like a broken engine rather than a chosen default
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			adapter.applyTorque(r, 5);
+			stepFrames(adapter, 5);
+			expect(Math.abs(adapter.getAngularVelocity(r))).toBeGreaterThan(0);
+		});
+	});
+
+	describe("angular API", () => {
+		it("setAngle / getAngle round-trip", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				fixedRotation: false,
+			});
+			adapter.setAngle(r, Math.PI / 3);
+			expect(adapter.getAngle(r)).toBeCloseTo(Math.PI / 3, 5);
+		});
+
+		it("setAngularVelocity / getAngularVelocity round-trip", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				fixedRotation: false,
+			});
+			adapter.setAngularVelocity(r, 2);
+			expect(adapter.getAngularVelocity(r)).toBeCloseTo(2, 5);
+		});
+
+		it("body.applyForce(x, y, px, py) signature works", () => {
+			const r = new Renderable(100, 100, 64, 64);
+			// corner-anchored: this case works in `pos + size` terms
+			r.anchorPoint.set(0, 0);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 64, 64)],
+				gravityScale: 0,
+				fixedRotation: false,
+			});
+			body.applyForce(500, 0, 132, 100); // top edge, off-centre
+			stepFrames(adapter, 30);
+			expect(Math.abs(body.getAngularVelocity())).toBeGreaterThan(0);
+		});
+	});
+
+	describe("setStatic / setSensor", () => {
+		it("setStatic freezes a previously-dynamic body in place", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			adapter.setStatic(r, true);
+			const y0 = r.pos.y;
+			stepFrames(adapter, 30);
+			expect(r.pos.y).toEqual(y0);
+		});
+
+		it("setSensor disables physical response", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			adapter.setSensor(r, true);
+			let sensorCount = 0;
+			for (
+				let fixture = body.getFixtureList();
+				fixture;
+				fixture = fixture.getNext()
+			) {
+				if (fixture.isSensor()) sensorCount++;
+			}
+			expect(sensorCount).toBeGreaterThan(0);
+		});
+	});
+
+	describe("collision filtering", () => {
+		it("addBody honors collisionType / collisionMask", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				collisionType: collision.types.PLAYER_OBJECT,
+				collisionMask: collision.types.ENEMY_OBJECT,
+			});
+			expect(body.collisionType).toEqual(collision.types.PLAYER_OBJECT);
+			expect(body.collisionMask).toEqual(collision.types.ENEMY_OBJECT);
+		});
+
+		it("setCollisionType / setCollisionMask propagate to all fixtures", () => {
+			const r = new Renderable(100, 100, 64, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32), new Rect(32, 0, 32, 32)],
+			});
+			adapter.setCollisionType(r, collision.types.PLAYER_OBJECT);
+			adapter.setCollisionMask(r, collision.types.ENEMY_OBJECT);
+			const body = adapter.world.getBodyList();
+			expect(body).toBeDefined();
+			if (!body) return;
+			for (
+				let fixture = body.getFixtureList();
+				fixture;
+				fixture = fixture.getNext()
+			) {
+				expect(fixture.getFilterCategoryBits()).toEqual(
+					collision.types.PLAYER_OBJECT,
+				);
+				expect(fixture.getFilterMaskBits()).toEqual(
+					collision.types.ENEMY_OBJECT,
+				);
+			}
+		});
+
+		it("body.collisionType / collisionMask live aliases match fixture state", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			body.collisionType = 0x0010;
+			body.collisionMask = 0x00ff;
+			expect(body.getFixtureList()?.getFilterCategoryBits()).toEqual(0x0010);
+			expect(body.getFixtureList()?.getFilterMaskBits()).toEqual(0x00ff);
+		});
+	});
+
+	describe("setPosition", () => {
+		it("teleports a body to a new pixel position", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			adapter.setPosition(r, new Vector2d(500, 300));
+			adapter.syncFromPhysics();
+			expect(r.pos.x).toBeCloseTo(500, 1);
+			expect(r.pos.y).toBeCloseTo(300, 1);
+		});
+	});
+
+	describe("isGrounded", () => {
+		it("reports true when a body sits on a static floor", () => {
+			const floor = new Renderable(0, 500, 800, 20);
+			adapter.addBody(floor, {
+				type: "static",
+				shapes: [new Rect(0, 0, 800, 20)],
+			});
+			const ball = new Renderable(400, 100, 32, 32);
+			adapter.addBody(ball, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			// Free-fall ~400px takes ~30 frames at default gravity; the
+			// rebound + settle adds many more. Step long enough for both.
+			stepFrames(adapter, 200);
+			expect(adapter.isGrounded(ball)).toEqual(true);
+		});
+
+		it("reports false in mid-air", () => {
+			const ball = new Renderable(400, 100, 32, 32);
+			adapter.addBody(ball, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			expect(adapter.isGrounded(ball)).toEqual(false);
+		});
+	});
+
+	describe("raycast", () => {
+		it("hits a static body in the path", () => {
+			const wall = new Renderable(300, 100, 20, 200);
+			adapter.addBody(wall, {
+				type: "static",
+				shapes: [new Rect(0, 0, 20, 200)],
+			});
+			const hit = adapter.raycast(
+				new Vector2d(50, 200),
+				new Vector2d(500, 200),
+			);
+			expect(hit).not.toBeNull();
+			expect(hit?.renderable).toEqual(wall);
+			expect(hit?.fraction).toBeGreaterThan(0);
+			expect(hit?.fraction).toBeLessThanOrEqual(1);
+		});
+
+		it("returns null when nothing is in the path", () => {
+			const hit = adapter.raycast(new Vector2d(50, 50), new Vector2d(100, 50));
+			expect(hit).toBeNull();
+		});
+	});
+
+	describe("queryAABB", () => {
+		it("returns bodies overlapping the rect", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			const hits = adapter.queryAABB(new Rect(50, 50, 200, 200));
+			expect(hits).toContain(r);
+		});
+
+		it("excludes bodies outside the rect", () => {
+			const r = new Renderable(500, 500, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			const hits = adapter.queryAABB(new Rect(0, 0, 100, 100));
+			expect(hits).not.toContain(r);
+		});
+	});
+
+	describe("collision lifecycle", () => {
+		it("fires onCollisionStart when two bodies touch", () => {
+			const a = new Renderable(100, 100, 32, 32);
+			const b = new Renderable(200, 100, 32, 32);
+			adapter.addBody(a, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			adapter.addBody(b, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			let started = 0;
+			(a as Renderable & { onCollisionStart?: unknown }).onCollisionStart =
+				() => {
+					started++;
+				};
+			adapter.setVelocity(a, new Vector2d(200, 0));
+			stepFrames(adapter, 40);
+			expect(started).toBeGreaterThan(0);
+		});
+
+		it("provides a sensible MTV normal for receiver", () => {
+			const a = new Renderable(100, 100, 32, 32);
+			const b = new Renderable(200, 100, 32, 32);
+			adapter.addBody(a, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			adapter.addBody(b, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+			});
+			let observedNormalA: { x: number; y: number } | null = null;
+			(a as Renderable & { onCollisionStart?: unknown }).onCollisionStart = (
+				response: unknown,
+			) => {
+				observedNormalA = (response as { normal: { x: number; y: number } })
+					.normal;
+			};
+			adapter.setVelocity(a, new Vector2d(200, 0));
+			stepFrames(adapter, 40);
+			// a is moving right INTO b — the MTV to escape b should point
+			// left (negative X dominant). Sign assertion is loose because
+			// the manifold normal is influenced by the collision point.
+			expect(observedNormalA).not.toBeNull();
+			expect(
+				Math.abs((observedNormalA as unknown as { x: number }).x),
+			).toBeGreaterThan(
+				Math.abs((observedNormalA as unknown as { y: number }).y),
+			);
+		});
+
+		it("dispatches onCollisionEnd when bodies separate", () => {
+			const a = new Renderable(100, 100, 32, 32);
+			const b = new Renderable(200, 100, 32, 32);
+			adapter.addBody(a, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				gravityScale: 0,
+				restitution: 1, // bounce off
+			});
+			adapter.addBody(b, {
+				type: "static",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			let ended = 0;
+			(a as Renderable & { onCollisionEnd?: unknown }).onCollisionEnd = () => {
+				ended++;
+			};
+			adapter.setVelocity(a, new Vector2d(200, 0));
+			stepFrames(adapter, 80);
+			expect(ended).toBeGreaterThan(0);
+		});
+	});
+
+	describe("PlanckAdapter.Body type", () => {
+		it("namespace-merged Body type is accessible at runtime via cast", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			const body = adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				fixedRotation: false,
+			});
+			// reach a planck-native method
+			expect(typeof body.setBullet).toEqual("function");
+			body.setBullet(true);
+			expect(body.isBullet()).toEqual(true);
+			// reach a portable helper method
+			expect(typeof body.setVelocity).toEqual("function");
+		});
+	});
+
+	describe("getBodyAABB / getBodyShapes", () => {
+		it("returns a local-space AABB for the body", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			// corner-anchored: this case works in `pos + size` terms
+			r.anchorPoint.set(0, 0);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+			});
+			const bounds = new (
+				adapter.melonWorld.getBounds().constructor as new () => {
+					setMinMax: (x1: number, y1: number, x2: number, y2: number) => void;
+					min: { x: number; y: number };
+					max: { x: number; y: number };
+				}
+			)();
+			const result = adapter.getBodyAABB(r, bounds as never);
+			expect(result).toBeDefined();
+			// local-space bounds should be roughly 0..32 on each axis
+			expect(bounds.min.x).toBeLessThan(8);
+			expect(bounds.min.y).toBeLessThan(8);
+			expect(bounds.max.x).toBeGreaterThan(24);
+			expect(bounds.max.y).toBeGreaterThan(24);
+		});
+
+		it("reports the geometry planck actually simulates, not the authored shape", () => {
+			// Deliberately NOT the authored objects. The engine is the source
+			// of truth here: an `Ellipse` is simulated as a circle of the
+			// average radius, a concave polygon is hulled, and a shape with
+			// `isActive: false` has no fixture at all — reporting the authored
+			// list would draw hitboxes that do not describe what collides.
+			// A `Rect` therefore comes back as the `Polygon` planck holds.
+			// The authored definitions remain available on `bodyDef.shapes`.
+			const rect = new Rect(0, 0, 32, 32);
+			const r = new Renderable(100, 100, 32, 32);
+			// corner-anchored: this case works in `pos + size` terms
+			r.anchorPoint.set(0, 0);
+			adapter.addBody(r, { type: "dynamic", shapes: [rect] });
+			const shapes = adapter.getBodyShapes(r);
+			expect(shapes.length).toEqual(1);
+			const poly = shapes[0] as Polygon;
+			expect(poly.points).toHaveLength(4);
+			// same footprint, in renderable-local coordinates
+			const xs = poly.points.map((v) => poly.pos.x + v.x);
+			const ys = poly.points.map((v) => poly.pos.y + v.y);
+			expect(Math.min(...xs)).toBeCloseTo(0, 0);
+			expect(Math.min(...ys)).toBeCloseTo(0, 0);
+			expect(Math.max(...xs)).toBeCloseTo(32, 0);
+			expect(Math.max(...ys)).toBeCloseTo(32, 0);
+		});
+	});
+
+	describe("maxVelocity", () => {
+		// The other two adapter specs (builtin + matter) have maxVelocity
+		// coverage; planck didn't until now. Pin both halves: that
+		// `bodyDef.maxVelocity` propagates into the internal velocity-cap
+		// state, and that the cap actually clamps under sustained force.
+		it("bodyDef.maxVelocity is recorded in the velocityLimits map", () => {
+			const r = new Renderable(0, 0, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				maxVelocity: { x: 4, y: 9 },
+			});
+			const cap = adapter.getMaxVelocity(r);
+			expect(cap.x).toEqual(4);
+			expect(cap.y).toEqual(9);
+		});
+
+		it("setMaxVelocity overrides the bodyDef value", () => {
+			const r = new Renderable(0, 0, 32, 32);
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				maxVelocity: { x: 4, y: 9 },
+			});
+			adapter.setMaxVelocity(r, { x: 7, y: 12 });
+			const cap = adapter.getMaxVelocity(r);
+			expect(cap.x).toEqual(7);
+			expect(cap.y).toEqual(12);
+		});
+
+		it("|vel.x| is clamped to maxVelocity under sustained force", () => {
+			const r = new Renderable(100, 100, 32, 32);
+			r.alwaysUpdate = true;
+			adapter.addBody(r, {
+				type: "dynamic",
+				shapes: [new Rect(0, 0, 32, 32)],
+				maxVelocity: { x: 5, y: 5 },
+				gravityScale: 0,
+			});
+			for (let i = 0; i < 30; i++) {
+				adapter.applyForce(r, new Vector2d(100, 0));
+				adapter.step(16);
+			}
+			const vel = adapter.getVelocity(r);
+			expect(Math.abs(vel.x)).toBeLessThanOrEqual(5 + 0.1);
+		});
+	});
+});
+
+describe("PlanckAdapter — unit conversion", () => {
+	let adapter: PlanckAdapter;
+
+	beforeEach(() => {
+		adapter = new PlanckAdapter({ pixelsPerMeter: 50 });
+		new World(0, 0, 800, 600, adapter);
+	});
+
+	it("setVelocity / getVelocity round-trip in pixel space", () => {
+		const r = new Renderable(100, 100, 32, 32);
+		adapter.addBody(r, {
+			type: "dynamic",
+			shapes: [new Rect(0, 0, 32, 32)],
+			gravityScale: 0,
+		});
+		adapter.setVelocity(r, new Vector2d(75, -125));
+		const v = adapter.getVelocity(r);
+		expect(v.x).toBeCloseTo(75, 1);
+		expect(v.y).toBeCloseTo(-125, 1);
+	});
+
+	it("setPosition / syncFromPhysics round-trip in pixel space", () => {
+		const r = new Renderable(100, 100, 32, 32);
+		adapter.addBody(r, {
+			type: "dynamic",
+			shapes: [new Rect(0, 0, 32, 32)],
+			gravityScale: 0,
+		});
+		adapter.setPosition(r, new Vector2d(456, 789));
+		adapter.syncFromPhysics();
+		expect(r.pos.x).toBeCloseTo(456, 1);
+		expect(r.pos.y).toBeCloseTo(789, 1);
+	});
+
+	it("internal planck position is in meters", () => {
+		const r = new Renderable(100, 100, 32, 32);
+		// corner-anchored: this case works in `pos + size` terms
+		r.anchorPoint.set(0, 0);
+		const body = adapter.addBody(r, {
+			type: "dynamic",
+			shapes: [new Rect(0, 0, 32, 32)],
+		});
+		// renderable at (100, 100) px, with a 32x32 shape centered at
+		// (16, 16) local. Body anchor in pixel space = (100+16, 100+16)
+		// = (116, 116). In meters at pixelsPerMeter=50 = (2.32, 2.32).
+		const p = body.getPosition();
+		expect(p.x).toBeCloseTo(2.32, 2);
+		expect(p.y).toBeCloseTo(2.32, 2);
+	});
+
+	it("Vec2 used for planck APIs is a real planck.Vec2", () => {
+		const r = new Renderable(100, 100, 32, 32);
+		const body = adapter.addBody(r, {
+			type: "dynamic",
+			shapes: [new Rect(0, 0, 32, 32)],
+		});
+		const v = body.getLinearVelocity();
+		expect(v).toBeInstanceOf(planck.Vec2);
+	});
+});
+
+describe("PlanckAdapter — a Line is a real segment", () => {
+	let world: World;
+	let adapter: PlanckAdapter;
+
+	beforeAll(async () => {
+		boot();
+		const app = new Application(800, 600, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.CANVAS,
+		});
+		await app.init();
+	});
+
+	beforeEach(() => {
+		adapter = new PlanckAdapter({ gravity: { x: 0, y: 320 } });
+		world = new World(0, 0, 800, 600, adapter);
+	});
+
+	it("lands a body on a sloped Line rather than passing through it", () => {
+		// The engine has no segment primitive, so a `Line` is simulated as a
+		// thin oriented quad. Before that it was a degenerate outline, and
+		// each engine substituted something of its own invention: the
+		// bounding box, or a one-metre square.
+		//
+		// A short run on purpose. This is a real rigid body on a 26 degree
+		// slope, so it lands and then SLIDES, which is correct; the surface
+		// height is therefore read at wherever the body has got to.
+		const ground = new Renderable(0, 200, 400, 200);
+		ground.anchorPoint.set(0, 0);
+		ground.alwaysUpdate = true;
+		ground.bodyDef = {
+			type: "static",
+			shapes: [new Line(0, 0, [new Vector2d(0, 0), new Vector2d(400, 200)])],
+		};
+		world.addChild(ground);
+
+		const box = new Renderable(190, 272, 20, 20);
+		box.anchorPoint.set(0, 0);
+		box.alwaysUpdate = true;
+		box.bodyDef = { type: "dynamic", shapes: [new Rect(0, 0, 20, 20)] };
+		world.addChild(box);
+
+		for (let i = 0; i < 60; i++) {
+			world.update(16);
+		}
+
+		// The slope runs from (0,200) to (400,400) in world terms. The
+		// tolerance is loose on purpose: a SQUARE resting on a 26 degree
+		// slope touches it at a corner, so its bottom edge sits up to
+		// `halfWidth * sin(angle)` above the surface before any solver slop.
+		// What is being pinned is that it landed at all, against the 2000px
+		// and 70000px it fell when the segment was replaced by something
+		// else.
+		const surfaceY = 200 + (box.pos.x + 10) * 0.5;
+		expect(Math.abs(box.pos.y + 20 - surfaceY)).toBeLessThan(12);
+	});
+});
+
+describe("PlanckAdapter — unsupported shape types", () => {
+	let world: World;
+	let adapter: PlanckAdapter;
+
+	beforeAll(async () => {
+		boot();
+		const app = new Application(800, 600, {
+			parent: "screen",
+			scale: "auto",
+			renderer: video.CANVAS,
+		});
+		await app.init();
+	});
+
+	beforeEach(() => {
+		adapter = new PlanckAdapter({ gravity: { x: 0, y: 320 } });
+		world = new World(0, 0, 800, 600, adapter);
+	});
+
+	// A 3D shape has no meaning to a 2D solver, and a `Point` has no area to
+	// build a fixture from. Refusing them LOUDLY is the contract: skipping
+	// them quietly left a body with no collision geometry at all, so it
+	// simply never collided, and it did so on only one of the two backends.
+	it("does not rotate the renderable to the slope of its own Line", () => {
+		// A segment is simulated as a thin quad. Built as a RECTANGLE WITH AN
+		// ANGLE, that angle belongs to the BODY, and `syncFromPhysics` mirrors
+		// a body's angle onto the renderable's transform: the sprite would
+		// silently be turned by the slope of the ground it is made of, and the
+		// already-posed shapes drawn turned a second time on top. Built from
+		// explicit vertices instead, the body stays unrotated.
+		const r = new Renderable(100, 100, 400, 200);
+		r.anchorPoint.set(0, 0);
+		r.alwaysUpdate = true;
+		r.bodyDef = {
+			type: "static",
+			shapes: [new Line(0, 0, [new Vector2d(0, 0), new Vector2d(400, 200)])],
+		};
+		world.addChild(r);
+		world.update(16);
+
+		expect(adapter.getAngle?.(r) ?? 0).toBeCloseTo(0, 6);
+		// and the transform the sprite is drawn through turns nothing: a unit
+		// vector comes back unrotated. Asserted on behaviour rather than with
+		// `isIdentity()`, which is stricter than the question being asked.
+		const probe = new Vector2d(1, 0);
+		r.currentTransform.apply(probe);
+		expect(probe.x).toBeCloseTo(1, 6);
+		expect(probe.y).toBeCloseTo(0, 6);
+	});
+
+	it("reports an Ellipse as the circle it is simulated as", () => {
+		// Neither engine has an ellipse primitive, so one is simulated as a
+		// circle of the average radius. A tall or narrow ellipse is therefore
+		// a poor fit, which is a documented approximation rather than a bug,
+		// and `getBodyShapes()` reports the circle so the debug overlay draws
+		// what actually collides.
+		const r = new Renderable(100, 100, 80, 40);
+		r.anchorPoint.set(0, 0);
+		r.alwaysUpdate = true;
+		r.bodyDef = { type: "static", shapes: [new Ellipse(40, 20, 80, 40)] };
+		world.addChild(r);
+
+		const shapes = adapter.getBodyShapes(r);
+		expect(shapes.length).toBe(1);
+		const reported = shapes[0] as Ellipse;
+		// a circle: both radii equal, and the average of the authored 40 / 20
+		expect(reported.radiusV.x).toBeCloseTo(30, 0);
+		expect(reported.radiusV.y).toBeCloseTo(30, 0);
+	});
+
+	it("throws rather than silently building no geometry", () => {
+		for (const shape of [
+			new Point(10, 10),
+			new Box3d(0, 0, 0, 80, 40, 10),
+			new Sphere(40, 20, 0, 20),
+		]) {
+			const r = new Renderable(100, 100, 80, 40);
+			r.anchorPoint.set(0, 0);
+			r.alwaysUpdate = true;
+			expect(() => {
+				// Cast on purpose. `BodyShape` does not include `Point`, and
+				// lists the two 3D shapes as builtin-only, so this assignment
+				// is what a game CANNOT write by accident any more. The cast
+				// is what lets the test prove the runtime still refuses it.
+				r.bodyDef = {
+					type: "static",
+					shapes: [shape as unknown as BodyShape],
+				};
+				world.addChild(r);
+			}).toThrow(/unsupported shape type/);
+		}
+	});
+
+	it("says why the shape was refused and what to use instead", () => {
+		// The name alone left the reader to work out whether they had hit a
+		// bug, a gap or a rule. Each refusal has a different answer.
+		const build = (shape: unknown) => () => {
+			const r = new Renderable(100, 100, 80, 40);
+			r.anchorPoint.set(0, 0);
+			r.alwaysUpdate = true;
+			r.bodyDef = { type: "static", shapes: [shape as BodyShape] };
+			world.addChild(r);
+		};
+
+		// a 3D shape: a backend choice, so the message names the backend
+		expect(build(new Sphere(40, 20, 0, 20))).toThrow(/builtin adapter/);
+		expect(build(new Sphere(40, 20, 0, 20))).toThrow(/Ellipse for a Sphere/);
+		expect(build(new Box3d(0, 0, 0, 80, 40, 10))).toThrow(/Rect for a Box3d/);
+		// a Point: a modelling choice, so the message names the modelling fix
+		expect(build(new Point(10, 10))).toThrow(/no area to build a fixture/);
+	});
+});

@@ -1,0 +1,297 @@
+import { Color } from "./../math/color.ts";
+import { Matrix3d } from "../math/matrix3d.ts";
+
+/**
+ * @import {Gradient} from "./gradient.js";
+ * @import ShaderEffect from "./effects/shadereffect.js";
+ */
+
+/**
+ * Renderer-agnostic state container with a pre-allocated save/restore stack.
+ *
+ * Owns the mutable rendering state (color, tint, transform, scissor, blend mode)
+ * and provides zero-allocation save()/restore() via index-based stacks.
+ * Both CanvasRenderer and WebGLRenderer (and future WebGPU) delegate state
+ * management here, keeping rendering-context-specific code in the renderers.
+ */
+export default class RenderState {
+	constructor() {
+		/**
+		 * current fill & stroke style color
+		 * @type {Color}
+		 */
+		this.currentColor = new Color(0, 0, 0, 1.0);
+
+		/**
+		 * current tint applied to sprites
+		 * @type {Color}
+		 */
+		this.currentTint = new Color(255, 255, 255, 1.0);
+
+		/**
+		 * current transformation matrix
+		 * @type {Matrix3d}
+		 */
+		this.currentTransform = new Matrix3d();
+
+		/**
+		 * current scissor/clipping rectangle [x, y, width, height]
+		 * @type {Int32Array}
+		 */
+		this.currentScissor = new Int32Array(4);
+
+		/**
+		 * current gradient fill (null when using solid color)
+		 * @type {Gradient|null}
+		 */
+		this.currentGradient = null;
+
+		/**
+		 * current line dash pattern (empty array = solid line)
+		 * @type {number[]}
+		 */
+		this.lineDash = [];
+
+		/**
+		 * current blend mode
+		 * @type {string}
+		 */
+		this.currentBlendMode = "none";
+
+		/**
+		 * current custom shader effect (undefined when using default shader)
+		 * @type {ShaderEffect|undefined}
+		 */
+		this.currentShader = undefined;
+
+		/**
+		 * current per-renderable depth value, pushed into the vertex stream
+		 * by the WebGL batchers as the `z` component of each vertex. Has no
+		 * visible effect under the engine's default orthographic projection;
+		 * required for perspective (Camera3d) to scale sprites by distance.
+		 * Mirrors `renderable.depth`, set by `Renderable.preDraw` via
+		 * {@link Renderer#setDepth}.
+		 * @type {number}
+		 */
+		this.currentDepth = 0;
+
+		// ---- pre-allocated save/restore stack ----
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._stackCapacity = 32;
+
+		/**
+		 * current stack depth
+		 * @ignore
+		 * @internal
+		 */
+		this._stackDepth = 0;
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._colorStack = Array.from({ length: this._stackCapacity }, () => {
+			return new Color();
+		});
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._tintStack = Array.from({ length: this._stackCapacity }, () => {
+			return new Color();
+		});
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._matrixStack = Array.from({ length: this._stackCapacity }, () => {
+			return new Matrix3d();
+		});
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._scissorStack = Array.from({ length: this._stackCapacity }, () => {
+			return new Int32Array(4);
+		});
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._lineDashStack = new Array(this._stackCapacity);
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._scissorActive = new Uint8Array(this._stackCapacity);
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._gradientStack = new Array(this._stackCapacity);
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._blendStack = new Array(this._stackCapacity);
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._shaderStack = new Array(this._stackCapacity);
+
+		/**
+		 * @ignore
+		 * @internal
+		 */
+		this._depthStack = new Float32Array(this._stackCapacity);
+	}
+
+	/**
+	 * Save the current state onto the stack (zero allocations).
+	 * @param {boolean} [scissorTestActive=false] - whether scissor/clip is currently enabled
+	 */
+	save(scissorTestActive = false) {
+		const depth = this._stackDepth;
+
+		if (depth >= this._stackCapacity) {
+			this._growStacks();
+		}
+
+		this._colorStack[depth].copy(this.currentColor);
+		this._tintStack[depth].copy(this.currentTint);
+		this._matrixStack[depth].copy(this.currentTransform);
+		this._gradientStack[depth] = this.currentGradient;
+		this._lineDashStack[depth] = this.lineDash;
+		this._blendStack[depth] = this.currentBlendMode;
+		this._shaderStack[depth] = this.currentShader;
+		this._depthStack[depth] = this.currentDepth;
+
+		if (scissorTestActive) {
+			this._scissorStack[depth].set(this.currentScissor);
+			this._scissorActive[depth] = 1;
+		} else {
+			this._scissorActive[depth] = 0;
+		}
+
+		this._stackDepth = depth + 1;
+	}
+
+	/**
+	 * Inspect the scissor box that the next `restore()` would install,
+	 * without mutating any state. Lets renderers detect whether a
+	 * pending `restore()` will actually change the scissor (and
+	 * decide, e.g., whether to flush GPU work first).
+	 *
+	 * Returns:
+	 * - `Int32Array` (length 4) — `[x, y, width, height]` of the
+	 *   saved scissor when scissor was active at the matching `save()`
+	 *   call.
+	 * - `null` — when the saved state had scissor disabled, or the
+	 *   stack is empty. Treat this as "next scissor will be inactive".
+	 *
+	 * The returned array is a **live reference into the internal
+	 * stack** — zero allocation on a hot path. Callers MUST treat it
+	 * as read-only; mutating it corrupts subsequent `restore()` calls.
+	 * @ignore
+	 * @internal
+	 * @returns {Int32Array | null}
+	 */
+	peekScissor() {
+		const depth = this._stackDepth - 1;
+		if (depth < 0 || !this._scissorActive[depth]) {
+			return null;
+		}
+		return this._scissorStack[depth];
+	}
+
+	/**
+	 * Restore state from the stack.
+	 * Color, tint, transform, and scissor are restored in place.
+	 * Blend mode is NOT applied to `currentBlendMode` — it is returned so the
+	 * renderer can call its own `setBlendMode()` (which has context-specific side effects).
+	 * @param {number} canvasWidth - current canvas width (used when scissor was inactive)
+	 * @param {number} canvasHeight - current canvas height (used when scissor was inactive)
+	 * @returns {{ blendMode: string, scissorActive: boolean } | null} restored blend mode and scissor flag, or null if stack was empty
+	 */
+	restore(canvasWidth, canvasHeight) {
+		if (this._stackDepth > 0) {
+			const depth = --this._stackDepth;
+
+			this.currentColor.copy(this._colorStack[depth]);
+			this.currentTint.copy(this._tintStack[depth]);
+			this.currentTransform.copy(this._matrixStack[depth]);
+			this.currentGradient = this._gradientStack[depth];
+			this.lineDash = this._lineDashStack[depth];
+			this.currentShader = this._shaderStack[depth];
+			this.currentDepth = this._depthStack[depth];
+			const scissorActive = !!this._scissorActive[depth];
+			if (scissorActive) {
+				this.currentScissor.set(this._scissorStack[depth]);
+			} else {
+				this.currentScissor[0] = 0;
+				this.currentScissor[1] = 0;
+				this.currentScissor[2] = canvasWidth;
+				this.currentScissor[3] = canvasHeight;
+			}
+
+			return { blendMode: this._blendStack[depth], scissorActive };
+		}
+		return null;
+	}
+
+	/**
+	 * Reset all state to defaults and clear the stack.
+	 * @param {number} width - canvas width
+	 * @param {number} height - canvas height
+	 */
+	reset(width, height) {
+		this._stackDepth = 0;
+		this.currentTransform.identity();
+		this.currentScissor[0] = 0;
+		this.currentScissor[1] = 0;
+		this.currentScissor[2] = width;
+		this.currentScissor[3] = height;
+		this.currentShader = undefined;
+		this.currentDepth = 0;
+	}
+
+	/**
+	 * @private — doubles stack capacity when exceeded
+	 * @ignore
+	 * @internal
+	 */
+	_growStacks() {
+		const oldCap = this._stackCapacity;
+		const newCap = oldCap * 2;
+		for (let i = oldCap; i < newCap; i++) {
+			this._colorStack.push(new Color());
+			this._tintStack.push(new Color());
+			this._matrixStack.push(new Matrix3d());
+			this._scissorStack.push(new Int32Array(4));
+			this._gradientStack.push(null);
+			this._lineDashStack.push([]);
+			this._blendStack.push(undefined);
+			this._shaderStack.push(undefined);
+		}
+		const newScissorActive = new Uint8Array(newCap);
+		newScissorActive.set(this._scissorActive);
+		this._scissorActive = newScissorActive;
+		const newDepthStack = new Float32Array(newCap);
+		newDepthStack.set(this._depthStack);
+		this._depthStack = newDepthStack;
+		this._stackCapacity = newCap;
+	}
+}

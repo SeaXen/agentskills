@@ -1,0 +1,928 @@
+import React, {
+	lazy,
+	Suspense,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+} from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+
+// load all example source files as raw strings
+const sourceFiles = import.meta.glob("./examples/**/*.{ts,tsx,js}", {
+	query: "?raw",
+	import: "default",
+	eager: true,
+}) as Record<string, string>;
+
+// lazy-load each example so they are code-split into separate chunks
+const ExampleAseprite = lazy(() =>
+	import("./examples/aseprite/ExampleAseprite").then((m) => ({
+		default: m.ExampleAseprite,
+	})),
+);
+const ExampleBenchmark = lazy(() =>
+	import("./examples/benchmark/ExampleBenchmark").then((m) => ({
+		default: m.ExampleBenchmark,
+	})),
+);
+const ExampleBlendModes = lazy(() =>
+	import("./examples/blendModes/ExampleBlendModes").then((m) => ({
+		default: m.ExampleBlendModes,
+	})),
+);
+const ExampleBlendModeRenderables = lazy(() =>
+	import("./examples/blendModeRenderables/ExampleBlendModeRenderables").then(
+		(m) => ({ default: m.ExampleBlendModeRenderables }),
+	),
+);
+const ExampleParticleEditor = lazy(() =>
+	import("./examples/particleEditor/ExampleParticleEditor").then((m) => ({
+		default: m.ExampleParticleEditor,
+	})),
+);
+const ExampleParticleReferenceSpace = lazy(() =>
+	import(
+		"./examples/particleReferenceSpace/ExampleParticleReferenceSpace"
+	).then((m) => ({ default: m.ExampleParticleReferenceSpace })),
+);
+const ExampleAfterBurner = lazy(() =>
+	import("./examples/afterBurner/ExampleAfterBurner").then((m) => ({
+		default: m.ExampleAfterBurner,
+	})),
+);
+const ExampleJungleRabbit = lazy(() =>
+	import("./examples/jungleRabbit/ExampleJungleRabbit").then((m) => ({
+		default: m.ExampleJungleRabbit,
+	})),
+);
+const ExampleClipping = lazy(() =>
+	import("./examples/clipping/ExampleClipping").then((m) => ({
+		default: m.ExampleClipping,
+	})),
+);
+const ExampleCompressedTextures = lazy(() =>
+	import("./examples/compressedTextures/ExampleCompressedTextures").then(
+		(m) => ({ default: m.ExampleCompressedTextures }),
+	),
+);
+const ExampleDeviceTest = lazy(() =>
+	import("./examples/deviceTest/ExampleDeviceTest").then((m) => ({
+		default: m.ExampleDeviceTest,
+	})),
+);
+const ExampleDragAndDrop = lazy(() =>
+	import("./examples/dragAndDrop/ExampleDragAndDrop").then((m) => ({
+		default: m.ExampleDragAndDrop,
+	})),
+);
+const ExampleGradients = lazy(() =>
+	import("./examples/gradients/ExampleGradients").then((m) => ({
+		default: m.ExampleGradients,
+	})),
+);
+const ExampleGraphics = lazy(() =>
+	import("./examples/graphics/ExampleGraphics").then((m) => ({
+		default: m.ExampleGraphics,
+	})),
+);
+const ExampleHelloWorld = lazy(() =>
+	import("./examples/helloWorld/ExampleHelloWorld").then((m) => ({
+		default: m.ExampleHelloWorld,
+	})),
+);
+const ExampleWebGPU = lazy(() =>
+	import("./examples/webgpu/ExampleWebGPU").then((m) => ({
+		default: m.ExampleWebGPU,
+	})),
+);
+const ExampleIsometricDungeon = lazy(() =>
+	import("./examples/isometricDungeon/ExampleIsometricDungeon").then((m) => ({
+		default: m.ExampleIsometricDungeon,
+	})),
+);
+const ExampleLights = lazy(() =>
+	import("./examples/lights/ExampleLights").then((m) => ({
+		default: m.ExampleLights,
+	})),
+);
+const ExampleNormalMap = lazy(() =>
+	import("./examples/normalMap/ExampleNormalMap").then((m) => ({
+		default: m.ExampleNormalMap,
+	})),
+);
+const ExampleSpriteIlluminator = lazy(() =>
+	import("./examples/spriteIlluminator/ExampleSpriteIlluminator").then((m) => ({
+		default: m.ExampleSpriteIlluminator,
+	})),
+);
+const ExampleAquarium = lazy(() =>
+	import("./examples/aquarium/ExampleAquarium").then((m) => ({
+		default: m.ExampleAquarium,
+	})),
+);
+const ExampleHdr = lazy(() =>
+	import("./examples/hdr/ExampleHdr").then((m) => ({
+		default: m.ExampleHdr,
+	})),
+);
+const ExampleHeatHaze = lazy(() =>
+	import("./examples/heatHaze/ExampleHeatHaze").then((m) => ({
+		default: m.ExampleHeatHaze,
+	})),
+);
+const ExampleLineOfSight = lazy(() =>
+	import("./examples/lineOfSight/ExampleLineOfSight").then((m) => ({
+		default: m.ExampleLineOfSight,
+	})),
+);
+const ExampleMasking = lazy(() =>
+	import("./examples/masking/ExampleMasking").then((m) => ({
+		default: m.ExampleMasking,
+	})),
+);
+const ExampleGltf = lazy(() =>
+	import("./examples/gltf/ExampleGltf").then((m) => ({
+		default: m.ExampleGltf,
+	})),
+);
+const ExampleForest = lazy(() =>
+	import("./examples/forest/ExampleForest").then((m) => ({
+		default: m.ExampleForest,
+	})),
+);
+const ExampleEarthDefender = lazy(() =>
+	import("./examples/earthDefender/ExampleEarthDefender").then((m) => ({
+		default: m.ExampleEarthDefender,
+	})),
+);
+const ExampleGroundShadows = lazy(() =>
+	import("./examples/groundShadows/ExampleGroundShadows").then((m) => ({
+		default: m.ExampleGroundShadows,
+	})),
+);
+const ExampleGltfCharacter = lazy(() =>
+	import("./examples/gltf/ExampleGltfCharacter").then((m) => ({
+		default: m.ExampleGltfCharacter,
+	})),
+);
+const ExampleNightCity = lazy(() =>
+	import("./examples/nightcity/ExampleNightCity").then((m) => ({
+		default: m.ExampleNightCity,
+	})),
+);
+const ExampleBillboard = lazy(() =>
+	import("./examples/billboard/ExampleBillboard").then((m) => ({
+		default: m.ExampleBillboard,
+	})),
+);
+const ExampleMesh3d = lazy(() =>
+	import("./examples/mesh3d/ExampleMesh3d").then((m) => ({
+		default: m.ExampleMesh3d,
+	})),
+);
+const ExampleMesh3dMaterial = lazy(() =>
+	import("./examples/mesh3dMaterial/ExampleMesh3dMaterial").then((m) => ({
+		default: m.ExampleMesh3dMaterial,
+	})),
+);
+const ExampleMultiMaterialMesh = lazy(() =>
+	import("./examples/multiMaterialMesh/ExampleMultiMaterialMesh").then((m) => ({
+		default: m.ExampleMultiMaterialMesh,
+	})),
+);
+const ExampleMaterialTextures = lazy(() =>
+	import("./examples/materialTextures/ExampleMaterialTextures").then((m) => ({
+		default: m.ExampleMaterialTextures,
+	})),
+);
+const ExamplePlatformer = lazy(() =>
+	import("./examples/platformer/ExamplePlatformer").then((m) => ({
+		default: m.ExamplePlatformer,
+	})),
+);
+const ExamplePlatformerMatter = lazy(() =>
+	import("./examples/platformer-matter/ExamplePlatformer").then((m) => ({
+		default: m.ExamplePlatformerMatter,
+	})),
+);
+const ExamplePoolMatter = lazy(() =>
+	import("./examples/pool-matter/ExamplePool").then((m) => ({
+		default: m.ExamplePoolMatter,
+	})),
+);
+const ExampleLineCollision = lazy(() =>
+	import("./examples/lineCollision/ExampleLineCollision").then((m) => ({
+		default: m.ExampleLineCollision,
+	})),
+);
+const ExamplePhysicsShapes = lazy(() =>
+	import("./examples/physicsShapes/ExamplePhysicsShapes").then((m) => ({
+		default: m.ExamplePhysicsShapes,
+	})),
+);
+const ExamplePlinkoPlanck = lazy(() =>
+	import("./examples/plinko-planck/ExamplePlinko").then((m) => ({
+		default: m.ExamplePlinkoPlanck,
+	})),
+);
+const ExampleSpine = lazy(() =>
+	import("./examples/spine/ExampleSpine").then((m) => ({
+		default: m.ExampleSpine,
+	})),
+);
+const ExampleShaderEffects = lazy(() =>
+	import("./examples/shaderEffects/ExampleShaderEffects").then((m) => ({
+		default: m.ExampleShaderEffects,
+	})),
+);
+const ExampleSprite = lazy(() =>
+	import("./examples/sprite/ExampleSprite").then((m) => ({
+		default: m.ExampleSprite,
+	})),
+);
+const ExampleTrail = lazy(() =>
+	import("./examples/trail/ExampleTrail").then((m) => ({
+		default: m.ExampleTrail,
+	})),
+);
+const ExampleSVGShapes = lazy(() =>
+	import("./examples/svgShapes/ExampleSVGShapes").then((m) => ({
+		default: m.ExampleSVGShapes,
+	})),
+);
+const ExampleText = lazy(() =>
+	import("./examples/text/ExampleText").then((m) => ({
+		default: m.ExampleText,
+	})),
+);
+const ExampleTexturePacker = lazy(() =>
+	import("./examples/texturePacker/ExampleTexturePacker").then((m) => ({
+		default: m.ExampleTexturePacker,
+	})),
+);
+const ExampleTiledMapLoader = lazy(() =>
+	import("./examples/tiledMapLoader/ExampleTiledMapLoader").then((m) => ({
+		default: m.ExampleTiledMapLoader,
+	})),
+);
+const ExampleUI = lazy(() =>
+	import("./examples/ui/ExampleUI").then((m) => ({ default: m.ExampleUI })),
+);
+const ExampleVideo = lazy(() =>
+	import("./examples/video/ExampleVideo").then((m) => ({
+		default: m.ExampleVideo,
+	})),
+);
+const ExampleWaterOverworld = lazy(() =>
+	import("./examples/waterOverworld/ExampleWaterOverworld").then((m) => ({
+		default: m.ExampleWaterOverworld,
+	})),
+);
+const ExampleWhacAMole = lazy(() =>
+	import("./examples/whac-a-mole/ExampleWhacAMole").then((m) => ({
+		default: m.ExampleWhacAMole,
+	})),
+);
+
+const examples: {
+	label: string;
+	path: string;
+	sourceDir: string;
+	description: string;
+	component: React.ReactElement;
+}[] = [
+	{
+		component: <ExampleAseprite />,
+		label: "Aseprite",
+		path: "aseprite",
+		sourceDir: "aseprite",
+		description:
+			"Loading and playing animations from Aseprite sprite sheets with tag-based animation control.",
+	},
+	{
+		component: <ExampleBenchmark />,
+		label: "Sprite Benchmark",
+		path: "benchmark",
+		sourceDir: "benchmark",
+		description:
+			"Stress test rendering thousands of animated sprites to measure engine performance.",
+	},
+	{
+		component: <ExampleBlendModes />,
+		label: "Blend Modes",
+		path: "blend-modes",
+		sourceDir: "blendModes",
+		description:
+			"Visual comparison of all supported blend modes (normal, multiply, screen, overlay, darken, lighten, etc.).",
+	},
+	{
+		component: <ExampleBlendModeRenderables />,
+		label: "Blend Modes by Renderable",
+		path: "blend-mode-renderables",
+		sourceDir: "blendModeRenderables",
+		description:
+			"The same blend mode applied to a sprite, text, a shape fill, particles and an image layer.",
+	},
+	{
+		component: <ExampleParticleEditor />,
+		label: "Particle Editor",
+		path: "particle-editor",
+		sourceDir: "particleEditor",
+		description:
+			"Build a particle effect from a preset, a texture or your own sprite, in 2D or 3D, and copy the code into your game.",
+	},
+	{
+		component: <ExampleParticleReferenceSpace />,
+		label: "Particle Reference Space",
+		path: "particle-reference-space",
+		sourceDir: "particleReferenceSpace",
+		description:
+			"Particles measured from the emitter, from the world, or from another container.",
+	},
+	{
+		component: <ExampleAfterBurner />,
+		label: "AfterBurner Clone",
+		path: "after-burner",
+		sourceDir: "afterBurner",
+		description:
+			"Behind-the-plane arcade shooter on Camera3d + 3D Mesh models. Rounds hit by raycast3d, planes collide as Box3d bodies.",
+	},
+	{
+		component: <ExampleEarthDefender />,
+		label: "Earth Defender",
+		path: "earth-defender",
+		sourceDir: "earthDefender",
+		description:
+			"A Stardust tribute: a Camera3d posed from the player's own surface point, blob shadows lying on a sphere through shadowGroundPoint, mesh-hosted ShaderEffect shields, spatial audio and HDR bloom.",
+	},
+	{
+		component: <ExampleJungleRabbit />,
+		label: "Jungle Rabbit",
+		path: "jungle-rabbit",
+		sourceDir: "jungleRabbit",
+		description:
+			"A low-poly river endless runner: Blender-modelled props through InstancedMesh, a rigged paddling boat, and a procedural valley.",
+	},
+	{
+		component: <ExampleClipping />,
+		label: "Clipping",
+		path: "clipping",
+		sourceDir: "clipping",
+		description: "Nested and animated `Container` clipping.",
+	},
+	{
+		component: <ExampleCompressedTextures />,
+		label: "Compressed Textures",
+		path: "compressed-textures",
+		sourceDir: "compressedTextures",
+		description:
+			"Detect and display GPU-supported compressed texture formats (S3TC, ASTC, ETC2, PVRTC, BPTC).",
+	},
+	{
+		component: <ExampleDeviceTest />,
+		label: "Device Test",
+		path: "device-test",
+		sourceDir: "deviceTest",
+		description:
+			"Display device capabilities, screen resolution, and browser feature detection.",
+	},
+	{
+		component: <ExampleDragAndDrop />,
+		label: "Drag and Drop",
+		path: "drag-and-drop",
+		sourceDir: "dragAndDrop",
+		description:
+			"Interactive drag-and-drop with pointer events, collision detection, and drop zones.",
+	},
+	{
+		component: <ExampleGradients />,
+		label: "Gradients",
+		path: "gradients",
+		sourceDir: "gradients",
+		description:
+			"Linear and radial gradients for sky backgrounds, health bars, UI buttons, and lighting effects.",
+	},
+	{
+		component: <ExampleGraphics />,
+		label: "Graphics",
+		path: "graphics",
+		sourceDir: "graphics",
+		description:
+			"Drawing primitives: rectangles, circles, ellipses, lines, polygons, and rounded shapes.",
+	},
+	{
+		component: <ExampleHelloWorld />,
+		label: "Hello World",
+		path: "hello-world",
+		sourceDir: "helloWorld",
+		description:
+			"Minimal setup showing engine initialization, viewport configuration, and text rendering.",
+	},
+	{
+		component: <ExampleWebGPU />,
+		label: "Hello WebGPU",
+		path: "webgpu",
+		sourceDir: "webgpu",
+		description:
+			"The WebGPU backend: sprites, text, blend modes, primitives, clipping and stencil masks.",
+	},
+	{
+		component: <ExampleIsometricDungeon />,
+		label: "Isometric Dungeon",
+		path: "isometric-dungeon",
+		sourceDir: "isometricDungeon",
+		description:
+			"A big isometric Tiled dungeon: depth-sorted walls, flickering wall torches, chests, doors and a locked gate.",
+	},
+	{
+		component: <ExampleLights />,
+		label: "Lights",
+		path: "lights",
+		sourceDir: "lights",
+		description:
+			"2D lighting system with dynamic light sources, shadows, and blend mode effects.",
+	},
+	{
+		component: <ExampleNormalMap />,
+		label: "Normal Map",
+		path: "normal-map",
+		sourceDir: "normalMap",
+		description:
+			"Per-pixel sprite lighting from normal maps, with specular highlights. Three procedurally-generated orbs at different shininess, on a stone wall, lit by two moving Light2d sources.",
+	},
+	{
+		component: <ExampleSpriteIlluminator />,
+		label: "SpriteIlluminator",
+		path: "sprite-illuminator",
+		sourceDir: "spriteIlluminator",
+		description:
+			"Per-pixel sprite lighting from normal maps. Animated character + foreground prop tile lit by a moving cursor light, faithfully ported from CodeAndWeb's cocos2d-x demo.",
+	},
+	{
+		component: <ExampleAquarium />,
+		label: "Aquarium",
+		path: "aquarium",
+		sourceDir: "aquarium",
+		description:
+			"Screen-space refraction via renderer.toFrameTexture(): swimming fish rippled through the live scene, captured on the GPU and distorted by a scrolling NoiseTexture2d.",
+	},
+	{
+		component: <ExampleHdr />,
+		label: "HDR",
+		path: "hdr",
+		sourceDir: "hdr",
+		description:
+			"A settings page for the hdr option: a night skyline under an over-bright sun, with live controls for the tone curve, exposure and white point.",
+	},
+	{
+		component: <ExampleHeatHaze />,
+		label: "Heat Haze",
+		path: "heat-haze",
+		sourceDir: "heatHaze",
+		description:
+			"renderer.toFrameTexture() over a LIT scene: normal-mapped tiles under a moving Light2d, distorted by a rising heat-haze that captures the lit frame.",
+	},
+	{
+		component: <ExampleLineOfSight />,
+		label: "Line of Sight",
+		path: "line-of-sight",
+		sourceDir: "lineOfSight",
+		description:
+			"Stealth-style vision cone and line-of-sight checks with the portable adapter.raycast API.",
+	},
+	{
+		component: <ExampleMasking />,
+		label: "Masking",
+		path: "masking",
+		sourceDir: "masking",
+		description:
+			"Sprite masking with different shapes (rounded rectangle, ellipse, star polygon) and blend modes.",
+	},
+	{
+		component: <ExampleMesh3d />,
+		label: "3D Mesh",
+		path: "mesh-3d",
+		sourceDir: "mesh3d",
+		description:
+			"Rotating textured 3D objects (cube, sphere, teapot) loaded from OBJ files with checkerboard texture and perspective projection.",
+	},
+	{
+		component: <ExampleGltf />,
+		label: "glTF Scene",
+		path: "gltf",
+		sourceDir: "gltf",
+		description:
+			"A Blender-authored scene (Kenney Platformer Kit, CC0) exported to GLB.",
+	},
+	{
+		component: <ExampleGltfCharacter />,
+		label: "glTF Animated Model",
+		path: "gltf-character",
+		sourceDir: "gltf",
+		description:
+			"A rigged blocky character (Kenney, CC0) loaded from GLB, using node-TRS animation over a rigid hierarchy.",
+	},
+	{
+		component: <ExampleForest />,
+		label: "Instanced Forest",
+		path: "forest",
+		sourceDir: "forest",
+		description:
+			"100 000 trees drawn from one geometry in a single call, scattered by the glTF asset itself.",
+	},
+	{
+		component: <ExampleGroundShadows />,
+		label: "Ground Shadows",
+		path: "ground-shadows",
+		sourceDir: "groundShadows",
+		description:
+			"Every blob-shadow setting side by side on one floor, under an orbiting sun, including shadows lying on a slope.",
+	},
+	{
+		component: <ExampleNightCity />,
+		label: "Night City Flythrough",
+		path: "night-city",
+		sourceDir: "nightcity",
+		description:
+			"A low-poly procedural downtown using emissive geometry to build a night-city view, with a looping Camera3d flythrough.",
+	},
+	{
+		component: <ExampleBillboard />,
+		label: "Billboard Sprites",
+		path: "billboard",
+		sourceDir: "billboard",
+		description:
+			"Sprite3d billboard modes (fixed / cylindrical / spherical) under an auto-orbiting, pitching and zooming Camera3d — the 2.5D building block: textured sprites that face the camera in a 3D scene.",
+	},
+	{
+		component: <ExampleMesh3dMaterial />,
+		label: "3D Material",
+		path: "mesh-3d-material",
+		sourceDir: "mesh3dMaterial",
+		description:
+			"3D cube pet models from Kenney with MTL material support — texture and colors auto-resolved from .mtl files.",
+	},
+	{
+		component: <ExampleMultiMaterialMesh />,
+		label: "Multi-material OBJ",
+		path: "multi-material-mesh",
+		sourceDir: "multiMaterialMesh",
+		description:
+			"Rotating 3D models with multiple materials and per-mesh tinting — each material region picks up its diffuse color from the .mtl file, multiplied by a runtime tint.",
+	},
+	{
+		component: <ExampleMaterialTextures />,
+		label: "Per-material Textures",
+		path: "material-textures",
+		sourceDir: "materialTextures",
+		description:
+			"Three props, three MTL material features: per-material diffuse maps on a crate, a Ks/Ns specular highlight on a chrome ball, and a map_d per-texel cutout on a perforated panel.",
+	},
+	{
+		component: <ExamplePlatformer />,
+		label: "Platformer",
+		path: "platformer",
+		sourceDir: "platformer",
+		description:
+			"Side-scrolling platformer with physics, tile collisions, enemies, collectibles, custom shaders, blend modes, particles, and multi-camera minimap.",
+	},
+	{
+		component: <ExamplePlatformerMatter />,
+		label: "Matter Platformer",
+		path: "platformer-matter",
+		sourceDir: "platformer-matter",
+		description:
+			"A version of the platformer using custom physics through the @melonjs/matter-adapter package.",
+	},
+	{
+		component: <ExamplePoolMatter />,
+		label: "Pool (Matter)",
+		path: "pool-matter",
+		sourceDir: "pool-matter",
+		description:
+			"Top-down 8-ball pool driven by @melonjs/matter-adapter — drag-to-aim, release-to-strike.",
+	},
+	{
+		component: <ExampleLineCollision />,
+		label: "Line Collision",
+		path: "line-collision",
+		sourceDir: "lineCollision",
+		description:
+			"What each physics backend does with a Line, authored geometry against what actually collides.",
+	},
+	{
+		component: <ExamplePhysicsShapes />,
+		label: "Physics Shapes",
+		path: "physics-shapes",
+		sourceDir: "physicsShapes",
+		description:
+			"Collision shapes from a shape editor, the same body definition on every physics backend.",
+	},
+	{
+		component: <ExamplePlinkoPlanck />,
+		label: "Plinko (Planck)",
+		path: "plinko-planck",
+		sourceDir: "plinko-planck",
+		description:
+			"Neon-cyberpunk plinko driven by @melonjs/planck-adapter — click to drop balls, all-procedural rendering.",
+	},
+	{
+		component: <ExampleShaderEffects />,
+		label: "Shader Effects",
+		path: "shader-effects",
+		sourceDir: "shaderEffects",
+		description:
+			"Showcase of the built-in ShaderEffect presets for per-sprite visual effects.",
+	},
+	{
+		component: <ExampleSprite />,
+		label: "Sprite",
+		path: "sprite",
+		sourceDir: "sprite",
+		description:
+			"Sprites: transforms, tint and blending, atlas animation, and shader effects alone or chained.",
+	},
+	{
+		component: <ExampleTrail />,
+		label: "Trail",
+		path: "trail",
+		sourceDir: "trail",
+		description:
+			"Trail renderable that draws a fading, tapering ribbon behind a moving sprite.",
+	},
+	{
+		component: <ExampleSpine />,
+		label: "Spine Animation",
+		path: "spine",
+		sourceDir: "spine",
+		description:
+			"Loading and playing Spine skeletal animations with the @melonjs/spine-plugin through custom WebGL Batcher integration.",
+	},
+	{
+		component: <ExampleSVGShapes />,
+		label: "SVG Shapes",
+		path: "svg-shapes",
+		sourceDir: "svgShapes",
+		description:
+			"Rendering complex shapes via SVG path parsing (M, L, Q, C, A commands) on both WebGL and Canvas.",
+	},
+	{
+		component: <ExampleText />,
+		label: "Text",
+		path: "text",
+		sourceDir: "text",
+		description:
+			"Bitmap fonts, system fonts, text alignment, word wrapping, and styled text rendering.",
+	},
+	{
+		component: <ExampleTexturePacker />,
+		label: "Texture Packer",
+		path: "texture-packer",
+		sourceDir: "texturePacker",
+		description:
+			"Loading and using TexturePacker atlas for sprite animation and background rendering.",
+	},
+	{
+		component: <ExampleTiledMapLoader />,
+		label: "Tiled Map Loader",
+		path: "tiled-map-loader",
+		sourceDir: "tiledMapLoader",
+		description:
+			"Loading various Tiled map formats: orthogonal, isometric, hexagonal, and perspective.",
+	},
+	{
+		component: <ExampleUI />,
+		label: "UI",
+		path: "ui",
+		sourceDir: "ui",
+		description:
+			"Draggable UI panels with buttons, checkboxes, and custom font rendering.",
+	},
+	{
+		component: <ExampleVideo />,
+		label: "Video",
+		path: "video",
+		sourceDir: "video",
+		description:
+			"Video playback using the asset loader and Sprite class to display an MP4 video on canvas.",
+	},
+	{
+		component: <ExampleWaterOverworld />,
+		label: "Water Overworld",
+		path: "waterOverworld",
+		sourceDir: "waterOverworld",
+		description:
+			"Side-scroller overworld with a refracting pond — the screen_texture / screen_uv / noise_uv shader builtins.",
+	},
+	{
+		component: <ExampleWhacAMole />,
+		label: "Whac-A-Mole",
+		path: "whac-a-mole",
+		sourceDir: "whac-a-mole",
+		description:
+			"Complete mini-game with sprite animations, input handling, scoring, and audio.",
+	},
+];
+
+const AceEditorPane = ({ value, mode }: { value: string; mode: string }) => {
+	const editorRef = useRef<HTMLDivElement>(null);
+	const editorInstance = useRef<import("ace-builds").Ace.Editor | null>(null);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intentionally run once on mount; value/mode are read for initial content only
+	useEffect(() => {
+		if (!editorRef.current || editorInstance.current) return;
+		// ace must load first — modes and themes depend on the global `ace` variable
+		import("ace-builds/src-noconflict/ace")
+			.then(async (aceModule) => {
+				await Promise.all([
+					import("ace-builds/src-noconflict/mode-javascript"),
+					import("ace-builds/src-noconflict/mode-typescript"),
+					import("ace-builds/src-noconflict/theme-one_dark"),
+				]);
+				const aceLib = aceModule.default || aceModule;
+				if (!editorRef.current) return;
+				const editor = aceLib.edit(editorRef.current);
+				editor.setTheme("ace/theme/one_dark");
+				editor.setReadOnly(true);
+				editor.setShowPrintMargin(false);
+				editor.setHighlightActiveLine(false);
+				editor.setFontSize(13);
+				editor.setOptions({
+					showLineNumbers: true,
+					tabSize: 2,
+					useWorker: false,
+				});
+				// set the initial content
+				editor.setValue(value, -1);
+				editor.session.setMode(`ace/mode/${mode}`);
+				editorInstance.current = editor;
+			})
+			.catch((err) => {
+				console.warn("Failed to load code editor:", err);
+			});
+		return () => {
+			if (editorInstance.current) {
+				editorInstance.current.destroy();
+				editorInstance.current = null;
+			}
+		};
+	}, []);
+
+	useEffect(() => {
+		if (editorInstance.current) {
+			editorInstance.current.setValue(value, -1);
+			editorInstance.current.session.setMode(`ace/mode/${mode}`);
+		}
+	}, [value, mode]);
+
+	return <div ref={editorRef} style={{ width: "100%", height: "100%" }} />;
+};
+
+const ExampleLayout = ({
+	label,
+	sourceDir,
+	children,
+}: {
+	label: string;
+	sourceDir: string;
+	children: ReactElement;
+}) => {
+	const [showCode, setShowCode] = useState(false);
+
+	// collect source files for this example
+	const files = useMemo(() => {
+		const prefix = `./examples/${sourceDir}/`;
+		return Object.entries(sourceFiles)
+			.filter(([path]) => path.startsWith(prefix) && !path.includes("/assets/"))
+			.map(([path, content]) => ({
+				name: path.replace(prefix, ""),
+				content: content as string,
+			}))
+			.sort((a, b) => a.name.localeCompare(b.name));
+	}, [sourceDir]);
+
+	const [activeFile, setActiveFile] = useState(0);
+
+	return (
+		<>
+			<div className="example-topbar">
+				<a href={import.meta.env.BASE_URL} className="example-back">
+					&larr; Examples
+				</a>
+				<span className="example-topbar-title">{label}</span>
+				<button
+					type="button"
+					className="example-code-toggle"
+					onClick={() => setShowCode((prev) => !prev)}
+				>
+					{showCode ? "Hide Code" : "Show Code"}
+				</button>
+				<a
+					href={`https://github.com/melonjs/melonJS/tree/master/packages/examples/src/examples/${sourceDir}`}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="example-source"
+				>
+					GitHub
+				</a>
+			</div>
+			{children}
+			{showCode && files.length > 0 && (
+				<div className="example-editor">
+					{files.length > 1 && (
+						<div className="editor-tabs">
+							{files.map((file, i) => (
+								<button
+									type="button"
+									key={file.name}
+									className={`editor-tab ${i === activeFile ? "active" : ""}`}
+									onClick={() => setActiveFile(i)}
+								>
+									{file.name}
+								</button>
+							))}
+						</div>
+					)}
+					<AceEditorPane
+						value={files[activeFile].content}
+						mode={
+							files[activeFile].name.endsWith(".ts") ||
+							files[activeFile].name.endsWith(".tsx")
+								? "typescript"
+								: "javascript"
+						}
+					/>
+				</div>
+			)}
+		</>
+	);
+};
+
+const Index = () => {
+	return (
+		<div className="index-page">
+			<header className="index-header">
+				<img
+					src="https://github.com/melonjs/melonJS/raw/master/media/Banner/Banner%20-%20Billboard%20-%20Original%20Logo%20-%20horizontal.png"
+					alt="melonJS"
+					className="index-logo"
+				/>
+				<p className="index-subtitle">
+					Interactive examples showcasing engine features and capabilities.
+				</p>
+			</header>
+			<div className="index-grid">
+				{examples.map((example) => (
+					<a
+						key={example.path}
+						href={`${import.meta.env.BASE_URL}#/${example.path}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="example-card"
+					>
+						<h3 className="example-card-title">{example.label}</h3>
+						<p className="example-card-desc">{example.description}</p>
+					</a>
+				))}
+			</div>
+			<footer className="index-footer">
+				<a href="https://melonjs.org">melonjs.org</a>
+				<span className="separator">|</span>
+				<a href="https://github.com/melonjs/melonJS">GitHub</a>
+				<span className="separator">|</span>
+				<a href="https://melonjs.github.io/melonJS/">API Docs</a>
+			</footer>
+		</div>
+	);
+};
+
+const router = createHashRouter([
+	{
+		path: "/",
+		element: <Index />,
+	},
+	...examples.map((example) => {
+		return {
+			path: `/${example.path}`,
+			element: (
+				<ExampleLayout label={example.label} sourceDir={example.sourceDir}>
+					<Suspense>{example.component}</Suspense>
+				</ExampleLayout>
+			),
+		};
+	}),
+]);
+
+const rootEl = document.getElementById("root");
+if (!rootEl) {
+	throw new Error("Root element not found");
+}
+
+ReactDOM.createRoot(rootEl).render(
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>,
+);

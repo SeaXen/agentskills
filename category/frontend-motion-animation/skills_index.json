@@ -124,7 +124,7 @@
     "name": "animation-performance",
     "category": "frontend-motion-animation",
     "repository": "emilkowalski-skills",
-    "description": "Keep web animations inside the frame budget \u2014 animate composite-only properties, keep motion off the main thread when the page is busy, and find the cause when an animation drops frames. Covers the layout/paint/composite pipeline, cheaper property swaps, CSS vs WAAPI vs requestAnimationFrame, Framer Motion's hardware-accelerated path, React re-rendering per frame, inherited CSS variable recalculation, blur cost, and when `will-change` actually helps. Use when an animation is janky, choppy, stutters, or drops frames; when choosing which property to animate; when deciding between CSS and JS animation on performance grounds; or when reaching for `will-change` or GPU layers. For choosing easing, duration, or whether to animate at all use animate; for reviewing motion as a whole use review-animations.",
+    "description": "Keep web animations inside the frame budget \u2014 animate composite-only properties, keep motion off the main thread when the page is busy, and find the cause when an animation drops frames. Covers the layout/paint/composite pipeline, cheaper property swaps, CSS vs WAAPI vs requestAnimationFrame, Motion's hardware-accelerated path, React re-rendering per frame, inherited CSS variable recalculation, blur cost, and when `will-change` actually helps. Use when an animation is janky, choppy, stutters, or drops frames; when choosing which property to animate; when deciding between CSS and JS animation on performance grounds; or when reaching for `will-change` or GPU layers. For choosing easing, duration, or whether to animate at all use animate; for reviewing motion as a whole use review-animations.",
     "path": "category/frontend-motion-animation/animation-performance"
   },
   {
@@ -1126,6 +1126,46 @@
     "repository": "dotnet-skills",
     "description": "Guidance for implementing CollectionView in .NET MAUI apps \u2014 data display, layouts (list & grid), selection, grouping, scrolling, empty views, templates, incremental loading, swipe actions, and pull-to-refresh. USE FOR: \"CollectionView\", \"list view\", \"grid layout\", \"data template\", \"item template\", \"grouping\", \"pull to refresh\", \"incremental loading\", \"swipe actions\", \"empty view\", \"selection mode\", \"scroll to item\", displaying scrollable data, replacing ListView. DO NOT USE FOR: simple static layouts without scrollable data (use Grid or StackLayout), map pin lists (use Microsoft.Maui.Controls.Maps), table-based data entry forms, non-MAUI list controls, CarouselView or BindableLayout questions, platform-specific handler or renderer customization, diagnosing CollectionView bugs in the MAUI framework itself, or general MVVM/binding questions that merely happen to mention a list (use maui-data-binding).",
     "path": "category/frontend-motion-animation/maui-collectionview"
+  },
+  {
+    "id": "melonjs-3d-assets",
+    "name": "melonjs-3d-assets",
+    "category": "frontend-motion-animation",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when loading 3D models into melonJS \u2014 glTF and GLB scenes, OBJ/MTL models, materials, imported lights, node animation, ground shadows and GPU instancing. Covers level.load options including the async flag, the rightHanded conversion, and exactly what the loader does and does not support. Triggers on: glTF, gltf, glb, OBJ, MTL, 3D model, getGLTF, getOBJ, getMTL, GLTFModel, GLTFScene, level.load glb, rightHanded, lightIntensityScale, castGroundShadow, shadowGroundY, EXT_mesh_gpu_instancing, KHR_lights_punctual, skinning, Blender export, 3D asset.",
+    "path": "category/frontend-motion-animation/melonjs-3d-assets"
+  },
+  {
+    "id": "melonjs-display-and-scaling",
+    "name": "melonjs-display-and-scaling",
+    "category": "frontend-motion-animation",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when a melonJS game looks blurry, soft, shimmering or cropped, or when choosing how the canvas fills its page. Covers the design resolution, scale and scaleMethod, scaleTarget, scaleRounding for pixel-perfect integer scaling, antiAlias, textureFilter and linear-mipmap for what is drawn small, subPixel, syncToDisplay for steady motion, devicePixelRatio, and which setting does which job. Triggers on: blurry, soft, fuzzy, shimmering, pixel art, pixel perfect, crisp, nearest, linear, scale, scaleMethod, scaleTarget, scaleRounding, integer scaling, antiAlias, textureFilter, linear-mipmap, mipmaps, minimap shimmer, zoomed out, subPixel, syncToDisplay, stutter, judder, uneven scrolling, devicePixelRatio, retina, hidpi, design resolution, canvas size, canvas cropped, letterbox, image-rendering, upscale, resolution.",
+    "path": "category/frontend-motion-animation/melonjs-display-and-scaling"
+  },
+  {
+    "id": "melonjs-particles-and-trails",
+    "name": "melonjs-particles-and-trails",
+    "category": "frontend-motion-animation",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill for particle effects and motion trails in melonJS \u2014 ParticleEmitter configuration, burst versus stream emission, the referenceSpace frame of reference introduced in 20.2, 3D particle motion through elevation and minSpread/maxSpread in 20.8, and the Trail renderable. Covers the emitter that silently does nothing until you call an emit method. Triggers on: Trail3d, ribbon, exhaust trail, speed streak, ski track, tyre mark, ribbonNormal, ParticleEmitter, particles, particle editor, tune particles, spawn depth, volume, burstParticles, streamParticles, referenceSpace, ParticleEmitterSettings, elevation, minSpread, maxSpread, spawn area, Trail, explosion, smoke, sparks, debris, ring, exhaust, emitter, tintOverLife, colour over life, color over life, flame, fire.",
+    "path": "category/frontend-motion-animation/melonjs-particles-and-trails"
+  },
+  {
+    "id": "melonjs-plugins",
+    "name": "melonjs-plugins",
+    "category": "frontend-motion-animation",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when adding a melonJS plugin or adapter \u2014 the debug panel, Spine skeletal animation, compressed Tiled map support, on-screen touch controls, Capacitor packaging \u2014 or when writing your own plugin. Covers plugin.register and its version gate, plugin.cache, plugin.patch, and why physics adapters are not plugins. Triggers on: plugin, plugin.register, plugin.cache, plugin.get, plugin.patch, BasePlugin, debug-plugin, DebugPanelPlugin, SpinePlugin, TiledInflatePlugin, GamepadPlugin, gamepad-plugin, touch controls, virtual joystick, floating joystick, floating button, CapacitorPlugin, adapter, custom plugin, plugin version mismatch, already registered.",
+    "path": "category/frontend-motion-animation/melonjs-plugins"
+  },
+  {
+    "id": "melonjs-scenes-and-state",
+    "name": "melonjs-scenes-and-state",
+    "category": "frontend-motion-animation",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill for scene structure and game flow in melonJS \u2014 Stage subclasses, the state manager, transitions, pausing, the update loop, timers and tweens. Covers onResetEvent versus the constructor, state.set before state.change, the camera and world lifecycle per stage, and pause-aware timing. Triggers on: Tween, easing, fade out, flash, pulse, punch, shrink back, ease in, ease out, animate over time, countdown in update, Stage, state, state.set, state.change, state.transition, state.pause, onResetEvent, onDestroyEvent, onActivateEvent, onDeactivateEvent, PLAY, MENU, LOADING, update loop, GAME_UPDATE, timer, setTimeout, setInterval, Tween, freeze.",
+    "path": "category/frontend-motion-animation/melonjs-scenes-and-state"
   },
   {
     "id": "memory-review",
