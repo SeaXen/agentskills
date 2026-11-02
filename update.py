@@ -37,6 +37,7 @@ library_dir = os.path.join(agents_dir, 'library')
 upstreams_file = os.path.join(library_dir, 'upstreams.json')
 lockfile_path = os.path.join(agents_dir, 'skills-lock.json')
 provenance_path = os.path.join(agents_dir, 'SKILLS_PROVENANCE.md')
+opt_out_file = os.path.join(library_dir, 'opt_out.json')
 
 GIT_ENV = os.environ.copy()
 GIT_ENV['GIT_TERMINAL_PROMPT'] = '0'
@@ -85,6 +86,30 @@ TAG_KEYWORDS = {
     'sales-marketing': ['marketing', 'sales', 'outreach', 'email', 'lead', 'prospect', 'seo', 'growth', 'brand', 'content'],
     'research-academic': ['academic', 'paper', 'research', 'citation', 'screener', 'study', 'pipeline']
 }
+
+
+def load_opt_out():
+    """Load list of author opt-outs or excluded repositories and skills."""
+    if os.path.exists(opt_out_file):
+        try:
+            with open(opt_out_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                excluded_repos = set()
+                for r in data.get('excluded_repositories', []):
+                    r_str = str(r).strip().lower()
+                    if r_str and not r_str.startswith('#'):
+                        clean = r_str.replace('https://github.com/', '').replace('http://github.com/', '').rstrip('.git').rstrip('/')
+                        excluded_repos.add(clean)
+                        excluded_repos.add(r_str)
+                excluded_skills = set()
+                for s in data.get('excluded_skills', []):
+                    s_str = str(s).strip().lower()
+                    if s_str and not s_str.startswith('#'):
+                        excluded_skills.add(s_str)
+                return excluded_repos, excluded_skills
+        except Exception:
+            pass
+    return set(), set()
 
 def remove_readonly(func, path, exc_info):
     try:
@@ -247,11 +272,22 @@ def sync_all_upstreams(force=False):
     with open(upstreams_file, 'r', encoding='utf-8') as f:
         upstreams = json.load(f)
 
+    excluded_repos, excluded_skills = load_opt_out()
+    if excluded_repos:
+        print(f"  🛡️ Opt-out filter active: {len(excluded_repos)} repositories monitored.", flush=True)
+
     check_list = []
     for repo_id, data in upstreams.items():
         if repo_id.startswith('#'):
             continue
-        url = data.get('url')
+        url = data.get('url', '')
+        clean_url = url.lower().replace('https://github.com/', '').replace('http://github.com/', '').rstrip('.git').rstrip('/')
+        if repo_id.lower() in excluded_repos or clean_url in excluded_repos or url.lower() in excluded_repos:
+            print(f"  🚫 Skipping opt-out repository: {repo_id} ({url})", flush=True)
+            local_p = os.path.join(library_dir, repo_id)
+            if os.path.exists(local_p):
+                shutil.rmtree(local_p, onerror=remove_readonly)
+            continue
         if url and url.startswith('http'):
             check_list.append((repo_id, data))
 
@@ -410,6 +446,7 @@ def rebuild_all_indexes(updated_repo_ids=None, force=False):
         return 0
 
     all_vault_skills = []
+    excluded_repos, excluded_skills = load_opt_out()
     repo_folders = sorted([d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.') and d != '__pycache__'])
 
     updated_set = set(updated_repo_ids or [])
@@ -417,6 +454,8 @@ def rebuild_all_indexes(updated_repo_ids=None, force=False):
     rebuilt_count = 0
 
     for repo_folder in repo_folders:
+        if repo_folder.lower() in excluded_repos:
+            continue
         repo_path = os.path.join(library_dir, repo_folder)
         idx_path = os.path.join(repo_path, 'skills_index.json')
         skills_folder = os.path.join(repo_path, 'skills')

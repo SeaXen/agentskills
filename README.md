@@ -321,6 +321,19 @@ The vault aggregates high-signal skills from **370 curated GitHub upstream repos
 
 ## 📜 License & Attribution
 
-- Built and maintained with 💜 by **[SeaXen](https://github.com/SeaXen)**.
-- Skills, templates, and plugins retain the open-source licenses of their respective authors (Anthropic, OpenAI, Vercel Labs, Emil Kowalski, Addy Osmani, Microsoft, Cloudflare, Supabase, NousResearch, and the open-source agent community).
-- See **[`SKILLS_PROVENANCE.md`](./SKILLS_PROVENANCE.md)** for full author attribution, source URLs, and upstream licenses.
+- Built and curated with 💜 by **[SeaXen](https://github.com/SeaXen)**.
+- Skills, templates, and plugins retain the open-source licenses of their respective authors (Anthropic, OpenAI, Vercel Labs, Emil Kowalski, Addy Osmani, Microsoft, Cloudflare, Supabase, NousResearch, and the broader open-source agent community).
+- See **[`SKILLS_PROVENANCE.md`](./SKILLS_PROVENANCE.md)** and **[`library/provenance.json`](./library/provenance.json)** for comprehensive upstream origin links, authors, and licensing details.
+
+---
+
+## 🛡️ Author Rights & Takedown Policy (Opt-Out)
+
+We deeply respect the creative efforts, intellectual property, and autonomy of all open-source developers, contributors, and research organizations.
+
+- **Non-Commercial Open Index**: This repository and the [Skill.Sea](https://skill-sea.pages.dev) directory operate strictly for non-commercial educational discovery, research, and developer productivity across the decentralized AI agent ecosystem.
+- **Upstream Credit & Provenance**: Every skill in this catalog preserves its original upstream metadata, source repository URL, author attribution, and license terms.
+- **Unconditional Opt-Out / Removal**: If you are the author or copyright holder of any included repository or skill and wish to be excluded from this index, we will honor your request promptly and unconditionally:
+  1. **[Submit an Opt-Out Request](https://github.com/SeaXen/agentskills/issues/new?title=Opt-Out+Request&body=Please+remove+my+repository/skill:+[Repository+or+Skill+URL])** on GitHub with your repository URL or skill name.
+  2. Alternatively, email maintainer: `drpelagik@gmail.com`.
+  3. Your project will be added to [`library/opt_out.json`](./library/opt_out.json), completely purged from all catalog files, and omitted from future automated update cycles within 24 hours.

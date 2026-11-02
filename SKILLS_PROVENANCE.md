@@ -383,6 +383,13 @@
 | `zubair-trabzada-geo-seo-claude` | [zubair-trabzada/geo-seo-claude](https://github.com/zubair-trabzada/geo-seo-claude) | **16** | `python .agents/library/activate_skill.py activate geo` |
 ---
 
+## 🛡️ Author Rights & Ethical Indexing Policy
+All skills and repositories in this registry retain the intellectual property and open-source licenses of their original authors.
+- **Attribution**: Every entry above links directly to the original GitHub author and canonical repository.
+- **Opt-Out / Delisting**: If you are the author or maintainer of an indexed project and want your repository excluded from this index, please [open an opt-out issue](https://github.com/SeaXen/agentskills/issues/new?title=Opt-Out+Request&body=Please+remove+my+repository:+[URL]) or email `drpelagik@gmail.com`. We honor all removal requests immediately.
+
+---
+
 ## 🔄 Automated Upstream Synchronization
 Every repository in this registry is independently tracked via its upstream GitHub remote:
 - To check for upstream updates and ingest new skills:

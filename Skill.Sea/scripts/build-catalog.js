@@ -8,11 +8,48 @@ const WORKSPACE_DIR = path.resolve(AGENTS_DIR, '..');
 const CATEGORIES_INDEX_PATH = path.join(AGENTS_DIR, 'category', 'categories_index.json');
 const SKILLS_INDEX_PATH = path.join(AGENTS_DIR, 'library', 'skills_index.json');
 const UPSTREAMS_PATH = path.join(AGENTS_DIR, 'library', 'upstreams.json');
+const OPT_OUT_PATH = path.join(AGENTS_DIR, 'library', 'opt_out.json');
 const AGENTS_SKILLS_DIR = path.join(AGENTS_DIR, 'skills');
 const HOT_SKILLS_DIR = path.join(WORKSPACE_DIR, '.agent', 'skills');
 const LIB_DIR = path.join(AGENTS_DIR, 'library');
 
 console.log('🔄 Building Skill.Sea Catalog, Categories & Repositories from .agents vault...');
+
+// Read Opt-Out & Excluded repositories/skills
+const excludedRepos = new Set();
+const excludedSkills = new Set();
+if (fs.existsSync(OPT_OUT_PATH)) {
+  try {
+    const optData = JSON.parse(fs.readFileSync(OPT_OUT_PATH, 'utf8'));
+    (optData.excluded_repositories || []).forEach(r => {
+      const s = String(r).trim().toLowerCase();
+      if (s && !s.startsWith('#')) {
+        excludedRepos.add(s);
+        excludedRepos.add(s.replace(/^https?:\/\/github\.com\//, '').replace(/\/$/, ''));
+      }
+    });
+    (optData.excluded_skills || []).forEach(s => {
+      const str = String(s).trim().toLowerCase();
+      if (str && !str.startsWith('#')) excludedSkills.add(str);
+    });
+    if (excludedRepos.size > 0 || excludedSkills.size > 0) {
+      console.log(`🛡️ Opt-Out filter active in build-catalog: ${excludedRepos.size} repos, ${excludedSkills.size} skills`);
+    }
+  } catch (err) {
+    console.warn('Notice reading opt_out.json:', err.message);
+  }
+}
+
+function isExcluded(skillName, repoSlug) {
+  if (skillName && excludedSkills.has(String(skillName).toLowerCase().trim())) return true;
+  if (repoSlug) {
+    const r = String(repoSlug).toLowerCase().trim();
+    if (excludedRepos.has(r)) return true;
+    if (excludedRepos.has(r.replace(/^https?:\/\/github\.com\//, '').replace(/\/$/, ''))) return true;
+  }
+  return false;
+}
+
 
 // 1. Read Upstreams
 let upstreams = {};
@@ -261,6 +298,7 @@ const catalogMap = new Map();
 const repoMap = new Map();
 
 function ensureRepo(repoSlug) {
+  if (isExcluded(null, repoSlug)) return null;
   // Never create a repo named 'active'
   if (repoSlug === 'active') repoSlug = 'antigravity-awesome-skills';
 

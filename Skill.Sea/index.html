@@ -340,6 +340,7 @@
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-upstream-repo').scrollIntoView({behavior:'smooth'})"><i class="ti ti-books"></i> 4. Upstream Repo</button>
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-lifecycle').scrollIntoView({behavior:'smooth'})"><i class="ti ti-refresh"></i> 5. Activate & Update</button>
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-cloud').scrollIntoView({behavior:'smooth'})"><i class="ti ti-cloud-upload"></i> 6. Cloud & R2</button>
+              <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-attribution').scrollIntoView({behavior:'smooth'})"><i class="ti ti-shield-check"></i> 7. Attribution & Rights</button>
             </div>
           </div>
 
@@ -620,6 +621,35 @@
 
               <div class="guide-notes">
                 Tip: Skill.Sea requires zero external databases — runs lightning-fast on 100% static JSON datasets.
+              </div>
+            </div>
+
+            <!-- CARD 7: ATTRIBUTION, LICENSES & AUTHOR RIGHTS (OPT-OUT) -->
+            <div class="guide-card" id="guide-attribution">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-shield-check" style="color:var(--teal)"></i>
+                  <span>7. Attribution, Open-Source Licenses & Author Rights</span>
+                </div>
+                <span class="guide-card-badge">Ethical Open Index</span>
+              </div>
+              <div class="guide-card-desc">
+                Skill.Sea is an educational open-source directory to foster discovery across the decentralized AI agent ecosystem. All skills retain the intellectual property and open-source licenses of their original creators.
+              </div>
+
+              <div style="font-size:12px; line-height:1.6; color:var(--text-muted); margin-top:8px;">
+                <p style="margin-bottom:6px"><strong style="color:var(--text)">Upstream Provenance:</strong> Every indexed skill links directly to its canonical GitHub repository, commit hash, and author.</p>
+                <p style="margin-bottom:6px"><strong style="color:var(--text)">Author Opt-Out & Delisting:</strong> Are you a skill author or repository maintainer? If you wish to exclude your repository or skill from this index, we honor all removal requests unconditionally within 24 hours.</p>
+              </div>
+
+              <div class="guide-code-block" style="margin-top:12px;">
+                <div class="guide-code-lbl">
+                  <span>Submit an Opt-Out Request on GitHub:</span>
+                  <a href="https://github.com/SeaXen/agentskills/issues/new?title=Opt-Out+Request&body=Please+exclude+my+repository/skill:+[Repository+URL]" target="_blank" rel="noopener noreferrer" style="color:var(--teal); text-decoration:underline; font-size:11.5px; font-weight:600;"><i class="ti ti-external-link"></i> Open GitHub Issue</a>
+                </div>
+                <div class="guide-code-box">
+                  <code>Registry: library/opt_out.json &bull; Contact: drpelagik@gmail.com</code>
+                </div>
               </div>
             </div>
 
