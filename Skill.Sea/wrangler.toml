@@ -1,8 +1,25 @@
 name = "skill-sea"
-compatibility_date = "2024-09-23"
-pages_build_output_dir = "."
+main = "worker.js"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+routes = [
+  { pattern = "skill.drsea.eu.org", custom_domain = true },
+  { pattern = "skill.drsea.top", custom_domain = true }
+]
+
+# Cloudflare Workers Static Assets
+[assets]
+directory = "."
+not_found_handling = "single-page-application"
+run_worker_first = ["/data/*"]
 
 # Cloudflare R2 bucket binding for Skill.Sea datasets
 [[r2_buckets]]
 binding = "SKILLS_BUCKET"
 bucket_name = "skill-sea-vault"
+
+[observability]
+enabled = true
+
+
