@@ -25,7 +25,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 if hasattr(sys.stdout, 'reconfigure'):
     try:
-        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
     except Exception:
         pass
 
@@ -653,10 +654,13 @@ if __name__ == '__main__':
     if '--skip-discovery' not in args and '--offline' not in args:
         sync_embedded_ecosystems()
 
-    sync_all_upstreams(force='--force' in args)
+    force_run = '--force' in args
+    updated_repos = sync_all_upstreams(force=force_run) or []
+    has_changes = len(updated_repos) > 0 or force_run
+
     sync_active_skills()
-    rebuild_all_indexes()
+    rebuild_all_indexes(updated_repo_ids=updated_repos, force=force_run)
     sync_lockfiles()
-    rebuild_categories_and_provenance()
+    rebuild_categories_and_provenance(has_changes=has_changes, force=force_run)
     if '--no-push' not in args:
         git_commit_and_push()
